@@ -1,0 +1,73 @@
+// =============================================================================
+// SCSS/SITE/STACKS/ICON/_ADMINBAR.SCSS
+// -----------------------------------------------------------------------------
+// Styles for when the WordPress Admin Bar is active.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Admin Bar
+//   02. Fixed Navbar
+//   03. Widgetbar
+//   04. Sidebar
+// =============================================================================
+
+// Admin Bar
+// =============================================================================
+
+html body #wpadminbar {
+  z-index: 99999 !important;
+}
+
+
+
+// Fixed Navbar
+// =============================================================================
+
+.admin-bar {
+  .x-navbar-fixed-top,
+  .x-navbar-fixed-left,
+  .x-navbar-fixed-right {
+    top: 32px;
+    @include break(cubs) {
+      top: 0;
+    }
+  }
+}
+
+
+
+// Widgetbar
+// =============================================================================
+
+.admin-bar {
+  .x-widgetbar     { top: 31px; }
+  .x-btn-widgetbar { top: 32px; }
+
+  @media screen and (max-width: 782px) {
+    .x-widgetbar     { top: 45px; }
+    .x-btn-widgetbar { top: 46px; }
+  }
+}
+
+
+
+// Sidebar
+// =============================================================================
+
+.admin-bar.x-icon {
+  .x-sidebar {
+    @include break(papa-bear) {
+      top: 32px;
+    }
+  }
+}
+
+.admin-bar.x-icon.x-full-width-active {
+  .x-sidebar {
+    @include break(papa-bear) {
+      top: 0;
+    }
+  }
+}

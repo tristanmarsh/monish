@@ -1,0 +1,73 @@
+// =============================================================================
+// SCSS/SITE/STACKS/RENEW/_SCAFFOLDING.SCSS
+// -----------------------------------------------------------------------------
+// Set base styles for <body> and links.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Site Wrap
+//   02. Body Reset
+//   03. Links
+// =============================================================================
+
+// Site Wrap
+// =============================================================================
+
+.site {
+  margin: 0 auto;
+  background-color: $baseModBackground;
+  @include clearfix();
+}
+
+
+
+// Body Reset
+// =============================================================================
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: $baseFontFamily;
+  @include font-size(1.4);
+  font-weight: $baseFontWeight;
+  line-height: $baseLineHeight;
+  color: $textColor;
+  background: $bodyBackground;
+
+  &.x-navbar-fixed-left-active {
+    padding-left: $navbarFixedSideWidth;
+  }
+
+  &.x-navbar-fixed-right-active {
+    padding-right: $navbarFixedSideWidth;
+  }
+}
+
+::-moz-selection {
+  text-shadow: none;
+  color: $textColor;
+  background-color: $grayLighter;
+}
+
+::selection {
+  text-shadow: none;
+  color: $textColor;
+  background-color: $grayLighter;
+}
+
+
+
+// Links
+// =============================================================================
+
+a {
+  color: $linkColor;
+  text-decoration: none;
+  @include transition($linkTransitions);
+}
+
+a:hover {
+  color: $linkColorHover;
+}

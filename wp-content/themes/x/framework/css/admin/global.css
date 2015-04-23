@@ -1,0 +1,119 @@
+/* =============================================================================
+// CSS/ADMIN/GLOBAL.CSS
+// -----------------------------------------------------------------------------
+// Global admin styles needed on all pages.
+// ========================================================================== */
+
+/* =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Addons Menu
+//   02. Notices
+//   03. Utilities
+// ========================================================================== */
+
+/* Addons Menu
+// ========================================================================== */
+
+@import url(//fonts.googleapis.com/css?family=Lato:300&text=X);
+
+#adminmenu li.menu-top.toplevel_page_x-addons-home > a .wp-menu-image:before {
+  content: "X";
+  padding-top: 6px;
+  font-family: Lato, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 300;
+}
+
+#adminmenu li.menu-top.toplevel_page_x-addons-home > .wp-submenu > li:nth-child(5):not(:last-child) {
+  position: relative;
+  margin-bottom: 9px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 6px;
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+          box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+#adminmenu li.menu-top.toplevel_page_x-addons-home > .wp-submenu > li:nth-child(5):not(:last-child) > a:after {
+  content: "\f140";
+  font-family: dashicons;
+  display: block;
+  float: right;
+  width: 19px;
+  height: 15px;
+  font-size: 22px;
+  line-height: 15px;
+  text-align: center;
+  color: #bbb;
+  opacity: 0.25;
+}
+
+
+
+/* Notices
+// ========================================================================== */
+
+/*
+// X.
+*/
+
+.about-wrap div.x-shortcodes-notice {
+  display: block !important;
+  margin: 35px 0;
+}
+
+
+/*
+// TGM.
+*/
+
+div#setting-error-tgmpa {
+  display: none !important;
+}
+
+
+/*
+// Revolution Slider.
+*/
+
+div.rs-update-notice-wrap {
+  display: none !important;
+}
+
+
+
+/* Utilities
+// ========================================================================== */
+
+/*
+// Clearfix.
+*/
+
+.cf:before,
+.cf:after {
+  content: "";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+
+/*
+// Form validation.
+*/
+
+.x-input-success {
+  color: #008b1f !important;
+  border-color: #7ad03a !important;
+  background-color: #e2fee5 !important;
+}
+
+
+/*
+// Alignment.
+*/
+
+.text-left   { text-align: left;   }
+.text-right  { text-align: right;  }
+.text-center { text-align: center; }

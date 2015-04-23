@@ -1,0 +1,308 @@
+// =============================================================================
+// SCSS/SITE/STACKS/ICON/_RTL.SCSS
+// -----------------------------------------------------------------------------
+// Styling for right to left layouts.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Typography
+//   02. Shortcodes
+//   03. Navigation
+//   04. Breadcrumbs
+//   05. Posts and Pages
+//   06. Portfolio
+//   07. Comments
+//   08. Widgets
+//   09. Forms
+// =============================================================================
+
+// Typography
+// =============================================================================
+
+.rtl {
+  ul,
+  ol {
+    margin: 0 1.655em 1.313em 0;
+  }
+}
+
+
+
+// Shortcodes
+// =============================================================================
+
+.rtl {
+  .x-dropcap {
+    float: right;
+    margin: 0.2em 0 0 0.215em;
+  }
+
+  .h-feature-headline span i {
+    float: right;
+    margin-right: 0;
+    margin-left: 0.25em;
+  }
+
+  .x-btn [class^="x-icon-"],
+  .x-btn [class*=" x-icon-"] {
+    float: right;
+    margin-right: 0;
+    margin-left: 0.5em;
+  }
+
+  .x-ul-icons {
+    margin-left: 0;
+    margin-right: 1.425em;
+  }
+
+  .x-accordion-heading {
+    .x-accordion-toggle {
+      &:before {
+        margin-left: 10px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .close {
+    float: left;
+  }
+
+  .x-alert,
+  .wpcf7-response-output {
+    .close {
+      top: -10px;
+      right: 10px;
+    }
+  }
+
+  .x-author-box {
+    .avatar {
+      float: right;
+    }
+
+    .x-author-info {
+      margin-right: 110px;
+      margin-left: 0;
+    }
+  }
+
+  .x-prompt {
+    &.message-left {
+      .x-prompt-section.x-prompt-section-message {
+        padding-left: 2.25em;
+        padding-right: 0;
+        text-align: left;
+      }
+    }
+
+    &.message-right {
+      .x-prompt-section.x-prompt-section-message {
+        padding-right: 2.25em;
+        padding-left: 0;
+        text-align: right;
+      }
+    }
+  }
+
+  .x-pricing-column-info {
+    ul {
+      > li {
+        [class*="x-icon"] {
+          margin-right: 0.85em;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .flex-viewport {
+    direction: ltr;
+  }
+}
+
+
+
+// Navigation
+// =============================================================================
+
+.rtl {
+  .x-navbar .x-nav li > a {
+    &:after {
+      margin-right: 0.35em;
+      margin-left: 0;
+      float: left;
+    }
+  }
+
+  .x-nav-articles {
+    float: left;
+    text-align: left;
+
+    .prev { margin-left: 0.5em; }
+    .next { margin-left: 0;     }
+
+    @include break(middle-bear) {
+      float: none;
+      text-align: center;
+    }
+  }
+}
+
+
+
+// Breadcrumbs
+// =============================================================================
+
+.rtl {
+  .x-breadcrumbs {
+    float: right;
+    text-align: right;
+    @include break(middle-bear) {
+      float: none;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+
+
+// Posts and Pages
+// =============================================================================
+
+.rtl {
+  .entry-title {
+    &:before {
+      display: none;
+    }
+  }
+
+  .x-landmark {
+    padding-right: 0;
+    padding-left: 9.92611%;
+  }
+
+  .entry-footer a {
+    float: right;
+    margin: 0.615em 0 0 0.615em;
+  }
+}
+
+
+
+// Portfolio
+// =============================================================================
+
+.rtl {
+  .option-set {
+    right: auto;
+    left: 10px;
+  }
+}
+
+
+
+// Comments
+// =============================================================================
+
+.rtl {
+  .h-comments-title {
+    small {
+      left: -40px;
+      right: auto;
+    }
+  }
+
+  .x-comment-img {
+    float: right;
+  }
+
+  article.comment {
+    margin: 0 80px 25px 0;
+  }
+
+  .comment-edit-link {
+    top: 5px;
+    left: 5px;
+    right: auto;
+  }
+}
+
+
+
+// Widgets
+// =============================================================================
+
+.rtl {
+  .widget ul,
+  .widget ol {
+    margin: 0 -20px;
+  }
+
+  .widget_text .textwidget ul,
+  .widget_text .textwidget ol {
+    margin: 0 1.655em 1.313em 0;
+  }
+
+  .widget_categories,
+  .widget_nav_menu,
+  .widget_pages {
+    ul li li a {
+      margin-left: 0;
+      margin-right: 42px;
+    }
+
+    ul li li li a {
+      margin-left: 0;
+      margin-right: 63px;
+    }
+
+    ul li li li a {
+      margin-left: 0;
+      margin-right: 84px;
+    }
+  }
+
+  .widget_categories .cat-item a {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .widget_nav_menu .current-menu-item > a {
+    &:after {
+      content: "\f054";
+      margin-left: 0;
+      margin-right: 0.45em;
+    }
+  }
+
+  .x-flickr-widget ul.x-slides,
+  .x-dribbble-widget ul.dribbbles {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
+
+// Forms
+// =============================================================================
+
+.rtl {
+  .form-search,
+  .widget_product_search form {
+    &:before {
+      right: 0.8em;
+    }
+
+    .search-query,
+    input[type="text"] {
+      padding-right: 2.15em;
+      padding-left: 0.8em;
+      text-align: right;
+    }
+  }
+}

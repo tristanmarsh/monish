@@ -1,0 +1,185 @@
+// =============================================================================
+// SCSS/SITE/STACKS/ICON/_DROPDOWNS.SCSS
+// -----------------------------------------------------------------------------
+// Styling for dropdowns in various instances.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Base Styles
+//   02. Masthead Inline Positioning
+//   03. Masthead Stacked Positioning
+//   04. Hover State
+//   05. Active State
+//   06. Superfish Styles
+//   07. Portfolio Filters
+// =============================================================================
+
+// The Dropdown Menu
+// =============================================================================
+
+//
+// 1. None by default, but block on menu open.
+// 2. Override default <ul>.
+//
+
+.x-navbar {
+  .sub-menu {
+    position: absolute;
+    right: 0;
+    display: none; // 1
+    float: left;
+    min-width: 200px;
+    margin: 0; // 2
+    border: 1px solid $baseBorderSolid;
+    border: 1px solid $baseBorderRgba;
+    padding: $dropdownPadding;
+    @include font-size(1.4);
+    list-style: none;
+    background-color: $baseModBackground;
+    z-index: $zindexDropdown;
+    @include translate3d(0, 0, 0);
+
+    a {
+      display: block;
+      clear: both;
+      border: 0;
+      padding: $dropdownLinkPadding;
+      line-height: $baseLineHeight;
+      white-space: nowrap;
+      color: $dropdownLinkColor;
+      @include transition(#{none});
+    }
+  }
+}
+
+
+
+// Masthead Inline Positioning
+// =============================================================================
+
+.masthead-inline {
+  .x-navbar {
+    .sub-menu {
+      left: auto;
+      right: 0;
+
+      .sub-menu {
+        top: $superfishSubmenuTop;
+        right: $superfishSubmenuOffset;
+      }
+    }
+
+    &.x-navbar-fixed-left {
+      .sub-menu {
+        top: 0;
+        left: $superfishFirstDropdownSide;
+        right: auto;
+
+        .sub-menu {
+          top: $superfishSubmenuTop;
+          left: $superfishSubmenuOffset;
+          right: auto;
+        }
+      }
+    }
+
+    &.x-navbar-fixed-right {
+      .sub-menu {
+        top: 0;
+        left: auto;
+        right: $superfishFirstDropdownSide;
+
+        .sub-menu {
+          top: $superfishSubmenuTop;
+          left: auto;
+          right: $superfishSubmenuOffset;
+        }
+      }
+    }
+  }
+}
+
+
+
+// Masthead Stacked Positioning
+// =============================================================================
+
+.masthead-stacked {
+  .x-navbar {
+    .sub-menu {
+      left: 0;
+      right: auto;
+
+      .sub-menu {
+        top: $superfishSubmenuTop;
+        left: $superfishSubmenuOffset;
+      }
+    }
+  }
+}
+
+
+
+// Hover State
+// =============================================================================
+
+.x-navbar .sub-menu a:hover {
+  text-decoration: none;
+  color: $dropdownLinkColorHover;
+}
+
+
+
+// Active State
+// =============================================================================
+
+.x-navbar .sub-menu .sfHover > a,
+.x-navbar .sub-menu .current-menu-item > a {
+  color: $dropdownLinkColorHover;
+}
+
+
+
+// Superfish Styles
+// =============================================================================
+
+.sf-menu ul {
+  position: absolute;
+}
+
+.sf-menu li {
+  position: relative;
+}
+
+.sf-menu li:hover {
+  visibility: inherit;
+}
+
+.sf-menu a {
+  position: relative;
+}
+
+.sf-menu a .sf-sub-indicator {
+  position: absolute;
+  top: -9999em;
+}
+
+.sf-menu li:hover ul {
+  left: 0;
+  z-index: 9999;
+}
+
+
+
+// Portfolio Filters
+// =============================================================================
+
+.x-portfolio-filters-menu {
+  display: none;
+}
+
+.no-js .x-portfolio-filters-menu {
+  display: block;
+}

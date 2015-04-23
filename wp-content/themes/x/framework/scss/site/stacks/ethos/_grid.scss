@@ -1,0 +1,66 @@
+// =============================================================================
+// SCSS/SITE/STACKS/ETHOS/_GRID.SCSS
+// -----------------------------------------------------------------------------
+// Includes the grid layout.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Grid Container
+//   02. Standard Row and Columns
+// =============================================================================
+
+// Grid Container
+// =============================================================================
+
+.x-container-fluid {
+  margin: 0 auto;
+  position: relative;
+
+  &.max {
+    max-width: 1180px;
+  }
+
+  &.width {
+    width: 88%;
+  }
+
+  &.main {
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -$layoutSpacing;
+      bottom: -10000em;
+      bottom: -$layoutSpacing;
+      width: 10000em;
+      background-color: $baseModBackground;
+      z-index: -1;
+    }
+  }
+
+  > .offset {
+    margin: $layoutSpacing auto;
+  }
+}
+
+.x-post-slider-archive-active .x-container-fluid.main:before { top: 0; }
+
+.x-content-sidebar-active .x-container-fluid.main:before { right: 30%; }
+.x-sidebar-content-active .x-container-fluid.main:before { left: 30%; }
+.x-full-width-active      .x-container-fluid.main:before { left: -5000em; }
+
+@include break(cubs) {
+  .x-content-sidebar-active .x-container-fluid.main:before { left: -5000em; }
+  .x-sidebar-content-active .x-container-fluid.main:before { left: -5000em; }
+}
+
+
+
+// Standard Row and Columns
+// =============================================================================
+
+@include gridFluid($fluidGridColumnWidth, $fluidGridGutterWidth);

@@ -1,0 +1,146 @@
+// =============================================================================
+// SCSS/SITE/STACKS/ETHOS/_MEGAMENU.SCSS
+// -----------------------------------------------------------------------------
+// Styling for the megamenu.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Base Styles
+//   02. Navbar Layout Styles
+//   03. Responsive Styles
+// =============================================================================
+
+// Base Styles
+// =============================================================================
+
+.x-nav .x-megamenu {
+  > .sub-menu {
+    a {
+      padding: 1px 0;
+      white-space: normal;
+    }
+
+    > li {
+      float: left;
+      padding: 16px 18px;
+
+      > a {
+        border-top: 2px solid $navbarLinkBorderColor;
+        padding: 10px 0 5px;
+        @include font-size(1.7);
+        text-transform: uppercase;
+        color: $navbarLinkColorHover;
+
+        &:after {
+          display: none;
+        }
+      }
+
+      > .sub-menu {
+        display: block !important;
+        position: static;
+        visibility: visible !important;
+        width: 100%;
+        min-width: 0;
+        padding: 0;
+        @include box-shadow(#{none});
+
+        > li {
+          &:last-child {
+            a {
+              padding-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.col-2 > .sub-menu > li { width: 50%;      &:nth-child(3n) { clear: left; } }
+  &.col-3 > .sub-menu > li { width: 33.3333%; &:nth-child(4n) { clear: left; } }
+  &.col-4 > .sub-menu > li { width: 25%;      &:nth-child(5n) { clear: left; } }
+  &.col-5 > .sub-menu > li { width: 20%;      &:nth-child(6n) { clear: left; } }
+
+}
+
+
+
+// Navbar Layout Styles
+// =============================================================================
+
+.x-navbar-static-active,
+.x-navbar-fixed-top-active {
+  .x-nav .x-megamenu {
+    position: static;
+
+    > .sub-menu {
+      padding: 18px;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+.x-navbar-fixed-left-active,
+.x-navbar-fixed-right-active {
+  .x-nav .x-megamenu {
+    position: relative;
+
+    > .sub-menu {
+      padding: 18px;
+      width: 600px;
+    }
+  }
+}
+
+
+
+// Responsive Styles
+// =============================================================================
+
+@include break(cubs) {
+  .x-nav .x-megamenu {
+    > .sub-menu {
+      position: static;
+      width: auto !important;
+      padding: 0 !important;
+
+      > li {
+        float: none;
+        padding: 0;
+
+        > a {
+          text-transform: none;
+          color: inherit;
+
+          &:after {
+            display: inline;
+          }
+        }
+
+        > .sub-menu {
+          width: auto;
+
+          > li {
+            &:last-child {
+              a {
+                padding: $navbarLinkPaddingMobile;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.col-2,
+    &.col-3,
+    &.col-4,
+    &.col-5 {
+      > .sub-menu > li {
+        width: auto;
+      }
+    }
+  }
+}

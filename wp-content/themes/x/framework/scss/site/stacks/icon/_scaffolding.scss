@@ -1,0 +1,113 @@
+// =============================================================================
+// SCSS/SITE/STACKS/ICON/_SCAFFOLDING.SCSS
+// -----------------------------------------------------------------------------
+// Set base styles for <body> and links.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Site Wrap
+//   02. Body Reset
+//   03. Sidebar Layouts
+//   04. Links
+// =============================================================================
+
+// Site Wrap
+// =============================================================================
+
+.site {
+  margin: 0 auto;
+  background-color: $white;
+  @include clearfix();
+}
+
+.x-boxed-layout-active .site {
+  border: 1px solid $baseBorderSolid;
+  border: 1px solid $baseBorderRgba;
+  border-top: 0;
+  border-bottom: 0;
+  @include box-sizing(#{content-box});
+}
+
+
+
+// Body Reset
+// =============================================================================
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: $baseFontFamily;
+  @include font-size(1.6);
+  font-weight: $baseFontWeight;
+  line-height: $baseLineHeight;
+  color: $textColor;
+  background: $bodyBackground;
+
+  &.x-navbar-fixed-left-active {
+    padding-left: $navbarFixedSideWidth;
+  }
+
+  &.x-navbar-fixed-right-active {
+    padding-right: $navbarFixedSideWidth;
+  }
+}
+
+::-moz-selection {
+  text-shadow: none;
+  color: $textColor;
+  background-color: $grayLighter;
+}
+
+::selection {
+  text-shadow: none;
+  color: $textColor;
+  background-color: $grayLighter;
+}
+
+
+
+// Sidebar Layouts
+// =============================================================================
+
+.x-navbar-fixed-left-active,
+.x-content-sidebar-active {
+  @include break(papa-bear) {
+    padding-right: $sidebarWidth;
+  }
+}
+
+.x-navbar-fixed-right-active,
+.x-sidebar-content-active {
+  @include break(papa-bear) {
+    padding-left: $sidebarWidth;
+  }
+}
+
+.x-navbar-fixed-left-active.x-full-width-active {
+  @include break(papa-bear) {
+    padding-right: 0;
+  }
+}
+
+.x-navbar-fixed-right-active.x-full-width-active {
+  @include break(papa-bear) {
+    padding-left: 0;
+  }
+}
+
+
+
+// Links
+// =============================================================================
+
+a {
+  color: $linkColor;
+  text-decoration: none;
+  @include transition($linkTransitions);
+}
+
+a:hover {
+  color: $linkColorHover;
+}

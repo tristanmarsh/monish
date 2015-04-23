@@ -1,0 +1,55 @@
+// =============================================================================
+// SCSS/SITE/STACKS/RENEW/_GRID.SCSS
+// -----------------------------------------------------------------------------
+// Includes the grid layout.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Grid Container
+//   02. Standard Row and Columns
+// =============================================================================
+
+// Grid Container
+// =============================================================================
+
+.x-container-fluid {
+  margin: 0 auto;
+  position: relative;
+
+  &.max    { max-width: 1180px; }
+  &.width  { width: 88%;        }
+  &.offset {
+    margin: 2.75em auto;
+    @include transition(#{margin 0.3s ease});
+    @include break(middle-bear) {
+      margin: 2em auto;
+    }
+  }
+}
+
+
+
+// Standard Row and Columns
+// =============================================================================
+
+@include gridFluid($fluidGridColumnWidth, $fluidGridGutterWidth);
+
+
+
+// Table Rows and Cells
+// =============================================================================
+
+.x-row-table {
+  display: table;
+  width: 100%;
+}
+
+.x-table-cell {
+  display: table-cell;
+
+  &.bottom { vertical-align: bottom; }
+  &.middle { vertical-align: middle; }
+  &.top    { vertical-align: top;    }
+}

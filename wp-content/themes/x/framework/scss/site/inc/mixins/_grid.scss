@@ -1,0 +1,68 @@
+// =============================================================================
+// SCSS/SITE/INC/MIXINS/_GRID.SCSS
+// -----------------------------------------------------------------------------
+// Get your grid on.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Centered Container Element
+//   02. La Cuadrícula
+// =============================================================================
+
+// Centered Container Element
+// =============================================================================
+
+@mixin container-fixed() {
+  margin-right: auto;
+  margin-left: auto;
+  @include clearfix();
+}
+
+
+
+// La Cuadrícula
+// =============================================================================
+
+@mixin gridFluid($columnWidth, $gutterWidth) {
+  .x-row-fluid {
+    position: relative;
+    width: 100%;
+    @include clearfix();
+
+    [class*="span"] {
+      @include input-block-level();
+      float: left;
+      margin-left: $gutterWidth;
+    }
+
+    [class*="span"]:first-child {
+      margin-left: 0;
+    }
+
+    [class*="span"].right {
+      float: right;
+    }
+
+    [class*="span"].right:first-child {
+      margin-left: $gutterWidth;
+    }
+
+    [class*="span"].right:last-child {
+      margin-left: 0;
+    }
+
+    [class*="span"].hide {
+      display: none;
+    }
+
+    @for $i from 1 through $gridColumns {
+      .x-span#{$i} { @include gridFluidSpan($i, $columnWidth, $gutterWidth); }
+    }
+  }
+}
+
+@mixin gridFluidSpan($columns, $columnWidth, $gutterWidth) {
+  width: ($columnWidth * $columns) + ($gutterWidth * ($columns - 1));
+}

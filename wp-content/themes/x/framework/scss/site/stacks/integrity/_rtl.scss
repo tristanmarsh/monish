@@ -1,0 +1,292 @@
+// =============================================================================
+// SCSS/SITE/STACKS/INTEGRITY/_RTL.SCSS
+// -----------------------------------------------------------------------------
+// Styling for right to left layouts.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Typography
+//   02. Shortcodes
+//   03. Navigation
+//   04. Breadcrumbs
+//   05. Posts and Pages
+//   06. Comments
+//   07. Widgets
+//   08. Forms
+// =============================================================================
+
+// Typography
+// =============================================================================
+
+.rtl {
+  ul,
+  ol {
+    margin: 0 1.655em 1.313em 0;
+  }
+}
+
+
+
+// Shortcodes
+// =============================================================================
+
+.rtl {
+  .x-dropcap {
+    float: right;
+    margin: 0.2em 0 0 0.215em;
+  }
+
+  .h-feature-headline span i {
+    float: right;
+    margin-right: 0;
+    margin-left: 0.25em;
+  }
+
+  .x-btn [class^="x-icon-"],
+  .x-btn [class*=" x-icon-"] {
+    float: right;
+    margin-right: 0;
+    margin-left: 0.5em;
+  }
+
+  .x-ul-icons {
+    margin-left: 0;
+    margin-right: 1.425em;
+  }
+
+  .x-accordion-heading {
+    .x-accordion-toggle {
+      &:before {
+        margin-left: 10px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .close {
+    float: left;
+  }
+
+  .x-alert,
+  .wpcf7-response-output {
+    .close {
+      top: -10px;
+      right: 10px;
+    }
+  }
+
+  .x-author-box {
+    .avatar {
+      float: right;
+    }
+
+    .x-author-info {
+      margin-right: 110px;
+      margin-left: 0;
+    }
+  }
+
+  .x-prompt {
+    &.message-left {
+      .x-prompt-section.x-prompt-section-message {
+        padding-left: 2.25em;
+        padding-right: 0;
+        text-align: left;
+      }
+    }
+
+    &.message-right {
+      .x-prompt-section.x-prompt-section-message {
+        padding-right: 2.25em;
+        padding-left: 0;
+        text-align: right;
+      }
+    }
+  }
+
+  .x-pricing-column-info {
+    ul {
+      > li {
+        [class*="x-icon"] {
+          margin-right: 0.85em;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .flex-viewport {
+    direction: ltr;
+  }
+}
+
+
+
+// Navigation
+// =============================================================================
+
+.rtl {
+  .x-navbar .x-nav li > a {
+    &:after {
+      margin-right: 0.35em;
+      margin-left: 0.35em;
+      float: right;
+    }
+  }
+
+  .x-nav-articles {
+    float: left;
+    text-align: left;
+
+    .prev { margin-left: 0.5em; }
+    .next { margin-left: 0;     }
+
+    @include break(middle-bear) {
+      float: none;
+      text-align: center;
+    }
+  }
+}
+
+
+
+// Breadcrumbs
+// =============================================================================
+
+.rtl {
+  .x-breadcrumbs {
+    float: right;
+    text-align: right;
+    @include break(middle-bear) {
+      float: none;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+
+
+// Posts and Pages
+// =============================================================================
+
+.rtl {
+  .entry-title:before {
+    float: right;
+    margin-right: 0;
+    margin-left: 0.35em;
+  }
+
+  .x-landmark {
+    padding-right: 0;
+    padding-left: 9.92611%;
+  }
+
+  .entry-footer a {
+    float: right;
+    margin: 0.615em 0 0 0.615em;
+  }
+}
+
+
+
+// Comments
+// =============================================================================
+
+.rtl {
+  .h-comments-title {
+    small {
+      left: -40px;
+      right: auto;
+    }
+  }
+
+  .x-comment-img {
+    float: right;
+  }
+
+  article.comment {
+    margin: 0 80px 25px 0;
+  }
+
+  .comment-edit-link {
+    left: 10px;
+    right: auto;
+  }
+}
+
+
+
+// Widgets
+// =============================================================================
+
+.rtl {
+  .widget ol,
+  .widget ul {
+    margin-right: 0;
+  }
+
+  .widget_tag_cloud .tagcloud a,
+  .widget_product_tag_cloud .tagcloud a { 
+    float: right; 
+    margin: 0.615em 0 0 0.615em;
+  }
+
+  .widget_recent_comments .url:before {
+    display: none;
+  }
+
+  .widget_text ol,
+  .widget_text ul {
+    margin: 0 1.655em 1.313em 0;
+  }
+
+  .widget_nav_menu,
+  .widget_meta,
+  .widget_pages {
+    ul li a {
+      &:before {
+        display: none;
+      }
+
+      &:after {
+        content: "\f0d9";
+        padding-left: 0.4em;
+        @include font-awesome();
+      }
+    }
+
+    ul li ul li a,
+    ul li .sub-menu li a {
+      padding-right: 2.55em;
+    }
+
+    ul li ul ul li a,
+    ul li .sub-menu ul li a {
+      padding-right: 4.25em;
+    }
+  }
+}
+
+
+
+// Forms
+// =============================================================================
+
+.rtl {
+  .form-search,
+  .widget_product_search form {
+    &:before {
+      right: 0.8em;
+    }
+
+    .search-query,
+    input[type="text"] {
+      padding-right: 2.15em;
+      padding-left: 0.8em;
+      text-align: left;
+    }
+  }
+}

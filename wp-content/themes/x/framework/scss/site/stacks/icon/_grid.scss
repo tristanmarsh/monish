@@ -1,0 +1,50 @@
+// =============================================================================
+// SCSS/SITE/STACKS/ICON/_GRID.SCSS
+// -----------------------------------------------------------------------------
+// Includes the grid layout.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Grid Container
+//   02. Standard Row and Columns
+// =============================================================================
+
+// Grid Container
+// =============================================================================
+
+.x-container-fluid {
+  margin: 0 auto;
+  position: relative;
+
+  &.max   {
+  	max-width: 1180px;
+  }
+
+  &.width {
+  	width: 88%;
+  }
+
+  &.offset-top {
+    margin-top: 50px;
+    @include transition(#{margin-top 0.3s ease});
+    @include break(cubs) {
+      margin-top: 32px;
+    }
+    @include break(baby-bear) {
+      margin-top: 24px;
+    }
+  }
+
+  &.offset-bottom {
+  	margin-bottom: 50px;
+  }
+}
+
+
+
+// Standard Row and Columns
+// =============================================================================
+
+@include gridFluid($fluidGridColumnWidth, $fluidGridGutterWidth);

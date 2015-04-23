@@ -1,0 +1,78 @@
+// =============================================================================
+// SCSS/SITE/STACKS/ETHOS/_SCAFFOLDING.SCSS
+// -----------------------------------------------------------------------------
+// Set base styles for <body> and links.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Body Reset
+//   02. Links
+// =============================================================================
+
+// Site Wrap
+// =============================================================================
+
+.site {
+  @include clearfix();  
+}
+
+.x-boxed-layout-active .site {
+  margin: 0 auto;
+  overflow-x: hidden;
+  background-color: $baseModBackground;
+  @include box-shadow(#{0 1px 4px rgba(0, 0, 0, 0.25)});
+  @include box-sizing(#{content-box});
+}
+
+
+
+// Body Reset
+// =============================================================================
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: $baseFontFamily;
+  @include font-size(1.4);
+  font-weight: $baseFontWeight;
+  line-height: $baseLineHeight;
+  color: $textColor;
+  background: $bodyBackground;
+
+  &.x-navbar-fixed-left-active {
+    padding-left: $navbarFixedSideWidth;
+  }
+
+  &.x-navbar-fixed-right-active {
+    padding-right: $navbarFixedSideWidth;
+  }
+}
+
+::-moz-selection {
+  text-shadow: none;
+  color: $textColor;
+  background-color: $grayLighter;
+}
+
+::selection {
+  text-shadow: none;
+  color: $textColor;
+  background-color: $grayLighter;
+}
+
+
+
+// Links
+// =============================================================================
+
+a {
+  color: $linkColor;
+  text-decoration: none;
+  @include transition($linkTransitions);
+}
+
+a:hover {
+  color: $linkColorHover;
+}

@@ -1,0 +1,1835 @@
+// =============================================================================
+// SCSS/SITE/STACKS/ICON/_SHORTCODES.SCSS
+// -----------------------------------------------------------------------------
+// Styles for shortcodes.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Dropcap
+//   02. Horizontal Rule
+//   03. Gap
+//   04. Clear
+//   05. Highlight
+//   06. Quotes
+//       a. Blockquote
+//       b. Pullquote
+//       c. Cite
+//   07. Alert
+//   08. Maps
+//   09. Skill Bar
+//   10. Code
+//   11. Buttons
+//       a. Individual Buttons
+//       b. Button Group
+//   12. Icons
+//   13. Block Grid
+//       a. Grid
+//       b. Grid Item
+//   14. Images
+//   15. Icon list
+//       a. List
+//       b. List Item
+//   16. Popovers and Tooltips
+//   17. Text Columns
+//   18. Responsive Video
+//       a. Video Player
+//       b. Video Embed
+//   19. Accordion
+//       a. Accordion
+//       b. Accordion Item
+//   20. Tabbed Content
+//       a. Tab Nav
+//       b. Tab Nav Item
+//       c. Tabs
+//       d. Tab
+//   21. Responsive Visibility
+//   22. Content Columns
+//   23. Responsive Slider
+//       a. Slider
+//       b. Slide
+//   24. Protected Content
+//   25. Recent Posts
+//   26. Audio
+//       a. Audio Player
+//       b. Audio Embed
+//   27. Responsive Pricing Table
+//   28. Callout
+//   29. Promo
+//   30. Post Author
+//   31. Prompt
+//   32. Content Band
+//   33. Entry Share
+//   34. Table of Contents
+//       a. Container
+//       b. Item
+//   35. Custom Headline
+//   36. Feature Headline
+//   37. Search
+//   38. Counter
+//   39. Shortcode Container
+// =============================================================================
+
+// Dropcaps
+// =============================================================================
+
+.x-dropcap {
+  float: left;
+  display: block;
+  margin: 0.2em 0.215em 0 0;
+  padding: 0.105em 0.2em 0.11em;
+  font-size: 3.2em;
+  font-weight: bold;
+  line-height: 1;
+  color: $white;
+  background-color: $accentColor;
+}
+
+
+
+// Horizontal Rules
+// =============================================================================
+
+.x-hr {  }
+
+
+
+// Gaps
+// =============================================================================
+
+.x-gap {
+  margin: $baseMargin 0;
+  border-color: transparent;
+}
+
+
+
+// Clear
+// =============================================================================
+
+.x-clear {
+  margin: 0;
+  border: 0;
+  clear: both;
+}
+
+
+
+// Highlight
+// =============================================================================
+
+.x-highlight {
+  padding: 0.188em 0.375em;
+  color: $white;
+  background-color: $linkColor;
+
+  &.dark {
+    color: $white;
+    background-color: darken($gray, 5%);
+  }
+}
+
+
+
+// Quotes
+// =============================================================================
+
+//
+// 1. Blockquote.
+// 2. Pullquote.
+// 3. Cite.
+//
+
+.x-blockquote { // 1
+  &.right-text {
+    text-align: right;
+  }
+
+  &.center-text {
+    text-align: center;
+  }
+}
+
+.x-pullquote { // 2
+  width: 40%;
+  margin: 0.45em 1.1em 0.55em 0;
+  font-size: 1.313em;
+
+  &.right {
+    margin-right: 0;
+    margin-left: 1.1em;
+  }
+
+  &.left,
+  &.right {
+    @include break(middle-bear) {
+      float: none;
+      width: 100%;
+      margin: $baseMargin 0;
+    }
+  }
+}
+
+.x-cite { // 3
+  display: block;
+  margin-top: 0.75em;
+  font-size: 0.625em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: darken($shortcodeBorderColor, 15%);
+
+  &:before {
+    content: "\2013\00A0";
+  }
+}
+
+
+
+// Alert
+// =============================================================================
+
+//
+// Close.
+//
+
+.close {
+  float: right;
+  @include font-size(1.8);
+  font-weight: bold;
+  line-height: $baseLineHeight;
+  color: $black;
+  @include opacity(0.4);
+  @include transition(#{opacity 0.3s ease});
+  
+  &:hover {
+    color: $black;
+    text-decoration: none;
+    cursor: pointer;
+    @include opacity(0.6);
+  }
+}
+
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+
+
+//
+// Close alert.
+//
+
+.x-alert,
+.wpcf7-response-output,
+.buddypress #message,
+.bbp-template-notice {
+  margin-bottom: $baseMargin;
+  border: 1px solid $warningBorder;
+  padding: $alertPadding;
+  @include font-size(1.4);
+  line-height: $alertLineHeight;
+  color: $warningText;
+  background-color: $warningBackground;
+
+  .h-alert {
+    margin: $alertHeadingMargin;
+    @include font-size(1.8);
+    letter-spacing: -1px;
+    line-height: 1.3;
+    text-transform: none;
+    color: inherit;
+  }
+
+  .close {
+    position: relative;
+    top: -10px;
+    right: -26px;
+    line-height: 1;
+    color: $warningText;
+  }
+}
+
+.x-alert-muted {
+  background-color: $grayLighter;
+  border-color:     darken($grayLighter, 12%);
+  color:            $grayLight;
+
+  .close {
+    color: $grayLight;
+  }
+}
+
+.x-alert-info,
+.buddypress #message.info,
+.bbp-template-notice.info {
+  background-color: $infoBackground;
+  border-color:     $infoBorder;
+  color:            $infoText;
+
+  .close {
+    color: $infoText;
+  }
+}
+
+.x-alert-success,
+.wpcf7-mail-sent-ok,
+.buddypress #message.updated,
+.bbp-template-notice.updated {
+  background-color: $successBackground;
+  border-color:     $successBorder;
+  color:            $successText;
+
+  .close {
+    color: $successText;
+  }
+}
+
+.x-alert-danger,
+.buddypress #message.error,
+.bbp-template-notice.error {
+  background-color: $errorBackground;
+  border-color:     $errorBorder;
+  color:            $errorText;
+
+  .close {
+    color: $errorText;
+  }
+}
+
+.x-alert-block {
+  padding: $alertBlockPadding;
+}
+
+.x-alert-block > p,
+.x-alert-block > ul {
+  margin-bottom: 0;
+}
+
+.x-alert-block p + p {
+  margin-top: 6px;
+}
+
+.wpcf7-response-output {
+  border-width: 1px !important;
+  margin: $baseMargin 0 0 !important;
+  padding: $alertBlockPadding !important;
+}
+
+
+
+// Maps
+// =============================================================================
+
+.x-map {
+  margin-bottom: $baseMargin;
+
+  .x-map-inner {
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .gm-style {
+    img {
+      max-width: none;
+    }
+  }
+}
+
+
+
+// Skill Bar
+// =============================================================================
+
+.h-skill-bar {
+  margin-top: 0;
+  @include font-size(1.1);
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.x-skill-bar {
+  height: 25px;
+  margin-bottom: $baseMargin;
+  background-color: $baseBorderSolid;
+  background-color: $baseBorderRgba;
+}
+
+.x-skill-bar .bar {
+  overflow: hidden;
+  position: relative;
+  width: 0%;
+  height: 100%;
+  float: left;
+  background-color: $accentColor;
+}
+
+.x-skill-bar .bar .percent {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  height: 17px;
+  padding: 0 5px;
+  font-size: 11px;
+  line-height: 17px;
+  color: $baseModBackground;
+  background-color: $headingsColor;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+
+
+// Code
+// =============================================================================
+
+.x-code {
+  line-height: 1;
+}
+
+
+
+// Buttons
+// =============================================================================
+
+//
+// 1. Individual buttons.
+// 2. Button group.
+//
+
+.x-btn {  } // 1
+
+.x-btn-group {  } // 2
+
+
+
+// Icons
+// =============================================================================
+
+.x-icon {  }
+
+
+
+// Block Grid
+// =============================================================================
+
+//
+// 1. Grid.
+// 2. Grid item.
+//
+
+.x-block-grid { // 1
+  display: block;
+  overflow: hidden;
+  padding: 0;
+
+  & > li {
+    display: block;
+    height: auto;
+    float: left;
+  }
+
+  @for $i from 2 through 5 {
+    &.#{ convert-number-to-word( $i ) }-up {
+      @if $i == 2 { margin: $baseMargin -1.25%; }
+      @if $i == 3 { margin: $baseMargin -1%; }
+      @if $i == 4 { margin: $baseMargin -0.9%; }
+      @if $i == 5 { margin: $baseMargin -0.85%; }
+
+      & > li {
+        width: 100% / $i;
+        @if $i == 2 { padding: 1.25%; }
+        @if $i == 3 { padding: 1%; }
+        @if $i == 4 { padding: 0.9%; }
+        @if $i == 5 { padding: 0.85%; }
+        @if $i > 1 { &:nth-child( #{$i}n+1 ) { clear: both; } }
+      }
+    }
+  }
+
+  img,
+  .x-img {
+    margin-bottom: 0;
+  }
+}
+
+.x-block-grid-item {  } // 2
+
+
+
+// Images
+// =============================================================================
+
+.x-img {
+  margin-bottom: $baseMargin;
+
+  &.left {
+    margin: 0.35em $baseMargin 0.35em 0;
+  }
+
+  &.right {
+    margin: 0.35em 0 0.35em $baseMargin;
+  }
+}
+
+
+//
+// Link hover styles.
+//
+
+a.x-img {
+  display: block;
+
+  > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+a.x-img:not(.x-img-thumbnail) {
+  @include translate3d(0, 0, 0);
+  @include transition(#{opacity 0.3s ease});
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+
+//
+// Rounded.
+//
+
+.x-img-rounded {
+  &,
+  img {
+    border-radius: 6px;
+  }
+}
+
+
+//
+// Circle.
+//
+
+.x-img-circle {
+  &,
+  img {
+    border-radius: 100em;
+  }
+}
+
+
+//
+// Thumbnail.
+//
+
+.x-img-thumbnail {
+  @include img_thumbnail();
+}
+
+a.x-img-thumbnail:hover {
+  border-color: $accentColor;
+}
+
+
+
+// Icon List
+// =============================================================================
+
+.x-ul-icons {
+  list-style: none;
+  text-indent: -0.85em;
+
+  li {
+    [class^="x-icon-"],
+    [class*=" x-icon-"] {
+      width: 0.85em;
+    }
+  }
+}
+
+.x-li-icon {  }
+
+
+
+// Popovers and Tooltips
+// =============================================================================
+
+.x-extra {  }
+
+
+
+// Text Columns
+// =============================================================================
+
+.x-columnize {
+  @include content-columns( 2, 3em, 1px solid $baseBorderSolid );
+  @include content-columns( 2, 3em, 1px solid $baseBorderRgba );
+  margin: 0 0 $baseMargin;
+
+  p:last-child,
+  ul:last-child,
+  ol:last-child {
+    margin-bottom: 0;
+  }
+
+  @include break(baby-bear) { @include content-columns(1, 0, 0); }
+}
+
+
+
+// Responsive Video
+// =============================================================================
+
+//
+// 1. 9/16 = 0.5625 for 16:9 aspect ratio
+// 2. 3/5 = 0.6 for 5:3 aspect ratio
+// 3. 4/5 = 0.8 for 5:4 aspect ratio
+// 4. 3/4 = 0.75 for 4:3 aspect ratio
+// 5. 2/3 = 0.6667 for 3:2 aspect ratio
+//
+
+.x-responsive-video {
+  &.x-responsive-video-shortcode {
+    margin-bottom: $baseMargin;
+  }
+
+  .x-responsive-video-inner {
+    position: relative;
+    padding-bottom: 56.25%; // 1
+    height: 0;
+    overflow: hidden;
+
+    &.five-by-three { padding-bottom: 60%;    } // 2
+    &.five-by-four  { padding-bottom: 80%;    } // 3
+    &.four-by-three { padding-bottom: 75%;    } // 4
+    &.three-by-two  { padding-bottom: 66.67%; } // 5
+
+    embed,
+    iframe,
+    img,
+    object,
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
+
+// Accordion
+// =============================================================================
+
+//
+// Parent container.
+//
+
+.x-accordion {
+  margin-bottom: 1.375em;
+}
+
+
+//
+// Group == beading + body.
+//
+
+.x-accordion-group {
+  margin: 4px 0;
+  border: 1px solid $baseBorderSolid;
+  border: 1px solid $baseBorderRgba;
+  @include transition(#{border-color 0.3s ease});
+}
+
+.x-accordion-heading {
+  border-bottom: 0;
+
+  .x-accordion-toggle {
+    display: block;
+    padding: 10px 15px;
+    font-size: 128.6%;
+    color: $headingsColor;
+    background-color: darken($baseModBackground, 1.5%);
+
+    &.collapsed {
+      background-color: $baseModBackground;
+
+      &:before {
+        color: darken($baseModBackground, 15%);
+        @include rotate(0);
+      }
+    }
+
+    &:hover {
+      background-color: darken($baseModBackground, 1.5%);
+
+      &:before {
+        color: darken($baseModBackground, 15%);
+      }
+    }
+
+    &:before {
+      content: "\f067";
+      position: relative;
+      display: inline-block;
+      bottom: 0.1em;
+      margin-right: 10px;
+      font-size: 74%;
+      color: darken($baseModBackground, 15%);
+      @include rotate(45deg);
+      @include transition(#{all 0.3s ease});
+      @include font-awesome();
+    }
+  }
+}
+
+
+//
+// General toggle styles.
+//
+
+.x-accordion-toggle {
+  cursor: pointer;
+}
+
+
+//
+// Accordion inner.
+// Needs the styles because you can't animate properly with any stiles on the
+// element.
+//
+
+.x-accordion-inner {
+  padding: 15px;
+  border-top: 1px solid $baseBorderSolid;
+  border-top: 1px solid $baseBorderRgba;
+
+  p:last-child,
+  ul:last-child,
+  ol:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+
+// Tabbed Content
+// =============================================================================
+
+//
+// 1. Tab nav.
+// 2. Tab nav item.
+// 3. Tabs.
+// 4. Tab.
+//
+
+.x-nav-tabs {  }
+
+.x-nav-tabs-item {  }
+
+.x-tab-content {  }
+
+.x-nav-pane {  }
+
+
+
+// Responsive Visibility
+// =============================================================================
+
+.x-visibility {  }
+
+
+
+// Content Columns
+// =============================================================================
+
+.x-column {
+  float: left;
+  margin-right: 4%;
+
+  &.whole         { width: 100%;      }
+  &.one-half      { width: 48%;       }
+  &.one-third     { width: 30.66666%; }
+  &.two-thirds    { width: 65.33332%; }
+  &.one-fourth    { width: 22%;       }
+  &.three-fourths { width: 74%;       }
+  &.one-fifth     { width: 16.8%;     }
+  &.two-fifths    { width: 37.6%;     }
+  &.three-fifths  { width: 58.4%;     }
+  &.four-fifths   { width: 79.2%;     }
+  &.one-sixth     { width: 13.33332%; }
+  &.five-sixths   { width: 82.66666%; }
+
+  &.one-half,
+  &.one-third,
+  &.two-thirds,
+  &.one-fourth,
+  &.three-fourths,
+  &.one-fifth,
+  &.two-fifths,
+  &.three-fifths,
+  &.four-fifths,
+  &.one-sixth,
+  &.five-sixths {
+    @include break(middle-bear) {
+      float: none;
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  &.last {
+    margin-right: 0;
+  }
+}
+
+.js {
+  .x-column {
+    position: relative;
+
+    &[data-fade="true"] {
+      opacity: 0;
+    }
+  }
+}
+
+
+
+// Responsive Slider
+// =============================================================================
+
+//
+// 1. Slider
+// 2. Slide
+//
+
+.x-flexslider-shortcode-container {
+  margin-bottom: $baseMargin;
+
+  .x-flexslider-shortcode {
+    margin: 0;
+  }
+}
+
+.x-slide {  }
+
+
+
+// Protected Content
+// =============================================================================
+
+.x-protect {
+  padding: 7% 18%;
+  text-align: center;
+  background-color: darken($baseModBackground, 4%);
+
+  label {
+    margin: 0.75em 0 0;
+    @include font-size(1.6);
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+  }
+}
+
+.h-protect {
+  @include font-size(2.4);
+  line-height: 1.2;
+  color: $headingsColor;
+}
+
+.x-btn-protect {
+  margin-top: 0.75em;
+}
+
+
+
+// Recent Posts
+// =============================================================================
+
+.x-recent-posts {
+  margin: 0 0 $baseMargin;
+
+  + .x-recent-posts {
+    margin-top: 4%;
+  }
+
+  a {
+    overflow: hidden;
+    float: left;
+    display: block;
+    margin: 0 4% 0 0;
+    border: 1px solid $baseBorderSolid;
+    border: 1px solid $baseBorderRgba;
+    padding: 6px;
+    color: #999;
+    background-color: $baseModBackground;
+    @include translate3d(0, 0, 0);
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      color: #999;
+
+      img {
+        @include opacity(0);
+      }
+
+      .x-recent-posts-img {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    &.no-image {
+      .hentry {
+        padding: 4px;
+      }
+
+      .x-recent-posts-content {
+        border: 0;
+      }
+
+      &:hover {
+        .h-recent-posts {
+          @include opacity(0.75);
+        }
+      }
+    }
+
+    &.x-recent-post1 {
+      width: 100%;
+    }
+
+    &.x-recent-post2 {
+      width: 48%;
+      @include break(middle-bear) {
+        width: 100%;
+        float: none;
+        margin-right: 0;
+        margin-bottom: 4%;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &.x-recent-post3 {
+      width: 30.6666%;
+      @include break(middle-bear) {
+        width: 100%;
+        float: none;
+        margin-right: 0;
+        margin-bottom: 4%;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &.x-recent-post4 {
+      width: 22%;
+      @include break(cubs) {
+        width: 48%;
+
+        &:first-child {
+          margin-bottom: 4%;
+        }
+
+        &:nth-child(2n) {
+          margin-right: 0;
+          margin-bottom: 4%;
+        }
+
+        &:nth-child(3),
+        &:nth-child(4) {
+          margin-bottom: 0;
+        }
+      }
+      @include break(middle-bear) {
+        width: 100%;
+        float: none;
+        margin-right: 0;
+        margin-bottom: 4%;
+
+        &:nth-child(3) {
+          margin-bottom: 4%;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  article.hentry {
+    &,
+    & > .entry-wrap,
+    &:first-child > .entry-wrap,
+    &:last-child > .entry-wrap {
+      margin: 0;
+      border: 0;
+      padding: 0;
+    }
+  }
+
+  img {
+    position: relative;
+    min-width: 100%;
+    z-index: 1;
+    @include transition(#{opacity 0.6s ease});
+  }
+
+  .x-recent-posts-img {
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 55.8823529%;
+    background-color: #999;
+    background-color: rgba(0, 0, 0, 0.25);
+    @include transition(#{background-color 0.3s ease});
+
+    &:before {
+      display: block;
+      position: absolute;
+      margin: -30px 0 0 -30px;
+      top: 50%;
+      left: 50%;
+      width: 60px;
+      height: 60px;
+      @include font-size(3.2);
+      line-height: 59px;
+      text-align: center;
+      vertical-align: middle;
+      color: $white;
+      background-color: rgba(0, 0, 0, 0.35);
+      border-radius: 100em;
+      z-index: 0;
+      @include font-awesome();
+    }
+  }
+
+  .has-post-thumbnail .x-recent-posts-img {
+    padding: 0;
+  }
+
+  .format-standard .x-recent-posts-img:before { content: "\f0f6"; }
+  .format-video .x-recent-posts-img:before    { content: "\f008"; }
+  .format-audio .x-recent-posts-img:before    { content: "\f001"; }
+  .format-image .x-recent-posts-img:before    { content: "\f083"; }
+  .format-gallery .x-recent-posts-img:before  { content: "\f03e"; }
+  .format-link .x-recent-posts-img:before     { content: "\f0c1"; }
+  .format-quote .x-recent-posts-img:before    { content: "\f10d"; }
+  .x-portfolio .x-recent-posts-img:before     {
+    content: "\f067";
+    line-height: 62px;
+  }
+
+  .x-recent-posts-content {
+    border-top: 0;
+    border: 1px solid $baseBorderSolid;
+    border: 1px solid $baseBorderRgba;
+    padding: 0.65em 0.75em 0.775em;
+  }
+
+  .h-recent-posts,
+  .x-recent-posts-date {
+    display: block;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .h-recent-posts {
+    margin: 0 0 2px;
+    padding-bottom: 4px;
+    @include font-size(1.7);
+    @include transition(#{opacity 0.3s ease});
+  }
+
+  .x-recent-posts-date {
+    margin: 0;
+    @include font-size(1.0);
+    text-transform: uppercase;
+  }
+
+  &.vertical {
+    a {
+      float: none;
+
+      &.x-recent-post1,
+      &.x-recent-post2,
+      &.x-recent-post3,
+      &.x-recent-post4 {
+        width: 100%;
+        margin-bottom: 4%;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.js {
+  .x-recent-posts {
+    &[data-fade="true"] {
+      a {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+
+
+// Audio
+// =============================================================================
+
+.x-audio {
+  position: relative;
+  margin-bottom: $baseMargin;
+}
+
+
+
+// Responsive Pricing Table
+// =============================================================================
+
+.x-pricing-table {
+  width: 100%;
+  margin: $baseMargin 0;
+
+  &.one-column .x-pricing-column    { width: 100%;      }
+  &.two-columns .x-pricing-column   { width: 50%;       }
+  &.three-columns .x-pricing-column { width: 33.33333%; }
+  &.four-columns .x-pricing-column  { width: 25%;       }
+  &.five-columns .x-pricing-column  { width: 20%;       }
+
+  @include break(cubs) {
+    &[class*="-column"] .x-pricing-column {
+      width: 50%;
+    }
+
+    &.three-columns .x-pricing-column:last-child,
+    &.five-columns .x-pricing-column:last-child {
+      width: 99.9%;
+    }
+  }
+
+  @include break(middle-bear) {
+    &[class*="-column"] .x-pricing-column {
+      width: 100%;
+    }
+  }
+}
+
+.x-pricing-column {
+  float: left;
+  margin: 0 0 -1px -1px;
+  text-align: center;
+  background-color: darken($baseModBackground, 1%);
+  @include break(middle-bear) {
+    float: none;
+    margin-left: 0;
+  }
+
+  h2 {
+    border: 1px solid $shortcodeBorderColor;
+    padding: 20px 20px 25px;
+    letter-spacing: 0;
+    line-height: 1.1;
+    @include font-size(3.2);
+
+    span {
+      display: block;
+      margin-top: 5px;
+      @include font-size(1.3);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: $black;
+      @include opacity(0.5);
+    }
+  }
+
+  &.featured {
+    position: relative;
+    margin-top: -20px;
+    background-color: $baseModBackground;
+    @include break(middle-bear) {
+      margin-top: 0;
+    }
+
+    h2 {
+      border: 0;
+      padding-bottom: 28px;
+      color: $white;
+      background-color: $accentColor;
+    }
+
+    .x-pricing-column-info {
+      padding-bottom: 50px;
+
+      ul {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+.x-pricing-column-info {
+  border: 1px solid $shortcodeBorderColor;
+  border-top: 0;
+  padding: 10px 0 32px;
+
+  .x-price {
+    margin: 0;
+    @include font-size(5.4);
+    letter-spacing: -3px;
+  }
+
+  span {
+    display: block;
+    margin-top: -1px;
+    @include font-size(1.2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: lighten($textColor, 25%);
+  }
+
+  p {
+    margin: 0;
+  }
+
+  ul {
+    margin: 15px 0 25px;
+
+    > li {
+      padding: 10px 40px 11px;
+      @include font-size(1.4);
+      line-height: 1.4;
+      text-transform: uppercase;
+
+      [class*="x-icon"] {
+        margin-left: 0.85em;
+      }
+
+      &:first-child {
+        border-top: 1px solid $shortcodeBorderColor;
+      }
+
+      &:last-child {
+        border-bottom: 1px solid $shortcodeBorderColor;
+      }
+    }
+  }
+
+  .x-btn {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+
+
+// Callout
+// =============================================================================
+
+.x-callout {
+  position: relative;
+  margin: ($baseMargin * 2) 0;
+  padding: 2.35em;
+  @include font-size(2.1);
+  background-color: $baseBorderSolid;
+  background-color: $baseBorderRgba;
+  @include break(cubs) {
+    @include font-size(1.8);
+  }
+  @include break(baby-bear) {
+    @include font-size(1.6);
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    background-color: $baseModBackground;
+    z-index: 0;
+  }
+
+  .x-btn {
+    font-size: 1em;
+  }
+}
+
+.h-callout {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0.365em;
+  font-size: 1.85em;
+  line-height: 1.1;
+}
+
+.p-callout {
+  position: relative;
+  line-height: 1.4;
+}
+
+
+
+// Promo
+// =============================================================================
+
+.x-promo {
+  overflow: hidden;
+  margin-bottom: $baseMargin;
+  border: 1px solid $baseBorderSolid;
+  border: 1px solid $baseBorderRgba;
+  background-color: $baseModBackground;
+
+  img {
+    min-width: 100%;
+  }
+}
+
+.x-promo-content {
+  border-top: 1px solid $baseBorderSolid;
+  border-top: 1px solid $baseBorderRgba;
+  padding: 1.5em;
+
+  img {
+    min-width: none;
+  }
+}
+
+
+
+// Post Author
+// =============================================================================
+
+.x-author-box {
+  margin: 0 0 $baseMargin;
+
+  .h-about-the-author {
+    margin: 0 0 0.925em;
+    border-bottom: 1px solid $baseBorderSolid;
+    border-bottom: 1px solid $baseBorderRgba;
+    padding-bottom: 0.45em;
+    @include font-size(1.2);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: lighten($textColor, 35%);
+  }
+
+  .avatar {
+    float: left;
+    width: 90px;
+    @include break(baby-bear) {
+      display: none;
+    }
+  }
+
+  .x-author-info {
+    margin-left: 110px;
+    @include break(baby-bear) {
+      margin-left: 0;
+    }
+  }
+
+  .h-author {
+    margin-bottom: 0.35em;
+    line-height: 1;
+  }
+
+  .x-author-social {
+    display: inline-block;
+    margin-right: 1em;
+    @include font-size(1.3);
+    white-space: nowrap;
+
+    [class*="x-social"] {
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  .p-author {
+    margin-top: 0.5em;
+  }
+}
+
+
+
+// Prompt
+// =============================================================================
+
+.x-prompt {
+  margin: 0 0 $baseMargin;
+  border: 1px solid $baseBorderSolid;
+  border: 1px solid $baseBorderRgba;
+  padding: 1.75em;
+  background-color: $baseModBackground;
+
+  &.message-left {
+    .x-prompt-section.x-prompt-section-message {
+      padding-right: 2.25em;
+      text-align: left;
+    }
+  }
+
+  &.message-right {
+    .x-prompt-section.x-prompt-section-message {
+      padding-left: 2.25em;
+      text-align: right;
+    }
+  }
+}
+
+.x-prompt-section {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  &.x-prompt-section-message {
+    width: 46%;
+    @include font-size(1.6);
+    line-height: 1.4;
+  }
+
+  &.x-prompt-section-button {
+    width: 30%;
+  }
+}
+
+.h-prompt {
+  margin-top: 0;
+  @include font-size(2.8);
+  line-height: 1.1;
+}
+
+@include break(middle-bear) {
+  .x-prompt {
+    display: block;
+
+    &.message-left {
+      .x-prompt-section.x-prompt-section-message {
+        padding: 0 0 1.25em 0;
+      }
+    }
+
+    &.message-right {
+      .x-prompt-section.x-prompt-section-message {
+        padding: 1.25em 0 0 0;
+        text-align: left;
+      }
+    }
+  }
+
+  .x-prompt-section {
+    display: block;
+
+    &.x-prompt-section-message,
+    &.x-prompt-section-button {
+      width: 100%;
+    }
+  }
+}
+
+
+
+// Content Band
+// =============================================================================
+
+.x-content-band {
+  margin: 0 0 $baseMargin;
+  padding: 40px 0;
+  @include clearfix();
+
+  &.bg-image,
+  &.bg-pattern {
+    background-position: 50% 50%;
+
+    &.parallax {
+      background-attachment: fixed;
+    }
+  }
+
+  &.bg-image {
+    -webkit-background-size: cover;
+            background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &.bg-pattern {
+    background-repeat: repeat;
+  }
+
+  &.bg-video {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &.border-top {
+    border-top: 1px solid #ddd;
+    border-top: 1px solid rgba(0, 0, 0, 0.075);
+  }
+
+  &.border-left {
+    border-left: 1px solid #ddd;
+    border-left: 1px solid rgba(0, 0, 0, 0.075);
+  }
+
+  &.border-right {
+    border-right: 1px solid #ddd;
+    border-right: 1px solid rgba(0, 0, 0, 0.075);
+  }
+
+  &.border-bottom {
+    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+  }
+
+  > .x-column:last-child,
+  > .vc-element:last-child > .x-column,
+  > .x-container-fluid > .x-column:last-child,
+  > .x-container-fluid > .vc-element:last-child > .x-column {
+    margin-right: 0;
+  }
+}
+
+
+
+// Entry Share
+// =============================================================================
+
+.x-entry-share {
+  margin: 0 0 $baseMargin;
+  border: 1px solid $baseBorderSolid;
+  border: 1px solid $baseBorderRgba;
+  border-left: 0;
+  border-right: 0;
+  padding: 10px 0;
+  @include font-size(1.2);
+  line-height: 1;
+  text-align: center;
+
+  p {
+    margin: 8px 0 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .x-share {
+    display: inline-block;
+    margin: 0 0.05em;
+    width: 45px;
+    height: 45px;
+    @include font-size(2.4);
+    line-height: 45px;
+
+    &:hover {
+      color: #fff;
+      background-color: $linkColor;
+    }
+  }
+}
+
+
+
+// Table of Contents
+// =============================================================================
+
+//
+// Container.
+//
+
+.x-toc {
+  width: 210px;
+  margin: 0.55em 0;
+  border: 1px solid $baseBorderSolid;
+  border: 1px solid $baseBorderRgba;
+  padding: 15px;
+
+  &.left  { margin-right: 1.75em; }
+  &.right { margin-left:  1.75em; }
+
+  &.left,
+  &.right {
+    @include break(baby-bear) {
+      width: auto;
+      float: none;
+      margin: 0 0 $baseMargin;
+    }
+  }
+
+  &.block {
+    width: auto;
+    margin: $baseMargin 0;
+  }
+
+  ul {
+    margin-bottom: -10px !important;
+  }
+}
+
+.h-toc {
+  margin: 0 0 10px;
+  @include font-size(1.4);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+//
+// Item.
+//
+
+.x-toc.block {
+  &.two-columns {
+    .x-toc-item {
+      float: left;
+      width: 48%;
+      margin-right: 4%;
+
+      &:nth-child(2n) { margin-right: 0; }
+    }
+  }
+
+  &.three-columns {
+    .x-toc-item {
+      float: left;
+      width: 30.66667%;
+      margin-right: 4%;
+
+      &:nth-child(3n) { margin-right: 0; }
+    }
+  }
+
+  @include break(cubs) {
+    &.three-columns .x-toc-item {
+      width: 48%;
+
+      &:nth-child(3n) { margin-right: 4%; }
+      &:nth-child(2n) { margin-right: 0;  }
+    }
+  }
+
+  @include break(baby-bear) {
+    &.two-columns .x-toc-item,
+    &.three-columns .x-toc-item {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+}
+
+.x-toc-item {
+  margin-bottom: 10px;
+  @include font-size(1.4);
+  line-height: 1.3;
+
+  a {
+    display: block;
+    border-bottom: 1px solid $shortcodeBorderColor;
+    @include text-overflow();
+  }
+}
+
+
+
+// Custom Headline
+// =============================================================================
+
+.h-custom-headline {
+  letter-spacing: -1px;
+  line-height: 1.1;
+
+  &.accent {
+    overflow: hidden;
+
+    span {
+      padding-bottom: 2px;
+      display: inline-block;
+      position: relative;
+
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        height: 1px;
+        width: 9999px;
+        display: block;
+        margin-top: -1px;
+        background-color: $baseBorderSolid;
+        background-color: $baseBorderRgba;
+      }
+
+      &:before {
+        right: 100%;
+        margin-right: 0.5em;
+      }
+
+      &:after {
+        left: 100%;
+        margin-left: 0.5em;
+      }
+    }
+  }
+}
+
+
+
+// Feature Headline
+// =============================================================================
+
+.h-feature-headline {
+  line-height: 1.1;
+
+  span {
+    display: inline-block;
+
+    i {
+      float: left;
+      width: 2em;
+      height: 2em;
+      margin-right: 0.25em;
+      font-size: 1em;
+      line-height: 2em;
+      text-align: center;
+      color: $white;
+      background-color: $headingsColor;
+      border-radius: 100em;
+    }
+  }
+}
+
+h1,
+.h1 {
+  &.h-feature-headline span i {
+    margin-top: -0.335em;
+  }
+}
+
+h2,
+.h2 {
+  &.h-feature-headline span i {
+    margin-top: -0.335em;
+  }
+}
+
+h3,
+.h3 {
+  &.h-feature-headline span i {
+    margin-top: -0.285em;
+  }
+}
+
+h4,
+.h4 {
+  &.h-feature-headline span i {
+    margin-top: -0.275em;
+  }
+}
+
+h5,
+.h5 {
+  &.h-feature-headline span i {
+    margin-top: -0.265em;
+  }
+}
+
+h6,
+.h6 {
+  &.h-feature-headline span i {
+    margin-top: -0.255em;
+  }
+}
+
+
+
+// Search
+// =============================================================================
+
+.x-search-shortcode {
+  margin-bottom: $baseMargin;
+}
+
+
+
+// Counter
+// =============================================================================
+
+.x-counter {
+  text-align: center;
+
+  .number-wrap {
+    font-size: 3.25em;
+    line-height: 1;
+  }
+
+  .text-above,
+  .text-below {
+    display: block;
+    letter-spacing: 0.125em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .text-above {
+    margin-bottom: 0.5em;
+  }
+
+  .text-below {
+    margin-top: 0.5em;
+  }
+}
+
+
+
+// Shortcode Container
+// =============================================================================
+
+.with-container {
+  border: 1px solid $baseBorderSolid;
+  border: 1px solid $baseBorderRgba;
+  padding: 2.5%;
+  background-color: $baseModBackground;
+}

@@ -1,0 +1,296 @@
+// =============================================================================
+// SCSS/SITE/STACKS/RENEW/_NAVBAR.SCSS
+// -----------------------------------------------------------------------------
+// Contains styles for the navbar.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Common Styles
+//   02. Brand
+//   03. Navigation
+//   04. Fixed Navbar
+//   05. Search
+// =============================================================================
+
+// Common Styles
+// =============================================================================
+
+.x-navbar {
+  position: relative;
+  overflow: visible;
+  background-color: $navbarBackground;
+  @include font-size(1.4);
+  z-index: $zindexNavbar;
+}
+
+
+//
+// Set width to auto for default container.
+// We then reset it for fixed navbars in the #gridSystem mixin.
+//
+
+.x-navbar .container {
+  width: auto;
+}
+
+
+//
+// Override the default collapsed state.
+//
+
+.x-nav-collapse.collapse {
+  display: block;
+  height: auto;
+}
+
+
+
+// Brand
+// =============================================================================
+
+.x-brand {
+  display: inline-block;
+  @include font-size(4.8);
+  font-weight: $navbarBrandFontWeight;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: $navbarBrandColor;
+
+  &:hover {
+    text-decoration: none;
+    color: $navbarBrandColor;
+  }
+}
+
+.x-navbar .x-brand {
+  float: left;
+  display: block;
+}
+
+
+
+// Navigation
+// =============================================================================
+
+.x-navbar .x-nav {
+  margin: 0;
+}
+
+.x-navbar .x-nav > li {
+  float: left;
+
+  &.sfHover > a,
+  &.current-menu-item > a {
+    @include box-shadow(#{0 2px 0 0 #fff});
+  }
+
+  &:last-child a {
+    margin-right: 0;
+  }
+}
+
+.masthead-inline .x-nav {
+  display: block;
+  float: right;
+}
+
+.masthead-stacked .x-nav {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  @include break(cubs) {
+    display: block;
+  }
+}
+
+
+//
+// Links.
+//
+
+.x-navbar .x-nav > li > a {
+  float: none;
+  display: inline-block;
+  margin: 0 1em;
+  padding: 0.575em 0 0.525em;
+  line-height: 1;
+  font-weight: $navbarLinkFontWeight;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: $navbarLinkColor;
+}
+
+.x-navbar .x-nav li > a {
+  &:after {
+    content: "\f103";
+    margin-left: 0.35em;
+    letter-spacing: 0;
+    @include font-awesome();
+  }
+
+  &:only-child:after {
+    content: "";
+    display: none;
+  }
+}
+
+
+//
+// Hover.
+//
+
+.x-navbar .x-nav > li > a:hover {
+  text-decoration: none;
+  background-color: $navbarLinkBackgroundHover;
+  @include box-shadow(#{0 2px 0 0 #fff});
+}
+
+
+//
+// Navbar button for toggling navbar items in responsive layouts.
+//
+
+.x-btn-navbar {
+  display: none;
+  padding: 0.458em 0.625em;
+  @include font-size(2.4);
+  line-height: 1;
+  color: $navbarLinkColor;
+  background-color: lighten($navbarBackground, 15%);
+  border-radius: 4px;
+  @include box-shadow(#{0 2px 0 0 rgba(0, 0, 0, 0.25)});
+
+  &:hover {
+    color: $navbarLinkColor;
+  }
+}
+
+.x-btn-navbar.collapsed {
+  background-color: lighten($navbarBackground, 10%);
+
+  &:hover {
+    background-color: lighten($navbarBackground, 15%);
+  }
+}
+
+
+
+// Fixed Navbar
+// =============================================================================
+
+//
+// Shared top/bottom/left/right styles.
+//
+
+.x-navbar-fixed-top,
+.x-navbar-fixed-left,
+.x-navbar-fixed-right {
+  position: fixed;
+  z-index: $zindexNavbar;
+}
+
+//
+// Top styles.
+//
+
+.x-navbar-fixed-top-active {
+  .x-navbar-wrap {
+    @include break(cubs) {
+      height: auto;
+    }
+  }
+}
+
+.x-navbar-fixed-top {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+
+//
+// Left/right styles.
+//
+
+.x-navbar-fixed-left,
+.x-navbar-fixed-right {
+  top: 0;
+  bottom: 0;
+  width: $navbarFixedSideWidth;
+
+  .x-navbar-inner {
+    height: 100%;
+
+    > .x-container-fluid.width {
+      width: 80%;
+    }
+  }
+
+  .x-brand {
+    float: none;
+    text-align: center;
+  }
+
+  .x-nav {
+    float: none;
+    margin-top: 2em;
+
+    > li {
+      float: none;
+
+      &:before {
+        display: none;
+      }
+
+      > a {
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 6px 0;
+      }
+    }
+  }
+}
+
+.x-navbar-fixed-left {
+  left: 0;
+  @include break(cubs) {
+    border-right: 0;
+  }
+
+  .x-brand {
+    text-align: left;
+  }
+}
+
+.x-navbar-fixed-right {
+  right: 0;
+  @include break(cubs) {
+    border-left: 0;
+  }
+
+  .x-brand {
+    text-align: left;
+  }
+}
+
+
+
+// Search
+// =============================================================================
+
+.x-navbar .x-nav li.menu-item-navbar-search {
+  > a {
+    letter-spacing: 0;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  @include break(cubs) {
+    text-align: center;
+  }
+}

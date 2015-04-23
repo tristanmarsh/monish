@@ -1,0 +1,39 @@
+// =============================================================================
+// SCSS/SHORTCODES-ETHOS.SCSS
+// -----------------------------------------------------------------------------
+// Contains all shortcode styles for the Ethos Stack.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Functions, Variables, and Mixins
+//   02. Shortcodes
+//   03. Utilities
+// =============================================================================
+
+// Functions, Variables, and Mixins
+// =============================================================================
+
+@import "site/inc/functions";
+@import "site/inc/variables";
+@import "site/stacks/ethos/inc/variables";
+@import "site/inc/mixins";
+@import "site/stacks/ethos/inc/mixins";
+
+
+
+// Shortcodes
+// =============================================================================
+
+@import "site/stacks/ethos/shortcodes";
+
+
+
+// Utilities
+// =============================================================================
+
+@import "site/util/main";
+@import "site/util/type";
+@import "site/util/responsive";
+@import "site/util/spacing-helpers";

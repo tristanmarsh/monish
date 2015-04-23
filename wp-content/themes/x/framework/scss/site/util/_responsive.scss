@@ -1,0 +1,126 @@
+// =============================================================================
+// SCSS/SITE/UTIL/_RESPONSIVE.SCSS
+// -----------------------------------------------------------------------------
+// Classes to be used in conjunction with media queries for showing and hding
+// various pieces of content as necessary. The table below demonstrates how
+// these classes function with the default media queries provided.
+// =============================================================================
+
+// =============================================================================
+// |      Classes	      |    <= 480px     |    <= 767px     |     >= 768px     |
+// =============================================================================
+// | .x-visible-phone   | Visible         | Hidden          | Hidden           |
+// | .x-visible-tablet  | Hidden          | Visible         | Hidden           |
+// | .x-visible-desktop | Hidden          | Hidden          | Visible          |
+// | .x-hidden-phone    | Hidden          | Visible         | Visible          |
+// | .x-hidden-tablet   | Visible         | Hidden          | Visible          |
+// | .x-hidden-desktop  | Visible         | Visible         | Hidden           |
+// =============================================================================
+
+// Visibility Utilities
+// =============================================================================
+
+//
+// Default desktop.
+// 1. Don't set initially.
+//
+
+.x-visible-phone {
+  display: none !important;
+}
+
+.x-visible-tablet {
+  display: none !important;
+}
+
+.x-visible-desktop {
+  display: inherit !important;
+}
+
+span.x-visible-desktop {
+  display: inline !important;
+}
+
+.x-hidden-phone { } // 1
+
+.x-hidden-tablet { } // 1
+
+.x-hidden-desktop {
+  display: none !important;
+}
+
+
+//
+// Breakpoint: old-bear (Portrait Tablet to Default Desktop).
+// 1. Show.
+// 2. Hide.
+// 3. Hide everything else.
+//
+
+@include break(old-bear) {
+
+  // 1
+  .x-visible-tablet {
+    display: inherit !important;
+  }
+
+  span.x-visible-tablet {
+    display: inline !important;
+  }
+  
+  // 2
+  .x-hidden-tablet {
+    display: none !important;
+  }
+  
+  // 3
+  .x-hidden-desktop {
+    display: inherit !important;
+  }
+
+  span.x-hidden-desktop {
+    display: inline !important;
+  }
+  
+  .x-visible-desktop {
+    display: none !important;
+  }
+}
+
+
+//
+// Breakpoint: middle-bear (Up to Portrait Tablet).
+// 1. Show.
+// 2. Hide.
+// 3. Show everything else.
+//
+
+@include break(middle-bear) {
+
+  // 1
+  .x-visible-phone {
+    display: inherit !important;
+  }
+
+  span.x-visible-phone {
+    display: inline !important;
+  }
+  
+  // 2
+  .x-hidden-phone {
+    display: none !important;
+  }
+  
+  // 3
+  .x-hidden-desktop {
+    display: inherit !important;
+  }
+
+  span.x-hidden-desktop {
+    display: inline !important;
+  }
+  
+  .x-visible-desktop {
+    display: none !important;
+  }
+}

@@ -21,4 +21,8 @@
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
+    <?= $this->Form->create(null, [
+        'url' => ['controller' => 'InternetConnection', 'action' => 'index']
+    ])?>
+    <?= $this->Form->button(__('Cancel')) ?>
 </div>

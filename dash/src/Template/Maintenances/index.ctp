@@ -2,6 +2,7 @@
 <?php $user = $this->Session->read('Auth.User'); ?>
 <h1>List of Maintenance Requests</h1>
 <?= $this->Html->link('Add Maintenance Request', ['action' => 'add']) ?>
+<span style="float:right"><?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
 <table>
     <tr>
         <th>Title</th>
@@ -35,19 +36,16 @@
     </tr>
     <?php endforeach; ?>
 </table>
-<p>Click here to <?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?>!</p>
 
 <p>
-
-<?php 
-	
-	if($user['role'] === 'admin') {
-		echo "Only Admins can see this: ";
-		echo $this->Html->link('Manage Users', ['controller' => 'users', 'action' => 'index']);
-	} 
-?>
-
+    <?php
+    if($user['role'] === 'admin') {
+        echo "Back to ";
+        echo $this->Html->link('Dashboard', ['controller' => 'dashboards', 'action' => 'index']);
+    }
+    ?>
 </p>
+
 
 
 

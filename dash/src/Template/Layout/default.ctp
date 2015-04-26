@@ -65,10 +65,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             </div>
         </div>
         <footer>
-
-            <div id="footer"></div>
-            © Team Dash
-
         </footer>
     </div>
 </body>

@@ -18,7 +18,7 @@
     <div class="row">
         <div class="large-5 columns strings">
             <h6 class="subheader"><?= __('User') ?></h6>
-            <p><?= $student->has('user') ? $this->Html->link($student->user->title, ['controller' => 'Users', 'action' => 'view', $student->person->id]) : '' ?></p>
+            <p><?= $student->has('user') ? $this->Html->link($student->user->title, ['controller' => 'Users', 'action' => 'view', $student->user->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Country Of Birth') ?></h6>
             <p><?= h($student->country_of_birth) ?></p>
         </div>
@@ -48,11 +48,11 @@
             <td><?= h($emergencyStudent->student_id) ?></td>
 
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['controller' => 'EmergencyStudent', 'action' => 'view', $emergencyStudent->]) ?>
+                <?= $this->Html->link(__('View'), ['controller' => 'EmergencyStudent', 'action' => 'view', $emergencyStudent->id]) ?>
 
-                <?= $this->Html->link(__('Edit'), ['controller' => 'EmergencyStudent', 'action' => 'edit', $emergencyStudent->]) ?>
+                <?= $this->Html->link(__('Edit'), ['controller' => 'EmergencyStudent', 'action' => 'edit', $emergencyStudent->id]) ?>
 
-                <?= $this->Form->postLink(__('Delete'), ['controller' => 'EmergencyStudent', 'action' => 'delete', $emergencyStudent->], ['confirm' => __('Are you sure you want to delete # {0}?', $emergencyStudent->)]) ?>
+                <?= $this->Form->postLink(__('Delete'), ['controller' => 'EmergencyStudent', 'action' => 'delete', $emergencyStudent->id], ['confirm' => __('Are you sure you want to delete # {0}?', $emergencyStudent->id)]) ?>
 
             </td>
         </tr>

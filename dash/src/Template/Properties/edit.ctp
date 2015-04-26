@@ -27,4 +27,8 @@
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
+    <?= $this->Form->create(null, [
+        'url' => ['controller' => 'Properties', 'action' => 'index']
+    ])?>
+    <?= $this->Form->button(__('Cancel')) ?>
 </div>

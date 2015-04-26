@@ -2,6 +2,7 @@
 <?php $user = $this->Session->read('Auth.User'); ?>
 <h1>Admin Panel: Manage Users</h1>
 <?= $this->Html->link('Add User', ['action' => 'add']) ?>
+<span style="float:right"><?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
 <table>
     <tr>
         <th>First Name</th>
@@ -57,6 +58,10 @@
     <?php endforeach; ?>
 </table>
 
-<p> View Maintenance <?= $this->Html->link('Requests', ['controller' => 'maintenances', 'action' => 'index']) ?> </p>
-
+<p>
+    <?php
+        echo "Back to ";
+        echo $this->Html->link('Dashboard', ['controller' => 'dashboards', 'action' => 'index']);
+    ?>
+</p>
 

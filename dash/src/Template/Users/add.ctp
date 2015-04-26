@@ -7,7 +7,7 @@
         <?= $this->Form->input('username') ?>
         <?= $this->Form->input('password') ?>
         <?= $this->Form->input('role', [
-            'options' => ['author' => 'Tenant']
+            'options' => ['tenant' => 'Tenant']
         ]) ?>
 		<?= $this->Form->input('title', [
 			'options' => ['MR' => 'Mr', 'MRS' => 'Mrs', 'MISS' => 'Miss', 'DR' => 'Dr']

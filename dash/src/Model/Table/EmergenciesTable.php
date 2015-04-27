@@ -1,16 +1,16 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\Student;
+use App\Model\Entity\Emergency;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Students Model
+ * Emergencies Model
  */
-class StudentsTable extends Table
+class EmergenciesTable extends Table
 {
 
     /**
@@ -21,20 +21,14 @@ class StudentsTable extends Table
      */
     public function initialize(array $config)
     {
-        $this->table('students');
+        $this->table('emergencies');
         $this->displayField('id');
         $this->primaryKey('id');
-        $this->belongsTo('Users', [
-            'foreignKey' => 'person_id'
-        ]);
-		$this->belongsTo('Emergencies', [
+        $this->hasMany('EmergencyStudent', [
             'foreignKey' => 'emergency_id'
         ]);
-        $this->hasMany('EmergencyStudent', [
-            'foreignKey' => 'student_id'
-        ]);
-        $this->hasMany('Leases', [
-            'foreignKey' => 'student_id'
+        $this->hasMany('Students', [
+            'foreignKey' => 'emergency_id'
         ]);
     }
 
@@ -49,11 +43,16 @@ class StudentsTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
-            ->add('expected_grad_date', 'valid', ['rule' => 'date'])
-            ->requirePresence('expected_grad_date', 'create')
-            ->notEmpty('expected_grad_date');
-            //->requirePresence('country_of_birth', 'create')
-            //->notEmpty('country_of_birth');
+            ->requirePresence('first_name', 'create')
+            ->notEmpty('first_name')
+            ->requirePresence('last_name', 'create')
+            ->notEmpty('last_name')
+            ->add('phone', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('phone', 'create')
+            ->notEmpty('phone')
+            ->add('email', 'valid', ['rule' => 'email'])
+            ->requirePresence('email', 'create')
+            ->notEmpty('email');
 
         return $validator;
     }
@@ -67,7 +66,7 @@ class StudentsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['person_id'], 'Users'));
+        $rules->add($rules->isUnique(['email']));
         return $rules;
     }
 }

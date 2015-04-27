@@ -17,7 +17,7 @@
         <?php
             echo $this->Form->input('expected_grad_date');
             echo $this->Form->input('person_id', ['options' => $user]);
-            echo $this->Form->input('country_of_birth');
+			echo $this->Form->input('emergency_id', ['options' => $emergencies]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

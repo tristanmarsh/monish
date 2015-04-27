@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2015 at 02:17 AM
+-- Generation Time: Apr 27, 2015 at 05:02 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -17,8 +17,30 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `buildzeroeight`
+-- Database: `buildone`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `emergencies`
+--
+
+CREATE TABLE IF NOT EXISTS `emergencies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(25) NOT NULL,
+  `last_name` varchar(25) NOT NULL,
+  `phone` int(11) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `emergencies`
+--
+
+INSERT INTO `emergencies` (`id`, `first_name`, `last_name`, `phone`, `email`) VALUES
+(1, 'jake', 'Mate', 812903, 'abc@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -84,13 +106,6 @@ CREATE TABLE IF NOT EXISTS `internet_connection` (
   KEY `lease_id` (`lease_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
---
--- Dumping data for table `internet_connection`
---
-
-INSERT INTO `internet_connection` (`id`, `lease_id`, `bandwidth`, `monthly_fee`, `date_start`, `date_end`, `status`) VALUES
-(1, 1, '1GB', '', '2015-04-23', '2015-09-23', '');
-
 -- --------------------------------------------------------
 
 --
@@ -108,14 +123,14 @@ CREATE TABLE IF NOT EXISTS `leases` (
   PRIMARY KEY (`id`),
   KEY `room_id` (`room_id`),
   KEY `student_id` (`student_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `leases`
 --
 
 INSERT INTO `leases` (`id`, `room_id`, `student_id`, `date_start`, `date_end`, `lease_status`, `weekly_price`) VALUES
-(1, 1, 1, '2015-04-23', '2015-10-23', 'ONGOING', 200);
+(2, 1, 4, '2015-04-27', '2015-04-27', 'ONGOING', 200);
 
 -- --------------------------------------------------------
 
@@ -218,19 +233,19 @@ CREATE TABLE IF NOT EXISTS `students` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `expected_grad_date` date NOT NULL,
   `person_id` int(11) NOT NULL,
-  `country_of_birth` varchar(20) NOT NULL,
+  `emergency_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `person_id` (`person_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  KEY `person_id` (`person_id`),
+  KEY `emergency_id` (`emergency_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `expected_grad_date`, `person_id`, `country_of_birth`) VALUES
-(1, '2015-10-23', 28, 'China'),
-(2, '2015-04-23', 29, 'Hong Kong'),
-(3, '2015-12-26', 30, 'India');
+INSERT INTO `students` (`id`, `expected_grad_date`, `person_id`, `emergency_id`) VALUES
+(4, '2015-04-27', 29, 1),
+(5, '2015-04-27', 30, 1);
 
 -- --------------------------------------------------------
 
@@ -315,7 +330,8 @@ ALTER TABLE `rooms`
 -- Constraints for table `students`
 --
 ALTER TABLE `students`
-  ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `students_ibfk_2` FOREIGN KEY (`emergency_id`) REFERENCES `emergencies` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

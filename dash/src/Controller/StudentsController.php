@@ -61,7 +61,7 @@ class StudentsController extends AppController
             }
         }
         $user = $this->Students->Users->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'first_name']);
-		$emergencies = $this->Students->Emergencies->find('list', ['limit' => 200]);
+		$emergencies = $this->Students->Emergencies->find('list', ['limit' => 200, 'keyfield' => 'id', 'valueField' => 'first_name']);
         $this->set(compact('student', 'user', 'emergencies'));
         $this->set('_serialize', ['student']);
     }
@@ -88,7 +88,7 @@ class StudentsController extends AppController
             }
         }
         $user = $this->Students->Users->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'first_name']);
-		$emergencies = $this->Students->Emergencies->find('list', ['limit' => 200]);
+		$emergencies = $this->Students->Emergencies->find('list', ['limit' => 200, 'keyfield' => 'id', 'valueField' => 'first_name']);
         $this->set(compact('student', 'user', 'emergencies'));
         $this->set('_serialize', ['student']);
     }

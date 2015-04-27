@@ -45,6 +45,8 @@
 				{echo $this->Html->link('Edit', ['action' => 'edit', $user->id]);}
 				else
 				{
+					echo $this->Html->link('View', ['action' => 'view', $user->id]); 
+					echo " "; // this puts a space between Delete and View button
 					echo $this->Form->postLink(
 					'Delete',
 					['action' => 'delete', $user->id],

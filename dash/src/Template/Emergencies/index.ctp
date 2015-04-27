@@ -1,14 +1,8 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Emergency'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Emergency Student'), ['controller' => 'EmergencyStudent', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Emergency Student'), ['controller' => 'EmergencyStudent', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Students'), ['controller' => 'Students', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Student'), ['controller' => 'Students', 'action' => 'add']) ?> </li>
-    </ul>
-</div>
-<div class="emergencies index large-10 medium-9 columns">
+<h1>Manage Emergency Contacts</h1>
+
+<!--<div class="emergencies index large-10 medium-9 columns">-->
+    <?= $this->Html->link(__('Add Emergency Contact'), ['action' => 'add']) ?>
+    <span style="float:right"><?= $this->Html->link(__('Logout'), ['controller' => 'logout', 'action' => 'add']) ?></span>
     <table cellpadding="0" cellspacing="0">
     <thead>
         <tr>
@@ -46,4 +40,10 @@
         </ul>
         <p><?= $this->Paginator->counter() ?></p>
     </div>
-</div>
+<!--</div>-->
+<p>
+    <?php
+    echo "Back to ";
+    echo $this->Html->link('Dashboard', ['controller' => 'dashboards', 'action' => 'index']);
+    ?>
+</p>

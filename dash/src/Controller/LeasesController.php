@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\Table;
 
 /**
  * Leases Controller
@@ -37,7 +38,12 @@ class LeasesController extends AppController
             'contain' => ['Rooms', 'Students', 'InternetConnection', 'Payments']
         ]);
         $this->set('lease', $lease);
+        //$lion = $this->User;
+        //$this->set('lion', $lion);
+        $query = $this->Leases->Students->get($lease->student->id, ['contain' => ['Users']]);
+        $this->set('query', $query);
         $this->set('_serialize', ['lease']);
+
     }
 
     /**

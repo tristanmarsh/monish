@@ -31,7 +31,7 @@ class EmergenciesController extends AppController
     public function view($id = null)
     {
         $emergency = $this->Emergencies->get($id, [
-            'contain' => ['EmergencyStudent', 'Students']
+            'contain' => ['EmergencyStudent', 'Students', 'Users']
         ]);
         $this->set('emergency', $emergency);
         $this->set('_serialize', ['emergency']);

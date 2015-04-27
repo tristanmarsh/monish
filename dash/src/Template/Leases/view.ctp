@@ -22,7 +22,10 @@
             <h6 class="subheader"><?= __('Room') ?></h6>
             <p><?= $lease->has('room') ? $this->Html->link($lease->room->id, ['controller' => 'Rooms', 'action' => 'view', $lease->room->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Student') ?></h6>
-            <p><?= $lease->has('student') ? $this->Html->link($lease->student->id, ['controller' => 'Students', 'action' => 'view', $lease->student->id]) : '' ?></p>
+            <p>
+                <?= $lease->has('student') ? $this->Html->link($query->user->first_name, ['controller' => 'Students', 'action' => 'view', $lease->student->id]) : '' ?>
+                <?= $lease->has('student') ? $this->Html->link($query->user->last_name, ['controller' => 'Students', 'action' => 'view', $lease->student->id]) : '' ?>
+            </p>
         </div>
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>

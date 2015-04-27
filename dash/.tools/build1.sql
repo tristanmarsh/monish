@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2015 at 04:11 PM
+-- Generation Time: Apr 27, 2015 at 02:17 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -221,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   `country_of_birth` varchar(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `person_id` (`person_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `students`
@@ -229,7 +229,8 @@ CREATE TABLE IF NOT EXISTS `students` (
 
 INSERT INTO `students` (`id`, `expected_grad_date`, `person_id`, `country_of_birth`) VALUES
 (1, '2015-10-23', 28, 'China'),
-(2, '2015-04-23', 29, 'Hong Kong');
+(2, '2015-04-23', 29, 'Hong Kong'),
+(3, '2015-12-26', 30, 'India');
 
 -- --------------------------------------------------------
 
@@ -264,9 +265,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `role`, `created`, `modified`, `title`, `first_name`, `last_name`, `gender`, `phone`, `email`, `home_country`, `city`, `suburb`, `postcode`) VALUES
 (1, 'admin', '$2y$10$ytpEvi6EvojZvBDYa18lDezDToFfQ9e64lD.gIo0r30z9uscH4xXy', 'admin', NULL, NULL, 'MR', 'Tony', 'Wise', 'M', 0, '', '', '', '', 0),
-(28, 'tenant50', '$2y$10$rsTuv7CgtHwhyjtV4BqK9Om2W33vRJKlVs1SZpP/fxeImQt1YXJHK', 'tenant', '2015-04-22 10:38:52', '2015-04-22 10:38:52', 'MR', 'jacob', '', 'M', 0, '', '', '', '', 0),
-(29, 'tenant51', '$2y$10$T2vn/qK4X/1r7h6QifMMyu229y5zDSSUAakejLXeB.Fhufop.rL5q', 'tenant', '2015-04-22 10:57:05', '2015-04-22 10:57:05', 'MR', 'mike', 'lai', 'M', 0, '', '', '', '', 0),
-(30, 'tenant1', '$2y$10$9oL26vXvDX7JJsxH6JSTwOR/Ht75vkgoxzt1QFE.isPzZgURDQOTq', 'tenant', '2015-04-25 09:33:08', '2015-04-25 09:33:08', 'MISS', 'jenny', 'lo', 'F', 0, '', '', '', '', 0);
+(28, 'tenant50', '$2y$10$rsTuv7CgtHwhyjtV4BqK9Om2W33vRJKlVs1SZpP/fxeImQt1YXJHK', 'tenant', '2015-04-22 10:38:52', '2015-04-22 10:38:52', 'MR', 'Jacob', 'Ben', 'M', 0, '', '', '', '', 0),
+(29, 'tenant51', '$2y$10$T2vn/qK4X/1r7h6QifMMyu229y5zDSSUAakejLXeB.Fhufop.rL5q', 'tenant', '2015-04-22 10:57:05', '2015-04-22 10:57:05', 'MR', 'Michael', 'Lai', 'M', 0, '', '', '', '', 0),
+(30, 'tenant1', '$2y$10$9oL26vXvDX7JJsxH6JSTwOR/Ht75vkgoxzt1QFE.isPzZgURDQOTq', 'tenant', '2015-04-25 09:33:08', '2015-04-25 09:33:08', 'MISS', 'Jenny', 'Law', 'F', 0, '', '', '', '', 0);
 
 --
 -- Constraints for dumped tables

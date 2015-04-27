@@ -1,4 +1,4 @@
-<div class="actions columns large-2 medium-3">
+<!--<div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit Student'), ['action' => 'edit', $student->id]) ?> </li>
@@ -12,18 +12,29 @@
         <li><?= $this->Html->link(__('List Leases'), ['controller' => 'Leases', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Lease'), ['controller' => 'Leases', 'action' => 'add']) ?> </li>
     </ul>
+</div>-->
+<div class="actions columns large-2 medium-3">
+    <h3><?= __('Menu') ?></h3>
+    <ul class="side-nav">
+        <li><?= $this->Html->link(__('Edit This Student'), ['action' => 'edit', $student->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete This Student'), ['action' => 'delete', $student->id], ['confirm' => __('Are you sure you want to delete # {0}?', $student->id)]) ?> </li>
+        <li><?= $this->Html->link(__('Go Back'), ['action' => 'index']) ?> </li>
+    </ul>
 </div>
 <div class="students view large-10 medium-9 columns">
-    <h2><?= h($student->id) ?></h2>
+    <h2><?= h("Student Details") ?></h2>
     <div class="row">
         <div class="large-5 columns strings">
-            <h6 class="subheader"><?= __('User') ?></h6>
-            <p><?= $student->has('user') ? $this->Html->link($student->user->title, ['controller' => 'Users', 'action' => 'view', $student->user->id]) : '' ?></p>
+            <h6 class="subheader"><?= __('Full Name') ?></h6>
+            <p>
+                <?= $student->has('user') ? $this->Html->link($student->user->first_name, ['controller' => 'Users', 'action' => 'view', $student->user->id]) : '' ?>
+                <span><?= $student->has('user') ? $this->Html->link($student->user->last_name, ['controller' => 'Users', 'action' => 'view', $student->user->id]) : '' ?></span>
+            </p>
             <h6 class="subheader"><?= __('Country Of Birth') ?></h6>
             <p><?= h($student->country_of_birth) ?></p>
         </div>
         <div class="large-2 columns numbers end">
-            <h6 class="subheader"><?= __('Id') ?></h6>
+            <h6 class="subheader"><?= __('Student ID') ?></h6>
             <p><?= $this->Number->format($student->id) ?></p>
         </div>
         <div class="large-2 columns dates end">

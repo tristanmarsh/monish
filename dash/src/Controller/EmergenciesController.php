@@ -31,9 +31,12 @@ class EmergenciesController extends AppController
     public function view($id = null)
     {
         $emergency = $this->Emergencies->get($id, [
-            'contain' => ['EmergencyStudent', 'Students', 'Users']
+            'contain' => ['EmergencyStudent', 'Students']
         ]);
         $this->set('emergency', $emergency);
+        //$lion = $this->Emergencies->Students->get($emergency->students->id, ['contain' => ['Users']]);
+        $lion = $this->Emergencies->Students->find('all', ['contain' => ['Users']]);
+        $this->set('lion', $lion);
         $this->set('_serialize', ['emergency']);
     }
 

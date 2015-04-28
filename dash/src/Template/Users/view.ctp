@@ -2,7 +2,7 @@
     <h3><?= __('Menu') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit This User'), ['action' => 'edit', $user->id]) ?> </li>
-		<li><?= $this->Html->link(__('Go Back'), ['action' => 'index']) ?> </li>
+		<li><?= $this->Html->link(__('List All Users'), ['action' => 'index']) ?> </li>
 		<br><br><br><br><br><br>
     </ul>
 	

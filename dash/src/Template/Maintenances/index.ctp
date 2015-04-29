@@ -21,7 +21,7 @@
         <td>
             <?= $article->created->format(DATE_RFC850) ?>
         </td>
-		        <td>
+		<td>
             <?= $article->modified->format(DATE_RFC850) ?>
         </td>
         <td>

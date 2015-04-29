@@ -5856,3 +5856,143 @@ Stack Trace:
 #1 {main}
 
 
+2015-04-29 12:09:02 Error: Fatal Error (4): syntax error, unexpected '$this' (T_VARIABLE) in [C:\wamp\www\monish\dash\src\Controller\MaintenancesController.php, line 45]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-29 12:09:02 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '$this' (T_VARIABLE)
+Request URL: /monish/dash/maintenances/view/9
+Stack Trace:
+#0 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\mon...', 45)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-29 12:09:14 Error: Fatal Error (4): syntax error, unexpected '$this' (T_VARIABLE) in [C:\wamp\www\monish\dash\src\Controller\MaintenancesController.php, line 45]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-29 12:09:15 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '$this' (T_VARIABLE)
+Request URL: /monish/dash/maintenances/view/9
+Stack Trace:
+#0 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\mon...', 45)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-29 12:09:34 Error: [InvalidArgumentException] Maintenances is not associated with Users
+Request URL: /monish/dash/maintenances/view/9
+Stack Trace:
+#0 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(233): Cake\ORM\EagerLoader->_normalizeContain(Object(App\Model\Table\MaintenancesTable), 'Users', Array, Array)
+#1 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(338): Cake\ORM\EagerLoader->normalized(Object(App\Model\Table\MaintenancesTable))
+#2 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(317): Cake\ORM\EagerLoader->attachableAssociations(Object(App\Model\Table\MaintenancesTable))
+#3 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(670): Cake\ORM\EagerLoader->attachAssociations(Object(Cake\ORM\Query), Object(App\Model\Table\MaintenancesTable), true)
+#4 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(626): Cake\ORM\Query->_transformQuery()
+#5 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(116): Cake\ORM\Query->sql()
+#6 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Connection.php(220): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#7 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Connection.php(272): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#8 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Query.php(175): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#9 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(645): Cake\Database\Query->execute()
+#10 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(218): Cake\ORM\Query->_execute()
+#11 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(596): Cake\ORM\Query->_all()
+#12 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(340): Cake\ORM\Query->all()
+#13 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(351): Cake\ORM\Query->first()
+#14 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Table.php(1110): Cake\ORM\Query->firstOrFail()
+#15 C:\wamp\www\monish\dash\src\Controller\MaintenancesController.php(44): Cake\ORM\Table->get('9', Array)
+#16 [internal function]: App\Controller\MaintenancesController->view('9')
+#17 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Controller\Controller.php(404): call_user_func_array(Array, Array)
+#18 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#19 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\MaintenancesController))
+#20 C:\wamp\www\monish\dash\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#21 {main}
+
+
+2015-04-29 12:10:14 Error: [InvalidArgumentException] Maintenances is not associated with Students
+Request URL: /monish/dash/maintenances/view/9
+Stack Trace:
+#0 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(233): Cake\ORM\EagerLoader->_normalizeContain(Object(App\Model\Table\MaintenancesTable), 'Students', Array, Array)
+#1 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(338): Cake\ORM\EagerLoader->normalized(Object(App\Model\Table\MaintenancesTable))
+#2 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(317): Cake\ORM\EagerLoader->attachableAssociations(Object(App\Model\Table\MaintenancesTable))
+#3 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(670): Cake\ORM\EagerLoader->attachAssociations(Object(Cake\ORM\Query), Object(App\Model\Table\MaintenancesTable), true)
+#4 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(626): Cake\ORM\Query->_transformQuery()
+#5 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(116): Cake\ORM\Query->sql()
+#6 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Connection.php(220): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#7 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Connection.php(272): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#8 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Query.php(175): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#9 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(645): Cake\Database\Query->execute()
+#10 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(218): Cake\ORM\Query->_execute()
+#11 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(596): Cake\ORM\Query->_all()
+#12 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(340): Cake\ORM\Query->all()
+#13 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(351): Cake\ORM\Query->first()
+#14 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Table.php(1110): Cake\ORM\Query->firstOrFail()
+#15 C:\wamp\www\monish\dash\src\Controller\MaintenancesController.php(44): Cake\ORM\Table->get('9', Array)
+#16 [internal function]: App\Controller\MaintenancesController->view('9')
+#17 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Controller\Controller.php(404): call_user_func_array(Array, Array)
+#18 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#19 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\MaintenancesController))
+#20 C:\wamp\www\monish\dash\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#21 {main}
+
+
+2015-04-29 12:10:36 Error: [InvalidArgumentException] Maintenances is not associated with Users
+Request URL: /monish/dash/maintenances/view/9
+Stack Trace:
+#0 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(233): Cake\ORM\EagerLoader->_normalizeContain(Object(App\Model\Table\MaintenancesTable), 'Users', Array, Array)
+#1 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(338): Cake\ORM\EagerLoader->normalized(Object(App\Model\Table\MaintenancesTable))
+#2 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(317): Cake\ORM\EagerLoader->attachableAssociations(Object(App\Model\Table\MaintenancesTable))
+#3 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(670): Cake\ORM\EagerLoader->attachAssociations(Object(Cake\ORM\Query), Object(App\Model\Table\MaintenancesTable), true)
+#4 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(626): Cake\ORM\Query->_transformQuery()
+#5 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(116): Cake\ORM\Query->sql()
+#6 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Connection.php(220): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#7 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Connection.php(272): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#8 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Query.php(175): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#9 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(645): Cake\Database\Query->execute()
+#10 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(218): Cake\ORM\Query->_execute()
+#11 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(596): Cake\ORM\Query->_all()
+#12 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(340): Cake\ORM\Query->all()
+#13 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(351): Cake\ORM\Query->first()
+#14 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Table.php(1110): Cake\ORM\Query->firstOrFail()
+#15 C:\wamp\www\monish\dash\src\Controller\MaintenancesController.php(44): Cake\ORM\Table->get('9', Array)
+#16 [internal function]: App\Controller\MaintenancesController->view('9')
+#17 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Controller\Controller.php(404): call_user_func_array(Array, Array)
+#18 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#19 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\MaintenancesController))
+#20 C:\wamp\www\monish\dash\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#21 {main}
+
+
+2015-04-29 12:10:56 Error: [InvalidArgumentException] Maintenances is not associated with Users
+Request URL: /monish/dash/maintenances/view/9
+Stack Trace:
+#0 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(233): Cake\ORM\EagerLoader->_normalizeContain(Object(App\Model\Table\MaintenancesTable), 'Users', Array, Array)
+#1 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(338): Cake\ORM\EagerLoader->normalized(Object(App\Model\Table\MaintenancesTable))
+#2 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\EagerLoader.php(317): Cake\ORM\EagerLoader->attachableAssociations(Object(App\Model\Table\MaintenancesTable))
+#3 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(670): Cake\ORM\EagerLoader->attachAssociations(Object(Cake\ORM\Query), Object(App\Model\Table\MaintenancesTable), true)
+#4 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(626): Cake\ORM\Query->_transformQuery()
+#5 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Driver\Mysql.php(116): Cake\ORM\Query->sql()
+#6 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Connection.php(220): Cake\Database\Driver\Mysql->prepare(Object(Cake\ORM\Query))
+#7 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Connection.php(272): Cake\Database\Connection->prepare(Object(Cake\ORM\Query))
+#8 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Database\Query.php(175): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#9 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(645): Cake\Database\Query->execute()
+#10 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(218): Cake\ORM\Query->_execute()
+#11 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Query.php(596): Cake\ORM\Query->_all()
+#12 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(340): Cake\ORM\Query->all()
+#13 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Datasource\QueryTrait.php(351): Cake\ORM\Query->first()
+#14 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Table.php(1110): Cake\ORM\Query->firstOrFail()
+#15 C:\wamp\www\monish\dash\src\Controller\MaintenancesController.php(44): Cake\ORM\Table->get('9', Array)
+#16 [internal function]: App\Controller\MaintenancesController->view('9')
+#17 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Controller\Controller.php(404): call_user_func_array(Array, Array)
+#18 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#19 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\MaintenancesController))
+#20 C:\wamp\www\monish\dash\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#21 {main}
+
+

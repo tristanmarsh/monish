@@ -31,14 +31,13 @@
     <?php if (!empty($emergency->students)): ?>
     <table cellpadding="0" cellspacing="0">
         <tr>
-            <th><?= __('Student Name') ?></th>
+            <th><?= __('Student') ?></th>
             <th><?= __('Expected Grad Date') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         <?php foreach ($emergency->students as $students): ?>
-            <?php foreach ($lion as $lions): ?>
         <tr>
-            <td><?= h($lions->user->first_name) ?> <?= h($lions->user->last_name) ?></td>
+            <td><?= h($students->id) ?></td>
             <td><?= h($students->expected_grad_date->format('Y M d')) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['controller' => 'Students', 'action' => 'view', $students->id]) ?>
@@ -48,7 +47,6 @@
         </tr>
 
             <?php endforeach; ?>
-        <?php endforeach; ?>
     </table>
     <?php endif; ?>
     </div>

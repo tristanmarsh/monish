@@ -38,6 +38,8 @@ class RoomsController extends AppController
         ]);
         $this->set('room', $room);
         $this->set('_serialize', ['room']);
+        $lion = $this->Rooms->Leases->find('all');
+        $this->set('lion', $lion);
     }
 
     /**

@@ -44,7 +44,9 @@ class RoomsTable extends Table
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
             ->requirePresence('vacant', 'create')
-            ->notEmpty('vacant');
+            ->notEmpty('vacant')
+            ->notEmpty('property_id')
+            ->notEmpty('room_name');
 
         return $validator;
     }

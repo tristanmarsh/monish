@@ -19,10 +19,10 @@
             <?= $this->Html->link($article->title, ['action' => 'view', $article->id]) ?>
         </td>
         <td>
-            <?= $article->created->format(DATE_RFC850) ?>
+            <?= $article->created->format('d M Y H:i:s') ?>
         </td>
 		<td>
-            <?= $article->modified->format(DATE_RFC850) ?>
+            <?= $article->modified->format('d M Y H:i:s') ?>
         </td>
         <td>
 			<?php 

@@ -159,7 +159,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <p>
                     Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
                 </p>
-
+                
                 <ul>
                     <li><a href="http://cakefoundation.org/">Cake Software Foundation</a>
                     <ul><li>Promoting development related to CakePHP</li></ul></li>

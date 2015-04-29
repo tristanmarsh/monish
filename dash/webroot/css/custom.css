@@ -38,4 +38,15 @@ header {
   padding: 5px;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/custom\.scss}line{font-family:\0000349}}
+.sidebar {
+  z-index: 1000;
+  display: block;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  border-right: 1px solid #eee;
+}
+
 /*# sourceMappingURL=custom.css.map */

@@ -5856,3 +5856,247 @@ Stack Trace:
 #1 {main}
 
 
+2015-04-29 12:52:59 Error: Fatal Error (4): syntax error, unexpected 'if' (T_IF) in [/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp, line 92]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-29 12:52:59 Error: [Cake\Error\FatalErrorException] syntax error, unexpected 'if' (T_IF)
+Request URL: /monish/dash/dashboards
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/Applications/M...', 92)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-29 12:54:34 Error: Fatal Error (4): syntax error, unexpected '}' in [/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp, line 97]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-29 12:54:34 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '}'
+Request URL: /monish/dash/
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/Applications/M...', 97)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-29 13:06:22 Error: Fatal Error (4): syntax error, unexpected ':' in [/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp, line 117]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-29 13:06:22 Error: [Cake\Error\FatalErrorException] syntax error, unexpected ':'
+Request URL: /monish/dash/dashboards
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/Applications/M...', 117)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-29 13:06:47 Error: Fatal Error (4): syntax error, unexpected ':' in [/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp, line 117]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-29 13:06:47 Error: [Cake\Error\FatalErrorException] syntax error, unexpected ':'
+Request URL: /monish/dash/dashboards
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/Applications/M...', 117)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-29 13:06:48 Error: Fatal Error (4): syntax error, unexpected ':' in [/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp, line 117]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-29 13:06:48 Error: [Cake\Error\FatalErrorException] syntax error, unexpected ':'
+Request URL: /monish/dash/dashboards
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/Applications/M...', 117)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-29 13:06:53 Error: Fatal Error (4): syntax error, unexpected ':', expecting ',' or ';' in [/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp, line 117]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-29 13:06:53 Error: [Cake\Error\FatalErrorException] syntax error, unexpected ':', expecting ',' or ';'
+Request URL: /monish/dash/dashboards
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/Applications/M...', 117)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-29 13:07:01 Error: Fatal Error (4): syntax error, unexpected '<' in [/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp, line 120]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-29 13:07:01 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '<'
+Request URL: /monish/dash/dashboards
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/Applications/M...', 120)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-29 13:07:04 Error: Fatal Error (4): syntax error, unexpected 'endif' (T_ENDIF) in [/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp, line 128]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-29 13:07:04 Error: [Cake\Error\FatalErrorException] syntax error, unexpected 'endif' (T_ENDIF)
+Request URL: /monish/dash/dashboards
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/Applications/M...', 128)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-29 13:08:34 Error: [Cake\Routing\Exception\MissingControllerException] Controller class <aHref= could not be found.
+Exception Attributes: array (
+  'class' => '<aHref=',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/%3Ca%20href=
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-29 13:08:35 Error: [Cake\Routing\Exception\MissingControllerException] Controller class <aHref= could not be found.
+Exception Attributes: array (
+  'class' => '<aHref=',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/%3Ca%20href=
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-29 13:09:19 Error: [Cake\Routing\Exception\MissingControllerException] Controller class <aHref= could not be found.
+Exception Attributes: array (
+  'class' => '<aHref=',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/%3Ca%20href=
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-29 13:09:36 Error: [Cake\Routing\Exception\MissingControllerException] Controller class <aHref= could not be found.
+Exception Attributes: array (
+  'class' => '<aHref=',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/%3Ca%20href=
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-29 13:11:52 Error: Fatal Error (4): syntax error, unexpected end of file in [/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp, line 182]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-29 13:11:52 Error: [Cake\Error\FatalErrorException] syntax error, unexpected end of file
+Request URL: /monish/dash/
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/Applications/M...', 182)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-29 13:12:01 Error: Fatal Error (4): syntax error, unexpected end of file in [/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp, line 182]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-29 13:12:01 Error: [Cake\Error\FatalErrorException] syntax error, unexpected end of file
+Request URL: /monish/dash/
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/Applications/M...', 182)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-29 13:12:40 Error: Fatal Error (4): syntax error, unexpected end of file in [/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp, line 183]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-29 13:12:40 Error: [Cake\Error\FatalErrorException] syntax error, unexpected end of file
+Request URL: /monish/dash/
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/Applications/M...', 183)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-29 13:12:44 Error: Fatal Error (4): syntax error, unexpected end of file in [/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp, line 183]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE/src/Error/BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE/src/Error/BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-29 13:12:44 Error: [Cake\Error\FatalErrorException] syntax error, unexpected end of file
+Request URL: /monish/dash/
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Error/BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', '/Applications/M...', 183)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+

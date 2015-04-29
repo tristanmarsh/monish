@@ -1,7 +1,41 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/custom\.scss}line{font-family:\000034}}
-.navbar-logo img {
+/*
+Name:		Custom.SCSS
+Author:		Team Dash
+Author URI:	http://wiki.tristanmarsh.net/dash/
+Purpose:	All custom styling for the Monish Dashboard
+Since:		29/4/15
+
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/custom\.scss}line{font-family:\0000316}}
+a {
+  color: #76AADB;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/custom\.scss}line{font-family:\0000319}}
+header {
+  height: auto;
+  padding-top: 0;
+  background-color: #76AADB;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/custom\.scss}line{font-family:\0000325}}
+.navbar-image img {
   max-width: 100%;
-  height: 40px;
+  height: 40px !important;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/custom\.scss}line{font-family:\0000330}}
+.breadcrumb {
+  display: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/custom\.scss}line{font-family:\0000336}}
+.navbar {
+  position: static;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/custom\.scss}line{font-family:\0000339}}
+.navbar .navbar-brand {
+  padding: 5px;
 }
 
 /*# sourceMappingURL=custom.css.map */

@@ -8,6 +8,12 @@
         <li><?= $this->Html->link(__('New Lease'), ['controller' => 'Leases', 'action' => 'add']) ?> </li>
     </ul>
 </div>-->
+
+<?php
+    $this->Html->addCrumb('Users', '/users');
+    $this->Html->addCrumb('Add User', array('controller' => 'users', 'action' => 'add'));
+?>
+
 <h1>Manage Students</h1>
 <?= $this->Html->link('Add Student', ['action' => 'add']) ?>
 <span style="float:right"><?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>

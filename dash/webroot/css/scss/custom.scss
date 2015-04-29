@@ -1,7 +1,42 @@
+/*
+Name:		Custom.SCSS
+Author:		Team Dash
+Author URI:	http://wiki.tristanmarsh.net/dash/
+Purpose:	All custom styling for the Monish Dashboard
+Since:		29/4/15
+
+*/
 
 
+// @import ('')
 
-.navbar-logo img {
-	max-width:100%;
-	height:40px;
+
+// #### GLOBAL ####
+
+a {color:#76AADB;}
+
+// #### HEADER ####
+header {
+	height: auto;
+	padding-top: 0;
+	background-color: #76AADB;
+}
+
+.navbar-image img {
+	max-width: 100%;
+	height: 40px!important;
+}
+
+.breadcrumb {
+	display:none;
+}
+
+// #### NAVBAR ####
+
+.navbar {
+	position: static;
+
+	.navbar-brand {
+		padding:5px;
+	}
 }

@@ -2,7 +2,7 @@
 
 <h1><?= h($giraffe->title) ?></h1>
 <p><?= h($giraffe->description) ?></p>
-<p>Maintenace Requested By: <?= h($lion->user->first_name)?><?= h($lion->user->last_name)?></p>
+<p>Maintenace Requested By: <?= h($lion->user->first_name)?> <?= h($lion->user->last_name)?></p>
 <p><small>Created: <?= $giraffe->created->format(DATE_RFC850) ?></small></p>
 
 <p>

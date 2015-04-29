@@ -1,14 +1,9 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+    <h3><?= __('Menu') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit Room'), ['action' => 'edit', $room->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Room'), ['action' => 'delete', $room->id], ['confirm' => __('Are you sure you want to delete # {0}?', $room->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Rooms'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Room'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Properties'), ['controller' => 'Properties', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Property'), ['controller' => 'Properties', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Leases'), ['controller' => 'Leases', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Lease'), ['controller' => 'Leases', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Edit This Room'), ['action' => 'edit', $room->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete This Room'), ['action' => 'delete', $room->id], ['confirm' => __('Are you sure you want to delete # {0}?', $room->id)]) ?> </li>
+        <li><?= $this->Html->link(__('List All Rooms'), ['action' => 'index']) ?> </li>
     </ul>
 </div>
 <div class="rooms view large-10 medium-9 columns">
@@ -16,7 +11,7 @@
     <div class="row">
         <div class="large-5 columns strings">
             <h6 class="subheader"><?= __('Property') ?></h6>
-            <p><?= $room->has('property') ? $this->Html->link($room->property->id, ['controller' => 'Properties', 'action' => 'view', $room->property->id]) : '' ?></p>
+            <p><?= $room->has('property') ? $this->Html->link($room->property->address, ['controller' => 'Properties', 'action' => 'view', $room->property->id]) : '' ?></p>
         </div>
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>
@@ -37,8 +32,6 @@
     <?php if (!empty($room->leases)): ?>
     <table cellpadding="0" cellspacing="0">
         <tr>
-            <th><?= __('Id') ?></th>
-            <th><?= __('Room Id') ?></th>
             <th><?= __('Student Id') ?></th>
             <th><?= __('Date Start') ?></th>
             <th><?= __('Date End') ?></th>
@@ -47,14 +40,13 @@
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         <?php foreach ($room->leases as $leases): ?>
+            <?php foreach ($lion as $lions): ?>
         <tr>
-            <td><?= h($leases->id) ?></td>
-            <td><?= h($leases->room_id) ?></td>
-            <td><?= h($leases->student_id) ?></td>
-            <td><?= h($leases->date_start) ?></td>
-            <td><?= h($leases->date_end) ?></td>
+            <td><?= h($lions) ?></td>
+            <td><?= h($leases->date_start->format('Y M d')) ?></td>
+            <td><?= h($leases->date_end->format('Y M d')) ?></td>
             <td><?= h($leases->lease_status) ?></td>
-            <td><?= h($leases->weekly_price) ?></td>
+            <td><?= h($this->Number->currency($leases->weekly_price)) ?></td>
 
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['controller' => 'Leases', 'action' => 'view', $leases->id]) ?>
@@ -63,6 +55,7 @@
             </td>
         </tr>
 
+        <?php endforeach; ?>
         <?php endforeach; ?>
     </table>
     <?php endif; ?>

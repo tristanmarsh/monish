@@ -43,7 +43,7 @@ class AppController extends Controller
         $this->loadComponent('Auth', [
             'authorize' => ['Controller'], // Added this line        But what does this do??? need to find out
             'loginRedirect' => [
-                'controller' => 'Dashboards',
+                'controller' => 'Maintenances',
                 'action' => 'index'
             ],
             'logoutRedirect' => [

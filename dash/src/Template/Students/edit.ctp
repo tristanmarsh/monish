@@ -10,8 +10,6 @@
         <li><?= $this->Html->link(__('List Students'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Emergency Student'), ['controller' => 'EmergencyStudent', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Emergency Student'), ['controller' => 'EmergencyStudent', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Leases'), ['controller' => 'Leases', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Lease'), ['controller' => 'Leases', 'action' => 'add']) ?> </li>
     </ul>
@@ -23,7 +21,7 @@
         <?php
             echo $this->Form->input('expected_grad_date');
             echo $this->Form->input('person_id', ['options' => $user]);
-            echo $this->Form->input('country_of_birth');
+			echo $this->Form->input('emergency_id', ['options' => $emergencies]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

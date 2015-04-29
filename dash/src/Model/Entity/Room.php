@@ -19,5 +19,6 @@ class Room extends Entity
         'vacant' => true,
         'property' => true,
         'leases' => true,
+        'room_name' => true,
     ];
 }

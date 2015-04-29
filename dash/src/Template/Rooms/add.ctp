@@ -13,8 +13,11 @@
     <fieldset>
         <legend><?= __('Add Room') ?></legend>
         <?php
+            echo $this->Form->input('room_name');
             echo $this->Form->input('property_id', ['options' => $properties]);
-            echo $this->Form->input('vacant');
+            echo $this->Form->input('vacant', [
+                'options' => ['TRUE' => 'Yes', 'FALSE' => 'No']
+            ]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

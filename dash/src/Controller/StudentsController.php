@@ -34,7 +34,7 @@ class StudentsController extends AppController
     public function view($id = null)
     {
         $student = $this->Students->get($id, [
-            'contain' => ['Users', 'EmergencyStudent', 'Leases']
+            'contain' => ['Users', 'EmergencyStudent', 'Leases', 'Emergencies']
         ]);
         $this->set('student', $student);
         $this->set('_serialize', ['student']);
@@ -61,7 +61,8 @@ class StudentsController extends AppController
             }
         }
         $user = $this->Students->Users->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'first_name']);
-        $this->set(compact('student', 'user'));
+		$emergencies = $this->Students->Emergencies->find('list', ['limit' => 200, 'keyfield' => 'id', 'valueField' => 'first_name']);
+        $this->set(compact('student', 'user', 'emergencies'));
         $this->set('_serialize', ['student']);
     }
 
@@ -87,7 +88,8 @@ class StudentsController extends AppController
             }
         }
         $user = $this->Students->Users->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'first_name']);
-        $this->set(compact('student', 'user'));
+		$emergencies = $this->Students->Emergencies->find('list', ['limit' => 200, 'keyfield' => 'id', 'valueField' => 'first_name']);
+        $this->set(compact('student', 'user', 'emergencies'));
         $this->set('_serialize', ['student']);
     }
 

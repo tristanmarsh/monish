@@ -27,6 +27,9 @@ class StudentsTable extends Table
         $this->belongsTo('Users', [
             'foreignKey' => 'person_id'
         ]);
+		$this->belongsTo('Emergencies', [
+            'foreignKey' => 'emergency_id'
+        ]);
         $this->hasMany('EmergencyStudent', [
             'foreignKey' => 'student_id'
         ]);
@@ -48,9 +51,9 @@ class StudentsTable extends Table
             ->allowEmpty('id', 'create')
             ->add('expected_grad_date', 'valid', ['rule' => 'date'])
             ->requirePresence('expected_grad_date', 'create')
-            ->notEmpty('expected_grad_date')
-            ->requirePresence('country_of_birth', 'create')
-            ->notEmpty('country_of_birth');
+            ->notEmpty('expected_grad_date');
+            //->requirePresence('country_of_birth', 'create')
+            //->notEmpty('country_of_birth');
 
         return $validator;
     }

@@ -4450,7 +4450,37 @@ Stack Trace:
 #1 {main}
 
 
+<<<<<<< Updated upstream
 2015-04-29 08:08:17 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+>>>>>>> Stashed changes
+=======
+2015-04-29 08:06:40 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+Exception Attributes: array (
+  'class' => 'Css',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/css/bootstrap.css
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-29 08:06:41 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+Exception Attributes: array (
+  'class' => 'Css',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/css/custom.css
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-29 08:06:43 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 >>>>>>> Stashed changes
 Exception Attributes: array (
   'class' => 'Css',
@@ -4459,8 +4489,38 @@ Exception Attributes: array (
   '_ext' => NULL,
 )
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 Request URL: /monish/dash/css/bootstrap.css
 =======
+Request URL: /monish/dash/css/custom.css
+>>>>>>> Stashed changes
+=======
+Request URL: /monish/dash/css/bootstrap.css
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-29 08:06:43 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+Exception Attributes: array (
+  'class' => 'Css',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/css/custom.css
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-29 08:08:17 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+Exception Attributes: array (
+  'class' => 'Css',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
 Request URL: /monish/dash/css/custom.css
 >>>>>>> Stashed changes
 Stack Trace:
@@ -4469,7 +4529,11 @@ Stack Trace:
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 2015-04-29 10:10:50 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+=======
+2015-04-29 08:08:17 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+>>>>>>> Stashed changes
 =======
 2015-04-29 08:08:17 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 >>>>>>> Stashed changes
@@ -4486,7 +4550,11 @@ Stack Trace:
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 2015-04-29 10:13:01 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+=======
+2015-04-29 08:08:26 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+>>>>>>> Stashed changes
 =======
 2015-04-29 08:08:26 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 >>>>>>> Stashed changes
@@ -4503,8 +4571,11 @@ Stack Trace:
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 2015-04-29 10:13:03 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 =======
+=======
+>>>>>>> Stashed changes
 2015-04-29 08:08:26 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 Exception Attributes: array (
   'class' => 'Css',
@@ -4554,6 +4625,9 @@ Stack Trace:
 
 
 2015-04-29 08:10:58 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 Exception Attributes: array (
   'class' => 'Css',
@@ -4568,7 +4642,11 @@ Stack Trace:
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 2015-04-29 10:13:16 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+=======
+2015-04-29 08:22:47 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+>>>>>>> Stashed changes
 =======
 2015-04-29 08:22:47 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 >>>>>>> Stashed changes
@@ -4585,8 +4663,11 @@ Stack Trace:
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 2015-04-29 10:15:04 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 =======
+=======
+>>>>>>> Stashed changes
 2015-04-29 08:22:47 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 Exception Attributes: array (
   'class' => 'Css',
@@ -4614,6 +4695,9 @@ Stack Trace:
 
 
 2015-04-29 08:23:03 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 Exception Attributes: array (
   'class' => 'Css',
@@ -4628,7 +4712,11 @@ Stack Trace:
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 2015-04-29 10:15:08 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+=======
+2015-04-29 08:32:30 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+>>>>>>> Stashed changes
 =======
 2015-04-29 08:32:30 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 >>>>>>> Stashed changes
@@ -4645,7 +4733,11 @@ Stack Trace:
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 2015-04-29 10:16:58 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+=======
+2015-04-29 08:32:38 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+>>>>>>> Stashed changes
 =======
 2015-04-29 08:32:38 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 >>>>>>> Stashed changes
@@ -4662,7 +4754,11 @@ Stack Trace:
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 2015-04-29 10:36:50 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+=======
+2015-04-29 08:32:43 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+>>>>>>> Stashed changes
 =======
 2015-04-29 08:32:43 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 >>>>>>> Stashed changes
@@ -4679,8 +4775,11 @@ Stack Trace:
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 2015-04-29 10:39:00 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 =======
+=======
+>>>>>>> Stashed changes
 2015-04-29 08:56:30 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 Exception Attributes: array (
   'class' => 'Css',
@@ -4851,6 +4950,9 @@ Stack Trace:
 
 
 2015-04-29 09:02:52 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 Exception Attributes: array (
   'class' => 'Css',
@@ -4865,8 +4967,11 @@ Stack Trace:
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 2015-04-29 10:41:51 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 =======
+=======
+>>>>>>> Stashed changes
 2015-04-29 09:02:53 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Bootstrap could not be found.
 Exception Attributes: array (
   'class' => 'Bootstrap',
@@ -4894,6 +4999,9 @@ Stack Trace:
 
 
 2015-04-29 09:04:03 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 Exception Attributes: array (
   'class' => 'Css',
@@ -4908,8 +5016,11 @@ Stack Trace:
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 2015-04-29 10:41:53 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 =======
+=======
+>>>>>>> Stashed changes
 2015-04-29 09:04:04 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 Exception Attributes: array (
   'class' => 'Css',
@@ -4924,6 +5035,9 @@ Stack Trace:
 
 
 2015-04-29 09:04:09 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 Exception Attributes: array (
   'class' => 'Css',
@@ -4938,6 +5052,7 @@ Stack Trace:
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 >>>>>>> Stashed changes
 =======
@@ -4945,6 +5060,8 @@ Stack Trace:
 =======
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 2015-04-29 09:04:58 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
 Exception Attributes: array (
   'class' => 'Css',
@@ -5461,4 +5578,7 @@ Stack Trace:
 #2 {main}
 
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

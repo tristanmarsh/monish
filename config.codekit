@@ -637,6 +637,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/dash\/src\/Template\/Layout\/default.ctp": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/dash\/src\/Template\/Layout\/default.ctp",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/dash\/src\/Template\/Layout\/Email\/html\/default.ctp": {
 		"fileType": 8192,
 		"ignore": 0,

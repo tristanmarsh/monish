@@ -25,12 +25,6 @@ class LeasesController extends AppController
         $this->set('_serialize', ['leases']);
         $lion = $this->Leases->Students->find('all', ['contain' => ['Users']]);
         $this->set('lion', $lion);
-        $test = $this->Leases->get(null, [
-            'contain' => ['Rooms', 'Students']
-        ]);
-        $this->set('test', $test);
-        $tiger = $this->Leases->Students->get($test->student->id);
-        $this->set('tiger', $tiger);
     }
 
     /**

@@ -9,7 +9,7 @@ Manage:<br>
     <?= $this->Html->link('Leases', ['controller' => 'leases', 'action' => 'index']) ?><br>
     <?= $this->Html->link('Properties', ['controller' => 'properties', 'action' => 'index']) ?><br>
     <?= $this->Html->link('Rooms', ['controller' => 'rooms', 'action' => 'index']) ?><br>
-
+    <span style="float:right"><?= $this->html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
 </p>
 
 

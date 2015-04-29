@@ -574,15 +574,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/dash\/src\/Template\/Error\/pdo_error.ctp": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/dash\/src\/Template\/Error\/pdo_error.ctp",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/dash\/src\/Template\/Homepages\/index.ctp": {
 		"fileType": 8192,
 		"ignore": 0,
@@ -20910,9 +20901,20 @@
 		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 51285,
+		"initialSize": 50938,
 		"inputAbbreviatedPath": "\/dash\/webroot\/img\/logo-monish.png",
 		"outputAbbreviatedPath": "\/dash\/webroot\/img\/logo-monish.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/dash\/webroot\/img\/logo-monish2.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 51285,
+		"inputAbbreviatedPath": "\/dash\/webroot\/img\/logo-monish2.png",
+		"outputAbbreviatedPath": "\/dash\/webroot\/img\/logo-monish2.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -35036,6 +35038,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/wp-content\/plugins\/wordfence\/lib\/wordfenceURLHoover.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/wp-content\/plugins\/wordfence\/tmp\/configCache.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/wp-content\/plugins\/wordfence\/tmp\/configCache.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0

@@ -11,7 +11,7 @@
     <div class="row">
         <div class="large-5 columns strings">
             <h6 class="subheader"><?= __('Room') ?></h6>
-            <p><?= $lease->has('room') ? $this->Html->link($lease->room->id, ['controller' => 'Rooms', 'action' => 'view', $lease->room->id]) : '' ?></p>
+            <p><?= $lease->has('room') ? $this->Html->link($lease->room->room_name, ['controller' => 'Rooms', 'action' => 'view', $lease->room->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Student') ?></h6>
             <p>
                 <?= $lease->has('student') ? $this->Html->link($query->user->first_name, ['controller' => 'Students', 'action' => 'view', $lease->student->id]) : '' ?>

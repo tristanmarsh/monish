@@ -78,7 +78,6 @@
         <tr>
             <th><?= __('Id') ?></th>
             <th><?= __('Room Id') ?></th>
-            <th><?= __('Student Id') ?></th>
             <th><?= __('Date Start') ?></th>
             <th><?= __('Date End') ?></th>
             <th><?= __('Lease Status') ?></th>
@@ -89,7 +88,6 @@
         <tr>
             <td><?= h($leases->id) ?></td>
             <td><?= h($leases->room_id) ?></td>
-            <td><?= h($leases->student_id) ?></td>
             <td><?= h($leases->date_start) ?></td>
             <td><?= h($leases->date_end) ?></td>
             <td><?= h($leases->lease_status) ?></td>

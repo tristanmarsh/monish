@@ -1,6 +1,6 @@
 <!-- File: src/Template/Users/index.ctp -->
 <?php $user = $this->Session->read('Auth.User'); ?>
-<h1>Admin Panel: Manage Users</h1>
+<h1>Manage Users</h1>
 <?= $this->Html->link('Add User', ['action' => 'add']) ?>
 <span style="float:right"><?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
 <table>
@@ -45,6 +45,8 @@
 				{echo $this->Html->link('Edit', ['action' => 'edit', $user->id]);}
 				else
 				{
+					echo $this->Html->link('View', ['action' => 'view', $user->id]); 
+					echo " "; // this puts a space between Delete and View button
 					echo $this->Form->postLink(
 					'Delete',
 					['action' => 'delete', $user->id],

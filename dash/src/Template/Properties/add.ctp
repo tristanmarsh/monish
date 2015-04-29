@@ -1,11 +1,3 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('List Properties'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Rooms'), ['controller' => 'Rooms', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Room'), ['controller' => 'Rooms', 'action' => 'add']) ?> </li>
-    </ul>
-</div>
 <div class="properties form large-10 medium-9 columns">
     <?= $this->Form->create($property); ?>
     <fieldset>
@@ -13,10 +5,18 @@
         <?php
             echo $this->Form->input('address');
             echo $this->Form->input('number_rooms');
-            echo $this->Form->input('bathrooms');
-            echo $this->Form->input('kitchens');
-            echo $this->Form->input('storeys');
-            echo $this->Form->input('garage');
+            echo $this->Form->input('bathrooms', [
+                'options' => ['0' => 'None', '1', '2', '3', '4']
+            ]);
+            echo $this->Form->input('kitchens', [
+                'options' => ['0' => 'None', '1', '2']
+            ]);
+            echo $this->Form->input('storeys', [
+                'options' => ['1', '2', '3']
+            ]);
+            echo $this->Form->input('garage', [
+                'options' => ['TRUE' => 'Yes', 'FALSE' => 'No']
+            ]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

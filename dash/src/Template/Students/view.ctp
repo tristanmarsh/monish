@@ -18,7 +18,7 @@
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit This Student'), ['action' => 'edit', $student->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete This Student'), ['action' => 'delete', $student->id], ['confirm' => __('Are you sure you want to delete # {0}?', $student->id)]) ?> </li>
-        <li><?= $this->Html->link(__('Go Back'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('List All Students'), ['action' => 'index']) ?> </li>
     </ul>
 </div>
 <div class="students view large-10 medium-9 columns">
@@ -30,8 +30,6 @@
                 <?= $student->has('user') ? $this->Html->link($student->user->first_name, ['controller' => 'Users', 'action' => 'view', $student->user->id]) : '' ?>
                 <span><?= $student->has('user') ? $this->Html->link($student->user->last_name, ['controller' => 'Users', 'action' => 'view', $student->user->id]) : '' ?></span>
             </p>
-            <h6 class="subheader"><?= __('Country Of Birth') ?></h6>
-            <p><?= h($student->country_of_birth) ?></p>
         </div>
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Student ID') ?></h6>
@@ -45,30 +43,29 @@
 </div>
 <div class="related row">
     <div class="column large-12">
-    <h4 class="subheader"><?= __('Related EmergencyStudent') ?></h4>
-    <?php if (!empty($student->emergency_student)): ?>
+    <h4 class="subheader"><?= __('Emergency Contact') ?></h4>
+    <?php if (!empty($student->emergency)): ?>
     <table cellpadding="0" cellspacing="0">
         <tr>
-            <th><?= __('Emergency Id') ?></th>
-            <th><?= __('Student Id') ?></th>
+            <th><?= __('First Name') ?></th>
+            <th><?= __('Last Name') ?></th>
+            <th><?= __('Phone') ?></th>
+            <th><?= __('Email') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
-        <?php foreach ($student->emergency_student as $emergencyStudent): ?>
         <tr>
-            <td><?= h($emergencyStudent->emergency_id) ?></td>
-            <td><?= h($emergencyStudent->student_id) ?></td>
+            <td><?= h($student->emergency->first_name) ?></td>
+            <td><?= h($student->emergency->last_name) ?></td>
+            <td><?= h($student->emergency->phone) ?></td>
+            <td><?= h($student->emergency->email) ?></td>
 
             <td class="actions">
-                <?= $this->Html->link(__('View'), ['controller' => 'EmergencyStudent', 'action' => 'view', $emergencyStudent->id]) ?>
+                <?= $this->Html->link(__('View'), ['controller' => 'Emergencies', 'action' => 'view', $student->emergency->id]) ?>
 
-                <?= $this->Html->link(__('Edit'), ['controller' => 'EmergencyStudent', 'action' => 'edit', $emergencyStudent->id]) ?>
-
-                <?= $this->Form->postLink(__('Delete'), ['controller' => 'EmergencyStudent', 'action' => 'delete', $emergencyStudent->id], ['confirm' => __('Are you sure you want to delete # {0}?', $emergencyStudent->id)]) ?>
-
+                <?= $this->Html->link(__('Edit'), ['controller' => 'Emergencies', 'action' => 'edit', $student->emergency->id]) ?>
+				
             </td>
         </tr>
-
-        <?php endforeach; ?>
     </table>
     <?php endif; ?>
     </div>

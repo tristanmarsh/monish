@@ -1,40 +1,34 @@
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit Lease'), ['action' => 'edit', $lease->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Lease'), ['action' => 'delete', $lease->id], ['confirm' => __('Are you sure you want to delete # {0}?', $lease->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Leases'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Lease'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Rooms'), ['controller' => 'Rooms', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Room'), ['controller' => 'Rooms', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Students'), ['controller' => 'Students', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Student'), ['controller' => 'Students', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Internet Connection'), ['controller' => 'InternetConnection', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Internet Connection'), ['controller' => 'InternetConnection', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Payments'), ['controller' => 'Payments', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Payment'), ['controller' => 'Payments', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Edit This Lease'), ['action' => 'edit', $lease->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete This Lease'), ['action' => 'delete', $lease->id], ['confirm' => __('Are you sure you want to delete # {0}?', $lease->id)]) ?> </li>
+        <li><?= $this->Html->link(__('List All Leases'), ['action' => 'index']) ?> </li>
     </ul>
 </div>
 <div class="leases view large-10 medium-9 columns">
-    <h2><?= h($lease->id) ?></h2>
+    <h2>Lease Details</h2>
     <div class="row">
         <div class="large-5 columns strings">
             <h6 class="subheader"><?= __('Room') ?></h6>
             <p><?= $lease->has('room') ? $this->Html->link($lease->room->id, ['controller' => 'Rooms', 'action' => 'view', $lease->room->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Student') ?></h6>
-            <p><?= $lease->has('student') ? $this->Html->link($lease->student->id, ['controller' => 'Students', 'action' => 'view', $lease->student->id]) : '' ?></p>
+            <p>
+                <?= $lease->has('student') ? $this->Html->link($query->user->first_name, ['controller' => 'Students', 'action' => 'view', $lease->student->id]) : '' ?>
+                <?= $lease->has('student') ? $this->Html->link($query->user->last_name, ['controller' => 'Students', 'action' => 'view', $lease->student->id]) : '' ?>
+            </p>
         </div>
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>
             <p><?= $this->Number->format($lease->id) ?></p>
             <h6 class="subheader"><?= __('Weekly Price') ?></h6>
-            <p><?= $this->Number->format($lease->weekly_price) ?></p>
+            <p><?= $this->Number->currency($lease->weekly_price, 'USD') ?></p>
         </div>
         <div class="large-2 columns dates end">
             <h6 class="subheader"><?= __('Date Start') ?></h6>
-            <p><?= h($lease->date_start) ?></p>
+            <p><?= h($lease->date_start->format('Y M d')) ?></p>
             <h6 class="subheader"><?= __('Date End') ?></h6>
-            <p><?= h($lease->date_end) ?></p>
+            <p><?= h($lease->date_end->format('Y M d')) ?></p>
         </div>
     </div>
     <div class="row texts">

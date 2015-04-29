@@ -32,6 +32,5 @@
 		]);
 	echo $this->Form->button(__('Cancel'));
 	?>
-    <p><strong>Developer Notes:</strong> Need a better way to tell users the name is already taken.</p>
 </div>
 

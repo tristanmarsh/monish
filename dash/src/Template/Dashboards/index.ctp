@@ -23,7 +23,7 @@
 	<h3>Welcome to the administrator dashboard</h3>
 <p>
 
-Manage:<br>
+You can manage the database with the buttons on the left:<br>
 
 
 

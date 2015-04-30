@@ -3,7 +3,7 @@
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit This Contact'), ['action' => 'edit', $emergency->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete This Contact'), ['action' => 'delete', $emergency->id], ['confirm' => __('Are you sure you want to delete # {0}?', $emergency->id)]) ?> </li>
-        <li><?= $this->Html->link(__('Go Back'), ['action' => 'index']) ?> </li>
+        <li><a href="javascript:history.back()">Go Back</a></li>
     </ul>
 </div>
 <div class="emergencies view large-10 medium-9 columns">

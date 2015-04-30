@@ -2,7 +2,7 @@
     <h3><?= __('Menu') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit This User'), ['action' => 'edit', $user->id]) ?> </li>
-		<li><?= $this->Html->link(__('List All Users'), ['action' => 'index']) ?> </li>
+		<li><a href="javascript:history.back()">Go Back</a></li>
 		<br><br><br><br><br><br>
     </ul>
 	
@@ -28,3 +28,5 @@
 			<tr><strong><?= __('Postcode: ') ?></strong><?= h($user->postcode) ?></tr><br>
 			
     </table>
+	
+	

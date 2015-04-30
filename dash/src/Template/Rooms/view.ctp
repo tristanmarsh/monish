@@ -3,7 +3,7 @@
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit This Room'), ['action' => 'edit', $room->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete This Room'), ['action' => 'delete', $room->id], ['confirm' => __('Are you sure you want to delete # {0}?', $room->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List All Rooms'), ['action' => 'index']) ?> </li>
+        <li><a href="javascript:history.back()">Go Back</a></li>
     </ul>
 </div>
 <div class="rooms view large-10 medium-9 columns">
@@ -32,7 +32,7 @@
     <?php if (!empty($room->leases)): ?>
     <table cellpadding="0" cellspacing="0">
         <tr>
-            <th><?= __('Student Id') ?></th>
+            <th><?= __('Lease Id') ?></th>
             <th><?= __('Date Start') ?></th>
             <th><?= __('Date End') ?></th>
             <th><?= __('Lease Status') ?></th>
@@ -40,9 +40,8 @@
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         <?php foreach ($room->leases as $leases): ?>
-            <?php foreach ($lion as $lions): ?>
         <tr>
-            <td><?= h($lions) ?></td>
+            <td><?= h($leases->id) ?></td>
             <td><?= h($leases->date_start->format('Y M d')) ?></td>
             <td><?= h($leases->date_end->format('Y M d')) ?></td>
             <td><?= h($leases->lease_status) ?></td>
@@ -54,8 +53,6 @@
                 <?= $this->Form->postLink(__('Delete'), ['controller' => 'Leases', 'action' => 'delete', $leases->id], ['confirm' => __('Are you sure you want to delete # {0}?', $leases->id)]) ?>
             </td>
         </tr>
-
-        <?php endforeach; ?>
         <?php endforeach; ?>
     </table>
     <?php endif; ?>

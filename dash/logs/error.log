@@ -6100,3 +6100,112 @@ Stack Trace:
 #2 {main}
 
 
+2015-04-30 04:09:36 Error: Fatal Error (1): Call to undefined method App\View\AppView::redirect() in [C:\wamp\www\monish\dash\src\Template\Users\view.ctp, line 32]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-30 04:09:36 Error: [Cake\Error\FatalErrorException] Call to undefined method App\View\AppView::redirect()
+Request URL: /monish/dash/users/view/29
+Stack Trace:
+#0 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to undefin...', 'C:\\wamp\\www\\mon...', 32)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-30 04:10:10 Error: Fatal Error (1): Call to undefined method App\View\AppView::redirect() in [C:\wamp\www\monish\dash\src\Template\Users\view.ctp, line 32]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-30 04:10:10 Error: [Cake\Error\FatalErrorException] Call to undefined method App\View\AppView::redirect()
+Request URL: /monish/dash/users/view/29
+Stack Trace:
+#0 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to undefin...', 'C:\\wamp\\www\\mon...', 32)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-30 04:11:10 Error: Fatal Error (1): Call to undefined method App\View\AppView::redirect() in [C:\wamp\www\monish\dash\src\Template\Users\view.ctp, line 32]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-30 04:11:10 Error: [Cake\Error\FatalErrorException] Call to undefined method App\View\AppView::redirect()
+Request URL: /monish/dash/users/view/29
+Stack Trace:
+#0 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to undefin...', 'C:\\wamp\\www\\mon...', 32)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-30 04:30:45 Error: [Cake\Datasource\Exception\InvalidPrimaryKeyException] Record not found in table "leases" with primary key [NULL]
+Request URL: /monish/dash/rooms/view/1
+Stack Trace:
+#0 [internal function]: Cake\ORM\Table->get(NULL, Array)
+#1 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Association.php(837): call_user_func_array(Array, Array)
+#2 C:\wamp\www\monish\dash\src\Controller\RoomsController.php(41): Cake\ORM\Association->__call('get', Array)
+#3 C:\wamp\www\monish\dash\src\Controller\RoomsController.php(41): Cake\ORM\Association\HasMany->get(NULL, Array)
+#4 [internal function]: App\Controller\RoomsController->view('1')
+#5 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Controller\Controller.php(404): call_user_func_array(Array, Array)
+#6 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#7 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\RoomsController))
+#8 C:\wamp\www\monish\dash\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#9 {main}
+
+
+2015-04-30 04:30:55 Error: [Cake\Datasource\Exception\InvalidPrimaryKeyException] Record not found in table "leases" with primary key [NULL]
+Request URL: /monish/dash/rooms/view/1
+Stack Trace:
+#0 [internal function]: Cake\ORM\Table->get(NULL, Array)
+#1 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Association.php(837): call_user_func_array(Array, Array)
+#2 C:\wamp\www\monish\dash\src\Controller\RoomsController.php(41): Cake\ORM\Association->__call('get', Array)
+#3 C:\wamp\www\monish\dash\src\Controller\RoomsController.php(41): Cake\ORM\Association\HasMany->get(NULL, Array)
+#4 [internal function]: App\Controller\RoomsController->view('1')
+#5 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Controller\Controller.php(404): call_user_func_array(Array, Array)
+#6 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#7 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\RoomsController))
+#8 C:\wamp\www\monish\dash\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#9 {main}
+
+
+2015-04-30 04:31:11 Error: [Cake\Datasource\Exception\InvalidPrimaryKeyException] Record not found in table "leases" with primary key [NULL]
+Request URL: /monish/dash/rooms/view/1
+Stack Trace:
+#0 [internal function]: Cake\ORM\Table->get(NULL, Array)
+#1 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\ORM\Association.php(837): call_user_func_array(Array, Array)
+#2 C:\wamp\www\monish\dash\src\Controller\RoomsController.php(41): Cake\ORM\Association->__call('get', Array)
+#3 C:\wamp\www\monish\dash\src\Controller\RoomsController.php(41): Cake\ORM\Association\HasMany->get(NULL, Array)
+#4 [internal function]: App\Controller\RoomsController->view('1')
+#5 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Controller\Controller.php(404): call_user_func_array(Array, Array)
+#6 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#7 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\RoomsController))
+#8 C:\wamp\www\monish\dash\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#9 {main}
+
+
+2015-04-30 04:34:59 Error: Fatal Error (1): Call to a member function contain() on a non-object in [C:\wamp\www\monish\dash\src\Template\Rooms\view.ctp, line 44]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-30 04:35:00 Error: [Cake\Error\FatalErrorException] Call to a member function contain() on a non-object
+Request URL: /monish/dash/rooms/view/1
+Stack Trace:
+#0 C:\wamp\www\monish\dash\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to a membe...', 'C:\\wamp\\www\\mon...', 44)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+

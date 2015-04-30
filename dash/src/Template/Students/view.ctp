@@ -18,7 +18,7 @@
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit This Student'), ['action' => 'edit', $student->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete This Student'), ['action' => 'delete', $student->id], ['confirm' => __('Are you sure you want to delete # {0}?', $student->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List All Students'), ['action' => 'index']) ?> </li>
+        <li><a href="javascript:history.back()">Go Back</a></li>
     </ul>
 </div>
 <div class="students view large-10 medium-9 columns">

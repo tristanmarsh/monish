@@ -62,7 +62,7 @@
 	</div>
 <p>
 
-Manage:<br>
+You can manage the database with the buttons on the left:<br>
 
 
 

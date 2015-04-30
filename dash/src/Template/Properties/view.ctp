@@ -3,7 +3,7 @@
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit This Property'), ['action' => 'edit', $property->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete This Property'), ['action' => 'delete', $property->id], ['confirm' => __('Are you sure you want to delete # {0}?', $property->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List All Properties'), ['action' => 'index']) ?> </li>
+        <li><a href="javascript:history.back()">Go Back</a></li>
     </ul>
 </div>
 <div class="properties view large-10 medium-9 columns">

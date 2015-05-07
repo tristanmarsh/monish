@@ -1,0 +1,15 @@
+#WFIPBLOCKS - Do not remove this line. Disable Web Caching in Wordfence to remove this data.
+Order Deny,Allow
+#Do not remove this line. Disable Web Caching in Wordfence to remove this data - WFIPBLOCKS
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /monish/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /monish/index.php [L]
+</IfModule>
+
+# END WordPress

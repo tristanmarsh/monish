@@ -3,24 +3,63 @@
 </div><!-- /.escape content -->
 </div><!-- /.escape container -->
 
-	<div class="col-sm-3">
-		<div class="sidebar">
+	<div class="col-sm-3 sidebar">
+			
 			<ul class="nav nav-sidebar">
-			    <li><?= $this->Html->link('Maintenance Requests', ['controller' => 'maintenances', 'action' => 'index']) ?><br></li>
-			    <li><?= $this->Html->link('Users', ['controller' => 'users', 'action' => 'index']) ?><br></li>
-				<li><?= $this->Html->link('Emergency Contacts', ['controller' => 'emergencies', 'action' => 'index']) ?><br></li>
-			    <li><?= $this->Html->link('Students', ['controller' => 'students', 'action' => 'index']) ?><br></li>
-			    <li><?= $this->Html->link('Leases', ['controller' => 'leases', 'action' => 'index']) ?><br></li>
-			    <li><?= $this->Html->link('Properties', ['controller' => 'properties', 'action' => 'index']) ?><br></li>
-			    <li><?= $this->Html->link('Rooms', ['controller' => 'rooms', 'action' => 'index']) ?><br></li>
-			    <li><span style="float:right"><?= $this->html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span></li>
+			    http://ie.infotech.monash.edu.au/team06/monish/blog/
+			    <li>
+					<span class="glyphicon glyphicon-star"></span>
+			    	<?= $this->Html->link('Maintenance Requests', ['controller' => 'maintenances', 'action' => 'index']) ?>
+			    </li>
+			    
+			    <li>
+					<span class="glyphicon glyphicon-star"></span>
+			    	<?= $this->Html->link('Users', ['controller' => 'users', 'action' => 'index']) ?>
+			    </li>
+				
+				<li>
+					<span class="glyphicon glyphicon-star"></span>
+					<?= $this->Html->link('Emergency Contacts', ['controller' => 'emergencies', 'action' => 'index']) ?>
+				</li>
+			    
+			    <li>
+					<span class="glyphicon glyphicon-star"></span>
+			    	<?= $this->Html->link('Students', ['controller' => 'students', 'action' => 'index']) ?>
+			    </li>
+			    
+			    <li>
+					<span class="glyphicon glyphicon-star"></span>
+			    	<?= $this->Html->link('Leases', ['controller' => 'leases', 'action' => 'index']) ?>
+			    </li>
+			    
+			    <li>
+					<span class="glyphicon glyphicon-star"></span>
+			    	<?= $this->Html->link('Properties', ['controller' => 'properties', 'action' => 'index']) ?>
+			    </li>
+			    
+			    <li>
+					<span class="glyphicon glyphicon-star"></span>
+			    	<?= $this->Html->link('Rooms', ['controller' => 'rooms', 'action' => 'index']) ?>
+			    </li>
+			    
+			    <li>
+					<span class="glyphicon glyphicon-star"></span>
+			    	<span style="float:right"><?= $this->html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
+			    </li>
+
 			</ul>
-		</div>
+
 	</div>
 
-	<div class="container col-sm-9"></div>
+	<div class="col-sm-9">
 
-	<h3>Welcome to the administrator dashboard</h3>
+		<div class="content">
+
+			<h3>Welcome to the administrator dashboard</h3>
+
+		</div>
+
+	</div>
 <p>
 
 You can manage the database with the buttons on the left:<br>

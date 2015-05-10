@@ -116,15 +116,16 @@
 // Hide only visually, but have it available for screenreaders.
 //
 
-.visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
+.visually-hidden,
+.screen-reader-text {
   overflow: hidden;
-  padding: 0;
   position: absolute;
   width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
 }
 
 

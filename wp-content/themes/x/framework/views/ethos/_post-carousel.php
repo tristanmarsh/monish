@@ -67,13 +67,13 @@ switch ( $display ) {
       jQuery('.x-post-carousel').slick({
         speed          : 500,
         slide          : 'li',
-        slidesToShow   : <?php echo x_get_option( 'x_ethos_post_carousel_display_count_extra_large' ); ?>,
+        slidesToShow   : <?php echo x_get_option( 'x_ethos_post_carousel_display_count_extra_large', '5' ); ?>,
         slidesToScroll : 1,
         responsive     : [
-          { breakpoint : 1500, settings : { speed : 500, slide : 'li', slidesToShow : <?php echo x_get_option( 'x_ethos_post_carousel_display_count_large' ); ?> } },
-          { breakpoint : 1200, settings : { speed : 500, slide : 'li', slidesToShow : <?php echo x_get_option( 'x_ethos_post_carousel_display_count_medium' ); ?> } },
-          { breakpoint : 979,  settings : { speed : 500, slide : 'li', slidesToShow : <?php echo x_get_option( 'x_ethos_post_carousel_display_count_small' ); ?> } },
-          { breakpoint : 550,  settings : { speed : 500, slide : 'li', slidesToShow : <?php echo x_get_option( 'x_ethos_post_carousel_display_count_extra_small' ); ?> } }
+          { breakpoint : 1500, settings : { speed : 500, slide : 'li', slidesToShow : <?php echo x_get_option( 'x_ethos_post_carousel_display_count_large', '4' ); ?> } },
+          { breakpoint : 1200, settings : { speed : 500, slide : 'li', slidesToShow : <?php echo x_get_option( 'x_ethos_post_carousel_display_count_medium', '3' ); ?> } },
+          { breakpoint : 979,  settings : { speed : 500, slide : 'li', slidesToShow : <?php echo x_get_option( 'x_ethos_post_carousel_display_count_small', '2' ); ?> } },
+          { breakpoint : 550,  settings : { speed : 500, slide : 'li', slidesToShow : <?php echo x_get_option( 'x_ethos_post_carousel_display_count_extra_small', '1' ); ?> } }
         ]
       });
     });

@@ -457,8 +457,7 @@ h2.entry-title {
 
   &.has-post-thumbnail {
     .entry-featured {
-      .x-responsive-audio-embed,
-      .jp-controls-container-audio {
+      .x-audio {
         position: absolute;
         left: 10px;
         right: 10px;
@@ -674,7 +673,7 @@ h2.entry-title {
 .page-template-template-blank-5-php,
 .page-template-template-blank-6-php,
 .page-template-template-blank-8-php {
-  .x-container-fluid.main > .offset {
+  .x-container.main > .offset {
     margin: 0;
   }
 
@@ -683,7 +682,7 @@ h2.entry-title {
   }
 }
 
-[class*="page-template-template-blank"] .x-container-fluid.main:before {
+[class*="page-template-template-blank"] .x-container.main:before {
   left: -5000em;
 }
 

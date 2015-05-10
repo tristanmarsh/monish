@@ -61,7 +61,6 @@ if ( ! class_exists( 'X_TGM_Automatic_Update' ) ) :
       $installed_plugins = get_plugins();
 
       foreach ( TGM_Plugin_Activation::$instance->plugins as $plugin ) {
-
         if ( isset( $installed_plugins[$plugin['x_plugin']]['Version'] ) && isset( $plugin['version'] ) && isset( $plugin['x_manage_upgrade'] ) && $plugin['x_manage_upgrade'] == true && version_compare( $installed_plugins[$plugin['x_plugin']]['Version'], $plugin['version'], '<' ) ) {
 
           $response                 = new stdClass;

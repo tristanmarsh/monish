@@ -11,13 +11,17 @@
 // -----------------------------------------------------------------------------
 //   01. Get View
 //   02. X Is Validated
-//   03. Get Featured Image URL
-//   04. Return an Array of Integer Values from String
-//   05. Make Protocol Relative
-//   06. Plugin Exists
-//   07. Shortcode Plugin Exists
-//   08. Array to Object
-//   09. Object to Array
+//   03. Make Protocol Relative
+//   04. Get Featured Image URL
+//   05. Get Social Fallback Image URL
+//   06. Return an Array of Integer Values from String
+//   07. Get Post by Title
+//   08. Get Page by Title
+//   09. Get Portfolio Item by Title
+//   10. Plugin Exists
+//   11. Shortcode Plugin Exists
+//   12. Array to Object
+//   13. Object to Array
 // =============================================================================
 
 // Get View
@@ -54,6 +58,24 @@ function x_is_validated() {
 
 
 
+// Make Protocol Relative
+// =============================================================================
+
+//
+// Accepts a string and replaces any instances of "http://" and "https://" with
+// the protocol relative "//" instead.
+//
+
+function x_make_protocol_relative( $string ) {
+
+  $output = str_replace( array( 'http://', 'https://' ), '//', $string );
+
+  return $output;
+
+}
+
+
+
 // Get Featured Image URL
 // =============================================================================
 
@@ -64,6 +86,28 @@ if ( ! function_exists( 'x_get_featured_image_url' ) ) :
     $featured_image_url = $featured_image[0];
 
     return $featured_image_url;
+
+  }
+endif;
+
+
+
+// Get Social Fallback Image URL
+// =============================================================================
+
+if ( ! function_exists( 'x_get_featured_image_with_fallback_url' ) ) :
+  function x_get_featured_image_with_fallback_url( $size = 'full' ) {
+
+    $featured_image_url        = x_get_featured_image_url( $size );
+    $social_fallback_image_url = get_option( 'x_social_fallback_image' );
+
+    if ( $featured_image_url != NULL ) {
+      $image_url = $featured_image_url;
+    } else {
+      $image_url = $social_fallback_image_url;
+    }
+
+    return $image_url;
 
   }
 endif;
@@ -88,19 +132,34 @@ function x_intval_explode( $string ) {
 
 
 
-// Make Protocol Relative
+// Get Post by Title
 // =============================================================================
 
-//
-// Accepts a string and replaces any instances of "http://" and "https://" with
-// the protocol relative "//" instead.
-//
+function x_get_post_by_title( $title ) {
 
-function x_make_protocol_relative( $string ) {
+  return get_page_by_title( $title, 'ARRAY_A', 'post' );
 
-  $output = str_replace( array( 'http://', 'https://' ), '//', $string );
+}
 
-  return $output;
+
+
+// Get Page by Title
+// =============================================================================
+
+function x_get_page_by_title( $title ) {
+
+  return get_page_by_title( $title, 'ARRAY_A', 'page' );
+
+}
+
+
+
+// Get Portfolio Item by Title
+// =============================================================================
+
+function x_get_portfolio_item_by_title( $title ) {
+
+  return get_page_by_title( $title, 'ARRAY_A', 'x-portfolio' );
 
 }
 

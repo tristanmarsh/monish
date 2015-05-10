@@ -1,16 +1,17 @@
+
 // =============================================================================
 // JS/ADMIN/X-CUSTOMIZER-ADMIN.JS
 // -----------------------------------------------------------------------------
-// Customizer admin functionality.
+// Customizer admin scripts.
 // =============================================================================
 
 // =============================================================================
 // TABLE OF CONTENTS
 // -----------------------------------------------------------------------------
-//   01. Customizer Admin Functionality
+//   01. Customizer Admin Scripts
 // =============================================================================
 
-// Customizer Admin Functionality
+// Customizer Admin Scripts
 // =============================================================================
 
 jQuery(document).ready(function($) {
@@ -19,12 +20,6 @@ jQuery(document).ready(function($) {
     $('#x-addons-customizer-manager-import-submit').removeAttr('disabled');
   });
 
-  $('#x-addons-customizer-manager-reset-confirm').change(function() {
-    if ( $(this).is(':checked') ) {
-      $('#x-addons-customizer-manager-reset-submit').removeAttr('disabled');
-    } else {
-      $('#x-addons-customizer-manager-reset-submit').attr('disabled', true);
-    }
-  });
+  xAdminConfirmForm($('.x-addons-postbox.customizer-manager.reset form'), 'error', 'This will reset your Customizer settings and is not reversible unless you have previously made a backup of your settings. Are you sure you want to proceed?');
 
 });

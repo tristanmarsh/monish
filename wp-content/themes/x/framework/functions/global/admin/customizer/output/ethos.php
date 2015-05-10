@@ -9,24 +9,17 @@
 // =============================================================================
 // TABLE OF CONTENTS
 // -----------------------------------------------------------------------------
-//   01. Body Background
-//   02. Site Link Color Accents
-//   03. Container Sizing
-//   04. Layout Sizing
-//   05. Navbar
-//   06. Navbar - Positioning
-//   07. Navbar - Dropdowns
-//   08. Design Options
-//   09. Post Slider
-//   10. Custom Fonts - Colors
-//   11. Responsive Styling
+//   01. Site Link Color Accents
+//   02. Layout Sizing
+//   03. Navbar
+//   04. Navbar - Positioning
+//   05. Navbar - Dropdowns
+//   06. Design Options
+//   07. Post Slider
+//   08. Custom Fonts - Colors
+//   09. Responsive Styling
 // =============================================================================
 
-$x_ethos_sizing_site_max_width            = x_get_option( 'x_ethos_sizing_site_max_width' );
-$x_ethos_sizing_site_width                = x_get_option( 'x_ethos_sizing_site_width' );
-$x_ethos_sizing_content_width             = x_get_option( 'x_ethos_sizing_content_width' );
-$x_ethos_bg_color                         = x_get_option( 'x_ethos_bg_color' );
-$x_ethos_bg_image_pattern                 = x_get_option( 'x_ethos_bg_image_pattern' );
 $x_ethos_navbar_desktop_link_side_padding = x_get_option( 'x_ethos_navbar_desktop_link_side_padding' );
 $x_ethos_topbar_background                = x_get_option( 'x_ethos_topbar_background' );
 $x_ethos_navbar_background                = x_get_option( 'x_ethos_navbar_background' );
@@ -38,25 +31,6 @@ $x_ethos_post_slider_archive_height       = x_get_option( 'x_ethos_post_slider_a
 $x_ethos_navbar_outer_border_width        = '2';
 
 ?>
-
-/* Body Background
-// ========================================================================== */
-
-<?php if ( $x_ethos_bg_image_pattern == '' ) : ?>
-
-  body {
-    background-color: <?php echo $x_ethos_bg_color; ?>;
-  }
-
-<?php else : ?>
-
-  body {
-    background: <?php echo $x_ethos_bg_color; ?> url(<?php echo x_make_protocol_relative( $x_ethos_bg_image_pattern ); ?>) center top repeat;
-  }
-
-<?php endif; ?>
-
-
 
 /* Site Link Color Accents
 // ========================================================================== */
@@ -129,29 +103,6 @@ a.x-img-thumbnail:hover {
 
 
 
-/* Container Sizing
-// ========================================================================== */
-
-.x-container-fluid.width {
-  width: <?php echo $x_ethos_sizing_site_width . '%'; ?>;
-}
-
-.x-container-fluid.max {
-  max-width: <?php echo $x_ethos_sizing_site_max_width . 'px'; ?>;
-}
-
-<?php if ( x_get_option( 'x_ethos_layout_site' ) == 'boxed' ) : ?>
-
-  .site,
-  .x-navbar.x-navbar-fixed-top.x-container-fluid.max.width {
-    width: <?php echo $x_ethos_sizing_site_width . '%'; ?>;
-    max-width: <?php echo $x_ethos_sizing_site_max_width . 'px'; ?>;
-  }
-
-<?php endif; ?>
-
-
-
 /* Layout Sizing
 // ========================================================================== */
 
@@ -160,11 +111,11 @@ a.x-img-thumbnail:hover {
 */
 
 .x-main {
-  width: <?php echo $x_ethos_sizing_content_width . '%'; ?>;
+  width: <?php echo $x_layout_content_width . '%'; ?>;
 }
 
 .x-sidebar {
-  width: <?php echo 100 - $x_ethos_sizing_content_width . '%'; ?>;
+  width: <?php echo 100 - $x_layout_content_width . '%'; ?>;
 }
 
 
@@ -172,15 +123,15 @@ a.x-img-thumbnail:hover {
 // Main content background.
 */
 
-.x-content-sidebar-active .x-container-fluid.main:before {
-  right: <?php echo 100 - $x_ethos_sizing_content_width . '%'; ?>;
+.x-content-sidebar-active .x-container.main:before {
+  right: <?php echo 100 - $x_layout_content_width . '%'; ?>;
 }
 
-.x-sidebar-content-active .x-container-fluid.main:before {
-  left: <?php echo 100 - $x_ethos_sizing_content_width . '%'; ?>;
+.x-sidebar-content-active .x-container.main:before {
+  left: <?php echo 100 - $x_layout_content_width . '%'; ?>;
 }
 
-.x-full-width-active .x-container-fluid.main:before {
+.x-full-width-active .x-container.main:before {
   left: -5000em;
 }
 
@@ -193,7 +144,7 @@ a.x-img-thumbnail:hover {
 // Desktop link side padding.
 */
 
-.x-navbar .x-nav > li > a {
+.x-navbar .desktop .x-nav > li > a {
   padding-left: <?php echo $x_ethos_navbar_desktop_link_side_padding . 'px'; ?>;
   padding-right: <?php echo $x_ethos_navbar_desktop_link_side_padding . 'px'; ?>;
 }
@@ -203,9 +154,9 @@ a.x-img-thumbnail:hover {
 // Color.
 */
 
-.x-navbar .x-nav > li > a,
-.x-navbar .sub-menu a,
-.x-nav-collapse .sub-menu a,
+.x-navbar .desktop .x-nav > li > a,
+.x-navbar .desktop .sub-menu a,
+.x-navbar .mobile .x-nav li > a,
 .x-breadcrumb-wrap a,
 .x-breadcrumbs .delimiter {
   color: <?php echo $x_navbar_link_color; ?>;
@@ -213,13 +164,16 @@ a.x-img-thumbnail:hover {
 
 .x-topbar .p-info a:hover,
 .x-social-global a:hover,
-.x-navbar .x-nav > li > a:hover,
-.x-navbar .x-nav > .sfHover > a,
-.x-navbar .x-nav > .current-menu-item > a,
-.x-navbar .sub-menu a:hover,
-.x-navbar .sub-menu .sfHover > a,
-.x-navbar .sub-menu .current-menu-item > a,
-.x-nav .x-megamenu > .sub-menu > li > a,
+.x-navbar .desktop .x-nav > li > a:hover,
+.x-navbar .desktop .x-nav > .x-active > a,
+.x-navbar .desktop .x-nav > .current-menu-item > a,
+.x-navbar .desktop .sub-menu a:hover,
+.x-navbar .desktop .sub-menu .x-active > a,
+.x-navbar .desktop .sub-menu .current-menu-item > a,
+.x-navbar .desktop .x-nav .x-megamenu > .sub-menu > li > a,
+.x-navbar .mobile .x-nav li > a:hover,
+.x-navbar .mobile .x-nav .x-active > a,
+.x-navbar .mobile .x-nav .current-menu-item > a,
 .x-widgetbar .widget a:hover,
 .x-colophon .widget a:hover,
 .x-colophon.bottom .x-colophon-content a:hover,
@@ -247,22 +201,22 @@ foreach ( $items as $item ) {
 
     <?php if ( $x_navbar_positioning == 'static-top' || $x_navbar_positioning == 'fixed-top' ) : ?>
 
-      .x-navbar .x-nav > li.tax-item-<?php echo $t_id; ?> > a:hover,
-      .x-navbar .x-nav > li.tax-item-<?php echo $t_id; ?>.sfHover > a {
+      .x-navbar .desktop .x-nav > li.tax-item-<?php echo $t_id; ?> > a:hover,
+      .x-navbar .desktop .x-nav > li.tax-item-<?php echo $t_id; ?>.x-active > a {
         box-shadow: 0 <?php echo $x_ethos_navbar_outer_border_width; ?>px 0 0 <?php echo $accent; ?>;
       }
 
     <?php elseif ( $x_navbar_positioning == 'fixed-left' ) : ?>
 
-      .x-navbar .x-nav > li.tax-item-<?php echo $t_id; ?> > a:hover,
-      .x-navbar .x-nav > li.tax-item-<?php echo $t_id; ?>.sfHover > a {
+      .x-navbar .desktop .x-nav > li.tax-item-<?php echo $t_id; ?> > a:hover,
+      .x-navbar .desktop .x-nav > li.tax-item-<?php echo $t_id; ?>.x-active > a {
         box-shadow: <?php echo $x_ethos_navbar_outer_border_width; ?>px 0 0 0 <?php echo $accent; ?>;
       }
 
     <?php elseif ( $x_navbar_positioning == 'fixed-right' ) : ?>
 
-      .x-navbar .x-nav > li.tax-item-<?php echo $t_id; ?> > a:hover,
-      .x-navbar .x-nav > li.tax-item-<?php echo $t_id; ?>.sfHover > a {
+      .x-navbar .desktop .x-nav > li.tax-item-<?php echo $t_id; ?> > a:hover,
+      .x-navbar .desktop .x-nav > li.tax-item-<?php echo $t_id; ?>.x-active > a {
         box-shadow: -<?php echo $x_ethos_navbar_outer_border_width; ?>px 0 0 0 <?php echo $accent; ?>;
       }
 
@@ -282,13 +236,13 @@ foreach ( $items as $item ) {
 
 <?php if ( $x_navbar_positioning == 'static-top' || $x_navbar_positioning == 'fixed-top' ) : ?>
 
-  .x-navbar .x-nav > li > a:hover,
-  .x-navbar .x-nav > .sfHover > a,
-  .x-navbar .x-nav > .current-menu-item > a {
+  .x-navbar .desktop .x-nav > li > a:hover,
+  .x-navbar .desktop .x-nav > .x-active > a,
+  .x-navbar .desktop .x-nav > .current-menu-item > a {
     box-shadow: 0 <?php echo $x_ethos_navbar_outer_border_width; ?>px 0 0 <?php echo $x_site_link_color; ?>;
   }
 
-  .x-navbar .x-nav > li > a {
+  .x-navbar .desktop .x-nav > li > a {
     height: <?php echo $x_navbar_height . 'px'; ?>;
     padding-top: <?php echo $x_navbar_adjust_links_top . 'px'; ?>;
   }
@@ -297,14 +251,14 @@ foreach ( $items as $item ) {
 
 <?php if ( $x_navbar_positioning == 'fixed-left' || $x_navbar_positioning == 'fixed-right' ) : ?>
 
-  .x-navbar .x-nav > li > a {
+  .x-navbar .desktop .x-nav > li > a {
     padding-top: <?php echo round( ( $x_navbar_adjust_links_side - $x_navbar_font_size ) / 2 ) . 'px'; ?>;
     padding-bottom: <?php echo round( ( $x_navbar_adjust_links_side - $x_navbar_font_size ) / 2 ) . 'px'; ?>;
     padding-left: 7%;
     padding-right: 7%;
   }
 
-  .x-megamenu > .sub-menu {
+  .desktop .x-megamenu > .sub-menu {
     width: <?php echo 879 - $x_navbar_width . 'px'; ?>
   }
 
@@ -312,9 +266,9 @@ foreach ( $items as $item ) {
 
 <?php if ( $x_navbar_positioning == 'fixed-left' ) : ?>
 
-  .x-navbar .x-nav > li > a:hover,
-  .x-navbar .x-nav > .sfHover > a,
-  .x-navbar .x-nav > .current-menu-item > a {
+  .x-navbar .desktop .x-nav > li > a:hover,
+  .x-navbar .desktop .x-nav > .x-active > a,
+  .x-navbar .desktop .x-nav > .current-menu-item > a {
     box-shadow: <?php echo $x_ethos_navbar_outer_border_width; ?>px 0 0 0 <?php echo $x_site_link_color; ?>;
   }
 
@@ -326,9 +280,9 @@ foreach ( $items as $item ) {
 
 <?php if ( $x_navbar_positioning == 'fixed-right' ) : ?>
 
-  .x-navbar .x-nav > li > a:hover,
-  .x-navbar .x-nav > .sfHover > a,
-  .x-navbar .x-nav > .current-menu-item > a {
+  .x-navbar .desktop .x-nav > li > a:hover,
+  .x-navbar .desktop .x-nav > .x-active > a,
+  .x-navbar .desktop .x-nav > .current-menu-item > a {
     box-shadow: -<?php echo $x_ethos_navbar_outer_border_width; ?>px 0 0 0 <?php echo $x_site_link_color; ?>;
   }
 
@@ -343,7 +297,7 @@ foreach ( $items as $item ) {
 /* Navbar - Dropdowns
 // ========================================================================== */
 
-.sf-menu > li ul {
+.x-navbar .desktop .x-nav > li ul {
   top: <?php echo $x_navbar_height + $x_ethos_navbar_outer_border_width . 'px'; ?>;
 }
 
@@ -508,31 +462,31 @@ foreach ( $items as $item ) {
 
 @media (max-width: 979px) {
 
-  <?php if ( $x_navbar_positioning == 'fixed-left' || $x_navbar_positioning == 'fixed-right' ) : ?>
+  <?php if ( $x_navbar_positioning == 'fixed-top' && $x_layout_site == 'boxed' ) : ?>
 
-    .x-navbar .x-navbar-inner > .x-container-fluid.width {
-      width: <?php echo $x_ethos_sizing_site_width . '%'; ?>;
+    .x-navbar.x-navbar-fixed-top.x-container.max.width {
+      left: 0;
+      right: 0;
+      width: 100%;
     }
 
   <?php endif; ?>
 
-  .x-navbar .x-nav-collapse .x-nav li a {
-    color: <?php echo $x_navbar_link_color; ?>;
-    box-shadow: none !important;
-  }
+  <?php if ( $x_navbar_positioning == 'fixed-left' || $x_navbar_positioning == 'fixed-right' ) : ?>
 
-  .x-navbar .x-nav-collapse .x-nav li a:hover,
-  .x-navbar .x-nav-collapse .x-nav .current-menu-item > a {
-    color: <?php echo $x_navbar_link_color_hover; ?>;
-  }
+    .x-navbar .x-navbar-inner > .x-container.width {
+      width: <?php echo $x_layout_site_width . '%'; ?>;
+    }
+
+  <?php endif; ?>
 
   .x-widgetbar {
     left: 0;
     right: 0;
   }
 
-  .x-content-sidebar-active .x-container-fluid.main:before,
-  .x-sidebar-content-active .x-container-fluid.main:before {
+  .x-content-sidebar-active .x-container.main:before,
+  .x-sidebar-content-active .x-container.main:before {
     left: -5000em;
   }
 

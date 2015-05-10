@@ -55,7 +55,7 @@ class X_Theme_Updater {
       
       $update = array(
         'new_version' => ( $remote['download_url'] == NULL ) ? ( $remote['latest_version'] . '<br/>' . X_Update_API::get_validation_html_theme_updates() ) : $remote['latest_version'],
-        'url'         => 'http://theme.co/x/member/changelog/?iframe=true',
+        'url'         => 'http://theme.co/x/changelog/?iframe=true',
         'package'     => $remote['download_url'],
       );
 

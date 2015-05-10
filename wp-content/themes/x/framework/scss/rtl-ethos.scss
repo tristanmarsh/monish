@@ -15,6 +15,7 @@
 
 @import "site/inc/functions";
 @import "site/inc/variables";
+@import "site/stacks/ethos/inc/variables";
 @import "site/inc/mixins";
 
 
@@ -22,4 +23,5 @@
 // Right to Left
 // =============================================================================
 
+@import "site/rtl";
 @import "site/stacks/ethos/rtl";

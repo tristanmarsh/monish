@@ -44,7 +44,8 @@
 // All Posts and Pages
 // =============================================================================
 
-.hentry {
+.hentry,
+.search-results .x-container > .product {
   .entry-wrap {
     position: relative;
     border-top: 1px solid $baseBorderSolid;
@@ -393,8 +394,7 @@ a.entry-thumb:hover {
 
   &.has-post-thumbnail {
     .entry-featured {
-      .x-responsive-audio-embed,
-      .jp-controls-container-audio {
+      .x-audio {
         position: absolute;
         left: 20px;
         right: 20px;
@@ -568,7 +568,7 @@ a.entry-thumb:hover {
       padding: 10px;
     }
 
-    .x-container-fluid.max.width {
+    .x-container.max.width {
       width: 100%;
       max-width: none;
     }

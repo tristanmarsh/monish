@@ -23,8 +23,5 @@ $thmb_path = X_TEMPLATE_PATH . '/framework/functions/global/admin/thumbnails';
 // Require Files
 // =============================================================================
 
-require_once( $thmb_path . '/integrity.php' );
-require_once( $thmb_path . '/renew.php' );
-require_once( $thmb_path . '/icon.php' );
-require_once( $thmb_path . '/ethos.php' );
+require_once( $thmb_path . '/width.php' );
 require_once( $thmb_path . '/height.php' );

@@ -41,6 +41,7 @@ if ( ! function_exists( 'x_body_class' ) ) :
     $is_page                          = is_page();
     $page_title_disabled              = get_post_meta( $entry_id, '_x_entry_disable_page_title', true ) == 'on';
 
+    $is_portfolio                     = is_page_template( 'template-layout-portfolio.php' );
     $portfolio_meta_disabled          = x_get_option( 'x_portfolio_enable_post_meta', '' ) == '';
 
     $integrity_design_dark            = x_get_option( 'x_integrity_design', 'light' ) == 'dark';
@@ -83,6 +84,10 @@ if ( ! function_exists( 'x_body_class' ) ) :
       case 'fixed-right' :
         $output[] .= 'x-navbar-fixed-right-active';
         break;
+    }
+
+    if ( x_is_one_page_navigation() ) {
+      $output[] .= 'x-one-page-navigation-active';
     }
 
 
@@ -161,6 +166,10 @@ if ( ! function_exists( 'x_body_class' ) ) :
     //
     // Portfolio.
     //
+
+    if ( $is_portfolio ) {
+      $output[] .= 'x-masonry-active x-portfolio-masonry-active';
+    }
 
     if ( $portfolio_meta_disabled ) {
       $output[] .= 'x-portfolio-meta-disabled';
@@ -285,7 +294,6 @@ if ( ! function_exists( 'x_brand_class' ) ) :
     echo $output;
 
   }
-  add_action( 'customize_save', 'x_brand_class' );
 endif;
 
 
@@ -308,7 +316,6 @@ if ( ! function_exists( 'x_masthead_class' ) ) :
     echo $output;
 
   }
-  add_action( 'customize_save', 'x_masthead_class' );
 endif;
 
 
@@ -334,7 +341,6 @@ if ( ! function_exists( 'x_navbar_class' ) ) :
     echo $output;
 
   }
-  add_action( 'customize_save', 'x_navbar_class' );
 endif;
 
 
@@ -378,7 +384,6 @@ if ( ! function_exists( 'x_main_content_class' ) ) :
     echo $output;
 
   }
-  add_action( 'customize_save', 'x_main_content_class' );
 endif;
 
 
@@ -403,7 +408,6 @@ if ( ! function_exists( 'x_sidebar_class' ) ) :
     echo $output;
 
   }
-  add_action( 'customize_save', 'x_sidebar_class' );
 endif;
 
 

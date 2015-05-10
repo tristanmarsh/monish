@@ -32,7 +32,6 @@
 //       d. Alerts
 //       e. Tooltips and Popovers
 //       f. Colophon
-//       g. jPlayer
 //   09. BuddyPress
 //   10. Grid
 //       a. Grid Columns
@@ -248,7 +247,6 @@ $navbarLinkColorHover:             $navbarLinkColor              !default; // 2
 $navbarLinkColorActive:            $gray                         !default; // 2
 $navbarLinkBackgroundHover:        transparent                   !default; // 2
 $navbarLinkBackgroundActive:       darken($navbarBackground, 3%) !default; // 2
-$navbarLinkPaddingMobile:          0.75em 1em                    !default; // 2
 
 $navbarBrandFontWeight:            700                              !default; // 3
 $navbarBrandColor:                 $navbarLinkColor                 !default; // 3
@@ -268,10 +266,9 @@ $dropdownPadding:                 1.75em                        !default; // 1
 $dropdownBackground:              $white                        !default; // 1
 $dropdownBoxShadow:               0 2px 5px rgba(0, 0, 0, 0.25) !default; // 1
 
-$superfishFirstDropdownTop:       $navbarHeight - 25px !default; // 2
-$superfishFirstDropdownSide:      105%                 !default; // 2
-$superfishSubmenuTop:             -1.75em              !default; // 2
-$superfishSubmenuOffset:          105%                 !default; // 2
+$dropdownFirstSide:               100%                !default; // 2
+$dropdownTop:                     -1.75em             !default; // 2
+$dropdownOffset:                  calc(100% + 1.75em) !default; // 2
 
 $dropdownLinkPadding:             0.5em 0                       !default; // 3
 $dropdownLinkColor:               $navbarLinkColor              !default; // 3
@@ -303,13 +300,6 @@ $popoverTitleBackground:    darken($popoverBackground, 3%) !default;
 //
 
 $colophonBackground:    $navbarBackground !default;
-
-
-//
-// jPlayer.
-//
-
-$jPlayerHeight:    32px !default;
 
 
 

@@ -120,7 +120,7 @@ class X_Plugin_Updater {
           'plugin'         => $slug,
           'slug'           => dirname( $slug ),
           'new_version'    => $remote['latest_version'],
-          'url'            => 'http://theme.co/x/member/changelog/?iframe=true',
+          'url'            => 'http://theme.co/x/changelog/?iframe=true',
           'package'        => $remote['download_url'],
         );
 

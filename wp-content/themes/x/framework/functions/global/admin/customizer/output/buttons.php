@@ -13,10 +13,9 @@
 //   02. Button Style - Real
 //   03. Button Style - Flat
 //   04. Button Style - Transparent
-//   05. Button Circle
-//   06. Global Style
-//   07. Global Shape
-//   08. Global Size
+//   05. Global Style
+//   06. Global Shape
+//   07. Global Size
 // =============================================================================
 
 ?>
@@ -84,27 +83,6 @@
   text-transform: uppercase;
   background-color: transparent;
   box-shadow: none;
-}
-
-
-
-/* Button Circle
-// ========================================================================== */
-
-.x-btn-circle-wrap:before {
-  width: 172px;
-  height: 43px;
-  background: url(<?php echo X_TEMPLATE_URL; ?>/framework/img/global/btn-circle-top-small.png) center center no-repeat;
-  -webkit-background-size: 172px 43px;
-          background-size: 172px 43px;
-}
-
-.x-btn-circle-wrap:after {
-  width: 190px;
-  height: 43px;
-  background: url(<?php echo X_TEMPLATE_URL; ?>/framework/img/global/btn-circle-bottom-small.png) center center no-repeat;
-  -webkit-background-size: 190px 43px;
-          background-size: 190px 43px;
 }
 
 

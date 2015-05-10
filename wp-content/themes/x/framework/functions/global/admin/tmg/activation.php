@@ -1,9 +1,16 @@
 <?php
 /**
+ * NOTE: X uses a customized version of the TGM Plugin Activation class
+ * We are aware of the potential add_query_arg vulnerability and have
+ * updated the file taken precautions against this. There is no true
+ * risk either way, as everything in here requires administrator privledges.
+ */
+
+/**
  * Plugin installation and activation for WordPress themes.
  *
  * @package   TGM-Plugin-Activation
- * @version   2.3.6
+ * @version   [customized]
  * @author    Thomas Griffin <thomas@thomasgriffinmedia.com>
  * @author    Gary Jones <gamajo@gamajo.com>
  * @copyright Copyright (c) 2012, Thomas Griffin
@@ -481,7 +488,6 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
                     if ( is_wp_error( $activate ) ) {
                         echo '<div id="message" class="error"><p>' . $activate->get_error_message() . '</p></div>';
-                        // echo '<p><a href="' . add_query_arg( 'page', $this->menu, admin_url( $this->parent_url_slug ) ) . '" title="' . esc_attr( $this->strings['return'] ) . '" target="_parent">' . $this->strings['return'] . '</a></p>';
                         echo '<p><a href="' . x_addons_get_link_extensions() . '" title="' . esc_attr( __( 'Return to Extensions', '__x__' ) ) . '">' . __( 'Return to Extensions', '__x__' ) . '</a></p>'; // X 'return' update
                         return true; // End it here if there is an error with automatic activation
                     }
@@ -494,7 +500,6 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                 $complete = array();
                 foreach ( $this->plugins as $plugin ) {
                     if ( ! is_plugin_active( $plugin['file_path'] ) ) {
-                        // echo '<p><a href="' . add_query_arg( 'page', $this->menu, admin_url( $this->parent_url_slug ) ) . '" title="' . esc_attr( $this->strings['return'] ) . '" target="_parent">' . $this->strings['return'] . '</a></p>';
                         echo '<p><a href="' . x_addons_get_link_extensions() . '" title="' . esc_attr( __( 'Return to Extensions', '__x__' ) ) . '">' . __( 'Return to Extensions', '__x__' ) . '</a></p>'; // X 'return' update
                         $complete[] = $plugin;
                         break;
@@ -532,7 +537,6 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
                 if ( is_wp_error( $activate ) ) {
                     echo '<div id="message" class="error"><p>' . $activate->get_error_message() . '</p></div>';
-                    // echo '<p><a href="' . add_query_arg( 'page', $this->menu, admin_url( $this->parent_url_slug ) ) . '" title="' . esc_attr( $this->strings['return'] ) . '" target="_parent">' . $this->strings['return'] . '</a></p>';
                     echo '<p><a href="' . x_addons_get_link_extensions() . '" title="' . esc_attr( __( 'Return to Extensions', '__x__' ) ) . '">' . __( 'Return to Extensions', '__x__' ) . '</a></p>'; // X 'return' update
                     return true; // End it here if there is an error with activation
                 }
@@ -698,7 +702,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                         array(
                             'install'  => ( current_user_can( 'install_plugins' ) ) ? $show_install_link : '',
                             'activate' => ( current_user_can( 'activate_plugins' ) ) ? $show_activate_link : '',
-                            'dismiss'  => '<a class="dismiss-notice" href="' . add_query_arg( 'tgmpa-dismiss', 'dismiss_admin_notices' ) . '" target="_parent">' . $this->strings['dismiss'] . '</a>',
+                            'dismiss'  => '<a class="dismiss-notice" href="' . esc_url( add_query_arg( 'tgmpa-dismiss', 'dismiss_admin_notices' ) ) . '" target="_parent">' . $this->strings['dismiss'] . '</a>',
                         )
                     );
 
@@ -2037,7 +2041,6 @@ if ( ! class_exists( 'WP_Upgrader' ) && ( isset( $_GET['page'] ) && TGM_Plugin_A
                 $complete = array();
                 foreach ( TGM_Plugin_Activation::$instance->plugins as $plugin ) {
                     if ( ! is_plugin_active( $plugin['file_path'] ) ) {
-                        // echo '<p><a href="' . add_query_arg( 'page', TGM_Plugin_Activation::$instance->menu, admin_url( TGM_Plugin_Activation::$instance->parent_url_slug ) ) . '" title="' . esc_attr( TGM_Plugin_Activation::$instance->strings['return'] ) . '" target="_parent">' . TGM_Plugin_Activation::$instance->strings['return'] . '</a></p>';
                         echo '<p><a href="' . x_addons_get_link_extensions() . '" title="' . esc_attr( __( 'Return to Extensions', '__x__' ) ) . '">' . __( 'Return to Extensions', '__x__' ) . '</a></p>'; // X 'return' update
                         $complete[] = $plugin;
                         break;

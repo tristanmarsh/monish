@@ -7,118 +7,44 @@
 // =============================================================================
 // TABLE OF CONTENTS
 // -----------------------------------------------------------------------------
-//   01. Typography
-//   02. Shortcodes
-//   03. Navigation
-//   04. Breadcrumbs
-//   05. Posts and Pages
-//   06. Comments
-//   07. Widgets
-//   08. Forms
+//   01. Topbar
+//   02. Navigation
+//   03. Breadcrumbs
+//   04. Posts and Pages
+//   05. Comments
+//   06. Widgets
 // =============================================================================
 
-// Typography
-// =============================================================================
-
-.rtl {
-  ul,
-  ol {
-    margin: 0 1.655em 1.313em 0;
-  }
-}
-
-
-
-// Shortcodes
+// Topbar
 // =============================================================================
 
 .rtl {
-  .x-dropcap {
-    float: right;
-    margin: 0.2em 0 0 0.215em;
-  }
-
-  .h-feature-headline span i {
-    float: right;
-    margin-right: 0;
-    margin-left: 0.25em;
-  }
-
-  .x-btn [class^="x-icon-"],
-  .x-btn [class*=" x-icon-"] {
-    float: right;
-    margin-right: 0;
-    margin-left: 0.5em;
-  }
-
-  .x-ul-icons {
-    margin-left: 0;
-    margin-right: 1.425em;
-  }
-
-  .x-accordion-heading {
-    .x-accordion-toggle {
-      &:before {
-        margin-left: 10px;
-        margin-right: 0;
-      }
-    }
-  }
-
-  .close {
-    float: left;
-  }
-
-  .x-alert,
-  .wpcf7-response-output {
-    .close {
-      top: -10px;
-      right: 10px;
-    }
-  }
-
-  .x-author-box {
-    .avatar {
+  .x-topbar {
+    .p-info {
       float: right;
     }
 
-    .x-author-info {
-      margin-right: 110px;
-      margin-left: 0;
-    }
-  }
+    .x-social-global {
+      float: left;
 
-  .x-prompt {
-    &.message-left {
-      .x-prompt-section.x-prompt-section-message {
-        padding-left: 2.25em;
-        padding-right: 0;
-        text-align: left;
+      a {
+        margin-left: 0;
+        margin-right: 8px;
       }
     }
 
-    &.message-right {
-      .x-prompt-section.x-prompt-section-message {
-        padding-right: 2.25em;
-        padding-left: 0;
-        text-align: right;
+    @include break(middle-bear) {
+      .p-info,
+      .x-social-global {
+        float: none;
       }
-    }
-  }
 
-  .x-pricing-column-info {
-    ul {
-      > li {
-        [class*="x-icon"] {
-          margin-right: 0.85em;
-          margin-left: 0;
+      .x-social-global {
+        a {
+          margin: 0 1.5%
         }
       }
     }
-  }
-
-  .flex-viewport {
-    direction: ltr;
   }
 }
 
@@ -128,11 +54,64 @@
 // =============================================================================
 
 .rtl {
-  .x-navbar .x-nav li > a {
-    &:after {
-      margin-right: 0.35em;
-      margin-left: 0.35em;
-      float: right;
+  .x-navbar .x-nav {
+    li > a > span {
+      display: inline-block;
+
+      &:after {
+        margin-left: 0;
+        margin-right: 0.35em;
+        float: left;
+      }
+    }
+  }
+
+  &.x-navbar-static-active,
+  &.x-navbar-fixed-top-active {
+    .desktop .x-nav > li {
+      &:first-child > a {
+        border-right: 1px solid $navbarLinkBorderColor;
+      }
+
+      &:last-child > a {
+        border-right: 0;
+      }
+    }
+
+    .masthead-inline {
+      .desktop {
+        .x-nav {
+          > li:not(.x-megamenu) {
+            .sub-menu {
+              left: 0;
+              right: auto;
+
+              .sub-menu {
+                left: $dropdownOffset;
+                right: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .masthead-stacked {
+      .desktop {
+        .x-nav {
+          > li:not(.x-megamenu) {
+            .sub-menu {
+              left: auto;
+              right: 0;
+
+              .sub-menu {
+                left: auto;
+                right: $dropdownOffset;
+              }
+            }
+          }
+        }
+      }
     }
   }
 
@@ -263,27 +242,6 @@
     ul li ul ul li a,
     ul li .sub-menu ul li a {
       padding-right: 4.25em;
-    }
-  }
-}
-
-
-
-// Forms
-// =============================================================================
-
-.rtl {
-  .form-search,
-  .widget_product_search form {
-    &:before {
-      right: 0.8em;
-    }
-
-    .search-query,
-    input[type="text"] {
-      padding-right: 2.15em;
-      padding-left: 0.8em;
-      text-align: left;
     }
   }
 }

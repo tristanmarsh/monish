@@ -12,14 +12,15 @@
 //   03. Grid System and Page Structure
 //   04. Base CSS
 //   05. Components
-//   06. Unique Site Styles
-//   07. Responsive Styles
-//   08. Internet Explorer
-//   09. Print Styles
-//   10. Admin Bar Styles
-//   11. Helper Classes
-//   12. Fonts
-//   13. Media Query Debugging
+//   06. Shortcodes
+//   07. Unique Site Styles
+//   08. Responsive Styles
+//   09. Internet Explorer
+//   10. Print Styles
+//   11. Admin Bar Styles
+//   12. Helper Classes
+//   13. Fonts
+//   14. Media Query Debugging
 // =============================================================================
 
 // Functions, Variables, and Mixins
@@ -79,12 +80,21 @@
 @import "site/stacks/icon/popovers";
 @import "site/stacks/icon/flexslider";
 @import "site/stacks/icon/integrated-sliders";
-@import "site/stacks/icon/jplayer";
 @import "site/stacks/icon/isotope";
 @import "site/stacks/icon/ilightbox";
 @import "site/stacks/icon/social";
 @import "site/stacks/icon/scroll-top";
 @import "site/stacks/icon/nano";
+
+
+
+// Shortcodes
+// =============================================================================
+
+@import "site/shortcodes";
+@import "site/stacks/icon/shortcodes";
+@import "site/mejs";
+@import "site/stacks/icon/mejs";
 
 
 
@@ -105,12 +115,23 @@
 // =============================================================================
 
 //
-// 1. Tablets and below.
-// 2. Portrait tablet to default desktop.
+// 1. Global.
+// 2. Stack specific.
 //
 
-@import "site/stacks/icon/resp/cubs";   // 1
-@import "site/stacks/icon/resp/navbar"; // 2
+@import "site/resp/baby-bear";   // 1
+@import "site/resp/middle-bear"; // 1
+@import "site/resp/old-bear";    // 1
+@import "site/resp/cubs";        // 1
+@import "site/resp/mama-bear";   // 1
+@import "site/resp/papa-bear";   // 1
+
+@import "site/stacks/icon/resp/baby-bear";   // 2
+@import "site/stacks/icon/resp/middle-bear"; // 2
+@import "site/stacks/icon/resp/old-bear";    // 2
+@import "site/stacks/icon/resp/cubs";        // 2
+@import "site/stacks/icon/resp/mama-bear";   // 2
+@import "site/stacks/icon/resp/papa-bear";   // 2
 
 
 

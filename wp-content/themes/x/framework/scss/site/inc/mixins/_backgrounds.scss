@@ -77,8 +77,10 @@
 
 @mixin gradient-vertical($startColor: #555555, $endColor: #333333) {
   background-color: mix($startColor, $endColor, 60%);
-  background-image: -webkit-linear-gradient(top, $startColor, $endColor);
-  background-image: linear-gradient(top, $startColor, $endColor);
+  // background-image: -webkit-linear-gradient(top, $startColor, $endColor);
+  // background-image: linear-gradient(top, $startColor, $endColor);
+  background-image: -webkit-linear-gradient(to bottom, $startColor, $endColor);
+  background-image: linear-gradient(to bottom, $startColor, $endColor);
   background-repeat: repeat-x;
 }
 

@@ -10,7 +10,7 @@
 
 <?php get_header(); ?>
 
-  <div class="x-main full x-container-fluid" role="main">
+  <div class="x-main full x-container" role="main">
 
     <?php while ( have_posts() ) : the_post(); ?>
       <?php x_get_view( 'icon', 'content', 'page' ); ?>

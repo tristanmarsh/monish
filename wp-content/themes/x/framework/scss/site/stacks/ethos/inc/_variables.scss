@@ -32,7 +32,6 @@
 //       d. Alerts
 //       e. Tooltips and Popovers
 //       f. Colophon
-//       g. jPlayer
 //   09. BuddyPress
 //   10. Grid
 //       a. Grid Columns
@@ -236,7 +235,6 @@ $navbarLinkColor:                  #a3a3a3                                     !
 $navbarLinkColorHover:             $white                                      !default; // 2
 $navbarLinkColorActive:            $gray                                       !default; // 2
 $navbarLinkBorderColor:            rgba(255, 255, 255, 0.1)                    !default; // 2
-$navbarLinkPaddingMobile:          0.75em 1em                                  !default; // 2
 $navbarTopLinkBoxShadowHover:      0 $navbarOuterBorderWidth 0 0 $accentColor  !default; // 2
 $navbarLeftLinkBoxShadowHover:     $navbarOuterBorderWidth 0 0 0 $accentColor  !default; // 2
 $navbarRightLinkBoxShadowHover:    -$navbarOuterBorderWidth 0 0 0 $accentColor !default; // 2
@@ -257,19 +255,18 @@ $navbarBrandTextShadow:            0 1px 0 rgba(255, 255, 255, 0.5) !default; //
 // 4. Dividers.
 //
 
-$dropdownBorder:                  1px solid rgba(0, 0, 0, 0.2)  !default; // 1
-$dropdownPadding:                 1.05em 0                      !default; // 1
-$dropdownBackground:              $navbarBackground             !default; // 1
-$dropdownBoxShadow:               0 1px 5px rgba(0, 0, 0, 0.35) !default; // 1
+$dropdownBorder:            1px solid rgba(0, 0, 0, 0.2)  !default; // 1
+$dropdownPadding:           1.05em 0                      !default; // 1
+$dropdownBackground:        $navbarBackground             !default; // 1
+$dropdownBoxShadow:         0 1px 5px rgba(0, 0, 0, 0.35) !default; // 1
 
-$superfishFirstDropdownTop:       $navbarHeight + $navbarOuterBorderWidth !default; // 2
-$superfishFirstDropdownSide:      calc(100% + #{$navbarOuterBorderWidth}) !default; // 2
-$superfishSubmenuTop:             -1.025em                                 !default; // 2
-$superfishSubmenuOffset:          100%                                    !default; // 2
+$dropdownFirstSide:         calc(100% + #{$navbarOuterBorderWidth}) !default; // 2
+$dropdownTop:               -1.025em                                !default; // 2
+$dropdownOffset:            100%                                    !default; // 2
 
-$dropdownLinkPadding:             1px 1.6em          !default; // 3
-$dropdownLinkColor:               $grayDark          !default; // 3
-$dropdownLinkColorHover:          $dropdownLinkColor !default; // 3
+$dropdownLinkPadding:       1px 1.6em          !default; // 3
+$dropdownLinkColor:         $grayDark          !default; // 3
+$dropdownLinkColorHover:    $dropdownLinkColor !default; // 3
 
 
 //
@@ -294,13 +291,6 @@ $popoverTitleBackground:    $bodyBackground !default;
 //
 
 $colophonBackground:        $navbarBackground !default;
-
-
-//
-// jPlayer.
-//
-
-$jPlayerHeight:    30px !default;
 
 
 

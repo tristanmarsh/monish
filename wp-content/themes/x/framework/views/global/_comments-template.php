@@ -7,7 +7,7 @@
 // =============================================================================
 
 $stack           = x_get_stack();
-$container_begin = ( $stack == 'icon' ) ? '<div class="x-container-fluid max width">' : '';
+$container_begin = ( $stack == 'icon' ) ? '<div class="x-container max width">' : '';
 $container_end   = ( $stack == 'icon' ) ? '</div>' : '';
 
 ?>

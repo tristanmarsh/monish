@@ -195,10 +195,9 @@ function x_addons_customizer_manager_reset_output() { ?>
         <?php wp_nonce_field( 'x-addons-customizer-manager-reset' ); ?>
         <p>When you click the button below WordPress will reset your Customizer settings as if it were a brand new installation.</p>
         <p>Be extremely careful using this option as there is no way to revert this option once it has been made unless you previously exported your settings to use as a backup.</p>
-        <p>To reset your options, select the checkbox next to the button to indicate you have read the information above then click the "Reset Customizer Settings" button.</p>
         <p class="submit">
-          <input type="submit" name="reset" id="x-addons-customizer-manager-reset-submit" class="button button-primary" value="Reset Customizer Settings" disabled>
-          <input type="checkbox" id="x-addons-customizer-manager-reset-confirm">
+          <input type="submit" id="x-addons-customizer-manager-reset-submit" class="button button-primary" value="Reset Customizer Settings">
+          <input type="hidden" name="reset" value="reset">
         </p>
       </form>
     </div>

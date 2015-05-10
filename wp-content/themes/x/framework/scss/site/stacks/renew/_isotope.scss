@@ -51,11 +51,11 @@
 }
 
 .isotope .isotope-item {
-  -webkit-transition-property: -webkit-transform, opacity;
-     -moz-transition-property:    -moz-transform, opacity;
-      -ms-transition-property:     -ms-transform, opacity;
-       -o-transition-property:         top, left, opacity;
-          transition-property:         transform, opacity;
+  -webkit-transition-property: -webkit-transform;
+     -moz-transition-property:    -moz-transform;
+      -ms-transition-property:     -ms-transform;
+       -o-transition-property:         top, left;
+          transition-property:         transform;
 }
 
 
@@ -91,7 +91,7 @@
 .x-iso-container > .hentry {
   margin: 0;
   padding: 1em;
-  @include opacity(0);
+  opacity: 0;
 }
 
 .x-iso-container.cols-1 > .hentry {
@@ -126,7 +126,7 @@
 }
 
 .no-js .x-iso-container > .hentry {
-  @include opacity(1);
+  opacity: 1;
 }
 
 

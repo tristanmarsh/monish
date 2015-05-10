@@ -96,6 +96,16 @@
 
 
 //
+// Regular.
+//
+
+.x-btn.x-btn-regular {
+  padding: 0.563em 1.125em 0.813em;
+  @include font-size(1.6);
+}
+
+
+//
 // Small.
 //
 
@@ -206,15 +216,27 @@
     position: relative;
     display: block;
     margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position: center center;
     z-index: 0;
   }
 
   &:before {
     top: 2px;
+    width: 172px;
+    height: 43px;
+    background-image: url(../../../img/global/btn-circle-top-small.png);
+    -webkit-background-size: 172px 43px;
+            background-size: 172px 43px;
   }
 
   &:after {
     bottom: 2px;
+    width: 190px;
+    height: 43px;
+    background-image: url(../../../img/global/btn-circle-bottom-small.png);
+    -webkit-background-size: 190px 43px;
+            background-size: 190px 43px;
   }
 
   .x-btn {

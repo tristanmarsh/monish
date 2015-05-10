@@ -38,9 +38,9 @@
   }
 }
 
-.x-navbar .x-nav > .menu-item-buddypress-navigation {
+.x-navbar .x-nav > .x-menu-item-buddypress {
   > a {
-    &:after {
+    > span:after {
       display: none;
     }
   }
@@ -358,6 +358,7 @@
     text-shadow: none;
     color: $white;
     background-color: $accentColor;
+    @include box-shadow(#{none});
 
     &:focus,
     &:active {
@@ -514,6 +515,7 @@
     text-shadow: none;
     color: $white;
     background-color: $accentColor;
+    @include box-shadow(#{none});
 
     &:focus,
     &:active {
@@ -896,10 +898,15 @@
   // Replies to activity item.
   //
 
-  .activity-comments {
+  .x-activity-comments-outer {
     clear: both;
     float: left;
     width: 100%;
+    margin-bottom: (-$bpSpacingSm);
+  }
+
+  .activity-comments {
+    margin: 15px (-$bpSpacingSm) 0;
 
     .ac-form {
       clear: both;
@@ -926,6 +933,7 @@
         text-shadow: none;
         color: $textColor;
         background-color: transparent;
+        @include box-shadow(#{none});
 
         &:focus,
         &:active {
@@ -947,10 +955,6 @@
       float: right;
       width: calc(100% - #{$bpCalcSpacingLg});
     }
-  }
-
-  .x-activity-comments-inner {
-    margin: 15px (-$bpSpacingSm) (-$bpSpacingSm);
 
     > ul {
       float: right;
@@ -1010,10 +1014,6 @@
           }
         }
       }
-    }
-
-    + .ac-form {
-      margin: $bpSpacingSm (-$bpSpacingSm) (-$bpSpacingSm);
     }
   }
 }
@@ -1114,10 +1114,11 @@
   clear: both;
   float: left;
   width: 100%;
+  margin-bottom: (-$bpSpacingSm);
 }
 
 .buddypress .x-list-item-meta-inner {
-  margin: 0 (-$bpSpacingSm) (-$bpSpacingSm);
+  margin: 0 (-$bpSpacingSm);
   border-top: $bpBorder;
   @include clearfix();
 
@@ -1271,10 +1272,6 @@
   text-align: center;
   color: $white;
   background-color: $accentColor;
-}
-
-.buddypress .group-create {
-  margin-bottom: $bpSpacingSm;
 }
 
 

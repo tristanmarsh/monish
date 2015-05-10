@@ -92,7 +92,7 @@ class X_Update_API {
 
     $data = json_decode( $request['body'], true );
 
-    if ( !isset($data['code'] ) ) {
+    if ( ! isset( $data['code'] ) ) {
       return $connection_error;
     }
 
@@ -194,9 +194,9 @@ class X_Update_API {
 
       $request = self::list_addons();
 
-      $error = array( 'error' => true, 'message' => __('Could not retrieve extensions list. Please ensure your firewall is not blocking requests to <strong>theme.co</strong>.','__x__'));
+      $error = array( 'error' => true, 'message' => __( 'Could not retrieve extensions list. Please ensure your firewall is not blocking requests to <strong>theme.co</strong>.', '__x__' ) );
 
-      $addons = (isset($request['addons'])) ? $request['addons'] : $error;
+      $addons = ( isset( $request['addons'] ) ) ? $request['addons'] : $error;
 
       set_transient( 'x_addon_list_cache', $addons, 3600 * 12 );
 
@@ -231,26 +231,27 @@ class X_Update_API {
 
 
   //
-  // Save connection errors
+  // Save connection errors.
   //
 
   public static function store_error( $wp_error ) {
 
-    if( !isset(self::$errors) )
+    if ( ! isset( self::$errors ) ) {
       self::$errors = array();
+    }
 
-    array_push(self::$errors, (array) $wp_error);
+    array_push( self::$errors, (array) $wp_error );
 
   }
 
 
   //
-  // Return any saved errors
+  // Return any saved errors.
   //
 
-  public static function get_errors( ) {
+  public static function get_errors() {
 
-    return isset(self::$errors) ? self::$errors : array();
+    return isset( self::$errors ) ? self::$errors : array();
 
   }
 

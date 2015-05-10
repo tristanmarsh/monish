@@ -11,10 +11,11 @@
 // -----------------------------------------------------------------------------
 //   01. Get One Page Navigation Menu
 //   02. Is One Page Navigation
-//   03. Get Navbar Positioning
-//   04. Get Logo and Navigation Layout
-//   05. Navbar Searchform Popup
-//   06. Navbar Search Navigation Item
+//   03. Output Primary Navigation
+//   04. Get Navbar Positioning
+//   05. Get Logo and Navigation Layout
+//   06. Navbar Searchform Popup
+//   07. Navbar Search Navigation Item
 // =============================================================================
 
 // Get One Page Navigation Menu
@@ -48,6 +49,44 @@ if ( ! function_exists( 'x_is_one_page_navigation' ) ) :
     }
 
     return $output;
+
+  }
+endif;
+
+
+
+// Output Primary Navigation
+// =============================================================================
+
+if ( ! function_exists( 'x_output_primary_navigation' ) ) :
+  function x_output_primary_navigation() {
+
+    if ( x_is_one_page_navigation() ) {
+
+      wp_nav_menu( array(
+        'menu'           => x_get_one_page_navigation_menu(),
+        'theme_location' => 'primary',
+        'container'      => false,
+        'menu_class'     => 'x-nav x-nav-scrollspy',
+        'link_before'    => '<span>',
+        'link_after'     => '</span>'
+      ) );
+
+    } elseif ( has_nav_menu( 'primary' ) ) {
+
+      wp_nav_menu( array(
+        'theme_location' => 'primary',
+        'container'      => false,
+        'menu_class'     => 'x-nav',
+        'link_before'    => '<span>',
+        'link_after'     => '</span>'
+      ) );
+
+    } else {
+
+      echo '<ul class="x-nav"><li><a href="' . home_url( '/' ) . 'wp-admin/nav-menus.php">Assign a Menu</a></li></ul>';
+
+    }
 
   }
 endif;
@@ -99,7 +138,7 @@ if ( ! function_exists( 'x_navbar_searchform_overlay' ) ) :
 
       <div class="x-searchform-overlay">
         <div class="x-searchform-overlay-inner">
-          <div class="x-container-fluid max width">
+          <div class="x-container max width">
             <form method="get" id="searchform" class="form-search center-text" action="<?php echo esc_url( home_url( '/' ) ); ?>">
               <label for="s" class="cfc-h-tx tt-upper"><?php _e( 'Type and Press &ldquo;enter&rdquo; to Search', '__x__' ); ?></label>
               <input type="text" id="s" class="search-query cfc-h-tx center-text tt-upper" name="s">
@@ -126,9 +165,9 @@ if ( ! function_exists( 'x_navbar_search_navigation_item' ) ) :
 
     if ( x_get_option( 'x_header_search_enable', '' ) == '1' ) {
       if ( $args->theme_location == 'primary' ) {
-        $items .= '<li class="menu-item menu-item-navbar-search">'
+        $items .= '<li class="menu-item x-menu-item x-menu-item-search">'
                   . '<a href="#" class="x-btn-navbar-search">'
-                    . '<i class="x-icon x-icon-search"></i><span class="x-hidden-desktop"> Search</span>'
+                    . '<span><i class="x-icon x-icon-search"></i><span class="x-hidden-desktop"> ' . __( 'Search', '__x__' ) . '</span></span>'
                   . '</a>'
                 . '</li>';
       }

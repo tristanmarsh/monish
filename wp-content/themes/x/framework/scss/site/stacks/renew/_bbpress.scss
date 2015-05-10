@@ -783,9 +783,9 @@
 // Navigation
 // =============================================================================
 
-.x-navbar .x-nav > .menu-item-bbpress-navigation {
+.x-navbar .x-nav > .x-menu-item-bbpress {
   > a {
-    &:after {
+    > span:after {
       display: none;
     }
   }

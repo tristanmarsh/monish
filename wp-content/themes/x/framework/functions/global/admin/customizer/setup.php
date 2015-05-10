@@ -45,6 +45,7 @@ function x_remove_customizer_sections( $wp_customize ) {
 
   $wp_customize->remove_section( 'nav' );
   $wp_customize->remove_section( 'colors' );
+  $wp_customize->remove_section( 'themes' );
   $wp_customize->remove_section( 'title_tagline' );
   $wp_customize->remove_section( 'background_image' );
   $wp_customize->remove_section( 'static_front_page' );

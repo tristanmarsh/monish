@@ -10,7 +10,7 @@
 
 <?php get_header(); ?>
 
-  <div class="x-container-fluid max width offset cf">
+  <div class="x-container max width offset">
     <div class="x-main full" role="main">
       <div class="entry-wrap entry-404">
 

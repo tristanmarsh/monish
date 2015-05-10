@@ -16,6 +16,7 @@
 
 @import "site/inc/functions";
 @import "site/inc/variables";
+@import "site/stacks/icon/inc/variables";
 @import "site/inc/mixins";
 
 
@@ -23,4 +24,5 @@
 // Right to Left
 // =============================================================================
 
+@import "site/rtl";
 @import "site/stacks/icon/rtl";

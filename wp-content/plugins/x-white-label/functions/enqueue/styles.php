@@ -21,27 +21,29 @@ function x_white_label_output_login_styles() {
   require( X_WHITE_LABEL_PATH . '/functions/options.php' );
 
   if ( isset( $x_white_label_enable ) && $x_white_label_enable == 1 ) {
+    if ( $x_white_label_login_image != '' ) {
 
-    $image  = getimagesize( $x_white_label_login_image );
-    $width  = $image[0] . 'px';
-    $height = $image[1] . 'px';
-    $size   = $width . ' ' . $height;
+      $image  = getimagesize( $x_white_label_login_image );
+      $width  = $image[0] . 'px';
+      $height = $image[1] . 'px';
+      $size   = $width . ' ' . $height;
 
-    ?>
+      ?>
 
-    <style id="x-white-label-login-css" type="text/css">
+      <style id="x-white-label-login-css" type="text/css">
 
-      body.login div#login h1 a {
-        width: <?php echo $width; ?>;
-        height: <?php echo $height; ?>;
-        background-image: url(<?php echo $x_white_label_login_image; ?>);
-        -webkit-background-size: <?php echo $size; ?>;
-                background-size: <?php echo $size; ?>;
-      }
+        body.login div#login h1 a {
+          width: <?php echo $width; ?>;
+          height: <?php echo $height; ?>;
+          background-image: url(<?php echo $x_white_label_login_image; ?>);
+          -webkit-background-size: <?php echo $size; ?>;
+                  background-size: <?php echo $size; ?>;
+        }
 
-    </style>
+      </style>
 
-  <?php }
+    <?php }
+  }
 
 }
 

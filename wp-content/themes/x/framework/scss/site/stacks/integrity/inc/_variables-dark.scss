@@ -32,7 +32,6 @@
 //       d. Alerts
 //       e. Tooltips and Popovers
 //       f. Colophon
-//       g. jPlayer
 //   09. BuddyPress
 //   10. Grid
 //       a. Grid Columns
@@ -119,9 +118,9 @@ $commentAvatarBoxShadow:                      inset 0 1px 2px 1px rgba(0, 0, 0, 
 $commentNumberBoxShadow:                      0 2px 5px rgba(0, 0, 0, 0.55)                      !default;
 $commentByPostAuthorTextShadow:               0 1px 0 rgba(0, 0, 0, 0.85)                        !default;
 $colophonBoxShadow:                           inset 0 1px 0 0 rgba(255, 255, 255, 0.075)         !default;
-$jPlayerButtonBorderColor:                    $baseModBackground                                 !default;
-$jPlayerGradientTop:                          darken($white, 70%)                                !default;
-$jPlayerGradientBottom:                       darken($white, 85%)                                !default;
+$mejsButtonBorderColor:                       $baseModBackground                                 !default;
+$mejsGradientTop:                             darken($white, 70%)                                !default;
+$mejsGradientBottom:                          darken($white, 85%)                                !default;
 $searchFormIconColor:                         $black                                             !default;
 $paginationItemBoxShadow:                     inset 0 0 0 rgba(0, 0, 0, 0),
                                               inset 0 0.1em 0.45em 0 rgba(0, 0, 0, 0.85)         !default;
@@ -393,7 +392,6 @@ $navbarLinkColorHover:             $white                        !default; // 2
 $navbarLinkColorActive:            $gray                         !default; // 2
 $navbarLinkBackgroundHover:        transparent                   !default; // 2
 $navbarLinkBackgroundActive:       darken($navbarBackground, 3%) !default; // 2
-$navbarLinkPaddingMobile:          0.75em 1em                    !default; // 2
 $navbarTopLinkBoxShadowHover:      inset 0 4px 0 0 $accentColor  !default; // 2
 $navbarLeftLinkBoxShadowHover:     inset 8px 0 0 0 $accentColor  !default; // 2
 $navbarRightLinkBoxShadowHover:    inset -8px 0 0 0 $accentColor !default; // 2
@@ -419,20 +417,19 @@ $navbarBrandTextShadow:            0 1px 0 rgba(255, 255, 255, 0.5) !default; //
 // 4. Dividers.
 //
 
-$dropdownBorder:                  1px solid rgba(0, 0, 0, 0.2)  !default; // 1
-$dropdownPadding:                 0.75em 0                      !default; // 1
-$dropdownBackground:              $baseModBackground            !default; // 1
-$dropdownBoxShadow:               0 2px 4px rgba(0, 0, 0, 0.95) !default; // 1
+$dropdownBorder:                 1px solid rgba(0, 0, 0, 0.2)  !default; // 1
+$dropdownPadding:                0.75em 0                      !default; // 1
+$dropdownBackground:             $baseModBackground            !default; // 1
+$dropdownBoxShadow:              0 2px 4px rgba(0, 0, 0, 0.95) !default; // 1
 
-$superfishFirstDropdownTop:       $navbarHeight - 15px !default; // 2
-$superfishFirstDropdownSide:      94%                  !default; // 2
-$superfishSubmenuTop:             -0.75em              !default; // 2
-$superfishSubmenuOffset:          98%                  !default; // 2
+$dropdownFirstSide:              94%     !default; // 2
+$dropdownTop:                    -0.75em !default; // 2
+$dropdownOffset:                 98%     !default; // 2
 
-$dropdownLinkPadding:             0.5em 1.6em                      !default; // 3
-$dropdownLinkColor:               $navbarLinkColor                 !default; // 3
-$dropdownLinkColorHover:          $navbarLinkColorHover            !default; // 3
-$dropdownLinkBackgroundHover:     darken($baseModBackground, 2.5%) !default; // 3
+$dropdownLinkPadding:            0.5em 1.6em           !default; // 3
+$dropdownLinkColor:              $navbarLinkColor      !default; // 3
+$dropdownLinkColorHover:         $navbarLinkColorHover !default; // 3
+$dropdownLinkBackgroundHover:    rgba(0, 0, 0, 0.575)  !default; // 3
 
 
 //
@@ -460,13 +457,6 @@ $colophonBackground:        $baseModBackground                         !default;
 $colophonBorderTopRgba:     rgba(0, 0, 0, 0.75)                        !default;
 $colophonFirstBorder:       $navbarOuterBorder                         !default;
 $colophonFirstBoxShadow:    inset 0 1px 0 0 rgba(255, 255, 255, 0.075) !default;
-
-
-//
-// jPlayer.
-//
-
-$jPlayerHeight:    32px !default;
 
 
 

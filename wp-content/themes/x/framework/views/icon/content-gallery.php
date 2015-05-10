@@ -11,7 +11,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <div class="entry-wrap">
     <?php x_icon_comment_number(); ?>
-    <div class="x-container-fluid max width">
+    <div class="x-container max width">
       <?php x_get_view( 'icon', '_content', 'post-header' ); ?>
       <div class="entry-featured">
         <?php x_featured_gallery(); ?>

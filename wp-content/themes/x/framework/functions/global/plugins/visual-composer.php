@@ -9,26 +9,156 @@
 // =============================================================================
 // TABLE OF CONTENTS
 // -----------------------------------------------------------------------------
-//   01. Set Visual Composer
-//   02. Remove Default Shortcodes
-//   03. Remove Meta Boxes
-//   04. Disable Frontend Editor
-//   05. Map Shortcodes
-//   06. Update Existing Shortcodes
-//   07. Incremental ID Counter for Templates
-//   08. Overwrite Layout Error Message
+//   01. Legacy Update
+//   02. Set Visual Composer
+//   03. Add Visual Composer Options
+//   04. Remove Default Shortcodes
+//   05. Remove Default Templates
+//   06. Remove Meta Boxes
+//   07. Provision Frontend Editor
+//   08. Map Shortcodes
+//   09. Update Existing Shortcodes
+//   10. Incremental ID Counter for Templates
+//   11. Overwrite No Content Message
+//   12. Overwrite Layout Error Message
 // =============================================================================
+
+// Legacy Update
+// =============================================================================
+
+function x_visual_composer_legacy_update() {
+  if ( defined( 'WPB_VC_VERSION' ) && version_compare( WPB_VC_VERSION, '4.3.5', '<' ) ) {
+    do_action( 'vc_before_init' );
+  }
+}
+
+add_action( 'admin_init', 'x_visual_composer_legacy_update' );
+
+
 
 // Set Visual Composer
 // =============================================================================
 
 //
-// Removes tabs such as the "Design Options" from the Visual Composer Settings
-// page and disables automatic updates.
+// Disables automatic updates. Optionally removes tabs such as  "Design Options"
+// from the Visual Composer Settings page.
 //
 
-if ( function_exists( 'vc_set_as_theme' ) ) {
-  vc_set_as_theme( true );
+function x_visual_composer_set_as_theme() {
+  if ( get_option( 'wpb_js_x_hide_design_options', true ) ) {
+    vc_set_as_theme( true );
+  } else {
+    add_action( 'admin_notices', 'x_visual_composer_hide_update_notice', -99 );
+    vc_manager()->disableUpdater();
+  }
+}
+
+add_action( 'vc_before_init', 'x_visual_composer_set_as_theme' );
+
+function x_visual_composer_hide_update_notice() {
+  remove_action('admin_notices',array( vc_license(), 'adminNoticeLicenseActivation' ));
+}
+
+
+
+// Add Visual Composer Options
+// =============================================================================
+
+//
+// Add "X Integration" tab.
+//
+
+function x_visual_composer_add_options_tab($tabs) {
+  $tabs['x-integration'] = 'X Integration';
+  return $tabs;
+}
+
+add_filter( 'vc_settings_tabs', 'x_visual_composer_add_options_tab');
+
+
+//
+// Add setting fields.
+//
+
+function x_visual_composer_add_setting_fields( $vc_settings ) {
+  $tab = 'x-integration';
+  $vc_settings->addSection( $tab, null, 'x_visual_composer_options_description' );
+  $vc_settings->addField( $tab, __( 'Hide Teaser Metabox', '__x__' ), 'x_hide_teaser_mb', 'x_visual_composer_sanitize_checkbox', 'x_visual_composer_hide_teaser_mb_callback' );
+  $vc_settings->addField( $tab, __( 'Remove Native Elements', '__x__' ), 'x_remove_native_elements', 'x_visual_composer_sanitize_checkbox', 'x_visual_composer_remove_native_elements_callback' );
+  $vc_settings->addField( $tab, __( 'Remove Default Templates', '__x__' ), 'x_remove_default_templates', 'x_visual_composer_sanitize_checkbox', 'x_visual_composer_remove_default_templates_callback' );
+  $vc_settings->addField( $tab, __( 'Remove Frontend Editor', '__x__' ), 'x_disable_frontend_editor', 'x_visual_composer_sanitize_checkbox', 'x_visual_composer_disable_frontend_editor_callback' );
+  $vc_settings->addField( $tab, __( 'Hide Design Options', '__x__' ), 'x_hide_design_options', 'x_visual_composer_sanitize_checkbox', 'x_visual_composer_hide_design_options_callback' );
+}
+
+add_action( 'vc_settings_tab-x-integration', 'x_visual_composer_add_setting_fields' );
+
+
+//
+// Checkbox sanitization callback.
+//
+
+function x_visual_composer_sanitize_checkbox( $value ) {
+  return $value;
+}
+
+
+//
+// Settings tab description callback.
+//
+
+function x_visual_composer_options_description( $tab ) {
+  if ( $tab["id"] == 'wpb_js_composer_settings_x-integration' ) : ?>
+
+    <div class="tab_intro">
+      <p class="description">
+        <?php _e( 'Toggle certain Visual Composer features for better integration with X.', '__x__' ) ?>
+      </p>
+    </div>
+
+  <?php endif;
+}
+
+
+//
+// Reusable checkbox function.
+//
+
+function x_visual_composer_options_checkbox( $setting_id, $default, $label, $description ) {
+  $checked = ( $checked = get_option( 'wpb_js_' . $setting_id, $default ) ) ? $checked : false; ?>
+
+  <label>
+    <input type="checkbox"<?php echo( $checked ? ' checked="checked";' : '' ) ?> value="1" id="wpb_js_<?php echo $setting_id ?>" name="<?php echo 'wpb_js_' . $setting_id ?>">
+    <?php echo $label; ?>
+  </label>
+  <br/>
+  <p class="description indicator-hint"><?php echo $description; ?></p>
+
+  <?php
+}
+
+
+//
+// Register checkbox settings.
+//
+
+function x_visual_composer_hide_teaser_mb_callback() {
+  return x_visual_composer_options_checkbox( 'x_hide_teaser_mb', true, __( 'Enable', '__x__' ), __( 'Removes an uncommonly used metabox from the Wordpress Post editor.', '__x__' ) );
+}
+
+function x_visual_composer_remove_native_elements_callback() {
+  return x_visual_composer_options_checkbox( 'x_remove_native_elements', true, __( 'Enable', '__x__' ), __( 'Ensures only X styled elements will be used on this site.', '__x__' ) );
+}
+
+function x_visual_composer_remove_default_templates_callback() {
+  return x_visual_composer_options_checkbox( 'x_remove_default_templates', true, __( 'Enable', '__x__' ), __( 'Recommend if you are hiding native Visual Composer elements.', '__x__' ) );
+}
+
+function x_visual_composer_disable_frontend_editor_callback() {
+  return x_visual_composer_options_checkbox( 'x_disable_frontend_editor', false, __( 'Enable', '__x__' ), __( 'Hides access to the Frontend editor.', '__x__' ) );
+}
+
+function x_visual_composer_hide_design_options_callback() {
+  return x_visual_composer_options_checkbox( 'x_hide_design_options', true, __( 'Enable', '__x__' ), __( 'Hides Visual Composer options for which X already provides functionality.', '__x__' ) );
 }
 
 
@@ -85,11 +215,24 @@ if ( ! function_exists( 'x_visual_composer_remove_default_shortcodes' ) ) {
     vc_remove_element( 'vc_wp_rss' );
     vc_remove_element( 'vc_button2' );
     vc_remove_element( 'vc_cta_button2' );
+    vc_remove_element( 'vc_custom_heading' );
+    vc_remove_element( 'vc_empty_space' );
 
   }
 
-  add_action( 'admin_init', 'x_visual_composer_remove_default_shortcodes' );
+  if ( get_option( 'wpb_js_x_remove_native_elements', true ) ) {
+    add_action( 'vc_before_init', 'x_visual_composer_remove_default_shortcodes' );
+  }
 
+}
+
+
+
+// Remove Default Templates
+// =============================================================================
+
+if ( get_option( 'wpb_js_x_remove_default_templates', true ) ) {
+  add_filter( 'vc_load_default_templates', '__return_empty_array', 1 );
 }
 
 
@@ -109,23 +252,226 @@ if ( ! function_exists( 'x_visual_composer_remove_meta_boxes' ) ) {
 
   }
 
-  add_action( 'do_meta_boxes', 'x_visual_composer_remove_meta_boxes' );
+  if ( get_option( 'wpb_js_x_hide_teaser_mb', true ) ) {
+    add_action( 'do_meta_boxes', 'x_visual_composer_remove_meta_boxes' );
+  }
 
 }
 
 
 
-// Disable Frontend Editor
+// Provision Frontend Editor
 // =============================================================================
 
 //
-// Disables the frontend editing options from the WordPress admin edit screen
-// as well as the admin bar.
+// Optionally disables the frontend editing options from the WordPress admin
+// edit screen as well as the admin bar.
 //
 
-if ( function_exists( 'vc_disable_frontend' ) ) {
+if ( function_exists( 'vc_disable_frontend' ) && get_option( 'wpb_js_x_disable_frontend_editor', false ) ) {
   vc_disable_frontend();
 }
+
+
+//
+// Helper function to check if frontend editing is currently active.
+//
+
+function x_visual_composer_is_front_end_editor() {
+  return ( function_exists( 'vc_manager' ) && vc_manager()->mode() == 'page_editable' );
+}
+
+
+//
+// Run certain actions only when using front end editing.
+//
+
+function x_visual_composer_fee_configure() {
+
+  if ( ! x_visual_composer_is_front_end_editor() ) {
+    return;
+  }
+
+
+  //
+  // Scripts and styles.
+  //
+
+  add_action( 'wp_enqueue_scripts', 'x_visual_composer_fee_enqueue', 999 );
+  add_action( 'x_head_css', 'x_visual_composer_fee_output_styles', 999 );
+
+}
+
+add_action( 'init', 'x_visual_composer_fee_configure' );
+
+
+//
+// Enqueue extra scripts while frontend editor is active.
+//
+
+function x_visual_composer_fee_enqueue() {
+
+  wp_enqueue_script( 'vendor-google-maps' );
+  wp_enqueue_script( 'mediaelement' );
+  wp_enqueue_script( 'vendor-ilightbox' );
+
+}
+
+
+//
+// Output extra styles while frontend editor is active.
+//
+
+function x_visual_composer_fee_output_styles() {
+
+  switch ( x_get_stack() ) {
+    case 'integrity':
+      $base_margin = '1.313em';
+      break;
+    case 'integrity':
+      $base_margin = '1.5em';
+      break;
+    case 'integrity':
+      $base_margin = '1.313em';
+      break;
+    case 'integrity':
+      $base_margin = '2.15em';
+      break;
+  }
+
+  ?>
+
+  .vc_welcome .vc_buttons {
+    margin-top: 0;
+  }
+
+  .x-column.vc {
+    width: 100%;
+    margin: 0;
+  }
+
+  .vc_vc_column {
+    margin-right: 4%;
+    padding: 0;
+  }
+
+  .vc_vc_column:last-of-type {
+    margin-right: 0;
+  }
+
+  .vc_vc_column.vc_col-sm-12 { width: 100%;      }
+  .vc_vc_column.vc_col-sm-11 { width: 91.33332%; }
+  .vc_vc_column.vc_col-sm-10 { width: 82.66666%; }
+  .vc_vc_column.vc_col-sm-9  { width: 74%;       }
+  .vc_vc_column.vc_col-sm-8  { width: 65.33332%; }
+  .vc_vc_column.vc_col-sm-7  { width: 56.66666%; }
+  .vc_vc_column.vc_col-sm-6  { width: 48%;       }
+  .vc_vc_column.vc_col-sm-5  { width: 39.33332%; }
+  .vc_vc_column.vc_col-sm-4  { width: 30.66666%; }
+  .vc_vc_column.vc_col-sm-3  { width: 22%;       }
+  .vc_vc_column.vc_col-sm-2  { width: 13.33332%; }
+  .vc_vc_column.vc_col-sm-1  { width: 4.666666%; }
+
+  .x-content-band.vc.marginless-columns .x-container .vc_container-anchor {
+    display: none;
+  }
+
+  .x-content-band.vc.marginless-columns .x-container .vc_vc_column {
+    display: table-cell;
+    margin-right: 0;
+    float: none;
+  }
+
+  .x-content-band.vc.marginless-columns .x-container .vc_vc_column .x-column {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    float: none;
+  }
+
+  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-12 { width: 100%;      }
+  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-11 { width: 91.66666%; }
+  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-10 { width: 83.33333%; }
+  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-9  { width: 75%;       }
+  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-8  { width: 66.66666%; }
+  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-7  { width: 58.33333%; }
+  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-6  { width: 50%;       }
+  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-5  { width: 41.66666%; }
+  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-4  { width: 33.33333%; }
+  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-3  { width: 25%;       }
+  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-2  { width: 16.66666%; }
+  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-1  { width: 8.33333%;  }
+
+  .vc_element {
+    margin-bottom: <?php echo $base_margin; ?>;
+  }
+
+  .vc_element.vc_vc_row,
+  .vc_element.vc_vc_column,
+  .vc_element:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .hentry p:last-of-type,
+  .hentry ul:last-of-type,
+  .hentry ol:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 767px) {
+    .vc_vc_column[class*="vc_col"] {
+      float: none;
+      width: 100%;
+      margin-right: 0;
+    }
+
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column[class*="vc_col"] {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  <?php
+
+}
+
+
+//
+// Add element initialization JavaScript to frontend editor.
+//
+
+function x_visual_composer_fee_js_elements() { ?>
+
+  <script>
+
+    jQuery(function($) {
+
+      //
+      // Intialize JavaScript for X elements.
+      //
+
+      vc.EditElementPanelView.prototype.events['click button.vc_panel-btn-save[data-save=true]'] = function() {
+        setTimeout( function() {
+          document.getElementById('vc_inline-frame').contentWindow.xData.api.process();
+          console.log('Updating X Elements');
+        }, 1500);
+      };
+
+
+      //
+      // Alter appearance of #vc_no-content-helper.
+      //
+
+      $('#vc_no-content-helper h3').html("<?php _e( 'Add Some Using the Button Below!', '__x__' ) ?>");
+      $('#vc_no-content-helper #vc_no-content-add-text-block').remove();
+
+    });
+
+  </script>
+
+<?php }
+
+add_action( 'vc_frontend_editor_render_template', 'x_visual_composer_fee_js_elements', 999 );
 
 
 
@@ -140,8 +486,8 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) ) {
     // Variables.
     //
 
-    $param_icon_value          = array( 'glass', 'music', 'search', 'envelope-o', 'heart', 'star', 'star-o', 'user', 'film', 'th-large', 'th', 'th-list', 'check', 'times', 'search-plus', 'search-minus', 'power-off', 'signal', 'gear', 'cog', 'trash-o', 'home', 'file-o', 'clock-o', 'road', 'download', 'arrow-circle-o-down', 'arrow-circle-o-up', 'inbox', 'play-circle-o', 'rotate-right', 'repeat', 'refresh', 'list-alt', 'lock', 'flag', 'headphones', 'volume-off', 'volume-down', 'volume-up', 'qrcode', 'barcode', 'tag', 'tags', 'book', 'bookmark', 'print', 'camera', 'font', 'bold', 'italic', 'text-height', 'text-width', 'align-left', 'align-center', 'align-right', 'align-justify', 'list', 'dedent', 'outdent', 'indent', 'video-camera', 'photo', 'image', 'picture-o', 'pencil', 'map-marker', 'adjust', 'tint', 'edit', 'pencil-square-o', 'share-square-o', 'check-square-o', 'arrows', 'step-backward', 'fast-backward', 'backward', 'play', 'pause', 'stop', 'forward', 'fast-forward', 'step-forward', 'eject', 'chevron-left', 'chevron-right', 'plus-circle', 'minus-circle', 'times-circle', 'check-circle', 'question-circle', 'info-circle', 'crosshairs', 'times-circle-o', 'check-circle-o', 'ban', 'arrow-left', 'arrow-right', 'arrow-up', 'arrow-down', 'mail-forward', 'share', 'expand', 'compress', 'plus', 'minus', 'asterisk', 'exclamation-circle', 'gift', 'leaf', 'fire', 'eye', 'eye-slash', 'warning', 'exclamation-triangle', 'plane', 'calendar', 'random', 'comment', 'magnet', 'chevron-up', 'chevron-down', 'retweet', 'shopping-cart', 'folder', 'folder-open', 'arrows-v', 'arrows-h', 'bar-chart-o', 'twitter-square', 'facebook-square', 'camera-retro', 'key', 'gears', 'cogs', 'comments', 'thumbs-o-up', 'thumbs-o-down', 'star-half', 'heart-o', 'sign-out', 'linkedin-square', 'thumb-tack', 'external-link', 'sign-in', 'trophy', 'github-square', 'upload', 'lemon-o', 'phone', 'square-o', 'bookmark-o', 'phone-square', 'twitter', 'facebook', 'github', 'unlock', 'credit-card', 'rss', 'hdd-o', 'bullhorn', 'bell', 'certificate', 'hand-o-right', 'hand-o-left', 'hand-o-up', 'hand-o-down', 'arrow-circle-left', 'arrow-circle-right', 'arrow-circle-up', 'arrow-circle-down', 'globe', 'wrench', 'tasks', 'filter', 'briefcase', 'arrows-alt', 'group', 'users', 'chain', 'link', 'cloud', 'flask', 'cut', 'scissors', 'copy', 'files-o', 'paperclip', 'save', 'floppy-o', 'square', 'navicon', 'reorder', 'bars', 'list-ul', 'list-ol', 'strikethrough', 'underline', 'table', 'magic', 'truck', 'pinterest', 'pinterest-square', 'google-plus-square', 'google-plus', 'money', 'caret-down', 'caret-up', 'caret-left', 'caret-right', 'columns', 'unsorted', 'sort', 'sort-down', 'sort-desc', 'sort-up', 'sort-asc', 'envelope', 'linkedin', 'rotate-left', 'undo', 'legal', 'gavel', 'dashboard', 'tachometer', 'comment-o', 'comments-o', 'flash', 'bolt', 'sitemap', 'umbrella', 'paste', 'clipboard', 'lightbulb-o', 'exchange', 'cloud-download', 'cloud-upload', 'user-md', 'stethoscope', 'suitcase', 'bell-o', 'coffee', 'cutlery', 'file-text-o', 'building-o', 'hospital-o', 'ambulance', 'medkit', 'fighter-jet', 'beer', 'h-square', 'plus-square', 'angle-double-left', 'angle-double-right', 'angle-double-up', 'angle-double-down', 'angle-left', 'angle-right', 'angle-up', 'angle-down', 'desktop', 'laptop', 'tablet', 'mobile-phone', 'mobile', 'circle-o', 'quote-left', 'quote-right', 'spinner', 'circle', 'mail-reply', 'reply', 'github-alt', 'folder-o', 'folder-open-o', 'smile-o', 'frown-o', 'meh-o', 'gamepad', 'keyboard-o', 'flag-o', 'flag-checkered', 'terminal', 'code', 'mail-reply-all', 'reply-all', 'star-half-empty', 'star-half-full', 'star-half-o', 'location-arrow', 'crop', 'code-fork', 'unlink', 'chain-broken', 'question', 'info', 'exclamation', 'superscript', 'subscript', 'eraser', 'puzzle-piece', 'microphone', 'microphone-slash', 'shield', 'calendar-o', 'fire-extinguisher', 'rocket', 'maxcdn', 'chevron-circle-left', 'chevron-circle-right', 'chevron-circle-up', 'chevron-circle-down', 'html5', 'css3', 'anchor', 'unlock-alt', 'bullseye', 'ellipsis-h', 'ellipsis-v', 'rss-square', 'play-circle', 'ticket', 'minus-square', 'minus-square-o', 'level-up', 'level-down', 'check-square', 'pencil-square', 'external-link-square', 'share-square', 'compass', 'toggle-down', 'caret-square-o-down', 'toggle-up', 'caret-square-o-up', 'toggle-right', 'caret-square-o-right', 'euro', 'eur', 'gbp', 'dollar', 'usd', 'rupee', 'inr', 'cny', 'rmb', 'yen', 'jpy', 'ruble', 'rouble', 'rub', 'won', 'krw', 'bitcoin', 'btc', 'file', 'file-text', 'sort-alpha-asc', 'sort-alpha-desc', 'sort-amount-asc', 'sort-amount-desc', 'sort-numeric-asc', 'sort-numeric-desc', 'thumbs-up', 'thumbs-down', 'youtube-square', 'youtube', 'xing', 'xing-square', 'youtube-play', 'dropbox', 'stack-overflow', 'instagram', 'flickr', 'adn', 'bitbucket', 'bitbucket-square', 'tumblr', 'tumblr-square', 'long-arrow-down', 'long-arrow-up', 'long-arrow-left', 'long-arrow-right', 'apple', 'windows', 'android', 'linux', 'dribbble', 'skype', 'foursquare', 'trello', 'female', 'male', 'gittip', 'sun-o', 'moon-o', 'archive', 'bug', 'vk', 'weibo', 'renren', 'pagelines', 'stack-exchange', 'arrow-circle-o-right', 'arrow-circle-o-left', 'toggle-left', 'caret-square-o-left', 'dot-circle-o', 'wheelchair', 'vimeo-square', 'turkish-lira', 'try', 'plus-square-o', 'space-shuttle', 'slack', 'envelope-square', 'wordpress', 'openid', 'institution', 'bank', 'university', 'mortar-board', 'graduation-cap', 'yahoo', 'google', 'reddit', 'reddit-square', 'stumbleupon-circle', 'stumbleupon', 'delicious', 'digg', 'pied-piper-square', 'pied-piper', 'pied-piper-alt', 'drupal', 'joomla', 'language', 'fax', 'building', 'child', 'paw', 'spoon', 'cube', 'cubes', 'behance', 'behance-square', 'steam', 'steam-square', 'recycle', 'automobile', 'car', 'cab', 'taxi', 'tree', 'spotify', 'deviantart', 'soundcloud', 'database', 'file-pdf-o', 'file-word-o', 'file-excel-o', 'file-powerpoint-o', 'file-photo-o', 'file-picture-o', 'file-image-o', 'file-zip-o', 'file-archive-o', 'file-sound-o', 'file-audio-o', 'file-movie-o', 'file-video-o', 'file-code-o', 'vine', 'codepen', 'jsfiddle', 'life-bouy', 'life-saver', 'support', 'life-ring', 'circle-o-notch', 'ra', 'rebel', 'ge', 'empire', 'git-square', 'git', 'hacker-news', 'tencent-weibo', 'qq', 'wechat', 'weixin', 'send', 'paper-plane', 'send-o', 'paper-plane-o', 'history', 'circle-thin', 'header', 'paragraph', 'sliders', 'share-alt', 'share-alt-square', 'bomb' );
-    $param_social_icon_value   = array( 'thumb-up', 'thumb-down', 'rss', 'facebook', 'twitter', 'pinterest', 'github', 'path', 'linkedin', 'dribbble', 'stumble-upon', 'behance', 'reddit', 'google-plus', 'youtube', 'vimeo', 'flickr', 'slideshare', 'picassa', 'skype', 'steam', 'instagram', 'foursquare', 'delicious', 'chat', 'torso', 'tumblr', 'video-chat', 'digg', 'wordpress' );
+    $param_icon_value        = array( 'glass', 'music', 'search', 'envelope-o', 'heart', 'star', 'star-o', 'user', 'film', 'th-large', 'th', 'th-list', 'check', 'times', 'search-plus', 'search-minus', 'power-off', 'signal', 'gear', 'cog', 'trash-o', 'home', 'file-o', 'clock-o', 'road', 'download', 'arrow-circle-o-down', 'arrow-circle-o-up', 'inbox', 'play-circle-o', 'rotate-right', 'repeat', 'refresh', 'list-alt', 'lock', 'flag', 'headphones', 'volume-off', 'volume-down', 'volume-up', 'qrcode', 'barcode', 'tag', 'tags', 'book', 'bookmark', 'print', 'camera', 'font', 'bold', 'italic', 'text-height', 'text-width', 'align-left', 'align-center', 'align-right', 'align-justify', 'list', 'dedent', 'outdent', 'indent', 'video-camera', 'photo', 'image', 'picture-o', 'pencil', 'map-marker', 'adjust', 'tint', 'edit', 'pencil-square-o', 'share-square-o', 'check-square-o', 'arrows', 'step-backward', 'fast-backward', 'backward', 'play', 'pause', 'stop', 'forward', 'fast-forward', 'step-forward', 'eject', 'chevron-left', 'chevron-right', 'plus-circle', 'minus-circle', 'times-circle', 'check-circle', 'question-circle', 'info-circle', 'crosshairs', 'times-circle-o', 'check-circle-o', 'ban', 'arrow-left', 'arrow-right', 'arrow-up', 'arrow-down', 'mail-forward', 'share', 'expand', 'compress', 'plus', 'minus', 'asterisk', 'exclamation-circle', 'gift', 'leaf', 'fire', 'eye', 'eye-slash', 'warning', 'exclamation-triangle', 'plane', 'calendar', 'random', 'comment', 'magnet', 'chevron-up', 'chevron-down', 'retweet', 'shopping-cart', 'folder', 'folder-open', 'arrows-v', 'arrows-h', 'bar-chart-o', 'twitter-square', 'facebook-square', 'camera-retro', 'key', 'gears', 'cogs', 'comments', 'thumbs-o-up', 'thumbs-o-down', 'star-half', 'heart-o', 'sign-out', 'linkedin-square', 'thumb-tack', 'external-link', 'sign-in', 'trophy', 'github-square', 'upload', 'lemon-o', 'phone', 'square-o', 'bookmark-o', 'phone-square', 'twitter', 'facebook', 'github', 'unlock', 'credit-card', 'rss', 'hdd-o', 'bullhorn', 'bell', 'certificate', 'hand-o-right', 'hand-o-left', 'hand-o-up', 'hand-o-down', 'arrow-circle-left', 'arrow-circle-right', 'arrow-circle-up', 'arrow-circle-down', 'globe', 'wrench', 'tasks', 'filter', 'briefcase', 'arrows-alt', 'group', 'users', 'chain', 'link', 'cloud', 'flask', 'cut', 'scissors', 'copy', 'files-o', 'paperclip', 'save', 'floppy-o', 'square', 'navicon', 'reorder', 'bars', 'list-ul', 'list-ol', 'strikethrough', 'underline', 'table', 'magic', 'truck', 'pinterest', 'pinterest-square', 'google-plus-square', 'google-plus', 'money', 'caret-down', 'caret-up', 'caret-left', 'caret-right', 'columns', 'unsorted', 'sort', 'sort-down', 'sort-desc', 'sort-up', 'sort-asc', 'envelope', 'linkedin', 'rotate-left', 'undo', 'legal', 'gavel', 'dashboard', 'tachometer', 'comment-o', 'comments-o', 'flash', 'bolt', 'sitemap', 'umbrella', 'paste', 'clipboard', 'lightbulb-o', 'exchange', 'cloud-download', 'cloud-upload', 'user-md', 'stethoscope', 'suitcase', 'bell-o', 'coffee', 'cutlery', 'file-text-o', 'building-o', 'hospital-o', 'ambulance', 'medkit', 'fighter-jet', 'beer', 'h-square', 'plus-square', 'angle-double-left', 'angle-double-right', 'angle-double-up', 'angle-double-down', 'angle-left', 'angle-right', 'angle-up', 'angle-down', 'desktop', 'laptop', 'tablet', 'mobile-phone', 'mobile', 'circle-o', 'quote-left', 'quote-right', 'spinner', 'circle', 'mail-reply', 'reply', 'github-alt', 'folder-o', 'folder-open-o', 'smile-o', 'frown-o', 'meh-o', 'gamepad', 'keyboard-o', 'flag-o', 'flag-checkered', 'terminal', 'code', 'mail-reply-all', 'reply-all', 'star-half-empty', 'star-half-full', 'star-half-o', 'location-arrow', 'crop', 'code-fork', 'unlink', 'chain-broken', 'question', 'info', 'exclamation', 'superscript', 'subscript', 'eraser', 'puzzle-piece', 'microphone', 'microphone-slash', 'shield', 'calendar-o', 'fire-extinguisher', 'rocket', 'maxcdn', 'chevron-circle-left', 'chevron-circle-right', 'chevron-circle-up', 'chevron-circle-down', 'html5', 'css3', 'anchor', 'unlock-alt', 'bullseye', 'ellipsis-h', 'ellipsis-v', 'rss-square', 'play-circle', 'ticket', 'minus-square', 'minus-square-o', 'level-up', 'level-down', 'check-square', 'pencil-square', 'external-link-square', 'share-square', 'compass', 'toggle-down', 'caret-square-o-down', 'toggle-up', 'caret-square-o-up', 'toggle-right', 'caret-square-o-right', 'euro', 'eur', 'gbp', 'dollar', 'usd', 'rupee', 'inr', 'cny', 'rmb', 'yen', 'jpy', 'ruble', 'rouble', 'rub', 'won', 'krw', 'bitcoin', 'btc', 'file', 'file-text', 'sort-alpha-asc', 'sort-alpha-desc', 'sort-amount-asc', 'sort-amount-desc', 'sort-numeric-asc', 'sort-numeric-desc', 'thumbs-up', 'thumbs-down', 'youtube-square', 'youtube', 'xing', 'xing-square', 'youtube-play', 'dropbox', 'stack-overflow', 'instagram', 'flickr', 'adn', 'bitbucket', 'bitbucket-square', 'tumblr', 'tumblr-square', 'long-arrow-down', 'long-arrow-up', 'long-arrow-left', 'long-arrow-right', 'apple', 'windows', 'android', 'linux', 'dribbble', 'skype', 'foursquare', 'trello', 'female', 'male', 'gittip', 'sun-o', 'moon-o', 'archive', 'bug', 'vk', 'weibo', 'renren', 'pagelines', 'stack-exchange', 'arrow-circle-o-right', 'arrow-circle-o-left', 'toggle-left', 'caret-square-o-left', 'dot-circle-o', 'wheelchair', 'vimeo-square', 'turkish-lira', 'try', 'plus-square-o', 'space-shuttle', 'slack', 'envelope-square', 'wordpress', 'openid', 'institution', 'bank', 'university', 'mortar-board', 'graduation-cap', 'yahoo', 'google', 'reddit', 'reddit-square', 'stumbleupon-circle', 'stumbleupon', 'delicious', 'digg', 'pied-piper-square', 'pied-piper', 'pied-piper-alt', 'drupal', 'joomla', 'language', 'fax', 'building', 'child', 'paw', 'spoon', 'cube', 'cubes', 'behance', 'behance-square', 'steam', 'steam-square', 'recycle', 'automobile', 'car', 'cab', 'taxi', 'tree', 'spotify', 'deviantart', 'soundcloud', 'database', 'file-pdf-o', 'file-word-o', 'file-excel-o', 'file-powerpoint-o', 'file-photo-o', 'file-picture-o', 'file-image-o', 'file-zip-o', 'file-archive-o', 'file-sound-o', 'file-audio-o', 'file-movie-o', 'file-video-o', 'file-code-o', 'vine', 'codepen', 'jsfiddle', 'life-bouy', 'life-saver', 'support', 'life-ring', 'circle-o-notch', 'ra', 'rebel', 'ge', 'empire', 'git-square', 'git', 'hacker-news', 'tencent-weibo', 'qq', 'wechat', 'weixin', 'send', 'paper-plane', 'send-o', 'paper-plane-o', 'history', 'circle-thin', 'header', 'paragraph', 'sliders', 'share-alt', 'share-alt-square', 'bomb' );
+    $param_social_icon_value = array( 'thumb-up', 'thumb-down', 'rss', 'facebook', 'twitter', 'pinterest', 'github', 'path', 'linkedin', 'dribbble', 'stumble-upon', 'behance', 'reddit', 'google-plus', 'youtube', 'vimeo', 'flickr', 'slideshare', 'picassa', 'skype', 'steam', 'instagram', 'foursquare', 'delicious', 'chat', 'torso', 'tumblr', 'video-chat', 'digg', 'wordpress' );
 
     sort( $param_icon_value );
     sort( $param_social_icon_value );
@@ -1720,6 +2066,16 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) ) {
             'holder'      => 'div'
           ),
           array(
+            'param_name'  => 'advanced_controls',
+            'heading'     => __( 'Advanced Controls', '__x__' ),
+            'description' => __( 'Select to enable advanced controls on your self-hosted video.', '__x__' ),
+            'type'        => 'checkbox',
+            'holder'      => 'div',
+            'value'       => array(
+              '' => 'true'
+            )
+          ),
+          array(
             'param_name'  => 'hide_controls',
             'heading'     => __( 'Hide Controls', '__x__' ),
             'description' => __( 'Select to hide the controls on your self-hosted video.', '__x__' ),
@@ -2599,6 +2955,16 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) ) {
             'description' => __( 'Include and .oga version of your audio for additional native browser support.', '__x__' ),
             'type'        => 'textfield',
             'holder'      => 'div'
+          ),
+          array(
+            'param_name'  => 'advanced_controls',
+            'heading'     => __( 'Advanced Controls', '__x__' ),
+            'description' => __( 'Select to enable advanced controls on your self-hosted audio.', '__x__' ),
+            'type'        => 'checkbox',
+            'holder'      => 'div',
+            'value'       => array(
+              '' => 'true'
+            )
           ),
           array(
             'param_name'  => 'id',
@@ -4017,7 +4383,7 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) ) {
 
   }
 
-  add_action( 'admin_init', 'x_visual_composer_map_shortcodes' );
+  add_action( 'vc_before_init', 'x_visual_composer_map_shortcodes' );
 
 
   //
@@ -4059,586 +4425,602 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) ) {
 // Update Existing Elements
 // =============================================================================
 
-if ( X_VISUAL_COMOPSER_IS_ACTIVE ) {
-  if ( ! function_exists( 'x_visual_composer_update_existing_shortcodes' ) ) {
+if ( ! function_exists( 'x_visual_composer_update_existing_shortcodes' ) ) {
 
-    function x_visual_composer_update_existing_shortcodes() {
+  function x_visual_composer_update_existing_shortcodes() {
 
-      //
-      // [vc_row]
-      //
+    //
+    // [vc_row]
+    //
 
-      vc_map_update( 'vc_row', array(
-        'name'        => __( 'Content Band', '__x__' ),
-        'weight'      => 1000,
-        'class'       => 'x-content-element x-content-element-content-band',
-        'icon'        => 'content-band',
-        'category'    => __( 'Structure', '__x__' ),
-        'description' => __( 'Place and structure your shortcodes inside of a row', '__x__' )
+    vc_map_update( 'vc_row', array(
+      'name'        => __( 'Content Band', '__x__' ),
+      'weight'      => 1000,
+      'class'       => 'x-content-element x-content-element-content-band',
+      'icon'        => 'content-band',
+      'category'    => __( 'Structure', '__x__' ),
+      'description' => __( 'Place and structure your shortcodes inside of a row', '__x__' )
+    ) );
+
+    vc_remove_param( 'vc_row', 'bg_color' );
+    vc_remove_param( 'vc_row', 'font_color' );
+    vc_remove_param( 'vc_row', 'padding' );
+    vc_remove_param( 'vc_row', 'margin_bottom' );
+    vc_remove_param( 'vc_row', 'bg_image' );
+    vc_remove_param( 'vc_row', 'bg_image_repeat' );
+    vc_remove_param( 'vc_row', 'el_class' );
+    vc_remove_param( 'vc_row', 'css' );
+
+    vc_add_param( 'vc_row', array(
+      'param_name'  => 'inner_container',
+      'heading'     => __( 'Inner Container', '__x__' ),
+      'description' => __( 'Select to insert a container inside of the content band. Use this instead of the [container] shortcode for greater flexibility and to contain multiple columns.', '__x__' ),
+      'type'        => 'checkbox',
+      'holder'      => 'div',
+      'value'       => array(
+        '' => 'true'
+      )
+    ) );
+
+    vc_add_param( 'vc_row', array(
+      'param_name'  => 'no_margin',
+      'heading'     => __( 'Remove Margin', '__x__' ),
+      'description' => __( 'Select to remove the margin from the content band and stack them on top of each other.', '__x__' ),
+      'type'        => 'checkbox',
+      'holder'      => 'div',
+      'value'       => array(
+        '' => 'true'
+      )
+    ) );
+
+    vc_add_param( 'vc_row', array(
+      'param_name'  => 'padding_top',
+      'heading'     => __( 'Padding Top', '__x__' ),
+      'description' => __( 'Set the top padding of the content band (leave blank to keep default).', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div',
+      'value'       => '0px'
+    ) );
+
+    vc_add_param( 'vc_row', array(
+      'param_name'  => 'padding_bottom',
+      'heading'     => __( 'Padding Bottom', '__x__' ),
+      'description' => __( 'Set the bottom padding of the content band (leave blank to keep default).', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div',
+      'value'       => '0px'
+    ) );
+
+    vc_add_param( 'vc_row', array(
+      'param_name'  => 'border',
+      'heading'     => __( 'Border', '__x__' ),
+      'description' => __( 'Select whether or not to display a border on your content band.', '__x__' ),
+      'type'        => 'dropdown',
+      'holder'      => 'div',
+      'value'       => array(
+        'None'       => 'none',
+        'Top'        => 'top',
+        'Left'       => 'left',
+        'Right'      => 'right',
+        'Bottom'     => 'bottom',
+        'Horizontal' => 'horizontal',
+        'Vertical'   => 'vertical',
+        'All'        => 'all'
+      )
+    ) );
+
+    vc_add_param( 'vc_row', array(
+      'param_name'  => 'bg_color',
+      'heading'     => __( 'Background Color', '__x__' ),
+      'description' => __( 'Select the background color of your content band (leave blank for "transparent").', '__x__' ),
+      'type'        => 'colorpicker',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_row', array(
+      'param_name'  => 'bg_pattern',
+      'heading'     => __( 'Background Pattern', '__x__' ),
+      'description' => __( 'Upload a background pattern to your content band.', '__x__' ),
+      'type'        => 'attach_image',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_row', array(
+      'param_name'  => 'bg_image',
+      'heading'     => __( 'Background Image', '__x__' ),
+      'description' => __( 'Upload a background image to your content band (this will overwrite your Background Pattern).', '__x__' ),
+      'type'        => 'attach_image',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_row', array(
+      'param_name'  => 'parallax',
+      'heading'     => __( 'Parallax', '__x__' ),
+      'description' => __( 'Select to activate the parallax effect with background patterns and images.', '__x__' ),
+      'type'        => 'checkbox',
+      'holder'      => 'div',
+      'value'       => array(
+        '' => 'true'
+      )
+    ) );
+
+    vc_add_param( 'vc_row', array(
+      'param_name'  => 'bg_video',
+      'heading'     => __( 'Background Video', '__x__' ),
+      'description' => __( 'Include the path to your background video (this will overwrite both your Background Pattern and Background Image).', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_row', array(
+      'param_name'  => 'bg_video_poster',
+      'heading'     => __( 'Background Video Poster', '__x__' ),
+      'description' => __( 'Include a poster image for your background video on mobile devices.', '__x__' ),
+      'type'        => 'attach_image',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_row', array(
+      'param_name'  => 'marginless_columns',
+      'heading'     => __( 'Marginless Columns', '__x__' ),
+      'description' => __( 'Select to remove the spacing between columns.', '__x__' ),
+      'type'        => 'checkbox',
+      'holder'      => 'div',
+      'value'       => array(
+        '' => 'true'
+      )
+    ) );
+
+    vc_add_param( 'vc_row', array(
+      'param_name'  => 'class',
+      'heading'     => __( 'Class', '__x__' ),
+      'description' => __( '(Optional) Enter a unique class name.', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_row', array(
+      'param_name'  => 'style',
+      'heading'     => __( 'Style', '__x__' ),
+      'description' => __( '(Optional) Enter inline CSS.', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div'
+    ) );
+
+
+    //
+    // [vc_row_inner]
+    //
+
+    vc_map_update( 'vc_row_inner', array(
+      'name'        => __( 'Content Band', '__x__' ),
+      'weight'      => 1000,
+      'class'       => 'x-content-element x-content-element-content-band',
+      'icon'        => 'content-band',
+      'category'    => __( 'Structure', '__x__' ),
+      'description' => __( 'Place and structure your shortcodes inside of a row', '__x__' )
+    ) );
+
+    vc_remove_param( 'vc_row_inner', 'font_color' );
+    vc_remove_param( 'vc_row_inner', 'el_class' );
+    vc_remove_param( 'vc_row_inner', 'css' );
+
+    vc_add_param( 'vc_row_inner', array(
+      'param_name'  => 'inner_container',
+      'heading'     => __( 'Inner Container', '__x__' ),
+      'description' => __( 'Select to insert a container inside of the content band. Use this instead of the [container] shortcode for greater flexibility and to contain multiple columns.', '__x__' ),
+      'type'        => 'checkbox',
+      'holder'      => 'div',
+      'value'       => array(
+        '' => 'true'
+      )
+    ) );
+
+    vc_add_param( 'vc_row_inner', array(
+      'param_name'  => 'no_margin',
+      'heading'     => __( 'Remove Margin', '__x__' ),
+      'description' => __( 'Select to remove the margin from the content band and stack them on top of each other.', '__x__' ),
+      'type'        => 'checkbox',
+      'holder'      => 'div',
+      'value'       => array(
+        '' => 'true'
+      )
+    ) );
+
+    vc_add_param( 'vc_row_inner', array(
+      'param_name'  => 'padding_top',
+      'heading'     => __( 'Padding Top', '__x__' ),
+      'description' => __( 'Set the top padding of the content band (leave blank to keep default).', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div',
+      'value'       => '0px'
+    ) );
+
+    vc_add_param( 'vc_row_inner', array(
+      'param_name'  => 'padding_bottom',
+      'heading'     => __( 'Padding Bottom', '__x__' ),
+      'description' => __( 'Set the bottom padding of the content band (leave blank to keep default).', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div',
+      'value'       => '0px'
+    ) );
+
+    vc_add_param( 'vc_row_inner', array(
+      'param_name'  => 'border',
+      'heading'     => __( 'Border', '__x__' ),
+      'description' => __( 'Select whether or not to display a border on your content band.', '__x__' ),
+      'type'        => 'dropdown',
+      'holder'      => 'div',
+      'value'       => array(
+        'None'       => 'none',
+        'Top'        => 'top',
+        'Left'       => 'left',
+        'Right'      => 'right',
+        'Bottom'     => 'bottom',
+        'Horizontal' => 'horizontal',
+        'Vertical'   => 'vertical',
+        'All'        => 'all'
+      )
+    ) );
+
+    vc_add_param( 'vc_row_inner', array(
+      'param_name'  => 'bg_color',
+      'heading'     => __( 'Background Color', '__x__' ),
+      'description' => __( 'Select the background color of your content band (leave blank for "transparent").', '__x__' ),
+      'type'        => 'colorpicker',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_row_inner', array(
+      'param_name'  => 'bg_pattern',
+      'heading'     => __( 'Background Pattern', '__x__' ),
+      'description' => __( 'Upload a background pattern to your content band.', '__x__' ),
+      'type'        => 'attach_image',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_row_inner', array(
+      'param_name'  => 'bg_image',
+      'heading'     => __( 'Background Image', '__x__' ),
+      'description' => __( 'Upload a background image to your content band (this will overwrite your Background Pattern).', '__x__' ),
+      'type'        => 'attach_image',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_row_inner', array(
+      'param_name'  => 'parallax',
+      'heading'     => __( 'Parallax', '__x__' ),
+      'description' => __( 'Select to activate the parallax effect with background patterns and images.', '__x__' ),
+      'type'        => 'checkbox',
+      'holder'      => 'div',
+      'value'       => array(
+        '' => 'true'
+      )
+    ) );
+
+    vc_add_param( 'vc_row_inner', array(
+      'param_name'  => 'bg_video',
+      'heading'     => __( 'Background Video', '__x__' ),
+      'description' => __( 'Include the path to your background video (this will overwrite both your Background Pattern and Background Image).', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_row_inner', array(
+      'param_name'  => 'bg_video_poster',
+      'heading'     => __( 'Background Video Poster', '__x__' ),
+      'description' => __( 'Include a poster image for your background video on mobile devices.', '__x__' ),
+      'type'        => 'attach_image',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_row_inner', array(
+      'param_name'  => 'class',
+      'heading'     => __( 'Class', '__x__' ),
+      'description' => __( '(Optional) Enter a unique class name.', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_row_inner', array(
+      'param_name'  => 'style',
+      'heading'     => __( 'Style', '__x__' ),
+      'description' => __( '(Optional) Enter inline CSS.', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div'
+    ) );
+
+
+    //
+    // [vc_column]
+    //
+
+    vc_remove_param( 'vc_column', 'width' );
+    vc_remove_param( 'vc_column', 'offset' );
+    vc_remove_param( 'vc_column', 'font_color' );
+    vc_remove_param( 'vc_column', 'el_class' );
+    vc_remove_param( 'vc_column', 'css' );
+
+    vc_add_param( 'vc_column', array(
+      'param_name'  => 'fade',
+      'heading'     => __( 'Fade Effect', '__x__' ),
+      'description' => __( 'Select to activate the fade effect.', '__x__' ),
+      'type'        => 'checkbox',
+      'holder'      => 'div',
+      'value'       => array(
+        '' => 'true'
+      )
+    ) );
+
+    vc_add_param( 'vc_column', array(
+      'param_name'  => 'fade_animation',
+      'heading'     => __( 'Fade Animation', '__x__' ),
+      'description' => __( 'Select the type of fade animation you want to use.', '__x__' ),
+      'type'        => 'dropdown',
+      'holder'      => 'div',
+      'value'       => array(
+        'In'             => 'in',
+        'In From Top'    => 'in-from-top',
+        'In From Left'   => 'in-from-left',
+        'In From Right'  => 'in-from-right',
+        'In From Bottom' => 'in-from-bottom'
+      )
+    ) );
+
+    vc_add_param( 'vc_column', array(
+      'param_name'  => 'fade_animation_offset',
+      'heading'     => __( 'Fade Animation Offset', '__x__' ),
+      'description' => __( 'Set how large you want the offset for your fade animation to be.', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div',
+      'value'       => '45px'
+    ) );
+
+    vc_add_param( 'vc_column', array(
+      'param_name'  => 'id',
+      'heading'     => __( 'ID', '__x__' ),
+      'description' => __( '(Optional) Enter a unique ID.', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_column', array(
+      'param_name'  => 'class',
+      'heading'     => __( 'Class', '__x__' ),
+      'description' => __( '(Optional) Enter a unique class name.', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_column', array(
+      'param_name'  => 'style',
+      'heading'     => __( 'Style', '__x__' ),
+      'description' => __( '(Optional) Enter inline CSS.', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div'
+    ) );
+
+
+    //
+    // [vc_column_inner]
+    //
+
+    vc_remove_param( 'vc_column_inner', 'width' );
+    vc_remove_param( 'vc_column_inner', 'font_color' );
+    vc_remove_param( 'vc_column_inner', 'el_class' );
+    vc_remove_param( 'vc_column_inner', 'css' );
+
+    vc_add_param( 'vc_column_inner', array(
+      'param_name'  => 'fade',
+      'heading'     => __( 'Fade Effect', '__x__' ),
+      'description' => __( 'Select to activate the fade effect.', '__x__' ),
+      'type'        => 'checkbox',
+      'holder'      => 'div',
+      'value'       => array(
+        '' => 'true'
+      )
+    ) );
+
+    vc_add_param( 'vc_column_inner', array(
+      'param_name'  => 'fade_animation',
+      'heading'     => __( 'Fade Animation', '__x__' ),
+      'description' => __( 'Select the type of fade animation you want to use.', '__x__' ),
+      'type'        => 'dropdown',
+      'holder'      => 'div',
+      'value'       => array(
+        'In'             => 'in',
+        'In From Top'    => 'in-from-top',
+        'In From Left'   => 'in-from-left',
+        'In From Right'  => 'in-from-right',
+        'In From Bottom' => 'in-from-bottom'
+      )
+    ) );
+
+    vc_add_param( 'vc_column_inner', array(
+      'param_name'  => 'fade_animation_offset',
+      'heading'     => __( 'Fade Animation Offset', '__x__' ),
+      'description' => __( 'Set how large you want the offset for your fade animation to be.', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div',
+      'value'       => '45px'
+    ) );
+
+    vc_add_param( 'vc_column_inner', array(
+      'param_name'  => 'id',
+      'heading'     => __( 'ID', '__x__' ),
+      'description' => __( '(Optional) Enter a unique ID.', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_column_inner', array(
+      'param_name'  => 'class',
+      'heading'     => __( 'Class', '__x__' ),
+      'description' => __( '(Optional) Enter a unique class name.', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div'
+    ) );
+
+    vc_add_param( 'vc_column_inner', array(
+      'param_name'  => 'style',
+      'heading'     => __( 'Style', '__x__' ),
+      'description' => __( '(Optional) Enter inline CSS.', '__x__' ),
+      'type'        => 'textfield',
+      'holder'      => 'div'
+    ) );
+
+
+    //
+    // [vc_widget_sidebar]
+    //
+
+    vc_map_update( 'vc_widget_sidebar', array(
+      'name'        => __( 'Widget Area', '__x__' ),
+      'weight'      => 950,
+      'icon'        => 'widget-area',
+      'category'    => __( 'Content', '__x__' ),
+      'description' => __( 'Place one of your widget areas into your content', '__x__' )
+    ) );
+
+    vc_remove_param( 'vc_widget_sidebar', 'title' );
+    vc_remove_param( 'vc_widget_sidebar', 'el_class' );
+
+
+    //
+    // [vc_raw_html]
+    //
+
+    vc_map_update( 'vc_raw_html', array(
+      'name'        => __( 'Raw HTML', '__x__' ),
+      'weight'      => 939,
+      'icon'        => 'raw-html',
+      'category'    => __( 'Content', '__x__' ),
+      'description' => __( 'Output raw HTML code on your page', '__x__' )
+    ) );
+
+
+    //
+    // [vc_raw_js]
+    //
+
+    vc_map_update( 'vc_raw_js', array(
+      'name'        => __( 'Raw JavaScript', '__x__' ),
+      'weight'      => 938,
+      'icon'        => 'raw-js',
+      'category'    => __( 'Content', '__x__' ),
+      'description' => __( 'Output raw JavaScript code on your page', '__x__' )
+    ) );
+
+
+    //
+    // [rev_slider_vc]
+    //
+
+    if ( X_REVOLUTION_SLIDER_IS_ACTIVE ) :
+
+      vc_map_update( 'rev_slider_vc', array(
+        'name'        => __( 'Revolution Slider', '__x__' ),
+        'weight'      => 600,
+        'icon'        => 'revslider',
+        'category'    => __( 'Media', '__x__' ),
+        'description' => __( 'Place a Revolution Slider element into your content', '__x__' )
       ) );
 
-      vc_remove_param( 'vc_row', 'bg_color' );
-      vc_remove_param( 'vc_row', 'font_color' );
-      vc_remove_param( 'vc_row', 'padding' );
-      vc_remove_param( 'vc_row', 'margin_bottom' );
-      vc_remove_param( 'vc_row', 'bg_image' );
-      vc_remove_param( 'vc_row', 'bg_image_repeat' );
-      vc_remove_param( 'vc_row', 'el_class' );
-      vc_remove_param( 'vc_row', 'css' );
+      vc_remove_param( 'rev_slider_vc', 'title' );
+      vc_remove_param( 'rev_slider_vc', 'el_class' );
 
-      vc_add_param( 'vc_row', array(
-        'param_name'  => 'inner_container',
-        'heading'     => __( 'Inner Container', '__x__' ),
-        'description' => __( 'Select to insert a container inside of the content band. Use this instead of the [container] shortcode for greater flexibility and to contain multiple columns.', '__x__' ),
-        'type'        => 'checkbox',
-        'holder'      => 'div',
-        'value'       => array(
-          '' => 'true'
-        )
+    endif;
+
+
+    //
+    // [contact-form-7]
+    //
+
+    if ( X_CONTACT_FORM_7_IS_ACTIVE ) :
+
+      vc_map_update( 'contact-form-7', array(
+        'name'        => __( 'Contact Form 7', '__x__' ),
+        'weight'      => 520,
+        'icon'        => 'contact-form-7',
+        'category'    => __( 'Social', '__x__' ),
+        'description' => __( 'Place one of your contact forms into your content', '__x__' )
       ) );
 
-      vc_add_param( 'vc_row', array(
-        'param_name'  => 'no_margin',
-        'heading'     => __( 'Remove Margin', '__x__' ),
-        'description' => __( 'Select to remove the margin from the content band and stack them on top of each other.', '__x__' ),
-        'type'        => 'checkbox',
-        'holder'      => 'div',
-        'value'       => array(
-          '' => 'true'
-        )
-      ) );
-
-      vc_add_param( 'vc_row', array(
-        'param_name'  => 'padding_top',
-        'heading'     => __( 'Padding Top', '__x__' ),
-        'description' => __( 'Set the top padding of the content band (leave blank to keep default).', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div',
-        'value'       => '0px'
-      ) );
-
-      vc_add_param( 'vc_row', array(
-        'param_name'  => 'padding_bottom',
-        'heading'     => __( 'Padding Bottom', '__x__' ),
-        'description' => __( 'Set the bottom padding of the content band (leave blank to keep default).', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div',
-        'value'       => '0px'
-      ) );
-
-      vc_add_param( 'vc_row', array(
-        'param_name'  => 'border',
-        'heading'     => __( 'Border', '__x__' ),
-        'description' => __( 'Select whether or not to display a border on your content band.', '__x__' ),
-        'type'        => 'dropdown',
-        'holder'      => 'div',
-        'value'       => array(
-          'None'       => 'none',
-          'Top'        => 'top',
-          'Left'       => 'left',
-          'Right'      => 'right',
-          'Bottom'     => 'bottom',
-          'Horizontal' => 'horizontal',
-          'Vertical'   => 'vertical',
-          'All'        => 'all'
-        )
-      ) );
-
-      vc_add_param( 'vc_row', array(
-        'param_name'  => 'bg_color',
-        'heading'     => __( 'Background Color', '__x__' ),
-        'description' => __( 'Select the background color of your content band (leave blank for "transparent").', '__x__' ),
-        'type'        => 'colorpicker',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_row', array(
-        'param_name'  => 'bg_pattern',
-        'heading'     => __( 'Background Pattern', '__x__' ),
-        'description' => __( 'Upload a background pattern to your content band.', '__x__' ),
-        'type'        => 'attach_image',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_row', array(
-        'param_name'  => 'bg_image',
-        'heading'     => __( 'Background Image', '__x__' ),
-        'description' => __( 'Upload a background image to your content band (this will overwrite your Background Pattern).', '__x__' ),
-        'type'        => 'attach_image',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_row', array(
-        'param_name'  => 'parallax',
-        'heading'     => __( 'Parallax', '__x__' ),
-        'description' => __( 'Select to activate the parallax effect with background patterns and images.', '__x__' ),
-        'type'        => 'checkbox',
-        'holder'      => 'div',
-        'value'       => array(
-          '' => 'true'
-        )
-      ) );
-
-      vc_add_param( 'vc_row', array(
-        'param_name'  => 'bg_video',
-        'heading'     => __( 'Background Video', '__x__' ),
-        'description' => __( 'Include the path to your background video (this will overwrite both your Background Pattern and Background Image).', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_row', array(
-        'param_name'  => 'bg_video_poster',
-        'heading'     => __( 'Background Video Poster', '__x__' ),
-        'description' => __( 'Include a poster image for your background video on mobile devices.', '__x__' ),
-        'type'        => 'attach_image',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_row', array(
-        'param_name'  => 'class',
-        'heading'     => __( 'Class', '__x__' ),
-        'description' => __( '(Optional) Enter a unique class name.', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_row', array(
-        'param_name'  => 'style',
-        'heading'     => __( 'Style', '__x__' ),
-        'description' => __( '(Optional) Enter inline CSS.', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div'
-      ) );
-
-
-      //
-      // [vc_row_inner]
-      //
-
-      vc_map_update( 'vc_row_inner', array(
-        'name'        => __( 'Content Band', '__x__' ),
-        'weight'      => 1000,
-        'class'       => 'x-content-element x-content-element-content-band',
-        'icon'        => 'content-band',
-        'category'    => __( 'Structure', '__x__' ),
-        'description' => __( 'Place and structure your shortcodes inside of a row', '__x__' )
-      ) );
-
-      vc_remove_param( 'vc_row_inner', 'el_class' );
-      vc_remove_param( 'vc_row_inner', 'css' );
-
-      vc_add_param( 'vc_row_inner', array(
-        'param_name'  => 'inner_container',
-        'heading'     => __( 'Inner Container', '__x__' ),
-        'description' => __( 'Select to insert a container inside of the content band. Use this instead of the [container] shortcode for greater flexibility and to contain multiple columns.', '__x__' ),
-        'type'        => 'checkbox',
-        'holder'      => 'div',
-        'value'       => array(
-          '' => 'true'
-        )
-      ) );
-
-      vc_add_param( 'vc_row_inner', array(
-        'param_name'  => 'no_margin',
-        'heading'     => __( 'Remove Margin', '__x__' ),
-        'description' => __( 'Select to remove the margin from the content band and stack them on top of each other.', '__x__' ),
-        'type'        => 'checkbox',
-        'holder'      => 'div',
-        'value'       => array(
-          '' => 'true'
-        )
-      ) );
-
-      vc_add_param( 'vc_row_inner', array(
-        'param_name'  => 'padding_top',
-        'heading'     => __( 'Padding Top', '__x__' ),
-        'description' => __( 'Set the top padding of the content band (leave blank to keep default).', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div',
-        'value'       => '0px'
-      ) );
-
-      vc_add_param( 'vc_row_inner', array(
-        'param_name'  => 'padding_bottom',
-        'heading'     => __( 'Padding Bottom', '__x__' ),
-        'description' => __( 'Set the bottom padding of the content band (leave blank to keep default).', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div',
-        'value'       => '0px'
-      ) );
-
-      vc_add_param( 'vc_row_inner', array(
-        'param_name'  => 'border',
-        'heading'     => __( 'Border', '__x__' ),
-        'description' => __( 'Select whether or not to display a border on your content band.', '__x__' ),
-        'type'        => 'dropdown',
-        'holder'      => 'div',
-        'value'       => array(
-          'None'       => 'none',
-          'Top'        => 'top',
-          'Left'       => 'left',
-          'Right'      => 'right',
-          'Bottom'     => 'bottom',
-          'Horizontal' => 'horizontal',
-          'Vertical'   => 'vertical',
-          'All'        => 'all'
-        )
-      ) );
-
-      vc_add_param( 'vc_row_inner', array(
-        'param_name'  => 'bg_color',
-        'heading'     => __( 'Background Color', '__x__' ),
-        'description' => __( 'Select the background color of your content band (leave blank for "transparent").', '__x__' ),
-        'type'        => 'colorpicker',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_row_inner', array(
-        'param_name'  => 'bg_pattern',
-        'heading'     => __( 'Background Pattern', '__x__' ),
-        'description' => __( 'Upload a background pattern to your content band.', '__x__' ),
-        'type'        => 'attach_image',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_row_inner', array(
-        'param_name'  => 'bg_image',
-        'heading'     => __( 'Background Image', '__x__' ),
-        'description' => __( 'Upload a background image to your content band (this will overwrite your Background Pattern).', '__x__' ),
-        'type'        => 'attach_image',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_row_inner', array(
-        'param_name'  => 'parallax',
-        'heading'     => __( 'Parallax', '__x__' ),
-        'description' => __( 'Select to activate the parallax effect with background patterns and images.', '__x__' ),
-        'type'        => 'checkbox',
-        'holder'      => 'div',
-        'value'       => array(
-          '' => 'true'
-        )
-      ) );
-
-      vc_add_param( 'vc_row_inner', array(
-        'param_name'  => 'bg_video',
-        'heading'     => __( 'Background Video', '__x__' ),
-        'description' => __( 'Include the path to your background video (this will overwrite both your Background Pattern and Background Image).', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_row_inner', array(
-        'param_name'  => 'bg_video_poster',
-        'heading'     => __( 'Background Video Poster', '__x__' ),
-        'description' => __( 'Include a poster image for your background video on mobile devices.', '__x__' ),
-        'type'        => 'attach_image',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_row_inner', array(
-        'param_name'  => 'class',
-        'heading'     => __( 'Class', '__x__' ),
-        'description' => __( '(Optional) Enter a unique class name.', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_row_inner', array(
-        'param_name'  => 'style',
-        'heading'     => __( 'Style', '__x__' ),
-        'description' => __( '(Optional) Enter inline CSS.', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div'
-      ) );
-
-
-      //
-      // [vc_column]
-      //
-
-      vc_remove_param( 'vc_column', 'el_class' );
-      vc_remove_param( 'vc_column', 'css' );
-
-      vc_add_param( 'vc_column', array(
-        'param_name'  => 'fade',
-        'heading'     => __( 'Fade Effect', '__x__' ),
-        'description' => __( 'Select to activate the fade effect.', '__x__' ),
-        'type'        => 'checkbox',
-        'holder'      => 'div',
-        'value'       => array(
-          '' => 'true'
-        )
-      ) );
-
-      vc_add_param( 'vc_column', array(
-        'param_name'  => 'fade_animation',
-        'heading'     => __( 'Fade Animation', '__x__' ),
-        'description' => __( 'Select the type of fade animation you want to use.', '__x__' ),
-        'type'        => 'dropdown',
-        'holder'      => 'div',
-        'value'       => array(
-          'In'             => 'in',
-          'In From Top'    => 'in-from-top',
-          'In From Left'   => 'in-from-left',
-          'In From Right'  => 'in-from-right',
-          'In From Bottom' => 'in-from-bottom'
-        )
-      ) );
-
-      vc_add_param( 'vc_column', array(
-        'param_name'  => 'fade_animation_offset',
-        'heading'     => __( 'Fade Animation Offset', '__x__' ),
-        'description' => __( 'Set how large you want the offset for your fade animation to be.', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div',
-        'value'       => '45px'
-      ) );
-
-      vc_add_param( 'vc_column', array(
-        'param_name'  => 'id',
-        'heading'     => __( 'ID', '__x__' ),
-        'description' => __( '(Optional) Enter a unique ID.', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_column', array(
-        'param_name'  => 'class',
-        'heading'     => __( 'Class', '__x__' ),
-        'description' => __( '(Optional) Enter a unique class name.', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_column', array(
-        'param_name'  => 'style',
-        'heading'     => __( 'Style', '__x__' ),
-        'description' => __( '(Optional) Enter inline CSS.', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div'
-      ) );
-
-
-      //
-      // [vc_column_inner]
-      //
-
-      vc_remove_param( 'vc_column_inner', 'el_class' );
-      vc_remove_param( 'vc_column_inner', 'css' );
-
-      vc_add_param( 'vc_column_inner', array(
-        'param_name'  => 'fade',
-        'heading'     => __( 'Fade Effect', '__x__' ),
-        'description' => __( 'Select to activate the fade effect.', '__x__' ),
-        'type'        => 'checkbox',
-        'holder'      => 'div',
-        'value'       => array(
-          '' => 'true'
-        )
-      ) );
-
-      vc_add_param( 'vc_column_inner', array(
-        'param_name'  => 'fade_animation',
-        'heading'     => __( 'Fade Animation', '__x__' ),
-        'description' => __( 'Select the type of fade animation you want to use.', '__x__' ),
-        'type'        => 'dropdown',
-        'holder'      => 'div',
-        'value'       => array(
-          'In'             => 'in',
-          'In From Top'    => 'in-from-top',
-          'In From Left'   => 'in-from-left',
-          'In From Right'  => 'in-from-right',
-          'In From Bottom' => 'in-from-bottom'
-        )
-      ) );
-
-      vc_add_param( 'vc_column_inner', array(
-        'param_name'  => 'fade_animation_offset',
-        'heading'     => __( 'Fade Animation Offset', '__x__' ),
-        'description' => __( 'Set how large you want the offset for your fade animation to be.', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div',
-        'value'       => '45px'
-      ) );
-
-      vc_add_param( 'vc_column_inner', array(
-        'param_name'  => 'id',
-        'heading'     => __( 'ID', '__x__' ),
-        'description' => __( '(Optional) Enter a unique ID.', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_column_inner', array(
-        'param_name'  => 'class',
-        'heading'     => __( 'Class', '__x__' ),
-        'description' => __( '(Optional) Enter a unique class name.', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div'
-      ) );
-
-      vc_add_param( 'vc_column_inner', array(
-        'param_name'  => 'style',
-        'heading'     => __( 'Style', '__x__' ),
-        'description' => __( '(Optional) Enter inline CSS.', '__x__' ),
-        'type'        => 'textfield',
-        'holder'      => 'div'
-      ) );
-
-
-      //
-      // [vc_widget_sidebar]
-      //
-
-      vc_map_update( 'vc_widget_sidebar', array(
-        'name'        => __( 'Widget Area', '__x__' ),
-        'weight'      => 950,
-        'icon'        => 'widget-area',
-        'category'    => __( 'Content', '__x__' ),
-        'description' => __( 'Place one of your widget areas into your content', '__x__' )
-      ) );
-
-      vc_remove_param( 'vc_widget_sidebar', 'title' );
-      vc_remove_param( 'vc_widget_sidebar', 'el_class' );
-
-
-      //
-      // [vc_raw_html]
-      //
-
-      vc_map_update( 'vc_raw_html', array(
-        'name'        => __( 'Raw HTML', '__x__' ),
-        'weight'      => 939,
-        'icon'        => 'raw-html',
-        'category'    => __( 'Content', '__x__' ),
-        'description' => __( 'Output raw HTML code on your page', '__x__' )
-      ) );
-
-
-      //
-      // [vc_raw_js]
-      //
-
-      vc_map_update( 'vc_raw_js', array(
-        'name'        => __( 'Raw JavaScript', '__x__' ),
-        'weight'      => 938,
-        'icon'        => 'raw-js',
-        'category'    => __( 'Content', '__x__' ),
-        'description' => __( 'Output raw JavaScript code on your page', '__x__' )
-      ) );
-
-
-      //
-      // [rev_slider_vc]
-      //
-
-      if ( X_REVOLUTION_SLIDER_IS_ACTIVE ) :
-
-        vc_map_update( 'rev_slider_vc', array(
-          'name'        => __( 'Slider Revolution', '__x__' ),
-          'weight'      => 600,
-          'icon'        => 'revslider',
-          'category'    => __( 'Media', '__x__' ),
-          'description' => __( 'Place a Slider Revolution slider into your content', '__x__' )
-        ) );
-
-        vc_remove_param( 'rev_slider_vc', 'title' );
-        vc_remove_param( 'rev_slider_vc', 'el_class' );
-
-      endif;
-
-
-      //
-      // [contact-form-7]
-      //
-
-      if ( X_CONTACT_FORM_7_IS_ACTIVE ) :
-
-        vc_map_update( 'contact-form-7', array(
-          'name'        => __( 'Contact Form 7', '__x__' ),
-          'weight'      => 520,
-          'icon'        => 'contact-form-7',
+    endif;
+
+
+    //
+    // [gravityform]
+    //
+
+    if ( X_GRAVITY_FORMS_IS_ACTIVE ) :
+
+      $param_gf_forms_value = array();
+      $forms = RGFormsModel::get_forms( null, 'title' );
+      foreach( $forms as $form ) {
+        $param_gf_forms_value[$form->title] = $form->id;
+      }
+
+      vc_map(
+        array(
+          'base'        => 'gravityform',
+          'name'        => __( 'Gravity Form', '__x__' ),
+          'weight'      => 525,
+          'class'       => 'x-content-element x-content-element-gravity-form',
+          'icon'        => 'gravity-form',
           'category'    => __( 'Social', '__x__' ),
-          'description' => __( 'Place one of your contact forms into your content', '__x__' )
-        ) );
-
-      endif;
-
-
-      //
-      // [gravityform]
-      //
-
-      if ( X_GRAVITY_FORMS_IS_ACTIVE ) :
-
-        $param_gf_forms_value = array();
-        $forms = RGFormsModel::get_forms( null, 'title' );
-        foreach( $forms as $form ) {
-          $param_gf_forms_value[$form->title] = $form->id;
-        }
-
-        vc_map(
-          array(
-            'base'        => 'gravityform',
-            'name'        => __( 'Gravity Form', '__x__' ),
-            'weight'      => 525,
-            'class'       => 'x-content-element x-content-element-gravity-form',
-            'icon'        => 'gravity-form',
-            'category'    => __( 'Social', '__x__' ),
-            'description' => __( 'Place one of your Gravity Forms into your content', '__x__' ),
-            'params'      => array(
-              array(
-                'param_name'  => 'id',
-                'heading'     => 'Form',
-                'description' => __( 'Select which form you would like to display.', '__x__' ),
-                'type'        => 'dropdown',
-                'holder'      => 'div',      
-                'value'       => $param_gf_forms_value
-              ),
-              array(
-                'param_name'  => 'title',
-                'heading'     => __( 'Disable Title', '__x__' ),
-                'description' => __( 'Select to disable the title of your form.', '__x__' ),
-                'type'        => 'checkbox',
-                'holder'      => 'div',
-                'value'       => array(
-                  '' => 'false'
-                )
-              ),
-              array(
-                'param_name'  => 'description',
-                'heading'     => __( 'Disable Description', '__x__' ),
-                'description' => __( 'Select to disable the description of your form.', '__x__' ),
-                'type'        => 'checkbox',
-                'holder'      => 'div',
-                'value'       => array(
-                  '' => 'false'
-                )
-              ),
-              array(
-                'param_name'  => 'ajax',
-                'heading'     => __( 'Enable AJAX', '__x__' ),
-                'description' => __( 'Select to enable the AJAX functionality of your form.', '__x__' ),
-                'type'        => 'checkbox',
-                'holder'      => 'div',
-                'value'       => array(
-                  '' => 'true'
-                )
+          'description' => __( 'Place one of your Gravity Forms into your content', '__x__' ),
+          'params'      => array(
+            array(
+              'param_name'  => 'id',
+              'heading'     => 'Form',
+              'description' => __( 'Select which form you would like to display.', '__x__' ),
+              'type'        => 'dropdown',
+              'holder'      => 'div',
+              'value'       => $param_gf_forms_value
+            ),
+            array(
+              'param_name'  => 'title',
+              'heading'     => __( 'Disable Title', '__x__' ),
+              'description' => __( 'Select to disable the title of your form.', '__x__' ),
+              'type'        => 'checkbox',
+              'holder'      => 'div',
+              'value'       => array(
+                '' => 'false'
+              )
+            ),
+            array(
+              'param_name'  => 'description',
+              'heading'     => __( 'Disable Description', '__x__' ),
+              'description' => __( 'Select to disable the description of your form.', '__x__' ),
+              'type'        => 'checkbox',
+              'holder'      => 'div',
+              'value'       => array(
+                '' => 'false'
+              )
+            ),
+            array(
+              'param_name'  => 'ajax',
+              'heading'     => __( 'Enable AJAX', '__x__' ),
+              'description' => __( 'Select to enable the AJAX functionality of your form.', '__x__' ),
+              'type'        => 'checkbox',
+              'holder'      => 'div',
+              'value'       => array(
+                '' => 'true'
               )
             )
           )
-        );
+        )
+      );
 
-      endif;
-
-    }
-
-    add_action( 'admin_init', 'x_visual_composer_update_existing_shortcodes' );
+    endif;
 
   }
+
+  add_action( 'admin_init', 'x_visual_composer_update_existing_shortcodes' );
+
 }
+
 
 
 
@@ -4651,6 +5033,24 @@ if ( ! function_exists( 'x_visual_composer_templates_id_increment' ) ) {
     static $count = 0; $count++;
     return $count;
   }
+
+}
+
+
+
+// Overwrite No Content Message
+// =============================================================================
+
+if ( ! function_exists( 'x_visual_composer_overwrite_no_content_message' ) ) {
+
+  function x_visual_composer_overwrite_no_content_message() {
+    $message = __( 'Add Some Using the Button Below!', '__x__' );
+    $output  = "<script>jQuery(function($){ $('#vc_no-content-helper h3').html('{$message}'); $('#vc_no-content-helper #vc_no-content-add-text-block').remove(); });</script>";
+    echo $output;
+  }
+
+  add_action( 'admin_head-post.php',     'x_visual_composer_overwrite_no_content_message', 999 );
+  add_action( 'admin_head-post-new.php', 'x_visual_composer_overwrite_no_content_message', 999 );
 
 }
 

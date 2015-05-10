@@ -30,7 +30,8 @@ if ( ! function_exists( 'x_ethos_entry_meta' ) ) :
     // Author.
     //
 
-    $author = sprintf( ' by %s</span>',
+    $author = sprintf( ' %1$s %2$s</span>',
+      __( 'by', '__x__' ),
       get_the_author()
     );
 
@@ -65,7 +66,8 @@ if ( ! function_exists( 'x_ethos_entry_meta' ) ) :
                               . $separator;
         }
 
-        $categories_list = sprintf( '<span>In %s',
+        $categories_list = sprintf( '<span>%1$s %2$s',
+          __( 'In', '__x__' ),
           trim( $categories_output, $separator )
         );
       } else {
@@ -86,7 +88,8 @@ if ( ! function_exists( 'x_ethos_entry_meta' ) ) :
                             . $separator;
       }
 
-      $categories_list = sprintf( '<span>In %s',
+      $categories_list = sprintf( '<span>%1$s %2$s',
+        __( 'In', '__x__' ),
         trim( $categories_output, $separator )
       );
     }
@@ -149,7 +152,7 @@ endif;
 if ( ! function_exists( 'x_ethos_entry_cover_background_image_style' ) ) :
   function x_ethos_entry_cover_background_image_style() {
 
-    $featured_image   = x_get_featured_image_url( 'full' );
+    $featured_image   = x_make_protocol_relative( x_get_featured_image_url() );
     $background_image = ( $featured_image != '' ) ? 'background-image: url(' . $featured_image . ');' : 'background-image: none;';
 
     return $background_image;
@@ -242,9 +245,9 @@ if ( ! function_exists( 'x_ethos_featured_index' ) ) :
         <?php if ( $is_index_featured_layout ) : ?>  
           <span class="featured-meta"><?php echo x_ethos_post_categories(); ?> / <?php echo get_the_date( 'F j, Y' ); ?></span>
           <h2 class="h-featured"><span><?php x_the_alternate_title(); ?></span></h2>
-          <span class="featured-view">View Post</span>
+          <span class="featured-view"><?php _e( 'View Post', '__x__' ); ?></span>
         <?php else : ?>
-          <span class="view">View Post</span>
+          <span class="view"><?php _e( 'View Post', '__x__' ); ?></span>
         <?php endif; ?>
       </a>
 
@@ -372,8 +375,8 @@ if ( ! function_exists( 'x_ethos_comment' ) ) :
             ?>
             <?php if ( x_is_product() && get_option( 'woocommerce_enable_review_rating' ) == 'yes' ) : ?>
               <div class="star-rating-container">
-                <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating" title="<?php echo sprintf(__( 'Rated %d out of 5', 'woocommerce' ), $rating) ?>">
-                  <span style="width:<?php echo ( intval( get_comment_meta( $GLOBALS['comment']->comment_ID, 'rating', true ) ) / 5 ) * 100; ?>%"><strong itemprop="ratingValue"><?php echo intval( get_comment_meta( $GLOBALS['comment']->comment_ID, 'rating', true ) ); ?></strong> <?php _e( 'out of 5', 'woocommerce' ); ?></span>
+                <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating" title="<?php echo sprintf( __( 'Rated %d out of 5', '__x__' ), $rating ) ?>">
+                  <span style="width:<?php echo ( intval( get_comment_meta( $GLOBALS['comment']->comment_ID, 'rating', true ) ) / 5 ) * 100; ?>%"><strong itemprop="ratingValue"><?php echo intval( get_comment_meta( $GLOBALS['comment']->comment_ID, 'rating', true ) ); ?></strong> <?php _e( 'out of 5', '__x__' ); ?></span>
                 </div>
               </div>
             <?php endif; ?>

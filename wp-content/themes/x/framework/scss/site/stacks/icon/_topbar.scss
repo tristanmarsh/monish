@@ -49,13 +49,17 @@
     }
 
     a {
-      width: 25px;
+      width: 24px;
       height: 32px;
       @include font-size(1.8);
       line-height: 32px;
       text-align: center;
       @include break(middle-bear) {
         @include box-shadow(#{none});
+      }
+
+      &.foursquare {
+        @include font-size(1.6);
       }
     }
   }

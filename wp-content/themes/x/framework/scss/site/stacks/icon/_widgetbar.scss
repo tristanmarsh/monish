@@ -35,7 +35,7 @@
 .x-widgetbar-inner {
   padding: 2.5% 0;
 
-  [class*="span"] {
+  .x-column {
     .widget:first-child {
       margin-top: 0;
     }
@@ -44,13 +44,13 @@
   @include break(cubs) {
     padding: 6.5% 0;
 
-    [class*="span"] {
+    .x-column {
       .widget:first-child {
         margin-top: 3em;
       }
     }
 
-    [class*="span"]:first-child {
+    .x-column:first-child {
       .widget:first-child {
         margin-top: 0
       }

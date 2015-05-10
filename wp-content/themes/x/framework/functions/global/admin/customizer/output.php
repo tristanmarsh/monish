@@ -65,15 +65,15 @@ add_action( 'wp_head', 'x_customizer_generated_css_output', 9998, 0 );
 // =============================================================================
 
 function x_customizer_user_css_output() {
-  if ( x_get_option( 'x_custom_styles' ) ) :
-  ?>
+
+  if ( x_get_option( 'x_custom_styles' ) ) : ?>
 
     <style id="x-customizer-css-custom" type="text/css">
       <?php echo x_get_option( 'x_custom_styles' ); ?>
     </style>
 
-  <?php
-  endif;
+  <?php endif;
+
 }
 
 add_action( 'wp_head', 'x_customizer_user_css_output', 9999, 0 );
@@ -85,36 +85,27 @@ add_action( 'wp_head', 'x_customizer_user_css_output', 9999, 0 );
 
 function x_customizer_user_javascript_output() {
 
-  $stack                                = x_get_stack();
+  $x_custom_scripts                     = x_get_option( 'x_custom_scripts' );
   $entry_id                             = get_the_ID();
-  $x_integrity_design                   = x_get_option( 'x_integrity_design', 'light' );
-  $x_integrity_light_bg_image_full      = x_get_option( 'x_integrity_light_bg_image_full' );
-  $x_integrity_light_bg_image_full_fade = x_get_option( 'x_integrity_light_bg_image_full_fade' );
-  $x_integrity_dark_bg_image_full       = x_get_option( 'x_integrity_dark_bg_image_full' );
-  $x_integrity_dark_bg_image_full_fade  = x_get_option( 'x_integrity_dark_bg_image_full_fade' );
-  $x_renew_bg_image_full                = x_get_option( 'x_renew_bg_image_full' );
-  $x_renew_bg_image_full_fade           = x_get_option( 'x_renew_bg_image_full_fade' );
-  $x_icon_bg_image_full                 = x_get_option( 'x_icon_bg_image_full' );
-  $x_icon_bg_image_full_fade            = x_get_option( 'x_icon_bg_image_full_fade' );
-  $x_ethos_bg_image_full                = x_get_option( 'x_ethos_bg_image_full' );
-  $x_ethos_bg_image_full_fade           = x_get_option( 'x_ethos_bg_image_full_fade' );
   $x_entry_bg_image_full                = get_post_meta( $entry_id, '_x_entry_bg_image_full', true );
   $x_entry_bg_image_full_fade           = get_post_meta( $entry_id, '_x_entry_bg_image_full_fade', true );
   $x_entry_bg_image_full_duration       = get_post_meta( $entry_id, '_x_entry_bg_image_full_duration', true );
+  $x_design_bg_image_full               = x_get_option( 'x_design_bg_image_full', '' );
+  $x_design_bg_image_full_fade          = x_get_option( 'x_design_bg_image_full_fade', '750' );
 
   ?>
 
 
-  <?php if ( x_get_option( 'x_custom_scripts' ) ) : ?>
+  <?php if ( $x_custom_scripts ) : ?>
 
     <script id="x-customizer-js-custom">
-      <?php echo x_get_option( 'x_custom_scripts' ); ?>
+      <?php echo $x_custom_scripts; ?>
     </script>
 
   <?php endif; ?>
 
 
-  <?php if ( $x_entry_bg_image_full ) : ?>
+  <?php if ( $x_entry_bg_image_full && is_singular() ) : ?>
 
     <?php
     $page_bg_images_output = '';
@@ -127,29 +118,9 @@ function x_customizer_user_javascript_output() {
 
     <script>jQuery.backstretch([<?php echo $page_bg_images_output; ?>], {duration: <?php echo $x_entry_bg_image_full_duration; ?>, fade: <?php echo $x_entry_bg_image_full_fade; ?>});</script>
 
-  <?php else : ?>
+  <?php elseif ( $x_design_bg_image_full ) : ?>
 
-    <?php if ( $stack == 'integrity' && $x_integrity_design == 'light' && $x_integrity_light_bg_image_full ) : ?>
-
-      <script>jQuery.backstretch(['<?php echo x_make_protocol_relative( $x_integrity_light_bg_image_full ); ?>'], {fade: <?php echo $x_integrity_light_bg_image_full_fade; ?>});</script>
-
-    <?php elseif ( $stack == 'integrity' && $x_integrity_design == 'dark' && $x_integrity_dark_bg_image_full ) : ?>
-
-      <script>jQuery.backstretch(['<?php echo x_make_protocol_relative( $x_integrity_dark_bg_image_full ); ?>'], {fade: <?php echo $x_integrity_dark_bg_image_full_fade; ?>});</script>
-
-    <?php elseif ( $stack == 'renew' && $x_renew_bg_image_full ) : ?>
-
-      <script>jQuery.backstretch(['<?php echo x_make_protocol_relative( $x_renew_bg_image_full ); ?>'], {fade: <?php echo $x_renew_bg_image_full_fade; ?>});</script>
-
-    <?php elseif ( $stack == 'icon' && $x_icon_bg_image_full ) : ?>
-
-      <script>jQuery.backstretch(['<?php echo x_make_protocol_relative( $x_icon_bg_image_full ); ?>'], {fade: <?php echo $x_icon_bg_image_full_fade; ?>});</script>
-
-    <?php elseif ( $stack == 'ethos' && $x_ethos_bg_image_full ) : ?>
-
-      <script>jQuery.backstretch(['<?php echo x_make_protocol_relative( $x_ethos_bg_image_full ); ?>'], {fade: <?php echo $x_ethos_bg_image_full_fade; ?>});</script>
-
-    <?php endif; ?>
+    <script>jQuery.backstretch(['<?php echo x_make_protocol_relative( $x_design_bg_image_full ); ?>'], {fade: <?php echo $x_design_bg_image_full_fade; ?>});</script>
 
   <?php endif;
 }

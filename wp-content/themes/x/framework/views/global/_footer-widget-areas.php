@@ -13,27 +13,23 @@ $n = x_footer_widget_areas_count();
 <?php if ( $n != 0 ) : ?>
 
   <footer class="x-colophon top" role="contentinfo">
-    <div class="x-container-fluid max width">
-      <div class="x-row-fluid">
+    <div class="x-container max width">
 
-        <?php
+      <?php
 
-        $i = 0; while ( $i < $n ) : $i++;
-          switch ( $n ) {
-            case 4 : $span = 'x-span3';  break;
-            case 3 : $span = 'x-span4';  break;
-            case 2 : $span = 'x-span6';  break;
-            case 1 : $span = 'x-span12'; break;
-          }
-          echo '<div class="' . $span . '">';
-            dynamic_sidebar( 'footer-' . $i );
-          echo '</div>';
-        endwhile;
+      $i = 0; while ( $i < $n ) : $i++;
 
-        ?>
+        $last = ( $i == $n ) ? ' last' : '';
 
-      </div> <!-- end .x-row-fluid -->
-    </div> <!-- end .x-container-fluid.max.width -->
-  </footer> <!-- end .x-colophon.top -->
+        echo '<div class="x-column x-md x-1-' . $n . $last . '">';
+          dynamic_sidebar( 'footer-' . $i );
+        echo '</div>';
+
+      endwhile;
+
+      ?>
+
+    </div>
+  </footer>
 
 <?php endif; ?>

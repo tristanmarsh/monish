@@ -15,44 +15,52 @@ extract( shortcode_atts( array(
   'class'                 => '',
   'style'                 => '',
   'width'                 => '',
+  'last'                  => '',
   'fade'                  => '',
   'fade_animation'        => '',
   'fade_animation_offset' => ''
 ), $atts ) );
 
 $id    = ( $id    != '' ) ? 'id="' . esc_attr( $id ) . '"' : '';
-$class = ( $class != '' ) ? 'x-column vc ' . esc_attr( $class ) : 'x-column vc';
+$class = ( $class != '' ) ? 'x-column x-sm vc ' . esc_attr( $class ) : 'x-column x-sm vc';
 $style = ( $style != '' ) ? $style : '';
 switch ( $width ) {
   case '1/1' :
-    $width = ' whole';
+    $width = ' x-1-1';
     break;
   case '1/2' :
-    $width = ' one-half';
+    $width = ' x-1-2';
     break;
   case '1/3' :
-    $width = ' one-third';
+    $width = ' x-1-3';
     break;
   case '2/3' :
-    $width = ' two-thirds';
+    $width = ' x-2-3';
     break;
   case '1/4' :
-    $width = ' one-fourth';
+    $width = ' x-1-4';
     break;
   case '3/4' :
-    $width = ' three-fourths';
+    $width = ' x-3-4';
     break;
   case '1/6' :
-    $width = ' one-sixth';
+    $width = ' x-1-6';
     break;
   case '5/6' :
-    $width = ' five-sixths';
+    $width = ' x-5-6';
     break;
 }
-$fade_animation = ( $fade_animation != '' ) ? $fade_animation : 'in';
 
 if ( $fade == 'true' ) {
-  $fade = 'data-fade="true" data-fade-animation="' . $fade_animation . '"';
+  $fade = 'data-fade="true"';
+
+  $js_params = array(
+    'fade'      => true,
+    'animation' => $fade_animation
+  );
+
+  $data = ( function_exists( 'x_generate_data_attributes' ) ) ? x_generate_data_attributes( 'column', $js_params ) : '';
+
   switch ( $fade_animation ) {
     case 'in' :
       $fade_animation_offset = '';
@@ -71,12 +79,11 @@ if ( $fade == 'true' ) {
       break;
   }
 } else {
+  $data                  = '';
   $fade                  = '';
   $fade_animation_offset = '';
 }
 
-$output = "<div {$id} class=\"{$class}{$width}\" style=\"{$style}{$fade_animation_offset}\" {$fade}>" . do_shortcode( $content ) . "</div>";
+$output = "<div {$id} class=\"{$class}{$width}{$last}\" style=\"{$style}{$fade_animation_offset}\" {$data} {$fade}>" . do_shortcode( $content ) . "</div>";
 
 echo $output;
-
-?>

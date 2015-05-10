@@ -14,7 +14,8 @@ if ( $is_blog || $is_archive ) :
   if ( $is_blog ) {
     $info = array( 'blog', NULL, NULL, '_x_ethos_post_slider_blog_display' );
   } elseif ( $is_archive ) {
-    $info = array( 'archive', 'cat', get_queried_object_id(), '_x_ethos_post_slider_archives_display' );
+    $type = ( is_category() ) ? 'cat' : 'tag_id';
+    $info = array( 'archive', $type, get_queried_object_id(), '_x_ethos_post_slider_archives_display' );
   }
 
   $slider_enabled = x_get_option( 'x_ethos_post_slider_' . $info[0] . '_enable', '' ) == '1';
@@ -73,7 +74,7 @@ if ( $is_blog || $is_archive ) :
                     <div class="middle">
                       <span class="featured-meta"><?php echo x_ethos_post_categories(); ?> / <?php echo get_the_date( 'F j, Y' ); ?></span>
                       <h2 class="h-featured"><span><?php x_the_alternate_title(); ?></span></h2>
-                      <span class="featured-view"><?php _e('View Post','__x__'); ?></span>
+                      <span class="featured-view"><?php _e( 'View Post', '__x__' ); ?></span>
                     </div>
                   </div>
                 </a>

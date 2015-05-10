@@ -44,6 +44,7 @@ require_once( $glob_path . '/stack-data.php' );
 
 require_once( $admn_path . '/thumbnails/setup.php' );
 require_once( $admn_path . '/setup.php' );
+require_once( $admn_path . '/migration.php' );
 require_once( $admn_path . '/meta/setup.php' );
 require_once( $admn_path . '/sidebars.php' );
 require_once( $admn_path . '/widgets.php' );
@@ -120,4 +121,8 @@ if ( X_VISUAL_COMOPSER_IS_ACTIVE ) {
 
 if ( X_WOOCOMMERCE_IS_ACTIVE ) {
   require_once( $plgn_path . '/woocommerce.php' );
+}
+
+if ( X_WPML_IS_ACTIVE ) {
+  require_once( $plgn_path . '/wpml.php' );
 }

@@ -11,8 +11,6 @@
 // -----------------------------------------------------------------------------
 //   01. Content Width
 //   02. Theme Setup
-//   03. Theme Switch
-//   04. Version Migration
 // =============================================================================
 
 // Content Width
@@ -24,16 +22,16 @@ if ( ! isset( $content_width ) ) :
 
   switch ( $stack ) {
     case 'integrity' :
-      $content_width = x_integrity_post_thumbnail_width() - 120;
+      $content_width = x_post_thumbnail_width() - 120;
       break;
     case 'renew' :
-      $content_width = x_renew_post_thumbnail_width();
+      $content_width = x_post_thumbnail_width();
       break;
     case 'icon' :
-      $content_width = x_icon_post_thumbnail_width();
+      $content_width = x_post_thumbnail_width();
       break;
     case 'ethos' :
-      $content_width = x_ethos_post_thumbnail_width();
+      $content_width = x_post_thumbnail_width();
       break;
   }
 
@@ -94,22 +92,10 @@ if ( ! function_exists( 'x_setup_theme' ) ) :
 
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 100, 9999 );
-    add_image_size( 'entry-integrity',                   x_integrity_post_thumbnail_width(),      9999,                                        false );
-    add_image_size( 'entry-integrity-cropped',           x_integrity_post_thumbnail_width(),      x_post_thumbnail_height( 'integrity' ),      true );
-    add_image_size( 'entry-integrity-fullwidth',         x_integrity_post_thumbnail_width_full(), 9999,                                        false );
-    add_image_size( 'entry-integrity-cropped-fullwidth', x_integrity_post_thumbnail_width_full(), x_post_thumbnail_height_full( 'integrity' ), true );
-    add_image_size( 'entry-renew',                       x_renew_post_thumbnail_width(),          9999,                                        false );
-    add_image_size( 'entry-renew-cropped',               x_renew_post_thumbnail_width(),          x_post_thumbnail_height( 'renew' ),          true );
-    add_image_size( 'entry-renew-fullwidth',             x_renew_post_thumbnail_width_full(),     9999,                                        false );
-    add_image_size( 'entry-renew-cropped-fullwidth',     x_renew_post_thumbnail_width_full(),     x_post_thumbnail_height_full( 'renew' ),     true );
-    add_image_size( 'entry-icon',                        x_icon_post_thumbnail_width(),           9999,                                        false );
-    add_image_size( 'entry-icon-cropped',                x_icon_post_thumbnail_width(),           x_post_thumbnail_height( 'icon' ),           true );
-    add_image_size( 'entry-icon-fullwidth',              x_icon_post_thumbnail_width_full(),      9999,                                        false );
-    add_image_size( 'entry-icon-cropped-fullwidth',      x_icon_post_thumbnail_width_full(),      x_post_thumbnail_height_full( 'icon' ),      true );
-    add_image_size( 'entry-ethos',                       x_ethos_post_thumbnail_width(),          9999,                                        false );
-    add_image_size( 'entry-ethos-cropped',               x_ethos_post_thumbnail_width(),          x_post_thumbnail_height( 'ethos' ),          true );
-    add_image_size( 'entry-ethos-fullwidth',             x_ethos_post_thumbnail_width_full(),     9999,                                        false );
-    add_image_size( 'entry-ethos-cropped-fullwidth',     x_ethos_post_thumbnail_width_full(),     x_post_thumbnail_height_full( 'ethos' ),     true );
+    add_image_size( 'entry',                   x_post_thumbnail_width(),      9999,                                   false );
+    add_image_size( 'entry-cropped',           x_post_thumbnail_width(),      x_post_thumbnail_cropped_height(),      true  );
+    add_image_size( 'entry-fullwidth',         x_post_thumbnail_width_full(), 9999,                                   false );
+    add_image_size( 'entry-cropped-fullwidth', x_post_thumbnail_width_full(), x_post_thumbnail_cropped_height_full(), true  );
 
 
     //
@@ -147,57 +133,3 @@ if ( ! function_exists( 'x_setup_theme' ) ) :
   }
   add_action( 'after_setup_theme', 'x_setup_theme' );
 endif;
-
-
-
-// Theme Switch
-// =============================================================================
-
-function x_switch_theme( $new_name, $new_theme ) {
-
-  if ( $new_theme == 'X' || $new_theme->get( 'Template' ) == 'x' ) {
-    return false;
-  }
-
-  include_once( ABSPATH . '/wp-admin/includes/plugin.php' );
-
-  $plugins   = get_plugins();
-  $x_plugins = array();
-
-  foreach ( (array) $plugins as $plugin => $headers ) {
-    if ( ! empty( $headers['X Plugin'] ) ) {
-      $x_plugins[] = $plugin;
-    }
-  }
-
-  deactivate_plugins( $x_plugins );
-
-}
-
-add_action( 'switch_theme', 'x_switch_theme', 10, 2 );
-
-
-
-// Version Migration
-// =============================================================================
-
-function x_version_migration() {
-
-  $prior = get_option( 'x_version', '1.0.0' );
-
-  if ( version_compare( $prior, X_VERSION, '<' ) ) {
-
-    if ( version_compare( $prior, '2.2.0', '<' ) ) {
-      $mods = get_theme_mods();
-      foreach( $mods as $key => $value ) {
-        update_option( $key, $value );
-      }
-    }
-
-    update_option( 'x_version', X_VERSION );
-
-  }
-
-}
-
-add_action( 'admin_init', 'x_version_migration' );

@@ -15,7 +15,7 @@
   <?php if ( x_get_option( 'x_footer_bottom_display', '1' ) == '1' ) : ?>
 
     <footer class="x-colophon bottom" role="contentinfo">
-      <div class="x-container-fluid max width">
+      <div class="x-container max width">
 
         <?php if ( x_get_option( 'x_footer_content_display', '1' ) == '1' ) : ?>
           <div class="x-colophon-content">

@@ -6,13 +6,22 @@
 // Isotope script call for portfolio output.
 // =============================================================================
 
-$stack = x_get_stack();
+$stack  = x_get_stack();
+$is_rtl = is_rtl();
 
 ?>
 
 <script>
 
-  jQuery(document).ready(function($){
+  jQuery(document).ready(function($) {
+
+    <?php if ( $is_rtl ) : ?>
+
+      $.Isotope.prototype._positionAbs = function( x, y ) {
+        return { right: x, top: y };
+      };
+
+    <?php endif; ?>
 
     var $container   = $('#x-iso-container');
     var $optionSets  = $('.option-set');
@@ -20,27 +29,30 @@ $stack = x_get_stack();
 
     $container.before('<span id="x-isotope-loading"><span>');
 
-    $(window).load(function(){
+    $(window).load(function() {
       $container.isotope({
         itemSelector   : '.x-iso-container > .hentry',
         resizable      : true,
         filter         : '*',
+        <?php if ( $is_rtl ) : ?>
+          transformsEnabled : false,
+        <?php endif; ?>
         containerStyle : {
           overflow : 'hidden',
           position : 'relative'
         }
       });
       $('#x-isotope-loading').stop(true,true).fadeOut(300);
-      $('#x-iso-container .hentry').each(function(i){
-        $(this).delay(i*150).animate({'opacity':1},300);
+      $('#x-iso-container > .hentry').each(function(i) {
+        $(this).delay(i * 150).animate({'opacity' : 1},500);
       });
     });
 
-    $(window).smartresize(function(){
+    $(window).smartresize(function() {
       $container.isotope({  });
     });
 
-    $optionLinks.click(function(){
+    $optionLinks.click(function() {
       var $this = $(this);
       if ( $this.hasClass('selected') ) {
         return false;
@@ -64,7 +76,7 @@ $stack = x_get_stack();
       return false;
     });
 
-    $('.x-portfolio-filters').click(function () {
+    $('.x-portfolio-filters').click(function() {
       $(this).parent().find('ul').slideToggle(600, 'easeOutExpo');
     });
 

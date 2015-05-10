@@ -17,21 +17,22 @@
 //       e. Options - Renew
 //       f. Options - Icon
 //       g. Options - Ethos
-//       h. Options - Typography
-//       i. Options - Buttons
-//       j. Options - Header
-//       k. Options - Footer
-//       l. Options - Blog
-//       m. Options - Portfolio
-//       n. Options - bbPress
-//       o. Options - BuddyPress
-//       p. Options - WooCommerce
-//       q. Options - Social
-//       r. Options - Site Icons
-//       s. Options - Custom
-//       t. Output - Sections
-//       u. Output - Settings
-//       v. Output - Controls
+//       h. Options - Layout and Design
+//       i. Options - Typography
+//       j. Options - Buttons
+//       k. Options - Header
+//       l. Options - Footer
+//       m. Options - Blog
+//       n. Options - Portfolio
+//       o. Options - bbPress
+//       p. Options - BuddyPress
+//       q. Options - WooCommerce
+//       r. Options - Social
+//       s. Options - Site Icons
+//       t. Options - Custom
+//       u. Output - Sections
+//       v. Output - Settings
+//       w. Output - Controls
 //   02. List Options
 // =============================================================================
 
@@ -184,31 +185,32 @@ function x_customizer_options_register( $wp_customize ) {
   // Sections.
   //
 
-  $x['sec'][] = array( 'x_customizer_section_stack',      __( 'Stack', '__x__' ),      1  );
-  $x['sec'][] = array( 'x_customizer_section_integrity',  __( 'Integrity', '__x__' ),  2  );
-  $x['sec'][] = array( 'x_customizer_section_renew',      __( 'Renew', '__x__' ),      3  );
-  $x['sec'][] = array( 'x_customizer_section_icon',       __( 'Icon', '__x__' ),       4  );
-  $x['sec'][] = array( 'x_customizer_section_ethos',      __( 'Ethos', '__x__' ),      5  );
-  $x['sec'][] = array( 'x_customizer_section_typography', __( 'Typography', '__x__' ), 6  );
-  $x['sec'][] = array( 'x_customizer_section_buttons',    __( 'Buttons', '__x__' ),    7  );
-  $x['sec'][] = array( 'x_customizer_section_header',     __( 'Header', '__x__' ),     8  );
-  $x['sec'][] = array( 'x_customizer_section_footer',     __( 'Footer', '__x__' ),     9  );
-  $x['sec'][] = array( 'x_customizer_section_blog',       __( 'Blog', '__x__' ),       10 );
-  $x['sec'][] = array( 'x_customizer_section_portfolio',  __( 'Portfolio', '__x__' ),  11 );
-  $x['sec'][] = array( 'x_customizer_section_social',     __( 'Social', '__x__' ),     15 );
-  $x['sec'][] = array( 'x_customizer_section_site_icons', __( 'Site Icons', '__x__' ), 16 );
-  $x['sec'][] = array( 'x_customizer_section_custom',     __( 'Custom', '__x__' ),     17 );
+  $x['sec'][] = array( 'x_customizer_section_stack',             __( 'Stack', '__x__' ),             1  );
+  $x['sec'][] = array( 'x_customizer_section_integrity',         __( 'Integrity', '__x__' ),         2  );
+  $x['sec'][] = array( 'x_customizer_section_renew',             __( 'Renew', '__x__' ),             3  );
+  $x['sec'][] = array( 'x_customizer_section_icon',              __( 'Icon', '__x__' ),              4  );
+  $x['sec'][] = array( 'x_customizer_section_ethos',             __( 'Ethos', '__x__' ),             5  );
+  $x['sec'][] = array( 'x_customizer_section_layout_and_design', __( 'Layout and Design', '__x__' ), 6  );
+  $x['sec'][] = array( 'x_customizer_section_typography',        __( 'Typography', '__x__' ),        7  );
+  $x['sec'][] = array( 'x_customizer_section_buttons',           __( 'Buttons', '__x__' ),           8  );
+  $x['sec'][] = array( 'x_customizer_section_header',            __( 'Header', '__x__' ),            9  );
+  $x['sec'][] = array( 'x_customizer_section_footer',            __( 'Footer', '__x__' ),            10 );
+  $x['sec'][] = array( 'x_customizer_section_blog',              __( 'Blog', '__x__' ),              11 );
+  $x['sec'][] = array( 'x_customizer_section_portfolio',         __( 'Portfolio', '__x__' ),         12 );
+  $x['sec'][] = array( 'x_customizer_section_social',            __( 'Social', '__x__' ),            16 );
+  $x['sec'][] = array( 'x_customizer_section_site_icons',        __( 'Site Icons', '__x__' ),        17 );
+  $x['sec'][] = array( 'x_customizer_section_custom',            __( 'Custom', '__x__' ),            18 );
 
   if ( X_BBPRESS_IS_ACTIVE ) {
-    $x['sec'][] = array( 'x_customizer_section_bbpress', __( 'bbPress', '__x__' ), 12 );
+    $x['sec'][] = array( 'x_customizer_section_bbpress', __( 'bbPress', '__x__' ), 13 );
   }
 
   if ( X_BUDDYPRESS_IS_ACTIVE ) {
-    $x['sec'][] = array( 'x_customizer_section_buddypress', __( 'BuddyPress', '__x__' ), 13 );
+    $x['sec'][] = array( 'x_customizer_section_buddypress', __( 'BuddyPress', '__x__' ), 14 );
   }
 
   if ( X_WOOCOMMERCE_IS_ACTIVE ) {
-    $x['sec'][] = array( 'x_customizer_section_woocommerce', __( 'WooCommerce', '__x__' ), 14 );
+    $x['sec'][] = array( 'x_customizer_section_woocommerce', __( 'WooCommerce', '__x__' ), 15 );
   }
 
 
@@ -224,26 +226,6 @@ function x_customizer_options_register( $wp_customize ) {
   // Options - Integrity.
   //
 
-      $x['set'][] = array( 'x_integrity_layout_site', 'full-width', 'refresh' );
-      $x['con'][] = array( 'x_integrity_layout_site', 'radio', __( 'Site Layout', '__x__' ), $list_site_layouts, 'x_customizer_section_integrity' );
-
-      $x['set'][] = array( 'x_integrity_sizing_site_max_width', '1200', 'postMessage' );
-      $x['con'][] = array( 'x_integrity_sizing_site_max_width', 'slider', __( 'Site Max Width (px)', '__x__' ), $list_sizing_site_max_width, 'x_customizer_section_integrity' );
-
-      $x['set'][] = array( 'x_integrity_sizing_site_width', '88', 'postMessage' );
-      $x['con'][] = array( 'x_integrity_sizing_site_width', 'slider', __( 'Site Width (%)', '__x__' ), $list_sizing_site_width, 'x_customizer_section_integrity' );
-
-      $x['set'][] = array( 'x_integrity_layout_content', 'content-sidebar', 'refresh' );
-      $x['con'][] = array( 'x_integrity_layout_content', 'radio', __( 'Content Layout', '__x__' ), $list_content_layouts, 'x_customizer_section_integrity' );
-
-      $x['set'][] = array( 'x_integrity_sizing_content_width', '72', 'postMessage' );
-      $x['con'][] = array( 'x_integrity_sizing_content_width', 'slider', __( 'Content Width (%)', '__x__' ), $list_sizing_content_width, 'x_customizer_section_integrity' );
-
-
-      //
-      // Design options.
-      //
-
       $x['set'][] = array( 'x_integrity_design', 'light', 'refresh' );
       $x['con'][] = array( 'x_integrity_design', 'radio', __( 'Design', '__x__' ), $list_integrity_designs, 'x_customizer_section_integrity' );
 
@@ -255,35 +237,6 @@ function x_customizer_options_register( $wp_customize ) {
 
       $x['set'][] = array( 'x_integrity_footer_transparency_enable', '', 'refresh' );
       $x['con'][] = array( 'x_integrity_footer_transparency_enable', 'radio', __( 'Footer Transparency', '__x__' ), $list_on_off, 'x_customizer_section_integrity' );
-
-
-      //
-      // Background options.
-      //
-
-      $x['set'][] = array( 'x_integrity_light_bg_color', '#f3f3f3', 'postMessage' );
-      $x['con'][] = array( 'x_integrity_light_bg_color', 'color', __( 'Background Color', '__x__' ), 'x_customizer_section_integrity' );
-
-      $x['set'][] = array( 'x_integrity_light_bg_image_pattern', '', 'refresh' );
-      $x['con'][] = array( 'x_integrity_light_bg_image_pattern', 'image', __( 'Background Pattern', '__x__' ), 'x_customizer_section_integrity' );
-
-      $x['set'][] = array( 'x_integrity_light_bg_image_full', '', 'refresh' );
-      $x['con'][] = array( 'x_integrity_light_bg_image_full', 'image', __( 'Background Image', '__x__' ), 'x_customizer_section_integrity' );
-
-      $x['set'][] = array( 'x_integrity_light_bg_image_full_fade', '750', 'refresh' );
-      $x['con'][] = array( 'x_integrity_light_bg_image_full_fade', 'text', __( 'Background Image Fade (ms)', '__x__' ), 'x_customizer_section_integrity' );
-
-      $x['set'][] = array( 'x_integrity_dark_bg_color', '#1c1c1c', 'postMessage' );
-      $x['con'][] = array( 'x_integrity_dark_bg_color', 'color', __( 'Background Color', '__x__' ), 'x_customizer_section_integrity' );
-
-      $x['set'][] = array( 'x_integrity_dark_bg_image_pattern', '', 'refresh' );
-      $x['con'][] = array( 'x_integrity_dark_bg_image_pattern', 'image', __( 'Background Pattern', '__x__' ), 'x_customizer_section_integrity' );
-
-      $x['set'][] = array( 'x_integrity_dark_bg_image_full', '', 'refresh' );
-      $x['con'][] = array( 'x_integrity_dark_bg_image_full', 'image', __( 'Background Image', '__x__' ), 'x_customizer_section_integrity' );
-
-      $x['set'][] = array( 'x_integrity_dark_bg_image_full_fade', '750', 'refresh' );
-      $x['con'][] = array( 'x_integrity_dark_bg_image_full_fade', 'text', __( 'Background Image Fade (ms)', '__x__' ), 'x_customizer_section_integrity' );
 
 
       //
@@ -333,26 +286,6 @@ function x_customizer_options_register( $wp_customize ) {
   // Options - Renew.
   //
 
-      $x['set'][] = array( 'x_renew_layout_site', 'full-width', 'refresh' );
-      $x['con'][] = array( 'x_renew_layout_site', 'radio', __( 'Site Layout', '__x__' ), $list_site_layouts, 'x_customizer_section_renew' );
-
-      $x['set'][] = array( 'x_renew_sizing_site_max_width', '1200', 'postMessage' );
-      $x['con'][] = array( 'x_renew_sizing_site_max_width', 'slider', __( 'Site Max Width (px)', '__x__' ), $list_sizing_site_max_width, 'x_customizer_section_renew' );
-
-      $x['set'][] = array( 'x_renew_sizing_site_width', '88', 'postMessage' );
-      $x['con'][] = array( 'x_renew_sizing_site_width', 'slider', __( 'Site Width (%)', '__x__' ), $list_sizing_site_width, 'x_customizer_section_renew' );
-
-      $x['set'][] = array( 'x_renew_layout_content', 'content-sidebar', 'refresh' );
-      $x['con'][] = array( 'x_renew_layout_content', 'radio', __( 'Content Layout', '__x__' ), $list_content_layouts, 'x_customizer_section_renew' );
-
-      $x['set'][] = array( 'x_renew_sizing_content_width', '72', 'postMessage' );
-      $x['con'][] = array( 'x_renew_sizing_content_width', 'slider', __( 'Content Width (%)', '__x__' ), $list_sizing_content_width, 'x_customizer_section_renew' );
-
-
-      //
-      // Design options.
-      //
-
       $x['set'][] = array( 'x_renew_topbar_background', '#1f2c39', 'refresh' );
       $x['con'][] = array( 'x_renew_topbar_background', 'color', __( 'Topbar Background', '__x__' ), 'x_customizer_section_renew' );
 
@@ -373,23 +306,6 @@ function x_customizer_options_register( $wp_customize ) {
 
       $x['set'][] = array( 'x_renew_footer_background', '#2c3e50', 'refresh' );
       $x['con'][] = array( 'x_renew_footer_background', 'color', __( 'Footer Background', '__x__' ), 'x_customizer_section_renew' );
-
-
-      //
-      // Background options.
-      //
-
-      $x['set'][] = array( 'x_renew_bg_color', '#f5f5f5', 'postMessage' );
-      $x['con'][] = array( 'x_renew_bg_color', 'color', __( 'Background Color', '__x__' ), 'x_customizer_section_renew' );
-
-      $x['set'][] = array( 'x_renew_bg_image_pattern', '', 'refresh' );
-      $x['con'][] = array( 'x_renew_bg_image_pattern', 'image', __( 'Background Pattern', '__x__' ), 'x_customizer_section_renew' );
-
-      $x['set'][] = array( 'x_renew_bg_image_full', '', 'refresh' );
-      $x['con'][] = array( 'x_renew_bg_image_full', 'image', __( 'Background Image', '__x__' ), 'x_customizer_section_renew' );
-
-      $x['set'][] = array( 'x_renew_bg_image_full_fade', '750', 'refresh' );
-      $x['con'][] = array( 'x_renew_bg_image_full_fade', 'text', __( 'Background Image Fade (ms)', '__x__' ), 'x_customizer_section_renew' );
 
 
       //
@@ -442,45 +358,8 @@ function x_customizer_options_register( $wp_customize ) {
   // Options - Icon.
   //
 
-      $x['set'][] = array( 'x_icon_layout_site', 'full-width', 'refresh' );
-      $x['con'][] = array( 'x_icon_layout_site', 'radio', __( 'Site Layout', '__x__' ), $list_site_layouts, 'x_customizer_section_icon' );
-
-      $x['set'][] = array( 'x_icon_sizing_site_max_width', '1200', 'postMessage' );
-      $x['con'][] = array( 'x_icon_sizing_site_max_width', 'slider', __( 'Site Max Width (px)', '__x__' ), $list_sizing_site_max_width, 'x_customizer_section_icon' );
-
-      $x['set'][] = array( 'x_icon_sizing_site_width', '88', 'postMessage' );
-      $x['con'][] = array( 'x_icon_sizing_site_width', 'slider', __( 'Site Width (%)', '__x__' ), $list_sizing_site_width, 'x_customizer_section_icon' );
-
-      $x['set'][] = array( 'x_icon_layout_content', 'content-sidebar', 'refresh' );
-      $x['con'][] = array( 'x_icon_layout_content', 'radio', __( 'Content Layout', '__x__' ), $list_content_layouts, 'x_customizer_section_icon' );
-
-      $x['set'][] = array( 'x_icon_sidebar_width', '250', 'refresh' );
-      $x['con'][] = array( 'x_icon_sidebar_width', 'text', __( 'Set Sidebar Width (px)', '__x__' ), 'x_customizer_section_icon' );
-
-      // $x['set'][] = array( 'x_icon_sidebar_width', '250', 'postMessage' );
-      // $x['con'][] = array( 'x_icon_sidebar_width', 'slider', __( 'Set Sidebar Width (px)', '__x__' ), $list_sizing_sidebar_width, 'x_customizer_section_icon' );
-
-
-      //
-      // Background options.
-      //
-
-      $x['set'][] = array( 'x_icon_bg_color', '#ffffff', 'postMessage' );
-      $x['con'][] = array( 'x_icon_bg_color', 'color', __( 'Background Color', '__x__' ), 'x_customizer_section_icon' );
-
-      $x['set'][] = array( 'x_icon_bg_image_pattern', '', 'refresh' );
-      $x['con'][] = array( 'x_icon_bg_image_pattern', 'image', __( 'Background Pattern', '__x__' ), 'x_customizer_section_icon' );
-
-      $x['set'][] = array( 'x_icon_bg_image_full', '', 'refresh' );
-      $x['con'][] = array( 'x_icon_bg_image_full', 'image', __( 'Background Image', '__x__' ), 'x_customizer_section_icon' );
-
-      $x['set'][] = array( 'x_icon_bg_image_full_fade', '750', 'refresh' );
-      $x['con'][] = array( 'x_icon_bg_image_full_fade', 'text', __( 'Background Image Fade (ms)', '__x__' ), 'x_customizer_section_icon' );
-
-
-      //
-      // Blog options.
-      //
+      $x['set'][] = array( 'x_icon_post_title_icon_enable', '1', 'refresh' );
+      $x['con'][] = array( 'x_icon_post_title_icon_enable', 'radio', __( 'Post Title Icon', '__x__' ), $list_on_off, 'x_customizer_section_icon' );
 
       $x['set'][] = array( 'x_icon_post_standard_colors_enable', '', 'refresh' );
       $x['con'][] = array( 'x_icon_post_standard_colors_enable', 'radio', __( 'Standard Post Custom Colors', '__x__' ), $list_on_off, 'x_customizer_section_icon' );
@@ -562,26 +441,6 @@ function x_customizer_options_register( $wp_customize ) {
   // Options - Ethos.
   //
 
-      $x['set'][] = array( 'x_ethos_layout_site', 'full-width', 'refresh' );
-      $x['con'][] = array( 'x_ethos_layout_site', 'radio', __( 'Site Layout', '__x__' ), $list_site_layouts, 'x_customizer_section_ethos' );
-
-      $x['set'][] = array( 'x_ethos_sizing_site_max_width', '1200', 'postMessage' );
-      $x['con'][] = array( 'x_ethos_sizing_site_max_width', 'slider', __( 'Site Max Width (px)', '__x__' ), $list_sizing_site_max_width, 'x_customizer_section_ethos' );
-
-      $x['set'][] = array( 'x_ethos_sizing_site_width', '88', 'postMessage' );
-      $x['con'][] = array( 'x_ethos_sizing_site_width', 'slider', __( 'Site Width (%)', '__x__' ), $list_sizing_site_width, 'x_customizer_section_ethos' );
-
-      $x['set'][] = array( 'x_ethos_layout_content', 'content-sidebar', 'refresh' );
-      $x['con'][] = array( 'x_ethos_layout_content', 'radio', __( 'Content Layout', '__x__' ), $list_content_layouts, 'x_customizer_section_ethos' );
-
-      // $x['set'][] = array( 'x_ethos_sizing_content_width', '72', 'postMessage' );
-      $x['set'][] = array( 'x_ethos_sizing_content_width', '72', 'refresh' );
-      $x['con'][] = array( 'x_ethos_sizing_content_width', 'slider', __( 'Content Width (%)', '__x__' ), $list_sizing_content_width, 'x_customizer_section_ethos' );
-
-
-      //
-      // Design options.
-      //
 
       $x['set'][] = array( 'x_ethos_topbar_background', '#222222', 'refresh' );
       $x['con'][] = array( 'x_ethos_topbar_background', 'color', __( 'Topbar Background Color', '__x__' ), 'x_customizer_section_ethos' );
@@ -594,23 +453,6 @@ function x_customizer_options_register( $wp_customize ) {
 
       $x['set'][] = array( 'x_ethos_sidebar_color', '#333333', 'refresh' );
       $x['con'][] = array( 'x_ethos_sidebar_color', 'color', __( 'Sidebar Text Color', '__x__' ), 'x_customizer_section_ethos' );
-
-
-      //
-      // Background options.
-      //
-
-      $x['set'][] = array( 'x_ethos_bg_color', '#e4e4e4', 'postMessage' );
-      $x['con'][] = array( 'x_ethos_bg_color', 'color', __( 'Background Color', '__x__' ), 'x_customizer_section_ethos' );
-
-      $x['set'][] = array( 'x_ethos_bg_image_pattern', '', 'refresh' );
-      $x['con'][] = array( 'x_ethos_bg_image_pattern', 'image', __( 'Background Pattern', '__x__' ), 'x_customizer_section_ethos' );
-
-      $x['set'][] = array( 'x_ethos_bg_image_full', '', 'refresh' );
-      $x['con'][] = array( 'x_ethos_bg_image_full', 'image', __( 'Background Image', '__x__' ), 'x_customizer_section_ethos' );
-
-      $x['set'][] = array( 'x_ethos_bg_image_full_fade', '750', 'refresh' );
-      $x['con'][] = array( 'x_ethos_bg_image_full_fade', 'text', __( 'Background Image Fade (ms)', '__x__' ), 'x_customizer_section_ethos' );
 
 
       //
@@ -710,6 +552,51 @@ function x_customizer_options_register( $wp_customize ) {
           $x['con'][] = array( 'x_ethos_shop_title', 'text', __( 'Shop Title', '__x__' ), 'x_customizer_section_ethos' );
 
       }
+
+
+  //
+  // Options - Layout and Design.
+  //
+
+      $x['set'][] = array( 'x_layout_site', 'full-width', 'refresh' );
+      $x['con'][] = array( 'x_layout_site', 'radio', __( 'Site Layout', '__x__' ), $list_site_layouts, 'x_customizer_section_layout_and_design' );
+
+      $x['set'][] = array( 'x_layout_site_max_width', '1200', 'postMessage' );
+      $x['con'][] = array( 'x_layout_site_max_width', 'slider', __( 'Site Max Width (px)', '__x__' ), $list_sizing_site_max_width, 'x_customizer_section_layout_and_design' );
+
+      $x['set'][] = array( 'x_layout_site_width', '88', 'postMessage' );
+      $x['con'][] = array( 'x_layout_site_width', 'slider', __( 'Site Width (%)', '__x__' ), $list_sizing_site_width, 'x_customizer_section_layout_and_design' );
+
+      $x['set'][] = array( 'x_layout_content', 'content-sidebar', 'refresh' );
+      $x['con'][] = array( 'x_layout_content', 'radio', __( 'Content Layout', '__x__' ), $list_content_layouts, 'x_customizer_section_layout_and_design' );
+
+      $x['set'][] = array( 'x_layout_content_width', '72', 'postMessage' );
+      $x['con'][] = array( 'x_layout_content_width', 'slider', __( 'Content Width (%)', '__x__' ), $list_sizing_content_width, 'x_customizer_section_layout_and_design' );
+
+      $x['set'][] = array( 'x_layout_sidebar_width', '250', 'refresh' );
+      $x['con'][] = array( 'x_layout_sidebar_width', 'text', __( 'Sidebar Width (px)', '__x__' ), 'x_customizer_section_layout_and_design' );
+
+
+      //
+      // Background options.
+      //
+      // integrity_light / integrity_dark
+      // renew
+      // icon
+      // ethos
+      //
+
+      $x['set'][] = array( 'x_design_bg_color', '#f3f3f3', 'postMessage' );
+      $x['con'][] = array( 'x_design_bg_color', 'color', __( 'Background Color', '__x__' ), 'x_customizer_section_layout_and_design' );
+
+      $x['set'][] = array( 'x_design_bg_image_pattern', '', 'refresh' );
+      $x['con'][] = array( 'x_design_bg_image_pattern', 'image', __( 'Background Pattern', '__x__' ), 'x_customizer_section_layout_and_design' );
+
+      $x['set'][] = array( 'x_design_bg_image_full', '', 'refresh' );
+      $x['con'][] = array( 'x_design_bg_image_full', 'image', __( 'Background Image', '__x__' ), 'x_customizer_section_layout_and_design' );
+
+      $x['set'][] = array( 'x_design_bg_image_full_fade', '750', 'refresh' );
+      $x['con'][] = array( 'x_design_bg_image_full_fade', 'text', __( 'Background Image Fade (ms)', '__x__' ), 'x_customizer_section_layout_and_design' );
 
 
   //
@@ -1014,7 +901,7 @@ function x_customizer_options_register( $wp_customize ) {
       $x['set'][] = array( 'x_footer_content_display', '1', 'refresh' );
       $x['con'][] = array( 'x_footer_content_display', 'radio', __( 'Footer Content', '__x__' ), $list_on_off, 'x_customizer_section_footer' );
 
-      $x['set'][] = array( 'x_footer_content', '<p style="letter-spacing: 2px; text-transform: uppercase; opacity: 0.5; filter: alpha(opacity=50);">Proudly Powered By The<br><a href="http://theme.co/x/" title="X WordPress Theme">X WordPress Theme</a></p>', 'refresh' );
+      $x['set'][] = array( 'x_footer_content', '<p>POWERED BY THE <a href="//theme.co/x/" title="X &ndash; The Ultimate WordPress Theme">X THEME</a></p>', 'refresh' );
       $x['con'][] = array( 'x_footer_content', 'textarea', __( 'Footer Content', '__x__' ), 'x_customizer_section_footer' );
 
 
@@ -1337,21 +1224,37 @@ function x_customizer_options_register( $wp_customize ) {
       $x['set'][] = array( 'x_social_dribbble', '', 'refresh' );
       $x['con'][] = array( 'x_social_dribbble', 'text', __( 'Dribbble Profile URL', '__x__' ), 'x_customizer_section_social' );
 
+      $x['set'][] = array( 'x_social_flickr', '', 'refresh' );
+      $x['con'][] = array( 'x_social_flickr', 'text', __( 'Flickr Profile URL', '__x__' ), 'x_customizer_section_social' );
+
       $x['set'][] = array( 'x_social_behance', '', 'refresh' );
       $x['con'][] = array( 'x_social_behance', 'text', __( 'Behance Profile URL', '__x__' ), 'x_customizer_section_social' );
 
       $x['set'][] = array( 'x_social_tumblr', '', 'refresh' );
       $x['con'][] = array( 'x_social_tumblr', 'text', __( 'Tumblr Profile URL', '__x__' ), 'x_customizer_section_social' );
 
+      $x['set'][] = array( 'x_social_soundcloud', '', 'refresh' );
+      $x['con'][] = array( 'x_social_soundcloud', 'text', __( 'SoundCloud Profile URL', '__x__' ), 'x_customizer_section_social' );
+
       $x['set'][] = array( 'x_social_rss', '', 'refresh' );
       $x['con'][] = array( 'x_social_rss', 'text', __( 'RSS Feed URL', '__x__' ), 'x_customizer_section_social' );
 
+
       //
-      // OpenGraph.
+      // Open Graph.
       //
 
       $x['set'][] = array( 'x_social_open_graph', '1', 'refresh' );
-      $x['con'][] = array( 'x_social_open_graph', 'radio', __( 'Enable OpenGraph', '__x__' ), $list_on_off, 'x_customizer_section_social' );
+      $x['con'][] = array( 'x_social_open_graph', 'radio', __( 'Enable Open Graph', '__x__' ), $list_on_off, 'x_customizer_section_social' );
+
+
+      //
+      // Social Fallback Image.
+      //
+
+      $x['set'][] = array( 'x_social_fallback_image', '', 'refresh' );
+      $x['con'][] = array( 'x_social_fallback_image', 'image', __( 'Social Fallback Image', '__x__' ), 'x_customizer_section_social' );
+
 
   //
   // Options - Site Icons.
@@ -1520,23 +1423,20 @@ function x_customizer_options_list() {
 
   $options = array(
     'x_stack',
-    'x_integrity_layout_site',
-    'x_integrity_sizing_site_max_width',
-    'x_integrity_sizing_site_width',
-    'x_integrity_layout_content',
-    'x_integrity_sizing_content_width',
+    'x_layout_site',
+    'x_layout_site_max_width',
+    'x_layout_site_width',
+    'x_layout_content',
+    'x_layout_content_width',
+    'x_layout_sidebar_width',
+    'x_design_bg_color',
+    'x_design_bg_image_pattern',
+    'x_design_bg_image_full',
+    'x_design_bg_image_full_fade',
     'x_integrity_design',
     'x_integrity_topbar_transparency_enable',
     'x_integrity_navbar_transparency_enable',
     'x_integrity_footer_transparency_enable',
-    'x_integrity_light_bg_color',
-    'x_integrity_light_bg_image_pattern',
-    'x_integrity_light_bg_image_full',
-    'x_integrity_light_bg_image_full_fade',
-    'x_integrity_dark_bg_color',
-    'x_integrity_dark_bg_image_pattern',
-    'x_integrity_dark_bg_image_full',
-    'x_integrity_dark_bg_image_full_fade',
     'x_integrity_blog_header_enable',
     'x_integrity_blog_title',
     'x_integrity_blog_subtitle',
@@ -1545,11 +1445,6 @@ function x_customizer_options_list() {
     'x_integrity_shop_header_enable',
     'x_integrity_shop_title',
     'x_integrity_shop_subtitle',
-    'x_renew_layout_site',
-    'x_renew_sizing_site_max_width',
-    'x_renew_sizing_site_width',
-    'x_renew_layout_content',
-    'x_renew_sizing_content_width',
     'x_renew_topbar_background',
     'x_renew_logobar_background',
     'x_renew_navbar_background',
@@ -1557,10 +1452,6 @@ function x_customizer_options_list() {
     'x_renew_navbar_button_background',
     'x_renew_navbar_button_background_hover',
     'x_renew_footer_background',
-    'x_renew_bg_color',
-    'x_renew_bg_image_pattern',
-    'x_renew_bg_image_full',
-    'x_renew_bg_image_full_fade',
     'x_renew_topbar_text_color',
     'x_renew_topbar_link_color_hover',
     'x_renew_footer_text_color',
@@ -1570,15 +1461,6 @@ function x_customizer_options_list() {
     'x_renew_entry_icon_position_horizontal',
     'x_renew_entry_icon_position_vertical',
     'x_renew_shop_title',
-    'x_icon_layout_site',
-    'x_icon_sizing_site_max_width',
-    'x_icon_sizing_site_width',
-    'x_icon_layout_content',
-    'x_icon_sidebar_width',
-    'x_icon_bg_color',
-    'x_icon_bg_image_pattern',
-    'x_icon_bg_image_full',
-    'x_icon_bg_image_full_fade',
     'x_icon_post_standard_colors_enable',
     'x_icon_post_standard_color',
     'x_icon_post_standard_background',
@@ -1601,19 +1483,10 @@ function x_customizer_options_list() {
     'x_icon_post_link_color',
     'x_icon_post_link_background',
     'x_icon_shop_title',
-    'x_ethos_layout_site',
-    'x_ethos_sizing_site_max_width',
-    'x_ethos_sizing_site_width',
-    'x_ethos_layout_content',
-    'x_ethos_sizing_content_width',
     'x_ethos_topbar_background',
     'x_ethos_navbar_background',
     'x_ethos_sidebar_widget_headings_color',
     'x_ethos_sidebar_color',
-    'x_ethos_bg_color',
-    'x_ethos_bg_image_pattern',
-    'x_ethos_bg_image_full',
-    'x_ethos_bg_image_full_fade',
     'x_ethos_post_carousel_enable',
     'x_ethos_post_carousel_count',
     'x_ethos_post_carousel_display',
@@ -1774,6 +1647,7 @@ function x_customizer_options_list() {
     'x_social_instagram',
     'x_social_pinterest',
     'x_social_dribbble',
+    'x_social_flickr',
     'x_social_behance',
     'x_social_tumblr',
     'x_social_rss',
@@ -1785,6 +1659,6 @@ function x_customizer_options_list() {
     'x_custom_scripts'
   );
 
-return $options;
+  return $options;
 
 }

@@ -1,54 +1,37 @@
 // =============================================================================
 // SCSS/SITE/_FONTS.SCSS
 // -----------------------------------------------------------------------------
-// Site specific fonts for typography and/or icons. Icon fonts can be
-// customized and downloaded here: http://icomoon.io/#toHome
+// Site specific fonts for typography and/or icons.
 // =============================================================================
 
 // =============================================================================
 // TABLE OF CONTENTS
 // -----------------------------------------------------------------------------
-//   01. Font Awesome
-//       a. Varialbes
-//       b. Include
-//       c. Styling
-//       d. Icon Icon Variables
-//       e. Icon Declarations
-//       f. Additional Aliases
+//   01. Include
+//   02. Styling
+//   03. Icon Variables
+//   04. Icon Declarations
+//   05. Additional Aliases
 // =============================================================================
 
-// Font Awesome
+// Include
 // =============================================================================
-
-//
-// Variables
-//
-
-$fa-css-prefix: x-icon;
-$fa-version:    "4.2.0";
-$fa-font-path: '../../../fonts/font_awesome';
-
-
-//
-// Include.
-//
 
 @font-face {
   font-family: 'fontawesome';
   src: url('#{$fa-font-path}/font-awesome.eot?v=#{$fa-version}');
   src: url('#{$fa-font-path}/font-awesome.eot?#iefix&v=#{$fa-version}') format('embedded-opentype'),
-    url('#{$fa-font-path}/font-awesome.woff?v=#{$fa-version}') format('woff'),
-    url('#{$fa-font-path}/font-awesome.ttf?v=#{$fa-version}') format('truetype'),
-    url('#{$fa-font-path}/font-awesome.svg?v=#{$fa-version}#fontawesomeregular') format('svg');
-  //src: url('#{$fa-font-path}/FontAwesome.otf') format('opentype'); // used when developing fonts
+       url('#{$fa-font-path}/font-awesome.woff?v=#{$fa-version}') format('woff'),
+       url('#{$fa-font-path}/font-awesome.ttf?v=#{$fa-version}') format('truetype'),
+       url('#{$fa-font-path}/font-awesome.svg?v=#{$fa-version}#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 
-//
-// Styling.
-//
+
+// Styling
+// =============================================================================
 
 [class^="x-icon-"],
 [class*=" x-icon-"] {
@@ -100,9 +83,10 @@ li, .nav li {
   }
 }
 
-//
-// Icon Variables.
-//
+
+
+// Icon Variables
+// =============================================================================
 
 $fa-var-adjust: "\f042";
 $fa-var-adn: "\f170";
@@ -655,9 +639,9 @@ $fa-var-youtube-play: "\f16a";
 $fa-var-youtube-square: "\f166";
 
 
-//
-// Icon Declarations.
-//
+
+// Icon Declarations
+// =============================================================================
 
 .#{$fa-css-prefix}-glass:before { content: $fa-var-glass; }
 .#{$fa-css-prefix}-music:before { content: $fa-var-music; }
@@ -1209,9 +1193,10 @@ $fa-var-youtube-square: "\f166";
 .#{$fa-css-prefix}-ils:before { content: $fa-var-ils; }
 .#{$fa-css-prefix}-meanpath:before { content: $fa-var-meanpath; }
 
-//
-// Additional Aliases. (Deprecating Foundation Social)
-//
+
+
+// Additional Aliases
+// =============================================================================
 
 .#{$fa-css-prefix}-thumb-up:before { content: $fa-var-thumbs-up; }
 .#{$fa-css-prefix}-thumb-down:before { content: $fa-var-thumbs-down; }

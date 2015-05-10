@@ -15,29 +15,25 @@ $n = x_header_widget_areas_count();
 
     <div class="x-widgetbar collapse">
       <div class="x-widgetbar-inner">
-        <div class="x-container-fluid max width">
-          <div class="x-row-fluid">
+        <div class="x-container max width">
 
-            <?php
+          <?php
 
-            $i = 0; while ( $i < $n ) : $i++;
-              switch ( $n ) {
-                case 4 : $span = 'x-span3';  break;
-                case 3 : $span = 'x-span4';  break;
-                case 2 : $span = 'x-span6';  break;
-                case 1 : $span = 'x-span12'; break;
-              }
-              echo '<div class="' . $span . '">';
-                dynamic_sidebar( 'header-' . $i );
-              echo '</div>';
-            endwhile;
+          $i = 0; while ( $i < $n ) : $i++;
 
-            ?>
+            $last = ( $i == $n ) ? ' last' : '';
 
-          </div> <!-- end .x-row-fluid -->
-        </div> <!-- end .x-container-fluid.max.width -->
-      </div> <!-- end .x-widgetbar-inner.x-container-fluid.max.width -->
-    </div> <!-- end .x-widgetbar.collapse -->
+            echo '<div class="x-column x-md x-1-' . $n . $last . '">';
+              dynamic_sidebar( 'header-' . $i );
+            echo '</div>';
+
+          endwhile;
+
+          ?>
+
+        </div>
+      </div>
+    </div>
 
     <a href="#" class="x-btn-widgetbar collapsed" data-toggle="collapse" data-target=".x-widgetbar">
       <i class="x-icon-plus-circle"><span class="visually-hidden"><?php _e( 'Toggle the Widgetbar', '__x__' ); ?></span></i>

@@ -62,6 +62,10 @@
         margin: 0 1.5%;
       }
 
+      &.foursquare {
+        @include font-size(2.2);
+      }
+
       i {
         display: block;
       }
@@ -72,10 +76,8 @@
 .x-navbar-fixed-left-active,
 .x-navbar-fixed-right-active {
   .x-topbar {
-    border-bottom: 1px solid darken($navbarBackground, 17.5%);
     z-index: $zindexNavbar - 2;
     @include break(cubs) {
-      border-bottom: 1px solid darken($navbarBackground, 5%);
       z-index: $zindexNavbar + 1;
     }
   }

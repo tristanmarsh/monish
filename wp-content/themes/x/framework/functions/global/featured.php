@@ -35,15 +35,15 @@ if ( ! function_exists( 'x_featured_image' ) ) :
 
       if ( $cropped == 'cropped' ) {
         if ( $fullwidth ) {
-          $thumb = get_the_post_thumbnail( NULL, 'entry-' . $stack . '-cropped-fullwidth', NULL );
+          $thumb = get_the_post_thumbnail( NULL, 'entry-cropped-fullwidth', NULL );
         } else {
-          $thumb = get_the_post_thumbnail( NULL, 'entry-' . $stack . '-cropped', NULL );
+          $thumb = get_the_post_thumbnail( NULL, 'entry-cropped', NULL );
         }
       } else {
         if ( $fullwidth ) {
-          $thumb = get_the_post_thumbnail( NULL, 'entry-' . $stack . '-fullwidth', NULL );
+          $thumb = get_the_post_thumbnail( NULL, 'entry-fullwidth', NULL );
         } else {
-          $thumb = get_the_post_thumbnail( NULL, 'entry-' . $stack, NULL );
+          $thumb = get_the_post_thumbnail( NULL, 'entry', NULL );
         }
       }
 
@@ -95,9 +95,9 @@ if ( ! function_exists( 'x_featured_gallery' ) ) :
         foreach ( $attachments as $attachment ) {
           echo '<li class="x-slide">';
             if ( $fullwidth ) {
-              echo wp_get_attachment_image( $attachment->ID, 'entry-' . $stack . '-fullwidth', false, false );
+              echo wp_get_attachment_image( $attachment->ID, 'entry-fullwidth', false, false );
             } else {
-              echo wp_get_attachment_image( $attachment->ID, 'entry-' . $stack, false, false );
+              echo wp_get_attachment_image( $attachment->ID, 'entry', false, false );
             }
           echo '</li>';
         }
@@ -120,63 +120,11 @@ if ( ! function_exists( 'x_featured_audio' ) ) :
     $ogg      = get_post_meta( $entry_id, '_x_audio_ogg', true );
     $embed    = get_post_meta( $entry_id, '_x_audio_embed', true );
 
-    ?>
-
-    <?php if ( $embed != '' ) { ?>
-
-      <div class="x-responsive-audio-embed">
-        <?php echo stripslashes( htmlspecialchars_decode( $embed ) ); ?>
-      </div>
-
-    <?php } else { ?>
-
-      <script>
-        jQuery(document).ready(function($){
-          if($().jPlayer) {
-            $('#x_jplayer_<?php echo $entry_id; ?>').jPlayer({
-              ready: function () {
-                $(this).jPlayer('setMedia', {
-                  <?php if ( $mp3 != '' ) : ?>
-                  mp3: '<?php echo $mp3; ?>',
-                  <?php endif; ?>
-                  <?php if ( $ogg != '' ) : ?>
-                  oga: '<?php echo $ogg; ?>',
-                  <?php endif; ?>
-                  end: ''
-                });
-              },
-              size: {
-                width: '100%',
-                height: '0'
-              },
-              swfPath: '<?php echo X_TEMPLATE_URL; ?>/framework/js/src/site/vendor/jplayer',
-              cssSelectorAncestor: '#jp_interface_<?php echo $entry_id; ?>',
-              supplied: '<?php if( $mp3 != "" ) : ?>mp3, <?php endif; ?><?php if ( $ogg != "" ) : ?>oga,<?php endif; ?> all'
-            });
-          }
-        });
-      </script>
-
-      <div id="x_jplayer_<?php echo $entry_id; ?>" class="jp-jplayer jp-jplayer-audio"></div>
-      <div class="jp-controls-container jp-controls-container-audio">
-        <div id="jp_interface_<?php echo $entry_id; ?>" class="jp-interface">
-          <ul class="jp-controls">
-            <li><a href="#" class="jp-play" tabindex="1"><span>Play</span></a></li>
-            <li><a href="#" class="jp-pause" tabindex="1"><span>Pause</span></a></li>
-          </ul>
-          <div class="jp-progress-container">
-            <div class="jp-progress">
-              <div class="jp-seek-bar">
-                <div class="jp-play-bar"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <?php } ?>
-
-  <?php
+    if ( $embed != '' ) {
+      echo do_shortcode( '[x_audio_embed class="mvn"]' . stripslashes( htmlspecialchars_decode( $embed ) ) . '[/x_audio_embed]' );
+    } else {
+      echo do_shortcode( '[x_audio_player mp3="' . $mp3 . '" oga="' . $ogg . '" preload="metadata" autoplay="false" loop="false" class="mvn"]' );
+    }
 
   }
 endif;
@@ -198,107 +146,17 @@ if ( ! function_exists( 'x_featured_video' ) ) :
     $fullwidth    = ( in_array( 'x-full-width-active', get_body_class() ) ) ? true : false;
 
     if ( $fullwidth ) {
-      $poster = wp_get_attachment_image_src( get_post_thumbnail_id( $entry_id ), 'entry-' . $stack . '-fullwidth', false );
+      $poster = wp_get_attachment_image_src( get_post_thumbnail_id( $entry_id ), 'entry-fullwidth', false );
     } else {
-      $poster = wp_get_attachment_image_src( get_post_thumbnail_id( $entry_id ), 'entry-' . $stack, false );
-    }
-
-    switch ( $aspect_ratio ) {
-      case '16:9' :
-        $aspect_ratio_class = '';
-        break;
-      case '5:3' :
-        $aspect_ratio_class = 'five-by-three';
-        break;
-      case '5:4' :
-        $aspect_ratio_class = 'five-by-four';
-        break;
-      case '4:3' :
-        $aspect_ratio_class = 'four-by-three';
-        break;
-      case '3:2' :
-        $aspect_ratio_class = 'three-by-two';
-        break;
+      $poster = wp_get_attachment_image_src( get_post_thumbnail_id( $entry_id ), 'entry', false );
     }
 
     if ( $embed != '' ) {
-
-    ?>
-
-      <div class="x-responsive-video man">
-        <div class="x-responsive-video-inner <?php echo $aspect_ratio_class; ?>">
-          <?php echo stripslashes( htmlspecialchars_decode( $embed ) ); ?>
-        </div>
-      </div>
-
-    <?php } else { ?>
-
-      <script>
-        jQuery(document).ready(function($){
-          if($().jPlayer) {
-            $('#x_jplayer_<?php echo $entry_id; ?>').jPlayer({
-              ready: function () {
-                $(this).jPlayer('setMedia', {
-                  <?php if ( $m4v != '' ) : ?>
-                  m4v: '<?php echo $m4v; ?>',
-                  <?php endif; ?>
-                  <?php if ( $ogv != '' ) : ?>
-                  ogv: '<?php echo $ogv; ?>',
-                  <?php endif; ?>
-                  <?php if ( $poster != '' ) : ?>
-                  poster: '<?php echo $poster[0]; ?>'
-                  <?php endif; ?>
-                });
-              },
-              size: {
-                width: '100%',
-                height: '100%'
-              },
-              swfPath: '<?php echo X_TEMPLATE_URL; ?>/framework/js/src/site/vendor/jplayer',
-              cssSelectorAncestor: '#jp_interface_<?php echo $entry_id; ?>',
-              supplied: '<?php if( $m4v != "" ) : ?>m4v, <?php endif; ?><?php if( $ogv != "" ) : ?>ogv<?php endif; ?>'
-            });
-            
-            $('#x_jplayer_<?php echo $entry_id; ?>').bind($.jPlayer.event.playing, function(event) {
-              $(this).add('#jp_interface_<?php echo $entry_id; ?>').hover( function() {
-                $('#jp_interface_<?php echo $entry_id; ?>').stop().animate({ opacity: 1 }, 400);
-              }, function() {
-                $('#jp_interface_<?php echo $entry_id; ?>').stop().animate({ opacity: 0 }, 400);
-              });
-            });
-            
-            $('#x_jplayer_<?php echo $entry_id; ?>').bind($.jPlayer.event.pause, function(event) {
-              $('#x_jplayer_<?php echo $entry_id; ?>').add('#jp_interface_<?php echo $entry_id; ?>').unbind('hover');
-              $('#jp_interface_<?php echo $entry_id; ?>').stop().animate({ opacity: 1 }, 400);
-            });
-          }
-        });
-      </script>
-
-      <div class="x-responsive-video man">
-        <div class="x-responsive-video-inner <?php echo $aspect_ratio_class; ?>">
-          <div id="x_jplayer_<?php echo $entry_id; ?>" class="jp-jplayer jp-jplayer-video"></div>
-          <div class="jp-controls-container jp-controls-container-video">
-            <div id="jp_interface_<?php echo $entry_id; ?>" class="jp-interface">
-              <ul class="jp-controls">
-                <li><a href="#" class="jp-play" tabindex="1"><span>Play</span></a></li>
-                <li><a href="#" class="jp-pause" tabindex="1"><span>Pause</span></a></li>
-              </ul>
-              <div class="jp-progress-container">
-                <div class="jp-progress">
-                  <div class="jp-seek-bar">
-                    <div class="jp-play-bar"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <?php
-
+      echo do_shortcode( '[x_video_embed type="' . $aspect_ratio . '" no_container="true" class="mvn"]' . stripslashes( htmlspecialchars_decode( $embed ) ) . '[/x_video_embed]' );
+    } else {
+      echo do_shortcode( '[x_video_player m4v="' . $m4v . '" ogv="' . $ogv . '" poster="' . $poster[0] . '" type="' . $aspect_ratio . '" preload="metadata" hide_controls="false" autoplay="false" loop="false" muted="false" no_container="true" class="mvn"]' );
     }
+
   }
 endif;
 

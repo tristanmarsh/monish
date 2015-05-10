@@ -1,7 +1,7 @@
 // =============================================================================
 // SCSS/SITE/STACKS/ICON/RESP/_CUBS.SCSS
 // -----------------------------------------------------------------------------
-// Code for tablets and below.
+// Stack specific responsive styles.
 // =============================================================================
 
 // =============================================================================
@@ -13,21 +13,6 @@
 // Breakpoint: cubs (Tablets and Below)
 // =============================================================================
 
-@include break(cubs) {
-  .x-row-fluid {
-    width: 100%;
-  }
+// @include break(cubs) {
 
-  .x-row-fluid [class*="span"],
-  .x-row-fluid [class*="span"].right:first-child {
-    float: none;
-    display: block;
-    width: auto;
-    margin-left: 0;
-  }
-
-  .x-row-fluid .span12 {
-    width: 100%;
-    @include box-sizing(border-box);
-  }
-}
+// }

@@ -6,8 +6,6 @@
 
 	<?php do_action( 'bp_before_directory_groups_content' ); ?>
 
-	<?php echo x_buddypress_get_group_create_button(); ?>
-
 	<div id="group-dir-search" class="dir-search" role="search">
 		<?php bp_directory_groups_search_form(); ?>
 	</div><!-- #group-dir-search -->

@@ -13,7 +13,7 @@
   <?php x_get_view( 'global', '_slider-above' ); ?>
   <?php x_get_view( 'global', '_slider-below' ); ?>
 
-  <div class="x-container-fluid max width offset cf">
+  <div class="x-container max width offset">
     <div class="x-main full" role="main">
 
       <?php while ( have_posts() ) : the_post(); ?>

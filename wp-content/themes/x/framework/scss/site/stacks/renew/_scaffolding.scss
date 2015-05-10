@@ -45,18 +45,6 @@ body {
   }
 }
 
-::-moz-selection {
-  text-shadow: none;
-  color: $textColor;
-  background-color: $grayLighter;
-}
-
-::selection {
-  text-shadow: none;
-  color: $textColor;
-  background-color: $grayLighter;
-}
-
 
 
 // Links

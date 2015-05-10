@@ -30,8 +30,10 @@ if ( ! function_exists( 'x_social_global' ) ) :
     $instagram   = x_get_option( 'x_social_instagram', '' );
     $pinterest   = x_get_option( 'x_social_pinterest', '' );
     $dribbble    = x_get_option( 'x_social_dribbble', '' );
+    $flickr      = x_get_option( 'x_social_flickr', '' );
     $behance     = x_get_option( 'x_social_behance', '' );
     $tumblr      = x_get_option( 'x_social_tumblr', '' );
+    $soundcloud  = x_get_option( 'x_social_soundcloud', '' );
     $rss         = x_get_option( 'x_social_rss', '' );
 
     $output = '<div class="x-social-global">';
@@ -47,8 +49,10 @@ if ( ! function_exists( 'x_social_global' ) ) :
       if ( $instagram )   : $output .= '<a href="' . $instagram   . '" class="instagram" title="Instagram" target="_blank"><i class="x-icon-instagram"></i></a>'; endif;
       if ( $pinterest )   : $output .= '<a href="' . $pinterest   . '" class="pinterest" title="Pinterest" target="_blank"><i class="x-icon-pinterest-square"></i></a>'; endif;
       if ( $dribbble )    : $output .= '<a href="' . $dribbble    . '" class="dribbble" title="Dribbble" target="_blank"><i class="x-icon-dribbble"></i></a>'; endif;
+      if ( $flickr )      : $output .= '<a href="' . $flickr      . '" class="flickr" title="Flickr" target="_blank"><i class="x-icon-flickr"></i></a>'; endif;
       if ( $behance )     : $output .= '<a href="' . $behance     . '" class="behance" title="Behance" target="_blank"><i class="x-icon-behance-square"></i></a>'; endif;
       if ( $tumblr )      : $output .= '<a href="' . $tumblr      . '" class="tumblr" title="Tumblr" target="_blank"><i class="x-icon-tumblr-square"></i></a>'; endif;
+      if ( $soundcloud )  : $output .= '<a href="' . $soundcloud  . '" class="soundcloud" title="SoundCloud" target="_blank"><i class="x-icon-soundcloud"></i></a>'; endif;
       if ( $rss )         : $output .= '<a href="' . $rss         . '" class="rss" title="RSS" target="_blank"><i class="x-icon-rss-square"></i></a>'; endif;
 
     $output .= '</div>';
@@ -68,10 +72,14 @@ if ( ! function_exists( 'x_social_meta' ) ) :
 
     $url         = get_permalink();
     $type        = ( is_singular() ) ? 'article' : 'website';
-    $image       = ( is_singular() ) ? x_get_featured_image_url() : '';
-    $title       = (x_is_buddypress()) ? x_buddypress_get_the_title() : get_the_title();
+    $image       = x_get_featured_image_with_fallback_url();
+    $title       = ( x_is_buddypress() ) ? x_buddypress_get_the_title() : get_the_title();
     $site_name   = get_bloginfo( 'name' );
-    $description = ( is_singular() ) ? trim( wp_trim_words( get_post()->post_content, 35, '' ), '.!?,;:-' ) . '&hellip;' : get_bloginfo( 'description' );
+    $description = ( is_singular() ) ? trim( wp_trim_words( strip_shortcodes( strip_tags( get_post()->post_content ) ), 35, '' ), '.!?,;:-' ) . '&hellip;' : get_bloginfo( 'description' );
+
+    if ( $description == '&hellip;' ) {
+      $description = get_bloginfo( 'description' );
+    }
 
     echo '<meta property="og:site_name" content="'   . $site_name   . '">';
     echo '<meta property="og:title" content="'       . $title       . '">';
@@ -83,8 +91,6 @@ if ( ! function_exists( 'x_social_meta' ) ) :
   }
 
   if ( x_get_option( 'x_social_open_graph', '1' ) ) {
-
     add_action( 'wp_head', 'x_social_meta' );
-
   }
 endif;

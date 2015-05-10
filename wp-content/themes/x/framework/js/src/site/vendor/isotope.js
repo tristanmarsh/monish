@@ -281,7 +281,7 @@
    */
 
   var $event = $.event,
-      dispatchMethod = $.event.handle ? 'handle' : 'dispatch',
+      dispatchMethod = 'dispatch',
       resizeTimeout;
 
   $event.special.smartresize = {

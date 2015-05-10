@@ -6,7 +6,9 @@
 // @version 2.1.3
 // =============================================================================
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+  exit; // Exit if accessed directly
+}
 
 $has_row    = false;
 $alt        = 1;
@@ -20,8 +22,8 @@ ob_start();
 
   <thead>
     <tr class="shop_attributes_thead">
-      <th>Attribute</th>
-      <th>Information</th>
+      <th><?php _e( 'Attribute', '__x__' ) ?></th>
+      <th><?php _e( 'Information', '__x__' ) ?></th>
     </tr>
   </thead>
 

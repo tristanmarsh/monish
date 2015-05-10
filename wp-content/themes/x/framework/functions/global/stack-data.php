@@ -50,7 +50,7 @@ endif;
 if ( ! function_exists( 'x_get_site_layout' ) ) :
   function x_get_site_layout() {
 
-    return x_get_option( 'x_' . x_get_stack() . '_layout_site', 'full-width' );
+    return x_get_option( 'x_layout_site', 'full-width' );
 
   }
 endif;
@@ -69,8 +69,7 @@ endif;
 if ( ! function_exists( 'x_get_content_layout' ) ) :
   function x_get_content_layout() {
 
-    $stack          = x_get_stack();
-    $content_layout = x_get_option( 'x_' . $stack . '_layout_content', 'content-sidebar' );
+    $content_layout = x_get_option( 'x_layout_content', 'content-sidebar' );
 
     if ( $content_layout != 'full-width' ) {
       if ( is_home() ) {
@@ -125,14 +124,15 @@ endif;
 // Define Constants
 // =============================================================================
 
-define( 'X_VERSION', '3.0.1' );
+define( 'X_VERSION', '3.2.5' );
 define( 'X_TEMPLATE_PATH', get_template_directory() );
 define( 'X_TEMPLATE_URL', get_template_directory_uri() );
 define( 'X_BBPRESS_IS_ACTIVE', class_exists( 'bbPress' ) );
-define( 'X_SOLILOQUY_IS_ACTIVE', class_exists( 'Soliloquy' ) );
 define( 'X_BUDDYPRESS_IS_ACTIVE', class_exists( 'BuddyPress' ) );
-define( 'X_WOOCOMMERCE_IS_ACTIVE', class_exists( 'WC_API' ) );
-define( 'X_GRAVITY_FORMS_IS_ACTIVE', class_exists( 'GFForms' ) );
 define( 'X_CONTACT_FORM_7_IS_ACTIVE', class_exists( 'WPCF7_ContactForm' ) );
-define( 'X_VISUAL_COMOPSER_IS_ACTIVE', class_exists( 'WPBakeryVisualComposer' ) );
+define( 'X_GRAVITY_FORMS_IS_ACTIVE', class_exists( 'GFForms' ) );
 define( 'X_REVOLUTION_SLIDER_IS_ACTIVE', class_exists( 'RevSlider' ) );
+define( 'X_SOLILOQUY_IS_ACTIVE', class_exists( 'Soliloquy' ) );
+define( 'X_VISUAL_COMOPSER_IS_ACTIVE', defined( 'WPB_VC_VERSION' ) );
+define( 'X_WOOCOMMERCE_IS_ACTIVE', class_exists( 'WC_API' ) );
+define( 'X_WPML_IS_ACTIVE', defined( 'ICL_SITEPRESS_VERSION' ) );

@@ -9,11 +9,28 @@
 // =============================================================================
 // TABLE OF CONTENTS
 // -----------------------------------------------------------------------------
+//   01. Layout and Design
 //   01. Typography
 //   02. Header
 //   03. Buttons
 //   04. WooCommerce
 // =============================================================================
+
+// Layout and Design
+// =============================================================================
+
+$x_layout_site                         = x_get_option( 'x_layout_site', 'full-width' );
+$x_layout_site_max_width               = x_get_option( 'x_layout_site_max_width', '1200' );
+$x_layout_site_width                   = x_get_option( 'x_layout_site_width', '88' );
+$x_layout_content                      = x_get_option( 'x_layout_content', 'content-sidebar' );
+$x_layout_content_width                = x_get_option( 'x_layout_content_width', '72' );
+$x_layout_sidebar_width                = x_get_option( 'x_layout_sidebar_width', '250' );
+$x_design_bg_color                     = x_get_option( 'x_design_bg_color', '#f3f3f3' );
+$x_design_bg_image_pattern             = x_get_option( 'x_design_bg_image_pattern', '' );
+$x_design_bg_image_full                = x_get_option( 'x_design_bg_image_full', '' );
+$x_design_bg_image_full_fade           = x_get_option( 'x_design_bg_image_full_fade', '750' );
+
+
 
 // Typography
 // =============================================================================

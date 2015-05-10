@@ -78,9 +78,9 @@
         $('input[name="_customize-radio-' + _id + '"]').each( function() {
           $this = $(this);
           if ( ! is_part_of_object( $this.val(), _variants ) ) {
-            $this.parent().hide();
+            $this.parent().attr('data-x-hide', 'true');
           } else {
-            $this.parent().show();
+            $this.parent().removeAttr('data-x-hide');
           }
         });
 
@@ -89,9 +89,9 @@
         $('input[name="_customize-radio-' + _id + '"]').each( function() {
           $this = $(this);
           if ( ! is_part_of_object( $this.val(), _latoVariant ) ) {
-            $this.parent().hide();
+            $this.parent().attr('data-x-hide', 'true');
           } else {
-            $this.parent().show();
+            $this.parent().removeAttr('data-x-hide');
           }
         });
 
@@ -142,9 +142,11 @@
     var elControlsUploader = $( '.customize-control-image .remove' );
 
     function showUpdatingMessage( elUpdated ) {
-      var key = elUpdated.closest( '.customize-control' ).attr( 'id' ).split( '-' ).pop();
-      if ( _wpCustomizeSettings.settings[key].transport === 'refresh' ) {
-        elUpdating.fadeIn( 'fast' );
+      if ( elUpdated.closest( '.control-section' ).attr( 'id' ).indexOf( 'x_customizer_section' ) !== -1 ) {
+        var key = elUpdated.closest( '.customize-control' ).attr( 'id' ).split( '-' ).pop();
+        if ( _wpCustomizeSettings.settings[key].transport === 'refresh' ) {
+          elUpdating.fadeIn( 'fast' );
+        }
       }
     }
 
@@ -206,7 +208,7 @@
                      '</h4>' +
                    '</li>';
 
-        targetElement.before( subTitle );
+        $( '#customize-control-' + targetElement ).before( subTitle );
 
       }
 
@@ -218,79 +220,74 @@
                         '</p>' +
                       '</li>';
 
-        targetElement.before( description );
+        $( '#customize-control-' + targetElement ).before( description );
 
       }
 
     }
 
-    xCustomizerText( $( '#customize-control-x_stack' ),                                         false,                                  'Select the Stack you would like to use and wait a brief moment to view it in the preview area to the right. Each Stack functions like a unique WordPress theme, and thus comes with its own set of options, features, layouts, and more.' );
-    xCustomizerText( $( '#customize-control-x_integrity_layout_site' ),                         false,                                  'Integrity is a beautiful design geared towards businesses and individuals desiring a site with a more traditional layout, yet with plenty of modern touches.' );
-    xCustomizerText( $( '#customize-control-x_integrity_design' ),                              'Design Options',                       'The greatness of Integrity\'s design is in its simplicity. The look and feel of your site will change dramatically based on the choices selected for a couple options.' );
-    xCustomizerText( $( '#customize-control-x_integrity_light_bg_color' ),                      'Background Options',                   'The "Background Pattern" setting will override the "Background Color" unless the image used is transparent, and the "Background Image" option will take precedence over both. The "Background Image Fade (ms)" option allows you to set a time in milliseconds for your image to fade in. To disable this feature, set the value to "0."' );
-    xCustomizerText( $( '#customize-control-x_integrity_blog_header_enable' ),                  'Blog Options',                         'Enabling the blog header will turn on the area above your posts on the index page that contains your title and subtitle. Disabling it will result in more content being visible above the fold.' );
-    xCustomizerText( $( '#customize-control-x_integrity_portfolio_archive_sort_button_text' ),  'Portfolio Options',                    'Enabling portfolio index sharing will turn on social sharing links for each post on the portfolio index page. Activate and deactivate individual sharing links underneath the main Portfolio section.' );
-    xCustomizerText( $( '#customize-control-x_integrity_shop_header_enable' ),                  'Shop Options',                         'Enabling the shop header will turn on the area above your posts on the index page that contains your title and subtitle. Disabling it will result in more content being visible above the fold.' );
-    xCustomizerText( $( '#customize-control-x_renew_layout_site' ),                             false,                                  'Renew features a gorgeous look and feel that lends a clean, modern look to your site. All of your content will take center stage with Renew in place.' );
-    xCustomizerText( $( '#customize-control-x_renew_topbar_background' ),                       'Design Options',                       'Renew\'s flat design is built around a simple interface and bold colors. Use your palette to set the colors for some main structural elements of your site below.' );
-    xCustomizerText( $( '#customize-control-x_renew_bg_color' ),                                'Background Options',                   'The "Background Pattern" setting will override the "Background Color" unless the image used is transparent, and the "Background Image" option will take precedence over both. The "Background Image Fade (ms)" option allows you to set a time in milliseconds for your image to fade in. To disable this feature, set the value to "0."' );
-    xCustomizerText( $( '#customize-control-x_renew_topbar_text_color' ),                       'Typography Options',                   'Here you can set the colors for your topbar and footer. Get creative, the possibilities are endless.' );
-    xCustomizerText( $( '#customize-control-x_renew_blog_title' ),                              'Blog Options',                         'The entry icon color is for the post icons to the left of each title. Selecting "Creative" under the "Entry Icon Position" setting will allow you to align your entry icons in a different manner on your posts index page when "Content Left, Sidebar Right" or "Fullwidth" are selected as your "Content Layout" and when your blog "Style" is set to "Standard." This feature is intended to be paired with a "Boxed" layout.' );
-    xCustomizerText( $( '#customize-control-x_renew_shop_title' ),                              'Shop Options',                         'Provide a title you would like to use for your shop. This will show up on the index page as well as in your breadcrumbs.' );
-    xCustomizerText( $( '#customize-control-x_icon_layout_site' ),                              false,                                  'Icon features a stunning, modern, fullscreen design with a unique fixed sidebar layout that scolls with users on larger screens as you move down the page. The end result is attractive, app-like, and intuitive.' );
-    xCustomizerText( $( '#customize-control-x_icon_bg_color' ),                                 'Background Options',                   'The "Background Pattern" setting will override the "Background Color" unless the image used is transparent, and the "Background Image" option will take precedence over both. The "Background Image Fade (ms)" option allows you to set a time in milliseconds for your image to fade in. To disable this feature, set the value to "0."' );
-    xCustomizerText( $( '#customize-control-x_icon_post_standard_colors_enable' ),              'Blog Options',                         'Set unique colors for each blog post type if you so desire. You can enable or disable any combination of colors you want to fit your design style.' );
-    xCustomizerText( $( '#customize-control-x_icon_shop_title' ),                               'Shop Options',                         'Provide a title you would like to use for your shop. This will show up on the index page as well as in your breadcrumbs.' );
-    xCustomizerText( $( '#customize-control-x_ethos_layout_site' ),                             false,                                  'Ethos is a magazine-centric design that works great for blogs, news sites, or anything else that is content heavy with a focus on information.' );
-    xCustomizerText( $( '#customize-control-x_ethos_topbar_background' ),                       'Design Options',                       'Ethos\' streamlined look is designed to make your content shine. Customize the appearance of various items below and take note that some of these accent colors will be used for additional elements. For example, the "Navbar Background Color" option will also update the appearance of the widget titles in your sidebar.' );
-    xCustomizerText( $( '#customize-control-x_ethos_bg_color' ),                                'Background Options',                   'The "Background Pattern" setting will override the "Background Color" unless the image used is transparent, and the "Background Image" option will take precedence over both. The "Background Image Fade (ms)" option allows you to set a time in milliseconds for your image to fade in. To disable this feature, set the value to "0."' );
-    xCustomizerText( $( '#customize-control-x_ethos_post_carousel_enable' ),                    'Post Carousel',                        'The "Post Carousel" is an element located above the masthead, which allows you to showcase your posts in various formats. If "Featured" is selected, you can choose which posts you would like to appear in this location in the post meta options.' );
-    xCustomizerText( $( '#customize-control-x_ethos_post_carousel_display_count_extra_large' ), 'Post Carousel &ndash; Screen Display', 'Select how many posts you would like to show for various screen sizes. Make sure to customize this section to suit your needs depending on how you have other options setup for your site (i.e. boxed site layout, fixed left or right navigation, et cetera).' );
-    xCustomizerText( $( '#customize-control-x_ethos_post_slider_blog_enable' ),                 'Post Slider &ndash; Blog',             'The blog "Post Slider" is located at the top of the posts index page, which allows you to showcase your posts in various formats. If "Featured" is selected, you can choose which posts you would like to appear in this location in the post meta options.' );
-    xCustomizerText( $( '#customize-control-x_ethos_post_slider_archive_enable' ),              'Post Slider &ndash; Archives',         'The archive "Post Slider" is located at the top of all archive pages, which allows you to showcase your posts in various formats. If "Featured" is selected, you can choose which posts you would like to appear in this location in the post meta options.' );
-    xCustomizerText( $( '#customize-control-x_ethos_navbar_desktop_link_side_padding' ),        'Navbar Options',                       'Set the side padding for your navbar links on larger screens to suit the needs of your design.' );
-    xCustomizerText( $( '#customize-control-x_ethos_filterable_index_enable' ),                 'Blog Options',                         'Enabling the filterable index will bypass the standard output of your blog page, allowing you to specify categories to highlight. Upon selecting this option, a text input will appear to enter in the IDs of the categories you would like to showcase. This input accepts a list of numeric IDs separated by a comma (e.g. 14, 1, 817).' );
-    xCustomizerText( $( '#customize-control-x_ethos_shop_title' ),                              'Shop Options',                         'Provide a title you would like to use for your shop. This will show up on the index page as well as in your breadcrumbs.' );
-    xCustomizerText( $( '#customize-control-x_custom_fonts' ),                                  false,                                  'X provides you with full control over your site\'s typography. Remember to check the box for "Enable Custom Fonts" to set your own individual fonts for headings, body copy, et cetera.' );
-    xCustomizerText( $( '#customize-control-x_logo_font_family' ),                              'Logo',                                 false );
-    xCustomizerText( $( '#customize-control-x_navbar_font_family' ),                            'Navbar',                               false );
-    xCustomizerText( $( '#customize-control-x_headings_font_family' ),                          'Headings',                             false );
-    xCustomizerText( $( '#customize-control-x_body_font_family' ),                              'Body and Content',                     '"Body Font Size (px)" will affect the sizing of all copy outside of a post or page content area. "Content Font Size (px)" will affect the sizing of all copy inside a post or page content area. Headings are set with percentages and sized proportionally to these settings.' );
-    xCustomizerText( $( '#customize-control-x_site_link_color' ),                               'Site Links',                           'Site link colors are also used as accents for various elements throughout your site, so make sure to select something you really enjoy and keep an eye out for how it affects your design.' );
-    xCustomizerText( $( '#customize-control-x_button_style' ),                                  false,                                  'Retina ready, limitless colors, and multiple shapes. The buttons available in X are fun to use, simple to implement, and look great on all devices no matter the size.' );
-    xCustomizerText( $( '#customize-control-x_button_color' ),                                  'Colors',                               false );
-    xCustomizerText( $( '#customize-control-x_button_color_hover' ),                            'Hover Colors',                         false );
-    xCustomizerText( $( '#customize-control-x_navbar_positioning' ),                            false,                                  'Never before has such flexibility been offered to WordPress users for their site\'s header. It\'s one of the first things your visitors see when they come to your site, now you can make it look exactly how you want.' );
-    xCustomizerText( $( '#customize-control-x_logo_navigation_layout' ),                        'Logo and Navigation',                  'Selecting "Inline" for your logo and navigation layout will place them both in the navbar. Selecting "Stacked" will place the logo in a separate section above the navbar.' );
-    xCustomizerText( $( '#customize-control-x_navbar_height' ),                                 'Navbar',                               '"Navbar Top Height (px)" must still be set even when using "Fixed Left" or "Fixed Right" positioning because on tablet and mobile devices, the menu is pushed to the top.' );
-    xCustomizerText( $( '#customize-control-x_logo' ),                                          'Logo',                                 'To make your logo retina ready, enter in the width of your uploaded image in the "Logo Width (px)" field and we\'ll take care of all the calculations for you. If you want your logo to stay the original size that was uploaded, leave the field blank.' );
-    xCustomizerText( $( '#customize-control-x_header_search_enable' ),                          'Search',                               'Activate search functionality for the navbar. If activated, select the font size you would like to use for the search input.' );
-    xCustomizerText( $( '#customize-control-x_logo_adjust_navbar_top' ),                        'Alignment',                            '"Navbar Top Logo Alignment (px)" and "Navbar Top Link Alignment (px)" must still be set even when using "Fixed Left" or "Fixed Right" positioning because on tablet and mobile devices, the menu is pushed to the top.' );
-    xCustomizerText( $( '#customize-control-x_header_widget_areas' ),                           'Widgetbar',                            false );
-    xCustomizerText( $( '#customize-control-x_topbar_display' ),                                'Miscellaneous',                        false );
-    xCustomizerText( $( '#customize-control-x_footer_widget_areas' ),                           false,                                  'Easily adjust your site\'s footer by setting your widget areas to the specific number desired and turning on or off various parts as needed. You\'re never forced to use a layout you don\'t need with X.' );
-    xCustomizerText( $( '#customize-control-x_footer_scroll_top_display' ),                     'Scroll Top Anchor',                    'Activating the scroll top anchor will output a link that appears in the bottom corner of your site for users to click on that will return them to the top of your website. Once activated, set the value (as a percentage) for how far down the page your users will need to scroll for it to appear. For example, if you want the scroll top anchor to appear once your users have scrolled halfway down your page, you would enter "50" into the field.' );
-    xCustomizerText( $( '#customize-control-x_blog_style' ),                                    false,                                  'Adjust the style and layout of your blog using the settings below. This will only affect the posts index page of your blog and will not alter any archive or search results pages. The "Layout" option allows you to keep your sidebar on your posts index page if you have already selected "Content Left, Sidebar Right" or "Sidebar Left, Content Right" for you "Content Layout" option, or remove the sidebar completely if desired.' );
-    xCustomizerText( $( '#customize-control-x_archive_style' ),                                 'Archives',                             'Adjust the style and layout of your archive pages using the settings below. The "Layout" option allows you to keep your sidebar on your posts index page if you have already selected "Content Left, Sidebar Right" or "Sidebar Left, Content Right" for you "Content Layout" option, or remove the sidebar completely if desired.' );
-    xCustomizerText( $( '#customize-control-x_blog_enable_post_meta' ),                         'Content',                              'Selecting the "Enable Full Post Content on Index" option below will allow the entire contents of your posts to be shown on the post index pages for all stacks. Deselecting this option will allow you to set the length of your excerpt.' );
-    xCustomizerText( $( '#customize-control-x_custom_portfolio_slug' ),                         false,                                  'Setting your custom portfolio slug allows you to create a unique URL structure for your archive pages that suits your needs. When you update it, remember to save your Permalinks again to avoid any potential errors.' );
-    xCustomizerText( $( '#customize-control-x_portfolio_enable_post_meta' ),                    'Content',                              false );
-    xCustomizerText( $( '#customize-control-x_portfolio_tag_title' ),                           'Labels',                               false );
-    xCustomizerText( $( '#customize-control-x_portfolio_enable_facebook_sharing' ),             'Sharing',                              false );
-    xCustomizerText( $( '#customize-control-x_bbpress_layout_content' ),                        false,                                  'This section handles all options regarding your bbPress setup. Select your content layout, section titles, along with plenty of other options to get bbPress up and running. The "Layout" option allows you to keep your sidebar if you have already selected "Content Left, Sidebar Right" or "Sidebar Left, Content Right" for your "Content Layout" option, or remove the sidebar completely if desired.' );
-    xCustomizerText( $( '#customize-control-x_bbpress_header_menu_enable' ),                    'Navbar Menu',                          'You can add links to various "components" manually in your navigation if desired. Selecting this setting provides you with an additional theme-specific option that will include a simple navigation item with quick links to various bbPress components.' );
-    xCustomizerText( $( '#customize-control-x_buddypress_layout_content' ),                     false,                                  'This section handles all options regarding your BuddyPress setup. Select your content layout, section titles, along with plenty of other options to get BuddyPress up and running. The "Layout" option allows you to keep your sidebar if you have already selected "Content Left, Sidebar Right" or "Sidebar Left, Content Right" for your "Content Layout" option, or remove the sidebar completely if desired.' );
-    xCustomizerText( $( '#customize-control-x_buddypress_header_menu_enable' ),                 'Navbar Menu',                          'You can add links to various "components" manually in your navigation or activate registration and login links in the WordPress admin bar via BuddyPress\' settings if desired. Selecting this setting provides you with an additional theme-specific option that will include a simple navigation item with quick links to various BuddyPress components.' );
-    xCustomizerText( $( '#customize-control-x_buddypress_activity_title' ),                     'Component Titles',                     'Set the titles for the various "components" in BuddyPress (e.g. groups list, registration, et cetera). Keep in mind that the "Sites Title" isn\'t utilized unless you have WordPress Multisite setup on your installation. Additionally, while they might not be present as actual titles on some pages, they are still used as labels in other areas such as the breadcrumbs, so keep this in mind when selecting inputs here.' );
-    xCustomizerText( $( '#customize-control-x_buddypress_activity_subtitle' ),                  'Component Subtitles',                  'Set the subtitles for the various "components" in BuddyPress (e.g. groups list, registration, et cetera). Keep in mind that the "Sites Subtitle" isn\'t utilized unless you have WordPress Multisite setup on your installation. Additionally, subtitles are not utilized across every Stack but are left here for ease of management.' );
-    xCustomizerText( $( '#customize-control-x_woocommerce_shop_layout_content' ),               false,                                  'This section handles all options regarding your WooCommerce setup. Select your content layout, product columns, along with plenty of other options to get your shop up and running. The "Shop Layout" option allows you to keep your sidebar on your shop page if you have already selected "Content Left, Sidebar Right" or "Sidebar Left, Content Right" for you "Content Layout" option, or remove the sidebar completely if desired.' );
-    xCustomizerText( $( '#customize-control-x_woocommerce_product_tabs_enable' ),               'Single Product',                       'All options available in this section pertain to the layout of your individual product pages. Simply enable or disable the sections you want to use to achieve the layout you want.' );
-    xCustomizerText( $( '#customize-control-x_woocommerce_cart_cross_sells_enable' ),           'Cart',                                 'All options available in this section pertain to the layout of your cart page. Simply enable or disable the sections you want to use to achieve the layout you want.' );
-    xCustomizerText( $( '#customize-control-x_woocommerce_widgets_image_alignment' ),           'Widgets',                              'Select the placement of your product images in the various WooCommerce widgets that provide them. Right alignment is better if your items have longer titles to avoid staggered word wrapping.' );
-    xCustomizerText( $( '#customize-control-x_social_facebook' ),                               false,                                  'Set the URLs for your social media profiles here to be used in the topbar and bottom footer. Adding in a link will make its respective icon show up without needing to do anything else. Keep in mind that these sections are not necessarily intended for a lot of items, so adding all icons could create some layout issues. It is typically best to keep your selections here to a minimum for structural purposes and for usability purposes so you do not overwhelm your visitors.' );
-    xCustomizerText( $( '#customize-control-x_social_open_graph' ),                             'OpenGraph',                            'X will output standard OpenGraph tags for your content. If you will be employing another solution for this, you can disable the X OpenGraph tags here.' );
-    xCustomizerText( $( '#customize-control-x_icon_favicon' ),                                  false,                                  'Easily manage your favicon for desktop, touch icon for mobile devices, and tile icon for the Windows 8 Metro interface in this section. If an image is not set, nothing will be output for that particular icon type. When setting the path to your favicon, make sure you are using the ".ico" format. A 152x152 PNG should be used for your touch icon, and a 144x144 PNG should be used for your tile icon. The color you set for your tile icon will be used behind your image.' );
-    xCustomizerText( $( '#customize-control-x_custom_styles' ),                                 false,                                  'Quickly add custom CSS or JavaScript to your site without any complicated setups. Ideal for minor style alterations or small snippets like Google Analytics. Do not place any &lt;style&gt; or &lt;script&gt; tags in these areas as they are already added for your convenience.' );
+    xCustomizerText( 'x_stack',                                         false,                                  'Select the Stack you would like to use and wait a brief moment to view it in the preview area to the right. Each Stack functions like a unique WordPress theme, and thus comes with its own set of options, features, layouts, and more.' );
+    xCustomizerText( 'x_layout_site',                                   false,                                  'Select your site\'s global layout options here. "Site Width" is the percentage of the screen your site should take up while you can think of "Site Max Width" as an upper limit that your site will never be wider than. "Content Layout" has to do with your site\'s global setup of having a sidebar or not.' );
+    xCustomizerText( 'x_design_bg_color',                               'Background Options',                   'The "Background Pattern" setting will override the "Background Color" unless the image used is transparent, and the "Background Image" option will take precedence over both. The "Background Image Fade (ms)" option allows you to set a time in milliseconds for your image to fade in. To disable this feature, set the value to "0."' );
+    xCustomizerText( 'x_integrity_design',                              false,                                  'Integrity is a beautiful design geared towards businesses and individuals desiring a site with a more traditional layout, yet with plenty of modern touches.' );
+    xCustomizerText( 'x_integrity_blog_header_enable',                  'Blog Options',                         'Enabling the blog header will turn on the area above your posts on the index page that contains your title and subtitle. Disabling it will result in more content being visible above the fold.' );
+    xCustomizerText( 'x_integrity_portfolio_archive_sort_button_text',  'Portfolio Options',                    'Enabling portfolio index sharing will turn on social sharing links for each post on the portfolio index page. Activate and deactivate individual sharing links underneath the main Portfolio section.' );
+    xCustomizerText( 'x_integrity_shop_header_enable',                  'Shop Options',                         'Enabling the shop header will turn on the area above your posts on the index page that contains your title and subtitle. Disabling it will result in more content being visible above the fold.' );
+    xCustomizerText( 'x_renew_topbar_background',                       false,                                  'Renew features a gorgeous look and feel that lends a clean, modern look to your site. All of your content will take center stage with Renew in place.' );
+    xCustomizerText( 'x_renew_topbar_text_color',                       'Typography Options',                   'Here you can set the colors for your topbar and footer. Get creative, the possibilities are endless.' );
+    xCustomizerText( 'x_renew_blog_title',                              'Blog Options',                         'The entry icon color is for the post icons to the left of each title. Selecting "Creative" under the "Entry Icon Position" setting will allow you to align your entry icons in a different manner on your posts index page when "Content Left, Sidebar Right" or "Fullwidth" are selected as your "Content Layout" and when your blog "Style" is set to "Standard." This feature is intended to be paired with a "Boxed" layout.' );
+    xCustomizerText( 'x_renew_shop_title',                              'Shop Options',                         'Provide a title you would like to use for your shop. This will show up on the index page as well as in your breadcrumbs.' );
+    xCustomizerText( 'x_icon_post_title_icon_enable',                   false,                                  'Icon features a stunning, modern, fullscreen design with a unique fixed sidebar layout that scolls with users on larger screens as you move down the page. The end result is attractive, app-like, and intuitive.' );
+    xCustomizerText( 'x_icon_shop_title',                               'Shop Options',                         'Provide a title you would like to use for your shop. This will show up on the index page as well as in your breadcrumbs.' );
+    xCustomizerText( 'x_ethos_topbar_background',                       false,                                  'Ethos is a magazine-centric design that works great for blogs, news sites, or anything else that is content heavy with a focus on information. Customize the appearance of various items below and take note that some of these accent colors will be used for additional elements. For example, the "Navbar Background Color" option will also update the appearance of the widget titles in your sidebar.' );
+    xCustomizerText( 'x_ethos_post_carousel_enable',                    'Post Carousel',                        'The "Post Carousel" is an element located above the masthead, which allows you to showcase your posts in various formats. If "Featured" is selected, you can choose which posts you would like to appear in this location in the post meta options.' );
+    xCustomizerText( 'x_ethos_post_carousel_display_count_extra_large', 'Post Carousel &ndash; Screen Display', 'Select how many posts you would like to show for various screen sizes. Make sure to customize this section to suit your needs depending on how you have other options setup for your site (i.e. boxed site layout, fixed left or right navigation, et cetera).' );
+    xCustomizerText( 'x_ethos_post_slider_blog_enable',                 'Post Slider &ndash; Blog',             'The blog "Post Slider" is located at the top of the posts index page, which allows you to showcase your posts in various formats. If "Featured" is selected, you can choose which posts you would like to appear in this location in the post meta options.' );
+    xCustomizerText( 'x_ethos_post_slider_archive_enable',              'Post Slider &ndash; Archives',         'The archive "Post Slider" is located at the top of all archive pages, which allows you to showcase your posts in various formats. If "Featured" is selected, you can choose which posts you would like to appear in this location in the post meta options.' );
+    xCustomizerText( 'x_ethos_navbar_desktop_link_side_padding',        'Navbar Options',                       'Set the side padding for your navbar links on larger screens to suit the needs of your design.' );
+    xCustomizerText( 'x_ethos_filterable_index_enable',                 'Blog Options',                         'Enabling the filterable index will bypass the standard output of your blog page, allowing you to specify categories to highlight. Upon selecting this option, a text input will appear to enter in the IDs of the categories you would like to showcase. This input accepts a list of numeric IDs separated by a comma (e.g. 14, 1, 817).' );
+    xCustomizerText( 'x_ethos_shop_title',                              'Shop Options',                         'Provide a title you would like to use for your shop. This will show up on the index page as well as in your breadcrumbs.' );
+    xCustomizerText( 'x_custom_fonts',                                  false,                                  'X provides you with full control over your site\'s typography. Remember to check the box for "Enable Custom Fonts" to set your own individual fonts for headings, body copy, et cetera.' );
+    xCustomizerText( 'x_logo_font_family',                              'Logo',                                 false );
+    xCustomizerText( 'x_navbar_font_family',                            'Navbar',                               false );
+    xCustomizerText( 'x_headings_font_family',                          'Headings',                             false );
+    xCustomizerText( 'x_body_font_family',                              'Body and Content',                     '"Body Font Size (px)" will affect the sizing of all copy outside of a post or page content area. "Content Font Size (px)" will affect the sizing of all copy inside a post or page content area. Headings are set with percentages and sized proportionally to these settings.' );
+    xCustomizerText( 'x_site_link_color',                               'Site Links',                           'Site link colors are also used as accents for various elements throughout your site, so make sure to select something you really enjoy and keep an eye out for how it affects your design.' );
+    xCustomizerText( 'x_button_style',                                  false,                                  'Retina ready, limitless colors, and multiple shapes. The buttons available in X are fun to use, simple to implement, and look great on all devices no matter the size.' );
+    xCustomizerText( 'x_button_color',                                  'Colors',                               false );
+    xCustomizerText( 'x_button_color_hover',                            'Hover Colors',                         false );
+    xCustomizerText( 'x_navbar_positioning',                            false,                                  'Never before has such flexibility been offered to WordPress users for their site\'s header. It\'s one of the first things your visitors see when they come to your site, now you can make it look exactly how you want.' );
+    xCustomizerText( 'x_logo_navigation_layout',                        'Logo and Navigation',                  'Selecting "Inline" for your logo and navigation layout will place them both in the navbar. Selecting "Stacked" will place the logo in a separate section above the navbar.' );
+    xCustomizerText( 'x_navbar_height',                                 'Navbar',                               '"Navbar Top Height (px)" must still be set even when using "Fixed Left" or "Fixed Right" positioning because on tablet and mobile devices, the menu is pushed to the top.' );
+    xCustomizerText( 'x_logo',                                          'Logo',                                 'To make your logo retina ready, enter in the width of your uploaded image in the "Logo Width (px)" field and we\'ll take care of all the calculations for you. If you want your logo to stay the original size that was uploaded, leave the field blank.' );
+    xCustomizerText( 'x_header_search_enable',                          'Search',                               'Activate search functionality for the navbar. If activated, select the font size you would like to use for the search input.' );
+    xCustomizerText( 'x_logo_adjust_navbar_top',                        'Alignment',                            '"Navbar Top Logo Alignment (px)" and "Navbar Top Link Alignment (px)" must still be set even when using "Fixed Left" or "Fixed Right" positioning because on tablet and mobile devices, the menu is pushed to the top.' );
+    xCustomizerText( 'x_header_widget_areas',                           'Widgetbar',                            false );
+    xCustomizerText( 'x_topbar_display',                                'Miscellaneous',                        false );
+    xCustomizerText( 'x_footer_widget_areas',                           false,                                  'Easily adjust your site\'s footer by setting your widget areas to the specific number desired and turning on or off various parts as needed. You\'re never forced to use a layout you don\'t need with X.' );
+    xCustomizerText( 'x_footer_scroll_top_display',                     'Scroll Top Anchor',                    'Activating the scroll top anchor will output a link that appears in the bottom corner of your site for users to click on that will return them to the top of your website. Once activated, set the value (as a percentage) for how far down the page your users will need to scroll for it to appear. For example, if you want the scroll top anchor to appear once your users have scrolled halfway down your page, you would enter "50" into the field.' );
+    xCustomizerText( 'x_blog_style',                                    false,                                  'Adjust the style and layout of your blog using the settings below. This will only affect the posts index page of your blog and will not alter any archive or search results pages. The "Layout" option allows you to keep your sidebar on your posts index page if you have already selected "Content Left, Sidebar Right" or "Sidebar Left, Content Right" for you "Content Layout" option, or remove the sidebar completely if desired.' );
+    xCustomizerText( 'x_archive_style',                                 'Archives',                             'Adjust the style and layout of your archive pages using the settings below. The "Layout" option allows you to keep your sidebar on your posts index page if you have already selected "Content Left, Sidebar Right" or "Sidebar Left, Content Right" for you "Content Layout" option, or remove the sidebar completely if desired.' );
+    xCustomizerText( 'x_blog_enable_post_meta',                         'Content',                              'Selecting the "Enable Full Post Content on Index" option below will allow the entire contents of your posts to be shown on the post index pages for all stacks. Deselecting this option will allow you to set the length of your excerpt.' );
+    xCustomizerText( 'x_custom_portfolio_slug',                         false,                                  'Setting your custom portfolio slug allows you to create a unique URL structure for your archive pages that suits your needs. When you update it, remember to save your Permalinks again to avoid any potential errors.' );
+    xCustomizerText( 'x_portfolio_enable_post_meta',                    'Content',                              false );
+    xCustomizerText( 'x_portfolio_tag_title',                           'Labels',                               false );
+    xCustomizerText( 'x_portfolio_enable_facebook_sharing',             'Sharing',                              false );
+    xCustomizerText( 'x_bbpress_layout_content',                        false,                                  'This section handles all options regarding your bbPress setup. Select your content layout, section titles, along with plenty of other options to get bbPress up and running. The "Layout" option allows you to keep your sidebar if you have already selected "Content Left, Sidebar Right" or "Sidebar Left, Content Right" for your "Content Layout" option, or remove the sidebar completely if desired.' );
+    xCustomizerText( 'x_bbpress_header_menu_enable',                    'Navbar Menu',                          'You can add links to various "components" manually in your navigation if desired. Selecting this setting provides you with an additional theme-specific option that will include a simple navigation item with quick links to various bbPress components.' );
+    xCustomizerText( 'x_buddypress_layout_content',                     false,                                  'This section handles all options regarding your BuddyPress setup. Select your content layout, section titles, along with plenty of other options to get BuddyPress up and running. The "Layout" option allows you to keep your sidebar if you have already selected "Content Left, Sidebar Right" or "Sidebar Left, Content Right" for your "Content Layout" option, or remove the sidebar completely if desired.' );
+    xCustomizerText( 'x_buddypress_header_menu_enable',                 'Navbar Menu',                          'You can add links to various "components" manually in your navigation or activate registration and login links in the WordPress admin bar via BuddyPress\' settings if desired. Selecting this setting provides you with an additional theme-specific option that will include a simple navigation item with quick links to various BuddyPress components.' );
+    xCustomizerText( 'x_buddypress_activity_title',                     'Component Titles',                     'Set the titles for the various "components" in BuddyPress (e.g. groups list, registration, et cetera). Keep in mind that the "Sites Title" isn\'t utilized unless you have WordPress Multisite setup on your installation. Additionally, while they might not be present as actual titles on some pages, they are still used as labels in other areas such as the breadcrumbs, so keep this in mind when selecting inputs here.' );
+    xCustomizerText( 'x_buddypress_activity_subtitle',                  'Component Subtitles',                  'Set the subtitles for the various "components" in BuddyPress (e.g. groups list, registration, et cetera). Keep in mind that the "Sites Subtitle" isn\'t utilized unless you have WordPress Multisite setup on your installation. Additionally, subtitles are not utilized across every Stack but are left here for ease of management.' );
+    xCustomizerText( 'x_woocommerce_shop_layout_content',               false,                                  'This section handles all options regarding your WooCommerce setup. Select your content layout, product columns, along with plenty of other options to get your shop up and running. The "Shop Layout" option allows you to keep your sidebar on your shop page if you have already selected "Content Left, Sidebar Right" or "Sidebar Left, Content Right" for you "Content Layout" option, or remove the sidebar completely if desired.' );
+    xCustomizerText( 'x_woocommerce_product_tabs_enable',               'Single Product',                       'All options available in this section pertain to the layout of your individual product pages. Simply enable or disable the sections you want to use to achieve the layout you want.' );
+    xCustomizerText( 'x_woocommerce_cart_cross_sells_enable',           'Cart',                                 'All options available in this section pertain to the layout of your cart page. Simply enable or disable the sections you want to use to achieve the layout you want.' );
+    xCustomizerText( 'x_woocommerce_widgets_image_alignment',           'Widgets',                              'Select the placement of your product images in the various WooCommerce widgets that provide them. Right alignment is better if your items have longer titles to avoid staggered word wrapping.' );
+    xCustomizerText( 'x_social_facebook',                               false,                                  'Set the URLs for your social media profiles here to be used in the topbar and bottom footer. Adding in a link will make its respective icon show up without needing to do anything else. Keep in mind that these sections are not necessarily intended for a lot of items, so adding all icons could create some layout issues. It is typically best to keep your selections here to a minimum for structural purposes and for usability purposes so you do not overwhelm your visitors.' );
+    xCustomizerText( 'x_social_open_graph',                             'Open Graph',                           'X outputs standard Open Graph tags for your content. If you are employing another solution for this, you can disable X\'s Open Graph tag output here.' );
+    xCustomizerText( 'x_social_fallback_image',                         'Social Fallback Image',                'The "Social Fallback Image" is used throughout X with various social media network APIs. It is used as a default on pages that do not have a featured image set. You do not have to specify one; however, it is recommended if you are using X\'s native Open Graph implementation, entry sharing, et cetera.' );
+    xCustomizerText( 'x_icon_favicon',                                  false,                                  'Easily manage your favicon for desktop, touch icon for mobile devices, and tile icon for the Windows 8 Metro interface in this section. If an image is not set, nothing will be output for that particular icon type. When setting the path to your favicon, make sure you are using the ".ico" format. A 152x152 PNG should be used for your touch icon, and a 144x144 PNG should be used for your tile icon. The color you set for your tile icon will be used behind your image.' );
+    xCustomizerText( 'x_custom_styles',                                 false,                                  'Quickly add custom CSS or JavaScript to your site without any complicated setups. Ideal for minor style alterations or small snippets like Google Analytics. Do not place any &lt;style&gt; or &lt;script&gt; tags in these areas as they are already added for your convenience.' );
 
 
 
@@ -307,7 +304,9 @@
     function xCustomizerInitialDisplay( value, targets ) {
       $.each( targets, function( index, item ) {
         if ( item.key !== value ) {
-          $( item.target ).hide();
+          $( item.target ).attr('data-x-hide', 'true');
+        } else {
+          $( item.target ).removeAttr('data-x-hide');
         }
       });
     }
@@ -317,9 +316,9 @@
         var $value = $(this).val();
         $.each( targets, function( index, item ) {
           if ( item.key !== $value ) {
-            $( item.target ).hide();
+            $( item.target ).attr('data-x-hide', 'true');
           } else {
-            $( item.target ).show();
+            $( item.target ).removeAttr('data-x-hide');
           }
         });
       });
@@ -344,39 +343,71 @@
 
 
     //
-    // Integrity.
+    // Layout and design.
+    //
+    // Must also check current Stack when showing or hiding the content width
+    // and sidebar width settings as the sidebar width setting is only needed
+    // for Icon and the content width setting is needed on all other Stacks.
+    // To do this, we alter the visibility of these settings when either the
+    // Content Layout (1) setting is changed or the Stack (2) is changed.
     //
 
-    var $integrityContentLayoutInit = $('#customize-control-x_integrity_layout_content input:checked').val();
-    var $integrityContentLayoutOpts = $('#customize-control-x_integrity_layout_content input');
-    var $integrityContentLayoutTarg = [
-      '#customize-control-x_integrity_sizing_content_width'
+    var $layoutAndDesignContentLayoutInit = $('#customize-control-x_layout_content input:checked').val();
+    var $layoutAndDesignContentLayoutOpts = $('#customize-control-x_layout_content input');
+    var $layoutAndDesignContentLayoutTarg = [
+      '#customize-control-x_layout_content_width',
+      '#customize-control-x_layout_sidebar_width'
     ];
 
-    if ( $integrityContentLayoutInit === 'full-width' ) {
-      $( $integrityContentLayoutTarg[0] ).hide();
+    if ( $layoutAndDesignContentLayoutInit === 'full-width' ) {
+      $( $layoutAndDesignContentLayoutTarg[0] ).attr('data-x-hide', 'true');
+      $( $layoutAndDesignContentLayoutTarg[1] ).attr('data-x-hide', 'true');
+    } else {
+      if ( $stacksStackInit === 'icon' ) {
+        $( $layoutAndDesignContentLayoutTarg[0] ).attr('data-x-hide', 'true');
+      } else {
+        $( $layoutAndDesignContentLayoutTarg[1] ).attr('data-x-hide', 'true');
+      }
     }
 
-    $integrityContentLayoutOpts.change( function() {
-      $value = $(this).val();
-      if ( $value === 'full-width' ) {
-        $( $integrityContentLayoutTarg[0] ).hide();
+    $layoutAndDesignContentLayoutOpts.change( function() { // 1
+      $value1 = $(this).val();
+      $value2 = $('#customize-control-x_stack input:checked').val();
+      if ( $value1 === 'full-width' ) {
+        $( $layoutAndDesignContentLayoutTarg[0] ).attr('data-x-hide', 'true');
+        $( $layoutAndDesignContentLayoutTarg[1] ).attr('data-x-hide', 'true');
       } else {
-        $( $integrityContentLayoutTarg[0] ).show();
+        if ( $value2 === 'icon' ) {
+          $( $layoutAndDesignContentLayoutTarg[0] ).attr('data-x-hide', 'true');
+          $( $layoutAndDesignContentLayoutTarg[1] ).removeAttr('data-x-hide');
+        } else {
+          $( $layoutAndDesignContentLayoutTarg[0] ).removeAttr('data-x-hide');
+          $( $layoutAndDesignContentLayoutTarg[1] ).attr('data-x-hide', 'true');
+        }
+      }
+    });
+
+    $stacksStackOpts.change( function() { // 2
+      $value1 = $(this).val();
+      $value2 = $('#customize-control-x_layout_content input:checked').val();
+      if ( $value2 === 'full-width' ) {
+        $( $layoutAndDesignContentLayoutTarg[0] ).attr('data-x-hide', 'true');
+        $( $layoutAndDesignContentLayoutTarg[1] ).attr('data-x-hide', 'true');
+      } else {
+        if ( $value1 === 'icon' ) {
+          $( $layoutAndDesignContentLayoutTarg[0] ).attr('data-x-hide', 'true');
+          $( $layoutAndDesignContentLayoutTarg[1] ).removeAttr('data-x-hide');
+        } else {
+          $( $layoutAndDesignContentLayoutTarg[0] ).removeAttr('data-x-hide');
+          $( $layoutAndDesignContentLayoutTarg[1] ).attr('data-x-hide', 'true');
+        }
       }
     });
 
 
-    var $integrityDesignInit = $('#customize-control-x_integrity_design input:checked').val();
-    var $integrityDesignOpts = $('#customize-control-x_integrity_design input');
-    var $integrityDesignTarg = [
-      { key : 'light', target : '#customize-control-x_integrity_light_bg_color, #customize-control-x_integrity_light_bg_image_pattern, #customize-control-x_integrity_light_bg_image_full, #customize-control-x_integrity_light_bg_image_full_fade' },
-      { key : 'dark',  target : '#customize-control-x_integrity_dark_bg_color, #customize-control-x_integrity_dark_bg_image_pattern, #customize-control-x_integrity_dark_bg_image_full, #customize-control-x_integrity_dark_bg_image_full_fade' },
-    ];
-
-    xCustomizerInitialDisplay( $integrityDesignInit, $integrityDesignTarg );
-    xCustomizerChangeDisplay( $integrityDesignOpts, $integrityDesignTarg );
-
+    //
+    // Integrity.
+    //
 
     var $integrityBlogHeaderInit = $('#customize-control-x_integrity_blog_header_enable input:checked').val();
     var $integrityBlogHeaderOpts = $('#customize-control-x_integrity_blog_header_enable input');
@@ -404,26 +435,6 @@
     // Renew.
     //
 
-    var $renewContentLayoutInit = $('#customize-control-x_renew_layout_content input:checked').val();
-    var $renewContentLayoutOpts = $('#customize-control-x_renew_layout_content input');
-    var $renewContentLayoutTarg = [
-      '#customize-control-x_renew_sizing_content_width'
-    ];
-
-    if ( $renewContentLayoutInit === 'full-width' ) {
-      $( $renewContentLayoutTarg[0] ).hide();
-    }
-
-    $renewContentLayoutOpts.change( function() {
-      $value = $(this).val();
-      if ( $value === 'full-width' ) {
-        $( $renewContentLayoutTarg[0] ).hide();
-      } else {
-        $( $renewContentLayoutTarg[0] ).show();
-      }
-    });
-
-
     var $renewEntryIconInit = $('#customize-control-x_renew_entry_icon_position input:checked').val();
     var $renewEntryIconOpts = $('#customize-control-x_renew_entry_icon_position input');
     var $renewEntryIconTarg = [
@@ -438,26 +449,6 @@
     //
     // Icon.
     //
-
-    var $iconContentLayoutInit = $('#customize-control-x_icon_layout_content input:checked').val();
-    var $iconContentLayoutOpts = $('#customize-control-x_icon_layout_content input');
-    var $iconContentLayoutTarg = [
-      '#customize-control-x_icon_sidebar_width'
-    ];
-
-    if ( $iconContentLayoutInit === 'full-width' ) {
-      $( $iconContentLayoutTarg[0] ).hide();
-    }
-
-    $iconContentLayoutOpts.change( function() {
-      $value = $(this).val();
-      if ( $value === 'full-width' ) {
-        $( $iconContentLayoutTarg[0] ).hide();
-      } else {
-        $( $iconContentLayoutTarg[0] ).show();
-      }
-    });
-
 
     var $iconStandardPostColorsInit = $('#customize-control-x_icon_post_standard_colors_enable input:checked').val();
     var $iconStandardPostColorsOpts = $('#customize-control-x_icon_post_standard_colors_enable input');
@@ -539,26 +530,6 @@
     //
     // Ethos.
     //
-
-    var $ethosContentLayoutInit = $('#customize-control-x_ethos_layout_content input:checked').val();
-    var $ethosContentLayoutOpts = $('#customize-control-x_ethos_layout_content input');
-    var $ethosContentLayoutTarg = [
-      '#customize-control-x_ethos_sizing_content_width'
-    ];
-
-    if ( $ethosContentLayoutInit === 'full-width' ) {
-      $( $ethosContentLayoutTarg[0] ).hide();
-    }
-
-    $ethosContentLayoutOpts.change( function() {
-      $value = $(this).val();
-      if ( $value === 'full-width' ) {
-        $( $ethosContentLayoutTarg[0] ).hide();
-      } else {
-        $( $ethosContentLayoutTarg[0] ).show();
-      }
-    });
-
 
     var $ethosPostCarouselInit = $('#customize-control-x_ethos_post_carousel_enable input:checked').val();
     var $ethosPostCarouselOpts = $('#customize-control-x_ethos_post_carousel_enable input');
@@ -681,44 +652,44 @@
     ];
 
     if ( $typeButtonStyleInit === 'flat' ) {
-      $( $typeButtonStyleTarg[3] ).hide();
-      $( $typeButtonStyleTarg[7] ).hide();
+      $( $typeButtonStyleTarg[3] ).attr('data-x-hide', 'true');
+      $( $typeButtonStyleTarg[7] ).attr('data-x-hide', 'true');
     } else if ( $typeButtonStyleInit === 'transparent' ) {
-      $( $typeButtonStyleTarg[1] ).hide();
-      $( $typeButtonStyleTarg[3] ).hide();
-      $( $typeButtonStyleTarg[5] ).hide();
-      $( $typeButtonStyleTarg[7] ).hide();
+      $( $typeButtonStyleTarg[1] ).attr('data-x-hide', 'true');
+      $( $typeButtonStyleTarg[3] ).attr('data-x-hide', 'true');
+      $( $typeButtonStyleTarg[5] ).attr('data-x-hide', 'true');
+      $( $typeButtonStyleTarg[7] ).attr('data-x-hide', 'true');
     }
 
     $typeButtonStyleOpts.change( function() {
       $value = $(this).val();
       if ( $value === 'real' ) {
-        $( $typeButtonStyleTarg[0] ).show();
-        $( $typeButtonStyleTarg[1] ).show();
-        $( $typeButtonStyleTarg[2] ).show();
-        $( $typeButtonStyleTarg[3] ).show();
-        $( $typeButtonStyleTarg[4] ).show();
-        $( $typeButtonStyleTarg[5] ).show();
-        $( $typeButtonStyleTarg[6] ).show();
-        $( $typeButtonStyleTarg[7] ).show();
+        $( $typeButtonStyleTarg[0] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[1] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[2] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[3] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[4] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[5] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[6] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[7] ).removeAttr('data-x-hide');
       } else if ( $value === 'flat' ) {
-        $( $typeButtonStyleTarg[0] ).show();
-        $( $typeButtonStyleTarg[1] ).show();
-        $( $typeButtonStyleTarg[2] ).show();
-        $( $typeButtonStyleTarg[3] ).hide();
-        $( $typeButtonStyleTarg[4] ).show();
-        $( $typeButtonStyleTarg[5] ).show();
-        $( $typeButtonStyleTarg[6] ).show();
-        $( $typeButtonStyleTarg[7] ).hide();
+        $( $typeButtonStyleTarg[0] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[1] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[2] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[3] ).attr('data-x-hide', 'true');
+        $( $typeButtonStyleTarg[4] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[5] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[6] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[7] ).attr('data-x-hide', 'true');
       } else if ( $value === 'transparent' ) {
-        $( $typeButtonStyleTarg[0] ).show();
-        $( $typeButtonStyleTarg[1] ).hide();
-        $( $typeButtonStyleTarg[2] ).show();
-        $( $typeButtonStyleTarg[3] ).hide();
-        $( $typeButtonStyleTarg[4] ).show();
-        $( $typeButtonStyleTarg[5] ).hide();
-        $( $typeButtonStyleTarg[6] ).show();
-        $( $typeButtonStyleTarg[7] ).hide();
+        $( $typeButtonStyleTarg[0] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[1] ).attr('data-x-hide', 'true');
+        $( $typeButtonStyleTarg[2] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[3] ).attr('data-x-hide', 'true');
+        $( $typeButtonStyleTarg[4] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[5] ).attr('data-x-hide', 'true');
+        $( $typeButtonStyleTarg[6] ).removeAttr('data-x-hide');
+        $( $typeButtonStyleTarg[7] ).attr('data-x-hide', 'true');
       }
     });
 
@@ -736,21 +707,21 @@
     ];
 
     if ( $headerNavbarPositionInit === 'static-top' || $headerNavbarPositionInit === 'fixed-top' ) {
-      $( $headerNavbarPositionTarg[0] ).hide();
-      $( $headerNavbarPositionTarg[1] ).hide();
-      $( $headerNavbarPositionTarg[2] ).hide();
+      $( $headerNavbarPositionTarg[0] ).attr('data-x-hide', 'true');
+      $( $headerNavbarPositionTarg[1] ).attr('data-x-hide', 'true');
+      $( $headerNavbarPositionTarg[2] ).attr('data-x-hide', 'true');
     }
 
     $headerNavbarPositionOpts.change( function() {
       $value = $(this).val();
       if ( $value === 'static-top' || $value === 'fixed-top' ) {
-        $( $headerNavbarPositionTarg[0] ).hide();
-        $( $headerNavbarPositionTarg[1] ).hide();
-        $( $headerNavbarPositionTarg[2] ).hide();
+        $( $headerNavbarPositionTarg[0] ).attr('data-x-hide', 'true');
+        $( $headerNavbarPositionTarg[1] ).attr('data-x-hide', 'true');
+        $( $headerNavbarPositionTarg[2] ).attr('data-x-hide', 'true');
       } else if ( $value === 'fixed-left' || $value === 'fixed-right' ) {
-        $( $headerNavbarPositionTarg[0] ).show();
-        $( $headerNavbarPositionTarg[1] ).show();
-        $( $headerNavbarPositionTarg[2] ).show();
+        $( $headerNavbarPositionTarg[0] ).removeAttr('data-x-hide');
+        $( $headerNavbarPositionTarg[1] ).removeAttr('data-x-hide');
+        $( $headerNavbarPositionTarg[2] ).removeAttr('data-x-hide');
       }
     });
 
@@ -774,18 +745,18 @@
     ];
 
     if ( $headerWidgetAreasInit === '0' ) {
-      $( $headerWidgetAreasTarg[0] ).hide();
-      $( $headerWidgetAreasTarg[1] ).hide();
+      $( $headerWidgetAreasTarg[0] ).attr('data-x-hide', 'true');
+      $( $headerWidgetAreasTarg[1] ).attr('data-x-hide', 'true');
     }
 
     $headerWidgetAreasOpts.change( function() {
       $value = $(this).val();
       if ( $value === '0' ) {
-        $( $headerWidgetAreasTarg[0] ).hide();
-        $( $headerWidgetAreasTarg[1] ).hide();
+        $( $headerWidgetAreasTarg[0] ).attr('data-x-hide', 'true');
+        $( $headerWidgetAreasTarg[1] ).attr('data-x-hide', 'true');
       } else {
-        $( $headerWidgetAreasTarg[0] ).show();
-        $( $headerWidgetAreasTarg[1] ).show();
+        $( $headerWidgetAreasTarg[0] ).removeAttr('data-x-hide');
+        $( $headerWidgetAreasTarg[1] ).removeAttr('data-x-hide');
       }
     });
 
@@ -817,39 +788,39 @@
     ];
 
     if ( $footerBottomInit === '' ) {
-      $( $footerBottomTarg[0] ).hide();
-      $( $footerBottomTarg[1] ).hide();
-      $( $footerBottomTarg[2] ).hide();
-      $( $footerBottomTarg[3] ).hide();
+      $( $footerBottomTarg[0] ).attr('data-x-hide', 'true');
+      $( $footerBottomTarg[1] ).attr('data-x-hide', 'true');
+      $( $footerBottomTarg[2] ).attr('data-x-hide', 'true');
+      $( $footerBottomTarg[3] ).attr('data-x-hide', 'true');
     }
 
     $footerBottomOpts.change( function() {
       $value = $(this).val();
       if ( $value === '' ) {
-        $( $footerBottomTarg[0] ).hide();
-        $( $footerBottomTarg[1] ).hide();
-        $( $footerBottomTarg[2] ).hide();
-        $( $footerBottomTarg[3] ).hide();
+        $( $footerBottomTarg[0] ).attr('data-x-hide', 'true');
+        $( $footerBottomTarg[1] ).attr('data-x-hide', 'true');
+        $( $footerBottomTarg[2] ).attr('data-x-hide', 'true');
+        $( $footerBottomTarg[3] ).attr('data-x-hide', 'true');
       } else if ( $value === '1' ) {
-        $( $footerBottomTarg[0] ).show();
-        $( $footerBottomTarg[1] ).show();
-        $( $footerBottomTarg[2] ).show();
+        $( $footerBottomTarg[0] ).removeAttr('data-x-hide');
+        $( $footerBottomTarg[1] ).removeAttr('data-x-hide');
+        $( $footerBottomTarg[2] ).removeAttr('data-x-hide');
         if ( $('#customize-control-x_footer_content_display input:checked').val() === '1' ) {
-          $( $footerBottomTarg[3] ).show();
+          $( $footerBottomTarg[3] ).removeAttr('data-x-hide');
         }
       }
     });
 
     if ( $footerBottomContentInit === '' ) {
-      $( $footerBottomTarg[3] ).hide();
+      $( $footerBottomTarg[3] ).attr('data-x-hide', 'true');
     }
 
     $footerBottomContentOpts.change( function() {
       $value = $(this).val();
       if ( $value === '' ) {
-        $( $footerBottomTarg[3] ).hide();
+        $( $footerBottomTarg[3] ).attr('data-x-hide', 'true');
       } else if ( $value === '1' ) {
-        $( $footerBottomTarg[3] ).show();
+        $( $footerBottomTarg[3] ).removeAttr('data-x-hide');
       }
     });
 

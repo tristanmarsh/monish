@@ -190,9 +190,9 @@ input[type="submit"] {
 }
 
 input[type="search"] {
-  -webkit-box-sizing: content-box; // 3
-     -moz-box-sizing: content-box;
-          box-sizing: content-box; // 3
+  // -webkit-box-sizing: content-box; // 3
+  //    -moz-box-sizing: content-box;
+  //         box-sizing: content-box; // 3
   -webkit-appearance: textfield;   // 3
 }
 

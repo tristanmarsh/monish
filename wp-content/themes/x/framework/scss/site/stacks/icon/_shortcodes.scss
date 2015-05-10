@@ -33,9 +33,7 @@
 //       b. List Item
 //   16. Popovers and Tooltips
 //   17. Text Columns
-//   18. Responsive Video
-//       a. Video Player
-//       b. Video Embed
+//   18. Video
 //   19. Accordion
 //       a. Accordion
 //       b. Accordion Item
@@ -52,8 +50,6 @@
 //   24. Protected Content
 //   25. Recent Posts
 //   26. Audio
-//       a. Audio Player
-//       b. Audio Embed
 //   27. Responsive Pricing Table
 //   28. Callout
 //   29. Promo
@@ -98,21 +94,14 @@
 // Gaps
 // =============================================================================
 
-.x-gap {
-  margin: $baseMargin 0;
-  border-color: transparent;
-}
+.x-gap {  }
 
 
 
 // Clear
 // =============================================================================
 
-.x-clear {
-  margin: 0;
-  border: 0;
-  clear: both;
-}
+.x-clear {  }
 
 
 
@@ -141,15 +130,7 @@
 // 3. Cite.
 //
 
-.x-blockquote { // 1
-  &.right-text {
-    text-align: right;
-  }
-
-  &.center-text {
-    text-align: center;
-  }
-}
+.x-blockquote {  } // 1
 
 .x-pullquote { // 2
   width: 40%;
@@ -325,30 +306,7 @@ button.close {
 // Maps
 // =============================================================================
 
-.x-map {
-  margin-bottom: $baseMargin;
-
-  .x-map-inner {
-    overflow: hidden;
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  .gm-style {
-    img {
-      max-width: none;
-    }
-  }
-}
+.x-map {  }
 
 
 
@@ -398,23 +356,14 @@ button.close {
 // Code
 // =============================================================================
 
-.x-code {
-  line-height: 1;
-}
+.x-code {  }
 
 
 
 // Buttons
 // =============================================================================
 
-//
-// 1. Individual buttons.
-// 2. Button group.
-//
-
-.x-btn {  } // 1
-
-.x-btn-group {  } // 2
+.x-btn {  }
 
 
 
@@ -428,47 +377,7 @@ button.close {
 // Block Grid
 // =============================================================================
 
-//
-// 1. Grid.
-// 2. Grid item.
-//
-
-.x-block-grid { // 1
-  display: block;
-  overflow: hidden;
-  padding: 0;
-
-  & > li {
-    display: block;
-    height: auto;
-    float: left;
-  }
-
-  @for $i from 2 through 5 {
-    &.#{ convert-number-to-word( $i ) }-up {
-      @if $i == 2 { margin: $baseMargin -1.25%; }
-      @if $i == 3 { margin: $baseMargin -1%; }
-      @if $i == 4 { margin: $baseMargin -0.9%; }
-      @if $i == 5 { margin: $baseMargin -0.85%; }
-
-      & > li {
-        width: 100% / $i;
-        @if $i == 2 { padding: 1.25%; }
-        @if $i == 3 { padding: 1%; }
-        @if $i == 4 { padding: 0.9%; }
-        @if $i == 5 { padding: 0.85%; }
-        @if $i > 1 { &:nth-child( #{$i}n+1 ) { clear: both; } }
-      }
-    }
-  }
-
-  img,
-  .x-img {
-    margin-bottom: 0;
-  }
-}
-
-.x-block-grid-item {  } // 2
+.x-block-grid {  }
 
 
 
@@ -565,8 +474,6 @@ a.x-img-thumbnail:hover {
   }
 }
 
-.x-li-icon {  }
-
 
 
 // Popovers and Tooltips
@@ -595,46 +502,10 @@ a.x-img-thumbnail:hover {
 
 
 
-// Responsive Video
+// Video
 // =============================================================================
 
-//
-// 1. 9/16 = 0.5625 for 16:9 aspect ratio
-// 2. 3/5 = 0.6 for 5:3 aspect ratio
-// 3. 4/5 = 0.8 for 5:4 aspect ratio
-// 4. 3/4 = 0.75 for 4:3 aspect ratio
-// 5. 2/3 = 0.6667 for 3:2 aspect ratio
-//
-
-.x-responsive-video {
-  &.x-responsive-video-shortcode {
-    margin-bottom: $baseMargin;
-  }
-
-  .x-responsive-video-inner {
-    position: relative;
-    padding-bottom: 56.25%; // 1
-    height: 0;
-    overflow: hidden;
-
-    &.five-by-three { padding-bottom: 60%;    } // 2
-    &.five-by-four  { padding-bottom: 80%;    } // 3
-    &.four-by-three { padding-bottom: 75%;    } // 4
-    &.three-by-two  { padding-bottom: 66.67%; } // 5
-
-    embed,
-    iframe,
-    img,
-    object,
-    video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
+.x-video {  }
 
 
 
@@ -736,13 +607,6 @@ a.x-img-thumbnail:hover {
 // Tabbed Content
 // =============================================================================
 
-//
-// 1. Tab nav.
-// 2. Tab nav item.
-// 3. Tabs.
-// 4. Tab.
-//
-
 .x-nav-tabs {  }
 
 .x-nav-tabs-item {  }
@@ -763,75 +627,14 @@ a.x-img-thumbnail:hover {
 // Content Columns
 // =============================================================================
 
-.x-column {
-  float: left;
-  margin-right: 4%;
-
-  &.whole         { width: 100%;      }
-  &.one-half      { width: 48%;       }
-  &.one-third     { width: 30.66666%; }
-  &.two-thirds    { width: 65.33332%; }
-  &.one-fourth    { width: 22%;       }
-  &.three-fourths { width: 74%;       }
-  &.one-fifth     { width: 16.8%;     }
-  &.two-fifths    { width: 37.6%;     }
-  &.three-fifths  { width: 58.4%;     }
-  &.four-fifths   { width: 79.2%;     }
-  &.one-sixth     { width: 13.33332%; }
-  &.five-sixths   { width: 82.66666%; }
-
-  &.one-half,
-  &.one-third,
-  &.two-thirds,
-  &.one-fourth,
-  &.three-fourths,
-  &.one-fifth,
-  &.two-fifths,
-  &.three-fifths,
-  &.four-fifths,
-  &.one-sixth,
-  &.five-sixths {
-    @include break(middle-bear) {
-      float: none;
-      width: 100%;
-      margin-right: 0;
-    }
-  }
-
-  &.last {
-    margin-right: 0;
-  }
-}
-
-.js {
-  .x-column {
-    position: relative;
-
-    &[data-fade="true"] {
-      opacity: 0;
-    }
-  }
-}
+@include columns();
 
 
 
 // Responsive Slider
 // =============================================================================
 
-//
-// 1. Slider
-// 2. Slide
-//
-
-.x-flexslider-shortcode-container {
-  margin-bottom: $baseMargin;
-
-  .x-flexslider-shortcode {
-    margin: 0;
-  }
-}
-
-.x-slide {  }
+.x-flexslider-shortcode-container {  }
 
 
 
@@ -1115,10 +918,7 @@ a.x-img-thumbnail:hover {
 // Audio
 // =============================================================================
 
-.x-audio {
-  position: relative;
-  margin-bottom: $baseMargin;
-}
+.x-audio {  }
 
 
 
@@ -1477,62 +1277,7 @@ a.x-img-thumbnail:hover {
 // Content Band
 // =============================================================================
 
-.x-content-band {
-  margin: 0 0 $baseMargin;
-  padding: 40px 0;
-  @include clearfix();
-
-  &.bg-image,
-  &.bg-pattern {
-    background-position: 50% 50%;
-
-    &.parallax {
-      background-attachment: fixed;
-    }
-  }
-
-  &.bg-image {
-    -webkit-background-size: cover;
-            background-size: cover;
-    background-repeat: no-repeat;
-  }
-
-  &.bg-pattern {
-    background-repeat: repeat;
-  }
-
-  &.bg-video {
-    position: relative;
-    overflow: hidden;
-  }
-
-  &.border-top {
-    border-top: 1px solid #ddd;
-    border-top: 1px solid rgba(0, 0, 0, 0.075);
-  }
-
-  &.border-left {
-    border-left: 1px solid #ddd;
-    border-left: 1px solid rgba(0, 0, 0, 0.075);
-  }
-
-  &.border-right {
-    border-right: 1px solid #ddd;
-    border-right: 1px solid rgba(0, 0, 0, 0.075);
-  }
-
-  &.border-bottom {
-    border-bottom: 1px solid #ddd;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.075);
-  }
-
-  > .x-column:last-child,
-  > .vc-element:last-child > .x-column,
-  > .x-container-fluid > .x-column:last-child,
-  > .x-container-fluid > .vc-element:last-child > .x-column {
-    margin-right: 0;
-  }
-}
+@include content_band();
 
 
 
@@ -1788,39 +1533,14 @@ h6,
 // Search
 // =============================================================================
 
-.x-search-shortcode {
-  margin-bottom: $baseMargin;
-}
+.x-search-shortcode {  }
 
 
 
 // Counter
 // =============================================================================
 
-.x-counter {
-  text-align: center;
-
-  .number-wrap {
-    font-size: 3.25em;
-    line-height: 1;
-  }
-
-  .text-above,
-  .text-below {
-    display: block;
-    letter-spacing: 0.125em;
-    line-height: 1.5;
-    text-transform: uppercase;
-  }
-
-  .text-above {
-    margin-bottom: 0.5em;
-  }
-
-  .text-below {
-    margin-top: 0.5em;
-  }
-}
+.x-counter {  }
 
 
 

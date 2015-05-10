@@ -16,33 +16,33 @@ $is_one_page_nav = x_is_one_page_navigation();
 
   <div class="x-logobar">
     <div class="x-logobar-inner">
-      <div class="x-container-fluid max width">
+      <div class="x-container max width">
         <?php x_get_view( 'global', '_brand' ); ?>
       </div>
-    </div> <!-- end .x-logobar-inner -->
-  </div> <!-- end .x-logobar -->
+    </div>
+  </div>
 
   <div class="x-navbar-wrap">
     <div class="<?php x_navbar_class(); ?>">
       <div class="x-navbar-inner">
-        <div class="x-container-fluid max width">
+        <div class="x-container max width">
           <?php x_get_view( 'global', '_nav', 'primary' ); ?>
         </div>
-      </div> <!-- end .x-navbar-inner -->
-    </div> <!-- end .x-navbar -->
-  </div> <!-- end .x-navbar-wrap -->
+      </div>
+    </div>
+  </div>
 
 <?php else : ?>
 
   <div class="x-navbar-wrap">
     <div class="<?php x_navbar_class(); ?>">
       <div class="x-navbar-inner">
-        <div class="x-container-fluid max width">
+        <div class="x-container max width">
           <?php x_get_view( 'global', '_brand' ); ?>
           <?php x_get_view( 'global', '_nav', 'primary' ); ?>
         </div>
-      </div> <!-- end .x-navbar-inner -->
-    </div> <!-- end .x-navbar -->
-  </div> <!-- end .x-navbar-wrap -->
+      </div>
+    </div>
+  </div>
 
 <?php endif; ?>

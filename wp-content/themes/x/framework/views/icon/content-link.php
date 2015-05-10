@@ -13,7 +13,7 @@ $link = get_post_meta( get_the_ID(), '_x_link_url',  true );
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <div class="entry-wrap">
     <?php x_icon_comment_number(); ?>
-    <div class="x-container-fluid max width">
+    <div class="x-container max width">
       <header class="entry-header">
         <?php if ( is_single() ) : ?>
         <h1 class="entry-title">

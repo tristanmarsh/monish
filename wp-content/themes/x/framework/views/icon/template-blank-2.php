@@ -16,7 +16,7 @@
 
       <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="entry-wrap">
-          <div class="x-container-fluid max width">
+          <div class="x-container max width">
             <?php x_get_view( 'global', '_content', 'the-content' ); ?>
           </div>
         </div>

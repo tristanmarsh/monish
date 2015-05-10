@@ -141,41 +141,48 @@ function x_create_meta_box( $post, $meta_box ) {
            . '</td>';
         ?>
 
-        <script> 
+        <script>
+
           jQuery(document).ready(function($) {
+
+            //
+            // 1. If media frame exists, open it.
+            // 2. Set wp.media post ID so the uploader grabs the ID we want when initialized.
+            // 3. Create media frame.
+            // 4. When image selected, run callback.
+            // 5. Restore main post ID.
+            // 6. Restore main ID when media button is pressed.
+            //
 
             var x_uploader;
             var wp_media_post_id = wp.media.model.settings.post.id;
 
-            $('#<?php echo $field["id"] ?>_upload').on('click', function(event) {
-              event.preventDefault();
+            $('#<?php echo $field["id"] ?>_upload').on('click', function(e) {
 
-              var x_button   = $(this);
-              set_to_post_id = x_button.data('id');
-              var target     = x_button.prev();
-              
-              // if media frame exists, reopen
+              e.preventDefault();
+
+              var x_button       = $(this);
+              var set_to_post_id = x_button.data('id');
+
               if ( x_uploader ) {
-                // set post id
                 x_uploader.uploader.uploader.param('post_id', set_to_post_id);
-                x_uploader.open();
+                x_uploader.open(); // 1
                 return;
               } else {
-                // set the wp.media post id so the uploader grabs the id we want when initialised
-                wp.media.model.settings.post.id = set_to_post_id;
+                wp.media.model.settings.post.id = set_to_post_id; // 2
               }
 
-              // create media frame
-              x_uploader = wp.media.frames.x_uploader = wp.media({
-                title: x_button.data('title'),
-                button: { text: x_button.data('text') },
-                multiple: true
+              x_uploader = wp.media.frames.x_uploader = wp.media({ // 3
+                title    : 'Insert Media',
+                button   : { text : 'Select' },
+                multiple : true
               });
 
-              // when image selected, run callback
-              x_uploader.on('select', function(){
+              x_uploader.on('select', function() { // 4
+
                 var selection = x_uploader.state().get('selection');
                 var files     = [];
+
                 selection.map( function( attachment ) {
                   attachment = attachment.toJSON();
                   files.push(attachment.url);
@@ -184,24 +191,25 @@ function x_create_meta_box( $post, $meta_box ) {
 
                 x_button.next().html('');
 
-                for (var i=0; i<files.length; i++){
-                  var ext = files[i].substr(files[i].lastIndexOf(".") + 1, files[i].length);
+                for ( var i = 0; i < files.length; i++ ) {
+                  var ext = files[i].substr(files[i].lastIndexOf('.') + 1, files[i].length);
                   x_button.next().append('<div class="row-image"><img src="' + files[i] + '" alt="" /></div>');
                 }
-            
-                // restore main post id
-                wp.media.model.settings.post.id = wp_media_post_id;
+
+                wp.media.model.settings.post.id = wp_media_post_id; // 5
+
               });
 
-              // open our awesome media frame
               x_uploader.open();
+
             });
 
-            // restore main id when media button is pressed
             jQuery('a.add_media').on('click', function() {
-              wp.media.model.settings.post.id = wp_media_post_id;
+              wp.media.model.settings.post.id = wp_media_post_id; // 6
             });
-          });  
+
+          });
+
         </script>
 
         <?php

@@ -12,7 +12,7 @@
 	
 	<li>
 		<span class="glyphicon glyphicon-star"></span>
-		<?= $this->Html->link('Internet Plan', ['internetplans' => 'action' => 'index']) ?>
+		<?= $this->Html->link('Internet Plan', ['controller' => 'internetplans', 'action' => 'index']) ?>
 	</li>
 
 </ul>

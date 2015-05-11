@@ -21,5 +21,15 @@ class DashboardsController extends AppController
         //$this->Auth->allow(['index']);
     }
 
+    public function view($id)
+    {
+        if (!$id) {
+            throw new NotFoundException(__('Invalid user'));
+        }
+
+        $user = $this->Users->get($id);
+        $this->set(compact('user'));
+    }
+
 }
 ?>

@@ -21,5 +21,7 @@ class HomepagesController extends AppController
         $this->Auth->allow(['index']);
     }
 
+    
+
 }
 ?>

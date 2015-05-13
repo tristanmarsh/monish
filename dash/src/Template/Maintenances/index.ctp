@@ -14,7 +14,9 @@
     <!-- Here is where we iterate through our $articles query object, printing out article info -->
 
     <?php foreach ($elephant as $article): ?>
-    <tr>
+	<?php if ($article->user_id === $user['id'] OR $user['role'] === 'admin') : ?>
+	
+	<tr>
         <td>
             <?= $this->Html->link($article->title, ['action' => 'view', $article->id]) ?>
         </td>
@@ -38,6 +40,9 @@
 			?>
         </td>
     </tr>
+
+	<?php endif ?>
+    
     <?php endforeach; ?>
 </table>
 

@@ -10,6 +10,6 @@
     </fieldset>
     <?= $this->Form->button(__('Login')); ?>
     <?= $this->Form->end() ?>
-    <p>Don't have an account? <?= $this->Html->link('Sign Up', ['action' => 'add']) ?>!</p>
-    <p><small>Testing Purposes Only: Admin Credentials <br>username: admin <br>password: asdasd</small></p>
+    <!--<p>Don't have an account? <?= $this->Html->link('Sign Up', ['action' => 'add']) ?>!</p>-->
+    <!--<p><small>Testing Purposes Only: Admin Credentials <br>username: admin <br>password: asdasd</small></p>-->
 </div>

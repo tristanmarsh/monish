@@ -1,0 +1,1987 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: X &ndash; Shortcodes\n"
+"POT-Creation-Date: 2015-03-17 14:18-0600\n"
+"PO-Revision-Date: 2015-03-17 14:19-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: functions/admin/map-shortcodes.php:38
+msgid "Content Band"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:40
+#: functions/admin/map-shortcodes.php:160
+#: functions/admin/map-shortcodes.php:232
+#: functions/admin/map-shortcodes.php:258
+#: functions/admin/map-shortcodes.php:291
+#: functions/admin/map-shortcodes.php:3015
+msgid "Structure"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:41
+msgid "Place and structure your shortcodes inside of a row."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:52
+msgid "Inner Container"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:53
+msgid ""
+"Select to insert a container inside of the content band. Use this instead of "
+"the [container] shortcode for greater flexibility and to contain multiple "
+"columns."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:59
+msgid "Remove Margin"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:60
+msgid ""
+"Select to remove the margin from the content band and stack them on top of "
+"each other."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:66
+msgid "Marginless Columns"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:67
+msgid "Select to make columns marginless."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:73
+msgid "Padding Top"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:74
+msgid "Set the top padding of the content band (leave blank to keep default)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:80
+msgid "Padding Bottom"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:81
+msgid ""
+"Set the bottom padding of the content band (leave blank to keep default)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:87
+msgid "Border"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:88
+msgid "Select whether or not to display a border on your content band."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:103
+msgid "Background Color"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:104
+msgid ""
+"Select the background color of your content band (leave blank for "
+"\"transparent\")."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:109
+msgid "Background Pattern"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:110
+msgid "Upload a background pattern to your content band."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:115
+msgid "Background Image"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:116
+msgid ""
+"Upload a background image to your content band (this will overwrite your "
+"Background Pattern)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:121
+msgid "Parallax"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:122
+msgid ""
+"Select to activate the parallax effect with background patterns and images."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:128
+msgid "Background Video"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:129
+msgid ""
+"Include the path to your background video (this will overwrite both your "
+"Background Pattern and Background Image)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:134
+msgid "Background Video Poster"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:135
+msgid "Include a poster image for your background video on mobile devices."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:140
+#: functions/admin/map-shortcodes.php:3303
+msgid "Class"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:141
+#: functions/admin/map-shortcodes.php:3304
+msgid "(Optional) Enter a unique class name."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:158
+msgid "Column"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:161
+msgid "Create a custom layout with multiple columns."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:173
+msgid "Column Width"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:174
+msgid "Select how much space you want this column to fill."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:190
+#: functions/admin/map-shortcodes.php:2140
+msgid "Fade Effect"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:191
+#: functions/admin/map-shortcodes.php:2141
+msgid "Select to activate the fade effect."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:197
+msgid "Fade Animation"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:198
+msgid "Select the type of fade animation you want to use."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:210
+msgid "Fade Animation Offset"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:211
+msgid "Set how large you want the offset for your fade animation to be."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:230
+msgid "Line"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:233
+msgid "Place a horizontal rule in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:256
+msgid "Gap"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:259
+msgid "Insert a vertical gap in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:269
+#: functions/admin/map-shortcodes.php:817
+msgid "Size"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:270
+msgid ""
+"Enter in the size of your gap. Pixels, ems, and percentages are all valid "
+"units of measurement."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:289
+msgid "Clear"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:292
+msgid "Clear floated elements in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:378
+msgid "Blockquote"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:380
+#: functions/admin/map-shortcodes.php:430
+#: functions/admin/map-shortcodes.php:755
+#: functions/admin/map-shortcodes.php:1244
+#: functions/admin/map-shortcodes.php:1275
+#: functions/admin/map-shortcodes.php:2880
+#: functions/admin/map-shortcodes.php:3049
+#: functions/admin/map-shortcodes.php:3128
+msgid "Typography"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:381
+msgid "Include a blockquote in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:391
+#: functions/admin/map-shortcodes.php:441
+#: functions/admin/map-shortcodes.php:491
+#: functions/admin/map-shortcodes.php:766
+#: functions/admin/map-shortcodes.php:799
+#: functions/admin/map-shortcodes.php:1068
+#: functions/admin/map-shortcodes.php:1288
+#: functions/admin/map-shortcodes.php:1448
+#: functions/admin/map-shortcodes.php:1654
+#: functions/admin/map-shortcodes.php:1845
+#: functions/admin/map-shortcodes.php:2023
+#: functions/admin/map-shortcodes.php:2056
+#: functions/admin/map-shortcodes.php:2299
+#: functions/admin/map-shortcodes.php:2453
+#: functions/admin/map-shortcodes.php:2891
+#: functions/admin/map-shortcodes.php:3060
+#: functions/admin/map-shortcodes.php:3283
+msgid "Text"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:392
+#: functions/admin/map-shortcodes.php:442
+#: functions/admin/map-shortcodes.php:492
+#: functions/admin/map-shortcodes.php:767
+#: functions/admin/map-shortcodes.php:800
+#: functions/admin/map-shortcodes.php:1069
+#: functions/admin/map-shortcodes.php:1289
+#: functions/admin/map-shortcodes.php:1449
+#: functions/admin/map-shortcodes.php:1655
+#: functions/admin/map-shortcodes.php:1846
+#: functions/admin/map-shortcodes.php:2024
+#: functions/admin/map-shortcodes.php:2057
+#: functions/admin/map-shortcodes.php:2300
+#: functions/admin/map-shortcodes.php:2454
+#: functions/admin/map-shortcodes.php:2892
+#: functions/admin/map-shortcodes.php:3061
+#: functions/admin/map-shortcodes.php:3284
+msgid "Enter your text."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:398
+#: functions/admin/map-shortcodes.php:448
+msgid "Cite"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:399
+#: functions/admin/map-shortcodes.php:449
+msgid "Cite the person you are quoting."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:404
+#: functions/admin/map-shortcodes.php:454
+#: functions/admin/map-shortcodes.php:2370
+#: functions/admin/map-shortcodes.php:2626
+#: functions/admin/map-shortcodes.php:2801
+#: functions/admin/map-shortcodes.php:2898
+#: functions/admin/map-shortcodes.php:3067
+msgid "Alignment"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:405
+msgid "Select the alignment of the blockquote."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:428
+msgid "Pullquote"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:431
+msgid "Include a pullquote in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:455
+msgid "Select the alignment of the pullquote."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:477
+msgid "Alert"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:479
+#: functions/admin/map-shortcodes.php:711
+#: functions/admin/map-shortcodes.php:2780
+#: functions/admin/map-shortcodes.php:2840
+#: functions/admin/map-shortcodes.php:3202
+msgid "Information"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:480
+msgid "Provide information to users with alerts"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:498
+#: functions/admin/map-shortcodes.php:722
+msgid "Heading"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:499
+msgid "Enter the heading of your alert."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:504
+#: functions/admin/map-shortcodes.php:1026
+#: functions/admin/map-shortcodes.php:1295
+msgid "Type"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:505
+msgid "Select the alert style."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:517
+msgid "Close"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:518
+msgid "Select to display the close button."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:537
+msgid "Map (Embed)"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:539
+#: functions/admin/map-shortcodes.php:581
+#: functions/admin/map-shortcodes.php:662
+#: functions/admin/map-shortcodes.php:1090
+#: functions/admin/map-shortcodes.php:1470
+#: functions/admin/map-shortcodes.php:1555
+#: functions/admin/map-shortcodes.php:1920
+#: functions/admin/map-shortcodes.php:2010
+#: functions/admin/map-shortcodes.php:2162
+#: functions/admin/map-shortcodes.php:2207
+#: functions/admin/map-shortcodes.php:2487
+msgid "Media"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:540
+msgid "Embed a map from a third-party provider"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:550
+#: functions/admin/map-shortcodes.php:1566
+#: functions/admin/map-shortcodes.php:2218
+msgid "Code (See Notes Below)"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:551
+#: functions/admin/map-shortcodes.php:1567
+#: functions/admin/map-shortcodes.php:2219
+msgid ""
+"Switch to the \"text\" editor and do not place anything else here other than "
+"your &lsaquo;iframe&rsaquo; or &lsaquo;embed&rsaquo; code."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:557
+#: functions/admin/map-shortcodes.php:639
+#: functions/admin/map-shortcodes.php:1533
+#: functions/admin/map-shortcodes.php:1586
+#: functions/admin/map-shortcodes.php:1986
+msgid "No Container"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:558
+#: functions/admin/map-shortcodes.php:640
+msgid "Select to remove the container around the map."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:577
+msgid "Google Map"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:582
+msgid "Embed a customizable Google map"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:595
+#: functions/admin/map-shortcodes.php:675
+msgid "Latitude"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:596
+msgid "Enter in the center latitude of your map."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:601
+#: functions/admin/map-shortcodes.php:681
+msgid "Longitude"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:602
+msgid "Enter in the center longitude of your map."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:607
+msgid "Draggable"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:608
+msgid "Select to allow your users to drag the map view."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:614
+msgid "Zoom Level"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:615
+msgid ""
+"Choose the initial zoom level of your map. This value should be between 1 "
+"and 18. 1 is fully zoomed out and 18 is right at street level."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:620
+msgid "Zoom Control"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:621
+msgid "Select to activate the zoom control for the map."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:627
+msgid "Height"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:628
+msgid ""
+"Choose an optional height for your map. If no height is selected, a "
+"responsive, proportional unit will be used. Any type of unit is acceptable "
+"(e.g. 450px, 30em, 40%, et cetera)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:633
+msgid "Custom Color"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:634
+msgid "Choose an optional custom color for your map."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:658
+msgid "Google Map Marker"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:663
+msgid "Place a location marker on your Google map"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:676
+msgid "Enter in the latitude of your marker."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:682
+msgid "Enter in the longitude of your marker."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:687
+msgid "Additional Information"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:688
+msgid ""
+"Optional description text to appear in a popup when your marker is clicked "
+"on."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:693
+msgid "Custom Marker Image"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:694
+msgid ""
+"Utilize a custom marker image instead of the default provided by Google."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:709
+msgid "Skill Bar"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:712
+msgid "Include an informational skill bar"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:723
+msgid "Enter the heading of your skill bar."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:728
+msgid "Percent"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:729
+msgid ""
+"Enter the percentage of your skill and be sure to include the percentage "
+"sign (i.e. 90%)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:734
+msgid "Bar Text"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:735
+msgid ""
+"Enter in some alternate text in place of the percentage inside the skill bar."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:753
+msgid "Code"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:756
+msgid "Add a block of example code to your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:786
+msgid "Button"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:788
+#: functions/admin/map-shortcodes.php:2242
+#: functions/admin/map-shortcodes.php:2286
+#: functions/admin/map-shortcodes.php:2359
+#: functions/admin/map-shortcodes.php:2442
+#: functions/admin/map-shortcodes.php:2615
+msgid "Marketing"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:789
+msgid "Add a clickable button to your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:806
+msgid "Shape"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:807
+msgid "Select the button shape."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:818
+msgid "Select the button size."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:831
+#: functions/admin/map-shortcodes.php:1113
+msgid "Float"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:832
+msgid "Optionally float the button."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:842
+msgid "Block"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:843
+msgid "Select to make your button go fullwidth."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:849
+#: functions/admin/map-shortcodes.php:2407
+#: functions/admin/map-shortcodes.php:2661
+msgid "Marketing Circle"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:850
+#: functions/admin/map-shortcodes.php:2408
+#: functions/admin/map-shortcodes.php:2662
+msgid "Select to include a marketing circle around your button."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:856
+msgid "Icon Only"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:857
+msgid "Select if you are only using an icon in your button."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:863
+#: functions/admin/map-shortcodes.php:1143
+#: functions/admin/map-shortcodes.php:2414
+#: functions/admin/map-shortcodes.php:2668
+msgid "Href"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:864
+msgid "Enter in the URL you want your button to link to."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:869
+#: functions/admin/map-shortcodes.php:1149
+#: functions/admin/map-shortcodes.php:1667
+#: functions/admin/map-shortcodes.php:1765
+#: functions/admin/map-shortcodes.php:2306
+#: functions/admin/map-shortcodes.php:2381
+#: functions/admin/map-shortcodes.php:2587
+#: functions/admin/map-shortcodes.php:2636
+#: functions/admin/map-shortcodes.php:2707
+#: functions/admin/map-shortcodes.php:2794
+#: functions/admin/map-shortcodes.php:2853
+msgid "Title"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:870
+msgid ""
+"Enter in the title attribute you want for your button (will also double as "
+"title for popover or tooltip if you have chosen to display one)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:875
+#: functions/admin/map-shortcodes.php:1155
+#: functions/admin/map-shortcodes.php:2420
+#: functions/admin/map-shortcodes.php:2674
+msgid "Target"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:876
+msgid "Select to open your button link in a new window."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:882
+#: functions/admin/map-shortcodes.php:1162
+msgid "Info"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:883
+msgid ""
+"Select whether or not you want to add a popover or tooltip to your button."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:893
+#: functions/admin/map-shortcodes.php:1173
+msgid "Info Placement"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:894
+#: functions/admin/map-shortcodes.php:1174
+msgid "Select where you want your popover or tooltip to appear."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:905
+#: functions/admin/map-shortcodes.php:1185
+msgid "Info Trigger"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:906
+#: functions/admin/map-shortcodes.php:1186
+msgid "Select what actions you want to trigger the popover or tooltip."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:916
+#: functions/admin/map-shortcodes.php:1196
+msgid "Info Content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:917
+#: functions/admin/map-shortcodes.php:1197
+msgid "Extra content for the popover."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:922
+#: functions/admin/map-shortcodes.php:1202
+msgid "Lightbox Thumbnail"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:923
+msgid ""
+"Use this option to select a thumbnail for your lightbox thumbnail navigation "
+"or to set an image if you are linking out to a video."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:928
+#: functions/admin/map-shortcodes.php:1208
+msgid "Lightbox Video"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:929
+msgid "Select if you are linking to a video from this button in the lightbox."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:935
+#: functions/admin/map-shortcodes.php:1215
+msgid "Lightbox Caption"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:936
+#: functions/admin/map-shortcodes.php:1216
+msgid "Lightbox caption text."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1008
+msgid "Block Grid"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1012
+#: functions/admin/map-shortcodes.php:1055
+#: functions/admin/map-shortcodes.php:1437
+#: functions/admin/map-shortcodes.php:1610
+#: functions/admin/map-shortcodes.php:1641
+#: functions/admin/map-shortcodes.php:1698
+#: functions/admin/map-shortcodes.php:1752
+#: functions/admin/map-shortcodes.php:1795
+#: functions/admin/map-shortcodes.php:1832
+#: functions/admin/map-shortcodes.php:1875
+#: functions/admin/map-shortcodes.php:2045
+#: functions/admin/map-shortcodes.php:3176
+msgid "Content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1013
+msgid "Include a block grid container in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1027
+msgid "Select how many block grid items you want per row."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1051
+msgid "Block Grid Item"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1056
+msgid "Include a block grid item in your block grid"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1088
+msgid "Image"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1091
+msgid "Include an image in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1101
+#: functions/admin/map-shortcodes.php:3313
+msgid "Style"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1102
+msgid "Select the image style."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1114
+msgid "Optionally float the image."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1124
+msgid "Src"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1125
+msgid "Enter your image."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1130
+#: functions/admin/map-shortcodes.php:2466
+msgid "Alt"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1131
+msgid "Enter in the alt text for your image."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1136
+msgid "Link"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1137
+msgid "Select to wrap your image in an anchor tag."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1144
+msgid ""
+"Enter in the URL you want your image to link to. If using this image for a "
+"lightbox, enter the URL of your media here (e.g. YouTube embed URL, et "
+"cetera). Leave this field blank if you want to link to the image uploaded to "
+"the \"Src\" for your lightbox."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1150
+msgid ""
+"Enter in the title attribute you want for your image (will also double as "
+"title for popover or tooltip if you have chosen to display one)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1156
+msgid "Select to open your image link in a new window."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1163
+msgid ""
+"Select whether or not you want to add a popover or tooltip to your image."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1203
+msgid ""
+"Use this option to select a different thumbnail for your lightbox thumbnail "
+"navigation or to set an image if you are linking out to a video. Will "
+"default to the \"Src\" image if nothing is set."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1209
+msgid "Select if you are linking to a video from this image in the lightbox."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1221
+#: functions/admin/map-shortcodes.php:1809
+#: functions/admin/map-shortcodes.php:3029
+#: functions/admin/map-shortcodes.php:3293
+msgid "ID"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1222
+#: functions/admin/map-shortcodes.php:1810
+#: functions/admin/map-shortcodes.php:3030
+#: functions/admin/map-shortcodes.php:3294
+msgid "(Optional) Enter a unique ID."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1240
+msgid "Icon List"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1245
+msgid "Include an icon list in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1271
+msgid "Icon List Item"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1276
+msgid "Include an icon list item in your icon list"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1296
+msgid "Select your icon."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1435
+msgid "Columnize"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1438
+msgid "Split your text into multiple columns"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1468
+msgid "Video (Self Hosted)"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1471
+#: functions/admin/map-shortcodes.php:1556
+msgid "Include responsive video into your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1481
+#: functions/admin/map-shortcodes.php:1573
+msgid "Aspect Ratio"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1482
+#: functions/admin/map-shortcodes.php:1574
+msgid "Select your aspect ratio."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1494
+msgid "M4V"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1495
+msgid "Include and .m4v version of your video."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1500
+msgid "OGV"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1501
+msgid ""
+"Include and .ogv version of your video for additional native browser support."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1506
+msgid "Poster Image"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1507
+msgid "Include a poster image for your self-hosted video."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1512
+#: functions/admin/map-shortcodes.php:2185
+msgid "Advanced Controls"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1513
+msgid "Select to enable advanced controls on your self-hosted video."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1519
+msgid "Hide Controls"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1520
+msgid "Select to hide the controls on your self-hosted video."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1526
+msgid "Autoplay"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1527
+msgid "Select to automatically play your self-hosted video."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1534
+#: functions/admin/map-shortcodes.php:1587
+msgid "Select to remove the container around the video."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1553
+msgid "Video (Embedded)"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1606
+msgid "Accordion"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1611
+msgid "Include an accordion into your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1637
+msgid "Accordion Item"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1642
+msgid "Include an accordion item in your accordion"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1661
+msgid "Parent ID"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1662
+msgid ""
+"Optionally include an ID given to the parent accordion to only allow one "
+"toggle to be open at a time."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1668
+msgid "Include a title for your accordion item."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1673
+msgid "Open"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1674
+msgid "Select for your accordion item to be open by default."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1694
+msgid "Tab Nav"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1699
+msgid "Include a tab nav into your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1712
+msgid "Tab Nav Items Per Row"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1713
+msgid ""
+"If your tab nav is on top, select how many tab nav items you want per row."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1724
+msgid "Tab Nav Position"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1725
+msgid "Select the position of your tab nav."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1748
+msgid "Tab Nav Item"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1753
+msgid "Include a tab nav item into your tab nav"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1766
+msgid "Include a title for your tab nav item."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1771
+#: functions/admin/map-shortcodes.php:1852
+msgid "Active"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1772
+msgid "Select to make this tab nav item active."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1791
+msgid "Tabs"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1796
+msgid "Include a tabs container after your tab nav"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1828
+msgid "Tab"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1833
+msgid "Include a tab into your tabs container"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1853
+msgid "Select to make this tab active."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1871
+msgid "Visibility"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1876
+msgid "Alter content based on screen size"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1889
+msgid "Visibility Type"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1890
+msgid "Select how you want to hide or show your content."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1916
+msgid "Slider"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1921
+msgid "Include a slider in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1934
+msgid "Animation"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1935
+msgid "Select your slider animation."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1944
+msgid "Slide Time"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1945
+msgid "The amount of time a slide will stay visible in milliseconds."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1951
+msgid "Slide Speed"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1952
+msgid "The amount of time to transition between slides in milliseconds."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1958
+msgid "Slideshow"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1959
+msgid "Select for your slides to advance automatically."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1965
+msgid "Random"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1966
+msgid "Select to randomly display your slides each time the page loads."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1972
+msgid "Control Navigation"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1973
+msgid "Select to display the control navigation."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1979
+msgid "Previous/Next Navigation"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1980
+msgid "Select to display the previous/next navigation."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:1987
+msgid "Select to remove the container from your slider."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2006
+msgid "Slide"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2011
+msgid "Include a slide into your slider"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2043
+msgid "Protect"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2046
+msgid "Protect content from non logged in users"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2076
+msgid "Recent Posts"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2078
+#: functions/admin/map-shortcodes.php:2576
+#: functions/admin/map-shortcodes.php:2696
+msgid "Social"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2079
+msgid "Display your most recent posts"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2089
+msgid "Post Type"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2090
+msgid "Choose between standard posts or portfolio posts."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2099
+msgid "Post Count"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2100
+msgid "Select how many posts to display."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2111
+msgid "Offset"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2112
+msgid "Enter a number to offset initial starting post of your recent posts."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2117
+msgid "Category"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2118
+msgid ""
+"To filter your posts by category, enter in the slug of your desired "
+"category. To filter by multiple categories, enter in your slugs separated by "
+"a comma."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2123
+#: functions/admin/map-shortcodes.php:2547
+msgid "Orientation"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2124
+msgid "Select the orientation or your recent posts."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2133
+msgid "Remove Featured Image"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2134
+msgid "Select to remove the featured image."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2160
+msgid "Audio (Self Hosted)"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2163
+#: functions/admin/map-shortcodes.php:2208
+msgid "Place audio files into your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2173
+msgid "MP3"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2174
+msgid "Include and .mp3 version of your audio."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2179
+msgid "OGA"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2180
+msgid ""
+"Include and .oga version of your audio for additional native browser support."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2186
+msgid "Select to enable advanced controls on your self-hosted audio."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2205
+msgid "Audio (Embedded)"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2238
+msgid "Pricing Table"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2243
+msgid "Include a pricing table in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2256
+#: functions/admin/map-shortcodes.php:2812
+msgid "Columns"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2257
+msgid "Select how many columns you want for your pricing table."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2282
+msgid "Pricing Table Column"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2287
+msgid "Include a pricing table column"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2307
+msgid "Include a title for your pricing column."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2312
+msgid "Featured"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2313
+msgid "Select to make this your featured offer."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2319
+msgid "Featured Sub Heading"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2320
+msgid "Include a sub heading for your featured column."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2325
+msgid "Currency Symbol"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2326
+msgid "Enter in the currency symbol you want to use."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2331
+msgid "Price"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2332
+msgid "Enter in the price for this pricing column."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2337
+msgid "Interval"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2338
+msgid "Enter in the time period that this pricing column is for."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2357
+msgid "Callout"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2360
+msgid "Include a marketing callout into your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2371
+msgid "Select the alignment for your callout."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2382
+msgid "Enter the title for your callout."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2387
+#: functions/admin/map-shortcodes.php:2642
+msgid "Message"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2388
+msgid "Enter the message for your callout."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2394
+#: functions/admin/map-shortcodes.php:2648
+msgid "Button Text"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2395
+msgid "Enter the text for your callout button."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2400
+#: functions/admin/map-shortcodes.php:2654
+msgid "Button Icon"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2401
+#: functions/admin/map-shortcodes.php:2655
+msgid "Optionally enter the button icon."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2415
+msgid "Enter in the URL you want your callout button to link to."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2421
+msgid "Select to open your callout link button in a new window."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2440
+msgid "Promo"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2443
+msgid "Include a marketing promo in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2460
+msgid "Promo Image"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2461
+msgid "Include an image for your promo element."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2467
+msgid "Enter in the alt text for your promo image."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2485
+msgid "Responsive Lightbox"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2488
+msgid "Display images in a responsive lightbox"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2498
+#: functions/admin/map-shortcodes.php:3139
+msgid "Selector"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2499
+msgid ""
+"Enter in the selector for your images (e.g. if your class is \"lightbox-img"
+"\" enter \".lightbox-img\"). Set to \".x-img-link\" to automatically setup a "
+"lightbox for all linked [image] shortcodes on your page."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2505
+msgid "Deeplink"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2506
+msgid "Select to activate deeplinking (creates unique link for each image)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2512
+msgid "Backdrop Opacity"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2513
+msgid ""
+"Enter in the opacity for the backdrop (valid inputs are numbers 0 to 1)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2519
+msgid "Previous Item Scale"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2520
+msgid ""
+"Enter in the scale for the previous item (valid inputs are numbers 0 to 1)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2526
+msgid "Previous Item Opacity"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2527
+msgid ""
+"Enter in the opacity for the previous item (valid inputs are numbers 0 to 1)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2533
+msgid "Next Item Scale"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2534
+msgid "Enter in the scale for the next item (valid inputs are numbers 0 to 1)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2540
+msgid "Next Item Opacity"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2541
+msgid ""
+"Enter in the opacity for the next item (valid inputs are numbers 0 to 1)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2548
+msgid "Select the orientation of your lightbox."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2557
+msgid "Thumbnails"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2558
+msgid "Select to activate thumbnail navigation."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2574
+msgid "Author"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2577
+msgid "Include post author information"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2588
+msgid "Enter in a title for your author information."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2594
+msgid "Author ID"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2595
+msgid ""
+"By default the author of the post or page will be output by leaving this "
+"input blank. If you would like to output the information of another author, "
+"enter in their user ID here."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2613
+msgid "Prompt"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2616
+msgid "Include a marketing prompt into your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2627
+msgid "Select the alignment of your prompt."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2637
+msgid "Enter the title for your prompt."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2643
+msgid "Enter the message for your prompt."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2649
+msgid "Enter the text for your prompt button."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2669
+msgid "Enter in the URL you want your prompt button to link to."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2675
+msgid "Select to open your prompt button link in a new window."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2694
+msgid "Social Sharing"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2697
+msgid "Include social sharing into your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2708
+msgid "Enter in a title for your social links."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2714
+msgid "Facebook"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2715
+msgid "Select to activate the Facebook sharing link."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2721
+msgid "Twitter"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2722
+msgid "Select to activate the Twitter sharing link."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2728
+msgid "Google Plus"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2729
+msgid "Select to activate the Google Plus sharing link."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2735
+msgid "LinkedIn"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2736
+msgid "Select to activate the LinkedIn sharing link."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2742
+msgid "Pinterest"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2743
+msgid "Select to activate the Pinterest sharing link."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2749
+msgid "Reddit"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2750
+msgid "Select to activate the Reddit sharing link."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2756
+msgid "Email"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2757
+msgid "Select to activate the email sharing link."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2776 functions/shortcodes.php:2078
+msgid "Table of Contents"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2781
+msgid "Include a table of contents in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2795
+msgid "Set the title of the table of contents."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2802
+msgid "Select the alignment of your table of contents."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2813
+msgid ""
+"Select a column count for your links if you have chosen \"Fullwidth\" as "
+"your alignment."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2836
+msgid "Table of Contents Item"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2841
+msgid "Include a table of contents item"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2854
+msgid "Set the title of the table of contents item."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2859
+msgid "Page"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2860
+msgid "Set the page of the table of contents item."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2878
+msgid "Custom Headline"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2881
+msgid "Include a custom headline in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2899
+msgid "Select which way to align the custom headline."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2909
+#: functions/admin/map-shortcodes.php:3078
+msgid "Heading Level"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2910
+#: functions/admin/map-shortcodes.php:3079
+msgid "Select which level to use for your heading (e.g. h2)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2923
+#: functions/admin/map-shortcodes.php:3092
+msgid "Looks Like"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2924
+#: functions/admin/map-shortcodes.php:3093
+msgid "Select which level your heading should look like (e.g. h3)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2937
+msgid "Accent"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:2938
+msgid "Select to activate the heading accent."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3011
+msgid "Container"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3016
+msgid "Include a container in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3047
+msgid "Feature Headline"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3050
+msgid "Include a feature headline in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3068
+msgid "Select which way to align the feature headline."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3106
+#: functions/admin/shortcode-generator/class.xsg.php:68
+msgid "Icon"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3107
+msgid "Select the icon to use with your feature headline."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3126
+msgid "Responsive Text"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3129
+msgid "Include responsive text in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3140
+msgid ""
+"Enter in the selector for your responsive text (e.g. if your class is \"h-"
+"responsive\" enter \".h-responsive\")."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3145
+msgid "Compression"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3146
+msgid ""
+"Enter the compression for your responsive text (adjust up and down to "
+"desired level in small increments)."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3152
+msgid "Minimum Size"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3153
+msgid "Enter the minimum size of your responsive text."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3158
+msgid "Maximum Size"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3159
+msgid "Enter the maximum size of your responsive text."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3174
+msgid "Search"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3177
+msgid "Include a search field in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3200
+msgid "Counter"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3203
+msgid "Include an animated number counter in your content"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3213
+msgid "Starting Number"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3214
+msgid "Enter in the number that you would like your counter to start from."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3220
+msgid "Ending Number"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3221
+msgid ""
+"Enter int he number that you would like your counter to end at. This must be "
+"higher than your starting number."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3227
+msgid "Counter Speed"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3228
+msgid "The amount of time to transition between numbers in milliseconds."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3234
+msgid "Number Prefix"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3235
+msgid "Prefix your number with a symbol or text."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3240
+msgid "Number Suffix"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3241
+msgid "Suffix your number with a symbol or text."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3246
+msgid "Number Color"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3247
+msgid "Select the color of your number."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3252
+msgid "Text Above"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3253
+msgid "Optionally include text above your number."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3258
+msgid "Text Below"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3259
+msgid "Optionally include text below your number."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3264
+msgid "Text Color"
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3265
+msgid ""
+"Select the color of your text above and below the number if you have include "
+"any."
+msgstr ""
+
+#: functions/admin/map-shortcodes.php:3314
+msgid "(Optional) Enter inline CSS."
+msgstr ""
+
+#: functions/admin/shortcode-generator/class.xsg.php:66
+msgid "Integrity"
+msgstr ""
+
+#: functions/admin/shortcode-generator/class.xsg.php:67
+msgid "Renew"
+msgstr ""
+
+#: functions/admin/shortcode-generator/class.xsg.php:69
+msgid "Ethos"
+msgstr ""
+
+#: functions/admin/shortcode-generator/templates.php:24
+msgid "X &ndash; Shortcodes"
+msgstr ""
+
+#: functions/admin/shortcode-generator/templates.php:27
+msgid "Toggle Advanced Controls"
+msgstr ""
+
+#: functions/admin/shortcode-generator/templates.php:38
+msgid "Insert Shortcode"
+msgstr ""
+
+#: functions/admin/shortcode-generator/templates.php:55
+msgid "Choose a Shortcode from the Sidebar to Get Started"
+msgstr ""
+
+#: functions/admin/shortcode-generator/templates.php:69
+msgid "Preview"
+msgstr ""
+
+#: functions/admin/shortcode-generator/templates.php:73
+#, php-format
+msgid ""
+"You&apos;re using %s. Click the button below to check out a live example of "
+"the %s when using this Stack."
+msgstr ""
+
+#: functions/admin/shortcode-generator/templates.php:78
+msgid "Live Example"
+msgstr ""
+
+#: functions/admin/shortcode-generator/templates.php:79
+msgid ""
+"Below are some additional examples of this shortcode when using different "
+"Stacks."
+msgstr ""
+
+#: functions/shortcodes.php:1340
+msgid "Restricted Content Login"
+msgstr ""
+
+#: functions/shortcodes.php:1341
+msgid "Username"
+msgstr ""
+
+#: functions/shortcodes.php:1342
+msgid "Password"
+msgstr ""
+
+#: functions/shortcodes.php:1343
+msgid "Login"
+msgstr ""
+
+#: functions/shortcodes.php:1411
+#, php-format
+msgid "Permalink to: \"%s\""
+msgstr ""
+
+#: functions/shortcodes.php:1745
+msgid "About the Author"
+msgstr ""
+
+#: functions/shortcodes.php:2020
+msgid "Share this Post"
+msgstr ""
+
+#: functions/shortcodes.php:2021
+msgid "Share on Facebook"
+msgstr ""
+
+#: functions/shortcodes.php:2022
+msgid "Share on Twitter"
+msgstr ""
+
+#: functions/shortcodes.php:2023
+msgid "Share on Google+"
+msgstr ""
+
+#: functions/shortcodes.php:2024
+msgid "Share on LinkedIn"
+msgstr ""
+
+#: functions/shortcodes.php:2025
+msgid "Share on Pinterest"
+msgstr ""
+
+#: functions/shortcodes.php:2026
+msgid "Share on Reddit"
+msgstr ""
+
+#: functions/shortcodes.php:2027
+msgid "Hey, thought you might enjoy this! Check it out when you have a chance:"
+msgstr ""
+
+#: functions/shortcodes.php:2027
+msgid "Share via Email"
+msgstr ""

@@ -11739,3 +11739,120 @@ Stack Trace:
 #2 {main}
 
 
+2015-05-13 12:20:45 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Fonts could not be found.
+Exception Attributes: array (
+  'class' => 'Fonts',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/fonts/glyphicons-halflings-regular.woff2
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-13 12:20:45 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Fonts could not be found.
+Exception Attributes: array (
+  'class' => 'Fonts',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-13 12:20:45 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Fonts could not be found.
+Exception Attributes: array (
+  'class' => 'Fonts',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-13 12:20:51 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Fonts could not be found.
+Exception Attributes: array (
+  'class' => 'Fonts',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/fonts/glyphicons-halflings-regular.woff2
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-13 12:20:51 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Fonts could not be found.
+Exception Attributes: array (
+  'class' => 'Fonts',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-13 12:20:51 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Fonts could not be found.
+Exception Attributes: array (
+  'class' => 'Fonts',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-13 12:22:27 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Fonts could not be found.
+Exception Attributes: array (
+  'class' => 'Fonts',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/fonts/glyphicons-halflings-regular.woff2
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-13 12:22:28 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Fonts could not be found.
+Exception Attributes: array (
+  'class' => 'Fonts',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-13 12:22:28 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Fonts could not be found.
+Exception Attributes: array (
+  'class' => 'Fonts',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /monish/dash/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 /Applications/MAMP/htdocs/monish/dash/webroot/index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+

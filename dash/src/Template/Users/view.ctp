@@ -16,16 +16,11 @@
             <tr><strong><?= __('Role: ') ?></strong><?= h($user->role) ?></tr><br>
             <tr><strong><?= __('Created: ') ?></strong><?= h($user->created) ?></tr><br>
             <tr><strong><?= __('Modified: ') ?></strong><?= h($user->modified) ?></tr><br>
-            <tr><strong><?= __('Title: ') ?></strong><?= h($user->title) ?></tr><br>
             <tr><strong><?= __('First Name: ') ?></strong><?= h($user->first_name) ?></tr><br>
 			<tr><strong><?= __('Last Name: ') ?></strong><?= h($user->last_name) ?></tr><br>
 			<tr><strong><?= __('Gender: ') ?></strong><?= h($user->gender) ?></tr><br>
 			<tr><strong><?= __('Phone: ') ?></strong><?= h($user->phone) ?></tr><br>
 			<tr><strong><?= __('Email: ') ?></strong><?= h($user->email) ?></tr><br>
-			<tr><strong><?= __('Home Country: ') ?></strong><?= h($user->home_country) ?></tr><br>
-			<tr><strong><?= __('City: ') ?></strong><?= h($user->city) ?></tr><br>
-			<tr><strong><?= __('Suburb: ') ?></strong><?= h($user->suburb) ?></tr><br>
-			<tr><strong><?= __('Postcode: ') ?></strong><?= h($user->postcode) ?></tr><br>
 			
     </table>
 	

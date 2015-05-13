@@ -14,17 +14,20 @@
 //   03. Image Sizes
 //   04. Shop Link
 //   05. Shop Thumbnail
-//   06. Product Small Thumbnail Size
-//   07. Remove Product Sale Badge
-//   08. Add Shop Wrapper
-//   09. Add Product Wrapper
-//   10. Remove Rating
-//   11. Shop Columns
-//   12. Shop Posts Per Page
-//   13. Remove Add to Cart Button
-//   14. Related Products Output
-//   15. Upsells Output
-//   16. Add/Remove Product Tabs
+//   06. Product Large Thumbnail Size
+//   07. Product Small Thumbnail Size
+//   08. Remove Product Sale Badge
+//   09. Add Shop Wrapper
+//   10. Add Product Wrapper
+//   11. Remove Rating
+//   12. Shop Columns
+//   13. Shop Posts Per Page
+//   14. Remove Add to Cart Button
+//   15. Related Products Output
+//   16. Upsells Output
+//   17. Add/Remove Product Tabs
+//   18. Cart No Shipping Available HTML
+//   19. Remove Plugin Settings
 // =============================================================================
 
 // Remove Default Wrapper
@@ -112,16 +115,14 @@ function x_woocommerce_shop_thumbnail() {
 
   GLOBAL $product;
 
-  $stack            = x_get_stack();
-  $stack_thumb      = 'entry-full-' . $stack;
-  $stack_shop_thumb = $stack_thumb;
-  $id               = get_the_ID();
-  $rating           = $product->get_rating_html();
+  $id     = get_the_ID();
+  $thumb  = 'entry';
+  $rating = $product->get_rating_html();
 
   woocommerce_show_product_sale_flash();
   echo '<div class="entry-featured">';
     echo '<a href="' . get_the_permalink() . '">';
-      echo get_the_post_thumbnail( $id , $stack_shop_thumb );
+      echo get_the_post_thumbnail( $id, $thumb );
       if ( ! empty( $rating ) ) {
         echo '<div class="star-rating-container aggregate">' . $rating . '</div>';
       }
@@ -132,6 +133,17 @@ function x_woocommerce_shop_thumbnail() {
 
 remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
 add_action( 'woocommerce_before_shop_loop_item_title', 'x_woocommerce_shop_thumbnail', 10 );
+
+
+
+// Product Large Thumbnail Size
+// =============================================================================
+
+function x_woocommerce_single_product_large_thumbnail_size() {
+  return 'entry';
+}
+
+add_filter( 'single_product_large_thumbnail_size', 'x_woocommerce_single_product_large_thumbnail_size' );
 
 
 
@@ -297,3 +309,43 @@ function x_woocommerce_add_remove_product_tabs( $tabs ) {
 }
 
 add_filter( 'woocommerce_product_tabs', 'x_woocommerce_add_remove_product_tabs', 98 );
+
+
+
+// Cart No Shipping Available HTML
+// =============================================================================
+
+function x_woocommerce_cart_no_shipping_available_html() {
+
+  if ( is_cart() ) {
+    return '<div class="woocommerce-info x-alert x-alert-info x-alert-block"><p>' . __( 'There doesn&lsquo;t seem to be any available shipping methods. Please double check your address, or contact us if you need any help.', '__x__' ) . '</p></div>';
+  } else {
+    return '<p>' . __( 'There doesn&lsquo;t seem to be any available shipping methods. Please double check your address, or contact us if you need any help.', '__x__' ) . '</p>';
+  }
+
+}
+
+add_filter( 'woocommerce_cart_no_shipping_available_html', 'x_woocommerce_cart_no_shipping_available_html' );
+
+
+
+// Remove Plugin Settings
+// =============================================================================
+
+function x_woocommerce_remove_plugin_settings( $settings ) {
+
+  foreach ( $settings as $key => $setting ) {
+
+    $id = $setting['id'];
+
+    if ( $id == 'image_options' || $id == 'shop_catalog_image_size' || $id == 'shop_single_image_size' || $id == 'shop_thumbnail_image_size' ) {
+      unset( $settings[$key] );
+    }
+
+  }
+
+  return $settings;
+
+}
+
+add_filter( 'woocommerce_product_settings', 'x_woocommerce_remove_plugin_settings', 10 );

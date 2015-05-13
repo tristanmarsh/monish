@@ -12,6 +12,7 @@
 //   03. Slider
 //   04. Subtitles and Descriptions
 //   05. Updating Message
+//   06. Hidden Elements
 // ========================================================================== */
 
 /* Base Styles
@@ -55,6 +56,10 @@
   position: absolute;
   top: 50%;
   margin-top: -12px;
+}
+
+.customize-control-image .actions {
+  margin-bottom: 0;
 }
 
 .accordion-section .customize-control-image .preview-thumbnail img {
@@ -186,4 +191,13 @@
   color: #fff;
   background-color: #000;
   background-color: rgba(0, 0, 0, 0.85);
+}
+
+
+
+/* Hidden Elements
+// ========================================================================== */
+
+[data-x-hide] {
+  display: none !important;
 }

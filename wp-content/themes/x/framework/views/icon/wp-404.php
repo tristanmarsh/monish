@@ -11,7 +11,7 @@
 <?php get_header(); ?>
 
   <div class="x-main full" role="main">
-  	<div class="x-container-fluid max width">
+  	<div class="x-container max width">
       <div class="entry-404">
 
         <?php x_get_view( 'global', '_content-404' ); ?>

@@ -14,7 +14,7 @@
     <?php if ( has_post_thumbnail() ) : ?>
     <div class="entry-featured">
       <div class="entry-thumb">
-        <?php echo get_the_post_thumbnail( get_the_ID(), 'entry-full-renew', NULL ); ?>
+        <?php echo get_the_post_thumbnail( get_the_ID(), 'entry', NULL ); ?>
       </div>
       <?php x_featured_audio(); ?>
     </div>

@@ -3,7 +3,7 @@
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit This Lease'), ['action' => 'edit', $lease->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete This Lease'), ['action' => 'delete', $lease->id], ['confirm' => __('Are you sure you want to delete # {0}?', $lease->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List All Leases'), ['action' => 'index']) ?> </li>
+		<li><a href="javascript:history.back()">Go Back</a></li>
     </ul>
 </div>
 <div class="leases view large-10 medium-9 columns">
@@ -11,7 +11,7 @@
     <div class="row">
         <div class="large-5 columns strings">
             <h6 class="subheader"><?= __('Room') ?></h6>
-            <p><?= $lease->has('room') ? $this->Html->link($lease->room->id, ['controller' => 'Rooms', 'action' => 'view', $lease->room->id]) : '' ?></p>
+            <p><?= $lease->has('room') ? $this->Html->link($lease->room->room_name, ['controller' => 'Rooms', 'action' => 'view', $lease->room->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Student') ?></h6>
             <p>
                 <?= $lease->has('student') ? $this->Html->link($query->user->first_name, ['controller' => 'Students', 'action' => 'view', $lease->student->id]) : '' ?>

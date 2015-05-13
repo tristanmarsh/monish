@@ -11,7 +11,7 @@
 <?php get_header(); ?>
 
   <div class="x-main full" role="main">
-    <div class="x-container-fluid max width offset-top offset-bottom">
+    <div class="x-container max width offset-top offset-bottom">
 
       <?php if ( x_is_shop() ) : ?>
         <header class="entry-header shop">

@@ -61,6 +61,10 @@
       @include break(middle-bear) {
         margin: 0 1%;
       }
+
+      &.foursquare {
+        @include font-size(1.7);
+      }
     }
   }
 }

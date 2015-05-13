@@ -24,7 +24,7 @@
   &.top {
     padding: 5% 0 5.25%;
 
-    [class*="span"] {
+    .x-column {
       .widget:first-child {
         margin-top: 0;
       }
@@ -33,13 +33,13 @@
     @include break(cubs) {
       padding: 6.5% 0;
 
-      [class*="span"] {
+      .x-column {
         .widget:first-child {
           margin-top: 5em;
         }
       }
 
-      [class*="span"]:first-child {
+      .x-column:first-child {
         .widget:first-child {
           margin-top: 0
         }
@@ -104,6 +104,10 @@
       a {
         margin: 0 1%;
         @include font-size(1.8);
+
+        &.foursquare {
+          @include font-size(1.7);
+        }
       }
     }
   }

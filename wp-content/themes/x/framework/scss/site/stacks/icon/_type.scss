@@ -213,11 +213,11 @@ dd {
 //
 
 hr {
+  height: 0;
   margin: $baseMargin 0;
   border: 0;
   border-top: 1px solid $baseBorderSolid;
   border-top: 1px solid $baseBorderRgba;
-  border-bottom: 1px solid transparent;
 }
 
 

@@ -42,7 +42,7 @@
 // =============================================================================
 
 .x-header-landmark {
-  + .x-container-fluid > .offset > .x-sidebar {
+  + .x-container > .offset > .x-sidebar {
     margin-top: -$layoutSpacing;
 
     @include break(cubs) {
@@ -53,7 +53,7 @@
 
 .x-post-slider-archive-active {
   .x-header-landmark {
-    + .x-container-fluid > .offset > .x-sidebar {
+    + .x-container > .offset > .x-sidebar {
       margin-top: 0;
     }
   }

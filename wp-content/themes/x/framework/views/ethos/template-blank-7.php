@@ -13,7 +13,7 @@
   <?php x_get_view( 'global', '_slider-above' ); ?>
   <?php x_get_view( 'global', '_slider-below' ); ?>
 
-  <div class="x-container-fluid max width main">
+  <div class="x-container max width main">
     <div class="offset cf">
       <div class="x-main full" role="main">
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

@@ -62,9 +62,11 @@ require_once( $addn_path . '/class-update-api.php' );
 require_once( $addn_path . '/class-theme-updater.php' );
 require_once( $addn_path . '/class-plugin-updater.php' );
 require_once( $addn_path . '/page-home.php' );
-require_once( $addn_path . '/page-extensions.php' );
 require_once( $addn_path . '/page-customizer-manager.php' );
+require_once( $addn_path . '/page-demo-content.php' );
 require_once( $addn_path . '/page-product-validation.php' );
+require_once( $addn_path . '/page-extensions.php' );
+require_once( $addn_path . '/demo/ajax-handler.php' );
 
 
 
@@ -75,6 +77,7 @@ function x_addons_add_menu() {
   add_menu_page( 'X &ndash; Addons: Home', 'Addons', 'manage_options', 'x-addons-home', 'x_addons_page_home', NULL, 3 );
   add_submenu_page( 'x-addons-home', 'X &ndash; Addons: Home', 'Home', 'manage_options', 'x-addons-home', 'x_addons_page_home' );
   add_submenu_page( 'x-addons-home', 'X &ndash; Addons: Customizer Manager', 'Customizer Manager', 'manage_options', 'x-addons-customizer-manager', 'x_addons_page_customizer_manager' );
+  add_submenu_page( 'x-addons-home', 'X &ndash; Addons: Demo Content', 'Demo Content', 'manage_options', 'x-addons-demo-content', 'x_addons_page_demo_content' );
   add_submenu_page( 'x-addons-home', 'X &ndash; Addons: Product Validation', 'Product Validation', 'manage_options', 'x-addons-product-validation', 'x_addons_page_product_validation' );
   add_submenu_page( 'x-addons-home', 'X &ndash; Addons: Extensions', 'Extensions', 'manage_options', 'x-addons-extensions', 'x_addons_page_extensions' );
 }

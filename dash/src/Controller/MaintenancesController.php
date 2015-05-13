@@ -38,7 +38,11 @@ class MaintenancesController extends AppController
 
         //my take on how to do this (like the index())
         $this->set('giraffe', $this->Maintenances->get($id));
-        //holy shit it works lol
+		
+		$lion = $this->Maintenances->get($id, [
+            'contain' => ['Users']
+        ]);
+		$this->set(compact('lion'));
     }
 
     public function add()

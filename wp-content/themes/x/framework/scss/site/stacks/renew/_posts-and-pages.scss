@@ -296,8 +296,7 @@ a.entry-thumb:hover {
 
   &.has-post-thumbnail {
     .entry-featured {
-      .x-responsive-audio-embed,
-      .jp-controls-container-audio {
+      .x-audio {
         position: absolute;
         left: 20px;
         right: 20px;

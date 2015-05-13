@@ -7,29 +7,30 @@
 // =============================================================================
 // TABLE OF CONTENTS
 // -----------------------------------------------------------------------------
-//   01. Base Styles
-//   02. Masthead Inline Positioning
-//   03. Masthead Stacked Positioning
-//   04. Hover State
-//   05. Active State
-//   06. Superfish Styles
+//   01. Desktop Base Styles
+//   02. Desktop Masthead Positioning: Inline
+//   03. Desktop Masthead Positioning: Stacked
 // =============================================================================
 
-// Base Styles
+// Desktop Base Styles
 // =============================================================================
 
-//
-// 1. None by default, but block on menu open.
-// 2. Override default <ul>.
-//
+.desktop {
+  .menu-item,
+  .menu-item > a {
+    position: relative;
+  }
 
-.x-navbar {
+  .menu-item.x-active > .sub-menu {
+    display: block;
+  }
+
   .sub-menu {
     position: absolute;
-    display: none; // 1
+    display: none;
     float: left;
     min-width: 200px;
-    margin: 0; // 2
+    margin: 0;
     padding: $dropdownPadding;
     @include font-size(1.4);
     list-style: none;
@@ -46,51 +47,61 @@
       white-space: nowrap;
       color: $dropdownLinkColor;
       @include transition(#{none});
+
+      &:hover {
+        text-decoration: none;
+        color: $dropdownLinkColorHover;
+      }
+    }
+
+    .x-active > a,
+    .current-menu-item > a {
+      color: $dropdownLinkColorHover;
     }
   }
 }
 
 
 
-// Masthead Inline Positioning
+// Desktop Masthead Positioning: Inline
 // =============================================================================
 
 .masthead-inline {
   .x-navbar {
-    .sub-menu {
+    .desktop .sub-menu {
       left: auto;
       right: 0;
 
       .sub-menu {
-        top: $superfishSubmenuTop;
-        right: $superfishSubmenuOffset;
+        top: $dropdownTop;
+        right: $dropdownOffset;
       }
     }
 
     &.x-navbar-fixed-left {
-      .sub-menu {
+      .desktop .sub-menu {
         top: 0;
-        left: $superfishFirstDropdownSide;
+        left: $dropdownFirstSide;
         right: auto;
 
         .sub-menu {
-          top: $superfishSubmenuTop;
-          left: $superfishSubmenuOffset;
+          top: $dropdownTop;
+          left: $dropdownOffset;
           right: auto;
         }
       }
     }
 
     &.x-navbar-fixed-right {
-      .sub-menu {
+      .desktop .sub-menu {
         top: 0;
         left: auto;
-        right: $superfishFirstDropdownSide;
+        right: $dropdownFirstSide;
 
         .sub-menu {
-          top: $superfishSubmenuTop;
+          top: $dropdownTop;
           left: auto;
-          right: $superfishSubmenuOffset;
+          right: $dropdownOffset;
         }
       }
     }
@@ -99,70 +110,19 @@
 
 
 
-// Masthead Stacked Positioning
+// Desktop Masthead Positioning: Stacked
 // =============================================================================
 
 .masthead-stacked {
   .x-navbar {
-    .sub-menu {
+    .desktop .sub-menu {
       left: 0;
       right: auto;
 
       .sub-menu {
-        top: $superfishSubmenuTop;
-        left: $superfishSubmenuOffset;
+        top: $dropdownTop;
+        left: $dropdownOffset;
       }
     }
   }
-}
-
-
-
-// Hover State
-// =============================================================================
-
-.x-navbar .sub-menu a:hover {
-  text-decoration: none;
-  color: $dropdownLinkColorHover;
-}
-
-
-
-// Active State
-// =============================================================================
-
-.x-navbar .sub-menu .sfHover > a,
-.x-navbar .sub-menu .current-menu-item > a {
-  color: $dropdownLinkColorHover;
-}
-
-
-
-// Superfish Styles
-// =============================================================================
-
-.sf-menu ul {
-  position: absolute;
-}
-
-.sf-menu li {
-  position: relative;
-}
-
-.sf-menu li:hover {
-  visibility: inherit;
-}
-
-.sf-menu a {
-  position: relative;
-}
-
-.sf-menu a .sf-sub-indicator {
-  position: absolute;
-  top: -9999em;
-}
-
-.sf-menu li:hover ul {
-  left: 0;
-  z-index: 9999;
 }

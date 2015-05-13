@@ -54,8 +54,7 @@ function x_addons_page_extensions() { ?>
       <h2>Extensions</h2>
       <p>Expand the functionality of X to suit your needs via the plugins available below.</p>
 
-
-      <?php if( isset($addons_cache['error']) && $addons_cache['error'] ) : ?>
+      <?php if ( isset( $addons_cache['error'] ) && $addons_cache['error'] ) : ?>
         <div class="error"><p><?php echo $addons_cache['message']; ?></p></div>
       <?php endif; ?>
 

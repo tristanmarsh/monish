@@ -197,7 +197,7 @@
 //
 // Categories.
 // Ouputs a <ul> of links to post categories. <li> elements receive two
-// different classes, "cat-item" and "cat-item-!", where "!" is the unique
+// different classes, "cat-item" and "cat-item-___", where "___" is the unique
 // number assigned to that category item.
 //
 
@@ -211,20 +211,20 @@
 
 }
 
-.widget_categories .cat-item-!,
-.widget_product_categories .cat-item-! {
+.widget_categories .cat-item-___,
+.widget_product_categories .cat-item-___ {
 
 }
 
 
 //
 // Custom menu.
-// Outputs a <div> container with a class of "menu-!-container", where "!" is
+// Outputs a <div> container with a class of "menu-___-container", where "___" is
 // the name given to the WordPress Menu (e.g. "Secondary Menu" becomes
-// "menu-secondary-menu-container"). Additionaly, a <ul> with an ID of "menu-!"
+// "menu-secondary-menu-container"). Additionaly, a <ul> with an ID of "menu-___"
 // is output (e.g. "menu-secondary-menu") and a class of "menu" as well.
 // Finally, a unique ID and an assortment of classes are output on the <li>
-// elements, including and ID of "menu-item-!", where "!" is the unique ID
+// elements, including and ID of "menu-item-___", where "___" is the unique ID
 // number of that item, and multiple classes, including "menu-item".
 //
 
@@ -232,11 +232,11 @@
 
 }
 
-.widget_nav_menu .menu-!-container {
+.widget_nav_menu .menu-___-container {
 
 }
 
-.widget_nav_menu #menu-! {
+.widget_nav_menu #menu-___ {
 
 }
 
@@ -244,7 +244,7 @@
 
 }
 
-.widget_nav_menu #menu-item-! {
+.widget_nav_menu #menu-item-___ {
 
 }
 
@@ -279,7 +279,7 @@
 //
 // Pages.
 // Outputs a <ul> of links to static pages. Each <li> receives classes of
-// "page_item" and "page-item-!", where "!" is a unique ID for that item.
+// "page_item" and "page-item-___", where "___" is a unique ID for that item.
 // Additionally, child pages are placed in a sub <ul> with a class of
 // "children" and have the same classes as top-level items.
 //
@@ -292,7 +292,7 @@
 
 }
 
-.widget_pages .page-item-! {
+.widget_pages .page-item-___ {
 
 }
 
@@ -385,7 +385,7 @@
 //
 // Tag cloud.
 // Outputs a <div> with a class of "tagcloud" that contains links of all tags.
-// Each link receives a "tag-link-!" class, where "!" is a unique ID assisnged
+// Each link receives a "tag-link-___" class, where "___" is a unique ID assisnged
 // to that item.
 //
 
@@ -420,8 +420,8 @@
   }
 }
 
-.widget_tag_cloud .tag-link-!,
-.widget_product_tag_cloud .tag-link-! {
+.widget_tag_cloud .tag-link-___,
+.widget_product_tag_cloud .tag-link-___ {
 
 }
 

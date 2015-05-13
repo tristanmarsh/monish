@@ -32,10 +32,6 @@ class UsersTable extends Table
 			->notEmpty('gender', 'A surname is required')
             ->notEmpty('phone', 'A phone number is required')
             ->notEmpty('email', 'An email is required')
-            ->notEmpty('home_country', 'A home country is required')
-            ->notEmpty('city', 'A home city is required')
-            ->notEmpty('suburb', 'A home suburb is required')
-            ->notEmpty('postcode', 'A home postcode is required')
             ->notEmpty('role', 'A role is required')
             ->add('role', 'inList', [
                 'rule' => ['inList', ['admin', 'tenant']],

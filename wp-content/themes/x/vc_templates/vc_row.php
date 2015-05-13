@@ -11,25 +11,24 @@
 <?php
 
 extract( shortcode_atts( array(
-  'class'           => '',
-  'style'           => '',
-  'type'            => '',
-  'border'          => '',
-  'bg_color'        => '',
-  'bg_pattern'      => '',
-  'bg_image'        => '',
-  'bg_video'        => '',
-  'bg_video_poster' => '',
-  'no_margin'       => '',
-  'padding_top'     => '',
-  'padding_bottom'  => '',
-  'inner_container' => '',
-  'parallax'        => ''
-), $atts ) );
+  'class'              => '',
+  'style'              => '',
+  'border'             => '',
+  'bg_color'           => '',
+  'bg_pattern'         => '',
+  'bg_image'           => '',
+  'bg_video'           => '',
+  'bg_video_poster'    => '',
+  'no_margin'          => '',
+  'padding_top'        => '',
+  'padding_bottom'     => '',
+  'inner_container'    => '',
+  'parallax'           => '',
+  'marginless_columns' => ''
+), $atts, 'content_band' ) );
 
 $class = ( $class != '' ) ? 'x-content-band vc ' . esc_attr( $class ) : 'x-content-band vc';
 $style = ( $style != '' ) ? ' ' . $style : '';
-$type  = ( $type  != '' ) ? ' ' . $type : '';
 switch ( $border ) {
   case 'top' :
     $border = ' border-top';
@@ -68,48 +67,81 @@ $padding_top      = ( $padding_top     != ''     ) ? ' padding-top: ' . $padding
 $padding_bottom   = ( $padding_bottom  != ''     ) ? ' padding-bottom: ' . $padding_bottom . ';' : '';
 switch ( $inner_container ) {
   case 'true' :
-    $container_start = '<div class="x-container-fluid max width">';
+    $container_start = '<div class="x-container max width wpb_row">';
     $container_end   = '</div>';
     break;
   default :
-    $container_start = '';
-    $container_end   = '';
+    $container_start = '<div class="x-container wpb_row">';
+    $container_end   = '</div>';
 }
-$parallax       = ( $parallax == 'true' ) ? $parallax : '';
-$parallax_class = ( $parallax == 'true' ) ? ' parallax' : '';
+$parallax                 = ( $parallax           == 'true' ) ? $parallax : '';
+$parallax_class           = ( $parallax           == 'true' ) ? ' parallax' : '';
+$marginless_columns       = ( $marginless_columns == 'true' ) ? $marginless_columns : '';
+$marginless_columns_class = ( $marginless_columns == 'true' ) ? ' marginless-columns' : '';
+
+if ( is_numeric( $bg_video_poster ) ) {
+  $bg_video_poster_info = wp_get_attachment_image_src( $bg_video_poster, 'full' );
+  $bg_video_poster      = $bg_video_poster_info[0];
+}
+
+if ( is_numeric( $bg_image ) ) {
+  $bg_image_info = wp_get_attachment_image_src( $bg_image, 'full' );
+  $bg_image      = $bg_image_info[0];
+}
+
+if ( is_numeric( $bg_pattern ) ) {
+  $bg_pattern_info = wp_get_attachment_image_src( $bg_pattern, 'full' );
+  $bg_pattern      = $bg_pattern_info[0];
+}
 
 $count = x_visual_composer_templates_id_increment();
 
 if ( $bg_video != '' ) {
 
-  $bg_video_poster = wp_get_attachment_image_src( $bg_video_poster, 'entry-full-' . x_get_stack() );
-  $output = "<div id=\"x-content-band-{$count}\" class=\"{$class}{$bg_video_class}{$border}{$no_margin}\" style=\"{$padding_top}{$padding_bottom}{$style}\">"
+  $js_params = array(
+    'type'   => 'video',
+    'poster' => $bg_video_poster,
+    'video'  => $bg_video
+  );
+
+  $data = ( function_exists( 'x_generate_data_attributes' ) ) ? x_generate_data_attributes( 'content_band', $js_params ) : '';
+
+  $output = "<div id=\"x-content-band-{$count}\" class=\"{$class}{$bg_video_class}{$marginless_columns_class}{$border}{$no_margin}\" {$data} style=\"{$padding_top}{$padding_bottom}{$style}\">"
             . $container_start . do_shortcode( $content ) . $container_end
-          . '</div>'
-          . "<script> jQuery(function(){ var BV = new jQuery.BigVideo(); BV.init(); if ( Modernizr.touch ) { BV.show('{$bg_video_poster[0]}'); } else { BV.show('{$bg_video}', { ambient : true }); } }); </script>";
+          . '</div>';
 
 } elseif ( $bg_image != '' ) {
 
-  $bg_image = wp_get_attachment_image_src( $bg_image, 'entry-full-' . x_get_stack() );
-  $output = "<div id=\"x-content-band-{$count}\" class=\"{$class}{$bg_image_class}{$parallax_class}{$border}{$no_margin}\" style=\"background-image: url({$bg_image[0]}); background-color: {$bg_color};{$padding_top}{$padding_bottom}{$style}\">"
+  $js_params = array(
+    'type'     => 'image',
+    'parallax' => ( $parallax == 'true' )
+  );
+
+  $data = ( function_exists( 'x_generate_data_attributes' ) ) ? x_generate_data_attributes( 'content_band', $js_params ) : '';
+
+  $output = "<div id=\"x-content-band-{$count}\" class=\"{$class}{$bg_image_class}{$parallax_class}{$marginless_columns_class}{$border}{$no_margin}\" {$data} style=\"background-image: url({$bg_image}); background-color: {$bg_color};{$padding_top}{$padding_bottom}{$style}\">"
             . $container_start . do_shortcode( $content ) . $container_end
           . '</div>';
 
 } elseif ( $bg_pattern != '' ) {
 
-  $bg_pattern = wp_get_attachment_image_src( $bg_pattern, 'entry-full-' . x_get_stack() );
-  $output = "<div id=\"x-content-band-{$count}\" class=\"{$class}{$bg_pattern_class}{$parallax_class}{$border}{$no_margin}\" style=\"background-image: url({$bg_pattern[0]}); background-color: {$bg_color};{$padding_top}{$padding_bottom}{$style}\">"
+  $js_params = array(
+    'type'     => 'pattern',
+    'parallax' => ( $parallax == 'true' )
+  );
+
+  $data = ( function_exists( 'x_generate_data_attributes' ) ) ? x_generate_data_attributes( 'content_band', $js_params ) : '';
+
+  $output = "<div id=\"x-content-band-{$count}\" class=\"{$class}{$bg_pattern_class}{$parallax_class}{$marginless_columns_class}{$border}{$no_margin}\" style=\"background-image: url({$bg_pattern}); background-color: {$bg_color};{$padding_top}{$padding_bottom}{$style}\">"
             . $container_start . do_shortcode( $content ) . $container_end
           . '</div>';
 
 } else {
 
-  $output = "<div id=\"x-content-band-{$count}\" class=\"{$class}{$border}{$no_margin}\" style=\"background-color: {$bg_color};{$padding_top}{$padding_bottom}{$style}\">"
+  $output = "<div id=\"x-content-band-{$count}\" class=\"{$class}{$marginless_columns_class}{$border}{$no_margin}\" style=\"background-color: {$bg_color};{$padding_top}{$padding_bottom}{$style}\">"
             . $container_start . do_shortcode( $content ) . $container_end
           . '</div>';
 
 }
 
 echo $output;
-
-?>

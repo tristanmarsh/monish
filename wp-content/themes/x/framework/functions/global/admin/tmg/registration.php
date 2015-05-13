@@ -46,7 +46,7 @@ if ( ! function_exists( 'x_register_theme_plugins' ) ) :
         'slug'               => 'revslider',
         'source'             => X_TEMPLATE_URL . '/framework/plugins/revslider.zip',
         'required'           => false,
-        'version'            => '4.6.0',
+        'version'            => '4.6.9',
         'force_activation'   => false,
         'force_deactivation' => false,
         'external_url'       => '',
@@ -62,7 +62,7 @@ if ( ! function_exists( 'x_register_theme_plugins' ) ) :
         'slug'               => 'js_composer',
         'source'             => X_TEMPLATE_URL . '/framework/plugins/js_composer.zip',
         'required'           => false,
-        'version'            => '4.1.3',
+        'version'            => '4.3.5',
         'force_activation'   => false,
         'force_deactivation' => false,
         'external_url'       => '',
@@ -81,9 +81,9 @@ if ( ! function_exists( 'x_register_theme_plugins' ) ) :
     //
 
     $extensions = array();
-    $addons = X_Update_API::get_cached_addons();
+    $addons     = X_Update_API::get_cached_addons();
 
-    if ( is_array($addons) && !isset($addons['error']) ) {
+    if ( is_array( $addons ) && ! isset( $addons['error'] ) ) {
 
       foreach ( $addons as $ext => $data ) {
 
@@ -105,7 +105,9 @@ if ( ! function_exists( 'x_register_theme_plugins' ) ) :
           'x_logo'             => $data['logo_url'],
           'x_manage_upgrade'   => false
         );
+
       }
+
     }
 
 

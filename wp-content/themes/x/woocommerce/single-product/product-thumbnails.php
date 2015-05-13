@@ -3,10 +3,12 @@
 // =============================================================================
 // WOOCOMMERCE/SINGLE-PRODUCT/PRODUCT-THUMBNAILS.PHP
 // -----------------------------------------------------------------------------
-// @version 2.0.3
+// @version 2.3.0
 // =============================================================================
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+  exit; // Exit if accessed directly
+}
 
 GLOBAL $post, $product, $woocommerce;
 
@@ -14,14 +16,14 @@ $attachment_ids = $product->get_gallery_attachment_ids();
 
 if ( $attachment_ids ) {
 
+  $loop    = 0;
+  $columns = apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
+
 ?>
 
   <div class="thumbnails">
 
   <?php
-
-    $loop = 0;
-    $columns = apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
 
     foreach ( $attachment_ids as $attachment_id ) {
 

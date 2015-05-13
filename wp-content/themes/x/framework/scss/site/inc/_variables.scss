@@ -16,8 +16,10 @@
 //       a. Grayscale
 //       b. General Accent Colors
 //   03. Buttons
-//   04. Z-Index Master List
-//   05. Responsive Breakpoints
+//   04. MEJS
+//   05. Font Awesome
+//   06. Z-Index Master List
+//   07. Responsive Breakpoints
 // =============================================================================
 
 // Spacing Helpers
@@ -98,6 +100,28 @@ $purple:      #7a43b6 !default;
 
 $btnBackground:    #ff2a13                     !default;
 $btnBorder:        darken($btnBackground, 20%) !default;
+
+
+
+// MEJS
+// =============================================================================
+
+$mejsHeight:         32px !default;
+$mejsHeightInner:    30px !default;
+
+$mejsAdvancedTimeWidth:             $mejsHeightInner + 15px                              !default;
+$mejsAdvancedTimeWidthTotal:        $mejsAdvancedTimeWidth * 2                           !default;
+$mejsAdvancedTimeRailWidthAudio:    ($mejsHeightInner * 2) + $mejsAdvancedTimeWidthTotal !default;
+$mejsAdvancedTimeRailWidthVideo:    ($mejsHeightInner * 3) + $mejsAdvancedTimeWidthTotal !default;
+
+
+
+// Font Awesome
+// =============================================================================
+
+$fa-css-prefix:    x-icon  !default;
+$fa-version:       "4.2.0" !default;
+$fa-font-path:     '../../../fonts/font_awesome';
 
 
 

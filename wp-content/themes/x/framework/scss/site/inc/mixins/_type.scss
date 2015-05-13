@@ -93,7 +93,7 @@
 
 @mixin font-size($sizeValue: 1.6) { // 1
   font-size: ($sizeValue * 10) + px;
-  font-size: $sizeValue + rem;
+  // font-size: $sizeValue + rem;
 }
 
 
@@ -117,35 +117,15 @@
 // =============================================================================
 
 @mixin placeholder($color: $placeholderText) {
-  &:-moz-placeholder {
-    color: $color;
-  }
-  
-  &:-ms-input-placeholder {
-    color: $color;
-  }
-  
   &::-webkit-input-placeholder {
     color: $color;
   }
-}
 
-
-//
-// SASS doesn't support using '&' at base level, so we need a special root
-// placeholder mixin.
-//
-
-@mixin root-placeholder($color: $placeholderText) {
-  :-moz-placeholder {
+  &::-moz-placeholder {
     color: $color;
   }
-  
-  :-ms-input-placeholder {
-    color: $color;
-  }
-  
-  ::-webkit-input-placeholder {
+
+  &:-ms-input-placeholder {
     color: $color;
   }
 }

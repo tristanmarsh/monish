@@ -9,7 +9,6 @@
 // being unavailable in anonymous functions before that version. Keep this in
 // mind when attempting to utilize x_dump_screen() and x_dump_object(). We do
 // provide a fallback for older versions of PHP, but without stylized output.
-//
 // =============================================================================
 
 // =============================================================================
@@ -38,7 +37,7 @@ class X_Debug {
 
   public function x_dump( $data, $height = '250', $function = 'print_r' ) {
 
-    if (version_compare(PHP_VERSION, '5.4.0') >= 0) {
+    if ( version_compare( PHP_VERSION, '5.4.0' ) >= 0 ) {
 
       if ( is_array( $data ) ) {
         array_walk_recursive( $data, 'self::x_clean_dump' );
@@ -59,11 +58,7 @@ class X_Debug {
 
     } else {
 
-      //
-      // Fallback for PHP >5.4.0
-      //
-
-      echo '<pre class="x-dump">';
+      echo '<pre class="x-dump" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: fixed; bottom: 0; left: 0; right: 0; z-index: 999999999; display: block; overflow: auto; max-height: ' . $height . 'px; margin: 36px; border: 0; padding: 23px 25px; font-family: Consolas, Courier, monospace; font-size: 16px; line-height: 1.5; word-wrap: break-word; color: #000; background-color: #fff; border-radius: 0; box-shadow: 0 3px 35px rgba(0, 0, 0, 0.5);">';
         if ( $function == 'print_r' ) {
           print_r( $data );
         } else {

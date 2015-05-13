@@ -85,30 +85,16 @@ endif;
 
 
 //
-// Essentially a duplicate of the bp_get_activity_delete_link() function. The
-// only difference is the removal of the "button" class so that the element 
-// can be styled correctly.
+// Remove "button" class so that the element can be styled correctly.
 //
 
 if ( ! function_exists( 'x_buddypress_get_activity_delete_link' ) ) :
-  function x_buddypress_get_activity_delete_link() {
+  function x_buddypress_get_activity_delete_link( $link ) {
 
-    GLOBAL $activities_template;
-
-    $url   = bp_get_root_domain() . '/' . bp_get_activity_root_slug() . '/delete/' . $activities_template->activity->id;
-    $class = 'delete-activity';
-
-    if ( bp_is_activity_component() && is_numeric( bp_current_action() ) ) {
-      $url   = add_query_arg( array( 'redirect_to' => wp_get_referer() ), $url );
-      $class = 'delete-activity-single';
-    }
-
-    $link = '<a href="' . wp_nonce_url( $url, 'bp_activity_delete_link' ) . '" class="item-button bp-secondary-action ' . $class . ' confirm" rel="nofollow">' . __( 'Delete', 'buddypress' ) . '</a>';
-
-    return $link;
+    return str_replace( 'class="button ', 'class="', $link );
     
   }
-  add_action( 'bp_get_activity_delete_link', 'x_buddypress_get_activity_delete_link' );
+  add_filter( 'bp_get_activity_delete_link', 'x_buddypress_get_activity_delete_link' );
 endif;
 
 
@@ -245,43 +231,6 @@ if ( ! function_exists( 'x_buddypress_groups_invites_list_item_header' ) ) :
     </div>
 
   <?php }
-endif;
-
-
-//
-// The args used to alter the output of the group create button.
-//
-
-if ( ! function_exists( 'x_buddypress_get_group_create_button_args' ) ) :
-  function x_buddypress_get_group_create_button_args() {
-
-    $args = array(
-      'id'         => 'create_group',
-      'component'  => 'groups',
-      'link_text'  => __( 'Create a Group', 'buddypress' ),
-      'link_title' => __( 'Create a Group', 'buddypress' ),
-      'link_class' => 'x-btn-bp group-create',
-      'link_href'  => trailingslashit( bp_get_root_domain() ) . trailingslashit( bp_get_groups_root_slug() ) . trailingslashit( 'create' ),
-      'wrapper'    => false,
-    );
-
-    return $args;
-
-  }
-  add_filter( 'bp_get_group_create_button', 'x_buddypress_get_group_create_button_args' );
-endif;
-
-
-//
-// The output of the group create button.
-//
-
-if ( ! function_exists( 'x_buddypress_get_group_create_button' ) ) :
-  function x_buddypress_get_group_create_button() {
-
-    return bp_get_group_create_button();
-
-  }
 endif;
 
 
@@ -497,15 +446,15 @@ if ( ! function_exists( 'x_buddypress_navbar_menu' ) ) :
           $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_signup_page() . '" class="cf"><i class="x-icon x-icon-pencil"></i> <span>' . x_get_option( 'x_buddypress_register_title', __( 'Create an Account', '__x__' ) ) . '</span></a></li>';
           $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_activation_page() . '" class="cf"><i class="x-icon x-icon-key"></i> <span>' . x_get_option( 'x_buddypress_activate_title', __( 'Activate Your Account', '__x__' ) ) . '</span></a></li>';
         }
-        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . wp_login_url() . '" class="cf"><i class="x-icon x-icon-sign-in"></i> <span>Log in</span></a></li>';
+        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . wp_login_url() . '" class="cf"><i class="x-icon x-icon-sign-in"></i> <span>' . __( 'Log in', '__x__' ) . '</span></a></li>';
       } else {
-        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_loggedin_user_domain() . '" class="cf"><i class="x-icon x-icon-cog"></i> <span>Profile</span></a></li>';
+        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_loggedin_user_domain() . '" class="cf"><i class="x-icon x-icon-cog"></i> <span>' . __( 'Profile', '__x__' ) . '</span></a></li>';
       }
 
       if ( $args->theme_location == 'primary' ) {
-        $items .= '<li class="menu-item current-menu-parent menu-item-has-children menu-item-buddypress-navigation">'
+        $items .= '<li class="menu-item current-menu-parent menu-item-has-children x-menu-item x-menu-item-buddypress">'
                   . '<a href="' . $top_level_link . '" class="x-btn-navbar-buddypress">'
-                    . '<i class="x-icon x-icon-user"></i><span class="x-hidden-desktop"> Social</span>'
+                    . '<span><i class="x-icon x-icon-user"></i><span class="x-hidden-desktop"> ' . __( 'Social', '__x__' ) . '</span></span>'
                   . '</a>'
                   . '<ul class="sub-menu">'
                     . $submenu_items
@@ -637,6 +586,7 @@ if ( ! function_exists( 'x_buddypress_core_get_js_strings' ) ) :
       'show_x_comments'     => __( 'Show all %d comments', '__x__' ),
       'unsaved_changes'     => __( 'Your profile has unsaved changes. If you leave the page, the changes will be lost.', '__x__' ),
       'view'                => __( 'View', '__x__' ),
+      'x_show'              => __( 'Show: ', '__x__' ),
     ) );
 
     return $buddypress_params;

@@ -84,11 +84,9 @@ function x_addons_product_validation() {
         if ( $response['code'] == 2 || $response['code'] == 3 || $response['code'] == 4 ) {
           delete_option( $name );
           echo '<div class="error"><p>' . $response['message'] . '</p></div>';
-
           if ( isset( $_GET['x-verbose'] ) && $_GET['x-verbose'] == 1 ) {
             x_dump( X_Update_API::get_errors(), 350, 'var_dump' );
           }
-
         } else {
           update_option( $name, $input );
           echo '<div class="updated"><p>' . $response['message'] . '</p></div>';

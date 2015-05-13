@@ -213,10 +213,10 @@ dd {
 //
 
 hr {
+  height: 0;
   margin: $baseMargin 0;
   border: 0;
   border-top: 1px solid darken($baseModBackground, 5%);
-  border-bottom: 1px solid transparent;
 }
 
 

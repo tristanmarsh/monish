@@ -18,7 +18,7 @@ $breadcrumbs        = x_get_option( 'x_breadcrumb_display', '1' );
   <?php else : ?>
 
     <header class="x-header-landmark">
-      <div class="x-container-fluid max width">
+      <div class="x-container max width">
         <div class="x-landmark-breadcrumbs-wrap">
           <div class="x-landmark">
 

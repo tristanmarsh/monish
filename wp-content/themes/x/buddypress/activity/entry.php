@@ -79,8 +79,8 @@
 
 	<?php if ( ( is_user_logged_in() && bp_activity_can_comment() ) || bp_is_single_activity() ) : ?>
 
-		<div class="activity-comments">
-			<div class="x-activity-comments-inner cf">
+		<div class="x-activity-comments-outer cf">
+			<div class="activity-comments">
 
 				<?php bp_activity_comments(); ?>
 
@@ -90,7 +90,7 @@
 						<div class="ac-reply-avatar"><?php bp_loggedin_user_avatar( 'width=' . BP_AVATAR_THUMB_WIDTH . '&height=' . BP_AVATAR_THUMB_HEIGHT ); ?></div>
 						<div class="ac-reply-content cf">
 							<div class="ac-textarea">
-								<textarea id="ac-input-<?php bp_activity_id(); ?>" class="ac-input" name="ac_input_<?php bp_activity_id(); ?>"></textarea>
+								<textarea id="ac-input-<?php bp_activity_id(); ?>" class="ac-input bp-suggestions" name="ac_input_<?php bp_activity_id(); ?>"></textarea>
 							</div>
 							<input type="submit" name="ac_form_submit" value="<?php esc_attr_e( 'Post', 'buddypress' ); ?>" /> &nbsp; <a href="#" class="ac-reply-cancel"><?php _e( 'Cancel', 'buddypress' ); ?></a>
 							<input type="hidden" name="comment_form_id" value="<?php bp_activity_id(); ?>" />

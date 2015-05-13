@@ -10,7 +10,7 @@
 
 <?php get_header(); ?>
   
-  <div class="x-container-fluid max width main">
+  <div class="x-container max width main">
     <div class="offset cf">
       <div class="x-main full" role="main">
 

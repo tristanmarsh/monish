@@ -20,20 +20,20 @@
   padding: 4% 0;
   background-color: $colophonBackground;
 
-  [class*="span"] {
+  .x-column {
     .widget:first-child {
       margin-top: 0;
     }
   }
 
   @include break(cubs) {
-    [class*="span"] {
+    .x-column {
       .widget:first-child {
         margin-top: 65px;
       }
     }
 
-    [class*="span"]:first-child {
+    .x-column:first-child {
       .widget:first-child {
         margin-top: 0
       }
@@ -70,9 +70,14 @@
 
   .x-social-global {
     margin: 10px 0;
+
     a {
       margin: 0 1.25%;
       @include font-size(2.1);
+
+      &.foursquare {
+        @include font-size(2.0);
+      }
     }
   }
 

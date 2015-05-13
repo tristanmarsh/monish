@@ -6,7 +6,9 @@
 // @version 2.0.8
 // =============================================================================
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+  exit; // Exit if accessed directly
+}
 
 global $woocommerce;
 
@@ -16,11 +18,11 @@ if ( get_option( 'woocommerce_enable_shipping_calc' ) === 'no' || ! WC()->cart->
 
 <?php do_action( 'woocommerce_before_shipping_calculator' ); ?>
 
-<form class="shipping_calculator" action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
+<form class="woocommerce-shipping-calculator" action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
 
-  <h2><?php _e( 'Calculate Shipping', '__x__' ); ?></h2>
+  <a href="#" class="shipping-calculator-button"><i class="x-icon x-icon-calculator"></i> <?php _e( 'Shipping', '__x__' ); ?></a>
 
-  <section class="shipping-calculator-fields">
+  <section class="shipping-calculator-form">
 
     <p class="form-row form-row-wide">
       <select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state" rel="calc_shipping_state">
@@ -77,7 +79,7 @@ if ( get_option( 'woocommerce_enable_shipping_calc' ) === 'no' || ! WC()->cart->
       </p>
     <?php endif; ?>
 
-    <p><button type="submit" name="calc_shipping" value="1" class="button"><?php _e( 'Update Totals', '__x__' ); ?></button></p>
+    <!-- <p><button type="submit" name="calc_shipping" value="1" class="button"><?php _e( 'Update Totals', '__x__' ); ?></button></p> -->
 
     <?php wp_nonce_field( 'woocommerce-cart' ); ?>
 

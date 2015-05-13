@@ -144,7 +144,7 @@
 /* Navbar - Navigation
 // ========================================================================== */
 
-.x-navbar .x-nav > li > a {
+.x-navbar .x-nav-wrap .x-nav > li > a {
   font-style: <?php echo ( $x_navbar_font_is_italic ) ? 'italic' : 'normal'; ?>;
   font-weight: <?php echo $x_navbar_font_weight; ?>;
   <?php if ( x_get_option( 'x_navbar_uppercase_enable', '' ) == '1' ) : ?>

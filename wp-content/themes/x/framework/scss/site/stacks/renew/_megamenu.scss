@@ -9,13 +9,12 @@
 // -----------------------------------------------------------------------------
 //   01. Base Styles
 //   02. Navbar Layout Styles
-//   03. Responsive Styles
 // =============================================================================
 
 // Base Styles
 // =============================================================================
 
-.x-nav .x-megamenu {
+.desktop .x-nav .x-megamenu {
   > .sub-menu {
     a {
       white-space: normal;
@@ -42,7 +41,7 @@
         text-transform: uppercase;
         color: $navbarLinkColorHover;
 
-        &:after {
+        > span:after {
           display: none;
         }
       }
@@ -73,7 +72,7 @@
 
 .x-navbar-static-active,
 .x-navbar-fixed-top-active {
-  .x-nav .x-megamenu {
+  .desktop .x-nav .x-megamenu {
     position: static;
 
     > .sub-menu {
@@ -86,54 +85,12 @@
 
 .x-navbar-fixed-left-active,
 .x-navbar-fixed-right-active {
-  .x-nav .x-megamenu {
+  .desktop .x-nav .x-megamenu {
     position: relative;
 
     > .sub-menu {
       padding: 0 8px 8px;
       width: 600px;
-    }
-  }
-}
-
-
-
-// Responsive Styles
-// =============================================================================
-
-@include break(cubs) {
-  .x-nav .x-megamenu {
-    > .sub-menu {
-      position: static;
-      width: auto !important;
-      padding: 0 !important;
-
-      > li {
-        float: none;
-        padding: 0;
-
-        > a {
-          text-transform: none;
-          color: inherit;
-
-          &:after {
-            display: inline;
-          }
-        }
-
-        > .sub-menu {
-          width: auto;
-        }
-      }
-    }
-
-    &.col-2,
-    &.col-3,
-    &.col-4,
-    &.col-5 {
-      > .sub-menu > li {
-        width: auto;
-      }
     }
   }
 }

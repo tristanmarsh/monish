@@ -114,7 +114,7 @@ input[type="color"],
   margin-bottom: 9px;
   border: 1px solid $inputBorder;
   padding: 0 1.45em;
-  line-height: 1;
+  line-height: normal;
   color: $gray;
   background-color: $inputBackground;
 }
@@ -398,7 +398,7 @@ input[type="checkbox"][readonly] {
   }
 
   .search-query,
-  input[type="text"] {
+  input[type="search"] {
     width: 100%;
     margin-bottom: 0;
     padding-left: 38px;
@@ -455,12 +455,6 @@ input[type="color"] {
 
 input[type="file"] {
   margin-top: $fileMarginTop;
-}
-
-input[type="search"] {
-  height: 32px;
-  padding-top: 0;
-  padding-bottom: 0;
 }
 
 .checkbox input[type="checkbox"] {

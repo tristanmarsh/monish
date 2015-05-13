@@ -6,7 +6,6 @@
 	<div class="col-sm-3 sidebar">
 			
 			<ul class="nav nav-sidebar">
-			    http://ie.infotech.monash.edu.au/team06/monish/blog/
 			    <li>
 					<span class="glyphicon glyphicon-star"></span>
 			    	<?= $this->Html->link('Maintenance Requests', ['controller' => 'maintenances', 'action' => 'index']) ?>

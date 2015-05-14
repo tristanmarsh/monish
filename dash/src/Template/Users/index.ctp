@@ -63,7 +63,7 @@
 <p>
     <?php
         echo "Back to ";
-        echo $this->Html->link('Dashboard', ['controller' => 'dashboards', 'action' => 'index']);
+        echo $this->Html->link('Dashboard', ['controller' => '', 'action' => 'index']);
     ?>
 </p>
 

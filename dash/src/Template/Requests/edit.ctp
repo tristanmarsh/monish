@@ -5,6 +5,7 @@
 
     echo $this->Form->create($lion);
     echo $this->Form->input('title');
+	echo $this->Form->input('category', ['options' => ['GENERAL' => 'GENERAL', 'MAINTENANCE' => 'MAINTENANCE', 'INTERNET' => 'INTERNET', 'LEASE' => 'LEASE']]);
     echo $this->Form->input('description', ['rows' => '3']);
     echo $this->Form->button(__('Update Request'));
     echo $this->Form->end();

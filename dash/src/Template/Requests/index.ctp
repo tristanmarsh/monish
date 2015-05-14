@@ -6,6 +6,7 @@
 <table>
     <tr>
         <th>Title</th>
+		<th>Category</th>
         <th>Created</th>
 		<th>Modified</th>
         <th>Action</th>
@@ -19,6 +20,9 @@
 	<tr>
         <td>
             <?= $this->Html->link($article->title, ['action' => 'view', $article->id]) ?>
+        </td>
+		<td>
+            <?= $this->Html->link($article->category, ['action' => 'view', $article->id]) ?>
         </td>
         <td>
             <?= $article->created->format('d M Y H:i:s') ?>

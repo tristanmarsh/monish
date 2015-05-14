@@ -2,6 +2,7 @@
 <table>
 
 <th><?= h($giraffe->title) ?></th>
+<tr><td>Category: <?= h($giraffe->category) ?></td></tr>
 <tr><td><?= h($giraffe->description) ?></td></tr>
 
 

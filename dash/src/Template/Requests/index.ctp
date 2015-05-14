@@ -54,7 +54,7 @@
     <?php
     if($user['role'] === 'admin') {
         echo "Back to ";
-        echo $this->Html->link('Dashboard', ['controller' => 'users', 'action' => 'login']);
+        echo $this->Html->link('Dashboard', ['controller' => '', 'action' => 'index']);
     }
     ?>
 </p>

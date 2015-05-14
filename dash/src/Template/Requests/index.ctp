@@ -1,7 +1,7 @@
 <!-- File: src/Template/Articles/index.ctp -->
 <?php $user = $this->Session->read('Auth.User'); ?>
-<h1>List of Maintenance Requests</h1>
-<?= $this->Html->link('Add Maintenance Request', ['action' => 'add']) ?>
+<h1>List of Requests</h1>
+<?= $this->Html->link('Add Request', ['action' => 'add']) ?>
 <span style="float:right"><?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
 <table>
     <tr>

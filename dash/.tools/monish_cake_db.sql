@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2015 at 01:37 PM
--- Server version: 5.6.17
+-- Generation Time: 2015-05-14 06:10:22
+-- 服务器版本： 5.6.17
 -- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `emergencies`
+-- 表的结构 `emergencies`
 --
 
 CREATE TABLE IF NOT EXISTS `emergencies` (
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `emergencies` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `emergencies`
+-- 转存表中的数据 `emergencies`
 --
 
 INSERT INTO `emergencies` (`id`, `first_name`, `last_name`, `phone`, `email`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `emergencies` (`id`, `first_name`, `last_name`, `phone`, `email`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `emergency_contacts`
+-- 表的结构 `emergency_contacts`
 --
 
 CREATE TABLE IF NOT EXISTS `emergency_contacts` (
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `emergency_contacts` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `emergency_contacts`
+-- 转存表中的数据 `emergency_contacts`
 --
 
 INSERT INTO `emergency_contacts` (`id`, `first_name`, `last_name`, `phone`, `email`) VALUES
@@ -68,7 +68,7 @@ INSERT INTO `emergency_contacts` (`id`, `first_name`, `last_name`, `phone`, `ema
 -- --------------------------------------------------------
 
 --
--- Table structure for table `emergency_student`
+-- 表的结构 `emergency_student`
 --
 
 CREATE TABLE IF NOT EXISTS `emergency_student` (
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `emergency_student` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employees`
+-- 表的结构 `employees`
 --
 
 CREATE TABLE IF NOT EXISTS `employees` (
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `employees` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `internet_connection`
+-- 表的结构 `internet_connection`
 --
 
 CREATE TABLE IF NOT EXISTS `internet_connection` (
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `internet_connection` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `leases`
+-- 表的结构 `leases`
 --
 
 CREATE TABLE IF NOT EXISTS `leases` (
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `leases` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
--- Dumping data for table `leases`
+-- 转存表中的数据 `leases`
 --
 
 INSERT INTO `leases` (`id`, `room_id`, `student_id`, `date_start`, `date_end`, `lease_status`, `weekly_price`) VALUES
@@ -140,37 +140,7 @@ INSERT INTO `leases` (`id`, `room_id`, `student_id`, `date_start`, `date_end`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `maintenances`
---
-
-CREATE TABLE IF NOT EXISTS `maintenances` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(50) DEFAULT NULL,
-  `description` text,
-  `created` datetime DEFAULT NULL,
-  `modified` datetime DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
-
---
--- Dumping data for table `maintenances`
---
-
-INSERT INTO `maintenances` (`id`, `title`, `description`, `created`, `modified`, `user_id`) VALUES
-(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-04-13 14:52:35', 28),
-(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-04-13 14:52:26', 28),
-(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-04-13 14:53:50', 29),
-(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-04-13 15:18:31', 30),
-(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 28),
-(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-04-16 05:25:43', 28),
-(15, 'Broken dong', 'donger is broken ', '2015-04-22 10:57:33', '2015-04-22 10:57:33', 29),
-(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-04-25 09:33:29', 30);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payments`
+-- 表的结构 `payments`
 --
 
 CREATE TABLE IF NOT EXISTS `payments` (
@@ -186,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `payments` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `properties`
+-- 表的结构 `properties`
 --
 
 CREATE TABLE IF NOT EXISTS `properties` (
@@ -201,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `properties` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `properties`
+-- 转存表中的数据 `properties`
 --
 
 INSERT INTO `properties` (`id`, `address`, `number_rooms`, `bathrooms`, `kitchens`, `storeys`, `garage`) VALUES
@@ -210,7 +180,37 @@ INSERT INTO `properties` (`id`, `address`, `number_rooms`, `bathrooms`, `kitchen
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rooms`
+-- 表的结构 `requests`
+--
+
+CREATE TABLE IF NOT EXISTS `requests` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) DEFAULT NULL,
+  `description` text,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+--
+-- 转存表中的数据 `requests`
+--
+
+INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `user_id`) VALUES
+(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-04-13 14:52:35', 28),
+(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-04-13 14:52:26', 28),
+(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-04-13 14:53:50', 29),
+(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-04-13 15:18:31', 30),
+(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 28),
+(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-04-16 05:25:43', 28),
+(15, 'Broken dong', 'donger is broken ', '2015-04-22 10:57:33', '2015-04-22 10:57:33', 29),
+(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-04-25 09:33:29', 30);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `rooms`
 --
 
 CREATE TABLE IF NOT EXISTS `rooms` (
@@ -223,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `rooms` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `rooms`
+-- 转存表中的数据 `rooms`
 --
 
 INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
@@ -233,7 +233,7 @@ INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `students`
+-- 表的结构 `students`
 --
 
 CREATE TABLE IF NOT EXISTS `students` (
@@ -247,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `students` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `students`
+-- 转存表中的数据 `students`
 --
 
 INSERT INTO `students` (`id`, `expected_grad_date`, `person_id`, `emergency_id`) VALUES
@@ -257,7 +257,7 @@ INSERT INTO `students` (`id`, `expected_grad_date`, `person_id`, `emergency_id`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- 表的结构 `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -267,71 +267,76 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` varchar(20) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
+  `title` enum('MR','MRS','MISS','DR') NOT NULL,
   `first_name` varchar(50) DEFAULT NULL,
   `last_name` varchar(25) NOT NULL,
   `gender` enum('M','F') NOT NULL,
   `phone` int(20) NOT NULL,
   `email` varchar(30) NOT NULL,
+  `home_country` varchar(25) NOT NULL,
+  `city` varchar(25) NOT NULL,
+  `suburb` varchar(25) NOT NULL,
+  `postcode` int(15) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
 
 --
--- Dumping data for table `users`
+-- 转存表中的数据 `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `role`, `created`, `modified`, `first_name`, `last_name`, `gender`, `phone`, `email`) VALUES
-(1, 'admin', '$2y$10$ytpEvi6EvojZvBDYa18lDezDToFfQ9e64lD.gIo0r30z9uscH4xXy', 'admin', NULL, NULL, 'Tony', 'Wise', 'M', 0, ''),
-(28, 'tenant50', '$2y$10$rsTuv7CgtHwhyjtV4BqK9Om2W33vRJKlVs1SZpP/fxeImQt1YXJHK', 'tenant', '2015-04-22 10:38:52', '2015-04-27 03:32:15', 'Jacob', 'Ben', 'M', 412345678, 'BenJacobs@gmail.com'),
-(29, 'tenant51', '$2y$10$T2vn/qK4X/1r7h6QifMMyu229y5zDSSUAakejLXeB.Fhufop.rL5q', 'tenant', '2015-04-22 10:57:05', '2015-04-27 03:43:26', 'Michael', 'Lai', 'M', 418273645, 'michael@gmail.com'),
-(30, 'tenant1', '$2y$10$9oL26vXvDX7JJsxH6JSTwOR/Ht75vkgoxzt1QFE.isPzZgURDQOTq', 'tenant', '2015-04-25 09:33:08', '2015-04-25 09:33:08', 'Jenny', 'Law', 'F', 48921783, 'jenny@gmail.com'),
-(31, 'tenant4', '$2y$10$G435ZwjIKY3iWF4Bz4mESO1ktRAOyGhSfQPaR9MHTcCtnvlfU1liu', 'tenant', '2015-04-28 08:55:16', '2015-04-28 08:55:16', 'Fiona', 'Lopez', 'F', 433646343, 'fiona@gmail.com'),
-(32, 'tenant6', '$2y$10$UXBGmOHBT8kH3iOGT8CckuHD8DXR/ev8F9T4Vb.KmAyw2g00PTb0K', 'tenant', '2015-04-29 01:58:45', '2015-04-29 01:58:45', 'Ben', 'Ten', 'M', 482818293, 'ben@gmail.com');
+INSERT INTO `users` (`id`, `username`, `password`, `role`, `created`, `modified`, `title`, `first_name`, `last_name`, `gender`, `phone`, `email`, `home_country`, `city`, `suburb`, `postcode`) VALUES
+(1, 'admin', '$2y$10$ytpEvi6EvojZvBDYa18lDezDToFfQ9e64lD.gIo0r30z9uscH4xXy', 'admin', NULL, NULL, 'MR', 'Tony', 'Wise', 'M', 0, '', '', '', '', 0),
+(28, 'tenant50', '$2y$10$rsTuv7CgtHwhyjtV4BqK9Om2W33vRJKlVs1SZpP/fxeImQt1YXJHK', 'tenant', '2015-04-22 10:38:52', '2015-04-27 03:32:15', 'MR', 'Jacob', 'Ben', 'M', 412345678, 'BenJacobs@gmail.com', 'America', 'New York', 'First Avenue', 190283),
+(29, 'tenant51', '$2y$10$T2vn/qK4X/1r7h6QifMMyu229y5zDSSUAakejLXeB.Fhufop.rL5q', 'tenant', '2015-04-22 10:57:05', '2015-04-27 03:43:26', 'MR', 'Michael', 'Lai', 'M', 418273645, 'michael@gmail.com', 'France', 'Paris', 'hawhawhaw', 9123),
+(30, 'tenant1', '$2y$10$9oL26vXvDX7JJsxH6JSTwOR/Ht75vkgoxzt1QFE.isPzZgURDQOTq', 'tenant', '2015-04-25 09:33:08', '2015-04-25 09:33:08', 'MISS', 'Jenny', 'Law', 'F', 48921783, 'jenny@gmail.com', 'China', 'Guang Zhou', 'Dong Shan', 1239081),
+(31, 'tenant4', '$2y$10$G435ZwjIKY3iWF4Bz4mESO1ktRAOyGhSfQPaR9MHTcCtnvlfU1liu', 'tenant', '2015-04-28 08:55:16', '2015-04-28 08:55:16', 'MISS', 'Fiona', 'Lopez', 'F', 433646343, 'fiona@gmail.com', 'Atlanta', 'Submarine', 'Tank', 123123),
+(32, 'tenant6', '$2y$10$UXBGmOHBT8kH3iOGT8CckuHD8DXR/ev8F9T4Vb.KmAyw2g00PTb0K', 'tenant', '2015-04-29 01:58:45', '2015-04-29 01:58:45', 'MR', 'Ben', 'Ten', 'M', 482818293, 'ben@gmail.com', 'Switz', 'cityname', 'suburbname', 31023);
 
 --
--- Constraints for dumped tables
+-- 限制导出的表
 --
 
 --
--- Constraints for table `emergency_student`
+-- 限制表 `emergency_student`
 --
 ALTER TABLE `emergency_student`
   ADD CONSTRAINT `emergency_student_ibfk_1` FOREIGN KEY (`emergency_id`) REFERENCES `emergency_contacts` (`id`),
   ADD CONSTRAINT `emergency_student_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`);
 
 --
--- Constraints for table `employees`
+-- 限制表 `employees`
 --
 ALTER TABLE `employees`
   ADD CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `internet_connection`
+-- 限制表 `internet_connection`
 --
 ALTER TABLE `internet_connection`
   ADD CONSTRAINT `internet_connection_ibfk_1` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`id`);
 
 --
--- Constraints for table `leases`
+-- 限制表 `leases`
 --
 ALTER TABLE `leases`
   ADD CONSTRAINT `leases_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`),
   ADD CONSTRAINT `leases_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`);
 
 --
--- Constraints for table `payments`
+-- 限制表 `payments`
 --
 ALTER TABLE `payments`
   ADD CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`id`);
 
 --
--- Constraints for table `rooms`
+-- 限制表 `rooms`
 --
 ALTER TABLE `rooms`
   ADD CONSTRAINT `rooms_ibfk_1` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`);
 
 --
--- Constraints for table `students`
+-- 限制表 `students`
 --
 ALTER TABLE `students`
   ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `users` (`id`),

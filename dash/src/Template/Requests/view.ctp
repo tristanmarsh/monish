@@ -11,6 +11,6 @@ Maintenace Requested By: <?= h($lion->user->first_name)?> <?= h($lion->user->las
 <p>
     <?php
         echo "Back to ";
-        echo $this->Html->link('Maintenance Requests', ['controller' => 'maintenances', 'action' => 'index']);
+        echo $this->Html->link('Requests', ['controller' => 'Requests', 'action' => 'index']);
     ?>
 </p>

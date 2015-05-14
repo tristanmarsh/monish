@@ -1,6 +1,6 @@
 <!-- File: src/Template/Articles/add.ctp -->
 
-<h1>Maintenance Request</h1>
+<h1>Request</h1>
 <?php
     // note $this->Form->create() generates <form method="post" action="/articles/add">
     echo $this->Form->create($zebra);
@@ -9,7 +9,7 @@
     echo $this->Form->button(__('Submit Request'));
     echo $this->Form->end();
 	echo $this->Form->create(null, [
-		'url' => ['controller' => 'Maintenances', 'action' => 'index']
+		'url' => ['controller' => 'Requests', 'action' => 'index']
 		]);
 	echo $this->Form->button(__('Cancel'));
 ?>

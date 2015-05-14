@@ -27,7 +27,7 @@
 			<ul class="nav nav-sidebar">
 			    <li>
 					<span class="glyphicon glyphicon-star"></span>
-			    	<?= $this->Html->link('Maintenance Requests', ['controller' => 'maintenances', 'action' => 'index']) ?>
+			    	<?= $this->Html->link('Requests', ['controller' => 'Requests', 'action' => 'index']) ?>
 			    </li>
 			    
 			    <li>

@@ -5,7 +5,7 @@
 
 	<div class="col-sm-3 sidebar">
 
-		<?php echo $this->element('sidebar'); ?>
+		<?php echo $this->element('tenant-sidebar'); ?>
 		
 	</div>
 

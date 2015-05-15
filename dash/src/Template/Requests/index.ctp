@@ -3,16 +3,31 @@
 
 
 
-
+<?php if ($user['role'] === "admin") : ?>
 </div><!-- /.escape row -->
 </div><!-- /.escape content -->
 </div><!-- /.escape container -->
 
 <div class="col-sm-3 sidebar">
 
-    <?php echo $this->element('sidebar'); ?>
+    <?php echo $this->element('admin-sidebar'); ?>
         
 </div>
+
+<?php endif; ?>
+
+<?php if ($user['role'] === "tenant") : ?>
+</div><!-- /.escape row -->
+</div><!-- /.escape content -->
+</div><!-- /.escape container -->
+
+<div class="col-sm-3 sidebar">
+
+    <?php echo $this->element('tenant-sidebar'); ?>
+        
+</div>
+
+<?php endif; ?>
 
 <div class="col-sm-9">
 
@@ -71,12 +86,10 @@
         </table>
 
         <p>
-            <?php
-            if($user['role'] === 'admin') {
+                <?php
                 echo "Back to ";
                 echo $this->Html->link('Dashboard', ['controller' => '', 'action' => 'index']);
-            }
-            ?>
+             ?>
         </p>
 
 

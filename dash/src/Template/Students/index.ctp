@@ -33,7 +33,6 @@
                 <tr>
                     <!--<th><?= $this->Paginator->sort('id') ?></th>-->
                     <th><?= $this->Paginator->sort('person_id') ?></th>
-                    <th><?= $this->Paginator->sort('expected_grad_date') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -42,9 +41,8 @@
                 <tr>
                     <!--<td><?= $this->Number->format($student->id) ?></td>-->
                     <td>
-                        <?= $student->has('user') ? $this->Html->link($student->user->first_name, ['controller' => 'Users', 'action' => 'view', $student->user->id]) : '' ?>
+                        <?= $student->has('person') ? $this->Html->link($student->person->first_name, ['controller' => 'People', 'action' => 'view', $student->person->id]) : '' ?>
                     </td>
-                    <td><?= h($student->expected_grad_date->format('Y M d')) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $student->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $student->id]) ?>

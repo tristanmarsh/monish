@@ -11,7 +11,7 @@
 				
 				<li>
 					<span class="glyphicon glyphicon-star"></span>
-					<?= $this->Html->link('Emergency Contacts', ['controller' => 'emergencies', 'action' => 'index']) ?>
+					<?= $this->Html->link('People', ['controller' => 'people', 'action' => 'index']) ?>
 				</li>
 			    
 			    <li>

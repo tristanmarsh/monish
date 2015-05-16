@@ -18,7 +18,7 @@ class StudentsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users']
+            'contain' => ['Users', 'People']
         ];
         $this->set('students', $this->paginate($this->Students));
         $this->set('_serialize', ['students']);
@@ -60,9 +60,10 @@ class StudentsController extends AppController
                 $this->Flash->error('The student could not be saved. Please, try again.');
             }
         }
-        $user = $this->Students->Users->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'first_name']);
+        //the condition removes the Person with id = 1 from the drop down list (which is Tony Wise)
+        $person = $this->Students->People->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'first_name', 'conditions' => array('id !=' => '1')]);
 		$emergencies = $this->Students->Emergencies->find('list', ['limit' => 200, 'keyfield' => 'id', 'valueField' => 'first_name']);
-        $this->set(compact('student', 'user', 'emergencies'));
+        $this->set(compact('student', 'person', 'emergencies'));
         $this->set('_serialize', ['student']);
     }
 

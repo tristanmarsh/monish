@@ -1,6 +1,17 @@
 <!-- File: src/Template/People/index.ctp -->
 <?php $user = $this->Session->read('Auth.User'); ?>
-<h1>Manage People</h1>
+</div><!-- /.escape row -->
+</div><!-- /.escape content -->
+</div><!-- /.escape container -->
+<div class="col-sm-3 sidebar">
+
+    <?php echo $this->element('admin-sidebar'); ?>
+
+</div>
+<div class="col-sm-9">
+
+    <div class="content">
+    <h1>Manage People</h1>
 <?= $this->Html->link('Add Person', ['action' => 'add']) ?>
 <span style="float:right"><?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
 <table>
@@ -8,8 +19,8 @@
         <th>First Name</th>
 		<th>Last Name</th>
 		<th>Gender</th>
-		<th>Username</th>
-        <th>Role</th>
+		<th>Phone</th>
+        <th>Email</th>
         <th>Created</th>
         <th>Modified</th>
         <th>Action</th>
@@ -29,10 +40,10 @@
                 <?= $user->gender ?>
             </td>
 			<td>
-                <?= $user->username ?>
+                <?= $user->phone ?>
             </td>
             <td>
-                <?= $user->role ?>
+                <?= $user->email ?>
             </td>
             <td>
                 <?= $user->created//->format(DATE_RFC850) ?>
@@ -66,4 +77,4 @@
         echo $this->Html->link('Dashboard', ['controller' => '', 'action' => 'index']);
     ?>
 </p>
-
+        </div class="content">

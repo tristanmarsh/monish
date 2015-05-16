@@ -19,6 +19,9 @@ class PeopleTable extends Table
         $this->hasOne('Users', [
             'foreignKey' => 'person_id'
         ]);
+        $this->hasOne('Students', [
+            'foreignKey' => 'person_id'
+        ]);
     }
 	
 	public function buildRules(RulesChecker $rules)

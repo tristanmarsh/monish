@@ -33,6 +33,9 @@ class StudentsTable extends Table
         $this->hasMany('Leases', [
             'foreignKey' => 'student_id'
         ]);
+        $this->belongsTo('People', [
+            'foreignKey' => 'person_id'
+        ]);
     }
 
     /**
@@ -46,9 +49,9 @@ class StudentsTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
-            ->add('expected_grad_date', 'valid', ['rule' => 'date'])
-            ->requirePresence('expected_grad_date', 'create')
-            ->notEmpty('expected_grad_date');
+            ->add('expected_grad_date', 'valid', ['rule' => 'date']);
+            //->requirePresence('expected_grad_date', 'create')
+            //->notEmpty('expected_grad_date');
             //->requirePresence('country_of_birth', 'create')
             //->notEmpty('country_of_birth');
 
@@ -64,7 +67,7 @@ class StudentsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['person_id'], 'Users'));
+        $rules->add($rules->existsIn(['person_id'], 'People'));
         return $rules;
     }
 }

@@ -13,6 +13,12 @@ class UsersTable extends Table
     public function initialize(array $config)
     {
         $this->addBehavior('Timestamp');
+        $this->table('users');
+        $this->displayField('id');
+        $this->primaryKey('id');
+        $this->belongsTo('People', [
+            'foreignKey' => 'person_id'
+        ]);
     }
 	
 	public function buildRules(RulesChecker $rules)

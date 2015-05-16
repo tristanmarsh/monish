@@ -41,10 +41,12 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('Thank you for registering!'));
-                return $this->redirect(['action' => 'login']);
+                return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Unable to add the user.'));
         }
+        $people = $this->Users->People->find('list', ['limit' => 200]);
+        $this->set(compact('people'));
         $this->set('user', $user);
     }
 

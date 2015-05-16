@@ -20,3 +20,4 @@ myapp_cake_model_default_payments
 dash/logs/error.log
 wp-content/wfcache/localhost_monish/~~~~_wfcache.html
 myapp_cake_model_default_requests
+dash/tmp/cache/models/myapp_cake_model_default_people

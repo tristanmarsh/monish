@@ -13,6 +13,12 @@ class PeopleTable extends Table
     public function initialize(array $config)
     {
         $this->addBehavior('Timestamp');
+        $this->table('people');
+        $this->displayField('first_name');
+        $this->primaryKey('id');
+        $this->hasOne('Users', [
+            'foreignKey' => 'person_id'
+        ]);
     }
 	
 	public function buildRules(RulesChecker $rules)

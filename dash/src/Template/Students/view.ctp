@@ -1,18 +1,3 @@
-<!--<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit Student'), ['action' => 'edit', $student->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Student'), ['action' => 'delete', $student->id], ['confirm' => __('Are you sure you want to delete # {0}?', $student->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Students'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Student'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Emergency Student'), ['controller' => 'EmergencyStudent', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Emergency Student'), ['controller' => 'EmergencyStudent', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Leases'), ['controller' => 'Leases', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Lease'), ['controller' => 'Leases', 'action' => 'add']) ?> </li>
-    </ul>
-</div>-->
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Menu') ?></h3>
     <ul class="side-nav">
@@ -27,17 +12,13 @@
         <div class="large-5 columns strings">
             <h6 class="subheader"><?= __('Full Name') ?></h6>
             <p>
-                <?= $student->has('user') ? $this->Html->link($student->user->first_name, ['controller' => 'Users', 'action' => 'view', $student->user->id]) : '' ?>
-                <span><?= $student->has('user') ? $this->Html->link($student->user->last_name, ['controller' => 'Users', 'action' => 'view', $student->user->id]) : '' ?></span>
+                <?= $student->has('person') ? $this->Html->link($student->person->first_name, ['controller' => 'People', 'action' => 'view', $student->person->id]) : '' ?>
+                <span><?= $student->has('person') ? $this->Html->link($student->person->last_name, ['controller' => 'People', 'action' => 'view', $student->person->id]) : '' ?></span>
             </p>
         </div>
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Student ID') ?></h6>
             <p><?= $this->Number->format($student->id) ?></p>
-        </div>
-        <div class="large-2 columns dates end">
-            <h6 class="subheader"><?= __('Expected Grad Date') ?></h6>
-            <p><?= h($student->expected_grad_date) ?></p>
         </div>
     </div>
 </div>

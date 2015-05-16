@@ -34,13 +34,10 @@ class StudentsController extends AppController
     public function view($id = null)
     {
         $student = $this->Students->get($id, [
-            'contain' => ['Users', 'EmergencyStudent', 'Leases', 'Emergencies']
+            'contain' => ['Users', 'People', 'Leases', 'Emergencies']
         ]);
         $this->set('student', $student);
         $this->set('_serialize', ['student']);
-
-        $emergencyStudent = $this->Students->EmergencyStudent->find('all');
-        $this->set('emergencyStudent', $emergencyStudent);
     }
 
     /**
@@ -88,9 +85,9 @@ class StudentsController extends AppController
                 $this->Flash->error('The student could not be saved. Please, try again.');
             }
         }
-        $user = $this->Students->Users->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'first_name']);
+        $person = $this->Students->People->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'first_name']);
 		$emergencies = $this->Students->Emergencies->find('list', ['limit' => 200, 'keyfield' => 'id', 'valueField' => 'first_name']);
-        $this->set(compact('student', 'user', 'emergencies'));
+        $this->set(compact('student', 'person', 'emergencies'));
         $this->set('_serialize', ['student']);
     }
 

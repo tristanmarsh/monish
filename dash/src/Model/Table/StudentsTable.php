@@ -48,8 +48,7 @@ class StudentsTable extends Table
     {
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('id', 'create')
-            ->add('expected_grad_date', 'valid', ['rule' => 'date']);
+            ->allowEmpty('id', 'create');
             //->requirePresence('expected_grad_date', 'create')
             //->notEmpty('expected_grad_date');
             //->requirePresence('country_of_birth', 'create')

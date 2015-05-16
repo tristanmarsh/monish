@@ -27,6 +27,9 @@ class PropertiesTable extends Table
         $this->hasMany('Rooms', [
             'foreignKey' => 'property_id'
         ]);
+        $this->hasMany('Leases', [
+            'foreignKey' => 'properties_id'
+        ]);
     }
 
     /**

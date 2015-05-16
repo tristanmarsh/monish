@@ -27,6 +27,9 @@ class LeasesTable extends Table
         $this->belongsTo('Rooms', [
             'foreignKey' => 'room_id'
         ]);
+        $this->belongsTo('Properties', [
+            'foreignKey' => 'properties_id'
+        ]);
         $this->belongsTo('Students', [
             'foreignKey' => 'student_id'
         ]);

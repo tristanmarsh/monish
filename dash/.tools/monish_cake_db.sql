@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2015 at 01:35 PM
+-- Generation Time: May 16, 2015 at 02:00 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -34,14 +34,6 @@ CREATE TABLE IF NOT EXISTS `emergencies` (
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `emergencies`
---
-
-INSERT INTO `emergencies` (`id`, `first_name`, `last_name`, `phone`, `email`) VALUES
-(1, 'Jake', 'Mate', 812903, 'abc@gmail.com'),
-(2, 'Manny', 'Man', 8129032, 'abccc@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -81,26 +73,16 @@ CREATE TABLE IF NOT EXISTS `internet_connection` (
 CREATE TABLE IF NOT EXISTS `leases` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `room_id` int(11) NOT NULL,
+  `property_id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL,
   `date_start` date NOT NULL,
   `date_end` date NOT NULL,
-  `lease_status` enum('ONGOING','EXPIRED') NOT NULL,
   `weekly_price` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `room_id` (`room_id`),
-  KEY `student_id` (`student_id`)
+  KEY `student_id` (`student_id`),
+  KEY `property_id` (`property_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
-
---
--- Dumping data for table `leases`
---
-
-INSERT INTO `leases` (`id`, `room_id`, `student_id`, `date_start`, `date_end`, `lease_status`, `weekly_price`) VALUES
-(4, 1, 4, '2015-04-29', '2015-04-29', 'EXPIRED', 12),
-(5, 1, 5, '2015-04-29', '2015-04-29', 'ONGOING', 123),
-(6, 1, 4, '2015-04-29', '2015-04-29', 'ONGOING', 2147483647),
-(7, 13, 4, '2015-04-29', '2015-04-29', 'EXPIRED', 67),
-(8, 1, 4, '2015-04-29', '2015-04-29', 'EXPIRED', 243);
 
 -- --------------------------------------------------------
 
@@ -156,14 +138,16 @@ CREATE TABLE IF NOT EXISTS `properties` (
   `storeys` int(11) NOT NULL,
   `garage` enum('TRUE','FALSE') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `properties`
 --
 
 INSERT INTO `properties` (`id`, `address`, `number_rooms`, `bathrooms`, `kitchens`, `storeys`, `garage`) VALUES
-(1, '70 something street', 5, 1, 1, 1, 'TRUE');
+(1, '100 one street', 5, 1, 1, 1, 'TRUE'),
+(2, '200 two street', 3, 1, 1, 1, 'TRUE'),
+(3, '300 three street', 3, 2, 2, 1, 'FALSE');
 
 -- --------------------------------------------------------
 
@@ -230,21 +214,13 @@ INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
 
 CREATE TABLE IF NOT EXISTS `students` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `expected_grad_date` date NOT NULL,
   `person_id` int(11) NOT NULL,
-  `emergency_id` int(11) NOT NULL,
+  `emergency_id` int(11) DEFAULT NULL,
+  `internet_plan` enum('NONE','BASIC','STANDARD','PREMIUM') DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `person_id` (`person_id`),
   KEY `emergency_id` (`emergency_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Dumping data for table `students`
---
-
-INSERT INTO `students` (`id`, `expected_grad_date`, `person_id`, `emergency_id`) VALUES
-(4, '2015-04-27', 29, 1),
-(5, '2015-04-27', 30, 1);
 
 -- --------------------------------------------------------
 
@@ -292,6 +268,7 @@ ALTER TABLE `internet_connection`
 -- Constraints for table `leases`
 --
 ALTER TABLE `leases`
+  ADD CONSTRAINT `leases_ibfk_3` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`),
   ADD CONSTRAINT `leases_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`),
   ADD CONSTRAINT `leases_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`);
 

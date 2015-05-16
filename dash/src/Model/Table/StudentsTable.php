@@ -30,9 +30,6 @@ class StudentsTable extends Table
 		$this->belongsTo('Emergencies', [
             'foreignKey' => 'emergency_id'
         ]);
-        $this->hasMany('EmergencyStudent', [
-            'foreignKey' => 'student_id'
-        ]);
         $this->hasMany('Leases', [
             'foreignKey' => 'student_id'
         ]);

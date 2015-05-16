@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2015 at 11:17 AM
+-- Generation Time: May 16, 2015 at 01:35 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -42,41 +42,6 @@ CREATE TABLE IF NOT EXISTS `emergencies` (
 INSERT INTO `emergencies` (`id`, `first_name`, `last_name`, `phone`, `email`) VALUES
 (1, 'Jake', 'Mate', 812903, 'abc@gmail.com'),
 (2, 'Manny', 'Man', 8129032, 'abccc@gmail.com');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `emergency_contacts`
---
-
-CREATE TABLE IF NOT EXISTS `emergency_contacts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(25) NOT NULL,
-  `last_name` varchar(25) NOT NULL,
-  `phone` int(11) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `emergency_contacts`
---
-
-INSERT INTO `emergency_contacts` (`id`, `first_name`, `last_name`, `phone`, `email`) VALUES
-(1, 'John', 'Smith', 412345678, 'john@gmail.com');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `emergency_student`
---
-
-CREATE TABLE IF NOT EXISTS `emergency_student` (
-  `emergency_id` int(11) NOT NULL,
-  `student_id` int(11) NOT NULL,
-  KEY `emergency_id` (`emergency_id`),
-  KEY `student_id` (`student_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -310,13 +275,6 @@ INSERT INTO `users` (`id`, `person_id`, `username`, `password`, `role`, `created
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `emergency_student`
---
-ALTER TABLE `emergency_student`
-  ADD CONSTRAINT `emergency_student_ibfk_1` FOREIGN KEY (`emergency_id`) REFERENCES `emergency_contacts` (`id`),
-  ADD CONSTRAINT `emergency_student_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`);
 
 --
 -- Constraints for table `employees`

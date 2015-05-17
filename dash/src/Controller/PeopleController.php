@@ -73,5 +73,23 @@ class PeopleController extends AppController
         $this->set('user', $user);
     }
 
+    public function isAuthorized($user)
+    {
+        // All logged in users can see the index (need to hide the others now)
+        if ($this->request->action === 'index') {
+            return true;
+        }
+
+        // The owner of an article can edit and delete it
+        if (in_array($this->request->action, ['edit', 'delete'])) {
+            $articleId = (int)$this->request->params['pass'][0];
+            if ($this->Requests->isOwnedBy($articleId, $user['id'])) {
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
+    }
+
 }
 ?>

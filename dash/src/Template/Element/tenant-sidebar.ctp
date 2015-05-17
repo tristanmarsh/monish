@@ -20,5 +20,10 @@
 		<?= $this->Html->link('Internet Plan', ['controller' => 'internetplans', 'action' => 'index']) ?>
 	</li>
 
+    <li>
+        <span class="glyphicon glyphicon-star"></span>
+        <?= $this->Html->link('Test (Internet Plan)', ['controller' => 'people', 'action' => 'index']) ?>
+    </li>
+
 </ul>
 

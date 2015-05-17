@@ -21,8 +21,6 @@
 		<th>Gender</th>
 		<th>Phone</th>
         <th>Email</th>
-        <th>Created</th>
-        <th>Modified</th>
         <th>Action</th>
     </tr>
 
@@ -44,12 +42,6 @@
             </td>
             <td>
                 <?= $user->email ?>
-            </td>
-            <td>
-                <?= $user->created//->format(DATE_RFC850) ?>
-            </td>
-            <td>
-                <?= $user->modified//->format(DATE_RFC850) ?>
             </td>
             <td>
 				<?php if ($user['role'] === 'admin') // Admin cannot delete themselves (well they can, but they have to type the url in.)

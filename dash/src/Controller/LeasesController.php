@@ -65,8 +65,8 @@ class LeasesController extends AppController
                 $this->Flash->error('The lease could not be saved. Please, try again.');
             }
         }
-        $rooms = $this->Leases->Rooms->find('list', ['limit' => 200]);
-        $students = $this->Leases->Students->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'user.first_name'])->contain(['Users']);
+        $rooms = $this->Leases->Rooms->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'room_name', 'groupField' => 'room_name']);
+        $students = $this->Leases->Students->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'person.first_name'])->contain(['People']);
         $this->set(compact('lease', 'rooms', 'students'));
         $this->set('_serialize', ['lease']);
     }

@@ -52,7 +52,7 @@ class StudentsController extends AppController
             $student = $this->Students->patchEntity($student, $this->request->data);
             if ($this->Students->save($student)) {
                 $this->Flash->success('The student has been saved.');
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'leases', 'action' => 'add']);
             } else {
                 $this->Flash->error('The student could not be saved. Please, try again.');
             }

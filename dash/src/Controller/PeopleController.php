@@ -10,13 +10,20 @@ use Cake\Network\Exception\NotFoundException;
 class PeopleController extends AppController
 {
 
+    public function initialize()
+    {
+        parent::initialize();
+
+        $this->loadComponent('Flash'); // Include the FlashComponent
+    }
+
     public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['add', 'logout']);
+        $this->Auth->allow(['logout']);
     }
 
     public function index()
@@ -75,15 +82,15 @@ class PeopleController extends AppController
 
     public function isAuthorized($user)
     {
-        // All logged in users can see the index (need to hide the others now)
-        if ($this->request->action === 'index') {
+        // All registered users can add articles
+        if ($this->request->action === 'add' || $this->request->action === 'index') {
             return true;
         }
 
         // The owner of an article can edit and delete it
         if (in_array($this->request->action, ['edit', 'delete'])) {
             $articleId = (int)$this->request->params['pass'][0];
-            if ($this->Requests->isOwnedBy($articleId, $user['id'])) {
+            if ($this->People->isOwnedBy($articleId, $user['person_id'])) {
                 return true;
             }
         }

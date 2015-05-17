@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2015 at 02:00 PM
+-- Generation Time: May 17, 2015 at 12:00 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `emergencies` (
   `phone` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `leases` (
   KEY `room_id` (`room_id`),
   KEY `student_id` (`student_id`),
   KEY `property_id` (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -114,14 +114,17 @@ CREATE TABLE IF NOT EXISTS `people` (
   `phone` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `people`
 --
 
 INSERT INTO `people` (`id`, `first_name`, `last_name`, `gender`, `phone`, `email`) VALUES
-(1, 'Tony', 'Wise', 'M', 404040404, 'tonywise@monish.com');
+(1, 'Tony', 'Wise', 'M', 404040404, 'tonywise@monish.com'),
+(3, 'Amy', 'Angel', 'F', 404040404, 'amy@amy.com'),
+(4, 'Ben', 'Blue', 'M', 404040404, 'ben@ben.com'),
+(5, 'Carl', 'Co', 'M', 404040404, 'carl@carl.com');
 
 -- --------------------------------------------------------
 
@@ -196,15 +199,22 @@ CREATE TABLE IF NOT EXISTS `rooms` (
   `vacant` enum('TRUE','FALSE') NOT NULL,
   PRIMARY KEY (`id`),
   KEY `property_id` (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `rooms`
 --
 
 INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
-(1, 1, 'unit 1 room 1', 'TRUE'),
-(13, 1, 'unit 1 room 2', 'TRUE');
+(1, 1, 'room 1', 'TRUE'),
+(13, 1, 'room 2', 'TRUE'),
+(14, 1, 'room 3', 'TRUE'),
+(15, 2, 'room 1', 'TRUE'),
+(16, 2, 'room 2', 'TRUE'),
+(17, 2, 'room 3', 'TRUE'),
+(18, 3, 'room 1', 'TRUE'),
+(19, 3, 'room 2', 'TRUE'),
+(20, 3, 'room 3', 'TRUE');
 
 -- --------------------------------------------------------
 
@@ -220,7 +230,15 @@ CREATE TABLE IF NOT EXISTS `students` (
   PRIMARY KEY (`id`),
   KEY `person_id` (`person_id`),
   KEY `emergency_id` (`emergency_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `person_id`, `emergency_id`, `internet_plan`) VALUES
+(6, 3, NULL, 'NONE'),
+(7, 5, NULL, 'STANDARD');
 
 -- --------------------------------------------------------
 
@@ -239,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   KEY `person_id` (`person_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
 
 --
 -- Dumping data for table `users`
@@ -268,9 +286,9 @@ ALTER TABLE `internet_connection`
 -- Constraints for table `leases`
 --
 ALTER TABLE `leases`
-  ADD CONSTRAINT `leases_ibfk_3` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`),
   ADD CONSTRAINT `leases_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`),
-  ADD CONSTRAINT `leases_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`);
+  ADD CONSTRAINT `leases_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`),
+  ADD CONSTRAINT `leases_ibfk_3` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`);
 
 --
 -- Constraints for table `payments`

@@ -22,5 +22,7 @@ class Property extends Entity
         'storeys' => true,
         'garage' => true,
         'rooms' => true,
+        'leases' => true,
+        'property_id' => true,
     ];
 }

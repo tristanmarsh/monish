@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\ORM\Table;
+use Cake\ORM\Query;
 
 /**
  * Leases Controller
@@ -65,9 +66,10 @@ class LeasesController extends AppController
                 $this->Flash->error('The lease could not be saved. Please, try again.');
             }
         }
-        $rooms = $this->Leases->Rooms->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'room_name', 'groupField' => 'room_name']);
+        $properties = $this->Leases->Properties->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'address']);
+        $rooms = $this->Leases->Rooms->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'room_name'/*, 'groupField' => ['property_id']*/]);
         $students = $this->Leases->Students->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'person.first_name'])->contain(['People']);
-        $this->set(compact('lease', 'rooms', 'students'));
+        $this->set(compact('lease', 'rooms', 'students', 'properties'));
         $this->set('_serialize', ['lease']);
     }
 

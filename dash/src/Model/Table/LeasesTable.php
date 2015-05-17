@@ -22,13 +22,13 @@ class LeasesTable extends Table
     public function initialize(array $config)
     {
         $this->table('leases');
-        $this->displayField('id');
         $this->primaryKey('id');
+        $this->displayField('id');
         $this->belongsTo('Rooms', [
             'foreignKey' => 'room_id'
         ]);
         $this->belongsTo('Properties', [
-            'foreignKey' => 'properties_id'
+            'foreignKey' => 'property_id'
         ]);
         $this->belongsTo('Students', [
             'foreignKey' => 'student_id'

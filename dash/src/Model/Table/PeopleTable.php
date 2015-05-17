@@ -10,11 +10,6 @@ use Cake\ORM\isUnique;
 class PeopleTable extends Table
 {
 
-    public function isOwnedBy($articleId, $userId)
-    {
-        return $this->exists(['id' => $articleId, 'person_id' => $userId]);
-    }
-
     public function initialize(array $config)
     {
         $this->addBehavior('Timestamp');

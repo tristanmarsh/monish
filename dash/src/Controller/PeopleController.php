@@ -89,8 +89,8 @@ class PeopleController extends AppController
 
         // The owner of an article can edit and delete it
         if (in_array($this->request->action, ['edit', 'delete'])) {
-            $articleId = (int)$this->request->params['pass'][0];
-            if ($this->People->isOwnedBy($articleId, $user['person_id'])) {
+            $parameterId = (int)$this->request->params['pass'][0];
+            if ($parameterId === $user['person_id']) {
                 return true;
             }
         }

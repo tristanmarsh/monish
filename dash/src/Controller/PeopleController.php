@@ -83,7 +83,7 @@ class PeopleController extends AppController
     public function isAuthorized($user)
     {
         // All registered users can add articles
-        if ($this->request->action === 'add' || $this->request->action === 'index') {
+        if ($this->request->action === 'index') {
             return true;
         }
 

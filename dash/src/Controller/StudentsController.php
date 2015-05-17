@@ -109,4 +109,15 @@ class StudentsController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    public function isAuthorized($user)
+    {
+        // All registered users can add articles
+        if ($this->request->action === 'index' || $this->request->action === 'edit') {
+            return true;
+        }
+
+        return parent::isAuthorized($user);
+    }
+
 }

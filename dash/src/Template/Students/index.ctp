@@ -1,23 +1,17 @@
-<!--<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Student'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Leases'), ['controller' => 'Leases', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Lease'), ['controller' => 'Leases', 'action' => 'add']) ?> </li>
-    </ul>
-</div>-->
-</div><!-- /.escape row -->
-</div><!-- /.escape content -->
-</div><!-- /.escape container -->
+<?php $currentlogged = $this->Session->read('Auth.User'); ?>
 
-<div class="col-sm-3 sidebar">
+<?php if ($currentlogged['role'] === "admin") : ?>
 
-    <?php echo $this->element('admin-sidebar'); ?>
-        
-</div>
-<div class="col-sm-9">
+    </div><!-- /.escape row -->
+    </div><!-- /.escape content -->
+    </div><!-- /.escape container -->
+
+    <div class="col-sm-3 sidebar">
+
+        <?php echo $this->element('admin-sidebar'); ?>
+
+    </div>
+    <div class="col-sm-9">
 
     <div class="content">
             <?php
@@ -75,5 +69,66 @@
 
     </div>
 
+<?php endif; ?>
 
+<?php if ($currentlogged['role'] === "tenant") : ?>
+
+    </div><!-- /.escape row -->
+    </div><!-- /.escape content -->
+    </div><!-- /.escape container -->
+
+    <div class="col-sm-3 sidebar">
+
+        <?php echo $this->element('tenant-sidebar'); ?>
+
+    </div>
+
+    <div class="col-sm-9">
+
+        <div class="content">
+
+        </div>
+
+    </div>
+
+    <div class="col-sm-9">
+
+    <div class="content">
+
+        <h1>Manage Internet Plan</h1>
+
+        <table cellpadding="0" cellspacing="0">
+
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Internet Plan</th>
+                    <th>Action</th>
+                </tr>
+
+            <?php foreach ($students as $student): ?>
+
+                <?php if ($student->person_id === $currentlogged['person_id']) : ?>
+                    <tr>
+                        <td>
+                            <?= $student->has('person') ? $this->Html->link($student->person->first_name, ['controller' => 'People', 'action' => 'view', $student->person->id]) : '' ?>
+                        </td>
+                        <td>
+                            <?= $student->internet_plan ?>
+                        </td>
+                        <td>
+                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $student->id]) ?>
+                        </td>
+                    </tr>
+                <?php endif; ?>
+
+            <?php endforeach; ?>
+
+            </table>
+
+    </div>
+
+    </div>
+
+<?php endif; ?>
 

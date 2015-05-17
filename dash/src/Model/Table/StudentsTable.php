@@ -69,4 +69,10 @@ class StudentsTable extends Table
         $rules->add($rules->existsIn(['person_id'], 'People'));
         return $rules;
     }
+
+    public function isOwnedBy($articleId, $userId)
+    {
+        return $this->exists(['id' => $articleId, 'id' => $userId]);
+    }
+
 }

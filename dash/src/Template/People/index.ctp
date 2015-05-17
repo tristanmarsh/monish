@@ -1,7 +1,7 @@
 <!-- File: src/Template/People/index.ctp -->
-<?php $user = $this->Session->read('Auth.User'); ?>
+<?php $currentlogged = $this->Session->read('Auth.User'); ?>
 
-<?php if ($user['role'] === "admin") : ?>
+<?php if ($currentlogged['role'] === "admin") : ?>
 
     </div><!-- /.escape row -->
     </div><!-- /.escape content -->
@@ -76,7 +76,7 @@
 
 <?php endif; ?>
 
-<?php if ($user['role'] === "tenant") : ?>
+<?php if ($currentlogged['role'] === "tenant") : ?>
 
     </div><!-- /.escape row -->
     </div><!-- /.escape content -->
@@ -115,39 +115,36 @@
         <!-- Here is where we iterate through our $articles query object, printing out article info -->
 
         <?php foreach ($users as $user): ?>
-            <tr>
-                <td>
-                    <?= $user->first_name ?>
-                </td>
-                <td>
-                    <?= $user->last_name ?>
-                </td>
-                <td>
-                    <?= $user->gender ?>
-                </td>
-                <td>
-                    <?= $user->phone ?>
-                </td>
-                <td>
-                    <?= $user->email ?>
-                </td>
-                <td>
-                    <?php if ($user['role'] === 'admin') // Admin cannot delete themselves (well they can, but they have to type the url in.)
-                    {echo $this->Html->link('Edit', ['action' => 'edit', $user->id]);}
-                    else
-                    {
-                        echo $this->Html->link('View', ['action' => 'view', $user->id]);
-                        echo " "; // this puts a space between Delete and View button
-                        echo $this->Form->postLink(
-                            'Delete',
-                            ['action' => 'delete', $user->id],
-                            ['confirm' => 'Are you sure?']);
-                        echo " "; // this puts a space between Delete and Edit button
-                        echo $this->Html->link('Edit', ['action' => 'edit', $user->id]);
-                    };
-                    ?>
-                </td>
-            </tr>
+            <?php if ($currentlogged['person_id'] === $user->id) : ?>
+                <tr>
+                    <td>
+                        <?= $user->first_name ?>
+                    </td>
+                    <td>
+                        <?= $user->last_name ?>
+                    </td>
+                    <td>
+                        <?= $user->gender ?>
+                    </td>
+                    <td>
+                        <?= $user->phone ?>
+                    </td>
+                    <td>
+                        <?= $user->email ?>
+                    </td>
+                    <td>
+                        <?php if ($user['role'] === 'admin') // Admin cannot delete themselves (well they can, but they have to type the url in.)
+                        {echo $this->Html->link('Edit', ['action' => 'edit', $user->id]);}
+                        else
+                        {
+                            echo $this->Html->link('View', ['action' => 'view', $user->id]);
+                            echo " "; // this puts a space between Edit and View button
+                            echo $this->Html->link('Edit', ['action' => 'edit', $user->id]);
+                        };
+                        ?>
+                    </td>
+                </tr>
+            <?php endif; ?>
         <?php endforeach; ?>
     </table>
 

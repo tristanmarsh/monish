@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2015 at 07:05 AM
+-- Generation Time: May 19, 2015 at 04:00 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -83,7 +83,14 @@ CREATE TABLE IF NOT EXISTS `leases` (
   KEY `student_id` (`student_id`),
   KEY `property_id` (`property_id`),
   KEY `property_id_2` (`property_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `leases`
+--
+
+INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`, `date_end`, `weekly_price`) VALUES
+(4, 1, 1, 6, '2015-05-19', '2015-05-19', 200);
 
 -- --------------------------------------------------------
 

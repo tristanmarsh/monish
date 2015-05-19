@@ -58,8 +58,6 @@ class LeasesTable extends Table
             ->add('date_end', 'valid', ['rule' => 'date'])
             ->requirePresence('date_end', 'create')
             ->notEmpty('date_end')
-            ->requirePresence('lease_status', 'create')
-            ->notEmpty('lease_status')
             ->add('weekly_price', 'valid', ['rule' => 'numeric'])
             ->requirePresence('weekly_price', 'create')
             ->notEmpty('weekly_price');

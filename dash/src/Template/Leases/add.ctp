@@ -3,7 +3,7 @@
     <fieldset>
         <legend><?= __('Add Lease') ?></legend>
         <?php
-            echo $this->Form->input('properties_id', ['options' => $properties]);
+            echo $this->Form->input('property_id', ['options' => $properties]);
             echo $this->Form->input('room_id', ['options' => $rooms]);
             echo $this->Form->input('student_id', ['options' => $students]);
             echo $this->Form->input('date_start');

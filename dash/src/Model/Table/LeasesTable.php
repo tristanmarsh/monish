@@ -60,7 +60,10 @@ class LeasesTable extends Table
             ->notEmpty('date_end')
             ->add('weekly_price', 'valid', ['rule' => 'numeric'])
             ->requirePresence('weekly_price', 'create')
-            ->notEmpty('weekly_price');
+            ->notEmpty('weekly_price')
+			->notEmpty('property_id')
+			->notEmpty('room_id')
+			->notEmpty('student_id');
 
         return $validator;
     }

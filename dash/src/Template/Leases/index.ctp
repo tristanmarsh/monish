@@ -11,7 +11,7 @@
 
     <div class="content">
 
-            <br>
+            <h3>Manage Leases</h3>
             <?= $this->Html->link(__('Add New Lease'), ['action' => 'add']) ?>
             <span style="float:right"><?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
             <table cellpadding="0" cellspacing="0">

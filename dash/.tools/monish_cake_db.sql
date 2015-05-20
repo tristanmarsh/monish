@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2015 at 04:00 PM
+-- Generation Time: May 20, 2015 at 10:15 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -234,7 +234,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` int(11) NOT NULL,
   `emergency_id` int(11) DEFAULT NULL,
-  `internet_plan` enum('NONE','BASIC','STANDARD','PREMIUM') DEFAULT NULL,
+  `internet_plan` enum('FREE','BASIC','STANDARD','PREMIUM') DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `person_id` (`person_id`),
   KEY `emergency_id` (`emergency_id`)

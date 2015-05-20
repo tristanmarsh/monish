@@ -124,7 +124,36 @@
 
             <?php endforeach; ?>
 
-            </table>
+		</table>
+		
+		Available Internet Plans
+		<table>
+			<tr>
+				<th>Type</th>
+				<th>Data</th>
+				<th>Price</th>
+			</tr>
+			<tr>				
+				<td>Free</td>
+				<td>1 Gigabyte / Month</td>
+				<td>Free (Speed is limited)</td>
+			</tr>
+			<tr>				
+				<td>Basic</td>
+				<td>50 Gigabyte / Month</td>
+				<td>$30 / Month</td>
+			</tr>
+			<tr>				
+				<td>Standard</td>
+				<td>80 Gigabyte / Month</td>
+				<td>$55 / Month</td>
+			</tr>
+			<tr>				
+				<td>Premium</td>
+				<td>120 Gigabyte / Month</td>
+				<td>$120 / Month</td>
+			</tr>
+		</table>
 
     </div>
 

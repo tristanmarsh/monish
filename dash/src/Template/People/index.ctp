@@ -47,12 +47,10 @@
                     <?= $user->email ?>
                 </td>
                 <td>
-                    <?php if ($user['role'] === 'admin') // Admin cannot delete themselves (well they can, but they have to type the url in.)
+                    <?php if ($user['id'] == '1') // Admin cannot delete themselves (well they can, but they have to type the url in.)
                     {echo $this->Html->link('Edit', ['action' => 'edit', $user->id]);}
                     else
                     {
-                        echo $this->Html->link('View', ['action' => 'view', $user->id]);
-                        echo " "; // this puts a space between Delete and View button
                         echo $this->Form->postLink(
                         'Delete',
                         ['action' => 'delete', $user->id],

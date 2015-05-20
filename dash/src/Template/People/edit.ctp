@@ -4,7 +4,7 @@
 
 <?php if ($currentlogged['role'] === "admin") : ?>
 
-    <h1>Update User</h1>
+    <h1>Update Person</h1>
     <?php
 
         echo $this->Form->create($user);

@@ -6,7 +6,8 @@
             <table cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('room_id') ?></th>
+                    <th><?= $this->Paginator->sort('property_id') ?></th>
+					<th><?= $this->Paginator->sort('room_id') ?></th>
                     <th><?= $this->Paginator->sort('student_id') ?></th>
                     <th><?= $this->Paginator->sort('date_start') ?></th>
                     <th><?= $this->Paginator->sort('date_end') ?></th>
@@ -18,6 +19,9 @@
             <?php foreach ($leases as $lease): ?>
                 <tr>
                     <td>
+                        <?= $lease->has('room') ? $this->Html->link($lease->property->address, ['controller' => 'Properties', 'action' => 'view', $lease->property->id]) : '' ?>
+                    </td>
+					<td>
                         <?= $lease->has('room') ? $this->Html->link($lease->room->room_name, ['controller' => 'Rooms', 'action' => 'view', $lease->room->id]) : '' ?>
                     </td>
                     <td>

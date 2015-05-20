@@ -20,7 +20,7 @@ class LeasesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Rooms', 'Students']
+            'contain' => ['Rooms', 'Students', 'Properties']
         ];
         $this->set('leases', $this->paginate($this->Leases));
         $this->set('_serialize', ['leases']);

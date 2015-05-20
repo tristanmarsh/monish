@@ -95,7 +95,7 @@
 
     <div class="content">
 
-        <h1>Manage Internet Plan</h1>
+        <h3>Manage Internet Plan</h3>
 
         <table cellpadding="0" cellspacing="0">
 

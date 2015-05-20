@@ -111,7 +111,7 @@
                 <?php if ($student->person_id === $currentlogged['person_id']) : ?>
                     <tr>
                         <td>
-                            <?= $student->has('person') ? $this->Html->link($student->person->first_name, ['controller' => 'People', 'action' => 'view', $student->person->id]) : '' ?>
+                            <?= $student->person->first_name ?>
                         </td>
                         <td>
                             <?= $student->internet_plan ?>

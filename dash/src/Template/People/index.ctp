@@ -3,17 +3,7 @@
 
 <?php if ($currentlogged['role'] === "admin") : ?>
 
-    </div><!-- /.escape row -->
-    </div><!-- /.escape content -->
-    </div><!-- /.escape container -->
-    <div class="col-sm-3 sidebar">
 
-        <?php echo $this->element('admin-sidebar'); ?>
-
-    </div>
-    <div class="col-sm-9">
-
-        <div class="content">
         <h3>Manage People</h3>
     <?= $this->Html->link('Add Person', ['action' => 'add']) ?>
     <span style="float:right"><?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
@@ -76,29 +66,11 @@
 
 <?php if ($currentlogged['role'] === "tenant") : ?>
 
-    </div><!-- /.escape row -->
-    </div><!-- /.escape content -->
-    </div><!-- /.escape container -->
 
-    <div class="col-sm-3 sidebar">
-
-        <?php echo $this->element('tenant-sidebar'); ?>
-
-    </div>
-
-    <div class="col-sm-9">
-
-        <div class="content">
 
             <h3>Manage Personal Details</h3>
 
-        </div>
 
-    </div>
-
-    <div class="col-sm-9">
-
-    <div class="content">
 
     <table>
         <tr>

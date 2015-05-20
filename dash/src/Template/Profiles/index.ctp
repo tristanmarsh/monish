@@ -1,17 +1,5 @@
 <?php $user = $this->Session->read('Auth.User'); ?>
-</div><!-- /.escape row -->
-</div><!-- /.escape content -->
-</div><!-- /.escape container -->
 
-	<div class="col-sm-3 sidebar">
-
-		<?php echo $this->element('tenant-sidebar'); ?>
-		
-	</div>
-
-	<div class="col-sm-9">
-
-		<div class="content">
 
 			<h3>
 				<?php echo $user['first_name'].nl2br("\n").$user['last_name']; ?>
@@ -30,9 +18,7 @@
 				<?php echo " ".$user['email']; ?>
 				<u><?php echo nl2br("\nEnd Lease Date:"); ?></u>
 
-		</div>
 
-	</div>
 <p>
 
 

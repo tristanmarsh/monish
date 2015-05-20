@@ -1,15 +1,4 @@
-</div><!-- /.escape row -->
-</div><!-- /.escape content -->
-</div><!-- /.escape container -->
 
-<div class="col-sm-3 sidebar">
-
-    <?php echo $this->element('admin-sidebar'); ?>
-        
-</div>
-<div class="col-sm-9">
-
-    <div class="content">
 
             <h3>Manage Leases</h3>
             <?= $this->Html->link(__('Add New Lease'), ['action' => 'add']) ?>
@@ -61,6 +50,4 @@
                 echo $this->Html->link('Dashboard', ['controller' => '', 'action' => 'index']);
                 ?>
             </p>
-        </div>
-
-    </div>
+ 

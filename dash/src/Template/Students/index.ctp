@@ -2,18 +2,7 @@
 
 <?php if ($currentlogged['role'] === "admin") : ?>
 
-    </div><!-- /.escape row -->
-    </div><!-- /.escape content -->
-    </div><!-- /.escape container -->
 
-    <div class="col-sm-3 sidebar">
-
-        <?php echo $this->element('admin-sidebar'); ?>
-
-    </div>
-    <div class="col-sm-9">
-
-    <div class="content">
             <?php
                 $this->Html->addCrumb('Users', '/users');
                 $this->Html->addCrumb('Add User', array('controller' => 'users', 'action' => 'add'));
@@ -65,35 +54,15 @@
                 echo $this->Html->link('Dashboard', ['controller' => '', 'action' => 'index']);
                 ?>
             </p>
-                 </div>
 
-    </div>
 
 <?php endif; ?>
 
 <?php if ($currentlogged['role'] === "tenant") : ?>
 
-    </div><!-- /.escape row -->
-    </div><!-- /.escape content -->
-    </div><!-- /.escape container -->
 
-    <div class="col-sm-3 sidebar">
 
-        <?php echo $this->element('tenant-sidebar'); ?>
 
-    </div>
-
-    <div class="col-sm-9">
-
-        <div class="content">
-
-        </div>
-
-    </div>
-
-    <div class="col-sm-9">
-
-    <div class="content">
 
         <h3>Manage Internet Plan</h3>
 
@@ -155,9 +124,7 @@
 			</tr>
 		</table>
 
-    </div>
 
-    </div>
 
 <?php endif; ?>
 

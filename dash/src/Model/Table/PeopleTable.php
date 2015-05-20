@@ -24,10 +24,19 @@ class PeopleTable extends Table
         ]);
     }
 	
+	public function validationDefault(Validator $validator)
+    {
+        return $validator
+            ->notEmpty('first_name', 'A first name is required')
+            ->notEmpty('last_name', 'A last name is required')
+			->notEmpty('gender', 'A gender is required')
+            ->notEmpty('phone', 'A phone number is required')
+            ->notEmpty('email', 'An email is required');
+    }
+	
 	public function buildRules(RulesChecker $rules)
 	{
         $rules->add($rules->isUnique(['email'], 'This email is already registered'));
-        $rules->add($rules->isUnique(['username'], 'This username is already registered'));
 		return $rules;
 	}
 

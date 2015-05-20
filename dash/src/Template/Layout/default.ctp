@@ -197,11 +197,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
             <?php endif; ?>
 
+               <div class="container">
+
             <div class="col-sm-9">
 
                 <div class="content">
 
-    <div class="container">
+ 
 
         <div id="content">
             <?= $this->Flash->render() ?>

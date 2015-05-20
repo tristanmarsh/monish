@@ -38,7 +38,7 @@
 
     <p>
 
-    You can manage the database with the buttons on the left:<br>
+    You can manage the detail and add request with the buttons on the left:<br>
 
     </p>
 

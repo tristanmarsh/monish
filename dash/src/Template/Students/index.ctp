@@ -82,6 +82,7 @@
                     <tr>
                         <td>
                             <?= $student->person->first_name ?>
+							<?= $student->person->last_name ?>
                         </td>
                         <td>
                             <?= $student->internet_plan ?>

@@ -14,7 +14,7 @@
     <div class="col-sm-9">
 
         <div class="content">
-        <h1>Manage People</h1>
+        <h3>Manage People</h3>
     <?= $this->Html->link('Add Person', ['action' => 'add']) ?>
     <span style="float:right"><?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
     <table>

@@ -25,12 +25,13 @@
                 <tr>
                     <!--<td><?= $this->Number->format($student->id) ?></td>-->
                     <td>
-						<?= $student->person->first_name ?>
-					</td>
+                        <?= $student->has('person') ? $this->Html->link(, ['controller' => 'People', 'action' => 'view', $student->person->id]) : '' ?>
+                    </td>
                     <td>
                         <?= $student->internet_plan ?>
                     </td>
                     <td class="actions">
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $student->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $student->id]) ?>
                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $student->id], ['confirm' => __('Are you sure you want to delete # {0}?', $student->id)]) ?>
                     </td>

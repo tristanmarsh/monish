@@ -20,7 +20,8 @@ class RequestsTable extends Table
     {
         $validator
             ->notEmpty('title')
-            ->notEmpty('description');
+            ->notEmpty('category')
+			->notEmpty('description');
 
         return $validator;
     }

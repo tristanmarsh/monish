@@ -1,6 +1,6 @@
 <!-- File: src/Template/Articles/add.ctp -->
 
-<h1>Request</h1>
+<h1>New Request</h1>
 <?php
     // note $this->Form->create() generates <form method="post" action="/articles/add">
     echo $this->Form->create($zebra);

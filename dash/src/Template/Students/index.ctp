@@ -25,8 +25,8 @@
                 <tr>
                     <!--<td><?= $this->Number->format($student->id) ?></td>-->
                     <td>
-                        <?= $student->has('person') ? $this->Html->link($student->person->first_name, ['controller' => 'People', 'action' => 'view', $student->person->id]) : '' ?>
-                    </td>
+						<?= $student->person->first_name ?>
+					</td>
                     <td>
                         <?= $student->internet_plan ?>
                     </td>

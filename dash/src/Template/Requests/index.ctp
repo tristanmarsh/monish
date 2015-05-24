@@ -1,19 +1,15 @@
 <!-- File: src/Template/Requests/index.ctp -->
 <?php $user = $this->Session->read('Auth.User'); ?>
 
-
-
-
-
-
-
         <h3>List of Requests</h3>
         <?= $this->Html->link('Add Request', ['action' => 'add']) ?>
         <span style="float:right"><?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
+
         <table>
             <tr>
                 <th>Title</th>
         		<th>Category</th>
+                <th>Property</th>
                 <th>Created</th>
         		<th>Modified</th>
                 <th>Action</th>
@@ -29,7 +25,10 @@
                     <?= $this->Html->link($article->title, ['action' => 'view', $article->id]) ?>
                 </td>
         		<td>
-                    <?= $this->Html->link($article->category, ['action' => 'view', $article->id]) ?>
+                    <?= $article->category ?>
+                </td>
+                <td>
+                    <?= $article->property_address ?>
                 </td>
                 <td>
                     <?= $article->created->format('d M Y H:i:s') ?>
@@ -56,12 +55,6 @@
             
             <?php endforeach; ?>
         </table>
-
-
-<p>
-
-
-</p>
 
 
 

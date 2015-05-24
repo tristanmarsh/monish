@@ -21,7 +21,8 @@ class RequestsTable extends Table
         $validator
             ->notEmpty('title')
             ->notEmpty('category')
-			->notEmpty('description');
+			->notEmpty('description')
+            ->notEmpty('property_address');
 
         return $validator;
     }

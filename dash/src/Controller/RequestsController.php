@@ -36,6 +36,8 @@ class RequestsController extends AppController
         //$article = $this->Articles->get($id);
         //$this->set(compact('article'));
 
+        $this->loadModel('People');
+
         //my take on how to do this (like the index())
         $this->set('giraffe', $this->Requests->get($id));
 		
@@ -43,6 +45,8 @@ class RequestsController extends AppController
             'contain' => ['Users']
         ]);
 		$this->set(compact('lion'));
+        $test = $this->People->get($lion->user->person_id);
+        $this->set(compact('test'));
     }
 
     public function add()
@@ -61,6 +65,10 @@ class RequestsController extends AppController
             $this->Flash->error(__('Unable submit your request.'));
         }
         $this->set('zebra', $zebra);
+
+        $this->loadModel('Properties');
+        $addresses = $this->Properties->find('list', ['keyField' => 'address', 'valueField' => 'address']);
+        $this->set('addresses', $addresses);
     }
 
     public function edit($id = null)
@@ -75,6 +83,10 @@ class RequestsController extends AppController
             $this->Flash->error(__('Unable to update your request.'));
         }
         $this->set('lion', $lion);
+
+        $this->loadModel('Properties');
+        $addresses = $this->Properties->find('list', ['keyField' => 'address', 'valueField' => 'address']);
+        $this->set('addresses', $addresses);
     }
 
     public function delete($id)

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2015 at 10:15 AM
+-- Generation Time: May 24, 2015 at 02:44 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -174,25 +174,26 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `modified` datetime DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `category` enum('GENERAL','MAINTENANCE','INTERNET','LEASE') NOT NULL,
+  `property_address` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `user_id`, `category`) VALUES
-(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-04-13 14:52:35', 36, 'MAINTENANCE'),
-(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-04-13 14:52:26', 28, 'MAINTENANCE'),
-(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-04-13 14:53:50', 29, 'MAINTENANCE'),
-(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-04-13 15:18:31', 36, 'MAINTENANCE'),
-(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 28, 'MAINTENANCE'),
-(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-04-16 05:25:43', 28, 'MAINTENANCE'),
-(15, 'Broken dong', 'donger is broken ', '2015-04-22 10:57:33', '2015-04-22 10:57:33', 29, 'MAINTENANCE'),
-(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-04-25 09:33:29', 30, 'MAINTENANCE'),
-(17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-05-14 04:50:05', 36, 'GENERAL'),
-(18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-14 04:49:49', 36, 'INTERNET'),
-(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-14 04:49:37', 36, 'LEASE');
+INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `user_id`, `category`, `property_address`) VALUES
+(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-05-24 12:43:19', 36, 'MAINTENANCE', '100 one street'),
+(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-05-24 12:43:24', 35, 'MAINTENANCE', '100 one street'),
+(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-05-24 12:43:29', 37, 'MAINTENANCE', '200 two street'),
+(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-05-24 12:43:34', 36, 'MAINTENANCE', '300 three street'),
+(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-05-24 12:43:40', 35, 'MAINTENANCE', '200 two street'),
+(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-05-24 12:43:45', 36, 'MAINTENANCE', '100 one street'),
+(15, 'Broken dong', 'donger is broken ', '2015-04-22 10:57:33', '2015-05-24 12:43:51', 37, 'MAINTENANCE', '300 three street'),
+(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-05-24 12:43:57', 35, 'MAINTENANCE', '300 three street'),
+(17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-05-24 12:44:03', 36, 'GENERAL', '200 two street'),
+(18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-24 12:44:08', 36, 'INTERNET', '100 one street'),
+(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-24 12:44:15', 36, 'LEASE', '200 two street');
 
 -- --------------------------------------------------------
 

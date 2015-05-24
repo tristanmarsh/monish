@@ -49,7 +49,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <header>
 
         <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container">
+          <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -129,15 +129,32 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
             <?php endif ?>
 
-
         </li>
     </ul>
 
-
-</div><!-- /.navbar-collapse -->
-</div><!-- /.container-fluid -->
 </nav>
-<div class="container">
+
+
+<div class="container-fluid">
+
+    <div class="sidebar">
+   
+        <?php if ($user['role'] === "admin") : ?>
+
+            <?php echo $this->element('admin-sidebar'); ?>
+
+        <?php elseif ($user['role'] === "tenant") : ?>
+
+            <?php echo $this->element('tenant-sidebar'); ?>
+      
+        <?php endif; ?>
+
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
     
     <div class="page-header">
         <span><?= $this->fetch('title') ?></span> 
@@ -153,42 +170,23 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 </header>
 
-</div><!-- /.escape row -->
-</div><!-- /.escape content -->
-</div><!-- /.escape container -->
-
 <div class="container-fluid">
 
-    <div class="col-sm-3 col-md-2 col-lg-2 sidebar">
-   
-        <?php if ($user['role'] === "admin") : ?>
-
-            <?php echo $this->element('admin-sidebar'); ?>
-
-        <?php elseif ($user['role'] === "tenant") : ?>
-
-            <?php echo $this->element('tenant-sidebar'); ?>
-      
-        <?php endif; ?>
-
-    </div>
-
-    <div class="col-sm-9 col-md-10 col-lg-10">
-
-        <div class="content">
-
-
+    <div class="content">
 
             <div id="content">
+
                 <?= $this->Flash->render() ?>
 
                 <div class="row">
                     <?= $this->fetch('content') ?>
                 </div>
+
             </div>
-        </div>
 
     </div>
+</div>
+
 
     <footer>
     </footer>

@@ -1,73 +1,80 @@
 /*
-Name:		Custom.SCSS
-Author:		Team Dash
-Author URI:	http://wiki.tristanmarsh.net/dash/
-Purpose:	All custom styling for the Monish Dashboard
-Since:		29/4/15
+Name:   Custom.SCSS
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  All custom styling for the Monish Dashboard
+Since:    29/4/15
 
 */
 
 
-// @import ('')
+@import 'override.scss';
 
 
 // #### GLOBAL ####
 
 a {color:#76AADB;}
 
+body {padding-top:50px;}
+
 // #### HEADER ####
 header {
-	height: auto;
-	padding-top: 0;
-	background-color: #76AADB;
+  height: auto;
+  padding-top: 0;
+  background-color: #76AADB;
 
-	.page-header {
-		margin-top:0;
-	}
+  .page-header {
+    margin-top:0;
+  }
 }
 
 .navbar-image img {
-	max-width: 100%;
-	height: 40px!important;
+  max-width: 100%;
+  height: 40px!important;
 }
 
 .breadcrumb {
-	// display:none;
-	margin-left:0;
+  // display:none;
+  margin-left:0;
 }
 
 // #### NAVBAR ####
 
 .navbar {
-	position: static;
+  position:absolute;
+  top:0;
 
-	.navbar-brand {
-		padding:5px;
-	}
+  .navbar-brand {
+    padding:5px;
+  }
 }
 
 
 // #### CONTENT ####
 
+.container-fluid {position:relative;}
+
 
 // #### SIDEBAR ####
 .sidebar {
-  display: block;
-  height:100%;
+  display:none;
+  left:0;
+  top:0;
+  padding-left:0;
+  height:100vh;
   z-index: 1000;
   overflow-x: hidden;
-  overflow-y: auto;
   padding: 0;
   background-color: #f5f5f5;
   border-right: 1px solid #eee;
 
-	.nav-sidebar {
+  .nav-sidebar {
   margin-left:0;
-	}
+  }
 
-	li a {
-	  padding: 15px;
-	}
+  li a {
+    padding: 15px;
+  }
 
 }
 

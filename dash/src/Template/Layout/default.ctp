@@ -49,7 +49,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-		
+
 		<div class="container-fluid">
 
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -107,11 +107,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 				</ul>
 
-			</div>
-		</div>	
+			</div><!-- /.collapse -->
+
+		</div><!-- /.container-fluid -->
+		
 	</nav>
 
-
+	<!-- Retrieve correct sidebar -->
 	<div class="col-sm-2 col-md-2 sidebar hidden-xs">
 
 	<?php if ($user['role'] === "admin") : ?>

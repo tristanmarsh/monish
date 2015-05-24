@@ -511,6 +511,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/dash\/src\/Template\/Element\/sidebar.ctp": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/dash\/src\/Template\/Element\/sidebar.ctp",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/dash\/src\/Template\/Element\/tenant-sidebar.ctp": {
 		"fileType": 8192,
 		"ignore": 0,

@@ -83,5 +83,9 @@ header .page-header {
 .sidebar li a {
   padding: 15px;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/custom\.scss}line{font-family:\0000381}}
+.sidebar .glyphicon {
+  display: none;
+}
 
 /*# sourceMappingURL=custom.css.map */

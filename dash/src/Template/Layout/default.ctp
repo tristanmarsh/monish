@@ -19,177 +19,161 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <!DOCTYPE html>
 <html>
 <head>
-    <?= $this->Html->charset() ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
-    <?= $this->Html->meta('icon') ?>
+	<?= $this->Html->charset() ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		<?= $cakeDescription ?>:
+		<?= $this->fetch('title') ?>
+	</title>
+	<?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('bootstrap.min.css') ?>
-    <?= $this->Html->css('bootstrap-theme.min.css') ?>
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
-    <?= $this->Html->css('custom.css') ?>
+	<?= $this->Html->css('bootstrap.min.css') ?>
+	<?= $this->Html->css('bootstrap-theme.min.css') ?>
+	<?= $this->Html->css('base.css') ?>
+	<?= $this->Html->css('cake.css') ?>
+	<?= $this->Html->css('custom.css') ?>
 
-    <?= $this->Html->css('bootstrap.min.css') ?>
-    <?= $this->Html->css('bootstrap-theme.min.css') ?>
+	<?= $this->Html->css('bootstrap.min.css') ?>
+	<?= $this->Html->css('bootstrap-theme.min.css') ?>
 
-    <?= $this->Html->script('jquery-2.1.3.min.js') ?>
-    <?= $this->Html->script('bootstrap.min.js') ?>
+	<?= $this->Html->script('jquery-2.1.3.min.js') ?>
+	<?= $this->Html->script('bootstrap.min.js') ?>
 
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+	<?= $this->fetch('meta') ?>
+	<?= $this->fetch('css') ?>
+	<?= $this->fetch('script') ?>
 
 
 </head>
+
 <body>
-    <header>
 
-        <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">
-                <div class="navbar-image">
-                    <?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
-                    Monash ISH Dashboard
-                </div>
-            </a>
-        </div>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		
+		<div class="container-fluid">
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Link</a></li>
-        </ul>
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">
+				  <div class="navbar-image">
+					<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
+					<span>Monash ISH Dashboard<span>
+				  </div>
+				</a>
+			</div>
 
-<!--               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				
+				<ul class="nav navbar-nav">
+					<li class="active visible-xs"><a href="#">Link<span class="sr-only">(current)</span></a></li>
+					<li class="visible-xs"><a href="#">Link</a></li>
+				</ul>
 
-                <?php if ($this->Session->read('Auth.User')) : ?>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                    <?php 
-                        echo $user['username']; ?>
-                <?php endif; ?>
-                
-                    <span class="caret"></span></a>
+				<ul class="nav navbar-nav navbar-right">
+					
+					<!-- User logged in -->
+					<?php if ($this->Session->read('Auth.User')) : ?>
+						<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+							<?php echo $user['username']; ?>
+							<span class="caret"></span>
+						</a>
 
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
+						<ul class="dropdown-menu" role="menu">
+							
+							<li><?= $this->Html->link('My Profile', ['controller' => 'people', 'action' => 'index']) ?></li>
+							
+							<li class="divider"></li>
+							
+							<li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
 
-                </li>
-            </ul>       -->        
+						</ul>
 
-            <ul class="nav navbar-nav navbar-right">
+					<?php endif ?>                
 
-                <?php if ($this->Session->read('Auth.User')) : ?>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                    <?php endif ?>
+					<!-- User not logged in -->
+					<?php if (!$this->Session->read('Auth.User')) : ?>
 
-                    <?php echo $user['username']; ?>
+						<li><?= $this->Html->link(__('Login'), ['controller' => 'Users', 'action' => 'login']) ?></li>
 
-                    <?php if ($this->Session->read('Auth.User')) : ?>
-                    
-                    <span class="caret"></span></a>
+					<?php endif ?>
 
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <?= $this->Html->link('My Profile', ['controller' => 'people', 'action' => 'index']) ?>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?>
-                        </li>
-                    </ul>
+				</ul>
 
-                <?php endif ?>                
-
-                <?php if (!$this->Session->read('Auth.User')) : ?>
-
-                <li>
-                    <?= $this->Html->link(__('Login'), ['controller' => 'Users', 'action' => 'login']) ?>
-                </li>
-
-            <?php endif ?>
-
-        </li>
-    </ul>
-
-</nav>
+			</div>
+		</div>	
+	</nav>
 
 
-<div class="container-fluid">
+	<div class="col-sm-2 col-md-2 sidebar hidden-xs">
 
-    <div class="sidebar">
-   
-        <?php if ($user['role'] === "admin") : ?>
+	<?php if ($user['role'] === "admin") : ?>
 
-            <?php echo $this->element('admin-sidebar'); ?>
+		<?php echo $this->element('admin-sidebar'); ?>
 
-        <?php elseif ($user['role'] === "tenant") : ?>
+	<?php elseif ($user['role'] === "tenant") : ?>
 
-            <?php echo $this->element('tenant-sidebar'); ?>
-      
-        <?php endif; ?>
+		<?php echo $this->element('tenant-sidebar'); ?>
+  
+	<?php endif; ?>
 
-    </div>
-</div>
+	</div>
+
+	<div class="row">
+
+		<div class="col-sm-10 col-sm-offset-2 main-content">
+
+			<div class="row">
+
+				<header>
+					<div class="container-fluid">
+						
+						<div class="page-header">
+							<span><?= $this->fetch('title') ?></span> 
+						</div>
+
+						<ol class="breadcrumb">
+							<?= $this->Html->getCrumbs(' > ', 'Home') ?>
+						</ol>
+
+					</div>
+				</header>
+
+			</div>
+
+			<div class="container-fluid">
+
+				<div class="content">
+
+					<div id="content">
+
+						<?= $this->Flash->render() ?>
+
+						<div class="row">
+							<?= $this->fetch('content') ?>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+			<footer>
+				<?php echo $this->element('footer'); ?>
+			</footer>
+
+		</div>
+	</div>
 
 
 
-<div class="container-fluid">
-    
-    <div class="page-header">
-        <span><?= $this->fetch('title') ?></span> 
-    </div>
 
-    <ol class="breadcrumb">
-        <?= $this->Html->getCrumbs(' > ', 'Home') ?>
-    </ol>
-
-</div>
-
-
-
-</header>
-
-<div class="container-fluid">
-
-    <div class="content">
-
-            <div id="content">
-
-                <?= $this->Flash->render() ?>
-
-                <div class="row">
-                    <?= $this->fetch('content') ?>
-                </div>
-
-            </div>
-
-    </div>
-</div>
-
-
-    <footer>
-    </footer>
-</div>
 </body>
 </html>

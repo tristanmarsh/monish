@@ -3,6 +3,7 @@ Name:   Custom.SCSS
 Author:   Team Dash
 Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  All custom styling for the Monish Dashboard
+Note:     Remeber mobile first methodology when styling
 Since:    29/4/15
 
 */
@@ -10,12 +11,13 @@ Since:    29/4/15
 
 @import 'override.scss';
 
+body {
+  background: #C4E7EC;
+}
 
 // #### GLOBAL ####
 
 a {color:#76AADB;}
-
-body {padding-top:50px;}
 
 // #### HEADER ####
 header {
@@ -34,15 +36,16 @@ header {
 }
 
 .breadcrumb {
-  // display:none;
+  display:none;
   margin-left:0;
 }
 
 // #### NAVBAR ####
 
 .navbar {
-  position:absolute;
-  top:0;
+  
+  position:static;
+  margin-bottom:0;
 
   .navbar-brand {
     padding:5px;
@@ -52,14 +55,13 @@ header {
 
 // #### CONTENT ####
 
-.container-fluid {position:relative;}
-
 
 // #### SIDEBAR ####
+
+
 .sidebar {
-  display:none;
+  position: fixed;
   left:0;
-  top:0;
   padding-left:0;
   height:100vh;
   z-index: 1000;
@@ -79,22 +81,9 @@ header {
 }
 
 
-
 // #### CONTENT ####
 
 
 // #### CONTENT ####
-
-
-
-
-
-
-
-
-
-
-
-
 
 

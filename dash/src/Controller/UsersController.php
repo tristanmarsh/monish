@@ -96,6 +96,10 @@ class UsersController extends AppController
             $this->Flash->error(__('Unable to update this user.'));
         }
         $this->set('user', $user);
+
+        //finds the list of people in the people's table
+        $people = $this->Users->People->find('list', ['limit' => 200]);
+        $this->set(compact('people'));
     }
 
 }

@@ -20,6 +20,10 @@ header {
 	height: auto;
 	padding-top: 0;
 	background-color: #76AADB;
+
+	.page-header {
+		margin-top:0;
+	}
 }
 
 .navbar-image img {
@@ -28,7 +32,8 @@ header {
 }
 
 .breadcrumb {
-	display:none;
+	// display:none;
+	margin-left:0;
 }
 
 // #### NAVBAR ####
@@ -47,8 +52,9 @@ header {
 
 // #### SIDEBAR ####
 .sidebar {
-  z-index: 1000;
   display: block;
+  height:100%;
+  z-index: 1000;
   overflow-x: hidden;
   overflow-y: auto;
   padding: 0;

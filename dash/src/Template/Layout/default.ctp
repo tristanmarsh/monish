@@ -57,33 +57,21 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">
+            </button>
+            <a class="navbar-brand" href="#">
                 <div class="navbar-image">
                     <?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
-                    Dash
-                    </div>
-                </a>
-            </div>
+                    Monash ISH Dashboard
+                </div>
+            </a>
+        </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Link</a></li>
+        </ul>
 
 <!--               <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Link</a></li>
@@ -106,118 +94,104 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                   </ul>
 
                 </li>
-              </ul>       -->        
+            </ul>       -->        
 
-              <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">
 
                 <?php if ($this->Session->read('Auth.User')) : ?>
-                    <li class="dropdown">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                <?php endif ?>
+                    <?php endif ?>
 
-                <?php echo $user['username']; ?>
+                    <?php echo $user['username']; ?>
 
                     <?php if ($this->Session->read('Auth.User')) : ?>
                     
                     <span class="caret"></span></a>
 
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li>
-                    <?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?>
-                    </li>
-                  </ul>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <?= $this->Html->link('My Profile', ['controller' => 'people', 'action' => 'index']) ?>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?>
+                        </li>
+                    </ul>
 
                 <?php endif ?>                
 
                 <?php if (!$this->Session->read('Auth.User')) : ?>
-                    
-                    <li>
+
+                <li>
                     <?= $this->Html->link(__('Login'), ['controller' => 'Users', 'action' => 'login']) ?>
-                    </li>
-
-                <?php endif ?>
-
-
                 </li>
-              </ul>
+
+            <?php endif ?>
 
 
-            </div><!-- /.navbar-collapse -->
-          </div><!-- /.container-fluid -->
-        </nav>
-        <div class="container">
-            <div class="page-header">
-                <span><?= $this->fetch('title') ?></span> 
-                <small>
-                <?php if ($this->Session->read('Auth.User'))
-                {
-                    echo "Logged in as ";
-                    echo $user['username'];
-                } 
-                ?>
-                </small>
-            </div>
-        </div>
+        </li>
+    </ul>
 
 
-        <ol class="breadcrumb">
-            <?= $this->Html->getCrumbs(' > ', 'Home') ?>
-        </ol>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+    
+    <div class="page-header">
+        <span><?= $this->fetch('title') ?></span> 
+    </div>
+
+    <ol class="breadcrumb">
+        <?= $this->Html->getCrumbs(' > ', 'Home') ?>
+    </ol>
+
+</div>
 
 
-    </header>
 
-            <?php if ($user['role'] === "admin") : ?>
-            </div><!-- /.escape row -->
-            </div><!-- /.escape content -->
-            </div><!-- /.escape container -->
+</header>
 
-            <div class="col-sm-3 sidebar">
+</div><!-- /.escape row -->
+</div><!-- /.escape content -->
+</div><!-- /.escape container -->
 
-                <?php echo $this->element('admin-sidebar'); ?>
-                    
-            </div>
+<div class="container-fluid">
 
-            <?php endif; ?>
+    <div class="col-sm-3 col-md-2 col-lg-2 sidebar">
+   
+        <?php if ($user['role'] === "admin") : ?>
 
-            <?php if ($user['role'] === "tenant") : ?>
-            </div><!-- /.escape row -->
-            </div><!-- /.escape content -->
-            </div><!-- /.escape container -->
+            <?php echo $this->element('admin-sidebar'); ?>
 
-            <div class="col-sm-3 sidebar">
+        <?php elseif ($user['role'] === "tenant") : ?>
 
-                <?php echo $this->element('tenant-sidebar'); ?>
-                    
-            </div>
+            <?php echo $this->element('tenant-sidebar'); ?>
+      
+        <?php endif; ?>
 
-            <?php endif; ?>
+    </div>
 
-               <div class="container">
+    <div class="col-sm-9 col-md-10 col-lg-10">
 
-            <div class="col-sm-9">
+        <div class="content">
 
-                <div class="content">
 
- 
 
-        <div id="content">
-            <?= $this->Flash->render() ?>
+            <div id="content">
+                <?= $this->Flash->render() ?>
 
-            <div class="row">
-                <?= $this->fetch('content') ?>
-            </div>
-        </div>
+                <div class="row">
+                    <?= $this->fetch('content') ?>
                 </div>
+            </div>
+        </div>
 
     </div>
-        
-        <footer>
-        </footer>
-    </div>
+
+    <footer>
+    </footer>
+</div>
 </body>
 </html>

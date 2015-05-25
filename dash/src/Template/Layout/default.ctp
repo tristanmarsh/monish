@@ -49,6 +49,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
 
 
+	<!-- User not logged in -->
+	<?php if (!$this->Session->read('Auth.User')) : ?>
+
+		<?php echo $this->element('login'); ?>
+
+	<?php else : ?>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 
@@ -81,31 +87,21 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 				<ul class="nav navbar-nav navbar-right">
 					
 					<!-- User logged in -->
-					<?php if ($this->Session->read('Auth.User')) : ?>
-						<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-							<?php echo $user['username']; ?>
-							<span class="caret"></span>
-						</a>
+					<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<?php echo $user['username']; ?>
+						<span class="caret"></span>
+					</a>
 
-						<ul class="dropdown-menu" role="menu">
-							
-							<li><?= $this->Html->link('My Profile', ['controller' => 'people', 'action' => 'index']) ?></li>
-							
-							<li class="divider"></li>
-							
-							<li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
+					<ul class="dropdown-menu" role="menu">
+						
+						<li><?= $this->Html->link('My Profile', ['controller' => 'people', 'action' => 'index']) ?></li>
+						
+						<li class="divider"></li>
+						
+						<li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
 
-						</ul>
-
-					<?php endif ?>                
-
-					<!-- User not logged in -->
-					<?php if (!$this->Session->read('Auth.User')) : ?>
-
-						<li><?= $this->Html->link(__('Login'), ['controller' => 'Users', 'action' => 'login']) ?></li>
-
-					<?php endif ?>
+					</ul>
 
 				</ul>
 
@@ -117,9 +113,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 	<!-- Retrieve correct sidebar -->
 	<div class="col-sm-2 col-md-2 sidebar hidden-xs">
-
+	
 		<?php echo $this->element('sidebar'); ?>
-		
+
 	</div>
 
 	<div class="row">
@@ -168,8 +164,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 		</div>
 	</div>
 
-
-
+	<?php endif; ?>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!-- File: src/Template/Users/login.ctp -->
+<!-- <!-- File: src/Template/Users/login.ctp -->
 <?php $user = $this->Session->read('Auth.User'); ?>
 
 <?php if (!$this->Session->read('Auth.User')) : ?>             			
@@ -42,4 +42,4 @@
 
     </p>
 
-<?php endif; ?>
+<?php endif; ?> -->

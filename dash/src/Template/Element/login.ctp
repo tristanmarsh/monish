@@ -1,8 +1,17 @@
 <!-- File: src/Template/Element/login.ctp -->
 
 
+
+
 <div class="container">
+
 	<div class="row">
+
+		<div class="col-sm-6 col-sm-offset-3 text-center">
+			<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
+			<div>Monash ISH Dashboard</div>
+		</div>
+
 		<div class="col-sm-6 col-sm-offset-3">
 			<?php if (!$this->Session->read('Auth.User')) : ?>             			
 			    <div class="users form">

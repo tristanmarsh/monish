@@ -48,6 +48,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <body>
 
+
+
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 
 		<div class="container-fluid">
@@ -116,16 +118,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<!-- Retrieve correct sidebar -->
 	<div class="col-sm-2 col-md-2 sidebar hidden-xs">
 
-	<?php if ($user['role'] === "admin") : ?>
-
-		<?php echo $this->element('admin-sidebar'); ?>
-
-	<?php elseif ($user['role'] === "tenant") : ?>
-
-		<?php echo $this->element('tenant-sidebar'); ?>
-  
-	<?php endif; ?>
-
+		<?php echo $this->element('sidebar'); ?>
+		
 	</div>
 
 	<div class="row">

@@ -1,5 +1,5 @@
 <!-- Doesn't work with the current query - undefined variable -->
-
+<?php $user = $this->Session->read('Auth.User'); ?>
 <ul class="nav nav-sidebar">
 
 	<?php if ($user['role'] === "admin") : ?>

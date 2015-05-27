@@ -39,10 +39,6 @@
 	    	<?= $this->Html->link('Rooms', ['controller' => 'rooms', 'action' => 'index']) ?>
 	    </li>
 	    
-	    <li>
-			<span class="glyphicon glyphicon-star"></span>
-	    	<span style="float:right"><?= $this->html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
-	    </li>
 
 	<?php elseif ($user['role'] === "tenant") : ?>
 

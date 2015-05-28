@@ -15,6 +15,7 @@ Since:    29/4/15
 
 body {
   background: #C4E7EC;
+  margin-top:50px;
 }
 
 // #### GLOBAL ####
@@ -27,7 +28,7 @@ header {
   padding-top: 0;
   background-color: #76AADB;
   margin-bottom:40px;
-  
+
 
   .page-header {
     margin-top:0;
@@ -47,8 +48,7 @@ header {
 // #### NAVBAR ####
 
 .navbar {
-  
-  position:static;
+  // position:static;
   margin-bottom:0;
 
   .navbar-brand {

@@ -48,7 +48,8 @@ footer {
     text-align: right; }
 
 body {
-  background: #C4E7EC; }
+  background: #C4E7EC;
+  margin-top: 50px; }
 
 a {
   color: #76AADB; }
@@ -70,7 +71,6 @@ header {
   margin-left: 0; }
 
 .navbar {
-  position: static;
   margin-bottom: 0; }
   .navbar .navbar-brand {
     padding: 5px; }

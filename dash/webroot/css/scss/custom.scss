@@ -10,6 +10,8 @@ Since:    29/4/15
 
 
 @import 'override.scss';
+@import 'footer.scss';
+
 
 body {
   background: #C4E7EC;
@@ -55,6 +57,12 @@ header {
 
 // #### CONTENT ####
 
+// holds the main view of the dashboard
+.main-content {
+  min-height:100vh;
+  padding-bottom:50px; //allow for footer
+}
+
 
 // #### SIDEBAR ####
 
@@ -67,18 +75,38 @@ header {
   z-index: 1000;
   overflow-x: hidden;
   padding: 0;
-  background-color: #f5f5f5;
-  border-right: 1px solid #eee;
+  // background-color: #f5f5f5;
+  background-color: #39536D;
+  // border-right: 1px solid #eee;
+  box-shadow:inset -10px 0 10px rgba(38, 56, 73, 0.5);
 
   .nav-sidebar {
   margin-left:0;
   }
 
-  li a {
+  li>a {
     padding: 15px;
+    color:#fff;
+    padding-left:50px;
+  }
+  
+  .nav>li:hover>a,
+  .nav>li:focus>a {
+    text-decoration: none;
+    background-color: #111920;
+    color:#3FBAE4;
   }
 
   .glyphicon {
+    display:block;
+    position:absolute;
+    padding:5px;
+    font-size:40px;
+  }
+
+  .nav>li:hover>.glyphicon,
+  .nav>li:focus>.glyphicon {
+    color:#76AADB;
     display:none;
   }
 

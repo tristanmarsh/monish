@@ -1,0 +1,43 @@
+/*
+Name:   footer.scss
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  All custom styling for the Monish Dashboard Footer
+Since:    28/5/15
+
+*/
+
+footer {
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+
+}
+
+.footer {
+  width:100%;
+  background:#76AADB;
+
+  .col-md-3 {
+    padding: 40px;
+
+  }
+
+  .col-md-3:nth-child(1) {
+    border:1px solid red;
+    text-align:left;
+  }
+
+  .col-md-3:nth-child(2) {
+    border:1px solid green;
+    text-align: center;
+  }
+
+  .col-md-3:nth-child(3) {
+    border:1px solid blue;
+    text-align: right;
+  }
+
+
+}

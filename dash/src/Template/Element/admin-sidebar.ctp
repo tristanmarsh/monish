@@ -33,6 +33,11 @@
 		<span class="glyphicon glyphicon-star"></span>
     	<?= $this->Html->link('Rooms', ['controller' => 'rooms', 'action' => 'index']) ?>
     </li>
+
+    <li>
+        <span class="glyphicon glyphicon-star"></span>
+        <?= $this->Html->link('Tests', ['controller' => 'tests', 'action' => 'index']) ?>
+    </li>
     
 </ul>
 

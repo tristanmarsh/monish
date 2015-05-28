@@ -30,11 +30,11 @@ class StudentsTable extends Table
 		$this->belongsTo('Emergencies', [
             'foreignKey' => 'emergency_id'
         ]);
-        $this->hasMany('EmergencyStudent', [
-            'foreignKey' => 'student_id'
-        ]);
         $this->hasMany('Leases', [
             'foreignKey' => 'student_id'
+        ]);
+        $this->belongsTo('People', [
+            'foreignKey' => 'person_id'
         ]);
     }
 
@@ -49,9 +49,8 @@ class StudentsTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
-            ->add('expected_grad_date', 'valid', ['rule' => 'date'])
-            ->requirePresence('expected_grad_date', 'create')
-            ->notEmpty('expected_grad_date');
+			->notEmpty('internet_plan')
+			->notEmpty('person_id');
             //->requirePresence('country_of_birth', 'create')
             //->notEmpty('country_of_birth');
 
@@ -67,7 +66,13 @@ class StudentsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['person_id'], 'Users'));
+        $rules->add($rules->existsIn(['person_id'], 'People'));
         return $rules;
     }
+
+    public function isOwnedBy($articleId, $userId)
+    {
+        return $this->exists(['id' => $articleId, 'id' => $userId]);
+    }
+
 }

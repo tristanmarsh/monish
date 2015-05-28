@@ -18,7 +18,7 @@ class StudentsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Users']
+            'contain' => ['Users', 'People']
         ];
         $this->set('students', $this->paginate($this->Students));
         $this->set('_serialize', ['students']);
@@ -34,13 +34,10 @@ class StudentsController extends AppController
     public function view($id = null)
     {
         $student = $this->Students->get($id, [
-            'contain' => ['Users', 'EmergencyStudent', 'Leases', 'Emergencies']
+            'contain' => ['Users', 'People', 'Leases', 'Emergencies']
         ]);
         $this->set('student', $student);
         $this->set('_serialize', ['student']);
-
-        $emergencyStudent = $this->Students->EmergencyStudent->find('all');
-        $this->set('emergencyStudent', $emergencyStudent);
     }
 
     /**
@@ -55,14 +52,15 @@ class StudentsController extends AppController
             $student = $this->Students->patchEntity($student, $this->request->data);
             if ($this->Students->save($student)) {
                 $this->Flash->success('The student has been saved.');
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'leases', 'action' => 'add']);
             } else {
                 $this->Flash->error('The student could not be saved. Please, try again.');
             }
         }
-        $user = $this->Students->Users->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'first_name']);
+        //the condition removes the Person with id = 1 from the drop down list (which is Tony Wise)
+        $person = $this->Students->People->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'first_name', 'conditions' => array('id !=' => '1')]);
 		$emergencies = $this->Students->Emergencies->find('list', ['limit' => 200, 'keyfield' => 'id', 'valueField' => 'first_name']);
-        $this->set(compact('student', 'user', 'emergencies'));
+        $this->set(compact('student', 'person', 'emergencies'));
         $this->set('_serialize', ['student']);
     }
 
@@ -87,9 +85,9 @@ class StudentsController extends AppController
                 $this->Flash->error('The student could not be saved. Please, try again.');
             }
         }
-        $user = $this->Students->Users->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'first_name']);
+        $person = $this->Students->People->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'first_name']);
 		$emergencies = $this->Students->Emergencies->find('list', ['limit' => 200, 'keyfield' => 'id', 'valueField' => 'first_name']);
-        $this->set(compact('student', 'user', 'emergencies'));
+        $this->set(compact('student', 'person', 'emergencies'));
         $this->set('_serialize', ['student']);
     }
 
@@ -111,4 +109,15 @@ class StudentsController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    public function isAuthorized($user)
+    {
+        // All registered users can add articles
+        if ($this->request->action === 'index' || $this->request->action === 'edit') {
+            return true;
+        }
+
+        return parent::isAuthorized($user);
+    }
+
 }

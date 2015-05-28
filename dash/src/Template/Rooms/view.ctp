@@ -35,7 +35,6 @@
             <th><?= __('Lease Id') ?></th>
             <th><?= __('Date Start') ?></th>
             <th><?= __('Date End') ?></th>
-            <th><?= __('Lease Status') ?></th>
             <th><?= __('Weekly Price') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
@@ -44,7 +43,6 @@
             <td><?= h($leases->id) ?></td>
             <td><?= h($leases->date_start->format('Y M d')) ?></td>
             <td><?= h($leases->date_end->format('Y M d')) ?></td>
-            <td><?= h($leases->lease_status) ?></td>
             <td><?= h($this->Number->currency($leases->weekly_price)) ?></td>
 
             <td class="actions">

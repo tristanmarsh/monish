@@ -13,6 +13,12 @@ class UsersTable extends Table
     public function initialize(array $config)
     {
         $this->addBehavior('Timestamp');
+        $this->table('users');
+        $this->displayField('id');
+        $this->primaryKey('id');
+        $this->belongsTo('People', [
+            'foreignKey' => 'person_id'
+        ]);
     }
 	
 	public function buildRules(RulesChecker $rules)
@@ -27,11 +33,7 @@ class UsersTable extends Table
         return $validator
             ->notEmpty('username', 'A username is required')
             ->notEmpty('password', 'A password is required')
-			->notEmpty('first_name', 'A name is required')
-			->notEmpty('last_name', 'A surname is required')
-			->notEmpty('gender', 'A surname is required')
-            ->notEmpty('phone', 'A phone number is required')
-            ->notEmpty('email', 'An email is required')
+			->notEmpty('person_id', 'A person is required')
             ->notEmpty('role', 'A role is required')
             ->add('role', 'inList', [
                 'rule' => ['inList', ['admin', 'tenant']],

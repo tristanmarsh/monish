@@ -17,6 +17,7 @@ class Lease extends Entity
     protected $_accessible = [
         'room_id' => true,
         'student_id' => true,
+        'property_id' => true,
         'date_start' => true,
         'date_end' => true,
         'lease_status' => true,

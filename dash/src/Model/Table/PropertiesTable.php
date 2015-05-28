@@ -22,9 +22,12 @@ class PropertiesTable extends Table
     public function initialize(array $config)
     {
         $this->table('properties');
-        $this->displayField('id');
         $this->primaryKey('id');
+        $this->displayField('id');
         $this->hasMany('Rooms', [
+            'foreignKey' => 'property_id'
+        ]);
+        $this->hasMany('Leases', [
             'foreignKey' => 'property_id'
         ]);
     }

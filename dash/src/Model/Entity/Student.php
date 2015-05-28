@@ -19,8 +19,10 @@ class Student extends Entity
         'person_id' => true,
         'country_of_birth' => true,
         'person' => true,
-        'emergency_student' => true,
+        'id' => true,
+        'emergency_id' => true,
         'leases' => true,
+        'internet_plan' => true,
 		'emergency' => true,
 		'emergency_id' => true,
     ];

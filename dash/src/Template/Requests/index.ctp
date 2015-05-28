@@ -3,7 +3,7 @@
 
         <h3>List of Requests</h3>
         <?= $this->Html->link('Add Request', ['action' => 'add']) ?>
-        <span style="float:right"><?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
+        
 
         <table>
             <tr>

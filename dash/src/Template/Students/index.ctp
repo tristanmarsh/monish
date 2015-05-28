@@ -10,7 +10,7 @@
 
             <h3>Manage Students</h3>
             <?= $this->Html->link('Add Student', ['action' => 'add']) ?>
-            <span style="float:right"><?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
+            
             <table cellpadding="0" cellspacing="0">
             <thead>
                 <tr>

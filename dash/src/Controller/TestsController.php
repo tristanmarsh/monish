@@ -27,16 +27,16 @@ class TestsController extends AppController
 
         $user = $this->People->newEntity();
 
-        $studentsTable = TableRegistry::get('Students');
-        $student = $studentsTable->newEntity();
-        $student->id = '100';
-        $student->person_id = '3';
-        $studentsTable->save($student);
-        
         if ($this->request->is('post')) {
             $user = $this->People->patchEntity($user, $this->request->data);
-            
+                        
             if ($this->People->save($user)) {
+
+				$studentsTable = TableRegistry::get('Students');
+        		$student = $studentsTable->newEntity();
+        		$student->person_id = $user->id;
+        		$student->internet_plan = $user->internet_plan;
+        		$studentsTable->save($student);
 
             	$this->Flash->success(__('Person Added'));
                 return $this->redirect(['controller' => 'students', 'action' => 'add']);
@@ -44,7 +44,6 @@ class TestsController extends AppController
             $this->Flash->error(__('Unable to add the user.'));
         }
         $this->set('user', $user);
-        $this->set('student', $student);
     }  
 
 }

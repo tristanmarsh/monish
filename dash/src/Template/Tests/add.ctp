@@ -11,6 +11,7 @@
 		]) ?>
 		<?= $this->Form->input('phone') ?>
 		<?= $this->Form->input('email') ?>
+		<?= $this->Form->input('internet_plan', ['options' => ['FREE' => 'FREE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM']]) ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')); ?>
     <?= $this->Form->end() ?>

@@ -44,6 +44,7 @@ class TestsController extends AppController
                 $newUser->person_id = $user->id;
                 $newUser->username = $user->username;
                 $newUser->password = $user->password;
+                $newUser->role = 'tenant';
                 $newUsersTable->save($newUser);
 
             	$this->Flash->success(__('Person Added'));

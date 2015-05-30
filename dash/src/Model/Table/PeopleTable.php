@@ -39,7 +39,6 @@ class PeopleTable extends Table
 	
 	public function buildRules(RulesChecker $rules)
 	{
-        $rules->add($rules->isUnique(['username'], 'This username is already registered'));
         $rules->add($rules->isUnique(['email'], 'This email is already registered'));
         return $rules;
 	}

@@ -12,6 +12,8 @@
 		<?= $this->Form->input('phone') ?>
 		<?= $this->Form->input('email') ?>
 		<?= $this->Form->input('internet_plan', ['options' => ['FREE' => 'FREE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM']]) ?>
+		<?= $this->Form->input('username') ?>
+		<?= $this->Form->input('password') ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')); ?>
     <?= $this->Form->end() ?>

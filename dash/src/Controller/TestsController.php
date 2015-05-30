@@ -24,6 +24,7 @@ class TestsController extends AppController
     {
         $this->loadModel('People');
         $this->loadModel('Students');
+        $this->loadModel('Users');
 
         $user = $this->People->newEntity();
 
@@ -38,13 +39,25 @@ class TestsController extends AppController
         		$student->internet_plan = $user->internet_plan;
         		$studentsTable->save($student);
 
+                $newUsersTable = TableRegistry::get('Users');
+                $newUser = $newUsersTable->newEntity();
+                $newUser->person_id = $user->id;
+                $newUser->username = $user->username;
+                $newUser->password = $user->password;
+                $newUsersTable->save($newUser);
+
             	$this->Flash->success(__('Person Added'));
                 return $this->redirect(['controller' => 'students', 'action' => 'add']);
             }
             $this->Flash->error(__('Unable to add the user.'));
         }
         $this->set('user', $user);
-    }  
+    }
+
+    public function lease(){
+
+    }
+
 
 }
 

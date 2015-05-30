@@ -42,8 +42,8 @@ class TestsController extends AppController
                 $newUsersTable = TableRegistry::get('Users');
                 $newUser = $newUsersTable->newEntity();
                 $newUser->person_id = $user->id;
-                $newUser->username = $user->username;
-                $newUser->password = $user->password;
+                $newUser->username = $user->email;
+                $newUser->password = $user->email;
                 $newUser->role = 'tenant';
                 $newUsersTable->save($newUser);
 

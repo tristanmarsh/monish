@@ -19,6 +19,8 @@ class LeasesController extends AppController
      */
     public function index()
     {
+        $this->loadModel('People');
+        $walrus = $this->People;
         $this->paginate = [
             'contain' => ['Rooms', 'Students', 'Properties']
         ];
@@ -26,6 +28,7 @@ class LeasesController extends AppController
         $this->set('_serialize', ['leases']);
         $lion = $this->Leases->Students->find('all', ['contain' => ['Users']]);
         $this->set('lion', $lion);
+        $this->set('walrus', $walrus);
     }
 
     /**

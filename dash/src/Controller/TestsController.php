@@ -56,9 +56,15 @@ class TestsController extends AppController
     }
 
     public function lease(){
+        $this->loadModel('Properties');
+        $this->loadModel('Rooms');
+        $this->loadModel('Leases');
 
+        $data = $this->Properties->find('threaded')->contain('Rooms');
+        $data2 = $this->Rooms->find('list', ['groupField' => 'property.address'])->contain('Properties');
+
+        $this->set(compact('data', 'data2'));
     }
-
 
 }
 

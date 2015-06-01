@@ -71,6 +71,23 @@ function x_version_migration() {
 
 
     //
+    // If $prior is less than 4.0.0.
+    //
+
+    if ( version_compare( $prior, '4.0.0', '<' ) ) {
+
+      $updated = array(
+        'x_pre_v4' => true
+      );
+
+      foreach ( $updated as $key => $value ) {
+        update_option( $key, $value );
+      }
+
+    }
+
+
+    //
     // Update stored version number.
     //
 
@@ -101,15 +118,15 @@ add_action( 'admin_init', 'x_version_migration' );
 // 2. Plugin is older than what the theme desires it to be
 //
 
-define( 'X_SHORTCODES_CURRENT', '3.0.5' );
+define( 'X_CORNERSTONE_CURRENT', '1.0.0' );
 
 function x_pairing_notice() {
 
-  if ( x_plugin_shortcodes_exists() ) {
-    if ( ! defined( 'X_CURRENT' ) || version_compare( X_SHORTCODES_VERSION, X_SHORTCODES_CURRENT, '<' ) ) { ?>
+  if ( x_plugin_cornerstone_exists() && class_exists('CS') ) {
+    if ( ! defined( 'X_CURRENT' ) || version_compare( CS()->version(), X_CORNERSTONE_CURRENT, '<' ) ) { ?>
 
       <div class="updated x-notice warning">
-        <p><strong>IMPORTANT: Please update X &ndash; Shortcodes</strong>. You are using a newer version of X that may not be compatible. After updating, please ensure that you have cleared out your browser cache and any caching plugins you may be using. This message will self destruct upon updating X &ndash; Shortcodes.</p>
+        <p><strong>IMPORTANT: Please update Cornerstone</strong>. You are using a newer version of X that may not be compatible. After updating, please ensure that you have cleared out your browser cache and any caching plugins you may be using. This message will self destruct upon updating Cornerstone.</p>
       </div>
 
     <?php }
@@ -135,7 +152,7 @@ function x_version_migration_notice() { // 1
 
     <div class="updated x-notice dismissible">
       <a href="<?php echo esc_url( add_query_arg( array( 'x-dismiss-notice' => true ) ) ); ?>" class="dismiss"><span class="dashicons dashicons-no"></span></a>
-      <p>Congratulations, you've successfully updated X! Be sure to <a href="//theme.co/x/changelog/" target="_blank">check out the release notes and changelog</a> for this latest version to see all that has changed, especially if you're utilizing any additional plugins or have made modifications to your website via a child theme.</p>
+      <p>Congratulations, you've successfully updated X! Be sure to <a href="//theme.co/changelog/" target="_blank">check out the release notes and changelog</a> for this latest version to see all that has changed, especially if you're utilizing any additional plugins or have made modifications to your website via a child theme.</p>
     </div>
 
   <?php }
@@ -172,7 +189,7 @@ function x_theme_migration( $new_name, $new_theme ) {
   $x_plugins = array();
 
   foreach ( (array) $plugins as $plugin => $headers ) {
-    if ( ! empty( $headers['X Plugin'] ) && $headers['X Plugin'] != 'x-shortcodes' ) {
+    if ( ! empty( $headers['X Plugin'] ) ) {
       $x_plugins[] = $plugin;
     }
   }
@@ -184,22 +201,23 @@ function x_theme_migration( $new_name, $new_theme ) {
 add_action( 'switch_theme', 'x_theme_migration', 10, 2 );
 
 
+
 // Term Splitting Migration (WordPress 4.2 Breaking Change)
 // =============================================================================
 
 function x_split_shared_term_migration( $term_id, $new_term_id, $term_taxonomy_id, $taxonomy ) {
 
   //
-  // Ethos Filterable Index Categories
+  // Ethos filterable index categories.
   //
 
-  if ( 'category' == $taxonomy ) {
+  if ( $taxonomy == 'category' ) {
 
-    $setting = array_map ( 'trim', explode ( ',', get_option('x_ethos_filterable_index_categories') ) );
+    $setting = array_map( 'trim', explode( ',', get_option( 'x_ethos_filterable_index_categories' ) ) );
 
     foreach ( $setting as $index => $old_term ) {
       if ( $old_term == (string) $term_id ) {
-        $setting[ $index ] = (string) $new_term_id;
+        $setting[$index] = (string) $new_term_id;
       }
     }
 
@@ -209,28 +227,26 @@ function x_split_shared_term_migration( $term_id, $new_term_id, $term_taxonomy_i
 
 
   //
-  // Portfolio Categories
+  // Portfolio categories.
   //
 
-  if ( 'portfolio-category' == $taxonomy ) {
+  if ( $taxonomy == 'portfolio-category' ) {
 
-    //Get all post that has _x_portfolio_category_filters and not empty
     $post_ids = get_posts( array(
-      'fields' => 'ids',
-      'meta_key' =>  '_x_portfolio_category_filters',
-      'meta_value' => '',
+      'fields'       => 'ids',
+      'meta_key'     =>  '_x_portfolio_category_filters',
+      'meta_value'   => '',
       'meta_compare' => '!='
     ) );
 
-    //Loop through the post
-    foreach ($post_ids as $post_id) {
+    foreach ( $post_ids as $post_id ) {
 
       $post_terms = get_post_meta( $post_id, '_x_portfolio_category_filters', true );
 
       if ( is_array( $post_terms ) ) {
         foreach ( $post_terms as $index => $old_term ) {
           if ( $term_id == $old_term) {
-            $post_terms[ $index ] = $new_term_id;
+            $post_terms[$index] = $new_term_id;
           }
         }
       }

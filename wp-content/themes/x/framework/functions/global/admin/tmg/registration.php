@@ -25,19 +25,19 @@ if ( ! function_exists( 'x_register_theme_plugins' ) ) :
 
     $bundled = array(
 
-      'x-shortcodes' => array(
-        'name'               => 'Shortcodes',
-        'slug'               => 'x-shortcodes',
-        'source'             => X_TEMPLATE_URL . '/framework/plugins/x-shortcodes.zip',
+      'cornerstone' => array(
+        'name'               => 'Cornerstone',
+        'slug'               => 'cornerstone',
+        'source'             => X_TEMPLATE_URL . '/framework/plugins/cornerstone.zip',
         'required'           => true,
         'version'            => '',
         'force_activation'   => true,
         'force_deactivation' => false,
         'external_url'       => '',
-        'x_plugin'           => 'x-shortcodes/x-shortcodes.php',
+        'x_plugin'           => 'cornerstone/cornerstone.php',
         'x_author'           => 'Themeco',
-        'x_description'      => 'This plugin is required to run X as it includes all of our shortcode functionality, which is tightly integrated into the theme.',
-        'x_logo'             => '//theme.co/media/x_extensions/200-200-no-title-shortcodes.png',
+        'x_description'      => 'This plugin is required to run X. It provides a front end page editor and all the shortcodes used in X.',
+        'x_logo'             => '//theme.co/media/x_extensions/200-200-no-title-cornerstone.png',
         'x_manage_upgrade'   => false
       ),
 
@@ -46,7 +46,7 @@ if ( ! function_exists( 'x_register_theme_plugins' ) ) :
         'slug'               => 'revslider',
         'source'             => X_TEMPLATE_URL . '/framework/plugins/revslider.zip',
         'required'           => false,
-        'version'            => '4.6.9',
+        'version'            => '4.6.93',
         'force_activation'   => false,
         'force_deactivation' => false,
         'external_url'       => '',
@@ -62,7 +62,7 @@ if ( ! function_exists( 'x_register_theme_plugins' ) ) :
         'slug'               => 'js_composer',
         'source'             => X_TEMPLATE_URL . '/framework/plugins/js_composer.zip',
         'required'           => false,
-        'version'            => '4.3.5',
+        'version'            => '4.5.2',
         'force_activation'   => false,
         'force_deactivation' => false,
         'external_url'       => '',

@@ -27,7 +27,7 @@
 // =============================================================================
 
 @import "site/shortcodes_default/normalization";
-.x-content-band { @import "site/shortcodes"; }
+.x-section { @import "site/shortcodes"; }
 @import "site/shortcodes_default/shortcodes";
 
 
@@ -35,22 +35,23 @@
 // Components
 // =============================================================================
 
-.x-content-band {
+.x-section {
   @import "site/component-animations";
-  @import "site/mejs";
-  @import "site/stacks/integrity/mejs";
+  @import "site/shortcodes_default/mejs";
   @import "site/bigvideo";
-  @import "site/fonts";
 }
+
+@import "site/font-awesome";
 
 
 
 // Utilities
 // =============================================================================
 
-.x-content-band {
+.x-section {
   @import "site/util/main";
   @import "site/util/type";
-  @import "site/util/responsive";
   @import "site/util/spacing-helpers";
 }
+
+@import "site/util/responsive";

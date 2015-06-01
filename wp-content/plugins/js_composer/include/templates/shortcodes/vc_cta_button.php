@@ -51,10 +51,14 @@ $css_class = apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'wpb_call_to_act
 $css_class .= $this->getCSSAnimation( $css_animation );
 
 $output .= '<div class="' . $css_class . '">';
-if ( $position != 'cta_align_bottom' ) $output .= $button;
+if ( $position != 'cta_align_bottom' ) {
+	$output .= $button;
+}
 $output .= apply_filters( 'wpb_cta_text', '<h2 class="wpb_call_text">' . $call_text . '</h2>', array( 'content' => $call_text ) );
 //$output .= '<h2 class="wpb_call_text">'. $call_text . '</h2>';
-if ( $position == 'cta_align_bottom' ) $output .= $button;
+if ( $position == 'cta_align_bottom' ) {
+	$output .= $button;
+}
 $output .= '</div> ' . $this->endBlockComment( '.wpb_call_to_action' ) . "\n";
 
 echo $output;

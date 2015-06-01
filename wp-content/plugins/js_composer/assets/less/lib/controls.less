@@ -3,7 +3,7 @@
     // position: relative;
     font-family: "Open Sans",Helvetica,sans-serif;
     height: 0;
-    z-index: 1004;
+    // z-index: 1002;
     display: block;
     .opacity(0);
     visibility: hidden;
@@ -26,21 +26,21 @@
         //top left
             top: 0;
             left: 0;
-            z-index: 1005;
+            z-index: 1002;
         }
         &tc {
         //top center
             top: 0;
             left: 50%;
             .translate(-50%, 0);
-            z-index: 1005;
+            z-index: 1002;
         }
         &tr {
         //top right
             top: 0;
             right: 0;
             direction: rtl;
-            z-index: 1005;
+            z-index: 1002;
         }
 
         &bl {
@@ -48,7 +48,7 @@
             bottom: 0;
             left: 0;
             height: auto;
-            z-index: 1005;
+            z-index: 1002;
         }
         &bc {
         //bottom center
@@ -62,12 +62,12 @@
             bottom: 0;
             right: 0;
             direction: rtl;
-            z-index: 1005;
+            z-index: 1002;
         }
 
         &cc {
         //vertical middle
-            z-index: 1004;
+            z-index: 1002;
             top: 50%;
             left: 50%;
             background-color: @vc_controls_background;
@@ -138,7 +138,8 @@
 .vc_control-btn {
     display: inline-block;
     vertical-align: middle !important;
-    .icon {
+    border: none !important;
+    .icon, .vc_icon {
         display: inline-block !important;
         background-image: url(@vc_pe_controls_sprite);
         background-repeat: no-repeat;
@@ -181,25 +182,33 @@
         background-image: url(../vc/fe/move.png) !important;
         background-position: 10px center !important;
         background-repeat: no-repeat;
-        padding-left: 29px !important;
+        padding-left: 30px !important;
         &:hover {
             background-color: @vc_control_hover_color;
         }
     }
-
 }
 
 // Control icons variations
 .vc_control-btn-prepend,
 .vc_control-btn-append {
-    .icon {
+    .icon, .vc_icon {
         background-position: 0 -16px;
-
+    }
+    .vc_controls-dark & {
+        .icon, .vc_icon {
+            background-position: -16px -16px;
+        }
     }
 }
 .vc_control-btn-layout {
-    .icon {
+    .icon, .vc_icon {
         background-position: 0 -80px;
+    }
+    .vc_controls-dark & {
+        .icon, .vc_icon {
+            background-position: -16px -80px;
+        }
     }
 }
 .vc_control-btn-append {
@@ -230,27 +239,40 @@
     }
 }
 .vc_control-btn-edit {
-    .icon {
+    .icon, .vc_icon {
         background-position: 0 -32px;
-
+    }
+    .vc_controls-dark & {
+        .icon, .vc_icon {
+            background-position: -16px -32px;
+        }
     }
 }
 .vc_control-btn-clone {
-    .icon {
+    .icon, .vc_icon {
         background-position: 0 -48px;
-
+    }
+    .vc_controls-dark & {
+        .icon, .vc_icon {
+            background-position: -16px -48px;
+        }
     }
 }
 .vc_control-btn-delete {
-    .icon {
+    .icon, .vc_icon {
         background-position: 0 -64px;
+    }
+    .vc_controls-dark & {
+        .icon, .vc_icon {
+            background-position: -16px -64px;
+        }
     }
 }
 .vc_control-btn-switcher {
     overflow-x: hidden;
     width: 24px;
     .transition(width 0.5s);
-    .icon {
+    .icon, .vc_icon {
         width: 10px;
         background-image: url(../vc/fe/expand.gif);
         background-position: center center;
@@ -403,40 +425,40 @@
         text-align: center;
     }
     .l_1 {
-        background-image: url(../vc/fe/row_layouts/1.gif);
+        background-image: url(../vc/row_layouts/1.gif);
     }
     .l_12_12 {
-        background-image: url(../vc/fe/row_layouts/12_12.gif);
+        background-image: url(../vc/row_layouts/12_12.gif);
     }
     .l_23_13 {
-        background-image: url(../vc/fe/row_layouts/23_13.gif);
+        background-image: url(../vc/row_layouts/23_13.gif);
     }
     .l_13_13_13 {
-        background-image: url(../vc/fe/row_layouts/13_13_13.gif);
+        background-image: url(../vc/row_layouts/13_13_13.gif);
     }
     .l_13_23 {
-        background-image: url(../vc/fe/row_layouts/13_23.gif);
+        background-image: url(../vc/row_layouts/13_23.gif);
     }
     .l_14_14_14_14 {
-        background-image: url(../vc/fe/row_layouts/14_14_14_14.gif);
+        background-image: url(../vc/row_layouts/14_14_14_14.gif);
     }
     .l_14_34 {
-        background-image: url(../vc/fe/row_layouts/14_34.gif);
+        background-image: url(../vc/row_layouts/14_34.gif);
     }
     .l_14_12_14 {
-        background-image: url(../vc/fe/row_layouts/14_12_14.gif);
+        background-image: url(../vc/row_layouts/14_12_14.gif);
     }
     .l_56_16 {
-        background-image: url(../vc/fe/row_layouts/56_16.gif);
+        background-image: url(../vc/row_layouts/56_16.gif);
     }
     .l_16_46_16 {
-        background-image: url(../vc/fe/row_layouts/14_46_16.gif);
+        background-image: url(../vc/row_layouts/14_46_16.gif);
     }
     .l_16_16_16_12 {
-        background-image: url(../vc/fe/row_layouts/16_16_16_12.gif);
+        background-image: url(../vc/row_layouts/16_16_16_12.gif);
     }
     .l_16_16_16_16_16_16 {
-        background-image: url(../vc/fe/row_layouts/16_16_16_16_16_16.gif);
+        background-image: url(../vc/row_layouts/16_16_16_16_16_16.gif);
     }
 }
 

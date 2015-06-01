@@ -12,28 +12,30 @@
 //   03. Gap
 //   04. Clear
 //   05. Highlight
-//   06. Quotes
+//   06. Quote
 //       a. Blockquote
 //       b. Pullquote
-//       c. Cite
 //   07. Alert
-//   08. Maps
+//   08. Map
+//       a. Embed
+//       b. Google Map
+//       c. Google Map Marker
 //   09. Skill Bar
 //   10. Code
-//   11. Buttons
-//       a. Individual Buttons
-//       b. Button Group
-//   12. Icons
+//   11. Button
+//   12. Icon
 //   13. Block Grid
 //       a. Grid
 //       b. Grid Item
-//   14. Images
-//   15. Icon list
+//   14. Image
+//   15. Icon List
 //       a. List
 //       b. List Item
 //   16. Popovers and Tooltips
 //   17. Text Columns
 //   18. Video
+//       a. Video Player
+//       b. Video Embed
 //   19. Accordion
 //       a. Accordion
 //       b. Accordion Item
@@ -43,14 +45,18 @@
 //       c. Tabs
 //       d. Tab
 //   21. Responsive Visibility
-//   22. Content Columns
+//   22. Column
 //   23. Responsive Slider
 //       a. Slider
 //       b. Slide
 //   24. Protected Content
 //   25. Recent Posts
 //   26. Audio
-//   27. Responsive Pricing Table
+//       a. Audio Player
+//       b. Audio Embed
+//   27. Pricing Table
+//       a. Pricing Table
+//       b. Pricing Table Column
 //   28. Callout
 //   29. Promo
 //   30. Post Author
@@ -64,10 +70,11 @@
 //   36. Feature Headline
 //   37. Search
 //   38. Counter
-//   39. Shortcode Container
+//   39. Section
+//   40. Shortcode Container
 // =============================================================================
 
-// Dropcaps
+// Dropcap
 // =============================================================================
 
 .x-dropcap {
@@ -84,14 +91,14 @@
 
 
 
-// Horizontal Rules
+// Horizontal Rule
 // =============================================================================
 
 .x-hr {  }
 
 
 
-// Gaps
+// Gap
 // =============================================================================
 
 .x-gap {  }
@@ -121,7 +128,7 @@
 
 
 
-// Quotes
+// Quote
 // =============================================================================
 
 //
@@ -303,7 +310,7 @@ button.close {
 
 
 
-// Maps
+// Map
 // =============================================================================
 
 .x-map {  }
@@ -360,17 +367,17 @@ button.close {
 
 
 
-// Buttons
+// Button
 // =============================================================================
 
 .x-btn {  }
 
 
 
-// Icons
+// Icon
 // =============================================================================
 
-.x-icon {  }
+[class*="#{$fa-css-prefix}-"] {  }
 
 
 
@@ -381,7 +388,7 @@ button.close {
 
 
 
-// Images
+// Image
 // =============================================================================
 
 .x-img {
@@ -462,17 +469,7 @@ a.x-img-thumbnail:hover {
 // Icon List
 // =============================================================================
 
-.x-ul-icons {
-  list-style: none;
-  text-indent: -0.85em;
-
-  li {
-    [class^="x-icon-"],
-    [class*=" x-icon-"] {
-      width: 0.85em;
-    }
-  }
-}
+.x-ul-icons {  }
 
 
 
@@ -512,25 +509,30 @@ a.x-img-thumbnail:hover {
 // Accordion
 // =============================================================================
 
-//
-// Parent container.
-//
-
 .x-accordion {
-  margin-bottom: 1.375em;
+  margin-bottom: $baseMargin;
 }
 
 
 //
-// Group == beading + body.
+// Group (heading + body).
 //
 
 .x-accordion-group {
-  margin: 4px 0;
+  margin: 0 0 4px;
   border: 1px solid $baseBorderSolid;
   border: 1px solid $baseBorderRgba;
   @include transition(#{border-color 0.3s ease});
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
+
+
+//
+// Heading.
+//
 
 .x-accordion-heading {
   border-bottom: 0;
@@ -541,6 +543,7 @@ a.x-img-thumbnail:hover {
     font-size: 128.6%;
     color: $headingsColor;
     background-color: darken($baseModBackground, 1.5%);
+    cursor: pointer;
 
     &.collapsed {
       background-color: $baseModBackground;
@@ -576,18 +579,7 @@ a.x-img-thumbnail:hover {
 
 
 //
-// General toggle styles.
-//
-
-.x-accordion-toggle {
-  cursor: pointer;
-}
-
-
-//
-// Accordion inner.
-// Needs the styles because you can't animate properly with any stiles on the
-// element.
+// Inner.
 //
 
 .x-accordion-inner {
@@ -624,10 +616,10 @@ a.x-img-thumbnail:hover {
 
 
 
-// Content Columns
+// Column
 // =============================================================================
 
-@include columns();
+@include column();
 
 
 
@@ -688,8 +680,8 @@ a.x-img-thumbnail:hover {
     margin: 0 4% 0 0;
     border: 1px solid $baseBorderSolid;
     border: 1px solid $baseBorderRgba;
-    padding: 6px;
-    color: #999;
+    padding: 5px;
+    color: rgba(0, 0, 0, 0.65);
     background-color: $baseModBackground;
     @include translate3d(0, 0, 0);
 
@@ -698,29 +690,23 @@ a.x-img-thumbnail:hover {
     }
 
     &:hover {
-      color: #999;
+      color: rgba(0, 0, 0, 0.65);
 
-      img {
-        @include opacity(0);
+      .h-recent-posts {
+        opacity: 1;
       }
 
-      .x-recent-posts-img {
-        background-color: rgba(0, 0, 0, 0.5);
-      }
-    }
-
-    &.no-image {
-      .hentry {
-        padding: 4px;
+      .no-post-thumbnail {
+        .x-recent-posts-img {
+          &:before { opacity: 0.75; }
+          &:after  { opacity: 0;    }
+        }
       }
 
-      .x-recent-posts-content {
-        border: 0;
-      }
-
-      &:hover {
-        .h-recent-posts {
-          @include opacity(0.75);
+      .has-post-thumbnail {
+        .x-recent-posts-img {
+          &:before { opacity: 1;    }
+          &:after  { opacity: 0.75; }
         }
       }
     }
@@ -804,43 +790,49 @@ a.x-img-thumbnail:hover {
     }
   }
 
-  img {
-    position: relative;
-    min-width: 100%;
-    z-index: 1;
-    @include transition(#{opacity 0.6s ease});
-  }
-
   .x-recent-posts-img {
-    overflow: hidden;
     position: relative;
-    padding-bottom: 55.8823529%;
-    background-color: #999;
-    background-color: rgba(0, 0, 0, 0.25);
-    @include transition(#{background-color 0.3s ease});
+    padding-bottom: 56.25%;
+    background: center center/cover no-repeat;
 
-    &:before {
+    &:before,
+    &:after {
       display: block;
       position: absolute;
+      opacity: 0;
+      @include transition(#{opacity 0.3s ease});
+    }
+
+    &:before {
       margin: -30px 0 0 -30px;
       top: 50%;
       left: 50%;
       width: 60px;
       height: 60px;
       @include font-size(3.2);
-      line-height: 59px;
+      line-height: 60px;
       text-align: center;
-      vertical-align: middle;
       color: $white;
-      background-color: rgba(0, 0, 0, 0.35);
-      border-radius: 100em;
-      z-index: 0;
+      z-index: 2;
       @include font-awesome();
+    }
+
+    &:after {
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.85);
+      z-index: 1;
     }
   }
 
-  .has-post-thumbnail .x-recent-posts-img {
-    padding: 0;
+  .no-post-thumbnail {
+    .x-recent-posts-img {
+      &:before { opacity: 0.35; }
+      &:after  { opacity: 0;   }
+    }
   }
 
   .format-standard .x-recent-posts-img:before { content: "\f0f6"; }
@@ -850,37 +842,33 @@ a.x-img-thumbnail:hover {
   .format-gallery .x-recent-posts-img:before  { content: "\f03e"; }
   .format-link .x-recent-posts-img:before     { content: "\f0c1"; }
   .format-quote .x-recent-posts-img:before    { content: "\f10d"; }
-  .x-portfolio .x-recent-posts-img:before     {
-    content: "\f067";
-    line-height: 62px;
-  }
+  .x-portfolio .x-recent-posts-img:before     { content: "\f067"; }
 
   .x-recent-posts-content {
     border-top: 0;
     border: 1px solid $baseBorderSolid;
     border: 1px solid $baseBorderRgba;
-    padding: 0.65em 0.75em 0.775em;
+    padding: 10px;
   }
 
   .h-recent-posts,
   .x-recent-posts-date {
     display: block;
-    line-height: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    @include text-overflow();
+    opacity: 0.65;
   }
 
   .h-recent-posts {
-    margin: 0 0 2px;
-    padding-bottom: 4px;
+    margin: -1px 0 5px;
     @include font-size(1.7);
+    line-height: 1.2;
     @include transition(#{opacity 0.3s ease});
   }
 
   .x-recent-posts-date {
     margin: 0;
     @include font-size(1.0);
+    line-height: 1;
     text-transform: uppercase;
   }
 
@@ -922,7 +910,7 @@ a.x-img-thumbnail:hover {
 
 
 
-// Responsive Pricing Table
+// Pricing Table
 // =============================================================================
 
 .x-pricing-table {
@@ -1039,7 +1027,7 @@ a.x-img-thumbnail:hover {
       line-height: 1.4;
       text-transform: uppercase;
 
-      [class*="x-icon"] {
+      [class*="#{$fa-css-prefix}-"] {
         margin-left: 0.85em;
       }
 
@@ -1066,7 +1054,7 @@ a.x-img-thumbnail:hover {
 
 .x-callout {
   position: relative;
-  margin: ($baseMargin * 2) 0;
+  margin: $baseMargin 0;
   padding: 2.35em;
   @include font-size(2.1);
   background-color: $baseBorderSolid;
@@ -1291,12 +1279,12 @@ a.x-img-thumbnail:hover {
   border-left: 0;
   border-right: 0;
   padding: 10px 0;
-  @include font-size(1.2);
   line-height: 1;
   text-align: center;
 
   p {
     margin: 8px 0 10px;
+    @include font-size(1.2);
     font-weight: 400;
     text-transform: uppercase;
   }
@@ -1470,61 +1458,23 @@ a.x-img-thumbnail:hover {
 
   span {
     display: inline-block;
+    position: relative;
+    padding-left: 1.5em;
 
     i {
-      float: left;
+      position: absolute;
+      top: 50%;
+      left: 0;
       width: 2em;
       height: 2em;
-      margin-right: 0.25em;
-      font-size: 1em;
+      margin-top: -1em;
+      font-size: 0.65em;
       line-height: 2em;
       text-align: center;
       color: $white;
       background-color: $headingsColor;
       border-radius: 100em;
     }
-  }
-}
-
-h1,
-.h1 {
-  &.h-feature-headline span i {
-    margin-top: -0.335em;
-  }
-}
-
-h2,
-.h2 {
-  &.h-feature-headline span i {
-    margin-top: -0.335em;
-  }
-}
-
-h3,
-.h3 {
-  &.h-feature-headline span i {
-    margin-top: -0.285em;
-  }
-}
-
-h4,
-.h4 {
-  &.h-feature-headline span i {
-    margin-top: -0.275em;
-  }
-}
-
-h5,
-.h5 {
-  &.h-feature-headline span i {
-    margin-top: -0.265em;
-  }
-}
-
-h6,
-.h6 {
-  &.h-feature-headline span i {
-    margin-top: -0.255em;
   }
 }
 
@@ -1541,6 +1491,13 @@ h6,
 // =============================================================================
 
 .x-counter {  }
+
+
+
+// Section
+// =============================================================================
+
+@include section();
 
 
 

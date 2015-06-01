@@ -55,7 +55,7 @@ if ( X_REVOLUTION_SLIDER_IS_ACTIVE ) :
         </style>
 
         <a href="#" class="x-slider-scroll-bottom below <?php echo $anchor_alignment; ?>">
-          <i class="x-icon-angle-down"></i>
+          <i class="x-icon-angle-down" data-icon="&#xf107;"></i>
         </a>
 
       <?php endif; ?>

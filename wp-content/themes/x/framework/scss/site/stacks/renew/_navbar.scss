@@ -26,6 +26,10 @@
   background-color: $navbarBackground;
   @include font-size(1.4);
   z-index: $zindexNavbar;
+
+  .x-container {
+    position: relative;
+  }
 }
 
 

@@ -39,9 +39,12 @@ $front_page              = $data['front-page'];
 $front_page_is_page      = $front_page == 'Page';
 $front_page_is_blog      = $front_page == 'Blog';
 $front_page_is_portfolio = $front_page == 'Portfolio';
-$front_page_content      = ( $_GET['homepage-markup'] == 'standard' ) ? $data['content'] : $data['content-vc'];
 $front_page_template     = $data['page-template'];
 $front_page_meta         = $data['meta'];
+
+$front_page_content      = $data['cs-content'];
+$front_page_cs_data      = $data['cs-data'];
+$front_page_cs_settings  = $data['cs-settings'];
 
 
 //
@@ -184,6 +187,14 @@ if ( x_demo_content_stage_not_completed( 'process-data-files' ) ) {
           update_post_meta( $entry_id, $key, $value );
         }
         unset( $x['meta'] );
+      }
+
+      if ( isset( $x['cs_data'] ) ) {
+        update_post_meta( $entry_id, '_cornerstone_data', $x['cs_data'] );
+      }
+
+      if ( isset( $x['cs_settings'] ) ) {
+        update_post_meta( $entry_id, '_cornerstone_settings', $x['cs_settings'] );
       }
 
     }

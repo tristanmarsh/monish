@@ -10,17 +10,19 @@
 // TABLE OF CONTENTS
 // -----------------------------------------------------------------------------
 //   01. Legacy Update
-//   02. Set Visual Composer
-//   03. Add Visual Composer Options
-//   04. Remove Default Shortcodes
-//   05. Remove Default Templates
-//   06. Remove Meta Boxes
-//   07. Provision Frontend Editor
-//   08. Map Shortcodes
-//   09. Update Existing Shortcodes
-//   10. Incremental ID Counter for Templates
-//   11. Overwrite No Content Message
-//   12. Overwrite Layout Error Message
+//   02. Check if Visual Composer Integration is On
+//   03. Set Visual Composer
+//   04. Add Visual Composer Options
+//   05. Overwrite Visual Composer Rows and Columns
+//   06. Remove Default Shortcodes
+//   07. Remove Default Templates
+//   08. Remove Meta Boxes
+//   09. Provision Frontend Editor
+//   10. Map Shortcodes
+//   11. Update Existing Shortcodes
+//   12. Incremental ID Counter for Templates
+//   13. Overwrite No Content Message
+//   14. Overwrite Layout Error Message
 // =============================================================================
 
 // Legacy Update
@@ -36,6 +38,15 @@ add_action( 'admin_init', 'x_visual_composer_legacy_update' );
 
 
 
+// Check if Visual Composer Integration is On
+// =============================================================================
+
+function x_visual_composer_integration_on() {
+  return get_option( 'wpb_js_x_integration', true );
+}
+
+
+
 // Set Visual Composer
 // =============================================================================
 
@@ -45,7 +56,7 @@ add_action( 'admin_init', 'x_visual_composer_legacy_update' );
 //
 
 function x_visual_composer_set_as_theme() {
-  if ( get_option( 'wpb_js_x_hide_design_options', true ) ) {
+  if ( get_option( 'wpb_js_x_hide_design_options', true ) && x_visual_composer_integration_on() ) {
     vc_set_as_theme( true );
   } else {
     add_action( 'admin_notices', 'x_visual_composer_hide_update_notice', -99 );
@@ -56,7 +67,7 @@ function x_visual_composer_set_as_theme() {
 add_action( 'vc_before_init', 'x_visual_composer_set_as_theme' );
 
 function x_visual_composer_hide_update_notice() {
-  remove_action('admin_notices',array( vc_license(), 'adminNoticeLicenseActivation' ));
+  remove_action( 'admin_notices', array( vc_license(), 'adminNoticeLicenseActivation' ) );
 }
 
 
@@ -81,13 +92,19 @@ add_filter( 'vc_settings_tabs', 'x_visual_composer_add_options_tab');
 //
 
 function x_visual_composer_add_setting_fields( $vc_settings ) {
-  $tab = 'x-integration';
-  $vc_settings->addSection( $tab, null, 'x_visual_composer_options_description' );
-  $vc_settings->addField( $tab, __( 'Hide Teaser Metabox', '__x__' ), 'x_hide_teaser_mb', 'x_visual_composer_sanitize_checkbox', 'x_visual_composer_hide_teaser_mb_callback' );
-  $vc_settings->addField( $tab, __( 'Remove Native Elements', '__x__' ), 'x_remove_native_elements', 'x_visual_composer_sanitize_checkbox', 'x_visual_composer_remove_native_elements_callback' );
-  $vc_settings->addField( $tab, __( 'Remove Default Templates', '__x__' ), 'x_remove_default_templates', 'x_visual_composer_sanitize_checkbox', 'x_visual_composer_remove_default_templates_callback' );
-  $vc_settings->addField( $tab, __( 'Remove Frontend Editor', '__x__' ), 'x_disable_frontend_editor', 'x_visual_composer_sanitize_checkbox', 'x_visual_composer_disable_frontend_editor_callback' );
-  $vc_settings->addField( $tab, __( 'Hide Design Options', '__x__' ), 'x_hide_design_options', 'x_visual_composer_sanitize_checkbox', 'x_visual_composer_hide_design_options_callback' );
+
+  $vc_settings->addSection( 'x-integration', null, 'x_visual_composer_options_description' );
+
+  $vc_settings->addField( 'x-integration', __( 'X Integration', '__x__' ), 'x_integration', 'x_visual_composer_sanitize_checkbox', 'x_visual_composer_x_integration' );
+
+  if ( x_visual_composer_integration_on() ) {
+    $vc_settings->addField( 'x-integration', __( 'Hide Teaser Metabox', '__x__' ),      'x_hide_teaser_mb',           'x_visual_composer_sanitize_checkbox', 'x_visual_composer_hide_teaser_mb_callback' );
+    $vc_settings->addField( 'x-integration', __( 'Remove Native Elements', '__x__' ),   'x_remove_native_elements',   'x_visual_composer_sanitize_checkbox', 'x_visual_composer_remove_native_elements_callback' );
+    $vc_settings->addField( 'x-integration', __( 'Remove Default Templates', '__x__' ), 'x_remove_default_templates', 'x_visual_composer_sanitize_checkbox', 'x_visual_composer_remove_default_templates_callback' );
+    $vc_settings->addField( 'x-integration', __( 'Remove Frontend Editor', '__x__' ),   'x_disable_frontend_editor',  'x_visual_composer_sanitize_checkbox', 'x_visual_composer_disable_frontend_editor_callback' );
+    $vc_settings->addField( 'x-integration', __( 'Hide Design Options', '__x__' ),      'x_hide_design_options',      'x_visual_composer_sanitize_checkbox', 'x_visual_composer_hide_design_options_callback' );
+  }
+
 }
 
 add_action( 'vc_settings_tab-x-integration', 'x_visual_composer_add_setting_fields' );
@@ -107,7 +124,7 @@ function x_visual_composer_sanitize_checkbox( $value ) {
 //
 
 function x_visual_composer_options_description( $tab ) {
-  if ( $tab["id"] == 'wpb_js_composer_settings_x-integration' ) : ?>
+  if ( $tab['id'] == 'wpb_js_composer_settings_x-integration' ) : ?>
 
     <div class="tab_intro">
       <p class="description">
@@ -141,6 +158,10 @@ function x_visual_composer_options_checkbox( $setting_id, $default, $label, $des
 // Register checkbox settings.
 //
 
+function x_visual_composer_x_integration() {
+  return x_visual_composer_options_checkbox( 'x_integration', true, __( 'Enable', '__x__' ), __( 'Activate X integration with Visual Composer. This allows for the theme to overwrite certain Visual Composer shortcodes and map in custom shortcodes. Turning this off will make Visual Composer oparate natively without any overwriting being done.', '__x__' ) );
+}
+
 function x_visual_composer_hide_teaser_mb_callback() {
   return x_visual_composer_options_checkbox( 'x_hide_teaser_mb', true, __( 'Enable', '__x__' ), __( 'Removes an uncommonly used metabox from the Wordpress Post editor.', '__x__' ) );
 }
@@ -163,10 +184,23 @@ function x_visual_composer_hide_design_options_callback() {
 
 
 
+// Overwrite Visual Composer Rows and Columns
+// =============================================================================
+
+if ( function_exists( 'vc_set_shortcodes_templates_dir' ) && ! x_visual_composer_integration_on() ) {
+
+  $dir = get_stylesheet_directory() . '/vc_templates_custom_output';
+
+  vc_set_shortcodes_templates_dir( $dir );
+
+}
+
+
+
 // Remove Default Shortcodes
 // =============================================================================
 
-if ( ! function_exists( 'x_visual_composer_remove_default_shortcodes' ) ) {
+if ( ! function_exists( 'x_visual_composer_remove_default_shortcodes' && x_visual_composer_integration_on() ) ) {
 
   function x_visual_composer_remove_default_shortcodes() {
 
@@ -231,7 +265,7 @@ if ( ! function_exists( 'x_visual_composer_remove_default_shortcodes' ) ) {
 // Remove Default Templates
 // =============================================================================
 
-if ( get_option( 'wpb_js_x_remove_default_templates', true ) ) {
+if ( get_option( 'wpb_js_x_remove_default_templates', true ) && x_visual_composer_integration_on() ) {
   add_filter( 'vc_load_default_templates', '__return_empty_array', 1 );
 }
 
@@ -240,7 +274,7 @@ if ( get_option( 'wpb_js_x_remove_default_templates', true ) ) {
 // Remove Meta Boxes
 // =============================================================================
 
-if ( ! function_exists( 'x_visual_composer_remove_meta_boxes' ) ) {
+if ( ! function_exists( 'x_visual_composer_remove_meta_boxes' ) && x_visual_composer_integration_on() ) {
 
   function x_visual_composer_remove_meta_boxes() {
 
@@ -263,222 +297,221 @@ if ( ! function_exists( 'x_visual_composer_remove_meta_boxes' ) ) {
 // Provision Frontend Editor
 // =============================================================================
 
-//
-// Optionally disables the frontend editing options from the WordPress admin
-// edit screen as well as the admin bar.
-//
+if ( x_visual_composer_integration_on() ) :
 
-if ( function_exists( 'vc_disable_frontend' ) && get_option( 'wpb_js_x_disable_frontend_editor', false ) ) {
-  vc_disable_frontend();
-}
+  //
+  // Optionally disables the frontend editing options from the WordPress admin
+  // edit screen as well as the admin bar.
+  //
 
-
-//
-// Helper function to check if frontend editing is currently active.
-//
-
-function x_visual_composer_is_front_end_editor() {
-  return ( function_exists( 'vc_manager' ) && vc_manager()->mode() == 'page_editable' );
-}
-
-
-//
-// Run certain actions only when using front end editing.
-//
-
-function x_visual_composer_fee_configure() {
-
-  if ( ! x_visual_composer_is_front_end_editor() ) {
-    return;
+  if ( function_exists( 'vc_disable_frontend' ) && get_option( 'wpb_js_x_disable_frontend_editor', false ) ) {
+    vc_disable_frontend();
   }
 
 
   //
-  // Scripts and styles.
+  // Helper function to check if frontend editing is currently active.
   //
 
-  add_action( 'wp_enqueue_scripts', 'x_visual_composer_fee_enqueue', 999 );
-  add_action( 'x_head_css', 'x_visual_composer_fee_output_styles', 999 );
-
-}
-
-add_action( 'init', 'x_visual_composer_fee_configure' );
-
-
-//
-// Enqueue extra scripts while frontend editor is active.
-//
-
-function x_visual_composer_fee_enqueue() {
-
-  wp_enqueue_script( 'vendor-google-maps' );
-  wp_enqueue_script( 'mediaelement' );
-  wp_enqueue_script( 'vendor-ilightbox' );
-
-}
-
-
-//
-// Output extra styles while frontend editor is active.
-//
-
-function x_visual_composer_fee_output_styles() {
-
-  switch ( x_get_stack() ) {
-    case 'integrity':
-      $base_margin = '1.313em';
-      break;
-    case 'integrity':
-      $base_margin = '1.5em';
-      break;
-    case 'integrity':
-      $base_margin = '1.313em';
-      break;
-    case 'integrity':
-      $base_margin = '2.15em';
-      break;
+  function x_visual_composer_is_front_end_editor() {
+    return ( function_exists( 'vc_manager' ) && vc_manager()->mode() == 'page_editable' );
   }
 
-  ?>
 
-  .vc_welcome .vc_buttons {
-    margin-top: 0;
+  //
+  // Run certain actions only when using front end editing.
+  //
+
+  function x_visual_composer_fee_configure() {
+
+    if ( ! x_visual_composer_is_front_end_editor() ) {
+      return;
+    }
+
+    add_action( 'wp_enqueue_scripts', 'x_visual_composer_fee_enqueue', 999 );
+    add_action( 'x_head_css', 'x_visual_composer_fee_output_styles', 999 );
+
   }
 
-  .x-column.vc {
-    width: 100%;
-    margin: 0;
+  add_action( 'init', 'x_visual_composer_fee_configure' );
+
+
+  //
+  // Enqueue extra scripts while frontend editor is active.
+  //
+
+  function x_visual_composer_fee_enqueue() {
+
+    wp_enqueue_script( 'vendor-google-maps' );
+    wp_enqueue_script( 'mediaelement' );
+    wp_enqueue_script( 'vendor-ilightbox' );
+
   }
 
-  .vc_vc_column {
-    margin-right: 4%;
-    padding: 0;
-  }
 
-  .vc_vc_column:last-of-type {
-    margin-right: 0;
-  }
+  //
+  // Output extra styles while frontend editor is active.
+  //
 
-  .vc_vc_column.vc_col-sm-12 { width: 100%;      }
-  .vc_vc_column.vc_col-sm-11 { width: 91.33332%; }
-  .vc_vc_column.vc_col-sm-10 { width: 82.66666%; }
-  .vc_vc_column.vc_col-sm-9  { width: 74%;       }
-  .vc_vc_column.vc_col-sm-8  { width: 65.33332%; }
-  .vc_vc_column.vc_col-sm-7  { width: 56.66666%; }
-  .vc_vc_column.vc_col-sm-6  { width: 48%;       }
-  .vc_vc_column.vc_col-sm-5  { width: 39.33332%; }
-  .vc_vc_column.vc_col-sm-4  { width: 30.66666%; }
-  .vc_vc_column.vc_col-sm-3  { width: 22%;       }
-  .vc_vc_column.vc_col-sm-2  { width: 13.33332%; }
-  .vc_vc_column.vc_col-sm-1  { width: 4.666666%; }
+  function x_visual_composer_fee_output_styles() {
 
-  .x-content-band.vc.marginless-columns .x-container .vc_container-anchor {
-    display: none;
-  }
+    switch ( x_get_stack() ) {
+      case 'integrity':
+        $base_margin = '1.313em';
+        break;
+      case 'integrity':
+        $base_margin = '1.5em';
+        break;
+      case 'integrity':
+        $base_margin = '1.313em';
+        break;
+      case 'integrity':
+        $base_margin = '2.15em';
+        break;
+    }
 
-  .x-content-band.vc.marginless-columns .x-container .vc_vc_column {
-    display: table-cell;
-    margin-right: 0;
-    float: none;
-  }
+    ?>
 
-  .x-content-band.vc.marginless-columns .x-container .vc_vc_column .x-column {
-    display: block;
-    width: 100%;
-    margin-right: 0;
-    float: none;
-  }
+    .vc_welcome .vc_buttons {
+      margin-top: 0;
+    }
 
-  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-12 { width: 100%;      }
-  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-11 { width: 91.66666%; }
-  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-10 { width: 83.33333%; }
-  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-9  { width: 75%;       }
-  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-8  { width: 66.66666%; }
-  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-7  { width: 58.33333%; }
-  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-6  { width: 50%;       }
-  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-5  { width: 41.66666%; }
-  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-4  { width: 33.33333%; }
-  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-3  { width: 25%;       }
-  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-2  { width: 16.66666%; }
-  .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-1  { width: 8.33333%;  }
-
-  .vc_element {
-    margin-bottom: <?php echo $base_margin; ?>;
-  }
-
-  .vc_element.vc_vc_row,
-  .vc_element.vc_vc_column,
-  .vc_element:last-of-type {
-    margin-bottom: 0;
-  }
-
-  .hentry p:last-of-type,
-  .hentry ul:last-of-type,
-  .hentry ol:last-of-type {
-    margin-bottom: 0;
-  }
-
-  @media (max-width: 767px) {
-    .vc_vc_column[class*="vc_col"] {
-      float: none;
+    .x-column.vc {
       width: 100%;
+      margin: 0;
+    }
+
+    .vc_vc_column {
+      margin-right: 4%;
+      padding: 0;
+    }
+
+    .vc_vc_column:last-of-type {
       margin-right: 0;
     }
 
-    .x-content-band.vc.marginless-columns .x-container .vc_vc_column[class*="vc_col"] {
+    .vc_vc_column.vc_col-sm-12 { width: 100%;      }
+    .vc_vc_column.vc_col-sm-11 { width: 91.33332%; }
+    .vc_vc_column.vc_col-sm-10 { width: 82.66666%; }
+    .vc_vc_column.vc_col-sm-9  { width: 74%;       }
+    .vc_vc_column.vc_col-sm-8  { width: 65.33332%; }
+    .vc_vc_column.vc_col-sm-7  { width: 56.66666%; }
+    .vc_vc_column.vc_col-sm-6  { width: 48%;       }
+    .vc_vc_column.vc_col-sm-5  { width: 39.33332%; }
+    .vc_vc_column.vc_col-sm-4  { width: 30.66666%; }
+    .vc_vc_column.vc_col-sm-3  { width: 22%;       }
+    .vc_vc_column.vc_col-sm-2  { width: 13.33332%; }
+    .vc_vc_column.vc_col-sm-1  { width: 4.666666%; }
+
+    .x-content-band.vc.marginless-columns .x-container .vc_container-anchor {
+      display: none;
+    }
+
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column {
+      display: table-cell;
+      margin-right: 0;
+      float: none;
+    }
+
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column .x-column {
       display: block;
       width: 100%;
+      margin-right: 0;
+      float: none;
     }
+
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-12 { width: 100%;      }
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-11 { width: 91.66666%; }
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-10 { width: 83.33333%; }
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-9  { width: 75%;       }
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-8  { width: 66.66666%; }
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-7  { width: 58.33333%; }
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-6  { width: 50%;       }
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-5  { width: 41.66666%; }
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-4  { width: 33.33333%; }
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-3  { width: 25%;       }
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-2  { width: 16.66666%; }
+    .x-content-band.vc.marginless-columns .x-container .vc_vc_column.vc_col-sm-1  { width: 8.33333%;  }
+
+    .vc_element {
+      margin-bottom: <?php echo $base_margin; ?>;
+    }
+
+    .vc_element.vc_vc_row,
+    .vc_element.vc_vc_column,
+    .vc_element:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .hentry p:last-of-type,
+    .hentry ul:last-of-type,
+    .hentry ol:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 767px) {
+      .vc_vc_column[class*="vc_col"] {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+      }
+
+      .x-content-band.vc.marginless-columns .x-container .vc_vc_column[class*="vc_col"] {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    <?php
+
   }
 
-  <?php
 
-}
+  //
+  // Add element initialization JavaScript to frontend editor.
+  //
 
+  function x_visual_composer_fee_js_elements() { ?>
 
-//
-// Add element initialization JavaScript to frontend editor.
-//
+    <script>
 
-function x_visual_composer_fee_js_elements() { ?>
+      jQuery(function($) {
 
-  <script>
+        //
+        // Intialize JavaScript for X elements.
+        //
 
-    jQuery(function($) {
-
-      //
-      // Intialize JavaScript for X elements.
-      //
-
-      vc.EditElementPanelView.prototype.events['click button.vc_panel-btn-save[data-save=true]'] = function() {
-        setTimeout( function() {
-          document.getElementById('vc_inline-frame').contentWindow.xData.api.process();
-          console.log('Updating X Elements');
-        }, 1500);
-      };
+        vc.EditElementPanelView.prototype.events['click button.vc_panel-btn-save[data-save=true]'] = function() {
+          setTimeout( function() {
+            document.getElementById('vc_inline-frame').contentWindow.xData.api.process();
+            console.log('Updating X Elements');
+          }, 1500);
+        };
 
 
-      //
-      // Alter appearance of #vc_no-content-helper.
-      //
+        //
+        // Alter appearance of #vc_no-content-helper.
+        //
 
-      $('#vc_no-content-helper h3').html("<?php _e( 'Add Some Using the Button Below!', '__x__' ) ?>");
-      $('#vc_no-content-helper #vc_no-content-add-text-block').remove();
+        $('#vc_no-content-helper h3').html("<?php _e( 'Add Some Using the Button Below!', '__x__' ) ?>");
+        $('#vc_no-content-helper #vc_no-content-add-text-block').remove();
 
-    });
+      });
 
-  </script>
+    </script>
 
-<?php }
+  <?php }
 
-add_action( 'vc_frontend_editor_render_template', 'x_visual_composer_fee_js_elements', 999 );
+  add_action( 'vc_frontend_editor_render_template', 'x_visual_composer_fee_js_elements', 999 );
+
+endif;
 
 
 
 // Map Shortcodes
 // =============================================================================
 
-if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) ) {
+if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_composer_integration_on() ) {
 
   function x_visual_composer_map_shortcodes() {
 
@@ -4425,7 +4458,7 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) ) {
 // Update Existing Elements
 // =============================================================================
 
-if ( ! function_exists( 'x_visual_composer_update_existing_shortcodes' ) ) {
+if ( ! function_exists( 'x_visual_composer_update_existing_shortcodes' ) && x_visual_composer_integration_on() ) {
 
   function x_visual_composer_update_existing_shortcodes() {
 
@@ -4450,6 +4483,8 @@ if ( ! function_exists( 'x_visual_composer_update_existing_shortcodes' ) ) {
     vc_remove_param( 'vc_row', 'bg_image_repeat' );
     vc_remove_param( 'vc_row', 'el_class' );
     vc_remove_param( 'vc_row', 'css' );
+    vc_remove_param( 'vc_row', 'full_width' );
+    vc_remove_param( 'vc_row', 'el_id' );
 
     vc_add_param( 'vc_row', array(
       'param_name'  => 'inner_container',
@@ -4604,6 +4639,7 @@ if ( ! function_exists( 'x_visual_composer_update_existing_shortcodes' ) ) {
     vc_remove_param( 'vc_row_inner', 'font_color' );
     vc_remove_param( 'vc_row_inner', 'el_class' );
     vc_remove_param( 'vc_row_inner', 'css' );
+    vc_remove_param( 'vc_row_inner', 'el_id' );
 
     vc_add_param( 'vc_row_inner', array(
       'param_name'  => 'inner_container',
@@ -5041,7 +5077,7 @@ if ( ! function_exists( 'x_visual_composer_templates_id_increment' ) ) {
 // Overwrite No Content Message
 // =============================================================================
 
-if ( ! function_exists( 'x_visual_composer_overwrite_no_content_message' ) ) {
+if ( ! function_exists( 'x_visual_composer_overwrite_no_content_message' ) && x_visual_composer_integration_on() ) {
 
   function x_visual_composer_overwrite_no_content_message() {
     $message = __( 'Add Some Using the Button Below!', '__x__' );
@@ -5059,7 +5095,7 @@ if ( ! function_exists( 'x_visual_composer_overwrite_no_content_message' ) ) {
 // Overwrite Layout Error Message
 // =============================================================================
 
-if ( ! function_exists( 'x_visual_composer_overwrite_layout_error_message' ) ) {
+if ( ! function_exists( 'x_visual_composer_overwrite_layout_error_message' ) && x_visual_composer_integration_on() ) {
 
   function x_visual_composer_overwrite_layout_error_message() {
     $message = '<div class="messagebox_text"><p>' . __( 'The layout you are trying to use on this page does not conform to Visual Composer&#39;s layout guidelines. For more information on this situation and how to avoid this error going forward, please see our <a href="http://theme.co/x/member/kb/solutions-to-potential-setup-issues-visual-composer/" target="_blank">Knowledge Base article</a> in the X Member Area.', '__x__' ) . '</p></div>';

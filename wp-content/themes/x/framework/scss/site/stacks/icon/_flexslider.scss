@@ -120,8 +120,7 @@
   @include transition(#{opacity 0.3s ease});
   z-index: 10;
 
-  [class^="x-icon-"],
-  [class*=" x-icon-"] {
+  [class*="#{$fa-css-prefix}-"] {
     width: auto;
   }
 

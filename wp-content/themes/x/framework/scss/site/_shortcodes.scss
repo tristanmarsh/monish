@@ -12,12 +12,17 @@
 //   03. Clear
 //   04. Maps
 //   05. Code
-//   06. Block Grid
-//   07. Video
-//   08. Responsive Slider
-//   09. Audio
-//   10. Search
-//   11. Counter
+//   06. Icon
+//   07. Block Grid
+//   08. Icon List
+//   09. Video
+//   10. Responsive Slider
+//   11. Audio
+//   12. Search
+//   13. Counter
+//   14. Text Type
+//   15. Card
+//   16. Creative CTA
 // =============================================================================
 
 // Container
@@ -25,7 +30,6 @@
 
 .x-container {
   margin: 0 auto;
-  position: relative;
   @include clearfix();
 
   &.max {
@@ -43,7 +47,7 @@
 // =============================================================================
 
 .x-gap {
-  margin: $baseMargin 0;
+  margin: 0 0 $baseMargin;
   border-color: transparent;
 }
 
@@ -99,42 +103,86 @@
 
 
 
+// Icon
+// =============================================================================
+
+[class*="#{$fa-css-prefix}-"] {
+  display: inline-block;
+  font-family: "FontAwesome";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.left {
+    margin-right: 0.5em;
+  }
+
+  &.right {
+    margin-left: 0.5em;
+  }
+
+  &:before {
+    content: attr(data-icon);
+    line-height: 1;
+  }
+}
+
+
+
 // Block Grid
 // =============================================================================
 
 .x-block-grid {
   display: block;
   overflow: hidden;
+  margin: -5% -5% $baseMargin 0;
   padding: 0;
 
-  & > li {
+  > li {
     display: block;
-    height: auto;
-    margin: 0;
     float: left;
+    height: auto;
+    margin: 5% 5% 0 0;
+    padding: 0;
   }
 
-  @for $i from 2 through 5 {
-    &.#{ convert-number-to-word( $i ) }-up {
-      @if $i == 2 { margin: $baseMargin -1.25%; }
-      @if $i == 3 { margin: $baseMargin -1%; }
-      @if $i == 4 { margin: $baseMargin -0.9%; }
-      @if $i == 5 { margin: $baseMargin -0.85%; }
+  &.two-up > li   { width: 45%;       &:nth-child(2n+1) { clear: both; } }
+  &.three-up > li { width: 28.33333%; &:nth-child(3n+1) { clear: both; } }
+  &.four-up > li  { width: 20%;       &:nth-child(4n+1) { clear: both; } }
 
-      & > li {
-        width: 100% / $i;
-        @if $i == 2 { padding: 1.25%; }
-        @if $i == 3 { padding: 1%; }
-        @if $i == 4 { padding: 0.9%; }
-        @if $i == 5 { padding: 0.85%; }
-        @if $i > 1 { &:nth-child( #{$i}n+1 ) { clear: both; } }
-      }
+  &.two-up > li {
+    @include break(baby-bear) { width: 100%; &:nth-child(2n+1) { clear: none; } }
+  }
+
+  &.three-up > li {
+    @include break(cubs)      { width: 45%;  &:nth-child(2n+1) { clear: both; } &:nth-child(3n+1) { clear: none; } }
+    @include break(baby-bear) { width: 100%; &:nth-child(2n+1) { clear: none; } }
+  }
+
+  &.four-up > li {
+    @include break(cubs)      { width: 45%;  &:nth-child(2n+1) { clear: both; } &:nth-child(4n+1) { clear: none; } }
+    @include break(baby-bear) { width: 100%; &:nth-child(2n+1) { clear: none; } }
+  }
+}
+
+
+
+// Icon List
+// =============================================================================
+
+.x-ul-icons {
+  margin-left: 1.5em;
+  list-style: none;
+
+  li {
+    margin-left: 0;
+
+    [class*="#{$fa-css-prefix}-"] {
+      text-indent: -1.5em;
     }
-  }
-
-  img,
-  .x-img {
-    margin-bottom: 0;
   }
 }
 
@@ -191,8 +239,11 @@
 // =============================================================================
 
 .x-audio {
-  height: $mejsHeight;
   margin-bottom: $baseMargin;
+
+  &.player {
+    height: $mejsHeight;
+  }
 }
 
 
@@ -232,4 +283,180 @@
   .text-below {
     margin-top: 0.5em;
   }
+}
+
+
+
+// Text Type
+// =============================================================================
+
+.x-text-type {
+  .typed-cursor{
+    -webkit-animation: blink 0.65s infinite;
+            animation: blink 1s infinite;
+  }
+}
+
+@-webkit-keyframes blink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes blink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+
+// Card
+// =============================================================================
+
+.x-card-outer {
+  margin: 0 auto $baseMargin;
+  text-align: center;
+  cursor: pointer;
+
+  .x-card-inner {
+    position: relative;
+  }
+
+  .x-face-outer {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .x-face-inner {
+    height: 100%;
+  }
+
+  .x-face-graphic {
+    margin: 0 0 10px;
+    line-height: 1;
+  }
+
+  .x-face-title,
+  .x-face-text {
+    color: inherit;
+  }
+
+  .x-face-title {
+    margin: 0;
+    font-size: 1.75em;
+  }
+
+  .x-face-text {
+    margin: 8px 0 0;
+  }
+
+  .x-face-button {
+    display: inline-block;
+    margin: 15px 0 0;
+    padding: 0.825em 1em;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 0.35em;
+  }
+  
+  &.flipped {
+    .back {
+      z-index: 3;
+    }
+  }
+
+  &.center-vertically {
+    .x-face-inner {
+      &:before {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        vertical-align: middle;
+      }
+    }
+
+    .x-face-content {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  &.flip-3d {
+    @include perspective(1200px);
+
+    .x-card-inner {
+      -webkit-transition: -webkit-transform 1.25s $easeOutQuint;
+              transition: transform 1.25s $easeOutQuint;
+      @include transform-style(preserve-3d);
+    }
+
+    .x-face-outer {
+      @include backface-visibility(hidden);
+    }
+
+    &.flip-from-left .back,
+    &.flip-from-right .back                 { @include rotate-y(180deg);  }
+    &.flip-from-left.flipped .x-card-inner  { @include rotate-y(180deg);  }
+    &.flip-from-right.flipped .x-card-inner { @include rotate-y(-180deg); }
+
+    &.flip-from-top .back,
+    &.flip-from-bottom .back                 { @include rotate-x(180deg);  }
+    &.flip-from-top.flipped .x-card-inner    { @include rotate-x(-180deg); }
+    &.flip-from-bottom.flipped .x-card-inner { @include rotate-x(180deg);  }
+  }
+}
+
+
+
+// Creative CTA
+// =============================================================================
+
+.x-creative-cta {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  @include transition(#{background-color 0.3s ease});
+
+  > span {
+    display: block;
+    @include transition(#{all 0.65s $easeOutQuint});
+
+    &.text {
+      line-height: 1.2;
+      opacity: 1;
+    }
+
+    &.graphic {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      line-height: 1;
+      opacity: 0;
+
+      > i,
+      > img {
+        @include transition(#{all 0.65s $easeOutQuint});
+      }
+    }
+  }
+
+  &:hover {
+    > span.text    { opacity: 0; }
+    > span.graphic { opacity: 1; }
+  }
+
+  &.slide-top    { &:hover { > span.text { @include translate(0, -150%); } } }
+  &.slide-left   { &:hover { > span.text { @include translate(-80%, 0);  } } }
+  &.slide-right  { &:hover { > span.text { @include translate(80%, 0);   } } }
+  &.slide-bottom { &:hover { > span.text { @include translate(0, 150%);  } } }
 }

@@ -10,6 +10,6 @@
 
 <?php if ( has_tag() ) : ?>
   <footer class="entry-footer cf">
-    <?php echo get_the_tag_list( '<p><i class="x-icon-tags"></i> Tags: ', ', ', '</p>' ); ?>
+    <?php echo get_the_tag_list( '<p><i class="x-icon-tags" data-icon="&#xf02c;"></i> Tags: ', ', ', '</p>' ); ?>
   </footer>
 <?php endif; ?>

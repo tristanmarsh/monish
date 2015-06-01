@@ -15,7 +15,7 @@ $categories = get_categories( array( 'include' => x_get_option( 'x_ethos_filtera
   <li>
     <a href="#" class="x-index-filters cf">
       <span class="x-index-filter-label">Filter by Topic</span>
-      <i class="x-icon-chevron-down"></i>
+      <i class="x-icon-chevron-down" data-icon="&#xf078;"></i>
     </a>
     <ul class="x-index-filters-menu unstyled">
       <?php foreach ( $categories as $category ) { ?>

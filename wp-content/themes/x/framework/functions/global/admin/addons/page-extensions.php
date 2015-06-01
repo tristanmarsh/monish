@@ -60,9 +60,9 @@ function x_addons_page_extensions() { ?>
 
     </header>
 
-    <?php if ( ! x_plugin_shortcodes_exists() ) : ?>
+    <?php if ( ! x_plugin_cornerstone_exists() ) : ?>
       <?php foreach ( TGM_Plugin_Activation::$instance->plugins as $plugin ) : ?>
-        <?php if ( $plugin['slug'] == 'x-shortcodes' ) : ?>
+        <?php if ( $plugin['slug'] == 'cornerstone' ) : ?>
 
           <?php $url = wp_nonce_url( add_query_arg( array( 'page' => TGM_Plugin_Activation::$instance->menu, 'plugin' => $plugin['slug'], 'plugin_name' => $plugin['name'], 'plugin_source' => $plugin['source'], 'tgmpa-install' => 'install-plugin', ), admin_url( TGM_Plugin_Activation::$instance->parent_url_slug ) ), 'tgmpa-install' ); ?>
 
@@ -72,7 +72,7 @@ function x_addons_page_extensions() { ?>
               <div class="info">
                 <h4 class="title"><?php echo $plugin['name']; ?></h4>
                 <span class="status not-installed">Required</span>
-                <p class="desc"><?php echo $plugin['x_description'] ?></p>
+                <p class="desc"><?php echo $plugin['x_description']; ?></p>
                 <p class="author"><cite>By <?php echo $plugin['x_author']; ?></cite></p>
               </div>
             </div>
@@ -91,7 +91,7 @@ function x_addons_page_extensions() { ?>
 
         <?php
 
-        if ( $plugin['slug'] == 'x-shortcodes' ) {
+        if ( $plugin['slug'] == 'cornerstone' || $plugin['slug'] == 'js_composer' ) {
           continue;
         }
 
@@ -121,13 +121,13 @@ function x_addons_page_extensions() { ?>
 
         ?>
 
-        <li class="x-addons-extension <?php echo $status ?>" id="<?php echo $plugin['slug']; ?>">
+        <li class="x-addons-extension <?php echo $status; ?>" id="<?php echo $plugin['slug']; ?>">
           <div class="top cf">
             <img src="<?php echo $plugin['x_logo']; ?>" class="img">
             <div class="info">
               <h4 class="title"><?php echo $plugin['name']; ?></h4>
-              <span class="status <?php echo $status ?>"><?php echo $status_message ?></span>
-              <p class="desc"><?php echo $plugin['x_description'] ?></p>
+              <span class="status <?php echo $status; ?>"><?php echo $status_message; ?></span>
+              <p class="desc"><?php echo $plugin['x_description']; ?></p>
               <p class="author"><cite>By <?php echo $plugin['x_author']; ?></cite></p>
             </div>
           </div>

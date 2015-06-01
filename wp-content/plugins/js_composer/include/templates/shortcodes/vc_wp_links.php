@@ -8,10 +8,18 @@ extract( shortcode_atts( array(
 	'el_class' => ''
 ), $atts ) );
 $options = explode( ",", $options );
-if ( in_array( "images", $options ) ) $atts['images'] = true;
-if ( in_array( "name", $options ) ) $atts['name'] = true;
-if ( in_array( "description", $options ) ) $atts['description'] = true;
-if ( in_array( "rating", $options ) ) $atts['rating'] = true;
+if ( in_array( "images", $options ) ) {
+	$atts['images'] = true;
+}
+if ( in_array( "name", $options ) ) {
+	$atts['name'] = true;
+}
+if ( in_array( "description", $options ) ) {
+	$atts['description'] = true;
+}
+if ( in_array( "rating", $options ) ) {
+	$atts['rating'] = true;
+}
 
 $el_class = $this->getExtraClass( $el_class );
 

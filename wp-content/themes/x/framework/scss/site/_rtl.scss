@@ -108,8 +108,7 @@
     margin-left: 0.25em;
   }
 
-  .x-btn [class^="x-icon-"],
-  .x-btn [class*=" x-icon-"] {
+  .x-btn [class*="#{$fa-css-prefix}-"] {
     float: right;
     margin-right: 0;
     margin-left: 0.5em;
@@ -173,7 +172,7 @@
   .x-pricing-column-info {
     ul {
       > li {
-        [class*="x-icon"] {
+        [class*="#{$fa-css-prefix}-"] {
           margin-right: 0.85em;
           margin-left: 0;
         }

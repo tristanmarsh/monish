@@ -94,8 +94,8 @@ if ( $is_blog || $is_archive ) :
         jQuery('.x-post-slider').flexslider({
           controlNav   : false,
           selector     : '.x-slides > li',
-          prevText     : '<i class="x-icon-chevron-left"></i>',
-          nextText     : '<i class="x-icon-chevron-right"></i>',
+          prevText     : '<i class="x-icon-chevron-left" data-icon="&#xf053;"></i>',
+          nextText     : '<i class="x-icon-chevron-right" data-icon="&#xf054;"></i>',
           animation    : 'fade',
           smoothHeight : true,
           slideshow    : true

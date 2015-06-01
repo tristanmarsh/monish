@@ -93,7 +93,7 @@ jQuery(function($) {
   var $mobileSubs    = $mobileMenu.find('.sub-menu');
 
   $mobileTargets.each(function(i) {
-    $(this).append('<div class="x-sub-toggle" data-toggle="collapse" data-target=".sub-menu.sm-' + i + '"><span><i class="x-icon x-icon-angle-double-down"></i></span></div>');
+    $(this).append('<div class="x-sub-toggle" data-toggle="collapse" data-target=".sub-menu.sm-' + i + '"><span><i class="x-icon-angle-double-down" data-icon="&#xf103;"></i></span></div>');
   });
 
   $mobileSubs.each(function(i) {

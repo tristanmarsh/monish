@@ -9,34 +9,11 @@
 // =============================================================================
 // TABLE OF CONTENTS
 // -----------------------------------------------------------------------------
-//   01. Remove Empty <p> and <br> Tags Around Shortcodes
-//   02. Remove Tag Cloud Inline Style
-//   03. Remove Recent Comments Style
-//   04. Remove Gallery Style
-//   05. Remove Gallery <br> Tags
+//   01. Remove Tag Cloud Inline Style
+//   02. Remove Recent Comments Style
+//   03. Remove Gallery Style
+//   04. Remove Gallery <br> Tags
 // =============================================================================
-
-// Remove Empty <p> and <br> Tags Around Shortcodes
-// =============================================================================
-
-if ( ! function_exists( 'x_clean_shortcodes' ) ) :
-  function x_clean_shortcodes( $content ) {
-
-    $array = array (
-      '<p>['    => '[',
-      ']</p>'   => ']',
-      ']<br />' => ']'
-    );
-
-    $content = strtr( $content, $array );
-
-    return $content;
-
-  }
-  add_filter( 'the_content', 'x_clean_shortcodes' );
-endif;
-
-
 
 // Remove Tag Cloud Inline Style
 // =============================================================================

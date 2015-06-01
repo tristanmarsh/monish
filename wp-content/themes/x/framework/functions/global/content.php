@@ -113,11 +113,11 @@ if ( ! function_exists( 'x_entry_navigation' ) ) :
   $stack = x_get_stack();
 
   if ( $stack == 'ethos' ) {
-    $left_icon  = '<i class="x-icon-chevron-left"></i>';
-    $right_icon = '<i class="x-icon-chevron-right"></i>';
+    $left_icon  = '<i class="x-icon-chevron-left" data-icon="&#xf053;"></i>';
+    $right_icon = '<i class="x-icon-chevron-right" data-icon="&#xf054;"></i>';
   } else {
-    $left_icon  = '<i class="x-icon-arrow-left"></i>';
-    $right_icon = '<i class="x-icon-arrow-right"></i>';
+    $left_icon  = '<i class="x-icon-arrow-left" data-icon="&#xf060;"></i>';
+    $right_icon = '<i class="x-icon-arrow-right" data-icon="&#xf061;"></i>';
   }
 
   $is_ltr    = ! is_rtl();

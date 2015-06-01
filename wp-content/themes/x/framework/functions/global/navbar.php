@@ -167,7 +167,7 @@ if ( ! function_exists( 'x_navbar_search_navigation_item' ) ) :
       if ( $args->theme_location == 'primary' ) {
         $items .= '<li class="menu-item x-menu-item x-menu-item-search">'
                   . '<a href="#" class="x-btn-navbar-search">'
-                    . '<span><i class="x-icon x-icon-search"></i><span class="x-hidden-desktop"> ' . __( 'Search', '__x__' ) . '</span></span>'
+                    . '<span><i class="x-icon-search" data-icon="&#xf002;"></i><span class="x-hidden-desktop"> ' . __( 'Search', '__x__' ) . '</span></span>'
                   . '</a>'
                 . '</li>';
       }

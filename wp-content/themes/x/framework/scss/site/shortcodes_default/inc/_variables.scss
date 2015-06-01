@@ -11,9 +11,8 @@
 //   02. Appearance
 //   03. Fonts
 //   04. Tooltips and Popovers
-//   05. MEJS
-//   06. Alerts
-//   07. Font Awesome
+//   05. Alerts
+//   06. Font Awesome
 // =============================================================================
 
 // Structure
@@ -26,14 +25,14 @@ $baseMargin:    1.5em !default;
 // Appearance
 // =============================================================================
 
-$skin:                 'light'                                !default;
-$baseBoxShadow:        0 0.15em 0.35em 0 rgba(0, 0, 0, 0.135) !default;
-$baseModBackground:    $white                                 !default;
-$baseBorderColor:      rgba(0, 0, 0, 0.15)                    !default;
-$accentColor:          #ff2a13                                !default;
-$linkColor:            $accentColor                           !default;
-$linkColorHover:       darken($linkColor, 15%)                !default;
-$textColor:            #7a7a7a                                !default;
+$skin:                 'light'                        !default;
+$baseBoxShadow:        0 1px 2px 0 rgba(0, 0, 0, 0.1) !default;
+$baseModBackground:    $white                         !default;
+$baseBorderColor:      rgba(0, 0, 0, 0.125)           !default;
+$accentColor:          #ff2a13                        !default;
+$linkColor:            $accentColor                   !default;
+$linkColorHover:       darken($linkColor, 15%)        !default;
+$textColor:            #7a7a7a                        !default;
 
 
 
@@ -49,26 +48,17 @@ $monoFontFamily:    $consolas;
 // Tooltips and Popovers
 // =============================================================================
 
-$tooltipArrowWidth:         5px     !default;
-$tooltipArrowColor:         #272727 !default;
-$tooltipColor:              $white  !default;
-$tooltipBackground:         #272727 !default;
+$tooltipArrowWidth:         5px                  !default;
+$tooltipArrowColor:         rgba(0, 0, 0, 0.815) !default;
+$tooltipColor:              $white               !default;
+$tooltipBackground:         rgba(0, 0, 0, 0.815) !default;
 
-$popoverArrowWidth:         10px                           !default;
-$popoverArrowColor:         $white                         !default;
-$popoverArrowOuterWidth:    $popoverArrowWidth + 1         !default;
-$popoverArrowOuterColor:    rgba(0, 0, 0, 0.25)            !default;
-$popoverBackground:         $white                         !default;
-$popoverTitleBackground:    darken($popoverBackground, 3%) !default;
-
-
-
-// MEJS
-// =============================================================================
-
-$mejsButtonBorderColor:    #272727               !default;
-$mejsGradientTop:          lighten(#272727, 20%) !default;
-$mejsGradientBottom:       #272727               !default;
+$popoverArrowWidth:         10px                   !default;
+$popoverArrowColor:         $white                 !default;
+$popoverArrowOuterWidth:    $popoverArrowWidth + 1 !default;
+$popoverArrowOuterColor:    rgba(0, 0, 0, 0.5)     !default;
+$popoverBackground:         $white                 !default;
+$popoverTitleBackground:    rgba(0, 0, 0, 0.1)     !default;
 
 
 

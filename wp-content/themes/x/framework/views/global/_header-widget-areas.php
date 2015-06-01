@@ -36,7 +36,7 @@ $n = x_header_widget_areas_count();
     </div>
 
     <a href="#" class="x-btn-widgetbar collapsed" data-toggle="collapse" data-target=".x-widgetbar">
-      <i class="x-icon-plus-circle"><span class="visually-hidden"><?php _e( 'Toggle the Widgetbar', '__x__' ); ?></span></i>
+      <i class="x-icon-plus-circle" data-icon="&#xf055;"><span class="visually-hidden"><?php _e( 'Toggle the Widgetbar', '__x__' ); ?></span></i>
     </a>
 
   <?php endif; ?>

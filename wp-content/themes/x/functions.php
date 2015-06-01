@@ -115,7 +115,7 @@ if ( X_SOLILOQUY_IS_ACTIVE ) {
   require_once( $plgn_path . '/soliloquy.php' );
 }
 
-if ( X_VISUAL_COMOPSER_IS_ACTIVE ) {
+if ( X_VISUAL_COMOPSER_IS_ACTIVE && get_option( 'x_pre_v4', false ) ) {
   require_once( $plgn_path . '/visual-composer.php' );
 }
 

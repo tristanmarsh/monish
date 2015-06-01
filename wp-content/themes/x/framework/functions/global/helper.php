@@ -22,6 +22,7 @@
 //   11. Shortcode Plugin Exists
 //   12. Array to Object
 //   13. Object to Array
+//   14. Get Current Color Scheme
 // =============================================================================
 
 // Get View
@@ -195,9 +196,9 @@ function x_plugin_exists( $plugin ) {
 // Shortcode Plugin Exists
 // =============================================================================
 
-function x_plugin_shortcodes_exists() {
+function x_plugin_cornerstone_exists() {
 
-  if ( x_plugin_exists( 'x-shortcodes/x-shortcodes.php' ) ) {
+  if ( x_plugin_exists( 'cornerstone/cornerstone.php' ) ) {
     return true;
   } else {
     return false;
@@ -229,4 +230,21 @@ function x_array_to_object( $array ) {
 
 function x_object_to_array( $object ) {
   return (array) $object;
+}
+
+
+
+// Get Current Color Scheme
+// =============================================================================
+
+function x_get_current_color_scheme( $type = 'colors' ) {
+
+  GLOBAL $_wp_admin_css_colors;
+
+  $current_color_scheme = get_user_option( 'admin_color' );
+  $admin_colors         = $_wp_admin_css_colors;
+  $user_colors          = (array) $admin_colors[$current_color_scheme];
+
+  return ( $type == 'icons' ) ? $user_colors['icon_colors'] : $user_colors['colors'];
+
 }

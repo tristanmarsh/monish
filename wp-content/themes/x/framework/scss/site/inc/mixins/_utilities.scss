@@ -25,9 +25,7 @@
 // For clearing floats like a boss.
 //
 
-@mixin clearfix() {
-  *zoom: 1;
-  
+@mixin clearfix() {  
   &:before,
   &:after {
     display: table;

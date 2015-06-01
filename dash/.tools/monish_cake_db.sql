@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2015 at 12:46 PM
+-- Generation Time: Jun 01, 2015 at 08:25 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -83,15 +83,14 @@ CREATE TABLE IF NOT EXISTS `leases` (
   KEY `student_id` (`student_id`),
   KEY `property_id` (`property_id`),
   KEY `property_id_2` (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `leases`
 --
 
 INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`, `date_end`, `weekly_price`) VALUES
-(4, 1, 1, 6, '2015-05-19', '2015-05-19', 200),
-(5, 16, 3, 8, '2015-05-28', '2016-05-28', 240);
+(4, 1, 1, 6, '2015-05-19', '2015-05-19', 200);
 
 -- --------------------------------------------------------
 
@@ -120,21 +119,20 @@ CREATE TABLE IF NOT EXISTS `people` (
   `first_name` varchar(25) NOT NULL,
   `last_name` varchar(25) NOT NULL,
   `gender` enum('M','F') NOT NULL,
-  `phone` int(11) NOT NULL,
+  `phone` varchar(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `people`
 --
 
 INSERT INTO `people` (`id`, `first_name`, `last_name`, `gender`, `phone`, `email`) VALUES
-(1, 'Tony', 'Wise', 'M', 404040404, 'tonywise@monish.com'),
-(3, 'Amy', 'Angel', 'F', 404040404, 'amy@amy.com'),
-(4, 'Ben', 'Blue', 'M', 404040404, 'ben@ben.com'),
-(5, 'Tristan', 'Marsh', 'M', 40404, 'tristanmarsh@live.com'),
-(6, 'Jenny', 'Bing', 'F', 123123123, 'jenny@gmail.com');
+(1, 'Tony', 'Wise', 'M', '404040404', 'tonywise@monish.com'),
+(3, 'Amy', 'Angel', 'F', '0414124124', 'amy@amy.com'),
+(4, 'Ben', 'Blue', 'M', '404040404', 'ben@ben.com'),
+(5, 'Carl', 'Co', 'M', '404040404', 'carl@carl.com');
 
 -- --------------------------------------------------------
 
@@ -176,7 +174,6 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `modified` datetime DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `category` enum('GENERAL','MAINTENANCE','INTERNET','LEASE') NOT NULL,
-  `property_address` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
@@ -184,18 +181,18 @@ CREATE TABLE IF NOT EXISTS `requests` (
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `user_id`, `category`, `property_address`) VALUES
-(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-05-24 12:43:19', 36, 'MAINTENANCE', '100 one street'),
-(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-05-24 12:43:24', 35, 'MAINTENANCE', '100 one street'),
-(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-05-24 12:43:29', 37, 'MAINTENANCE', '200 two street'),
-(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-05-24 12:43:34', 36, 'MAINTENANCE', '300 three street'),
-(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-05-24 12:43:40', 35, 'MAINTENANCE', '200 two street'),
-(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-05-24 12:43:45', 36, 'MAINTENANCE', '100 one street'),
-(15, 'Broken dong', 'donger is broken ', '2015-04-22 10:57:33', '2015-05-24 12:43:51', 37, 'MAINTENANCE', '300 three street'),
-(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-05-24 12:43:57', 35, 'MAINTENANCE', '300 three street'),
-(17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-05-24 12:44:03', 36, 'GENERAL', '200 two street'),
-(18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-24 12:44:08', 36, 'INTERNET', '100 one street'),
-(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-24 12:44:15', 36, 'LEASE', '200 two street');
+INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `user_id`, `category`) VALUES
+(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-04-13 14:52:35', 36, 'MAINTENANCE'),
+(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-04-13 14:52:26', 28, 'MAINTENANCE'),
+(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-04-13 14:53:50', 29, 'MAINTENANCE'),
+(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-04-13 15:18:31', 36, 'MAINTENANCE'),
+(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 28, 'MAINTENANCE'),
+(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-04-16 05:25:43', 28, 'MAINTENANCE'),
+(15, 'Broken dong', 'donger is broken ', '2015-04-22 10:57:33', '2015-04-22 10:57:33', 29, 'MAINTENANCE'),
+(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-04-25 09:33:29', 30, 'MAINTENANCE'),
+(17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-05-14 04:50:05', 36, 'GENERAL'),
+(18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-14 04:49:49', 36, 'INTERNET'),
+(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-14 04:49:37', 36, 'LEASE');
 
 -- --------------------------------------------------------
 
@@ -241,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   PRIMARY KEY (`id`),
   KEY `person_id` (`person_id`),
   KEY `emergency_id` (`emergency_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `students`
@@ -249,8 +246,7 @@ CREATE TABLE IF NOT EXISTS `students` (
 
 INSERT INTO `students` (`id`, `person_id`, `emergency_id`, `internet_plan`) VALUES
 (6, 3, NULL, 'BASIC'),
-(7, 5, NULL, 'STANDARD'),
-(8, 6, NULL, 'PREMIUM');
+(7, 5, NULL, 'STANDARD');
 
 -- --------------------------------------------------------
 

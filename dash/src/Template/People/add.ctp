@@ -9,7 +9,7 @@
 		<?= $this->Form->input('gender', [
 			'options' => ['M' => 'Male', 'F' => 'Female']
 		]) ?>
-		<?= $this->Form->input('phone') ?>
+		<?= $this->Form->input( 'phone', array( 'type' => 'number' )) ?>
 		<?= $this->Form->input('email') ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')); ?>

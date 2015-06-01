@@ -1,11 +1,4 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit This Property'), ['action' => 'edit', $property->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete This Property'), ['action' => 'delete', $property->id], ['confirm' => __('Are you sure you want to delete # {0}?', $property->id)]) ?> </li>
-        <li><a href="javascript:history.back()">Go Back</a></li>
-    </ul>
-</div>
+
 <div class="properties view large-10 medium-9 columns">
     <h2>Property Details</h2>
     <div class="row">
@@ -19,7 +12,7 @@
             <h6 class="subheader"><?= __('Id') ?></h6>
             <p><?= $this->Number->format($property->id) ?></p>
             <h6 class="subheader"><?= __('Number Rooms') ?></h6>
-            <p><?= $this->Number->format($property->number_rooms) ?></p>
+            <p><?= $this->Number->format($property->number_rooms) ?></p>  
             <h6 class="subheader"><?= __('Bathrooms') ?></h6>
             <p><?= $this->Number->format($property->bathrooms) ?></p>
             <h6 class="subheader"><?= __('Kitchens') ?></h6>
@@ -54,5 +47,9 @@
         <?php endforeach; ?>
     </table>
     <?php endif; ?>
+    <?= $this->Form->create(null, [
+        'url' => ['controller' => 'Properties', 'action' => 'index']
+    ])?>
+    <?= $this->Form->button(__('Cancel')) ?>
     </div>
 </div>

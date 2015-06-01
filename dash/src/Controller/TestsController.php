@@ -25,14 +25,19 @@ class TestsController extends AppController
         $this->loadModel('People');
         $this->loadModel('Students');
         $this->loadModel('Users');
+        $this->loadModel('Leases');
+        $this->loadModel('Properties');
 
         $user = $this->People->newEntity();
+
+        $properties = $this->Properties->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'address']);
+        $rooms = $this->Leases->Rooms->find('list', ['groupField' => 'property.address'])->contain('Properties');
+        $this->set(compact('rooms', 'properties'));  
 
         if ($this->request->is('post')) {
             $user = $this->People->patchEntity($user, $this->request->data);
                         
             if ($this->People->save($user)) {
-
 				$studentsTable = TableRegistry::get('Students');
         		$student = $studentsTable->newEntity();
         		$student->person_id = $user->id;
@@ -46,6 +51,22 @@ class TestsController extends AppController
                 $newUser->password = $user->email;
                 $newUser->role = 'tenant';
                 $newUsersTable->save($newUser);
+
+                $leasesTable = TableRegistry::get('Leases');
+                $lease = $leasesTable->newEntity();
+                $lease->property_id = $user->property_id;
+                $lease->room_id = $user->room_id;
+                $lease->student_id = $student->id;
+                //$test = explode(" ", $user->date_start);
+                //$lease->date_start = $test[0]."-".$test[1]."-".$test[2];
+                //$test = explode(" ", $user->date_end);
+                //$lease->date_end = $test[0]."-".$test[1]."-".$test[2];
+                $lease->date_start = $user->date_start['year']."-".$user->date_start['month']."-".$user->date_start['day'];
+                $lease->date_end = $user->date_end['year']."-".$user->date_end['month']."-".$user->date_end['day'];
+                // $lease->date_start = $user->date_start;
+                // $lease->date_end = $user->date_end;
+                $lease->weekly_price = $user->weekly_price;
+                $leasesTable->save($lease);
 
             	$this->Flash->success(__('Person Added'));
                 return $this->redirect(['controller' => 'students', 'action' => 'add']);

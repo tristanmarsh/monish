@@ -63,6 +63,7 @@ class LeasesController extends AppController
         if ($this->request->is('post')) {
             $lease = $this->Leases->patchEntity($lease, $this->request->data);
             if ($this->Leases->save($lease)) {
+                var_dump($lease);
                 $this->Flash->success('The lease has been saved.');
                 return $this->redirect(['action' => 'index']);
             } else {

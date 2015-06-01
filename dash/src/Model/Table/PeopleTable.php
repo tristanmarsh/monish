@@ -26,7 +26,7 @@ class PeopleTable extends Table
 	
 	public function validationDefault(Validator $validator)
     {
-        return $validator
+        $validator
             ->notEmpty('first_name', 'A first name is required')
             ->notEmpty('last_name', 'A last name is required')
 			->notEmpty('gender', 'A gender is required')
@@ -34,7 +34,11 @@ class PeopleTable extends Table
             ->notEmpty('email', 'An email is required')
             ->notEmpty('internet_plan', 'An internet plan is required')
             ->notEmpty('username', 'A username is required')
-            ->notEmpty('password', 'A password is required');
+            ->notEmpty('password', 'A password is required')
+            ->notEmpty('date_start')
+            ->notEmpty('date_end');
+
+        return $validator;    
     }
 	
 	public function buildRules(RulesChecker $rules)

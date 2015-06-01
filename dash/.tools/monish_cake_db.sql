@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2015 at 02:44 PM
+-- Generation Time: May 28, 2015 at 12:46 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -83,14 +83,15 @@ CREATE TABLE IF NOT EXISTS `leases` (
   KEY `student_id` (`student_id`),
   KEY `property_id` (`property_id`),
   KEY `property_id_2` (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `leases`
 --
 
 INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`, `date_end`, `weekly_price`) VALUES
-(4, 1, 1, 6, '2015-05-19', '2015-05-19', 200);
+(4, 1, 1, 6, '2015-05-19', '2015-05-19', 200),
+(5, 16, 3, 8, '2015-05-28', '2016-05-28', 240);
 
 -- --------------------------------------------------------
 
@@ -122,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `people` (
   `phone` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `people`
@@ -132,7 +133,8 @@ INSERT INTO `people` (`id`, `first_name`, `last_name`, `gender`, `phone`, `email
 (1, 'Tony', 'Wise', 'M', 404040404, 'tonywise@monish.com'),
 (3, 'Amy', 'Angel', 'F', 404040404, 'amy@amy.com'),
 (4, 'Ben', 'Blue', 'M', 404040404, 'ben@ben.com'),
-(5, 'Carl', 'Co', 'M', 404040404, 'carl@carl.com');
+(5, 'Tristan', 'Marsh', 'M', 40404, 'tristanmarsh@live.com'),
+(6, 'Jenny', 'Bing', 'F', 123123123, 'jenny@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -176,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `category` enum('GENERAL','MAINTENANCE','INTERNET','LEASE') NOT NULL,
   `property_address` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `requests`
@@ -239,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   PRIMARY KEY (`id`),
   KEY `person_id` (`person_id`),
   KEY `emergency_id` (`emergency_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `students`
@@ -247,7 +249,8 @@ CREATE TABLE IF NOT EXISTS `students` (
 
 INSERT INTO `students` (`id`, `person_id`, `emergency_id`, `internet_plan`) VALUES
 (6, 3, NULL, 'BASIC'),
-(7, 5, NULL, 'STANDARD');
+(7, 5, NULL, 'STANDARD'),
+(8, 6, NULL, 'PREMIUM');
 
 -- --------------------------------------------------------
 

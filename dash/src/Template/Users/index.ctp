@@ -3,7 +3,7 @@
 
         <h3>Manage Users</h3>
         <?= $this->Html->link('Add User', ['action' => 'add']) ?>
-        <span style="float:right"><?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
+        
         <table>
             <tr>
         		<th>Username</th>

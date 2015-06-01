@@ -31,13 +31,16 @@ class PeopleTable extends Table
             ->notEmpty('last_name', 'A last name is required')
 			->notEmpty('gender', 'A gender is required')
             ->notEmpty('phone', 'A phone number is required')
-            ->notEmpty('email', 'An email is required');
+            ->notEmpty('email', 'An email is required')
+            ->notEmpty('internet_plan', 'An internet plan is required')
+            ->notEmpty('username', 'A username is required')
+            ->notEmpty('password', 'A password is required');
     }
 	
 	public function buildRules(RulesChecker $rules)
 	{
         $rules->add($rules->isUnique(['email'], 'This email is already registered'));
-		return $rules;
+        return $rules;
 	}
 
 }

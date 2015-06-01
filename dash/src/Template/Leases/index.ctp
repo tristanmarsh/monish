@@ -2,7 +2,7 @@
 
             <h3>Manage Leases</h3>
             <?= $this->Html->link(__('Add New Lease'), ['action' => 'add']) ?>
-            <span style="float:right"><?= $this->Html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
+            
             <table cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
@@ -25,7 +25,11 @@
                         <?= $lease->has('room') ? $this->Html->link($lease->room->room_name, ['controller' => 'Rooms', 'action' => 'view', $lease->room->id]) : '' ?>
                     </td>
                     <td>
-                        <?= $lease->has('student') ? $this->Html->link($lease->student->id, ['controller' => 'Students', 'action' => 'view', $lease->student->id]) : '' ?>
+                        <?php
+                            $test = $walrus->get($lease->student->person_id);
+                        ?>
+                        <?= $lease->has('student') ? $this->Html->link($test->first_name, ['controller' => 'Students', 'action' => 'view', $lease->student->id]) : '' ?>
+                        <?= $lease->has('student') ? $this->Html->link($test->last_name, ['controller' => 'Students', 'action' => 'view', $lease->student->id]) : '' ?>
                     </td>
                     <td><?= h($lease->date_start->format('Y M d')) ?></td>
                     <td><?= h($lease->date_end->format('Y M d')) ?></td>

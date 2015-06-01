@@ -19,6 +19,8 @@ class LeasesController extends AppController
      */
     public function index()
     {
+        $this->loadModel('People');
+        $walrus = $this->People;
         $this->paginate = [
             'contain' => ['Rooms', 'Students', 'Properties']
         ];
@@ -26,6 +28,7 @@ class LeasesController extends AppController
         $this->set('_serialize', ['leases']);
         $lion = $this->Leases->Students->find('all', ['contain' => ['Users']]);
         $this->set('lion', $lion);
+        $this->set('walrus', $walrus);
     }
 
     /**
@@ -67,7 +70,7 @@ class LeasesController extends AppController
             }
         }
         $properties = $this->Leases->Properties->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'address']);
-        $rooms = $this->Leases->Rooms->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'room_name'/*, 'groupField' => ['property_id']*/]);
+        $rooms = $this->Leases->Rooms->find('list', ['groupField' => 'property.address'])->contain('Properties');
         $students = $this->Leases->Students->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'person.first_name'])->contain(['People']);
         $this->set(compact('lease', 'rooms', 'students', 'properties'));
         $this->set('_serialize', ['lease']);

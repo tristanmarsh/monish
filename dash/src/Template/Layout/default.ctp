@@ -48,6 +48,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <body>
 
+
+	<!-- User not logged in -->
+	<?php if (!$this->Session->read('Auth.User')) : ?>
+
+		<?php echo $this->element('login'); ?>
+
+	<?php else : ?>
+
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 
 		<div class="container-fluid">
@@ -73,37 +81,37 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 				
 				<ul class="nav navbar-nav">
 					<li class="active visible-xs"><a href="#">Link<span class="sr-only">(current)</span></a></li>
+					
+					<li class="visible-xs"><?= $this->Html->link('Requests', ['controller' => 'Requests', 'action' => 'index']) ?></li>
+					<li class="visible-xs"><?= $this->Html->link('Users', ['controller' => 'users', 'action' => 'index']) ?></li>
+					<li class="visible-xs"><?= $this->Html->link('People', ['controller' => 'people', 'action' => 'index']) ?></li>
+					<li class="visible-xs"><?= $this->Html->link('Students', ['controller' => 'students', 'action' => 'index']) ?></li>
+					<li class="visible-xs"><?= $this->Html->link('Leases', ['controller' => 'leases', 'action' => 'index']) ?></li>
+					<li class="visible-xs"><?= $this->Html->link('Properties', ['controller' => 'properties', 'action' => 'index']) ?></li>
+					<li class="visible-xs"><?= $this->Html->link('Rooms', ['controller' => 'rooms', 'action' => 'index']) ?></li>
+					<li class="visible-xs"><?= $this->Html->link('Tests', ['controller' => 'tests', 'action' => 'index']) ?></li>
+
 					<li class="visible-xs"><a href="#">Link</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
 					
 					<!-- User logged in -->
-					<?php if ($this->Session->read('Auth.User')) : ?>
-						<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-							<?php echo $user['username']; ?>
-							<span class="caret"></span>
-						</a>
+					<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						<?php echo $user['username']; ?>
+						<span class="caret"></span>
+					</a>
 
-						<ul class="dropdown-menu" role="menu">
-							
-							<li><?= $this->Html->link('My Profile', ['controller' => 'people', 'action' => 'index']) ?></li>
-							
-							<li class="divider"></li>
-							
-							<li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
+					<ul class="dropdown-menu" role="menu">
+						
+						<li><?= $this->Html->link('My Profile', ['controller' => 'people', 'action' => 'index']) ?></li>
+						
+						<li class="divider"></li>
+						
+						<li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
 
-						</ul>
-
-					<?php endif ?>                
-
-					<!-- User not logged in -->
-					<?php if (!$this->Session->read('Auth.User')) : ?>
-
-						<li><?= $this->Html->link(__('Login'), ['controller' => 'Users', 'action' => 'login']) ?></li>
-
-					<?php endif ?>
+					</ul>
 
 				</ul>
 
@@ -115,16 +123,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 	<!-- Retrieve correct sidebar -->
 	<div class="col-sm-2 col-md-2 sidebar hidden-xs">
-
-	<?php if ($user['role'] === "admin") : ?>
-
-		<?php echo $this->element('admin-sidebar'); ?>
-
-	<?php elseif ($user['role'] === "tenant") : ?>
-
-		<?php echo $this->element('tenant-sidebar'); ?>
-  
-	<?php endif; ?>
+	
+		<?php echo $this->element('sidebar'); ?>
 
 	</div>
 
@@ -174,8 +174,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 		</div>
 	</div>
 
-
-
+	<?php endif; ?>
 
 </body>
 </html>

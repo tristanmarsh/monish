@@ -1,5 +1,5 @@
 <!-- Doesn't work with the current query - undefined variable -->
-
+<?php $user = $this->Session->read('Auth.User'); ?>
 <ul class="nav nav-sidebar">
 
 	<?php if ($user['role'] === "admin") : ?>
@@ -38,11 +38,12 @@
 			<span class="glyphicon glyphicon-star"></span>
 	    	<?= $this->Html->link('Rooms', ['controller' => 'rooms', 'action' => 'index']) ?>
 	    </li>
-	    
+
 	    <li>
-			<span class="glyphicon glyphicon-star"></span>
-	    	<span style="float:right"><?= $this->html->link('Log Out', ['controller' => 'users', 'action' => 'logout']) ?></span>
-	    </li>
+	        <span class="glyphicon glyphicon-star"></span>
+	        <?= $this->Html->link('Tests', ['controller' => 'tests', 'action' => 'index']) ?>
+	    </li>	    
+	    
 
 	<?php elseif ($user['role'] === "tenant") : ?>
 

@@ -69,7 +69,7 @@ class TestsController extends AppController
                 $leasesTable->save($lease);
 
             	$this->Flash->success(__('Person Added'));
-                return $this->redirect(['controller' => 'students', 'action' => 'add']);
+                return $this->redirect(['controller' => 'people', 'action' => 'index']);
             }
             $this->Flash->error(__('Unable to add the user.'));
         }

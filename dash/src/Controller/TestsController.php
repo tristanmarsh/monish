@@ -57,14 +57,16 @@ class TestsController extends AppController
                 $lease->property_id = $user->property_id;
                 $lease->room_id = $user->room_id;
                 $lease->student_id = $student->id;
-                //$test = explode(" ", $user->date_start);
-                //$lease->date_start = $test[0]."-".$test[1]."-".$test[2];
-                //$test = explode(" ", $user->date_end);
-                //$lease->date_end = $test[0]."-".$test[1]."-".$test[2];
-                $lease->date_start = $user->date_start['year']."-".$user->date_start['month']."-".$user->date_start['day'];
-                $lease->date_end = $user->date_end['year']."-".$user->date_end['month']."-".$user->date_end['day'];
-                // $lease->date_start = $user->date_start;
-                // $lease->date_end = $user->date_end;
+                //$lease->date_start = $user->date_start['year']."-".$user->date_start['month']."-".$user->date_start['day'];
+                //$lease->date_end = $user->date_end['year']."-".$user->date_end['month']."-".$user->date_end['day'];
+//                $newStartDate = explode("/", $user->date_start);
+//                $lease->date_start = $newStartDate[2]."-".$newStartDate[1]."-".$newStartDate[0];
+//                $newEndDate = explode("/", $user->date_end);
+//                $lease->date_end = $newEndDate[2]."-".$newEndDate[1]."-".$newEndDate[0];
+                //$lease->date_start = substr($user->date_start, 6, 9)."-".substr($user->date_start, 3, 2)."-".substr($user->date_start, 0, 2);
+                //$lease->date_end = substr($user->date_end, 6, 9)."-".substr($user->date_end, 3, 2)."-".substr($user->date_end, 0, 2);
+                $lease->date_start = $user->date_start;
+                $lease->date_end = $user->date_end;
                 $lease->weekly_price = $user->weekly_price;
                 $leasesTable->save($lease);
 

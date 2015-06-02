@@ -1,4 +1,24 @@
 <!-- src/Template/People/add.ctp -->
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script>
+        $(function() {
+            $( "#dateStartPicker" ).datepicker({
+                dateFormat: "yy-mm-dd"
+            });
+        });
+    </script>
+    <script>
+        $(function() {
+            $( "#dateEndPicker" ).datepicker({
+                dateFormat: "yy-mm-dd"
+            });
+        });
+    </script>
+</head>
 
 <div class="users form">
     <?= $this->Form->create($user) ?>
@@ -14,8 +34,8 @@
 		<?= $this->Form->input('internet_plan', ['options' => ['FREE' => 'FREE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM']]) ?>
 		<?= $this->Form->input('property_id', ['options' => $properties]); ?>
         <?= $this->Form->input('room_id', ['options' => $rooms]); ?>
-        <?= $this->Form->input('date_start', ['type' => 'date']); ?>
-        <?= $this->Form->input('date_end', ['type' => 'date']); ?>
+        <?= $this->form->input('date_start',['id'=>'dateStartPicker']); ?>
+        <?= $this->form->input('date_end',['id'=>'dateEndPicker']); ?>
         <?= $this->Form->input('weekly_price'); ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')); ?>

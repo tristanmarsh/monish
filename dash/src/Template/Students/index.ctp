@@ -4,8 +4,7 @@
 
 
             <?php
-                $this->Html->addCrumb('Users', '/users');
-                $this->Html->addCrumb('Add User', array('controller' => 'users', 'action' => 'add'));
+                $this->Html->addCrumb('Students', 'students');
             ?>
 
             <h3>Manage Students</h3>

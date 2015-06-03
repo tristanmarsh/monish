@@ -1,0 +1,131 @@
+/*
+Name:   sidebar.SCSS
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Since:    3/6/15
+*/
+
+
+// #### NAVIGATION ####
+
+
+// override default bootstrap
+.nav>li>a:hover, .nav>li>a:focus {
+  text-decoration: none;
+  background:none;
+  }
+
+.sidebar {
+  position: fixed;
+  left:0;
+  padding-left:0;
+  height:100vh;
+  z-index: 1000;
+  overflow-x: hidden;
+  padding: 0;
+  background-color: #39536D;
+  // box-shadow:inset -10px 0 10px rgba(38, 56, 73, 0.5);
+
+  .nav-sidebar {
+    margin-left:0;
+  }
+
+  li {
+    display:block;
+    position:relative;
+    // height:50px;
+    font-size:30px; 
+    border-bottom:1px solid rgba(36, 52, 69, 0.4);
+    border-top:1px solid rgba(95, 139, 182, 0.4);
+    transition:background-color 200ms ease;
+
+    .menu-item-link {
+      display:block;
+      position:static;
+      text-align: center;
+    }
+  
+    .menu-item-label {
+      margin-left:30px;
+    }
+
+    .glyphicon {
+      display:inline-block;
+    }
+
+  }
+
+  li:hover {
+    background:#006689;
+
+    &>.menu-item-link {
+      color:#BCEEFF;
+    }
+
+    &>.menu-item-label {
+      color:#BCEEFF;
+    }
+
+  }
+
+
+}
+
+@media(max-width:767px){
+
+
+}
+
+// md
+@media(min-width:768px){
+
+
+
+}
+
+// lg
+@media(min-width:992px){
+
+  .sidebar {
+    li {
+      font-size:20px;
+
+      .menu-item-link {
+        display:block;
+        position:absolute;
+        text-align: left;
+      }
+    }
+  }
+
+}
+
+
+  
+//   .nav>li:hover>a,
+//   .nav>li:focus>a {
+//     text-decoration: none;
+//     background-color: #111920;
+//     color:#3FBAE4;
+//   }
+
+//   .glyphicon {
+//     color:#fff;
+//     display:block;
+//     position:absolute;
+//     padding:10px;
+//     font-size:30px;
+//   }
+
+//   .nav>li:hover>.glyphicon,
+//   .nav>li:focus>.glyphicon {
+//     color:#76AADB;
+//     z-index:10;
+//   }
+
+// }
+
+// .sidebar li:hover>.glyphicon {
+//   color:#3FBAE4;
+// }
+

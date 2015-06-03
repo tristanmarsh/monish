@@ -30,7 +30,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<?= $this->Html->css('bootstrap.min.css') ?>
 	<?= $this->Html->css('bootstrap-theme.min.css') ?>
 	<?= $this->Html->css('base.css') ?>
-	<?= $this->Html->css('cake.css') ?>
 	<?= $this->Html->css('custom.css') ?>
 
 	<?= $this->Html->css('bootstrap.min.css') ?>
@@ -71,7 +70,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 				<a class="navbar-brand" href="#">
 				  <div class="navbar-image">
 					<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
-					<span>Monash ISH Dashboard<span>
+					<span>Monash ISH Dashboard</span>
 				  </div>
 				</a>
 			</div>
@@ -122,7 +121,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	</nav>
 
 	<!-- Retrieve correct sidebar -->
-	<div class="col-sm-2 col-md-2 sidebar hidden-xs">
+	<div class="col-sm-1 col-md-2 sidebar hidden-xs">
 	
 		<?php echo $this->element('sidebar'); ?>
 
@@ -130,7 +129,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 	<div class="row">
 
-		<div class="col-sm-10 col-sm-offset-2 main-content">
+		<div class="col-sm-11 col-sm-offset-1 col-md-offset-2 col-md-10 main-content">
 
 			<div class="row">
 
@@ -141,9 +140,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 							<span><?= $this->fetch('title') ?></span> 
 						</div>
 
-						<ol class="breadcrumb">
-							<?= $this->Html->getCrumbs(' > ', 'Home') ?>
-						</ol>
+						<div class="row">
+
+							<ol class="breadcrumb">
+								<?= $this->Html->getCrumbs(' > ', 'Home') ?>
+								<? echo $this->Html->getCrumbList(); ?>
+							</ol>
+							
+						</div>
 
 					</div>
 				</header>

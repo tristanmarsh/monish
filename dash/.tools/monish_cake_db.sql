@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2015 at 08:25 AM
+-- Generation Time: Jun 03, 2015 at 08:00 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -83,14 +83,15 @@ CREATE TABLE IF NOT EXISTS `leases` (
   KEY `student_id` (`student_id`),
   KEY `property_id` (`property_id`),
   KEY `property_id_2` (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `leases`
 --
 
 INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`, `date_end`, `weekly_price`) VALUES
-(4, 1, 1, 6, '2015-05-19', '2015-05-19', 200);
+(4, 1, 1, 6, '2015-05-19', '2015-05-19', 200),
+(5, 1, 1, 8, '2015-06-01', '2016-06-01', 200);
 
 -- --------------------------------------------------------
 
@@ -122,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `people` (
   `phone` varchar(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `people`
@@ -132,7 +133,8 @@ INSERT INTO `people` (`id`, `first_name`, `last_name`, `gender`, `phone`, `email
 (1, 'Tony', 'Wise', 'M', '404040404', 'tonywise@monish.com'),
 (3, 'Amy', 'Angel', 'F', '0414124124', 'amy@amy.com'),
 (4, 'Ben', 'Blue', 'M', '404040404', 'ben@ben.com'),
-(5, 'Carl', 'Co', 'M', '404040404', 'carl@carl.com');
+(5, 'Carl', 'Co', 'M', '404040404', 'carl@carl.com'),
+(7, 'Court', 'Court', 'M', '1928089123', 'court@court.com');
 
 -- --------------------------------------------------------
 
@@ -174,6 +176,7 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `modified` datetime DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `category` enum('GENERAL','MAINTENANCE','INTERNET','LEASE') NOT NULL,
+  `property_address` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
@@ -181,18 +184,18 @@ CREATE TABLE IF NOT EXISTS `requests` (
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `user_id`, `category`) VALUES
-(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-04-13 14:52:35', 36, 'MAINTENANCE'),
-(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-04-13 14:52:26', 28, 'MAINTENANCE'),
-(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-04-13 14:53:50', 29, 'MAINTENANCE'),
-(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-04-13 15:18:31', 36, 'MAINTENANCE'),
-(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 28, 'MAINTENANCE'),
-(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-04-16 05:25:43', 28, 'MAINTENANCE'),
-(15, 'Broken dong', 'donger is broken ', '2015-04-22 10:57:33', '2015-04-22 10:57:33', 29, 'MAINTENANCE'),
-(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-04-25 09:33:29', 30, 'MAINTENANCE'),
-(17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-05-14 04:50:05', 36, 'GENERAL'),
-(18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-14 04:49:49', 36, 'INTERNET'),
-(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-14 04:49:37', 36, 'LEASE');
+INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `user_id`, `category`, `property_address`) VALUES
+(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-04-13 14:52:35', 36, 'MAINTENANCE', '200 two street'),
+(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-04-13 14:52:26', 28, 'MAINTENANCE', '200 two street'),
+(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-04-13 14:53:50', 29, 'MAINTENANCE', '200 two street'),
+(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-04-13 15:18:31', 36, 'MAINTENANCE', '100 one street'),
+(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 28, 'MAINTENANCE', '100 one street'),
+(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-04-16 05:25:43', 28, 'MAINTENANCE', '100 one street'),
+(15, 'Broken dong', 'donger is broken ', '2015-04-22 10:57:33', '2015-04-22 10:57:33', 29, 'MAINTENANCE', '300 three street'),
+(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-04-25 09:33:29', 30, 'MAINTENANCE', '300 three street'),
+(17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-05-14 04:50:05', 36, 'GENERAL', '300 three street'),
+(18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-14 04:49:49', 36, 'INTERNET', '300 three street'),
+(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-14 04:49:37', 36, 'LEASE', '300 three street');
 
 -- --------------------------------------------------------
 
@@ -238,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   PRIMARY KEY (`id`),
   KEY `person_id` (`person_id`),
   KEY `emergency_id` (`emergency_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `students`
@@ -246,7 +249,8 @@ CREATE TABLE IF NOT EXISTS `students` (
 
 INSERT INTO `students` (`id`, `person_id`, `emergency_id`, `internet_plan`) VALUES
 (6, 3, NULL, 'BASIC'),
-(7, 5, NULL, 'STANDARD');
+(7, 5, NULL, 'STANDARD'),
+(8, 7, NULL, 'FREE');
 
 -- --------------------------------------------------------
 
@@ -265,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   KEY `person_id` (`person_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
 
 --
 -- Dumping data for table `users`
@@ -274,7 +278,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `person_id`, `username`, `password`, `role`, `created`, `modified`) VALUES
 (35, 1, 'admin', '$2y$10$W4EJplARM6UTAznYCvS50O37iSU.eyc1IUDFPuyxu0kju27md8G6e', 'admin', '2015-05-16 08:08:00', '2015-05-16 08:08:00'),
 (36, 3, 'tenant50', '$2y$10$QQE0koQh8DZpxFaiwi9T1.ll4kIU0pv0gDs.ytkozcEF/aH8amRSK', 'tenant', '2015-05-17 10:25:09', '2015-05-17 10:25:09'),
-(37, 4, 'tenant51', '$2y$10$YYkvPIrCcOXh1mAM970RTuoxR8DIlKkTcin8wk9ICSFn1BUcP.Sb.', 'tenant', '2015-05-17 10:27:44', '2015-05-17 10:27:44');
+(37, 4, 'tenant51', '$2y$10$YYkvPIrCcOXh1mAM970RTuoxR8DIlKkTcin8wk9ICSFn1BUcP.Sb.', 'tenant', '2015-05-17 10:27:44', '2015-05-17 10:27:44'),
+(38, 7, 'court@court.com', '$2y$10$9Xho3.MCCSjvfK2zBaiqHeh203G7pyTPTZOH7UF206v.HXzVUqiqy', 'tenant', '2015-06-01 07:22:43', '2015-06-01 07:22:43');
 
 --
 -- Constraints for dumped tables

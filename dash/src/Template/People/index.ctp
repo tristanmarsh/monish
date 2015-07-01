@@ -1,6 +1,7 @@
 <!-- File: src/Template/People/index.ctp -->
 <?php $currentlogged = $this->Session->read('Auth.User'); ?>
 
+<!-- THIS IS WHAT THE ADMINISTRATOR SEES -->
 <?php if ($currentlogged['role'] === "admin") : ?>
 
 
@@ -11,6 +12,7 @@
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Common Name</th>
             <th>Gender</th>
             <th>Phone</th>
             <th>Email</th>
@@ -21,21 +23,12 @@
 
         <?php foreach ($users as $user): ?>
             <tr>
-                <td>
-                    <?= $user->first_name ?>
-                </td>
-                <td>
-                    <?= $user->last_name ?>
-                </td>
-                <td>
-                    <?= $user->gender ?>
-                </td>
-                <td>
-                    <?= $user->phone ?>
-                </td>
-                <td>
-                    <?= $user->email ?>
-                </td>
+                <td><?= $user->first_name ?></td>
+                <td><?= $user->last_name ?></td>
+                <td><?= $user->common_name ?></td>
+                <td><?= $user->gender ?></td>
+                <td><?= $user->phone ?></td>
+                <td><?= $user->email ?></td>
                 <td>
                     <?php if ($user['id'] == '1') // Admin cannot delete themselves (well they can, but they have to type the url in.)
                     {echo $this->Html->link('Edit', ['action' => 'edit', $user->id]);}
@@ -64,6 +57,7 @@
 
 <?php endif; ?>
 
+<!-- THIS IS WHAT THE TENANTS SEES -->
 <?php if ($currentlogged['role'] === "tenant") : ?>
 
 
@@ -76,6 +70,7 @@
         <tr>
             <th>First Name</th>
             <th>Last Name</th>
+            <th>Common Name</th>
             <th>Gender</th>
             <th>Phone</th>
             <th>Email</th>
@@ -87,25 +82,14 @@
         <?php foreach ($users as $user): ?>
             <?php if ($currentlogged['person_id'] === $user->id) : ?>
                 <tr>
+                    <td><?= $user->first_name ?></td>
+                    <td><?= $user->last_name ?></td>
+                    <td><?= $user->common_name ?></td>
+                    <td><?= $user->gender ?></td>
+                    <td><?= $user->phone ?></td>
+                    <td><?= $user->email ?></td>
                     <td>
-                        <?= $user->first_name ?>
-                    </td>
-                    <td>
-                        <?= $user->last_name ?>
-                    </td>
-                    <td>
-                        <?= $user->gender ?>
-                    </td>
-                    <td>
-                        <?= $user->phone ?>
-                    </td>
-                    <td>
-                        <?= $user->email ?>
-                    </td>
-                    <td>
-                        <?php
-                            echo $this->Html->link('Edit', ['action' => 'edit', $user->id]);
-                        ?>
+                        <?php echo $this->Html->link('Edit', ['action' => 'edit', $user->id]); ?>
                     </td>
                 </tr>
             <?php endif; ?>

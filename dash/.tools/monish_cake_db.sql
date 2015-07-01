@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 03, 2015 at 08:00 AM
+-- Generation Time: Jul 01, 2015 at 02:48 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -119,6 +119,7 @@ CREATE TABLE IF NOT EXISTS `people` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(25) NOT NULL,
   `last_name` varchar(25) NOT NULL,
+  `common_name` varchar(25) NOT NULL,
   `gender` enum('M','F') NOT NULL,
   `phone` varchar(11) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -129,12 +130,12 @@ CREATE TABLE IF NOT EXISTS `people` (
 -- Dumping data for table `people`
 --
 
-INSERT INTO `people` (`id`, `first_name`, `last_name`, `gender`, `phone`, `email`) VALUES
-(1, 'Tony', 'Wise', 'M', '404040404', 'tonywise@monish.com'),
-(3, 'Amy', 'Angel', 'F', '0414124124', 'amy@amy.com'),
-(4, 'Ben', 'Blue', 'M', '404040404', 'ben@ben.com'),
-(5, 'Carl', 'Co', 'M', '404040404', 'carl@carl.com'),
-(7, 'Court', 'Court', 'M', '1928089123', 'court@court.com');
+INSERT INTO `people` (`id`, `first_name`, `last_name`, `common_name`, `gender`, `phone`, `email`) VALUES
+(1, 'Tony', 'Wise', '', 'M', '404040404', 'tonywise@monish.com'),
+(3, 'Amy', 'Angel', '', 'F', '0414124124', 'amy@amy.com'),
+(4, 'Ben', 'Blue', '', 'M', '404040404', 'ben@ben.com'),
+(5, 'Carl', 'Co', '', 'M', '404040404', 'carl@carl.com'),
+(7, 'Court', 'Court', '', 'M', '1928089123', 'court@court.com');
 
 -- --------------------------------------------------------
 
@@ -151,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `properties` (
   `storeys` int(11) NOT NULL,
   `garage` enum('TRUE','FALSE') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `properties`
@@ -159,8 +160,11 @@ CREATE TABLE IF NOT EXISTS `properties` (
 
 INSERT INTO `properties` (`id`, `address`, `number_rooms`, `bathrooms`, `kitchens`, `storeys`, `garage`) VALUES
 (1, '100 one street', 5, 1, 1, 1, 'TRUE'),
-(2, '200 two street', 3, 1, 1, 1, 'TRUE'),
-(3, '300 three street', 3, 2, 2, 1, 'FALSE');
+(2, '200 two street', 5, 1, 1, 1, 'TRUE'),
+(3, '300 three street', 4, 2, 2, 1, 'FALSE'),
+(4, '400 four street', 5, 2, 2, 1, 'FALSE'),
+(5, '500 five street', 5, 2, 2, 1, 'FALSE'),
+(6, '600 six street', 3, 2, 2, 1, 'FALSE');
 
 -- --------------------------------------------------------
 
@@ -210,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `rooms` (
   `vacant` enum('TRUE','FALSE') NOT NULL,
   PRIMARY KEY (`id`),
   KEY `property_id` (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=40 ;
 
 --
 -- Dumping data for table `rooms`
@@ -218,14 +222,32 @@ CREATE TABLE IF NOT EXISTS `rooms` (
 
 INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
 (1, 1, 'room 1', 'TRUE'),
-(13, 1, 'room 2', 'TRUE'),
-(14, 1, 'room 3', 'TRUE'),
-(15, 2, 'room 1', 'TRUE'),
-(16, 2, 'room 2', 'TRUE'),
-(17, 2, 'room 3', 'TRUE'),
-(18, 3, 'room 1', 'TRUE'),
-(19, 3, 'room 2', 'TRUE'),
-(20, 3, 'room 3', 'TRUE');
+(2, 1, 'room 2', 'TRUE'),
+(3, 1, 'room 3', 'TRUE'),
+(4, 1, 'room 4', 'TRUE'),
+(5, 1, 'room 5', 'TRUE'),
+(6, 2, 'room 1', 'TRUE'),
+(7, 2, 'room 2', 'TRUE'),
+(8, 2, 'room 3', 'TRUE'),
+(9, 2, 'room 4', 'TRUE'),
+(10, 2, 'room 5', 'TRUE'),
+(11, 3, 'room 1', 'TRUE'),
+(12, 3, 'room 2', 'TRUE'),
+(13, 3, 'room 3', 'TRUE'),
+(14, 3, 'room 4', 'TRUE'),
+(15, 4, 'room 1', 'TRUE'),
+(16, 4, 'room 2', 'TRUE'),
+(17, 4, 'room 3', 'TRUE'),
+(18, 4, 'room 4', 'TRUE'),
+(19, 4, 'room 5', 'TRUE'),
+(20, 5, 'room 1', 'TRUE'),
+(21, 5, 'room 2', 'TRUE'),
+(22, 5, 'room 3', 'TRUE'),
+(23, 5, 'room 4', 'TRUE'),
+(24, 5, 'room 5', 'TRUE'),
+(25, 6, 'room 1', 'TRUE'),
+(26, 6, 'room 2', 'TRUE'),
+(27, 6, 'room 3', 'TRUE');
 
 -- --------------------------------------------------------
 

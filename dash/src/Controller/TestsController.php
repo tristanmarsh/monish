@@ -89,5 +89,27 @@ class TestsController extends AppController
         $this->set(compact('data', 'data2'));
     }
 
+    public function tenants(){
+
+        $this->loadModel('Users');
+        $this->loadModel('People');
+        $this->loadModel('Students');
+        $this->loadModel('Leases');
+        $this->loadModel('Properties');
+
+        $students = $this->paginate($this->Students->find('all')->contain('People'));
+        $this->set(compact('students'));
+
+        $this->set('users', $this->paginate($this->Users));
+        $this->set('_serialize', ['users']);
+        $this->set('people', $this->paginate($this->People));
+        $this->set('_serialize', ['people']);
+        $this->set('leases', $this->paginate($this->Leases));
+        $this->set('_serialize', ['leases']);
+        $this->set('properties', $this->paginate($this->Properties));
+        $this->set('_serialize', ['properties']);
+
+    }
+
 }
 

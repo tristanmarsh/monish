@@ -7,3 +7,5 @@ This function adds the person, student, lease and user.
 <br>username: email entered
 <br>password: email entered
 </p>
+
+<p><?= $this->Html->link('tenants', ['action' => 'tenants']); ?></p>

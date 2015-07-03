@@ -26,6 +26,7 @@
         <legend><?= __('New Tenant + Lease') ?></legend>
 		<?= $this->Form->input('first_name') ?>
 		<?= $this->Form->input('last_name') ?>
+        <?= $this->Form->input('common_name') ?>
 		<?= $this->Form->input('gender', [
 			'options' => ['M' => 'Male', 'F' => 'Female']
 		]) ?>

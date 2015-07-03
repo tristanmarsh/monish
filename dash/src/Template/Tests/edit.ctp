@@ -8,7 +8,7 @@
     echo $this->Form->input('last_name', array('default' => $defaultPerson->last_name));
     echo $this->Form->input('common_name', array('default' => $defaultPerson->common_name));
     echo $this->Form->input('phone', array('default' => $defaultPerson->phone));
-    echo $this->Form->input('internet_plan', array('default' => $defaultStudent->internet_plan));
+    echo $this->Form->input('internet_plan', ['options' => ['FREE' => 'FREE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM'], 'default' => $defaultStudent->internet_plan]);
 	echo $this->Form->input('username');
 	echo $this->Form->input('password');
 	echo $this->Form->input('role', ['options' => ['admin' => 'Admin', 'tenant' => 'Tenant']]);

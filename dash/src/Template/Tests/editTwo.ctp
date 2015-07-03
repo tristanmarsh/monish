@@ -4,12 +4,13 @@
 <?php
 
 	echo $this->Form->create($person);
-    echo $this->Form->input('first_name', array('default' => $defaultPerson->first_name));
-    echo $this->Form->input('last_name', array('default' => $defaultPerson->last_name));
-    echo $this->Form->input('common_name', array('default' => $defaultPerson->common_name));
-    echo $this->Form->input('phone', array('default' => $defaultPerson->phone));
-	echo $this->Form->input('username');
-	echo $this->Form->input('password');
+    echo $this->Form->input('first_name');
+    echo $this->Form->input('last_name');
+    echo $this->Form->input('common_name');
+    echo $this->Form->input('phone');
+	echo $this->Form->input('username', array('default' => $defaultUser->username));
+	echo $this->Form->input('password', array('default' => $defaultUser->password));
+    echo $this->Form->input('internet_plan', array('default' => $defaultStudent->internet_plan));
 	echo $this->Form->input('role', ['options' => ['admin' => 'Admin', 'tenant' => 'Tenant']]);
 	echo $this->Form->button(__('Update User'));
 	echo $this->Form->end();

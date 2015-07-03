@@ -122,11 +122,14 @@ class TestsController extends AppController
         $this->loadModel('People');
         $this->loadModel('Students');
 
-        $user = $this->Users->get($id);
+        $user = $this->Users->get($id, ['contain' => ['People']]);
 
         //This provides the variable to use in edit.ctp to auto populate the current person's details
-        $defaultPerson = $this->People->get($user->person_id);
+        $defaultPerson = $this->People->get($user->person_id, ['contain' => ['Students']]);
         $this->set(compact('defaultPerson'));
+
+        $defaultStudent = $this->Students->get($defaultPerson->student->id);
+        $this->set(compact('defaultStudent'));
 
         if ($this->request->is(['post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
@@ -142,7 +145,7 @@ class TestsController extends AppController
                 $peopleTable->save($person); //Must have this statement to save the changes
 
                 $studentsTable = TableRegistry::get('Students');
-                $student = $studentsTable->get($user->person_id); //Gets the person with the same person_id in the current $user
+                $student = $studentsTable->get($defaultPerson->student->id); //Gets the student with the same person_id in the current $user
 
                 $student->internet_plan = $user->internet_plan;
                 $studentsTable->save($person); //Must have this statement to save the changes
@@ -177,31 +180,46 @@ class TestsController extends AppController
             $person = $this->People->patchEntity($person, $this->request->data);
             if ($this->Users->save($person)){
 
-                $peopleTable = TableRegistry::get('People');
-                $person = $peopleTable->get($person->person_id); //Gets the person with the same person_id in the current $user
+                $userTable = TableRegistry::get('Users');
+                $user = $userTable->get($person->user->id); //Gets the person with the same person_id in the current $user
 
-                $person->first_name = $user->first_name;
-                $person->last_name = $user->last_name;
-                $person->common_name = $user->common_name;
-                $person->phone = $user->phone;
-                $peopleTable->save($person); //Must have this statement to save the changes
+                $user->username = $person->username;
+                $person->password = $person->password;
+                $userTable->save($person); //Must have this statement to save the changes
 
                 $studentsTable = TableRegistry::get('Students');
-                $student = $studentsTable->get($user->person_id); //Gets the person with the same person_id in the current $user
+                $student = $studentsTable->get($person->student->id); //Gets the person with the same person_id in the current $user
 
-                $student->internet_plan = $user->internet_plan;
-                $studentsTable->save($person); //Must have this statement to save the changes
+                $student->internet_plan = $person->internet_plan;
+                $studentsTable->save($student); //Must have this statement to save the changes
 
                 $this->Flash->success(__('This user has been updated.'));
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Unable to update this user.'));
         }
-        $this->set('user', $user);
+        $this->set('person', $person);
+    }
 
-        //finds the list of people in the people's table
-        $people = $this->Users->People->find('list', ['limit' => 200]);
-        $this->set(compact('people'));
+    public function editThree($id = null)
+    {
+
+        //This just loads a bunch of models that may be used
+        $this->loadModel('Users');
+        $this->loadModel('People');
+        $this->loadModel('Students');
+
+        $user = $this->People->get($id, [
+            'contain' => ['Students', 'Users']]);
+        if ($this->request->is(['post', 'put'])) {
+            $user = $this->People->patchEntity($user, $this->request->data);
+            if ($this->People->save($user)){
+                $this->Flash->success(__('This user has been updated.'));
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('Unable to update this user.'));
+        }
+        $this->set('user', $user);
     }
 
 }

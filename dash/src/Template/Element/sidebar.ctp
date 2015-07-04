@@ -12,7 +12,7 @@
 	    	
 	    </li>
 	    
-	    <li>
+<!-- 	    <li>
 			<a class="menu-item-link" href="#insertcorrectlinkhere">
 				<span class="glyphicon glyphicon-user"></span>
 		    	<?= $this->Html->link('Users', ['controller' => 'users', 'action' => 'index'], ['class' => 'menu-item-label hidden-sm']) ?>
@@ -32,6 +32,14 @@
 			<a class="menu-item-link" href="#insertcorrectlinkhere">
 				<span class="glyphicon glyphicon-user"></span>
 		    	<?= $this->Html->link('Students', ['controller' => 'students', 'action' => 'index'], ['class' => 'menu-item-label hidden-sm']) ?>
+			</a>
+
+	    </li> -->
+
+	    <li>
+			<a class="menu-item-link" href="#insertcorrectlinkhere">
+				<span class="glyphicon glyphicon-user"></span>
+		    	<?= $this->Html->link('Tenants', ['controller' => 'tenants', 'action' => 'index'], ['class' => 'menu-item-label hidden-sm']) ?>
 			</a>
 
 	    </li>

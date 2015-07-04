@@ -147,7 +147,7 @@ class TenantsController extends AppController
         $this->set('student', $student);
         $this->set('_serialize', ['student']);
 
-        $query = $this->Leases->find('all', ['conditions' => ['student_id' => 10], 'contain' => ['Rooms', 'Properties']]);
+        $query = $this->Leases->find('all', ['conditions' => ['student_id' => $person->student->id], 'contain' => ['Rooms', 'Properties']]);
         $this->set(compact('query'));
 
     }

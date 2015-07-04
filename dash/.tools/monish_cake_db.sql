@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2015 at 07:27 AM
+-- Generation Time: Jul 04, 2015 at 05:28 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `leases` (
   KEY `student_id` (`student_id`),
   KEY `property_id` (`property_id`),
   KEY `property_id_2` (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `leases`
@@ -91,7 +91,9 @@ CREATE TABLE IF NOT EXISTS `leases` (
 
 INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`, `date_end`, `weekly_price`) VALUES
 (7, 1, 1, 10, '2015-07-15', '2016-05-13', 200),
-(8, 2, 1, 11, '2015-07-01', '2015-11-20', 250);
+(8, 2, 1, 11, '2015-07-01', '2015-11-20', 250),
+(9, 11, 3, 12, '2015-07-15', '2016-05-13', 260),
+(10, 24, 5, 10, '2015-07-04', '2016-07-04', 300);
 
 -- --------------------------------------------------------
 
@@ -124,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `people` (
   `phone` varchar(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `people`
@@ -133,7 +135,8 @@ CREATE TABLE IF NOT EXISTS `people` (
 INSERT INTO `people` (`id`, `first_name`, `last_name`, `common_name`, `gender`, `phone`, `email`) VALUES
 (1, 'Tony', 'Wise', '', 'M', '404040404', 'tonywise@monish.com'),
 (9, 'Amy', 'Insurance', 'Amy', 'F', '0404040404', 'amy@amy.com'),
-(10, 'Ben', 'Hudson', 'Benny', 'M', '0404040404', 'ben@ben.com');
+(10, 'Ben', 'Hudson', 'Benny', 'M', '0404040404', 'ben@ben.com'),
+(12, 'Constance', 'Petrovski', 'Con', 'F', '0404040404', 'constance@constance.com');
 
 -- --------------------------------------------------------
 
@@ -261,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   PRIMARY KEY (`id`),
   KEY `person_id` (`person_id`),
   KEY `emergency_id` (`emergency_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `students`
@@ -269,7 +272,8 @@ CREATE TABLE IF NOT EXISTS `students` (
 
 INSERT INTO `students` (`id`, `person_id`, `emergency_id`, `internet_plan`) VALUES
 (10, 9, NULL, 'STANDARD'),
-(11, 10, NULL, 'PREMIUM');
+(11, 10, NULL, 'PREMIUM'),
+(12, 12, NULL, 'FREE');
 
 -- --------------------------------------------------------
 
@@ -288,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   KEY `person_id` (`person_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
 
 --
 -- Dumping data for table `users`
@@ -297,7 +301,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `person_id`, `username`, `password`, `role`, `created`, `modified`) VALUES
 (35, 1, 'admin', '$2y$10$W4EJplARM6UTAznYCvS50O37iSU.eyc1IUDFPuyxu0kju27md8G6e', 'admin', '2015-05-16 08:08:00', '2015-05-16 08:08:00'),
 (41, 9, 'amy@amy.com', '$2y$10$3e2XcolsgnsWa1Shy7CkDupFW8fPbhQGHkwN79qg5o2CoCOsedz5K', 'tenant', '2015-07-03 05:24:37', '2015-07-03 10:23:07'),
-(42, 10, 'ben@ben.com', '$2y$10$yPfJ9tHptXXaSeqpja9X2uf9Q/MaIe8jRpQm82XIqI.rCu6zzv4fK', 'tenant', '2015-07-03 10:18:53', '2015-07-03 10:19:57');
+(42, 10, 'ben@ben.com', '$2y$10$yPfJ9tHptXXaSeqpja9X2uf9Q/MaIe8jRpQm82XIqI.rCu6zzv4fK', 'tenant', '2015-07-03 10:18:53', '2015-07-03 10:19:57'),
+(43, 12, 'constance@constance.com', '$2y$10$HSGV/kNZOdGcA6S6T8b8e.UiYzvelCpocBFOWHtCcUQ5S6wiW.HrG', 'tenant', '2015-07-04 13:20:44', '2015-07-04 13:26:51');
 
 --
 -- Triggers `users`

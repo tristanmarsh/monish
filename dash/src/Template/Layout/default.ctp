@@ -134,22 +134,22 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 			<div class="row">
 
 				<header>
-					<div class="container-fluid">
-						
-						<div class="page-header">
-							<span><?= $this->fetch('title') ?></span> 
-						</div>
-
-						<div class="row">
-
-							<ol class="breadcrumb">
-								<?= $this->Html->getCrumbs(' > ', 'Home') ?>
-								<? echo $this->Html->getCrumbList(); ?>
-							</ol>
-							
-						</div>
-
-					</div>
+<!--					<div class="container-fluid">-->
+<!--						-->
+<!--						<div class="page-header">-->
+<!--							<span><?//= $this->fetch('title') ?>--><!--</span> -->
+<!--						</div>-->
+<!---->
+<!--						<div class="row">-->
+<!---->
+<!--							<ol class="breadcrumb">-->
+<!--								<?//= $this->Html->getCrumbs(' > ', 'Home') ?>-->
+<!--								<?// echo $this->Html->getCrumbList(); ?>-->
+<!--							</ol>-->
+<!--							-->
+<!--						</div>-->
+<!---->
+<!--					</div>-->
 				</header>
 
 			</div>

@@ -61,6 +61,8 @@ class LeasesController extends AppController
     {
         $lease = $this->Leases->newEntity();
         if ($this->request->is('post')) {
+            $lease->date_start = $lease->start;
+            $lease->date_end = $lease->end;
             $lease = $this->Leases->patchEntity($lease, $this->request->data);
             if ($this->Leases->save($lease)) {
                 $this->Flash->success('The lease has been saved.');

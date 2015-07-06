@@ -20,7 +20,8 @@ class TestsController extends AppController
         $this->Auth->allow(['index']);
     }
 
-	public function add()
+    //This is used as the view for add.ctp for tenants
+    public function add()
     {
         $this->loadModel('People');
         $this->loadModel('Students');
@@ -89,6 +90,7 @@ class TestsController extends AppController
         $this->set(compact('data', 'data2'));
     }
 
+    //This is used as the view for index.ctp for tenants
     public function tenants(){
 
         $this->loadModel('Users');
@@ -114,6 +116,7 @@ class TestsController extends AppController
 
     }
 
+    //This is used as the view for edit.ctp for tenants
     public function edit($id = null)
     {
 

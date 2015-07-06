@@ -49,14 +49,9 @@
                 <td><?= h($leases->date_start->format('Y M d')) ?></td>
                 <td><?= h($leases->date_end->format('Y M d')) ?></td>
                 <td><?= h($this->Number->currency($leases->weekly_price)) ?></td>
-
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Leases', 'action' => 'view', $leases->id]) ?>
-
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Leases', 'action' => 'edit', $leases->id]) ?>
-
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Leases', 'action' => 'delete', $leases->id], ['confirm' => __('Are you sure you want to delete # {0}?', $leases->id)]) ?>
-
                 </td>
             </tr>
 
@@ -66,3 +61,4 @@
     </div>
 </div>
 
+<a href="javascript: window.history.back()">Go Back</a>

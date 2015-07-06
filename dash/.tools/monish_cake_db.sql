@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2015 at 05:28 PM
+-- Generation Time: Jul 06, 2015 at 06:54 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `leases` (
   KEY `student_id` (`student_id`),
   KEY `property_id` (`property_id`),
   KEY `property_id_2` (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `leases`
@@ -93,7 +93,9 @@ INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`
 (7, 1, 1, 10, '2015-07-15', '2016-05-13', 200),
 (8, 2, 1, 11, '2015-07-01', '2015-11-20', 250),
 (9, 11, 3, 12, '2015-07-15', '2016-05-13', 260),
-(10, 24, 5, 10, '2015-07-04', '2016-07-04', 300);
+(10, 24, 5, 10, '2015-07-04', '2016-07-04', 300),
+(11, 1, 1, 12, '2015-07-16', '2015-12-11', 300),
+(12, 13, 3, 11, '2015-07-15', '2016-11-23', 230);
 
 -- --------------------------------------------------------
 
@@ -190,17 +192,17 @@ CREATE TABLE IF NOT EXISTS `requests` (
 --
 
 INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `user_id`, `category`, `property_address`) VALUES
-(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-04-13 14:52:35', 36, 'MAINTENANCE', '200 two street'),
-(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-04-13 14:52:26', 28, 'MAINTENANCE', '200 two street'),
-(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-04-13 14:53:50', 29, 'MAINTENANCE', '200 two street'),
-(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-04-13 15:18:31', 36, 'MAINTENANCE', '100 one street'),
-(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 28, 'MAINTENANCE', '100 one street'),
-(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-04-16 05:25:43', 28, 'MAINTENANCE', '100 one street'),
-(15, 'Broken dong', 'donger is broken ', '2015-04-22 10:57:33', '2015-04-22 10:57:33', 29, 'MAINTENANCE', '300 three street'),
-(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-04-25 09:33:29', 30, 'MAINTENANCE', '300 three street'),
-(17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-05-14 04:50:05', 36, 'GENERAL', '300 three street'),
-(18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-14 04:49:49', 36, 'INTERNET', '300 three street'),
-(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-14 04:49:37', 36, 'LEASE', '300 three street');
+(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-04-13 14:52:35', 41, 'MAINTENANCE', '200 two street'),
+(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-04-13 14:52:26', 41, 'MAINTENANCE', '200 two street'),
+(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-04-13 14:53:50', 41, 'MAINTENANCE', '200 two street'),
+(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-04-13 15:18:31', 41, 'MAINTENANCE', '100 one street'),
+(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 42, 'MAINTENANCE', '100 one street'),
+(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-04-16 05:25:43', 42, 'MAINTENANCE', '100 one street'),
+(15, 'Broken dong', 'donger is broken ', '2015-04-22 10:57:33', '2015-04-22 10:57:33', 43, 'MAINTENANCE', '300 three street'),
+(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-04-25 09:33:29', 41, 'MAINTENANCE', '300 three street'),
+(17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-05-14 04:50:05', 41, 'GENERAL', '300 three street'),
+(18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-14 04:49:49', 41, 'INTERNET', '300 three street'),
+(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-14 04:49:37', 41, 'LEASE', '300 three street');
 
 -- --------------------------------------------------------
 

@@ -1,5 +1,4 @@
 <?php
-// src/Model/Table/ArticlesTable.php
 
 namespace App\Model\Table;
 
@@ -11,8 +10,8 @@ class RequestsTable extends Table
     public function initialize(array $config)
     {
         $this->addBehavior('Timestamp');
-		$this->belongsTo('Users', [
-            'foreignKey' => 'user_id'
+        $this->belongsTo('People', [
+            'foreignKey' => 'person_id'
         ]);
     }
 
@@ -21,7 +20,7 @@ class RequestsTable extends Table
         $validator
             ->notEmpty('title')
             ->notEmpty('category')
-			->notEmpty('description')
+            ->notEmpty('description')
             ->notEmpty('property_address');
 
         return $validator;

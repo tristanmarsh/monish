@@ -18,7 +18,7 @@
             <!-- Here is where we iterate through our $articles query object, printing out article info -->
 
             <?php foreach ($elephant as $article): ?>
-        	<?php if ($article->user_id === $user['id'] OR $user['role'] === 'admin') : ?>
+        	<?php if ($article->person_id === $userEntity->person_id OR $user['role'] === 'admin') : ?>
         	
         	<tr>
                 <td>
@@ -26,7 +26,8 @@
                 </td>
                 <td>
                     <?php
-                        echo $article->user->person_id;
+                        echo $article->person->first_name;
+                        echo " ".$article->person->last_name;
                     ?>
                 </td>
         		<td>
@@ -40,7 +41,7 @@
                 </td>
                 <td>
         			<?php 
-        				if ($article->user_id === $user['id'] OR $user['role'] === 'admin') // If the user owns it, or they are admin, they can see the actions
+        				if ($article->person_id === $userEntity->person_id OR $user['role'] === 'admin') // If the user owns it, or they are admin, they can see the actions
         				{
         					echo $this->Form->postLink(
         					'Delete',

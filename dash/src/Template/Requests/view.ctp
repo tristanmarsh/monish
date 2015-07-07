@@ -8,7 +8,7 @@
 
 
 </table>
-Maintenace Requested By: <?= h($test->first_name)?> <?= h($test->last_name)?>
+Maintenace Requested By: <?= h($lion->person->first_name)?> <?= h($lion->person->last_name)?>
 <p><small>Created: <?= $giraffe->created->format('d M Y H:i:s') ?></small></p>
 <p>
     <?php

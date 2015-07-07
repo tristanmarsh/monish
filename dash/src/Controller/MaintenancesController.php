@@ -6,7 +6,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
-class RequestsController extends AppController
+class MaintenancesController extends AppController
 {
 	
     public function initialize()
@@ -31,16 +31,15 @@ class RequestsController extends AppController
         $this->loadModel('People');
         $this->loadModel('Users');
 
-        $elephant = $this->Requests->find('all')->contain('Users');
+        $authid = $this->Auth->user('id');
+        $this->set(compact('authid'));
+        $userEntity = $this->Users->get($authid);
+        $this->set(compact('userEntity'));
+        $personEntity = $this->People->get($userEntity->person_id);
+        $this->set(compact('personEntity'));
+
+        $elephant = $this->Maintenances->find('all')->contain('People');
         $this->set(compact('elephant'));
-        //$zebra = $this->Users->get($elephant->user->person_id)->contain('People');
-        //$this->set(compact('zebra'));
-
-        $users = $this->Users->find('all')->contain(['People', 'Requests']);
-        $this->set(compact('users'));
-
-//        $requests = $users->requests;
-//        $this->set(compact('requests'));
     }
 
     public function view($id = null)
@@ -51,26 +50,35 @@ class RequestsController extends AppController
         $this->loadModel('People');
 
         //my take on how to do this (like the index())
-        $this->set('giraffe', $this->Requests->get($id));
+        $this->set('giraffe', $this->Maintenances->get($id));
 		
-		$lion = $this->Requests->get($id, [
-            'contain' => ['Users']
+		$lion = $this->Maintenances->get($id, [
+            'contain' => ['People']
         ]);
 		$this->set(compact('lion'));
-        $test = $this->People->get($lion->user->person_id);
-        $this->set(compact('test'));
     }
 
     public function add()
     {
-        $zebra = $this->Requests->newEntity();
+        $zebra = $this->Maintenances->newEntity();
+
+        $this->loadModel('Users');
+        $this->loadModel('People');
+
+        $authid = $this->Auth->user('id');
+        $this->set(compact('authid'));
+        $userEntity = $this->Users->get($authid);
+        $this->set(compact('userEntity'));
+        $personEntity = $this->People->get($userEntity->person_id);
+        $this->set(compact('personEntity'));
+
         if ($this->request->is('post')) {
-            $zebra = $this->Requests->patchEntity($zebra, $this->request->data);
-            $zebra->user_id = $this->Auth->user('id');
+            $zebra = $this->Maintenances->patchEntity($zebra, $this->request->data);
+            $zebra->person_id = $personEntity->id;
             // You could also do the following
             //$newData = ['user_id' => $this->Auth->user('id')];
             //$zebra = $this->Articles->patchEntity($zebra, $newData);
-            if ($this->Requests->save($zebra)) {
+            if ($this->Maintenances->save($zebra)) {
                 $this->Flash->success(__('Your request has been submitted.'));
                 return $this->redirect(['action' => 'index']);
             }
@@ -85,10 +93,10 @@ class RequestsController extends AppController
 
     public function edit($id = null)
     {
-        $lion = $this->Requests->get($id);
+        $lion = $this->Maintenances->get($id);
         if ($this->request->is(['post', 'put'])) {
-            $lion = $this->Requests->patchEntity($lion, $this->request->data);
-            if ($this->Requests->save($lion)){
+            $lion = $this->Maintenances->patchEntity($lion, $this->request->data);
+            if ($this->Maintenances->save($lion)){
                 $this->Flash->success(__('Your request has been updated.'));
                 return $this->redirect(['action' => 'index']);
             }
@@ -105,8 +113,8 @@ class RequestsController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
 
-        $tiger = $this->Requests->get($id);
-        if ($this->Requests->delete($tiger)) {
+        $tiger = $this->Maintenances->get($id);
+        if ($this->Maintenances->delete($tiger)) {
             $this->Flash->success(__('The request with id: {0} has been deleted.', h($id)));
             return $this->redirect(['action' => 'index']);
         }
@@ -122,8 +130,21 @@ class RequestsController extends AppController
 
         // The owner of an article can edit and delete it
         if (in_array($this->request->action, ['edit', 'delete'])) {
-            $articleId = (int)$this->request->params['pass'][0];
-            if ($this->Requests->isOwnedBy($articleId, $user['id'])) {
+            $requestId = (int)$this->request->params['pass'][0];
+            $requestEntity = $this->Maintenances->get($requestId);
+            $this->set(compact('requestEntity'));
+
+            $this->loadModel('People');
+            $this->loadModel('Users');
+
+            $authid = $this->Auth->user('id');
+            $this->set(compact('authid'));
+            $userEntity = $this->Users->get($authid);
+            $this->set(compact('userEntity'));
+            $personEntity = $this->People->get($userEntity->person_id);
+            $this->set(compact('personEntity'));
+
+            if ($requestEntity->person_id === $personEntity->id) {
                 return true;
             }
         }

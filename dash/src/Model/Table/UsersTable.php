@@ -19,6 +19,9 @@ class UsersTable extends Table
         $this->belongsTo('People', [
             'foreignKey' => 'person_id'
         ]);
+        $this->hasMany('Requests', [
+            'foreignKey' => 'user_id'
+        ]);
     }
 	
 	public function buildRules(RulesChecker $rules)

@@ -31,6 +31,7 @@ class TenantsController extends AppController
         $this->loadModel('Users');
         $this->loadModel('Leases');
         $this->loadModel('Properties');
+        $this->loadModel('Macaddresses');
 
         $user = $this->People->newEntity();
 
@@ -73,6 +74,11 @@ class TenantsController extends AppController
                 $lease->date_end = $user->date_end;
                 $lease->weekly_price = $user->weekly_price;
                 $leasesTable->save($lease);
+
+                $macaddressesTable = TableRegistry::get('Macaddresses');
+                $macaddress = $macaddressesTable->newEntity();
+                $macaddress->person_id = $user->id;
+                $macaddressesTable->save($macaddress);
 
                 $this->Flash->success(__('Person Added'));
                 return $this->redirect(['controller' => 'tenants', 'action' => 'index']);

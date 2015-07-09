@@ -26,10 +26,10 @@
                     </td>
                     <td>
                         <?php
-                            $test = $walrus->get($lease->student->person_id);
+                            $person = $walrus->get($lease->student->person_id);
                         ?>
-                        <?= $lease->has('student') ? $this->Html->link($test->first_name, ['controller' => 'Students', 'action' => 'view', $lease->student->id]) : '' ?>
-                        <?= $lease->has('student') ? $this->Html->link($test->last_name, ['controller' => 'Students', 'action' => 'view', $lease->student->id]) : '' ?>
+                        <?= $lease->has('student') ? $this->Html->link($person->first_name, ['controller' => 'Tenants', 'action' => 'view', $person->id]) : '' ?>
+                        <?= $lease->has('student') ? $this->Html->link($person->last_name, ['controller' => 'Tenants', 'action' => 'view', $person->id]) : '' ?>
                     </td>
                     <td><?= h($lease->date_start->format('Y M d')) ?></td>
                     <td><?= h($lease->date_end->format('Y M d')) ?></td>

@@ -46,6 +46,13 @@
 	    
 	    <li>
 			<a class="menu-item-link" href="#insertcorrectlinkhere">
+				<span class="glyphicon glyphicon-th-list"></span>
+		    	<?= $this->Html->link('MAC Addresses', ['controller' => 'macaddresses', 'action' => 'index'], ['class' => 'menu-item-label hidden-sm']) ?>
+			</a>
+	    </li>
+
+        <li>
+			<a class="menu-item-link" href="#insertcorrectlinkhere">
 				<span class="glyphicon glyphicon-list-alt"></span>
 		    	<?= $this->Html->link('Leases', ['controller' => 'leases', 'action' => 'index'], ['class' => 'menu-item-label hidden-sm']) ?>
 			</a>
@@ -91,6 +98,13 @@
 		        <?= $this->Html->link('Requests', ['controller' => 'requests', 'action' => 'index'], ['class' => 'menu-item-label hidden-sm']) ?>
 		    </a>
 	    </li>
+
+        <li>
+            <a class="menu-item-link" href="#insertcorrectlinkhere">
+                <span class="glyphicon glyphicon-th-list"></span>
+                <?= $this->Html->link('MAC Addresses', ['controller' => 'macaddresses', 'action' => 'index'], ['class' => 'menu-item-label hidden-sm']) ?>
+            </a>
+        </li>
 		
 		<li>
 			<a class="menu-item-link" href="#insertcorrectlinkhere">

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2015 at 06:54 PM
+-- Generation Time: Jul 09, 2015 at 07:17 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `leases` (
   KEY `student_id` (`student_id`),
   KEY `property_id` (`property_id`),
   KEY `property_id_2` (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `leases`
@@ -95,7 +95,53 @@ INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`
 (9, 11, 3, 12, '2015-07-15', '2016-05-13', 260),
 (10, 24, 5, 10, '2015-07-04', '2016-07-04', 300),
 (11, 1, 1, 12, '2015-07-16', '2015-12-11', 300),
-(12, 13, 3, 11, '2015-07-15', '2016-11-23', 230);
+(12, 13, 3, 11, '2015-07-15', '2016-11-23', 230),
+(13, 1, 1, 13, '2015-07-15', '2016-01-21', 500),
+(14, 17, 4, 14, '0000-00-00', '2015-07-09', 450);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `macaddresses`
+--
+
+CREATE TABLE IF NOT EXISTS `macaddresses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `person_id` int(11) NOT NULL,
+  `device_name_one` varchar(25) DEFAULT NULL,
+  `device_name_two` varchar(25) DEFAULT NULL,
+  `device_name_three` varchar(25) DEFAULT NULL,
+  `device_name_four` varchar(25) DEFAULT NULL,
+  `device_name_five` varchar(25) DEFAULT NULL,
+  `device_name_six` varchar(25) DEFAULT NULL,
+  `device_name_seven` varchar(25) DEFAULT NULL,
+  `device_name_eight` varchar(25) DEFAULT NULL,
+  `device_name_nine` varchar(25) DEFAULT NULL,
+  `device_name_ten` varchar(25) DEFAULT NULL,
+  `mac_address_one` varchar(25) DEFAULT NULL,
+  `mac_address_two` varchar(25) DEFAULT NULL,
+  `mac_address_three` varchar(25) DEFAULT NULL,
+  `mac_address_four` varchar(25) DEFAULT NULL,
+  `mac_address_five` varchar(25) DEFAULT NULL,
+  `mac_address_six` varchar(25) DEFAULT NULL,
+  `mac_address_seven` varchar(25) DEFAULT NULL,
+  `mac_address_eight` varchar(25) DEFAULT NULL,
+  `mac_address_nine` varchar(25) DEFAULT NULL,
+  `mac_address_ten` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `person_id` (`person_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `macaddresses`
+--
+
+INSERT INTO `macaddresses` (`id`, `person_id`, `device_name_one`, `device_name_two`, `device_name_three`, `device_name_four`, `device_name_five`, `device_name_six`, `device_name_seven`, `device_name_eight`, `device_name_nine`, `device_name_ten`, `mac_address_one`, `mac_address_two`, `mac_address_three`, `mac_address_four`, `mac_address_five`, `mac_address_six`, `mac_address_seven`, `mac_address_eight`, `mac_address_nine`, `mac_address_ten`) VALUES
+(1, 13, 'iPhone', '', '', '', '', '', '', '', '', '', '02-01-30-21', '', '', '', '', '', '', '', '', ''),
+(2, 9, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(3, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -128,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `people` (
   `phone` varchar(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `people`
@@ -138,7 +184,9 @@ INSERT INTO `people` (`id`, `first_name`, `last_name`, `common_name`, `gender`, 
 (1, 'Tony', 'Wise', '', 'M', '404040404', 'tonywise@monish.com'),
 (9, 'Amy', 'Insurance', 'Amy', 'F', '0404040404', 'amy@amy.com'),
 (10, 'Ben', 'Hudson', 'Benny', 'M', '0404040404', 'ben@ben.com'),
-(12, 'Constance', 'Petrovski', 'Con', 'F', '0404040404', 'constance@constance.com');
+(12, 'Constance', 'Petrovski', 'Con', 'F', '0404040404', 'constance@constance.com'),
+(13, 'Darren', 'Man', 'Darraman', 'M', '0404040404', 'darren@darren.com'),
+(14, 'Esther', 'Dear', 'Esther', 'F', '0404040404', 'esther@esther.com');
 
 -- --------------------------------------------------------
 
@@ -181,28 +229,28 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `description` text,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
+  `person_id` int(11) DEFAULT NULL,
   `category` enum('GENERAL','MAINTENANCE','INTERNET','LEASE') NOT NULL,
   `property_address` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`person_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `user_id`, `category`, `property_address`) VALUES
-(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-04-13 14:52:35', 41, 'MAINTENANCE', '200 two street'),
-(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-04-13 14:52:26', 41, 'MAINTENANCE', '200 two street'),
-(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-04-13 14:53:50', 41, 'MAINTENANCE', '200 two street'),
-(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-04-13 15:18:31', 41, 'MAINTENANCE', '100 one street'),
-(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 42, 'MAINTENANCE', '100 one street'),
-(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-04-16 05:25:43', 42, 'MAINTENANCE', '100 one street'),
-(15, 'Broken dong', 'donger is broken ', '2015-04-22 10:57:33', '2015-04-22 10:57:33', 43, 'MAINTENANCE', '300 three street'),
-(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-04-25 09:33:29', 41, 'MAINTENANCE', '300 three street'),
-(17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-05-14 04:50:05', 41, 'GENERAL', '300 three street'),
-(18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-14 04:49:49', 41, 'INTERNET', '300 three street'),
-(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-14 04:49:37', 41, 'LEASE', '300 three street');
+INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `person_id`, `category`, `property_address`) VALUES
+(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-04-13 14:52:35', 10, 'MAINTENANCE', '200 two street'),
+(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-04-13 14:52:26', 10, 'MAINTENANCE', '200 two street'),
+(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-04-13 14:53:50', 9, 'MAINTENANCE', '200 two street'),
+(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-04-13 15:18:31', 12, 'MAINTENANCE', '100 one street'),
+(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 10, 'MAINTENANCE', '100 one street'),
+(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-04-16 05:25:43', 9, 'MAINTENANCE', '100 one street'),
+(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-04-25 09:33:29', 9, 'MAINTENANCE', '300 three street'),
+(17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-05-14 04:50:05', 9, 'GENERAL', '300 three street'),
+(18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-14 04:49:49', 9, 'INTERNET', '300 three street'),
+(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-14 04:49:37', 9, 'LEASE', '300 three street');
 
 -- --------------------------------------------------------
 
@@ -266,7 +314,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   PRIMARY KEY (`id`),
   KEY `person_id` (`person_id`),
   KEY `emergency_id` (`emergency_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `students`
@@ -275,7 +323,9 @@ CREATE TABLE IF NOT EXISTS `students` (
 INSERT INTO `students` (`id`, `person_id`, `emergency_id`, `internet_plan`) VALUES
 (10, 9, NULL, 'STANDARD'),
 (11, 10, NULL, 'PREMIUM'),
-(12, 12, NULL, 'FREE');
+(12, 12, NULL, 'FREE'),
+(13, 13, NULL, 'FREE'),
+(14, 14, NULL, 'PREMIUM');
 
 -- --------------------------------------------------------
 
@@ -294,7 +344,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   KEY `person_id` (`person_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
 
 --
 -- Dumping data for table `users`
@@ -304,7 +354,9 @@ INSERT INTO `users` (`id`, `person_id`, `username`, `password`, `role`, `created
 (35, 1, 'admin', '$2y$10$W4EJplARM6UTAznYCvS50O37iSU.eyc1IUDFPuyxu0kju27md8G6e', 'admin', '2015-05-16 08:08:00', '2015-05-16 08:08:00'),
 (41, 9, 'amy@amy.com', '$2y$10$3e2XcolsgnsWa1Shy7CkDupFW8fPbhQGHkwN79qg5o2CoCOsedz5K', 'tenant', '2015-07-03 05:24:37', '2015-07-03 10:23:07'),
 (42, 10, 'ben@ben.com', '$2y$10$yPfJ9tHptXXaSeqpja9X2uf9Q/MaIe8jRpQm82XIqI.rCu6zzv4fK', 'tenant', '2015-07-03 10:18:53', '2015-07-03 10:19:57'),
-(43, 12, 'constance@constance.com', '$2y$10$HSGV/kNZOdGcA6S6T8b8e.UiYzvelCpocBFOWHtCcUQ5S6wiW.HrG', 'tenant', '2015-07-04 13:20:44', '2015-07-04 13:26:51');
+(43, 12, 'constance@constance.com', '$2y$10$HSGV/kNZOdGcA6S6T8b8e.UiYzvelCpocBFOWHtCcUQ5S6wiW.HrG', 'tenant', '2015-07-04 13:20:44', '2015-07-04 13:26:51'),
+(44, 13, 'darren@darren.com', '$2y$10$.Z7/9q8Bw3RfhZ0Q3Qo58Ou64ZtD32J/JKdKC1aRNKZPuFdNd88eq', 'tenant', '2015-07-09 16:12:08', '2015-07-09 16:12:08'),
+(45, 14, 'esther@esther.com', '$2y$10$QRZYZSxPClT1HF0HgO8PnOW4zO5.eDkEnBljNiEETG8HmtHdCY0l6', 'tenant', '2015-07-09 16:57:20', '2015-07-09 16:57:20');
 
 --
 -- Triggers `users`
@@ -341,10 +393,22 @@ ALTER TABLE `leases`
   ADD CONSTRAINT `leases_ibfk_3` FOREIGN KEY (`property_id`) REFERENCES `properties` (`id`);
 
 --
+-- Constraints for table `macaddresses`
+--
+ALTER TABLE `macaddresses`
+  ADD CONSTRAINT `macaddresses_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `people` (`id`);
+
+--
 -- Constraints for table `payments`
 --
 ALTER TABLE `payments`
   ADD CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`id`);
+
+--
+-- Constraints for table `requests`
+--
+ALTER TABLE `requests`
+  ADD CONSTRAINT `requests_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `people` (`id`);
 
 --
 -- Constraints for table `rooms`

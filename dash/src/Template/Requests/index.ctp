@@ -37,7 +37,7 @@
                     <?= $article->property_address ?>
                 </td>
                 <td>
-                    <?= $article->created->format('Y M d') ?>
+                    <?= $article->created->format('d/m/y' /*'h:m A'*/) ?>
                 </td>
                 <td>
         			<?php 

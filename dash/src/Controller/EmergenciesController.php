@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\Table;
+use Cake\ORM\Query;
 
 /**
  * Emergencies Controller
@@ -17,8 +19,24 @@ class EmergenciesController extends AppController
      */
     public function index()
     {
+        $this->loadModel('People');
+        $this->loadModel('Users');
+
+        $this->paginate = [
+            'contain' => ['People']
+        ];
         $this->set('emergencies', $this->paginate($this->Emergencies));
         $this->set('_serialize', ['emergencies']);
+
+        $authid = $this->Auth->user('id');
+        $this->set(compact('authid'));
+        $userEntity = $this->Users->get($authid);
+        $this->set(compact('userEntity'));
+        $personEntity = $this->People->get($userEntity->person_id);
+        $this->set(compact('personEntity'));
+
+        $query = $this->Emergencies->find('all', ['conditions' => ['person_id' => $personEntity->id]]);
+        $this->set(compact('query'));
     }
 
     /**
@@ -104,4 +122,15 @@ class EmergenciesController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    public function isAuthorized($user)
+    {
+        // All registered users can add articles
+        if (in_array($this->request->action, ['index','add','edit'])) {
+            return true;
+        }
+
+        return parent::isAuthorized($user);
+    }
+
 }

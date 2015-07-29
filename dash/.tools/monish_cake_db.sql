@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2015 at 07:17 PM
+-- Generation Time: Jul 29, 2015 at 02:28 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -28,40 +28,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `emergencies` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `person_id` int(11) DEFAULT NULL,
   `first_name` varchar(25) NOT NULL,
   `last_name` varchar(25) NOT NULL,
   `phone` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `employees`
---
-
-CREATE TABLE IF NOT EXISTS `employees` (
-  `employee_id` int(11) NOT NULL,
-  KEY `employee_id` (`employee_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `internet_connection`
---
-
-CREATE TABLE IF NOT EXISTS `internet_connection` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `lease_id` int(11) NOT NULL,
-  `bandwidth` enum('1GB','5GB','10GB') NOT NULL,
-  `monthly_fee` enum('TEN','TWENTY','FORTY') NOT NULL,
-  `date_start` date NOT NULL,
-  `date_end` date NOT NULL,
-  `status` enum('ACTIVE','INACTIVE') DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `lease_id` (`lease_id`)
+  KEY `person_id` (`person_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -142,22 +115,6 @@ INSERT INTO `macaddresses` (`id`, `person_id`, `device_name_one`, `device_name_t
 (3, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (5, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payments`
---
-
-CREATE TABLE IF NOT EXISTS `payments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `lease_id` int(11) NOT NULL,
-  `date_paid` date NOT NULL,
-  `amount` int(11) NOT NULL,
-  `payment_period_starting` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `lease_id` (`lease_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -373,16 +330,10 @@ DELIMITER ;
 --
 
 --
--- Constraints for table `employees`
+-- Constraints for table `emergencies`
 --
-ALTER TABLE `employees`
-  ADD CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `internet_connection`
---
-ALTER TABLE `internet_connection`
-  ADD CONSTRAINT `internet_connection_ibfk_1` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`id`);
+ALTER TABLE `emergencies`
+  ADD CONSTRAINT `emergencies_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `people` (`id`);
 
 --
 -- Constraints for table `leases`
@@ -397,12 +348,6 @@ ALTER TABLE `leases`
 --
 ALTER TABLE `macaddresses`
   ADD CONSTRAINT `macaddresses_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `people` (`id`);
-
---
--- Constraints for table `payments`
---
-ALTER TABLE `payments`
-  ADD CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`lease_id`) REFERENCES `leases` (`id`);
 
 --
 -- Constraints for table `requests`

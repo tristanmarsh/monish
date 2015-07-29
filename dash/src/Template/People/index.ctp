@@ -60,11 +60,7 @@
 <!-- THIS IS WHAT THE TENANTS SEES -->
 <?php if ($currentlogged['role'] === "tenant") : ?>
 
-
-
-            <h3>Manage Personal Details</h3>
-
-
+<h3>Manage Personal Details</h3>
 
     <table>
         <tr>

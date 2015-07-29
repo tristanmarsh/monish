@@ -24,11 +24,8 @@ class EmergenciesTable extends Table
         $this->table('emergencies');
         $this->displayField('id');
         $this->primaryKey('id');
-        $this->hasMany('EmergencyStudent', [
-            'foreignKey' => 'emergency_id'
-        ]);
-        $this->hasMany('Students', [
-            'foreignKey' => 'emergency_id'
+        $this->belongsTo('People', [
+            'foreignKey' => 'person_id'
         ]);
     }
 

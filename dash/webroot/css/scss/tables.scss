@@ -1,0 +1,123 @@
+/*
+Name:   tables.SCSS
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  All custom styling for tables
+Since:    30/7/15
+
+*/
+
+// Taken from forked codepen http://codepen.io/tristanmarsh/pen/VLVQqo
+
+
+// /* Universal Transition */
+// * {
+//   transition:all 100ms ease;
+// }
+
+// html {
+//   font-size:1em;
+//   font-size:16px;
+// }
+
+// body {
+//   font-family: $open-sans-font-stack;
+//   line-height: 20px;
+//   font-weight: 400;
+//   color: #3b3b3b;
+//   -webkit-font-smoothing: antialiased;
+//   font-smoothing: antialiased;
+//   background: #2b2b2b;
+// }
+
+// .wrapper {
+//   margin: 0 auto;
+//   padding: 40px;
+//   max-width: 800px;
+// }
+
+table {
+  margin: 0 0 40px 0;
+  width: 100%;
+  font-family: $open-sans-font-stack;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  display: table;
+  @media screen and (max-width: 580px) {
+    display: block;
+  }
+}
+
+table {
+  // display: table-row;
+  background: #f6f6f6;
+  
+  // Link Style
+  a {
+    color: #3C73C3;
+  }
+
+  // Table Header
+  & tr th {
+    color: #ffffff;
+    padding: 6px 12px;
+    background: #2980b9;
+    font-size:1.4rem;
+    font-family:$roboto-slab-font-stack;
+    position:relative;
+    
+    &:after {
+      content:"";
+      display:block;
+      position:absolute;
+      top:0;
+      left:0;
+      height:100%;
+      width:100%;
+      background:#fff;
+      opacity:0;
+      transition:all 200ms ease;
+    }
+    
+    &:hover:after {
+      opacity:0.2;
+      cursor:pointer;
+    }
+    
+    &:after:active {
+      opacity:0.2;
+      cursor:pointer;
+    }
+    
+  }
+  
+  // Table Row
+  & tr:nth-of-type(odd) {
+    background: #e9e9e9;
+  }
+  & tr:hover {
+    background: lighten(#e9e9e9,20%);
+  }
+
+  // Table Action Buttons
+  & td.actions a {}
+
+  &.green {
+    background: #27ae60;
+  }
+  &.blue {
+    background: #2980b9;
+  }
+  @media screen and (max-width: 580px) {
+    padding: 8px 0;
+    // display: block;
+  }
+}
+
+td {
+  padding: 6px 12px;
+  display: table-cell;
+  @media screen and (max-width: 580px) {
+    padding: 2px 12px;
+    // display: block;
+  }
+}

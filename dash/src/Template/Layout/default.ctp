@@ -20,7 +20,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <html>
 <head>
 	<?= $this->Html->charset() ?>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	<title>
 		<?= $cakeDescription ?>:
 		<?= $this->fetch('title') ?>
@@ -29,7 +29,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 	<?= $this->Html->css('bootstrap.min.css') ?>
 	<?= $this->Html->css('bootstrap-theme.min.css') ?>
-	<?= $this->Html->css('base.css') ?>
 	<?= $this->Html->css('custom.css') ?>
 
 	<?= $this->Html->css('bootstrap.min.css') ?>
@@ -41,6 +40,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<?= $this->fetch('meta') ?>
 	<?= $this->fetch('css') ?>
 	<?= $this->fetch('script') ?>
+
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
 
 
 </head>

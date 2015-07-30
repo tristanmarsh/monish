@@ -8,10 +8,12 @@ Since:    29/4/15
 
 */
 
+@import 'variables.scss';
 @import 'sm.scss';
 @import 'override.scss';
 @import 'footer.scss';
 @import 'sidebar.scss';
+@import 'tables.scss';
 
 body {
   background: #C4E7EC;
@@ -82,9 +84,6 @@ header {
 }
 
 // #### HEADER ####
-
-
-
 
 
 

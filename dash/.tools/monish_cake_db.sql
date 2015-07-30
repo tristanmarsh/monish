@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2015 at 07:50 AM
+-- Generation Time: Jul 30, 2015 at 04:54 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS `emergencies` (
 
 INSERT INTO `emergencies` (`id`, `person_id`, `first_name`, `last_name`, `phone`, `email`) VALUES
 (4, 9, 'Ethan', 'Chen', '2147483647', 'ethan@ethan.com'),
-(5, 9, 'mike', 'mike', '2147483647', '12312313@123.com'),
-(7, 9, 'tristan', 'tristan', '043131', '421@123.com');
+(5, 9, 'mike', 'lai', '123', '12313@123.com'),
+(7, 9, 'tristan', 'marsh', '043131', '421@123.com');
 
 -- --------------------------------------------------------
 

@@ -55,8 +55,38 @@
                 </td>
             </tr>
 
-            <?php endforeach; ?>    
+            <?php endforeach; ?>
         </table>
+        <?php endif; ?>
+    </div>
+</div>
+
+<div class="related row">
+    <div class="column large-12">
+        <h4 class="subheader"><?= __('Related Emergency Contacts') ?></h4>
+        <?php if (!empty($student->leases)): ?>
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <th><?= __('First Name') ?></th>
+                    <th><?= __('Last Name') ?></th>
+                    <th><?= __('Phone') ?></th>
+                    <th><?= __('Email') ?></th>
+                    <th class="actions"><?= __('Actions') ?></th>
+                </tr>
+                <?php foreach ($emergencyQuery as $emergency): ?>
+                    <tr>
+                        <td><?= $emergency->first_name ?></td>
+                        <td><?= $emergency->last_name ?></td>
+                        <td><?= $emergency->phone ?></td>
+                        <td><?= $emergency->email ?></td>
+                        <td class="actions">
+                            <?= $this->Html->link(__('Edit'), ['controller' => 'Emergencies', 'action' => 'edit', $emergency->id]) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['controller' => 'Emergencies', 'action' => 'delete', $emergency->id], ['confirm' => __('Are you sure you want to delete # {0}?', $leases->id)]) ?>
+                        </td>
+                    </tr>
+
+                <?php endforeach; ?>
+            </table>
         <?php endif; ?>
     </div>
 </div>

@@ -143,6 +143,7 @@ class TenantsController extends AppController
         $this->loadModel('Students');
         $this->loadModel('Leases');
         $this->loadModel('Rooms');
+        $this->loadModel('Emergencies');
 
         $person = $this->People->get($id, ['contain' => ['Students', 'Users']]);
         $this->set(compact('person'));
@@ -155,6 +156,9 @@ class TenantsController extends AppController
 
         $query = $this->Leases->find('all', ['conditions' => ['student_id' => $person->student->id], 'contain' => ['Rooms', 'Properties']]);
         $this->set(compact('query'));
+
+        $emergencyQuery = $this->Emergencies->find('all', ['conditions' => ['person_id' => $person->id]]);
+        $this->set(compact('emergencyQuery'));
 
     }
 

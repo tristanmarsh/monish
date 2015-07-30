@@ -113,7 +113,7 @@ class EmergenciesController extends AppController
             $emergency = $this->Emergencies->patchEntity($emergency, $this->request->data);
             if ($this->Emergencies->save($emergency)) {
                 $this->Flash->success('The emergency has been saved.');
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'tenants','action' => 'index']);
             } else {
                 $this->Flash->error('The emergency could not be saved. Please, try again.');
             }

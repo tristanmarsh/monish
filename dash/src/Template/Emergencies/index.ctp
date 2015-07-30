@@ -21,8 +21,8 @@
             <td><?= h($emergency->email) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $emergency->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $emergency->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $emergency->id], ['confirm' => __('Are you sure you want to delete # {0}?', $emergency->id)]) ?>
+<!--                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $emergency->id]) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $emergency->id], ['confirm' => __('Are you sure you want to delete # {0}?', $emergency->id)]) ?> -->
             </td>
         </tr>
 

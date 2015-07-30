@@ -66,8 +66,26 @@ class EmergenciesController extends AppController
     public function add()
     {
         $emergency = $this->Emergencies->newEntity();
+        
+        $this->loadModel('People');
+        $this->loadModel('Users');
+
+        $this->paginate = [
+            'contain' => ['People']
+        ];
+        $this->set('emergencies', $this->paginate($this->Emergencies));
+        $this->set('_serialize', ['emergencies']);
+
+        $authid = $this->Auth->user('id');
+        $this->set(compact('authid'));
+        $userEntity = $this->Users->get($authid);
+        $this->set(compact('userEntity'));
+        $personEntity = $this->People->get($userEntity->person_id);
+        $this->set(compact('personEntity'));
+
         if ($this->request->is('post')) {
             $emergency = $this->Emergencies->patchEntity($emergency, $this->request->data);
+            $emergency->person_id = $personEntity->id;
             if ($this->Emergencies->save($emergency)) {
                 $this->Flash->success('The emergency has been saved.');
                 return $this->redirect(['action' => 'index']);

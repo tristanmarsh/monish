@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2015 at 02:28 PM
+-- Generation Time: Jul 30, 2015 at 07:31 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -35,7 +35,15 @@ CREATE TABLE IF NOT EXISTS `emergencies` (
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `person_id` (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `emergencies`
+--
+
+INSERT INTO `emergencies` (`id`, `person_id`, `first_name`, `last_name`, `phone`, `email`) VALUES
+(4, 9, 'Ethan', 'Chen', 2147483647, 'ethan@ethan.com'),
+(5, 9, 'mike', 'mike', 2147483647, '12312313@123.com');
 
 -- --------------------------------------------------------
 

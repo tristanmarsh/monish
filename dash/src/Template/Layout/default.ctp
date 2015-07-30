@@ -52,9 +52,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 	<!-- User not logged in -->
 	<?php if (!$this->Session->read('Auth.User')) : ?>
 
-		<?php echo $this->element('login'); ?>
+	<?php echo $this->element('login'); ?>
 
-	<?php else : ?>
+<?php else : ?>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 
@@ -69,10 +69,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#">
-				  <div class="navbar-image">
-					<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
-					<span>Monash ISH Dashboard</span>
-				  </div>
+					<div class="navbar-image">
+						<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
+						<span>Monash ISH Dashboard</span>
+					</div>
 				</a>
 			</div>
 
@@ -98,88 +98,94 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 					
 					<!-- User logged in -->
 					<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-						<?php echo $user['username']; ?>
-						<span class="caret"></span>
-					</a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+							<?php echo $user['username']; ?>
+							<span class="caret"></span>
+						</a>
 
-					<ul class="dropdown-menu" role="menu">
-						
-						<li><?= $this->Html->link('My Profile', ['controller' => 'people', 'action' => 'index']) ?></li>
-						
-						<li class="divider"></li>
-						
-						<li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
+						<ul class="dropdown-menu" role="menu">
+
+							<li><?= $this->Html->link('My Profile', ['controller' => 'people', 'action' => 'index']) ?></li>
+
+							<li class="divider"></li>
+
+							<li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
+
+						</ul>
 
 					</ul>
 
-				</ul>
+				</div><!-- /.collapse -->
 
-			</div><!-- /.collapse -->
+			</div><!-- /.container-fluid -->
 
-		</div><!-- /.container-fluid -->
-		
-	</nav>
+		</nav>
 
-	<!-- Retrieve correct sidebar -->
-	<div class="col-sm-1 col-md-2 sidebar hidden-xs">
-	
-		<?php echo $this->element('sidebar'); ?>
+		<div class="container-fluid">
 
-	</div>
+			<!-- Retrieve correct sidebar -->
+			<div class="col-sm-1 col-md-2 sidebar hidden-xs">
 
-	<div class="row">
-
-		<div class="col-sm-11 col-sm-offset-1 col-md-offset-2 col-md-10 main-content">
-
-			<div class="row">
-
-				<header>
-<!--					<div class="container-fluid">-->
-<!--						-->
-<!--						<div class="page-header">-->
-<!--							<span><?//= $this->fetch('title') ?>--><!--</span> -->
-<!--						</div>-->
-<!---->
-<!--						<div class="row">-->
-<!---->
-<!--							<ol class="breadcrumb">-->
-<!--								<?//= $this->Html->getCrumbs(' > ', 'Home') ?>-->
-<!--								<?// echo $this->Html->getCrumbList(); ?>-->
-<!--							</ol>-->
-<!--							-->
-<!--						</div>-->
-<!---->
-<!--					</div>-->
-				</header>
+				<?php echo $this->element('sidebar'); ?>
 
 			</div>
 
-			<div class="container-fluid">
+			<div class="row">
 
-				<div class="content">
+				<div class="col-sm-11 col-sm-offset-1 col-md-offset-2 col-md-10 main-content">
 
-					<div id="content">
+					<div class="row">
 
-						<?= $this->Flash->render() ?>
+						<header>
+							<div class="container-fluid">
 
-						<div class="row">
-							<?= $this->fetch('content') ?>
-						</div>
+								<div class="page-header">
+									<span><?= $this->fetch('title') ?>--></span> 
+								</div>
+
+								<div class="row">
+
+									<ol class="breadcrumb">
+										<?= $this->Html->getCrumbs(' > ', 'Home') ?>
+										<? echo $this->Html->getCrumbList(); ?>
+									</ol>
+
+								</div>
+
+							</div>
+						</header>
 
 					</div>
+
+					<div class="container-fluid">
+
+						<div class="content">
+
+							<div id="content">
+
+								<?= $this->Flash->render() ?>
+
+								<div class="row">
+									<?= $this->fetch('content') ?>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+					
+					<footer>
+						<div class="container-fluid">
+							<?php echo $this->element('footer'); ?>
+						</div>
+					</footer>
 
 				</div>
 			</div>
 
-			<footer>
-				<?php echo $this->element('footer'); ?>
-			</footer>
+		</div><!-- /.container -->
 
-		</div>
-	</div>
-
-	<?php endif; ?>
+<!-- 	<?php endif; ?>
 
 </body>
-</html>
+</html> -->

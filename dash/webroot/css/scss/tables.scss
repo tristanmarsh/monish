@@ -20,15 +20,12 @@ Since:    30/7/15
 //   font-size:16px;
 // }
 
-// body {
-//   font-family: $open-sans-font-stack;
-//   line-height: 20px;
-//   font-weight: 400;
-//   color: #3b3b3b;
-//   -webkit-font-smoothing: antialiased;
-//   font-smoothing: antialiased;
-//   background: #2b2b2b;
-// }
+body {
+  // font-family: $open-sans-font-stack;
+  // line-height: 20px;
+  // font-weight: 400;
+  color: #3b3b3b;
+}
 
 // .wrapper {
 //   margin: 0 auto;
@@ -36,20 +33,24 @@ Since:    30/7/15
 //   max-width: 800px;
 // }
 
+
 table {
-  margin: 0 0 40px 0;
+  display: table;
   width: 100%;
+  margin: 0 0 40px 0;
   font-family: $open-sans-font-stack;
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  display: table;
+  background: #f6f6f6;
+  background:#fff;
+
+
+  * {
+    transition:all 200ms ease;
+  }
+  
   @media screen and (max-width: 580px) {
     display: block;
   }
-}
-
-table {
-  // display: table-row;
-  background: #f6f6f6;
   
   // Link Style
   a {
@@ -59,26 +60,47 @@ table {
 
   // Table Header
   & tr th {
-    color: #ffffff;
-
+    color: #fff;
     background: #2980b9;
     font-size:1.4rem;
     font-family:$roboto-slab-font-stack;
     position:relative;
     overflow:hidden;
-
-    &:hover>a {
-      background:#2F99DE;
-      color:#fff;
-      text-decoration: none;
-    }
+    color:#fff;
 
     &>a {
       display:block;
       padding: 6px 12px;
       color:#fff;
+      text-decoration: none;
+    }    
+
+    &>a:hover {
+      background: lighten(#2980b9,5%);
+      color:#fff;
+      text-decoration: none;
+    }
+
+    &>a.asc,
+    &>a.desc {
+      background: darken(#2980b9,10%);
+    }
+
+    &>a.asc:after {
+      content:'\25B2';
+      position:relative;
+      right:-0.5em;
+      font-size: 0.8em;
+    }
+
+    &>a.desc:after {
+      content:'\25BC';
+      position:relative;
+      right:-0.5em;
+      font-size: 0.8em;
     }
     
+
     // &:before {
     //   content:"";
     //   display:block;
@@ -106,10 +128,13 @@ table {
   
   // Table Row
   & tr:nth-of-type(odd) {
-    background: #e9e9e9;
+    background: #f9f9f9;
+    border-top:1px solid #e7eaec;
+    border-bottom:1px solid #e7eaec;
   }
-  & tr:hover {
-    background: lighten(#e9e9e9,20%);
+  & tr:hover td {
+    color:#222;
+    background: lighten(#e9e9e9,10%);
   }
 
   // Table Action Buttons
@@ -125,13 +150,15 @@ table {
     padding: 8px 0;
     // display: block;
   }
+
+  td {
+    color:rgb(103, 106, 108);
+    padding: 6px 12px;
+    @media screen and (max-width: 580px) {
+      padding: 2px 12px;
+      display: block;
+    }
+  }
+
 }
 
-td {
-  padding: 6px 12px;
-  display: table-cell;
-  @media screen and (max-width: 580px) {
-    padding: 2px 12px;
-    // display: block;
-  }
-}

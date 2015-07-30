@@ -54,39 +54,53 @@ table {
   // Link Style
   a {
     color: #3C73C3;
+    text-decoration: none;
   }
 
   // Table Header
   & tr th {
     color: #ffffff;
-    padding: 6px 12px;
+
     background: #2980b9;
     font-size:1.4rem;
     font-family:$roboto-slab-font-stack;
     position:relative;
-    
-    &:after {
-      content:"";
+    overflow:hidden;
+
+    &:hover>a {
+      background:#2F99DE;
+      color:#fff;
+      text-decoration: none;
+    }
+
+    &>a {
       display:block;
-      position:absolute;
-      top:0;
-      left:0;
-      height:100%;
-      width:100%;
-      background:#fff;
-      opacity:0;
-      transition:all 200ms ease;
+      padding: 6px 12px;
+      color:#fff;
     }
     
-    &:hover:after {
-      opacity:0.2;
-      cursor:pointer;
-    }
+    // &:before {
+    //   content:"";
+    //   display:block;
+    //   position:absolute;
+    //   top:0;
+    //   left:0;
+    //   height:100%;
+    //   width:100%;
+    //   background:#fff;
+    //   opacity:0;
+    //   transition:all 200ms ease;
+    // }
     
-    &:after:active {
-      opacity:0.2;
-      cursor:pointer;
-    }
+    // &:hover:after {
+    //   opacity:0.2;
+    //   cursor:pointer;
+    // }
+    
+    // &:after:active {
+    //   opacity:0.2;
+    //   cursor:pointer;
+    // }
     
   }
   

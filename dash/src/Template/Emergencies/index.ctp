@@ -30,8 +30,11 @@
     </tbody>
     </table>
 
-    <div class="paginator">
-        <ul class="pagination">
+    <div class="paginator text-center">
+        
+
+
+<ul class="pagination">
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
             <?= $this->Paginator->numbers() ?>
             <?= $this->Paginator->next(__('next') . ' >') ?>

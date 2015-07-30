@@ -39,10 +39,8 @@ table {
   width: 100%;
   margin: 0 0 40px 0;
   font-family: $open-sans-font-stack;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  background: #f6f6f6;
-  background:#fff;
-
+  box-shadow: 0 2px rgba(57, 83, 109, 0.3);
+  border-radius:3px;
 
   * {
     transition:all 200ms ease;
@@ -59,10 +57,11 @@ table {
   }
 
   // Table Header
-  & tr th {
+  & th {
     color: #fff;
     background: #2980b9;
     font-size:1.4rem;
+    line-height: 2.4em;
     font-family:$roboto-slab-font-stack;
     position:relative;
     overflow:hidden;
@@ -75,6 +74,7 @@ table {
       text-decoration: none;
     }    
 
+    &>a:focus,
     &>a:hover {
       background: lighten(#2980b9,5%);
       color:#fff;
@@ -99,53 +99,51 @@ table {
       right:-0.5em;
       font-size: 0.8em;
     }
-    
 
-    // &:before {
-    //   content:"";
-    //   display:block;
-    //   position:absolute;
-    //   top:0;
-    //   left:0;
-    //   height:100%;
-    //   width:100%;
-    //   background:#fff;
-    //   opacity:0;
-    //   transition:all 200ms ease;
-    // }
-    
-    // &:hover:after {
-    //   opacity:0.2;
-    //   cursor:pointer;
-    // }
-    
-    // &:after:active {
-    //   opacity:0.2;
-    //   cursor:pointer;
-    // }
+    &:first-child {
+      border-top-left-radius: 5px;;
+    }
+
+    &:last-child {
+      border-top-right-radius: 5px;;
+    }
     
   }
+
+
   
   // Table Row
-  & tr:nth-of-type(odd) {
+
+  & tr {
+    background:#fff;
+  }
+
+  & tr:nth-of-type(2n+2) {
     background: #f9f9f9;
     border-top:1px solid #e7eaec;
     border-bottom:1px solid #e7eaec;
   }
-  & tr:hover td {
-    color:#222;
+
+  & tr:focus td,
+  & tr:hover td, {
+    color:#333;
     background: lighten(#e9e9e9,10%);
+  }
+
+  & tr:last-child {
+  }
+
+  & tr:last-child td:first-child {
+    border-bottom-left-radius:5px;
+  }
+
+  & tr:last-child td:last-child {
+      border-bottom-right-radius:5px;
   }
 
   // Table Action Buttons
   & td.actions a {}
 
-  &.green {
-    background: #27ae60;
-  }
-  &.blue {
-    background: #2980b9;
-  }
   @media screen and (max-width: 580px) {
     padding: 8px 0;
     // display: block;

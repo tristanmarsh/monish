@@ -56,134 +56,134 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 <?php else : ?>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
 
-		<div class="container-fluid">
+		<div class="row">
 
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">
-					<div class="navbar-image">
-						<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
-						<span>Monash ISH Dashboard</span>
-					</div>
-				</a>
-			</div>
+		<!-- Retrieve correct sidebar -->
+		<div class="col-sm-1 col-md-2 sidebar hidden-xs">
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<?php echo $this->element('sidebar'); ?>
+
+		</div>
+
+
+			<div class="col-sm-11 col-sm-offset-1 col-md-offset-2 col-md-10 main-content">
 				
-				<ul class="nav navbar-nav">
-					<li class="active visible-xs"><a href="#">Link<span class="sr-only">(current)</span></a></li>
-					
-					<li class="visible-xs"><?= $this->Html->link('Requests', ['controller' => 'Requests', 'action' => 'index']) ?></li>
-					<li class="visible-xs"><?= $this->Html->link('Users', ['controller' => 'users', 'action' => 'index']) ?></li>
-					<li class="visible-xs"><?= $this->Html->link('People', ['controller' => 'people', 'action' => 'index']) ?></li>
-					<li class="visible-xs"><?= $this->Html->link('Students', ['controller' => 'students', 'action' => 'index']) ?></li>
-					<li class="visible-xs"><?= $this->Html->link('Leases', ['controller' => 'leases', 'action' => 'index']) ?></li>
-					<li class="visible-xs"><?= $this->Html->link('Properties', ['controller' => 'properties', 'action' => 'index']) ?></li>
-					<li class="visible-xs"><?= $this->Html->link('Rooms', ['controller' => 'rooms', 'action' => 'index']) ?></li>
-					<li class="visible-xs"><?= $this->Html->link('Tests', ['controller' => 'tests', 'action' => 'index']) ?></li>
+				<div class="row">
+				
+					<nav class="navbar navbar-fixed-top col-sm-11 col-sm-offset-1 col-md-offset-2 col-md-10 pull-right">
 
-					<li class="visible-xs"><a href="#">Link</a></li>
-				</ul>
-
-				<ul class="nav navbar-nav navbar-right">
-					
-					<!-- User logged in -->
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-							<?php echo $user['username']; ?>
-							<span class="caret"></span>
-						</a>
-
-						<ul class="dropdown-menu" role="menu">
-
-							<li><?= $this->Html->link('My Profile', ['controller' => 'people', 'action' => 'index']) ?></li>
-
-							<li class="divider"></li>
-
-							<li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
-
-						</ul>
-
-					</ul>
-
-				</div><!-- /.collapse -->
-
-			</div><!-- /.container-fluid -->
-
-		</nav>
-
-		<div class="container-fluid">
-
-			<!-- Retrieve correct sidebar -->
-			<div class="col-sm-1 col-md-2 sidebar hidden-xs">
-
-				<?php echo $this->element('sidebar'); ?>
-
-			</div>
-
-			<div class="row">
-
-				<div class="col-sm-11 col-sm-offset-1 col-md-offset-2 col-md-10 main-content">
-
-					<div class="row">
-
-						<header>
-							<div class="container-fluid">
-
-								<div class="page-header">
-									<span><?= $this->fetch('title') ?>--></span> 
-								</div>
-
-								<div class="row">
-
-									<ol class="breadcrumb">
-										<?= $this->Html->getCrumbs(' > ', 'Home') ?>
-										<? echo $this->Html->getCrumbList(); ?>
-									</ol>
-
-								</div>
-
-							</div>
-						</header>
-
-					</div>
-
-					<div class="container-fluid">
-
-						<div class="content">
-
-							<div id="content">
-
-								<?= $this->Flash->render() ?>
-
-								<div class="row">
-									<?= $this->fetch('content') ?>
-								</div>
-
-							</div>
-
-						</div>
-					</div>
-					
-					<footer>
 						<div class="container-fluid">
-							<?php echo $this->element('footer'); ?>
-						</div>
-					</footer>
+
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a class="navbar-brand" href="#">
+									<div class="navbar-image">
+										<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
+										<span>Monash ISH Dashboard</span>
+									</div>
+								</a>
+							</div>
+
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+								
+								<ul class="nav navbar-nav">
+									<li class="active visible-xs"><a href="#">Link<span class="sr-only">(current)</span></a></li>
+									
+									<li class="visible-xs"><?= $this->Html->link('Requests', ['controller' => 'Requests', 'action' => 'index']) ?></li>
+									<li class="visible-xs"><?= $this->Html->link('Users', ['controller' => 'users', 'action' => 'index']) ?></li>
+									<li class="visible-xs"><?= $this->Html->link('People', ['controller' => 'people', 'action' => 'index']) ?></li>
+									<li class="visible-xs"><?= $this->Html->link('Students', ['controller' => 'students', 'action' => 'index']) ?></li>
+									<li class="visible-xs"><?= $this->Html->link('Leases', ['controller' => 'leases', 'action' => 'index']) ?></li>
+									<li class="visible-xs"><?= $this->Html->link('Properties', ['controller' => 'properties', 'action' => 'index']) ?></li>
+									<li class="visible-xs"><?= $this->Html->link('Rooms', ['controller' => 'rooms', 'action' => 'index']) ?></li>
+									<li class="visible-xs"><?= $this->Html->link('Tests', ['controller' => 'tests', 'action' => 'index']) ?></li>
+
+									<li class="visible-xs"><a href="#">Link</a></li>
+								</ul>
+
+								<ul class="nav navbar-nav navbar-right">
+									
+									<!-- User logged in -->
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+											<?php echo $user['username']; ?>
+											<span class="caret"></span>
+										</a>
+
+										<ul class="dropdown-menu" role="menu">
+
+											<li><?= $this->Html->link('My Profile', ['controller' => 'people', 'action' => 'index']) ?></li>
+
+											<li class="divider"></li>
+
+											<li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
+
+										</ul>
+
+									</li>
+
+								</ul>
+
+							</div><!-- /.collapse -->
+
+						</div><!-- /.container-fluid -->
+
+					</nav>
+
 
 				</div>
-			</div>
 
-		</div><!-- /.container -->
+				<div class="row">
+
+					<header>
+						<div class="container-fluid">
+
+							<div class="page-header">
+								<span><?= $this->fetch('title') ?>--></span> 
+							</div>
+
+							<div class="row">
+
+								<ol class="breadcrumb">
+									<?= $this->Html->getCrumbs(' > ', 'Home') ?>
+									<? echo $this->Html->getCrumbList(); ?>
+								</ol>
+
+							</div>
+
+						</div>
+					</header>
+
+				</div>
+
+				<div class="container-fluid">
+
+					<div class="content">
+
+						<?= $this->Flash->render() ?>
+
+						<?= $this->fetch('content') ?>
+
+					</div>
+				</div>
+
+				<footer>
+					<?php echo $this->element('footer'); ?>
+				</footer>
+
+			</div>
+		</div>
+
+	</div><!-- /.container -->
 
 <!-- 	<?php endif; ?>
 

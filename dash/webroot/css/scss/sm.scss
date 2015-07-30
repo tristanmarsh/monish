@@ -11,8 +11,15 @@ Since:    3/6/15
 @media(max-width:767px){
 
 }
+
 // md
 @media(min-width:768px){
+	
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  left:auto;
+  right:0;
+}
 
 }
 // lg

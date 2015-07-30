@@ -144,8 +144,9 @@ class TenantsController extends AppController
         $this->loadModel('Leases');
         $this->loadModel('Rooms');
         $this->loadModel('Emergencies');
+        $this->loadModel('Macaddresses');
 
-        $person = $this->People->get($id, ['contain' => ['Students', 'Users']]);
+        $person = $this->People->get($id, ['contain' => ['Students', 'Users', 'Macaddresses']]);
         $this->set(compact('person'));
 
         $student = $this->Students->get($person->student->id, [

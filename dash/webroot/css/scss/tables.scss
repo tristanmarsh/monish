@@ -112,6 +112,8 @@ table {
 
   & tr {
     background:#fff;
+    border-left:1px solid rgba(57, 83, 109, 0.1);
+    border-right:1px solid rgba(57, 83, 109, 0.1);
   }
 
   & tr:nth-of-type(2n+2) {
@@ -126,8 +128,6 @@ table {
     background: lighten(#e9e9e9,10%);
   }
 
-  & tr:last-child {
-  }
 
   & tr:last-child td:first-child {
     border-bottom-left-radius:5px;
@@ -147,7 +147,7 @@ table {
 
   td {
     color:rgb(103, 106, 108);
-    padding: 6px 12px;
+    padding: 12px 12px;
     @media screen and (max-width: 580px) {
       padding: 2px 12px;
     }

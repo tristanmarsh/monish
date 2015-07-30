@@ -47,12 +47,6 @@
         <?php endforeach; ?>
     </table>
 
-    <p>
-        <?php
-            echo "Back to ";
-            echo $this->Html->link('Dashboard', ['controller' => '', 'action' => 'index']);
-        ?>
-    </p>
             </div class="content">
 
 <?php endif; ?>

@@ -2,16 +2,32 @@
 <?php $user = $this->Session->read('Auth.User'); ?>
 
         <h3>List of Requests</h3>
-        <?= $this->Html->link('Add Request', ['action' => 'add']) ?>
-        
 
+<div class="panel clearfix">
+    
+    <ul class="nav nav-pills pull-left">
+        <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
+        <li role="presentation"><a href="#">Pending</a></li>
+        <li role="presentation"><a href="#">Completed</a></li>
+    </ul>
+
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+</div>    
+
+    <div class="table-responsive">
         <table>
             <tr>
-                <th>Title</th>
-                <th>Requested By</th>
-        		<th>Category</th>
-                <th>Property</th>
-                <th>Requested</th>
+                <th><?= $this->Paginator->sort('title') ?></th>
+                <th><?= $this->Paginator->sort('requested_by') ?></th>
+        		<th><?= $this->Paginator->sort('category') ?></th>
+                <th><?= $this->Paginator->sort('property') ?></th>
+                <th><?= $this->Paginator->sort('requested') ?></th>
                 <th>Action</th>
             </tr>
 

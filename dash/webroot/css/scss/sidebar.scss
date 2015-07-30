@@ -53,19 +53,21 @@ Since:    3/6/15
       display:inline-block;
     }
 
+    a {
+      color:#788188;
+      transition:all 100ms ease;
+    }
+
   }
 
   li:hover {
-    background:#006689;
 
     &>.menu-item-link {
       color:#BCEEFF;
-      color:#788188;
     }
 
     &>.menu-item-label {
       color:#BCEEFF;
-      color:#788188;
     }
 
   }

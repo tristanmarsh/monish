@@ -51,12 +51,7 @@
                 </ul>
                 <p><?= $this->Paginator->counter() ?></p>
             </div>
-            <p>
-                <?php
-                echo "Back to ";
-                echo $this->Html->link('Dashboard', ['controller' => '', 'action' => 'index']);
-                ?>
-            </p>
+<h3>Children's Retail Franchise - from $500,000</h3>
 
 
 <?php endif; ?>

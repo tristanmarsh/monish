@@ -39,11 +39,3 @@
                     <?= $this->Paginator->numbers() ?>
                     <?= $this->Paginator->next(__('next') . ' >') ?>
                 </ul>
-                <p><?= $this->Paginator->counter() ?></p>
-            </div>
-            <p>
-                <?php
-                echo "Back to ";
-                echo $this->Html->link('Dashboard', ['controller' => '', 'action' => 'index']);
-                ?>
-            </p>

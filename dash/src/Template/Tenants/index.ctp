@@ -1,10 +1,19 @@
 <h3>Tenants</h3>
 
-<div class="panel">
-    <ul class="nav nav-pills">
+<div class="panel clearfix">
+    
+    <ul class="nav nav-pills pull-left">
         <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
         <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
     </ul>
+
+    <form class="navbar-form navbar-left" role="search">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
 </div>
 
 <div class="table-responsive">

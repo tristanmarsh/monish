@@ -9,7 +9,7 @@
             <th><?= $this->Paginator->sort('last_name') ?></th>
             <th><?= $this->Paginator->sort('phone') ?></th>
             <th><?= $this->Paginator->sort('email') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
+<!--             <th class="actions"><?= __('Actions') ?></th> -->
         </tr>
     </thead>
     <tbody>
@@ -17,12 +17,12 @@
         <tr>
             <td><?= h($emergency->first_name) ?></td>
             <td><?= h($emergency->last_name) ?></td>
-            <td><?= $this->Number->format($emergency->phone) ?></td>
+            <td><?= h($emergency->phone) ?></td>
             <td><?= h($emergency->email) ?></td>
-            <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $emergency->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $emergency->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $emergency->id], ['confirm' => __('Are you sure you want to delete # {0}?', $emergency->id)]) ?>
+<!--             <td class="actions">
+                <?= $this->Html->link(__('View'), ['action' => 'view', $emergency->id]) ?> -->
+<!--                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $emergency->id]) ?>
+                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $emergency->id], ['confirm' => __('Are you sure you want to delete # {0}?', $emergency->id)]) ?> -->
             </td>
         </tr>
 

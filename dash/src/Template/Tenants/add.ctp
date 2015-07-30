@@ -20,7 +20,17 @@
     </script>
 </head>
 
-<div class="users form">
+<h3>Tenants</h3>
+
+<div class="panel">
+    <ul class="nav nav-pills">
+        <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
+        <li role="presentation" class="active"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+    </ul>
+</div>
+
+
+<div class="users form panel">
     <?= $this->Form->create($user) ?>
     <fieldset>
         <legend><?= __('New Tenant + Lease') ?></legend>

@@ -60,18 +60,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 		<div class="row">
 
-		<!-- Retrieve correct sidebar -->
-		<div class="col-sm-1 col-md-2 sidebar hidden-xs">
+			<!-- Retrieve correct sidebar -->
+			<div class="col-sm-1 col-md-2 sidebar hidden-xs">
 
-			<?php echo $this->element('sidebar'); ?>
+				<?php echo $this->element('sidebar'); ?>
 
-		</div>
+			</div>
 
 
 			<div class="col-sm-11 col-sm-offset-1 col-md-offset-2 col-md-10 main-content">
 				
 				<div class="row">
-				
+					
 					<nav class="navbar navbar-fixed-top col-sm-11 col-sm-offset-1 col-md-offset-2 col-md-10 pull-right">
 
 						<div class="container-fluid">
@@ -174,11 +174,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 						<?= $this->fetch('content') ?>
 
 					</div>
-				</div>
 
-				<footer>
-					<?php echo $this->element('footer'); ?>
-				</footer>
+					<footer>
+						<?php echo $this->element('footer'); ?>
+					</footer>
+					
+				</div>
 
 			</div>
 		</div>

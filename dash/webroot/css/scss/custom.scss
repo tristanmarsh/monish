@@ -26,7 +26,7 @@ body {
 
 // #### GLOBAL ####
 
-a {color:#76AADB;}
+a {color:#618DB6;}
 
 
 /* #### NAVBAR #### */
@@ -37,22 +37,17 @@ a {color:#76AADB;}
 }
 
 
-
-
 // #### HEADER ####
 header {
   height: auto;
   padding: 0;
-  background-color: none;
-  margin-bottom:40px;
-
 
   .page-header {
     margin-top:0;
   }
 
   .breadcrumb {
-    padding: 0px 15px;
+    padding: 0px 30px;
     margin-bottom: 0px;
     list-style: none;
     background: none;
@@ -62,7 +57,7 @@ header {
     background:rgba(118, 170, 219,0.5);
 
     a {
-      font-size:12px;
+      font-size:1.4rem;
       font-weight:lighter;
       color:#fff;
     }
@@ -107,6 +102,7 @@ h4,
 h5,
 h6 {
   font-family:$roboto-slab-font-stack;
+  color:#384047;
 }
 
 // #### CONTENT ####
@@ -118,7 +114,25 @@ h6 {
 
   .header {}
 
-  .content {
+
+
+  .panel {
+    padding:20px;
+    box-shadow: 0 2px rgba(57, 83, 109, 0.3);
+    border-radius:3px;
+
+    .nav-pills>li>a {
+      border-radius:100px;
+      padding:5px 15px;
+    }
+
+  }
+
+
+
+
+  .paginator {
+    margin-bottom:60px;
   }
 
 }

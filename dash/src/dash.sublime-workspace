@@ -1,0 +1,603 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sideba",
+				"sidebar"
+			],
+			[
+				"sidebar",
+				"sidebar_toggle"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"scr",
+				"scrollable"
+			],
+			[
+				"color",
+				"color-white"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 107.0,
+		"selected_items":
+		[
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"run",
+				"SublimeREPL: Python - RUN current file"
+			],
+			[
+				"python",
+				"SublimeREPL: Python - RUN current file"
+			],
+			[
+				"replpythn",
+				"SublimeREPL: Python - RUN current file"
+			],
+			[
+				"repl",
+				"SublimeREPL: Python - execnet"
+			],
+			[
+				"subl",
+				"SublimeREPL: Python"
+			],
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"set syntax: jq",
+				"Set Syntax: jQuery (JavaScript)"
+			],
+			[
+				"jquery",
+				"Snippet: jQuery(document).ready"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"git",
+				"Git: Diff All"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"lorem",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"rgb",
+				"Convert HEX to RGB"
+			],
+			[
+				"rep",
+				"SublimeREPL: Python"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"replpy",
+				"SublimeREPL: Python"
+			],
+			[
+				"repl:python",
+				"SublimeREPL: Python"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"show",
+				"Table of Comments: Show"
+			],
+			[
+				"table",
+				"Table of Comments: Show"
+			],
+			[
+				"table of",
+				"Table of Comments: Fold All"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Homepages/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Students/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/view.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/index.ctp",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/aviators/plugins/properties/templates/properties/filter.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/CHANGELOG.txt",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/languages/en_EN.po",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/dashboard.css",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sidebar.scss",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/footer.scss",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/xs.scss",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sm.scss",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/variables.scss",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/custom.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Macaddresses/view.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/view.ctp",
+		"/Users/Shared/Google Drive/Dash/Testing/Icon",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchise/sass/global.scss",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchise/sass/premium-franchises.scss",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchise/sass/sidebar.scss",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/global.scss",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/aviators/plugins/properties/templates/properties/filter-horizontal.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/properties/properties-grid.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/properties/form-content.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/submission/edit.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchise/sass/style.scss",
+		"/Users/dev/Desktop/content",
+		"/Users/dev/Desktop/content.html",
+		"/Users/dev/Desktop/mulitisite instructions/multisite move.txt",
+		"/Applications/MAMP/htdocs/dcstrategy/.htaccess",
+		"/Users/dev/Desktop/mulitisite instructions/multisite set up.txt",
+		"/Users/dev/Desktop/notes copy",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/sass/search.scss",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/page-fullwidth.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/sass/premium-franchises.scss",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/style.css",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/style.scss",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/style.css",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/assets/js/scripts.js",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/medium.scss",
+		"/Users/dev/Desktop/notes",
+		"/Volumes/Data/Documents/Uni/Archive/Monash/2014/Semester 1/FIT1008/Python/Projects/character_generator/character_generator.py",
+		"/Users/dev/Desktop/to do .js",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/sidebar.scss",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/small.scss",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/header.php",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/plugins/ajaxify-wordpress-site/js/ajaxify.js",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/plugins/ajaxify-wordpress-site/css/aws-style.css",
+		"/Users/dev/Desktop/Franchise Site",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/assets/js/custom.js",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/sass/global.scss",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/sass/sidebar.scss",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/sass/icons.scss",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/extra-large.scss",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/large.scss",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/sass/style.scss",
+		"/Users/dev/Desktop/to do",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sidebar.php",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/topbar.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/header.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/header.php",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/assets/js/fresh.js",
+		"/Applications/MAMP/Library/lib/plugin/daemon_example.ini",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/assets/js/custom.js",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/functions.php",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/footer.php",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/footer.twig",
+		"/Users/dev/Desktop/New Zealand",
+		"/Users/dev/Desktop/Meeting Change Notes",
+		"/Users/dev/Downloads/MultiLevelPushMenu/js/mlpushmenu.js",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/scripts.php",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/footer.php",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/single-agency.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/archive.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/archive-property.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/archive-agency.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/content-agency.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/archive-agent.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/plugins/realia-core/realia-core.php",
+		"/Users/dev/Desktop/Agents => Franchise-Brokers",
+		"/Volumes/Data/Documents/Uni/FIT3020/Week 12/InfoVis Week 12 Vis.txt",
+		"/Volumes/Data/Documents/Uni/Archive/Monash/2014/Semester 2/Emergent Technologies/Week 2/Lecture/FIT3138 Lecture 2",
+		"/Applications/MAMP/htdocs/diacos/wp-content/themes/diacos-salient-child/header.php",
+		"/Applications/MAMP/htdocs/diacos/wp-content/themes/diacos-salient-child/css/dynamic-combined.css",
+		"/Applications/MAMP/htdocs/diacos/wp-content/themes/salient/js/init.js",
+		"/Applications/MAMP/htdocs/diacos/wp-content/themes/salient/header.php",
+		"/Applications/MAMP/htdocs/diacos/wp-content/themes/salient/functions.php",
+		"/Applications/MAMP/htdocs/diacos/wp-content/themes/salient/css/dynamic-combined.css",
+		"/Applications/MAMP/htdocs/diacos/wp-content/themes/salient/css/custom.php",
+		"/Applications/MAMP/htdocs/diacos/wp-content/themes/salient/css/colors.php",
+		"/Applications/MAMP/htdocs/diacos/wp-content/themes/salient/css/ascend.css",
+		"/Applications/MAMP/htdocs/diacos/wp-content/themes/salient/style.css",
+		"/Applications/MAMP/htdocs/diacos/wp-content/themes/salient/js/nectar-slider.js",
+		"/Applications/MAMP/htdocs/diacos/wp-content/themes/diacos-salient-child/style.css",
+		"/Applications/MAMP/htdocs/diacos/wp-config.php",
+		"/Applications/MAMP/htdocs/diacosnew/wp-config.php",
+		"/Users/dev/Desktop/multisite.txt",
+		"/Applications/MAMP/htdocs/diacos/.htaccess",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/aviators/plugins/properties/filter.php",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/index.php",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/page-submission-index.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/layout.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/palette.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/searchform.twig",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/plugins/realia-core/custom-post-types/properties.php",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/plugins/realia-core/custom-post-types/landlords.php",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/page-fullwidth.php",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/plugins/realia-core/custom-post-types/pricing.php",
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/css/search.css",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Students/view.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/ajax.ctp",
+		"/Users/dev/Desktop/error400backup.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Error/error500.ctp",
+		"/Users/dev/Desktop/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/index.ctp",
+		"/Users/dev/Downloads/CSSReset.com - Keeping Footer At The Bottom Of The Page/style.css",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/footer.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/view.ctp",
+		"/Volumes/Data/usr/share/emacs/22.1/etc/TUTORIAL.pl",
+		"/Users/Shared/Google Drive/Dash/Admin/Reports/1 Build 1 Report/Build 1 Report Feedback.txt"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"",
+			"table.scss",
+			"",
+			"selection",
+			"",
+			"<open files>",
+			"<open folders>",
+			"",
+			"selection",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"welcome",
+			"Welcome to the administrator dashboard\nYou can manage the database with the buttons on the left:",
+			"back",
+			"            <p>\n                <?php\n                echo \"Back to \";\n                echo $this->Html->link('Dashboard', ['controller' => '', 'action' => 'index']);\n                ?>\n            </p>",
+			"Back to",
+			"none",
+			"pnel",
+			"hover",
+			"control",
+			"color",
+			"inheri",
+			"table",
+			"content",
+			"pagination",
+			"navbar",
+			"3px",
+			"0.3",
+			":r",
+			"table",
+			"header",
+			"3",
+			"child",
+			"footer",
+			"padding",
+			".content",
+			"table",
+			"hover",
+			"table",
+			"5px",
+			"table",
+			"right",
+			"tr",
+			"border",
+			"hover",
+			"asc",
+			"lighten",
+			"asc",
+			"alias",
+			"333",
+			"HOVER",
+			"table",
+			"background",
+			"open sans",
+			"h1",
+			"h3",
+			"h1",
+			"after",
+			"table",
+			"open sans",
+			"font-family",
+			"th",
+			"blue",
+			"padding",
+			"th",
+			"100%",
+			"table",
+			".cell",
+			"header",
+			"tables",
+			"dah",
+			"base",
+			"sidebar",
+			"style",
+			"h2",
+			"plugin",
+			"plugins",
+			"action",
+			"filter",
+			"filter.twig",
+			"filter",
+			"form",
+			"action",
+			"sidebar",
+			"normal",
+			"30px",
+			"<div class=\"price\">$500,000</div>",
+			"<h2>",
+			"content",
+			"btn-Apply",
+			"Register",
+			"sidebar",
+			"setooki",
+			"sidebar",
+			"new_visitor",
+			"listeners",
+			"$",
+			"help",
+			"button .nav-post-preview ",
+			"not found",
+			"active",
+			"nav-togg",
+			"toggl",
+			"$",
+			"initialised",
+			"listeners",
+			"$",
+			"nav-toggl",
+			"toggle",
+			"playfair",
+			"border",
+			"nav-border",
+			"    display: none;",
+			"nav-border",
+			"none",
+			"display:none",
+			"<h2>",
+			"h2",
+			"h",
+			"<h2>",
+			"<div class=\"price\">$500,000</div>",
+			"price",
+			"height",
+			"data-logo-hei",
+			"height",
+			"header",
+			"blue",
+			"none",
+			"text-decoration",
+			"ajaxify",
+			"center",
+			"css",
+			"nav-post-preview",
+			"width",
+			"translateX",
+			"nav[role=\"navigation\"]",
+			"nav[role=\"navigation\"] .button:hover > .nav-post-preview",
+			"right:45",
+			"right: 45px;"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"<h3>Children's Retail Franchise - from $500,000</h3>",
+			"btn-apply",
+			"Apply",
+			".live",
+			"\\n",
+			" ",
+			"",
+			"-",
+			"icon-salient-cart",
+			"fa-list",
+			"#89C6FF",
+			"",
+			"\\n",
+			"Requests",
+			"Request",
+			"",
+			"$color-gold"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 340.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"index",
+				"Homepages/index.ctp"
+			],
+			[
+				"tables",
+				"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss"
+			],
+			[
+				"sidebar",
+				"sidebar.scss"
+			],
+			[
+				"footer",
+				"footer.scss"
+			],
+			[
+				"global.",
+				"franchises/sass/global.scss"
+			],
+			[
+				"sidebar.scss",
+				"dcstrategy/sass/sidebar.scss"
+			],
+			[
+				"sidea",
+				"franchises/sass/sidebar.scss"
+			],
+			[
+				"properties/filter.php",
+				"aviators/plugins/properties/filter.php"
+			],
+			[
+				"default",
+				"Template/Layout/default.ctp"
+			],
+			[
+				"custom",
+				"webroot/css/custom.css"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

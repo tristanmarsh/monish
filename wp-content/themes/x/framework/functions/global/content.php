@@ -9,18 +9,16 @@
 // =============================================================================
 // TABLE OF CONTENTS
 // -----------------------------------------------------------------------------
-//   01. Index Title
+//   01. Alternate Title
 //   02. Link Pages
 //   03. Excerpt Length
 //   04. Excerpt More String
 //   05. Content More String
 //   06. Entry Navigation
-//   07. Custom <title> Output
-//   08. Site Icons
-//   09. Does Not Need Entry Meta
+//   07. Does Not Need Entry Meta
 // =============================================================================
 
-// Index Title
+// Alternate Title
 // =============================================================================
 
 if ( ! function_exists( 'x_the_alternate_title' ) ) :
@@ -113,11 +111,11 @@ if ( ! function_exists( 'x_entry_navigation' ) ) :
   $stack = x_get_stack();
 
   if ( $stack == 'ethos' ) {
-    $left_icon  = '<i class="x-icon-chevron-left" data-icon="&#xf053;"></i>';
-    $right_icon = '<i class="x-icon-chevron-right" data-icon="&#xf054;"></i>';
+    $left_icon  = '<i class="x-icon-chevron-left" data-x-icon="&#xf053;"></i>';
+    $right_icon = '<i class="x-icon-chevron-right" data-x-icon="&#xf054;"></i>';
   } else {
-    $left_icon  = '<i class="x-icon-arrow-left" data-icon="&#xf060;"></i>';
-    $right_icon = '<i class="x-icon-arrow-right" data-icon="&#xf061;"></i>';
+    $left_icon  = '<i class="x-icon-arrow-left" data-x-icon="&#xf060;"></i>';
+    $right_icon = '<i class="x-icon-arrow-right" data-x-icon="&#xf061;"></i>';
   }
 
   $is_ltr    = ! is_rtl();
@@ -147,56 +145,6 @@ if ( ! function_exists( 'x_entry_navigation' ) ) :
   <?php
 
   }
-endif;
-
-
-
-// Custom <title> Output
-// =============================================================================
-
-if ( ! function_exists( 'x_wp_title' ) ) :
-  function x_wp_title( $title ) {
-
-    if ( is_front_page() ) {
-      return get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
-    } elseif ( is_feed() ) {
-      return ' | RSS Feed';
-    } else {
-      return trim( $title ) . ' | ' . get_bloginfo( 'name' ); 
-    }
-
-  }
-  add_filter( 'wp_title', 'x_wp_title' );
-endif;
-
-
-
-// Site Icons
-// =============================================================================
-
-if ( ! function_exists( 'x_site_icons' ) ) :
-  function x_site_icons() {
-
-    $icon_favicon       = x_get_option( 'x_icon_favicon' );
-    $icon_touch         = x_get_option( 'x_icon_touch' );
-    $icon_tile          = x_get_option( 'x_icon_tile' );
-    $icon_tile_bg_color = x_get_option( 'x_icon_tile_bg_color' );
-
-    if ( $icon_favicon != '' ) {
-      echo '<link rel="shortcut icon" href="' . x_make_protocol_relative( $icon_favicon ) . '">';
-    }
-
-    if ( $icon_touch != '' ) {
-      echo '<link rel="apple-touch-icon-precomposed" href="' . x_make_protocol_relative( $icon_touch ) . '">';
-    }
-
-    if ( $icon_tile != '' ) {
-      echo '<meta name="msapplication-TileColor" content="' . $icon_tile_bg_color . '">';
-      echo '<meta name="msapplication-TileImage" content="' . x_make_protocol_relative( $icon_tile ) . '">';
-    }
-
-  }
-  add_action( 'wp_head', 'x_site_icons' );
 endif;
 
 

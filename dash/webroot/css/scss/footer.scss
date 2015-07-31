@@ -10,11 +10,12 @@ Since:    28/5/15
 
 footer {
   position:absolute;
-  bottom:-50px;
+  bottom:0;
   left:0;
   width:100%;
-  background:#76AADB;
+  background:rgba(118, 170, 219, 0.5);
   padding:40px 0;
+  color:#999;
 
   .col-md-3 {
     padding: 20px;

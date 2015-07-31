@@ -9,7 +9,7 @@
 ?>
 
 <a href="#" class="x-btn-navbar collapsed" data-toggle="collapse" data-target=".x-nav-wrap.mobile">
-  <i class="x-icon-bars" data-icon="&#xf0c9;"></i>
+  <i class="x-icon-bars" data-x-icon="&#xf0c9;"></i>
   <span class="visually-hidden"><?php _e( 'Navigation', '__x__' ); ?></span>
 </a>
 

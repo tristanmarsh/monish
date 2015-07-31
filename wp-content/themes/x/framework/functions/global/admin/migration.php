@@ -88,6 +88,41 @@ function x_version_migration() {
 
 
     //
+    // If $prior is less than 4.0.4.
+    //
+
+    if ( version_compare( $prior, '4.0.4', '<' ) ) {
+
+      $stack            = get_option( 'x_stack' );
+      $navbar_font_size = get_option( 'x_navbar_font_size' );
+
+      if ( $stack == 'integrity' ) {
+        $link_spacing        = round( intval( $navbar_font_size ) * 1.429 );
+        $link_letter_spacing = 2;
+      } else if ( $stack == 'renew' ) {
+        $link_spacing        = intval( $navbar_font_size );
+        $link_letter_spacing = 1;
+      } else if ( $stack == 'icon' ) {
+        $link_spacing        = 5;
+        $link_letter_spacing = 1;
+      } else if ( $stack == 'ethos' ) {
+        $link_spacing        = get_option( 'x_ethos_navbar_desktop_link_side_padding' );
+        $link_letter_spacing = 1;
+      }
+
+      $updated = array(
+        'x_navbar_adjust_links_top_spacing' => $link_spacing,
+        'x_navbar_letter_spacing'           => $link_letter_spacing
+      );
+
+      foreach ( $updated as $key => $value ) {
+        update_option( $key, $value );
+      }
+
+    }
+
+
+    //
     // Update stored version number.
     //
 

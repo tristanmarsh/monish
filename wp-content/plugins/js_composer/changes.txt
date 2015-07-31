@@ -1,3 +1,6 @@
+16.06.2015 - ver 4.5.3
+   - prettyPhoto updated to 3.1.6 - latest stable and secure version
+   
 18.05.2015 - ver 4.5.2
    - Performance: Removed call to get taxonomies from vc_map and now it is called via ajax only when it is needed
    - Fixed: slug changing when Yoast SEO plugin activated

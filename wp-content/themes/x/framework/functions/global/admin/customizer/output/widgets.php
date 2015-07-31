@@ -10,7 +10,6 @@
 // TABLE OF CONTENTS
 // -----------------------------------------------------------------------------
 //   01. Heading Icons
-//   02. WooCommerce Images
 // =============================================================================
 
 ?>
@@ -350,32 +349,6 @@
     top: -0.145em;
     font-size: 0.885em;
   }
-
-  <?php endif; ?>
-<?php endif; ?>
-
-
-
-/* WooCommerce Images
-// ========================================================================== */
-
-<?php if ( X_WOOCOMMERCE_IS_ACTIVE ) : ?>
-  <?php if ( $x_woocommerce_widgets_image_alignment == 'right' ) : ?>
-
-    .widget_best_sellers ul li a img,
-    .widget_shopping_cart ul li a img,
-    .widget_products ul li a img,
-    .widget_featured_products ul li a img,
-    .widget_onsale ul li a img,
-    .widget_random_products ul li a img,
-    .widget_recently_viewed_products ul li a img,
-    .widget_recent_products ul li a img,
-    .widget_recent_reviews ul li a img,
-    .widget_top_rated_products ul li a img {
-      float: right;
-      margin-left: 0.65em;
-      margin-right: 0;
-    }
 
   <?php endif; ?>
 <?php endif; ?>

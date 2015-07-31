@@ -1,0 +1,157 @@
+/*
+Name:   Blobal.SCSS
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  Global styling for the Monish Dashboard
+Since:    31/7/15
+
+*/
+
+body {
+  background: #C4E7EC;
+  background: #fff;
+  background: rgb(236,242,246);
+  font-family:$open-sans-font-stack;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+// #### GLOBAL ####
+
+a {color:#618DB6;}
+
+
+/* #### NAVBAR #### */
+
+
+.navbar {
+  background:#fff;
+}
+
+
+// #### HEADER ####
+header {
+  height: auto;
+  padding: 0;
+
+  .page-header {
+    margin-top:0;
+  }
+
+  .breadcrumb {
+    margin-left:0;
+    margin-bottom:0;
+    padding: 0px 30px;
+    list-style: none;
+    background: none;
+    // border-top:1px solid rgba(229, 255, 235, 0);
+    // border-bottom:1px solid rgba(229, 255, 235, 0);
+    border-radius:0;
+    background:rgba(118, 170, 219,0.5);
+
+    a {
+      font-size:1.4rem;
+      font-weight:lighter;
+      color:#fff;
+    }
+    
+    //uneccessary cakePHP generated list
+    ul {
+      display:none;
+    }
+
+  }
+
+}
+
+.navbar-image img {
+  max-width: 100%;
+  height: 40px!important;
+}
+
+// #### NAVBAR ####
+
+.navbar {
+  // position:static;
+  margin-bottom:0;
+
+  .navbar-brand {
+    padding:5px;
+  }
+}
+
+
+// #### HEADER ####
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:$roboto-slab-font-stack;
+  color:#384047;
+}
+
+// #### CONTENT ####
+
+// holds the main view of the dashboard
+.main-content {
+  min-height:100vh;
+
+  .header {}
+
+  .panel {
+    box-shadow: 0 3px rgba(118, 170, 219,0.2);
+    border-radius:5px;
+    margin-bottom:20px;
+
+
+    .panel-footer {
+      padding:0 15px;
+    }
+
+
+
+    .nav {padding:10px 0;}
+
+    .nav-pills>li>a {
+      border-radius:100px;
+      padding:5px 15px;
+      font-weight: 900;
+      font-size: 1.6rem;
+    }
+
+  }
+
+
+  .paginator {
+    margin-bottom:60px;
+    
+    .pagination {
+      box-shadow: 0 3px rgba(118, 170, 219,0.2);
+      border-radius:3px;
+      border-left:1px solid rgba(57, 83, 109, 0.1);
+      border-right:1px solid rgba(57, 83, 109, 0.1);
+      
+      li a {
+        border:none;
+      }
+
+      li:last-child>a {
+        border-left:1px solid rgba(57, 83, 109, 0.1);
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+// #### CONTENT ####
+
+
+// #### CONTENT ####
+

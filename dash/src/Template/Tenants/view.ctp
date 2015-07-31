@@ -1,4 +1,4 @@
-<h3>Tenant Details</h3>
+<h1>Tenant Details</h1>
 
 <table cellpadding="0" cellspacing="0">
     <thead>

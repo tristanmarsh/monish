@@ -5,6 +5,9 @@ if (!empty($params['class'])) {
 }
 ?>
 <div class="alert alert-info fade in alert-dismissible <?= h($class) ?>" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <strong>Error! </strong><?= h($message) ?>
+	<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  		<span aria-hidden="true">&times;</span>
+	</button>
+	<?= h($message) ?>
 </div>

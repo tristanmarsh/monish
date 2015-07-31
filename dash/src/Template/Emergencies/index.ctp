@@ -1,4 +1,4 @@
-<h3>Manage Emergency Contacts</h3>
+<h1>Manage Emergency Contacts</h1>
 
     <?= $this->Html->link(__('Add Emergency Contact'), ['action' => 'add']) ?>
 

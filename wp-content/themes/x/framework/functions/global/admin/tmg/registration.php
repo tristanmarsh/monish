@@ -62,13 +62,13 @@ if ( ! function_exists( 'x_register_theme_plugins' ) ) :
         'slug'               => 'js_composer',
         'source'             => X_TEMPLATE_URL . '/framework/plugins/js_composer.zip',
         'required'           => false,
-        'version'            => '4.5.2',
+        'version'            => '4.5.3',
         'force_activation'   => false,
         'force_deactivation' => false,
         'external_url'       => '',
         'x_plugin'           => 'js_composer/js_composer.php',
         'x_author'           => 'WPBakery',
-        'x_description'      => 'Visual Composer for WordPress is a drag and drop page builder plugin that will save you tons of time working on site content.',
+        'x_description'      => 'We recommend using <a href="//theme.co/cornerstone/" title="Cornerstone" target="_blank">Cornerstone</a> for page building in X as it is built and managed by Themeco; however, Visual Composer is an alternate choice.',
         'x_logo'             => '//theme.co/media/x_extensions/200-200-no-title-visual-composer.png',
         'x_manage_upgrade'   => true
       )

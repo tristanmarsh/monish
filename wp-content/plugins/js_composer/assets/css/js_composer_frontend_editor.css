@@ -3661,7 +3661,7 @@ a.list-group-item.active > .vc_badge,
   position: fixed;
   top: 32px;
   left: 0;
-  z-index: 9998;
+  z-index: 9980;
   width: 100%;
   padding-left: 160px;
 }

@@ -616,6 +616,14 @@ input[type="color"]:focus,
 
 <?php endif; ?>
 
+<?php if ( $x_navbar_positioning == 'fixed-top' ) : ?>
+
+  .x-navbar-fixed-top-active .x-navbar-wrap {
+    margin-bottom: 1px;
+  }
+
+<?php endif; ?>
+
 <?php if ( $x_navbar_positioning == 'fixed-left' ) : ?>
 
   .x-widgetbar {
@@ -775,6 +783,14 @@ input[type="color"]:focus,
 
 
 @media (max-width: 979px) {
+
+  <?php if ( $x_navbar_positioning == 'fixed-top' ) : ?>
+
+    .x-navbar-fixed-top-active .x-navbar-wrap {
+      margin-bottom: 0;
+    }
+
+  <?php endif; ?>
 
   <?php if ( $x_navbar_positioning == 'fixed-top' && $x_layout_site == 'boxed' ) : ?>
 

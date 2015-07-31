@@ -60,30 +60,53 @@ function x_addons_page_extensions() { ?>
 
     </header>
 
-    <?php if ( ! x_plugin_cornerstone_exists() ) : ?>
-      <?php foreach ( TGM_Plugin_Activation::$instance->plugins as $plugin ) : ?>
-        <?php if ( $plugin['slug'] == 'cornerstone' ) : ?>
 
-          <?php $url = wp_nonce_url( add_query_arg( array( 'page' => TGM_Plugin_Activation::$instance->menu, 'plugin' => $plugin['slug'], 'plugin_name' => $plugin['name'], 'plugin_source' => $plugin['source'], 'tgmpa-install' => 'install-plugin', ), admin_url( TGM_Plugin_Activation::$instance->parent_url_slug ) ), 'tgmpa-install' ); ?>
+    <?php foreach ( TGM_Plugin_Activation::$instance->plugins as $plugin ) : ?>
+      <?php if ( $plugin['slug'] == 'cornerstone' ) : ?>
 
-          <div class="x-addons-extension not-installed" id="<?php echo $plugin['slug']; ?>">
-            <div class="top cf">
-              <img src="<?php echo $plugin['x_logo']; ?>" class="img">
-              <div class="info">
-                <h4 class="title"><?php echo $plugin['name']; ?></h4>
-                <span class="status not-installed">Required</span>
-                <p class="desc"><?php echo $plugin['x_description']; ?></p>
-                <p class="author"><cite>By <?php echo $plugin['x_author']; ?></cite></p>
-              </div>
-            </div>
-            <div class="bottom cf">
-              <a class="x-addon-button button button-primary" href="<?php echo $url; ?>">Install Plugin</a>
+        <?php
+
+        if ( x_plugin_exists( $plugin['x_plugin'] ) ) :
+          if ( is_plugin_active( $plugin['x_plugin'] ) ) {
+            $status         = 'active';
+            $status_message = 'Active';
+          } else  {
+            $status         = 'inactive';
+            $status_message = 'Inactive';
+          }
+          $button = '<a class="x-addon-button button" href="' . admin_url( 'plugins.php' ) . '">Manage Plugin</a>';
+        else :
+          if ( $plugin['source'] == NULL ) {
+            $url   = x_addons_get_link_product_validation();
+            $text  = 'Validate Purchase to Install';
+            $class = 'x-addon-button button';
+          } else {
+            $url   = wp_nonce_url( add_query_arg( array( 'page' => TGM_Plugin_Activation::$instance->menu, 'plugin' => $plugin['slug'], 'plugin_name' => $plugin['name'], 'plugin_source' => $plugin['source'], 'tgmpa-install' => 'install-plugin', ), admin_url( TGM_Plugin_Activation::$instance->parent_url_slug ) ), 'tgmpa-install' );
+            $text  = 'Install Plugin';
+            $class = 'x-addon-button button button-primary';
+          }
+          $status         = 'not-installed';
+          $status_message = 'Not Installed';
+          $button         = '<a class="' . $class . '" href="' . $url . '">' . $text . '</a>';
+        endif;
+
+        ?>
+
+        <div class="x-addons-extension <?php echo $status; ?>" id="<?php echo $plugin['slug']; ?>">
+          <div class="top cf">
+            <img src="<?php echo $plugin['x_logo']; ?>" class="img">
+            <div class="info">
+              <h4 class="title"><?php echo $plugin['name']; ?></h4>
+              <span class="status <?php echo $status; ?>"><?php echo $status_message; ?></span>
+              <p class="desc"><?php echo $plugin['x_description']; ?></p>
+              <p class="author"><cite>By <?php echo $plugin['x_author']; ?></cite></p>
             </div>
           </div>
+          <div class="bottom cf"><?php echo $button; ?></div>
+        </div>
 
-        <?php endif; ?>
-      <?php endforeach; ?>
-    <?php endif; ?>
+      <?php endif; ?>
+    <?php endforeach; ?>
 
     <ul class="x-addons-extensions-list cf" id="x-addons-extensions-list">
 
@@ -91,7 +114,7 @@ function x_addons_page_extensions() { ?>
 
         <?php
 
-        if ( $plugin['slug'] == 'cornerstone' || $plugin['slug'] == 'js_composer' ) {
+        if ( $plugin['slug'] == 'cornerstone' ) {
           continue;
         }
 

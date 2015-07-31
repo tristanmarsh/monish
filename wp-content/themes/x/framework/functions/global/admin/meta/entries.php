@@ -135,7 +135,7 @@ function x_add_page_meta_boxes() {
         ),
         array(
           'name' => __( 'Optional Background Video', '__x__' ),
-          'desc' => __( 'Input the URL to your .mp4 video file to display an optional background video.', '__x__' ),
+          'desc' => __( 'Include your video URL(s) here. If using multiple sources, separate them using the pipe character (|) and place fallbacks towards the end (i.e. .webm then .mp4 then .ogv).', '__x__' ),
           'id'   => '_x_slider_above_bg_video',
           'type' => 'text',
           'std'  => ''
@@ -199,7 +199,7 @@ function x_add_page_meta_boxes() {
         ),
         array(
           'name' => __( 'Optional Background Video', '__x__' ),
-          'desc' => __( 'Input the URL to your .mp4 video file to display an optional background video.', '__x__' ),
+          'desc' => __( 'Include your video URL(s) here. If using multiple sources, separate them using the pipe character (|) and place fallbacks towards the end (i.e. .webm then .mp4 then .ogv).', '__x__' ),
           'id'   => '_x_slider_below_bg_video',
           'type' => 'text',
           'std'  => ''

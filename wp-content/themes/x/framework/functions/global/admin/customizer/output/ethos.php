@@ -142,16 +142,6 @@ a.x-img-thumbnail:hover {
 // ========================================================================== */
 
 /*
-// Desktop link side padding.
-*/
-
-.x-navbar .desktop .x-nav > li > a {
-  padding-left: <?php echo $x_ethos_navbar_desktop_link_side_padding . 'px'; ?>;
-  padding-right: <?php echo $x_ethos_navbar_desktop_link_side_padding . 'px'; ?>;
-}
-
-
-/*
 // Color.
 */
 
@@ -261,6 +251,14 @@ foreach ( $items as $item ) {
 
   .desktop .x-megamenu > .sub-menu {
     width: <?php echo 879 - $x_navbar_width . 'px'; ?>
+  }
+
+<?php endif; ?>
+
+<?php if ( $x_navbar_positioning == 'fixed-top' ) : ?>
+
+  .x-navbar-fixed-top-active .x-navbar-wrap {
+    margin-bottom: 2px;
   }
 
 <?php endif; ?>
@@ -462,6 +460,14 @@ foreach ( $items as $item ) {
 // ========================================================================== */
 
 @media (max-width: 979px) {
+
+  <?php if ( $x_navbar_positioning == 'fixed-top' ) : ?>
+
+    .x-navbar-fixed-top-active .x-navbar-wrap {
+      margin-bottom: 0;
+    }
+
+  <?php endif; ?>
 
   <?php if ( $x_navbar_positioning == 'fixed-top' && $x_layout_site == 'boxed' ) : ?>
 

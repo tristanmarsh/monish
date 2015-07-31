@@ -74,6 +74,7 @@ require_once( $eque_path . '/scripts.php' );
 // Global functions.
 //
 
+require_once( $glob_path . '/meta.php' );
 require_once( $glob_path . '/featured.php' );
 require_once( $glob_path . '/pagination.php' );
 require_once( $glob_path . '/navbar.php' );
@@ -115,7 +116,7 @@ if ( X_SOLILOQUY_IS_ACTIVE ) {
   require_once( $plgn_path . '/soliloquy.php' );
 }
 
-if ( X_VISUAL_COMOPSER_IS_ACTIVE && get_option( 'x_pre_v4', false ) ) {
+if ( X_VISUAL_COMOPSER_IS_ACTIVE ) {
   require_once( $plgn_path . '/visual-composer.php' );
 }
 

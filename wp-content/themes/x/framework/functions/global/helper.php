@@ -14,15 +14,16 @@
 //   03. Make Protocol Relative
 //   04. Get Featured Image URL
 //   05. Get Social Fallback Image URL
-//   06. Return an Array of Integer Values from String
-//   07. Get Post by Title
-//   08. Get Page by Title
-//   09. Get Portfolio Item by Title
-//   10. Plugin Exists
-//   11. Shortcode Plugin Exists
-//   12. Array to Object
-//   13. Object to Array
-//   14. Get Current Color Scheme
+//   06. Output Style Block
+//   07. Return an Array of Integer Values from String
+//   08. Get Post by Title
+//   09. Get Page by Title
+//   10. Get Portfolio Item by Title
+//   11. Plugin Exists
+//   12. Shortcode Plugin Exists
+//   13. Array to Object
+//   14. Object to Array
+//   15. Get Current Admin Color Scheme
 // =============================================================================
 
 // Get View
@@ -109,6 +110,27 @@ if ( ! function_exists( 'x_get_featured_image_with_fallback_url' ) ) :
     }
 
     return $image_url;
+
+  }
+endif;
+
+
+
+// Output Style Block
+// =============================================================================
+
+if ( ! function_exists( 'x_output_style_block' ) ) :
+  function x_output_style_block( $css = array() ) {
+
+    echo '<style scoped>';
+      foreach ( $css as $selector => $styles ) {
+        echo $selector . '{';
+          foreach ( $styles as $property => $value ) {
+            echo $property . ':' . $value . ';';
+          }
+        echo '}';
+      }
+    echo '</style>';
 
   }
 endif;
@@ -234,10 +256,10 @@ function x_object_to_array( $object ) {
 
 
 
-// Get Current Color Scheme
+// Get Current Admin Color Scheme
 // =============================================================================
 
-function x_get_current_color_scheme( $type = 'colors' ) {
+function x_get_current_admin_color_scheme( $type = 'colors' ) {
 
   GLOBAL $_wp_admin_css_colors;
 

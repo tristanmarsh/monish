@@ -7,7 +7,7 @@
                 $this->Html->addCrumb('Students', 'students');
             ?>
 
-            <h3>Manage Students</h3>
+            <h1>Manage Students</h1>
             <?= $this->Html->link('Add Student', ['action' => 'add']) ?>
             
             <table cellpadding="0" cellspacing="0">
@@ -51,7 +51,7 @@
                 </ul>
                 <p><?= $this->Paginator->counter() ?></p>
             </div>
-<h3>Children's Retail Franchise - from $500,000</h3>
+<h1>Children's Retail Franchise - from $500,000</h1>
 
 
 <?php endif; ?>
@@ -62,7 +62,7 @@
 
 
 
-        <h3>Manage Internet Plan</h3>
+        <h1>Manage Internet Plan</h1>
 
         <table cellpadding="0" cellspacing="0">
 

@@ -49,7 +49,7 @@ if ( ! function_exists( 'x_icon_portfolio_tags' ) ) :
 
     echo '<ul class="inline">';
     foreach( $terms as $term ) {
-      echo '<li><a href="' . get_term_link( $term->slug, 'portfolio-tag' ) . '"><i class="x-icon-tag" data-icon="&#xf02b;"></i> ' . $term->name . '</a></li>';
+      echo '<li><a href="' . get_term_link( $term->slug, 'portfolio-tag' ) . '"><i class="x-icon-tag" data-x-icon="&#xf02b;"></i> ' . $term->name . '</a></li>';
     };
     echo '</ul>';
 
@@ -90,7 +90,7 @@ if ( ! function_exists( 'x_icon_comment' ) ) :
       endif;
     ?>
     <li id="li-comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
-      <?php $comment_reply = ( ! x_is_product() ) ? '<div class="x-reply">' . get_comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply<span class="comment-reply-link-after"><i class="x-icon-reply" data-icon="&#xf112;"></i></span>', '__x__' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ) . '</div>' : ''; ?>
+      <?php $comment_reply = ( ! x_is_product() ) ? '<div class="x-reply">' . get_comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply<span class="comment-reply-link-after"><i class="x-icon-reply" data-x-icon="&#xf112;"></i></span>', '__x__' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ) . '</div>' : ''; ?>
       <?php
       printf( '<div class="x-comment-img">%1$s %2$s %3$s</div>',
         '<span class="avatar-wrap cf">' . get_avatar( $comment, 120 ) . '</span>',
@@ -116,7 +116,7 @@ if ( ! function_exists( 'x_icon_comment' ) ) :
             get_comment_time( 'c' ),
             $comment_time
           );
-          edit_comment_link( __( '<i class="x-icon-edit" data-icon="&#xf044;"></i> Edit', '__x__' ) );
+          edit_comment_link( __( '<i class="x-icon-edit" data-x-icon="&#xf044;"></i> Edit', '__x__' ) );
           ?>
         </header>
         <?php if ( '0' == $comment->comment_approved ) : ?>

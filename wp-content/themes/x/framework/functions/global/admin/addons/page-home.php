@@ -62,7 +62,7 @@ function x_addons_page_home() { ?>
         <div class="feature-section col three-col">
           <div>
             <h4><span class="dashicons dashicons-admin-page"></span> Child Themes</h4>
-            <p>If you're planning on doing any amount of customization outside of the settings afforded in the Custoimzer, <a href="//theme.co/x/member/child-themes/" target="_blank">child themes</a> are absolutely the way to go.</p>
+            <p>If you're planning on doing any amount of customization outside of the settings afforded in the Customizer, <a href="//theme.co/x/member/child-themes/" target="_blank">child themes</a> are absolutely the way to go.</p>
             <p>We provide child themes for X in our member center, which come bootstrapped with all of the necessary code so that they can be used right out of the box!</p>
           </div>
           <div>

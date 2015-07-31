@@ -11,7 +11,7 @@
 <?php if ( x_get_option( 'x_footer_scroll_top_display', '' ) == '1' ) : ?>
 
   <a class="x-scroll-top <?php echo x_get_option( 'x_footer_scroll_top_position' ); ?> fade" href="#top" title="<?php esc_attr_e( 'Back to Top', '__x__' ); ?>">
-    <i class="x-icon-angle-up" data-icon="&#xf106;"></i>
+    <i class="x-icon-angle-up" data-x-icon="&#xf106;"></i>
   </a>
 
   <script>

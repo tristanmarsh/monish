@@ -8,7 +8,7 @@
 	<div class="row">
 
 		<div class="col-sm-6 col-sm-offset-3 text-center">
-			<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
+			<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House','class' => 'navbar-logo img-responsive text-center','width'=>'200px'])  ?>
 			<div>Monash ISH Dashboard</div>
 		</div>
 
@@ -24,8 +24,7 @@
 			        </fieldset>
 			        <?= $this->Form->button(__('Login')); ?>
 			        <?= $this->Form->end() ?>
-			        <!--<p>Don't have an account? <?= $this->Html->link('Sign Up', ['action' => 'add']) ?>!</p>-->
-			        <!--<p><small>Testing Purposes Only: Admin Credentials <br>username: admin <br>password: asdasd</small></p>-->
+			      
 			    </div>
 			<?php endif; ?>	
 </div>

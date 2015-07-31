@@ -8,91 +8,19 @@
 // TABLE OF CONTENTS
 // -----------------------------------------------------------------------------
 //   01. Base Styles
-//   02. Brand
-//   03. Button
-//   04. All Navigation
-//   05. Desktop Navigation
-//   06. Mobile Navigation
-//   07. Search
-//   08. Fixed Navbar
+//   02. Button
+//   03. Desktop Navigation
+//   04. Mobile Navigation
+//   05. Fixed Navbar
+//   06. Search
 // =============================================================================
 
 // Base Styles
 // =============================================================================
 
 .x-navbar {
-  position: relative;
-  overflow: visible;
-  border-bottom: 1px solid $baseBorderSolid;
   border-bottom: 1px solid $baseBorderRgba;
-  @include font-size(1.5);
   background-color: $navbarBackground;
-  z-index: $zindexNavbar;
-
-  .x-container {
-    position: relative;
-  }
-}
-
-
-//
-// Navigation containers.
-//
-
-.x-nav-wrap {
-  &.desktop {
-    display: block;
-  }
-
-  &.mobile {
-    display: none;
-    clear: both;
-    overflow: hidden;
-  }
-
-  @include break(cubs) {
-    &.desktop {
-      display: none;
-    }
-
-    &.mobile {
-      display: block;
-
-      &.collapse {
-        display: none;
-
-        &.in {
-          display: block;
-        }
-      }
-    }
-  }
-}
-
-
-
-// Brand
-// =============================================================================
-
-.x-brand {
-  display: inline-block;
-  border: 0;
-  font-family: $altFontFamily;
-  @include font-size(5.4);
-  font-weight: $navbarBrandFontWeight;
-  letter-spacing: -3px;
-  line-height: 1;
-  color: $navbarBrandColor;
-
-  &:hover {
-    text-decoration: none;
-    color: $navbarBrandColor;
-  }
-}
-
-.x-navbar .x-brand {
-  float: left;
-  display: block;
 }
 
 
@@ -101,9 +29,6 @@
 // =============================================================================
 
 .x-btn-navbar {
-  display: none;
-  @include font-size(2.4);
-  line-height: 1;
   text-shadow: $navbarBtnTextShadow;
   color: rgba(0, 0, 0, 0.35);
 
@@ -120,130 +45,47 @@
   }
 }
 
-@include break(cubs) {
-  .masthead-inline .x-btn-navbar {
-    display: block;
-    float: right;
-  }
-
-  .masthead-stacked .x-btn-navbar {
-    display: inline-block;
-  }
-}
-
-
-
-// All Navigation
-// =============================================================================
-
-//
-// Remove transitions.
-//
-
-.x-navbar .x-nav a {
-  @include transition(#{none});
-}
-
-
-//
-// Header layouts.
-//
-
-@include break(cubs) {
-  .masthead-stacked .x-navbar {
-    text-align: center;
-  }
-}
-
 
 
 // Desktop Navigation
 // =============================================================================
 
 .x-navbar .desktop .x-nav {
-  margin: 0;
-
-  > li {
-    float: left;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-}
-
-.masthead-inline .desktop .x-nav {
-  display: block;
-  float: right;
-}
-
-.masthead-stacked .desktop .x-nav {
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-//
-// Links.
-//
-// 1. Top level.
-// 2. Top level active.
-// 3. All.
-//
-
-.x-navbar .desktop .x-nav {
-  > li > a { // 1
-    float: none;
-    padding-left: 5px;
-    padding-right: 5px;
-    line-height: 1;
-    font-weight: $navbarLinkFontWeight;
-    letter-spacing: 1px;
-    text-decoration: none;
-    color: $navbarLinkColor;
+  > li > a {
+    padding: 0;
 
     > span {
-      display: inline-block;
       border: 1px solid transparent;
-      padding: 0.875em 1.25em 0.825em;
+      padding: 0.875em $navbarDesktopLinkSpanSideSpacing;
       border-radius: 100em;
     }
 
     &:hover {
-      color: $navbarLinkColorHover;
-      background-color: $navbarLinkBackgroundHover;
-
       > span {
-        border-color: $baseBorderSolid;
         border-color: $baseBorderRgba;
       }
     }
   }
 
   > .x-active > a,
-  > .current-menu-item > a { // 2
-    color: $navbarLinkColorHover;
-    background-color: $navbarLinkBackgroundHover;
-
+  > .current-menu-item > a {
     > span {
-      border-color: $baseBorderSolid;
       border-color: $baseBorderRgba;
     }
   }
+}
 
-  li > a { // 3
-    & > span:after {
-      content: "\f103";
-      margin-left: 0.35em;
-      letter-spacing: 0;
-      @include font-awesome();
-    }
+.x-navbar-static-active,
+.x-navbar-fixed-top-active {
+  .x-navbar .desktop .x-nav > li > a > span {
+    margin-top: calc(-0.875em - 1px);
+  }
+}
 
-    &:only-child > span:after {
-      content: "";
-      display: none;
-    }
+.x-navbar-fixed-left-active,
+.x-navbar-fixed-right-active {
+  .x-navbar .desktop .x-nav > li.x-menu-item-woocommerce {
+    margin-top: 0.875em;
   }
 }
 
@@ -252,35 +94,14 @@
 // Mobile Navigation
 // =============================================================================
 
-.x-navbar .mobile .x-nav {
-  margin: 25px 0;
-
-  ul {
-    margin: 0 0 0 2.25em;
-    list-style: none;
-  }
-}
-
-.masthead-stacked .mobile .x-nav {
-  text-align: initial;
-}
-
-
 //
 // Links.
 //
 
 .x-navbar .mobile .x-nav li > a {
-  display: block;
-  position: relative;
   margin: 0 0 11px;
-  border: 1px solid;
-  border-color: $baseBorderSolid;
-  border-color: $baseBorderRgba;
+  border: 1px solid $baseBorderRgba;
   padding: 0.75em 0.85em;
-  @include font-size(1.4);
-  line-height: 1.5;
-  white-space: normal;
   color: $navbarLinkColor;
   background-color: transparent;
 }
@@ -297,54 +118,7 @@
 //
 
 .x-sub-toggle {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
   width: 40px;
-  text-align: center;
-
-  > span {
-    display: block;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    margin-top: -9px;
-    @include font-size(1.8);
-    letter-spacing: 0;
-    line-height: 1;
-  }
-}
-
-
-
-// Search
-// =============================================================================
-
-//
-// Desktop.
-//
-
-.x-navbar .desktop .x-nav > li.x-menu-item-search {
-  > a {
-    letter-spacing: 0;
-  }
-}
-
-
-//
-// Mobile.
-//
-
-.x-navbar .mobile .x-nav > li.x-menu-item-search {
-  margin: 0;
-  text-align: center;
-
-  > a {
-    border: 1px solid;
-    border-color: $baseBorderSolid;
-    border-color: $baseBorderRgba;
-  }
 }
 
 
@@ -352,99 +126,18 @@
 // Fixed Navbar
 // =============================================================================
 
-.x-navbar-fixed-top,
-.x-navbar-fixed-left,
-.x-navbar-fixed-right {
-  position: fixed;
-  z-index: $zindexNavbar;
-
-  @include break(cubs) {
-    position: relative;
-  }
-}
-
-//
-// Top styles.
-//
-
-.x-navbar-fixed-top-active {
-  .x-navbar-wrap {
-    margin-bottom: 1px;
-    @include break(cubs) {
-      margin-bottom: 0;
-      height: auto;
-    }
-  }
-}
-
-.x-navbar-fixed-top {
-  top: 0;
-  left: 0;
-  right: 0;
-  
-}
-
-@include break(papa-bear) {
-  .x-content-sidebar-active {
-    .x-navbar-fixed-top {
-      right: $sidebarWidth;
-    }
-  }
-
-  .x-sidebar-content-active {
-    .x-navbar-fixed-top {
-      left: $sidebarWidth;
-    }
-  }
-}
-
-
 //
 // Left/right styles.
 //
 
 .x-navbar-fixed-left,
 .x-navbar-fixed-right {
-  top: 0;
-  bottom: 0;
-  width: $navbarFixedSideWidth;
-
-  .x-navbar-inner {
-    height: 100%;
-
-    > .x-container.width {
-      width: 100%;
-    }
-  }
-
-  .x-brand {
-    float: none;
-    text-align: center;
-  }
-
   .desktop .x-nav {
-    float: none;
-    margin-top: 2em;
-
     > li {
-      float: none;
-      padding: 0;
-      @include break(mama-bear) {
-        height: auto;
-      }
-
       > a {
         text-align: center;
         padding: 20px 7%;
       }
-    }
-  }
-
-  @include break(cubs) {
-    width: auto;
-
-    .x-brand {
-      float: left;
     }
   }
 }
@@ -455,8 +148,6 @@
 //
 
 .x-navbar-fixed-left {
-  left: 0;
-  border-right: 1px solid $baseBorderSolid;
   border-right: 1px solid $baseBorderRgba;
   @include break(cubs) {
     border-right: 0;
@@ -469,10 +160,23 @@
 //
 
 .x-navbar-fixed-right {
-  right: 0;
-  border-left: 1px solid $baseBorderSolid;
   border-left: 1px solid $baseBorderRgba;
   @include break(cubs) {
     border-left: 0;
+  }
+}
+
+
+
+// Search
+// =============================================================================
+
+.x-navbar .mobile .x-nav > li.x-menu-item-search {
+  margin: 0;
+  text-align: center;
+
+  > a {
+    border: 1px solid;
+    border-color: $baseBorderRgba;
   }
 }

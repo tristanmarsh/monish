@@ -13,12 +13,12 @@
 //   01. Typography
 //   02. Header
 //   03. Buttons
-//   04. WooCommerce
 // =============================================================================
 
 // Layout and Design
 // =============================================================================
 
+$x_stack                               = x_get_stack();
 $x_layout_site                         = x_get_option( 'x_layout_site', 'full-width' );
 $x_layout_site_max_width               = x_get_option( 'x_layout_site_max_width', '1200' );
 $x_layout_site_width                   = x_get_option( 'x_layout_site_width', '88' );
@@ -49,6 +49,7 @@ $x_navbar_font_size                    = x_get_option( 'x_navbar_font_size', '12
 $x_navbar_font_weight_and_style        = x_get_option( 'x_navbar_font_weight', '400' );
 $x_navbar_link_color                   = x_get_option( 'x_navbar_link_color', '#b7b7b7' );
 $x_navbar_link_color_hover             = x_get_option( 'x_navbar_link_color_hover', '#272727' );
+$x_navbar_letter_spacing               = x_get_option( 'x_navbar_letter_spacing', '1' );
 $x_headings_font_family                = x_get_option( 'x_headings_font_family', 'Lato' );
 $x_headings_font_weight_and_style      = x_get_option( 'x_headings_font_weight', '400' );
 $x_headings_font_color_enable          = x_get_option( 'x_headings_font_color_enable', '' );
@@ -95,6 +96,7 @@ $x_logobar_adjust_spacing_bottom       = x_get_option( 'x_logobar_adjust_spacing
 $x_navbar_width                        = x_get_option( 'x_navbar_width', '235' );
 $x_navbar_height                       = x_get_option( 'x_navbar_height', '90' );
 $x_navbar_adjust_links_top             = x_get_option( 'x_navbar_adjust_links_top', '34' );
+$x_navbar_adjust_links_top_spacing     = x_get_option( 'x_navbar_adjust_links_top_spacing', 20 );
 $x_navbar_adjust_links_side            = x_get_option( 'x_navbar_adjust_links_side', '50' );
 $x_navbar_adjust_button                = x_get_option( 'x_navbar_adjust_button', '20' );
 $x_navbar_adjust_button_size           = x_get_option( 'x_navbar_adjust_button_size', '24' );
@@ -118,12 +120,5 @@ $x_button_color_hover                  = x_get_option( 'x_button_color_hover', '
 $x_button_background_color_hover       = x_get_option( 'x_button_background_color_hover', '#ef2201' );
 $x_button_border_color_hover           = x_get_option( 'x_button_border_color_hover', '#600900' );
 $x_button_bottom_color_hover           = x_get_option( 'x_button_bottom_color_hover', '#a71000' );
-
-
-
-// WooCommerce
-// =============================================================================
-
-$x_woocommerce_widgets_image_alignment = x_get_option( 'x_woocommerce_widgets_image_alignment', 'left' );
 
 ?>

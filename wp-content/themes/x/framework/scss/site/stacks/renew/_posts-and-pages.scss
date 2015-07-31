@@ -51,14 +51,6 @@
   &:first-child {
     margin-top: 0;
   }
-
-  // p,
-  // ul,
-  // ol {
-  //   &:last-child {
-  //     margin-bottom: 0;
-  //   }
-  // }
 }
 
 .entry-wrap {
@@ -95,7 +87,7 @@
 }
 
 .p-meta {
-  margin-top: 8px;
+  margin: 8px 0 0;
   line-height: 1.5;
 
   > span {
@@ -180,6 +172,14 @@ a.entry-thumb:hover {
     width: 100%;
     max-width: 100%;
   }
+
+  > p,
+  > ul,
+  > ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .entry-content.excerpt {
@@ -199,6 +199,10 @@ a.entry-thumb:hover {
   padding: 1em 1.25em;
   line-height: 1.4;
   background-color: darken($baseModBackground, 2.5%);
+
+  > p {
+    margin: 0;
+  }
 }
 
 

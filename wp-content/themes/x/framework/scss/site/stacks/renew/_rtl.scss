@@ -55,69 +55,6 @@
 // =============================================================================
 
 .rtl {
-  .x-navbar .x-nav {
-    li > a > span {
-      display: inline-block;
-
-      &:after {
-        margin-left: 0;
-        margin-right: 0.35em;
-        float: left;
-      }
-    }
-  }
-
-.x-navbar-static-active,
-.x-navbar-fixed-top-active {
-  .masthead-inline .desktop .x-nav > li:last-child > a {
-    padding-right: 0;
-  }
-}
-
-  &.x-navbar-static-active,
-  &.x-navbar-fixed-top-active {
-    .masthead-inline {
-      .desktop {
-        .x-nav {
-          > li:not(.x-megamenu) {
-            &:last-child > a {
-              padding-left: 0;
-              padding-right: 1em;
-            }
-
-            .sub-menu {
-              left: 0;
-              right: auto;
-
-              .sub-menu {
-                left: $dropdownOffset;
-                right: auto;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .masthead-stacked {
-      .desktop {
-        .x-nav {
-          > li:not(.x-megamenu) {
-            .sub-menu {
-              left: auto;
-              right: 0;
-
-              .sub-menu {
-                left: auto;
-                right: $dropdownOffset;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
   .x-colophon.bottom .x-nav li {
     &:first-child:before {
       content: "/";

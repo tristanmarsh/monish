@@ -110,7 +110,13 @@ endif;
 if ( ! function_exists( 'x_enqueue_customizer_preview_scripts' ) ) :
   function x_enqueue_customizer_preview_scripts() {
 
-    wp_enqueue_script( 'x-customizer-preview-js', X_TEMPLATE_URL . '/framework/js/dist/admin/x-customizer-preview.min.js', array( 'jquery', 'customize-preview', 'heartbeat' ), X_VERSION, true );
+    wp_register_script( 'x-customizer-preview-js', X_TEMPLATE_URL . '/framework/js/dist/admin/x-customizer-preview.min.js', array( 'jquery', 'customize-preview', 'heartbeat' ), X_VERSION, true );
+
+    wp_localize_script( 'x-customizer-preview-js', 'x_customizer_data', array(
+      'woocommerce_is_active' => X_WOOCOMMERCE_IS_ACTIVE
+    ));
+
+    wp_enqueue_script( 'x-customizer-preview-js' );
 
   }
   add_action( 'customize_preview_init', 'x_enqueue_customizer_preview_scripts' );

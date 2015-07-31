@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"bordr-",
+				"border-radius"
+			],
+			[
 				"sideba",
 				"sidebar"
 			],
@@ -43,9 +47,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 107.0,
+		"height": 207.0,
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"indent",
 				"Indentation: Reindent Lines"
@@ -89,10 +97,6 @@
 			[
 				"jquery",
 				"Snippet: jQuery(document).ready"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"java",
@@ -159,7 +163,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 575.0
+		"width": 521.0
 	},
 	"console":
 	{
@@ -176,14 +180,37 @@
 	},
 	"file_history":
 	[
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Homepages/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Students/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/view.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/js/custom.js",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/custom.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Macaddresses/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Controller/Component/FlashComponent.php",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/Flash/default.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Homepages/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/Flash/error.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/login.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/view.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/view.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Messages/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Pages/home.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/view.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Profiles/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Students/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/add.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/view.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenantsdashboards/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tests/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/dash.sublime-workspace",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/aviators/plugins/properties/templates/properties/filter.twig",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/CHANGELOG.txt",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/languages/en_EN.po",
@@ -193,11 +220,7 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/xs.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sm.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/variables.scss",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/custom.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Macaddresses/view.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/view.ctp",
 		"/Users/Shared/Google Drive/Dash/Testing/Icon",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchise/sass/global.scss",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchise/sass/premium-franchises.scss",
@@ -284,26 +307,7 @@
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/index.php",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/page-submission-index.twig",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/layout.twig",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/palette.twig",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/searchform.twig",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/plugins/realia-core/custom-post-types/properties.php",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/plugins/realia-core/custom-post-types/landlords.php",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/page-fullwidth.php",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/plugins/realia-core/custom-post-types/pricing.php",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/css/search.css",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Students/view.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/ajax.ctp",
-		"/Users/dev/Desktop/error400backup.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Error/error500.ctp",
-		"/Users/dev/Desktop/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/index.ctp",
-		"/Users/dev/Downloads/CSSReset.com - Keeping Footer At The Bottom Of The Page/style.css",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/footer.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/view.ctp",
-		"/Volumes/Data/usr/share/emacs/22.1/etc/TUTORIAL.pl",
-		"/Users/Shared/Google Drive/Dash/Admin/Reports/1 Build 1 Report/Build 1 Report Feedback.txt"
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/palette.twig"
 	],
 	"find":
 	{
@@ -314,6 +318,8 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"",
+			"/Applications/MAMP/htdocs/monish/dash/src/Template",
 			"",
 			"table.scss",
 			"",
@@ -331,6 +337,56 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"margin",
+			"heading",
+			"th",
+			"main",
+			"manage rooms",
+			"manage properties",
+			"manage leases",
+			"list of",
+			"transition",
+			"primary",
+			"hand",
+			"pointer",
+			"cursor",
+			"color",
+			"left",
+			"border",
+			"table",
+			"shadow",
+			"panel",
+			"sr",
+			"panel",
+			"table",
+			"\"/f",
+			"icon",
+			"href=\"",
+			"favicon",
+			"meta",
+			"table",
+			"favicon",
+			"panel",
+			"login",
+			"table",
+			"th",
+			"rooter",
+			"\n						<form class=\"navbar-form navbar-left\" role=\"search\">\n							<div class=\"form-group\">\n								<input type=\"text\" class=\"form-control\" placeholder=\"Search\">\n							</div>\n							<button type=\"submit\" class=\"btn btn-default\">Submit</button>\n						</form>",
+			"panel",
+			"</form>",
+			"xx",
+			"</h2>",
+			"<h2",
+			"h3",
+			"h1",
+			"</h3>",
+			"<h3>",
+			"<h3>[^<]</h3>",
+			"<h3>(?)</h3>",
+			"<h3>[*]</h3>",
+			"<h3>*</h3>",
+			"panel",
+			"Welcome to the administrator dashboard",
 			"welcome",
 			"Welcome to the administrator dashboard\nYou can manage the database with the buttons on the left:",
 			"back",
@@ -408,57 +464,7 @@
 			"30px",
 			"<div class=\"price\">$500,000</div>",
 			"<h2>",
-			"content",
-			"btn-Apply",
-			"Register",
-			"sidebar",
-			"setooki",
-			"sidebar",
-			"new_visitor",
-			"listeners",
-			"$",
-			"help",
-			"button .nav-post-preview ",
-			"not found",
-			"active",
-			"nav-togg",
-			"toggl",
-			"$",
-			"initialised",
-			"listeners",
-			"$",
-			"nav-toggl",
-			"toggle",
-			"playfair",
-			"border",
-			"nav-border",
-			"    display: none;",
-			"nav-border",
-			"none",
-			"display:none",
-			"<h2>",
-			"h2",
-			"h",
-			"<h2>",
-			"<div class=\"price\">$500,000</div>",
-			"price",
-			"height",
-			"data-logo-hei",
-			"height",
-			"header",
-			"blue",
-			"none",
-			"text-decoration",
-			"ajaxify",
-			"center",
-			"css",
-			"nav-post-preview",
-			"width",
-			"translateX",
-			"nav[role=\"navigation\"]",
-			"nav[role=\"navigation\"] .button:hover > .nav-post-preview",
-			"right:45",
-			"right: 45px;"
+			"content"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -466,6 +472,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"</h1>",
+			"<h1>",
 			"<h3>Children's Retail Franchise - from $500,000</h3>",
 			"btn-apply",
 			"Apply",
@@ -533,6 +541,10 @@
 	{
 		"height": 340.0
 	},
+	"output.find_results":
+	{
+		"height": 454.0
+	},
 	"replace":
 	{
 		"height": 0.0
@@ -544,8 +556,68 @@
 		"selected_items":
 		[
 			[
+				"tenants/index",
+				"src/Template/Tenants/index.ctp"
+			],
+			[
+				"custom.js",
+				"webroot/js/custom.js"
+			],
+			[
+				"layout/default",
+				"src/Template/Layout/default.ctp"
+			],
+			[
+				"table.scss",
+				"webroot/css/scss/tables.scss"
+			],
+			[
+				"custom.scss",
+				"webroot/css/scss/custom.scss"
+			],
+			[
+				"tenant/index",
+				"src/Template/Tenants/index.ctp"
+			],
+			[
+				"element/flash",
+				"src/Template/Element/Flash/default.ctp"
+			],
+			[
+				"flash",
+				"vendor/cakephp/cakephp/src/Controller/Component/FlashComponent.php"
+			],
+			[
+				"leases/",
+				"src/Template/Leases/index.ctp"
+			],
+			[
+				"mac/index",
+				"src/Template/Macaddresses/index.ctp"
+			],
+			[
+				"people/index",
+				"src/Template/People/index.ctp"
+			],
+			[
 				"index",
-				"Homepages/index.ctp"
+				"src/Template/Leases/index.ctp"
+			],
+			[
+				"layout",
+				"src/Template/Layout/default.ctp"
+			],
+			[
+				"properties/inde",
+				"src/Template/Properties/index.ctp"
+			],
+			[
+				"table",
+				"webroot/css/scss/tables.scss"
+			],
+			[
+				"leases/index",
+				"src/Template/Leases/index.ctp"
 			],
 			[
 				"tables",

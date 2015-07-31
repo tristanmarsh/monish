@@ -20,7 +20,7 @@ if ( ! function_exists( 'x_get_breadcrumb_delimiter' ) ) :
 
     $is_ltr = ! is_rtl();
 
-    return ' <span class="delimiter"><i class="x-icon-angle-' . ( ( $is_ltr ) ? 'right' : 'left' ) . '" data-icon="&#x' . ( ( $is_ltr ) ? 'f105' : 'f104' ) . ';"></i></span> ';
+    return ' <span class="delimiter"><i class="x-icon-angle-' . ( ( $is_ltr ) ? 'right' : 'left' ) . '" data-x-icon="&#x' . ( ( $is_ltr ) ? 'f105' : 'f104' ) . ';"></i></span> ';
 
   }
 endif;
@@ -33,7 +33,7 @@ endif;
 if ( ! function_exists( 'x_get_breadcrumb_home_text' ) ) :
   function x_get_breadcrumb_home_text() {
 
-    return '<span class="home"><i class="x-icon-home" data-icon="&#xf015;"></i></span>';
+    return '<span class="home"><i class="x-icon-home" data-x-icon="&#xf015;"></i></span>';
 
   }
 endif;

@@ -1,5 +1,5 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?= __('Menu') ?></h3>
+    <h1><?= __('Menu') ?></h1>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit This User'), ['action' => 'edit', $user->id]) ?> </li>
 		<li><a href="javascript:history.back()">Go Back</a></li>

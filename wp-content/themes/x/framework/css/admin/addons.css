@@ -220,7 +220,8 @@
 */
 
 .x-addons-extensions-list {
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
   list-style: none;
 }
 
@@ -457,6 +458,11 @@ div.x-addons-extension .desc {
 /*
 // Page specific styles - customizer manager.
 */
+
+.x-addons-customizer-manager .x-addons-postboxes {
+  max-width: 1400px;
+  margin: 0 auto;
+}
 
 .x-addons-postbox.customizer-manager .title .dashicons {
   width: 19px;

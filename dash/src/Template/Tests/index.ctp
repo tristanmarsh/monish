@@ -1,4 +1,4 @@
-<h3>This is for testing purposes only</h3>
+<h1>This is for testing purposes only</h1>
 
 <?= $this->Html->link('Add New Tenant', ['action' => 'add']); ?> 
 <p>

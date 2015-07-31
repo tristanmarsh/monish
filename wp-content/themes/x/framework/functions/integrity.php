@@ -24,7 +24,7 @@ if ( ! function_exists( 'x_integrity_entry_meta' ) ) :
     // Author.
     //
 
-    $author = sprintf( '<span><i class="x-icon-pencil" data-icon="&#xf040;"></i> %s</span>',
+    $author = sprintf( '<span><i class="x-icon-pencil" data-x-icon="&#xf040;"></i> %s</span>',
       get_the_author()
     );
 
@@ -33,7 +33,7 @@ if ( ! function_exists( 'x_integrity_entry_meta' ) ) :
     // Date.
     //
 
-    $date = sprintf( '<span><time class="entry-date" datetime="%1$s"><i class="x-icon-calendar" data-icon="&#xf073;"></i> %2$s</time></span>',
+    $date = sprintf( '<span><time class="entry-date" datetime="%1$s"><i class="x-icon-calendar" data-x-icon="&#xf073;"></i> %2$s</time></span>',
       esc_attr( get_the_date( 'c' ) ),
       esc_html( get_the_date() )
     );
@@ -53,7 +53,7 @@ if ( ! function_exists( 'x_integrity_entry_meta' ) ) :
                               . get_term_link( $category->slug, 'portfolio-category' )
                               . '" title="'
                               . esc_attr( sprintf( __( "View all posts in: &ldquo;%s&rdquo;", '__x__' ), $category->name ) )
-                              . '"><i class="x-icon-bookmark" data-icon="&#xf02e;"></i> '
+                              . '"><i class="x-icon-bookmark" data-x-icon="&#xf02e;"></i> '
                               . $category->name
                               . '</a>'
                               . $separator;
@@ -74,7 +74,7 @@ if ( ! function_exists( 'x_integrity_entry_meta' ) ) :
                             . get_category_link( $category->term_id )
                             . '" title="'
                             . esc_attr( sprintf( __( "View all posts in: &ldquo;%s&rdquo;", '__x__' ), $category->name ) )
-                            . '"><i class="x-icon-bookmark" data-icon="&#xf02e;"></i> '
+                            . '"><i class="x-icon-bookmark" data-x-icon="&#xf02e;"></i> '
                             . $category->name
                             . '</a>'
                             . $separator;
@@ -104,7 +104,7 @@ if ( ! function_exists( 'x_integrity_entry_meta' ) ) :
         $text = $number . ' ' . __( 'Comments' , '__x__' );
       }
 
-      $comments = sprintf( '<span><a href="%1$s" title="%2$s" class="meta-comments"><i class="x-icon-comments" data-icon="&#xf086;"></i> %3$s</a></span>',
+      $comments = sprintf( '<span><a href="%1$s" title="%2$s" class="meta-comments"><i class="x-icon-comments" data-x-icon="&#xf086;"></i> %3$s</a></span>',
         esc_url( $link ),
         esc_attr( sprintf( __( 'Leave a comment on: &ldquo;%s&rdquo;', '__x__' ), $title ) ),
         $text
@@ -147,7 +147,7 @@ if ( ! function_exists( 'x_integrity_portfolio_tags' ) ) :
 
     echo '<ul class="x-ul-icons">';
     foreach( $terms as $term ) {
-      echo '<li class="x-li-icon"><a href="' . get_term_link( $term->slug, 'portfolio-tag' ) . '"><i class="x-icon-check" data-icon="&#xf00c;"></i>' . $term->name . '</a></li>';
+      echo '<li class="x-li-icon"><a href="' . get_term_link( $term->slug, 'portfolio-tag' ) . '"><i class="x-icon-check" data-x-icon="&#xf00c;"></i>' . $term->name . '</a></li>';
     };
     echo '</ul>';
 
@@ -204,7 +204,7 @@ if ( ! function_exists( 'x_integrity_comment' ) ) :
               get_comment_time()
             )
           );
-          edit_comment_link( __( '<i class="x-icon-edit" data-icon="&#xf044;"></i> Edit', '__x__' ) );
+          edit_comment_link( __( '<i class="x-icon-edit" data-x-icon="&#xf044;"></i> Edit', '__x__' ) );
           ?>
           <?php if ( x_is_product() && get_option('woocommerce_enable_review_rating') == 'yes' ) : ?>
             <div class="star-rating-container">
@@ -222,7 +222,7 @@ if ( ! function_exists( 'x_integrity_comment' ) ) :
         </section>
         <?php if ( ! x_is_product() ) : ?>
         <div class="x-reply">
-          <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span class="comment-reply-link-after"><i class="x-icon-reply" data-icon="&#xf112;"></i></span>', '__x__' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+          <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span class="comment-reply-link-after"><i class="x-icon-reply" data-x-icon="&#xf112;"></i></span>', '__x__' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
         </div>
         <?php endif; ?>
       </article>

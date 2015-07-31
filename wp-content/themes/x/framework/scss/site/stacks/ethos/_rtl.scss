@@ -54,63 +54,16 @@
 // =============================================================================
 
 .rtl {
-  .x-navbar .x-nav {
-    li > a > span {
-      display: inline-block;
-
-      &:after {
-        margin-left: 0;
-        margin-right: 0.35em;
-        float: left;
-      }
-    }
-  }
-
   &.x-navbar-static-active,
   &.x-navbar-fixed-top-active {
-    .desktop .x-nav > li {
-      &:first-child > a {
-        border-right: 1px solid $navbarLinkBorderColor;
-      }
-
-      &:last-child > a {
+    .desktop .x-nav > li:not(.x-menu-item-woocommerce) {
+      > a {
+        border-left: 1px solid $navbarLinkBorderColor;
         border-right: 0;
       }
-    }
 
-    .masthead-inline {
-      .desktop {
-        .x-nav {
-          > li:not(.x-megamenu) {
-            .sub-menu {
-              left: 0;
-              right: auto;
-
-              .sub-menu {
-                left: $dropdownOffset;
-                right: auto;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .masthead-stacked {
-      .desktop {
-        .x-nav {
-          > li:not(.x-megamenu) {
-            .sub-menu {
-              left: auto;
-              right: 0;
-
-              .sub-menu {
-                left: auto;
-                right: $dropdownOffset;
-              }
-            }
-          }
-        }
+      &:first-child > a {
+        border-right: 1px solid $navbarLinkBorderColor;
       }
     }
   }

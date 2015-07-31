@@ -135,4 +135,4 @@ function vc_page_settings_desing_options_load() {
 	), WPB_VC_VERSION );
 }
 
-add_action( 'load-visual-composer_page_vc-color', 'vc_page_settings_desing_options_load' );
+add_action( 'vc_settings_tab-color', 'vc_page_settings_desing_options_load' );

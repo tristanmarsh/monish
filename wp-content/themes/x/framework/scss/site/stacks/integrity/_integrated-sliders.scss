@@ -22,6 +22,10 @@
     border-bottom: 5px solid $accentColor;
   }
 
+  &.bg-video {
+    background-color: $black;
+  }
+
   .rev_slider_wrapper {
     padding: 0 !important;
   }
@@ -69,7 +73,7 @@
 .x-slider-scroll-bottom {
   position: absolute;
   display: block;
-  border: 3px solid $white;
+  border: 3px solid;
   width: 60px;
   height: 60px;
   font-size: 41px;
@@ -103,7 +107,6 @@
 
   &:hover {
     color: $accentColor;
-    border-color: $accentColor;
   }
 
   @include break(old-bear) {

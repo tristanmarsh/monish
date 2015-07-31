@@ -201,6 +201,11 @@ ORDER BY blockCount DESC
 LIMIT %d
 SQL
 			, $limit));
+		if ($results) {
+			foreach ($results as &$row) {
+				$row->countryName = $this->getCountryNameByCode($row->countryCode);
+			}
+		}
 		return $results;
 	}
 
@@ -223,6 +228,11 @@ ORDER BY totalBlockCount DESC
 LIMIT %d
 SQL
 			, $limit));
+		if ($results) {
+			foreach ($results as &$row) {
+				$row->countryName = $this->getCountryNameByCode($row->countryCode);
+			}
+		}
 		return $results;
 	}
 
@@ -231,12 +241,23 @@ SQL
 	 * @return mixed
 	 */
 	public function getTopFailedLogins($limit = 10) {
+		$interval = 'UNIX_TIMESTAMP(DATE_SUB(NOW(), interval 7 day))';
+		switch (wfConfig::get('email_summary_interval', 'weekly')) {
+			case 'biweekly':
+				$interval = 'UNIX_TIMESTAMP(DATE_SUB(NOW(), interval 14 day))';
+				break;
+			case 'monthly':
+				$interval = 'UNIX_TIMESTAMP(DATE_SUB(NOW(), interval 1 month))';
+				break;
+		}
+
 		$results = $this->db->get_results($this->db->prepare(<<<SQL
 SELECT *,
 sum(fail) as fail_count,
 max(userID) as is_valid_user
 FROM {$this->db->base_prefix}wfLogins
 WHERE fail = 1
+AND ctime > $interval
 GROUP BY username
 ORDER BY fail_count DESC
 LIMIT %d
@@ -345,9 +366,11 @@ SQL
 		/** @var wpdb $wpdb */
 		global $wpdb;
 
-		$is_bin_ip = !wfUtils::isValidIP($ip_address);
-		if (!$is_bin_ip) {
-			$ip_address = wfUtils::inet_pton($ip_address);
+		if (wfUtils::isValidIP($ip_address)) {
+			$ip_bin = wfUtils::inet_pton($ip_address);
+		} else {
+			$ip_bin = $ip_address;
+			$ip_address = wfUtils::inet_ntop($ip_bin);
 		}
 
 		$blocked_table = "{$wpdb->base_prefix}wfBlockedIPLog";
@@ -357,14 +380,26 @@ SQL
 			$unixday_insert = absint($unixday);
 		}
 
-		$country = wfUtils::IP2Country($is_bin_ip ? wfUtils::inet_ntop($ip_address) : $ip_address);
+		$country = wfUtils::IP2Country($ip_address);
 
 		$wpdb->query($wpdb->prepare(<<<SQL
 INSERT INTO $blocked_table (IP, countryCode, blockCount, unixday)
 VALUES (%s, %s, 1, $unixday_insert)
 ON DUPLICATE KEY UPDATE blockCount = blockCount + 1
 SQL
-			, $ip_address, $country));
+			, $ip_bin, $country));
+	}
+
+	/**
+	 * @param $code
+	 * @return string
+	 */
+	public function getCountryNameByCode($code) {
+		static $wfBulkCountries;
+		if (!isset($wfBulkCountries)) {
+			include 'wfBulkCountries.php';
+		}
+		return array_key_exists($code, $wfBulkCountries) ? $wfBulkCountries[$code] : "";
 	}
 
 	/**

@@ -1,5 +1,5 @@
 <div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
+    <h1><?= __('Actions') ?></h1>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('Edit This Contact'), ['action' => 'edit', $emergency->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete This Contact'), ['action' => 'delete', $emergency->id], ['confirm' => __('Are you sure you want to delete # {0}?', $emergency->id)]) ?> </li>

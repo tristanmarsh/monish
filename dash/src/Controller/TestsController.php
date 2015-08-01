@@ -13,7 +13,6 @@ class TestsController extends AppController
     public function index()
     {
         $this->loadModel('Leases');
-        $this->loadModel('Users');
         $this->loadModel('People');
         $this->loadModel('Students');
         $this->loadModel('Properties');
@@ -25,7 +24,11 @@ class TestsController extends AppController
         $rooms = $this->Rooms->find('all', ['contain' => ['Leases']]);
         $this->set(compact('rooms'));
 
+        $properties = $this->Properties->find('all', ['contain' => ['Rooms']]);
+        $this->set(compact('properties'));
 
+        $roomlease = $this->Rooms;
+        $this->set(compact('roomlease'));
 
         $students = $this->paginate($this->Students->find('all')->contain('People'));
         $this->set(compact('students'));

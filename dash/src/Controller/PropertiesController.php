@@ -17,8 +17,18 @@ class PropertiesController extends AppController
      */
     public function index()
     {
-        $this->set('properties', $this->paginate($this->Properties));
-        $this->set('_serialize', ['properties']);
+        $this->loadModel('Leases');
+        $this->loadModel('Properties');
+        $this->loadModel('Rooms');
+
+        $rooms = $this->Rooms->find('all', ['contain' => ['Leases']]);
+        $this->set(compact('rooms'));
+
+        $properties = $this->Properties->find('all', ['contain' => ['Rooms']]);
+        $this->set(compact('properties'));
+
+        $roomlease = $this->Rooms;
+        $this->set(compact('roomlease'));
     }
 
     /**

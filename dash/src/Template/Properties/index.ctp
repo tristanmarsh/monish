@@ -1,47 +1,60 @@
     
 
 <h1>Properties</h1>
-<?= $this->Html->link(__('Add New Property'), ['action' => 'add']) ?>
-<div class="table-responsive">
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th><?= $this->Paginator->sort('address') ?></th>
-                <th><?= $this->Paginator->sort('number_rooms') ?></th>
-                <th><?= $this->Paginator->sort('bathrooms') ?></th>
-                <th><?= $this->Paginator->sort('kitchens') ?></th>
-                <th><?= $this->Paginator->sort('storeys') ?></th>
-                <th><?= $this->Paginator->sort('garage') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($properties as $property): ?>
-            <tr>
-                <td><?= h($property->address) ?></td>
-                <td><?= $this->Number->format($property->number_rooms) ?></td>
-                <td><?= $this->Number->format($property->bathrooms) ?></td>
-                <td><?= $this->Number->format($property->kitchens) ?></td>
-                <td><?= $this->Number->format($property->storeys) ?></td>
-                <td><?= $this->Number->format($property->garage) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $property->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $property->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $property->id], ['confirm' => __('Are you sure you want to delete # {0}?', $property->id)]) ?>
-                </td>
-            </tr>
+<?= $this->Html->link(__('Add New Property'), ['action' => 'add']) ?><br>
 
+<?php foreach ($properties as $property): ?>
+
+    <br>
+    <?php
+
+    echo $property->address;
+
+
+    ?>
+    <div class="table-responsive">
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($property->rooms as $rooms): ?>
+                <tr>
+                    <td><?= $rooms->room_name ?></td>
+                    <td>
+                        <?php
+                        $room = $roomlease->get($rooms->id, ['contain'=>'Leases']);
+
+                        $test = "";
+                        $sentinel = true; //true if Never Been Leased
+                        if (!empty($room->leases)) {
+                            foreach ($room->leases as $leastenddate) {
+                                $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                            }
+                        }
+                        else {
+                            echo "Never Been Leased";
+                            $sentinel = false;
+                        }
+                        if ($sentinel) { //THIS CHECK MAKES THE TABLE ALIGNMENT WEIRD I HAVE NO IDEA WHY, But it is the only way for the code to correctly check room status
+                            $toArray = explode("||", $test);
+                            if (max($toArray) > date("Y-m-d")) {
+                                echo "Leased Until " . max($toArray);
+                            } else if (max($toArray) === date("Y-m-d")) {
+                                echo "Lease Expires Today";
+                            } else if (max($toArray) < date("Y-m-d")) {
+                                echo "Lease Expired Since ".max($toArray);
+                            }
+                        }
+                        ?>
+                    </td>
+                </tr>
             <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
-<div class="paginator text-center">
-    
+            </tbody>
+        </table>
+    </div>
 
-
-    <ul class="pagination">
-        <?= $this->Paginator->prev('< ' . __('previous')) ?>
-        <?= $this->Paginator->numbers() ?>
-        <?= $this->Paginator->next(__('next') . ' >') ?>
-    </ul>
-    <p><?= $this->Paginator->counter() ?></p>
+<?php endforeach; ?>

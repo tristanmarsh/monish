@@ -12,7 +12,26 @@ class TestsController extends AppController
 
     public function index()
     {
-        
+        $this->loadModel('Leases');
+        $this->loadModel('Users');
+        $this->loadModel('People');
+        $this->loadModel('Students');
+        $this->loadModel('Properties');
+        $this->loadModel('Rooms');
+
+        $query = $this->Leases->find('all', ['contain' => ['Rooms', 'Properties']]);
+        $this->set(compact('query'));
+
+        $rooms = $this->Rooms->find('all', ['contain' => ['Leases']]);
+        $this->set(compact('rooms'));
+
+
+
+        $students = $this->paginate($this->Students->find('all')->contain('People'));
+        $this->set(compact('students'));
+
+        $people = $this->paginate($this->People->find('all')->contain(['Students', 'Users']));
+        $this->set(compact('people'));
     }
 
     public function beforeFilter(Event $event)
@@ -163,6 +182,12 @@ class TestsController extends AppController
         //finds the list of people in the people's table
         $people = $this->Users->People->find('list', ['limit' => 200]);
         $this->set(compact('people'));
+    }
+
+    public function roomUpdate(){
+
+
+
     }
 
 }

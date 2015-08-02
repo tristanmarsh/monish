@@ -37,6 +37,12 @@ class TestsController extends AppController
         $this->set(compact('people'));
     }
 
+    public function modal()
+
+    {
+
+    }
+
     public function beforeFilter(Event $event)
     {
         $this->Auth->allow(['index']);

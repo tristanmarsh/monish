@@ -25,6 +25,9 @@ class PeopleTable extends Table
         $this->hasOne('Macaddresses', [
             'foreignKey' => 'person_id'
         ]);
+        $this->hasMany('Requests', [
+            'foreignKey' => 'person_id'
+        ]);
     }
 	
 	public function validationDefault(Validator $validator)

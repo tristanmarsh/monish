@@ -20,16 +20,22 @@
         </div><!-- /input-group -->
     </form>
 
-</div>    
+</div>
+
+<div class="panel panel-primary">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+        <h2 class="panel-title">All Requests</h2>
+    </div>
 
 <div class="table-responsive">
     <table>
         <tr>
             <th><?= $this->Paginator->sort('title') ?></th>
-            <th><?= $this->Paginator->sort('requested_by') ?></th>
+            <th><?= $this->Paginator->sort('person_id', 'Requested By') ?></th>
             <th><?= $this->Paginator->sort('category') ?></th>
-            <th><?= $this->Paginator->sort('property') ?></th>
-            <th><?= $this->Paginator->sort('requested') ?></th>
+            <th><?= $this->Paginator->sort('property_address', 'property') ?></th>
+            <th><?= $this->Paginator->sort('created', 'requested') ?></th>
             <th>Action</th>
         </tr>
 

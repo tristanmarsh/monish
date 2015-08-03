@@ -78,6 +78,8 @@ $cakeDescription = 'Monish Dashboard';
 
 <?php else : ?>
 
+
+
 	<div class="container-fluid">
 
 		<div class="row">
@@ -114,6 +116,7 @@ $cakeDescription = 'Monish Dashboard';
 								</a>
 							</div>
 
+
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								
@@ -131,6 +134,8 @@ $cakeDescription = 'Monish Dashboard';
 
 									<li class="visible-xs"><a href="#">Link</a></li>
 								</ul>
+
+
 
 								<ul class="nav navbar-nav navbar-right">
 									
@@ -187,15 +192,24 @@ $cakeDescription = 'Monish Dashboard';
 
 				</div>
 
+
+
 				<div class="container-fluid">
 
 					<div class="content">
 
 						<?= $this->Flash->render() ?>
 
+
+						<?= $this->fetch('h1') ?>
+
 						<?= $this->fetch('content') ?>
 
+
+
 					</div>
+
+
 
 					<footer>
 						<?php echo $this->element('footer'); ?>

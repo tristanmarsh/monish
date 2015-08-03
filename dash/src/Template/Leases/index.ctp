@@ -1,7 +1,20 @@
 <h1>Leases</h1>
-<?= $this->Html->link(__('Add New Lease'), ['action' => 'add']) ?>
-<div class="table-responsive">
-  <table cellpadding="0" cellspacing="0">
+
+          <panel>
+            <?php echo $this->element('panel'); ?>
+          </panel>
+
+
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h2 class="panel-title">All Leases</h2>
+</div>
+
+
+  <!-- Table -->
+    <div class="table-responsive">
+        <table cellpadding="0" cellspacing="0" class="">
     <thead>
       <tr>
         <th><?= $this->Paginator->sort('property_id') ?></th>
@@ -47,12 +60,9 @@
   </table>
 </div>
 
-
-<div class="paginator text-center">
-  <ul class="pagination">
-    <?= $this->Paginator->prev('< ' . __('previous')) ?>
-    <?= $this->Paginator->numbers() ?>
-    <?= $this->Paginator->next(__('next') . ' >') ?>
-  </ul>
-  <p><?= $this->Paginator->counter() ?></p>
 </div>
+
+
+          <paginator>
+            <?php echo $this->element('paginator'); ?>
+          </paginator>

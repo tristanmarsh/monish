@@ -1,18 +1,29 @@
     
 
 <h1>Properties</h1>
-<?= $this->Html->link(__('Add New Property'), ['action' => 'add']) ?><br>
+          <panel>
+            <?php echo $this->element('panel'); ?>
+          </panel>
 
-<?php foreach ($properties as $property): ?>
+    <?php foreach ($properties as $property): ?>
 
     <br>
-    <?php
+   <div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading"> 
+    <h2 class="panel-title"><?php
 
     echo $property->address;
 
 
-    ?>
+    ?></h2>
+
+</div>
+
+
+  <!-- Table -->
     <div class="table-responsive">
+        <table cellpadding="0" cellspacing="0" class="">
         <table>
             <thead>
             <tr>
@@ -58,3 +69,4 @@
     </div>
 
 <?php endforeach; ?>
+

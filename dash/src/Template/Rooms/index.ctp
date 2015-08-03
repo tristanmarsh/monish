@@ -1,7 +1,21 @@
 <h1>Rooms</h1>
-<?= $this->Html->link(__('Add New Room'), ['action' => 'add']) ?>
-<div class="table-responsive">
-    <table cellpadding="0" cellspacing="0">
+
+
+          <panel>
+            <?php echo $this->element('panel'); ?>
+          </panel>
+
+
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h2 class="panel-title">All Rooms</h2>
+</div>
+
+
+  <!-- Table -->
+    <div class="table-responsive">
+        <table cellpadding="0" cellspacing="0" class="">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('room_name') ?></th>
@@ -29,12 +43,6 @@
     </tbody>
 </table>
 </div>
-<div class="paginator text-center">
-
-    <ul class="pagination">
-        <?= $this->Paginator->prev('< ' . __('previous')) ?>
-        <?= $this->Paginator->numbers() ?>
-        <?= $this->Paginator->next(__('next') . ' >') ?>
-    </ul>
-
-</div>
+          <paginator>
+            <?php echo $this->element('paginator'); ?>
+          </paginator>

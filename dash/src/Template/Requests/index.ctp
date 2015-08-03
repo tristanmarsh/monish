@@ -46,7 +46,7 @@
         
         <tr>
             <td>
-                <?= $this->Html->link($article->title, ['action' => 'view', $article->id]) ?>
+                <?= $article->title ?>
             </td>
             <td>
                 <?php

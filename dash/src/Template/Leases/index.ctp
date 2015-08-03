@@ -19,17 +19,17 @@
 
       <tr>
         <td>
-          <?= $lease->has('room') ? $this->Html->link($lease->property->address, ['controller' => 'Properties', 'action' => 'view', $lease->property->id]) : '' ?>
+          <?= $lease->property->address ?>
         </td>
         <td>
-          <?= $lease->has('room') ? $this->Html->link($lease->room->room_name, ['controller' => 'Rooms', 'action' => 'view', $lease->room->id]) : '' ?>
+          <?= $lease->room->room_name ?>
         </td>
         <td>
           <?php
           $person = $walrus->get($lease->student->person_id);
           ?>
-          <?= $lease->has('student') ? $this->Html->link($person->first_name, ['controller' => 'Tenants', 'action' => 'view', $person->id]) : '' ?>
-          <?= $lease->has('student') ? $this->Html->link($person->last_name, ['controller' => 'Tenants', 'action' => 'view', $person->id]) : '' ?>
+          <?= $person->first_name ?>
+          <?= $person->last_name ?>
         </td>
         <td><?= h($lease->date_start->format('Y M d')) ?></td>
         <td><?= h($lease->date_end->format('Y M d')) ?></td>

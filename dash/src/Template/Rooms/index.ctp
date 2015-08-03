@@ -15,7 +15,7 @@
             <tr>
                 <td><?= h($room->room_name) ?></td>
                 <td>
-                    <?= $room->has('property') ? $this->Html->link($room->property->address, ['controller' => 'Properties', 'action' => 'view', $room->property->id]) : '' ?>
+                    <?= $room->property->address ?>
                 </td>
                 <td><?= h($room->vacant) ?></td>
                 <td class="actions">

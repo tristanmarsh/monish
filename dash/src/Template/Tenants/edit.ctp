@@ -1,3 +1,7 @@
+<?php
+    $this->Html->addCrumb('Tenants', '/tenants');
+    $this->Html->addCrumb('Edit Tenant', array('controller' => 'tenants', 'action' => 'edit'));
+?>
 <!-- File: src/Template/Users/edit.ctp -->
 
 <h1>Update User</h1>

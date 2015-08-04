@@ -1,3 +1,7 @@
+<?php
+    $this->Html->addCrumb('Tenants', '/tenants');
+    $this->Html->addCrumb('Add Tenant', array('controller' => 'tenants', 'action' => 'add'));
+?>
 <!-- src/Template/People/add.ctp -->
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -74,33 +78,59 @@
 
         <?= $this->Form->create($user, array('class' => 'form-group')) ?>
         <fieldset class="input-group">
+
           <div class="panel-heading">
-            <legend><?= __('New Tenant + Lease', array('class' => 'form-control')) ?></legend>
+            <legend><?= __('Create New Tenant & Lease', array('class' => 'form-control')) ?></legend>
           </div>
 
-          <?= $this->Form->input('first_name', array('class' => 'form-control')) ?>
-          <?= $this->Form->input('last_name', array('class' => 'form-control')) ?>
-          <?= $this->Form->input('common_name', array('class' => 'form-control')) ?>
-          <?= $this->Form->input('gender', ['options' => ['M' => 'Male', 'F' => 'Female'], 'class' => 'form-control' ]) ?>
-           <?= $this->Form->input('phone', array('class' => 'form-control')) ?>
-           <?= $this->Form->input('email', array('class' => 'form-control')) ?>
-           <?= $this->Form->input('internet_plan', ['options' => ['FREE' => 'FREE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM']]) ?>
-           
-           <?= $this->Form->input('room_id', ['options' => $rooms]); ?>
-           <?= $this->form->input('date_start',['id'=>'dateStartPicker']); ?>
-           <?= $this->form->input('date_end',['id'=>'dateEndPicker']); ?>
-           <?= $this->Form->input('weekly_price'); ?>
-         </fieldset>
+          <div class="panel-body">
+            
+            <div class="col-md-6">
+            
+              <?= $this->Form->input('first_name', array('class' => 'form-control')) ?>
+              <?= $this->Form->input('last_name', array('class' => 'form-control')) ?>
+              <?= $this->Form->input('common_name', array('class' => 'form-control')) ?>
 
-         <?= $this->Form->button(__('Submit')); ?>
-         <?= $this->Form->end() ?>
-         <?php
-         echo $this->Form->create(null, [
-          'url' => ['controller' => 'People', 'action' => 'index']
-          ]);
-         echo $this->Form->button(__('Cancel'));
-         ?>
-         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+              
+            </div>
+
+            <div class="col-md-6">
+             
+              <?= $this->Form->input('gender', ['options' => ['M' => 'Male', 'F' => 'Female'], 'class' => 'form-control' ]) ?>
+             
+              <?= $this->Form->input('phone', array('class' => 'form-control')) ?>
+             
+              <?= $this->Form->input('email', array('class' => 'form-control')) ?>
+            
+            </div>
+
+            
+             <?= $this->Form->input('internet_plan', ['options' => ['FREE' => 'FREE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM'], 'class' => 'form-control']) ?>
+             
+             <?= $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']); ?>
+            
+            <div class="col-md-6">
+              <?= $this->form->input('date_start',['id'=>'dateStartPicker','class' => 'form-control']); ?>
+            </div>
+
+            <div class="col-md-6">
+              <?= $this->form->input('date_end',['id'=>'dateEndPicker','class' => 'form-control']); ?>
+            </div>
+
+             <?= $this->Form->input('weekly_price', ['class' => 'form-control']); ?>
+           
+           </fieldset>
+
+           <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-success']); ?>
+           <?= $this->Form->end() ?>
+           <?php
+           echo $this->Form->create(null, [
+            'url' => ['controller' => 'People', 'action' => 'index']
+            ]);
+           ?>
+
+           </div>
+
 
 
          <!-- <div class="input-group">

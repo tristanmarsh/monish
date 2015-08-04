@@ -1,4 +1,7 @@
-
+<?php
+    $this->Html->addCrumb('Properties', '/properties');
+    $this->Html->addCrumb('Edit Property', array('controller' => 'properties', 'action' => 'edit'));
+?>
 <div class="properties form large-10 medium-9 columns">
     <?= $this->Form->create($property); ?>
     <fieldset>

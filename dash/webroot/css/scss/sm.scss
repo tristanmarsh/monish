@@ -9,24 +9,46 @@ Since:    3/6/15
 
 // sm
 @media(max-width:767px){
-
+	.clearing.col-sm-6:nth-of-type(2n+1) {
+		clear:left;
+	}
 }
 
 // md
 @media(min-width:768px){
-	
-.navbar-fixed-top,
-.navbar-fixed-bottom {
-  left:auto;
-  right:0;
-}
+		
+	.clearing.col-sm-6:nth-of-type(2n+1) {
+		clear:none;
+	}
+
+	.clearing.col-md-4:nth-of-type(2n+1) {
+		clear:left;
+	}
 
 }
+
 // lg
 @media(min-width:992px){
 
+	.clearing.col-md-4:nth-of-type(2n+1) {
+		clear:none;
+	}
+
+	.clearing.col-lg-3:nth-of-type(3n+1) {
+		clear:left;
+	}
+
 }
+
 // xl
 @media(min-width:1200px){
+
+	.clearing.col-lg-3:nth-of-type(3n+1) {
+		clear:none;
+	}
+
+	.clearing.col-lg-3:nth-of-type(4n+1) {
+		clear:left;
+	}
 
 }

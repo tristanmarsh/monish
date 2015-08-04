@@ -1,3 +1,7 @@
+<?php
+    $this->Html->addCrumb('Leases', '/leases');
+    $this->Html->addCrumb('View Lease', array('controller' => 'leases', 'action' => 'view'));
+?>
 
 <div class="leases view large-10 medium-9 columns">
     <h2>Lease Details</h2>

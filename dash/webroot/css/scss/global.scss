@@ -89,19 +89,29 @@ h4,
 h5,
 h6 {
   font-family:$roboto-slab-font-stack;
-  color:#384047;
+  color:#5986AD;
 }
 
 // #### CONTENT ####
 
 // holds the main view of the dashboard
+
+
+
 .main-content {
+  
   min-height:100vh;
+  transition:all 400ms ease;
+
+
+
+  .content {margin-top:51px;}
 
   .header {}
 
   .panel {
     box-shadow: 0 3px rgba(118, 170, 219,0.2);
+    box-shadow: 0 3px #D5E4F1;
     border-radius:5px;
     margin-bottom:20px;
 
@@ -109,8 +119,6 @@ h6 {
     .panel-footer {
       padding:0 15px;
     }
-
-
 
     .nav {padding:10px 0;}
 
@@ -123,22 +131,33 @@ h6 {
 
   }
 
+  .panel-default,
+  .panel-primary {
+    border-color:#D5E4F1;
+  }
+
 
   .paginator {
     margin-bottom:60px;
     
     .pagination {
-      box-shadow: 0 3px rgba(118, 170, 219,0.2);
-      border-radius:3px;
-      border-left:1px solid rgba(57, 83, 109, 0.1);
-      border-right:1px solid rgba(57, 83, 109, 0.1);
+      box-shadow: 0 3px #D5E4F1;
+      border-radius:5px;
+      // border-left:1px solid #D5E4F1;
+      // border-right:1px solid #D5E4F1;
+      border:1px solid #D5E4F1;
       
       li a {
-        border:none;
+        border-right:1px solid #D5E4F1;
+        border:0;
+      }
+
+      li a:last-child {
+        border-right:0;
       }
 
       li:last-child>a {
-        border-left:1px solid rgba(57, 83, 109, 0.1);
+        // border-left:1px solid #D5E4F1;
       }
 
     }
@@ -147,10 +166,48 @@ h6 {
 
 }
 
+  .navbar-toggle {
+      display: block;
+    position: relative;
+    float: left;
+    padding-left: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    left: 10px;
+  }
+  
+@media (min-width: 768px) {
+  .navbar-toggle {
+      display: block;
+    position: relative;
+    float: left;
+    padding-left: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    left: 10px;
+  }
+}
 
 
+// #### HEADER ####
 
-// #### CONTENT ####
+
+#navigation-toggle {
+  background:#337ab7;
+  span {
+    background:lighten(#337ab7,50%);
+  }
+}
 
 
 // #### CONTENT ####

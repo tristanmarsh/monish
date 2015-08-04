@@ -1,6 +1,29 @@
-<h1>This is for testing purposes only</h1>
+<h1>Tests</h1>
 
-<?= $this->Html->link('Add New Tenant', ['action' => 'add']); ?> 
+<div class="panel panel-default clearfix">
+    
+    <div class="panel-body">
+        
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+        </ul>
+
+    </div>
+
+    <div class="panel-footer">
+
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><a href="#">Imagine</a></li>
+            <li role="presentation"><a href="#">Secondary</a></li>
+            <li role="presentation"><a href="#">Buttons</a></li>
+        </ul>
+
+    </div>
+
+</div>
+
+
 <p>
 This function adds the person, student, lease and user. 
 <br>The user credentials are automatically generated:

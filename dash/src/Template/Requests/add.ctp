@@ -1,3 +1,7 @@
+<?php
+    $this->Html->addCrumb('Requests', '/requests');
+    $this->Html->addCrumb('Add Request', array('controller' => 'requests', 'action' => 'add'));
+?>
 <!-- File: src/Template/Articles/add.ctp -->
 
 <h1>New Request</h1>

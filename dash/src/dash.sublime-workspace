@@ -180,14 +180,17 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/animate.min.css",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/error.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tests/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/custom.js",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/custom.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Macaddresses/index.ctp",
@@ -208,7 +211,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenantsdashboards/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tests/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/dash.sublime-workspace",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/aviators/plugins/properties/templates/properties/filter.twig",
@@ -305,9 +307,7 @@
 		"/Applications/MAMP/htdocs/diacos/.htaccess",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/aviators/plugins/properties/filter.php",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/index.php",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/page-submission-index.twig",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/layout.twig",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/palette.twig"
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/page-submission-index.twig"
 	],
 	"find":
 	{
@@ -337,6 +337,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"element",
 			"margin",
 			"heading",
 			"th",
@@ -463,8 +464,7 @@
 			"normal",
 			"30px",
 			"<div class=\"price\">$500,000</div>",
-			"<h2>",
-			"content"
+			"<h2>"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -556,6 +556,26 @@
 		"selected_items":
 		[
 			[
+				"tests/index",
+				"src/Template/Tests/index.ctp"
+			],
+			[
+				"rooms/index",
+				"src/Template/Rooms/index.ctp"
+			],
+			[
+				"properties/index",
+				"src/Template/Properties/index.ctp"
+			],
+			[
+				"leases/index",
+				"src/Template/Leases/index.ctp"
+			],
+			[
+				"requests/index",
+				"src/Template/Requests/index.ctp"
+			],
+			[
 				"tenants/index",
 				"src/Template/Tenants/index.ctp"
 			],
@@ -614,10 +634,6 @@
 			[
 				"table",
 				"webroot/css/scss/tables.scss"
-			],
-			[
-				"leases/index",
-				"src/Template/Leases/index.ctp"
 			],
 			[
 				"tables",

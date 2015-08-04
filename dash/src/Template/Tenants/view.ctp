@@ -1,3 +1,7 @@
+<?php
+    $this->Html->addCrumb('Tenants', '/tenants');
+    $this->Html->addCrumb('View Tenant', array('controller' => 'tenants', 'action' => 'view'));
+?>
 <h1>Tenant Details</h1>
 
 <table cellpadding="0" cellspacing="0">

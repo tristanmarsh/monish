@@ -1,4 +1,7 @@
-
+<?php
+    $this->Html->addCrumb('Rooms', '/rooms');
+    $this->Html->addCrumb('View Room', array('controller' => 'rooms', 'action' => 'view'));
+?>    
 <div class="rooms view large-10 medium-9 columns">
     <h2><?= h($room->id) ?></h2>
     <div class="row">

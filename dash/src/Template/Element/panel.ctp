@@ -1,17 +1,11 @@
 <div class="panel panel-default clearfix">
     
-<!--     <div class="panel-heading">
-        <h1 class="panel-title">Example</h1>
-    </div> -->
-
     <div class="panel-body">
         
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
             <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
         </ul>
-
-
 
     </div>
 

@@ -1,3 +1,852 @@
-@-webkit-keyframes fadeIn{0%{opacity:0}100%{opacity:1}}@keyframes fadeIn{0%{opacity:0}100%{opacity:1}}@-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translateY(-20px)}100%{opacity:1;-webkit-transform:translateY(0)}}@keyframes fadeInDown{0%{opacity:0;-webkit-transform:translateY(-20px);transform:translateY(-20px)}100%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}@-webkit-keyframes fadeInDownBig{0%{opacity:0;-webkit-transform:translateY(-2000px)}100%{opacity:1;-webkit-transform:translateY(0)}}@keyframes fadeInDownBig{0%{opacity:0;-webkit-transform:translateY(-2000px);transform:translateY(-2000px)}100%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}@-webkit-keyframes fadeInLeft{0%{opacity:0;-webkit-transform:translateX(-20px)}100%{opacity:1;-webkit-transform:translateX(0)}}@keyframes fadeInLeft{0%{opacity:0;-webkit-transform:translateX(-20px);transform:translateX(-20px)}100%{opacity:1;-webkit-transform:translateX(0);transform:translateX(0)}}@-webkit-keyframes fadeInLeftBig{0%{opacity:0;-webkit-transform:translateX(-2000px)}100%{opacity:1;-webkit-transform:translateX(0)}}@keyframes fadeInLeftBig{0%{opacity:0;-webkit-transform:translateX(-2000px);transform:translateX(-2000px)}100%{opacity:1;-webkit-transform:translateX(0);transform:translateX(0)}}@-webkit-keyframes fadeInRight{0%{opacity:0;-webkit-transform:translateX(20px)}100%{opacity:1;-webkit-transform:translateX(0)}}@keyframes fadeInRight{0%{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px)}100%{opacity:1;-webkit-transform:translateX(0);transform:translateX(0)}}@-webkit-keyframes fadeInRightBig{0%{opacity:0;-webkit-transform:translateX(2000px)}100%{opacity:1;-webkit-transform:translateX(0)}}@keyframes fadeInRightBig{0%{opacity:0;-webkit-transform:translateX(2000px);transform:translateX(2000px)}100%{opacity:1;-webkit-transform:translateX(0);transform:translateX(0)}}@-webkit-keyframes fadeInUp{0%{opacity:0;-webkit-transform:translateY(20px)}100%{opacity:1;-webkit-transform:translateY(0)}}@keyframes fadeInUp{0%{opacity:0;-webkit-transform:translateY(20px);transform:translateY(20px)}100%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}@-webkit-keyframes fadeInUpBig{0%{opacity:0;-webkit-transform:translateY(2000px)}100%{opacity:1;-webkit-transform:translateY(0)}}@keyframes fadeInUpBig{0%{opacity:0;-webkit-transform:translateY(2000px);transform:translateY(2000px)}100%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}@media (min-width: 768px){.navbar-fixed-top,.navbar-fixed-bottom{left:auto;right:0}}.row{width:auto;max-width:none}footer{position:absolute;bottom:0;left:0;width:100%;background:rgba(118,170,219,0.5);padding:40px 0;color:#999}footer .col-md-3{padding:20px}footer .col-md-4:nth-of-type(1){text-align:left}footer .col-md-4:nth-of-type(2){text-align:center}footer .col-md-4:nth-of-type(3){text-align:right}.nav>li>a:hover,.nav>li>a:focus{text-decoration:none;background:none}.sidebar{position:fixed;left:0;padding-left:0;height:100vh;z-index:1000;overflow-x:hidden;padding:0;background-color:#3e474f}.sidebar .nav-sidebar{margin-left:0}.sidebar li{display:block;position:relative;font-size:30px;-webkit-transition:background-color 200ms ease;transition:background-color 200ms ease}.sidebar li .menu-item-link{display:block;text-align:center}.sidebar li .menu-item-label{margin-left:10px}.sidebar li .glyphicon{display:inline-block}.sidebar li a{display:block;color:#788188;-webkit-transition:all 200ms ease;transition:all 200ms ease}.sidebar li a.active{color:#D4D9E0}.sidebar li:active a,.sidebar li:focus a,.sidebar li:hover a{color:#D4D9E0}@media (min-width: 992px){.sidebar li{font-size:20px}.sidebar li .menu-item-link{display:block;text-align:left}}body{color:#70808e}table{display:table;width:100%;font-family:"Open Sans",sans-serif}table *{-webkit-transition:all 100ms ease;transition:all 100ms ease}table a{color:#3C73C3;text-decoration:none}table th{color:#fff;background:#2980b9;background:rgba(41,128,185,0.5);font-size:1.4rem;line-height:2.4em;font-family:"Roboto Slab",serif;position:relative;overflow:hidden;color:#fff}table th>a{display:block;padding:6px 12px;color:#fff;text-decoration:none}table th>a:focus,table th>a:hover{background:#2e8ece;color:#fff;text-decoration:none}table th>a.asc,table th>a.desc{background:#20638f}table th>a.asc:after{content:'\25B2';position:relative;right:-0.5em;font-size:0.8em}table th>a.desc:after{content:'\25BC';position:relative;right:-0.5em;font-size:0.8em}table tr{background:#fcfcfc;border-bottom:1px solid #e9e9e9}table tr:nth-of-type(odd){background:#f5f5f5}table tr:focus td,table tr:hover td{background:#fff;cursor:pointer}table tr:last-child td:first-child{border-bottom-left-radius:5px}table tr:last-child td:last-child{border-bottom-right-radius:5px}@media screen and (max-width: 580px){table{padding:8px 0}}table td{color:#555;padding:12px 12px}@media screen and (max-width: 580px){table td{padding:2px 12px}}body{background:#C4E7EC;background:#fff;background:#ecf2f6;font-family:"Open Sans",sans-serif;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}a{color:#618DB6}.navbar{background:#fff}header{height:auto;padding:0}header .page-header{margin-top:0}header .breadcrumb{margin-left:0;margin-bottom:0;padding:0px 30px;list-style:none;background:none;border-radius:0;background:rgba(118,170,219,0.5)}header .breadcrumb a{font-size:1.4rem;font-weight:lighter;color:#fff}header .breadcrumb ul{display:none}.navbar-image img{max-width:100%;height:40px !important}.navbar{margin-bottom:0}.navbar .navbar-brand{padding:5px}h1,h2,h3,h4,h5,h6{font-family:"Roboto Slab",serif;color:#384047}.main-content{min-height:100vh}.main-content .panel{box-shadow:0 3px rgba(118,170,219,0.2);border-radius:5px;margin-bottom:20px}.main-content .panel .panel-footer{padding:0 15px}.main-content .panel .nav{padding:10px 0}.main-content .panel .nav-pills>li>a{border-radius:100px;padding:5px 15px;font-weight:900;font-size:1.6rem}.main-content .paginator{margin-bottom:60px}.main-content .paginator .pagination{box-shadow:0 3px rgba(118,170,219,0.2);border-radius:3px;border-left:1px solid rgba(57,83,109,0.1);border-right:1px solid rgba(57,83,109,0.1)}.main-content .paginator .pagination li a{border:none}.main-content .paginator .pagination li:last-child>a{border-left:1px solid rgba(57,83,109,0.1)}
+/*
+Name:   Custom.SCSS
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  All custom styling for the Monish Dashboard
+Note:     Remeber mobile first methodology when styling
+Since:    29/4/15
+
+*/
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+            transform: translateY(-2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@-webkit-keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+            transform: translateX(-2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+            transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@-webkit-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+            transform: translateX(2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+            transform: translateY(2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+/*
+Name:   Variables.SCSS
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  All custom styling for the Monish Dashboard
+Note:     Remeber mobile first methodology when styling
+Since:    29/4/15
+
+*/
+/* #### Font Varaiables #### */
+/* Headings */
+/* Content */
+/*
+Name:   sm.SCSS
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  Style for small devices
+Since:    3/6/15
+*/
+@media (max-width: 767px) {
+  /* line 12, scss/sm.scss */
+  .clearing.col-sm-6:nth-of-type(2n+1) {
+    clear: left;
+  }
+}
+@media (min-width: 768px) {
+  /* line 20, scss/sm.scss */
+  .clearing.col-sm-6:nth-of-type(2n+1) {
+    clear: none;
+  }
+
+  /* line 24, scss/sm.scss */
+  .clearing.col-md-4:nth-of-type(2n+1) {
+    clear: left;
+  }
+}
+@media (min-width: 992px) {
+  /* line 33, scss/sm.scss */
+  .clearing.col-md-4:nth-of-type(2n+1) {
+    clear: none;
+  }
+
+  /* line 37, scss/sm.scss */
+  .clearing.col-lg-3:nth-of-type(3n+1) {
+    clear: left;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 46, scss/sm.scss */
+  .clearing.col-lg-3:nth-of-type(3n+1) {
+    clear: none;
+  }
+
+  /* line 50, scss/sm.scss */
+  .clearing.col-lg-3:nth-of-type(4n+1) {
+    clear: left;
+  }
+}
+/*
+Name:   override.scss
+Author:   Tristan Marsh
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  Overriding cake css for compatability with bootstrap framework
+Since:    25/5/15
+*/
+/* line 9, scss/override.scss */
+.row {
+  width: auto;
+  max-width: none;
+}
+
+/*
+Name:   footer.scss
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  All custom styling for the Monish Dashboard Footer
+Since:    28/5/15
+
+*/
+/* line 10, scss/footer.scss */
+footer {
+  position: static;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(118, 170, 219, 0.5);
+  padding: 40px 0;
+  color: #999;
+}
+/* line 19, scss/footer.scss */
+footer .col-md-3 {
+  padding: 20px;
+}
+/* line 24, scss/footer.scss */
+footer .col-md-4:nth-of-type(1) {
+  text-align: left;
+}
+/* line 28, scss/footer.scss */
+footer .col-md-4:nth-of-type(2) {
+  text-align: center;
+}
+/* line 32, scss/footer.scss */
+footer .col-md-4:nth-of-type(3) {
+  text-align: right;
+}
+
+/*
+Name:   sidebar.SCSS
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Since:    3/6/15
+*/
+/* line 13, scss/sidebar.scss */
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background: none;
+}
+
+/* line 18, scss/sidebar.scss */
+.sidebar {
+  width: 200px;
+  position: fixed;
+  left: 0;
+  padding-left: 0;
+  height: 100vh;
+  z-index: 1000;
+  overflow-x: hidden;
+  padding: 0;
+  background-color: #293846;
+  -webkit-transition: -webkit-transform 400ms ease;
+          transition: transform 400ms ease;
+  overflow-x: hidden;
+}
+/* line 32, scss/sidebar.scss */
+.sidebar .nav-sidebar {
+  margin-left: 0;
+}
+/* line 36, scss/sidebar.scss */
+.sidebar .panel {
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+/* line 45, scss/sidebar.scss */
+.sidebar .panel-group .panel-heading {
+  background: none;
+}
+/* line 49, scss/sidebar.scss */
+.sidebar .panel-group.panel-heading + .panel-collapse > .panel-body, .sidebar .panel-group .panel-heading + .panel-collapse > .list-group {
+  border-top: 0;
+}
+/* line 56, scss/sidebar.scss */
+.sidebar ul {
+  padding-left: 0;
+}
+/* line 60, scss/sidebar.scss */
+.sidebar li {
+  display: block;
+  position: relative;
+  font-size: 2.5rem;
+  -webkit-transition: background-color 200ms ease;
+          transition: background-color 200ms ease;
+}
+/* line 66, scss/sidebar.scss */
+.sidebar li .menu-item-link {
+  display: block;
+  font-size: 3rem;
+}
+/* line 70, scss/sidebar.scss */
+.sidebar li .menu-item-link .menu-item-label {
+  position: absolute;
+  left: 60px;
+  top: 7px;
+}
+/* line 76, scss/sidebar.scss */
+.sidebar li .menu-item-link .glyphicon {
+  position: static;
+}
+/* line 83, scss/sidebar.scss */
+.sidebar li a {
+  display: block;
+  color: #788188;
+  -webkit-transition: all 200ms ease;
+          transition: all 200ms ease;
+}
+/* line 89, scss/sidebar.scss */
+.sidebar li h4.panel-title,
+.sidebar li span {
+  color: #788188;
+}
+/* line 94, scss/sidebar.scss */
+.sidebar li a.active span,
+.sidebar li a.active {
+  color: #D4D9E0;
+}
+/* line 105, scss/sidebar.scss */
+.sidebar li:active span,
+.sidebar li:active a,
+.sidebar li:focus span,
+.sidebar li:focus a,
+.sidebar li:hover span,
+.sidebar li:hover a {
+  color: #D4D9E0;
+}
+
+/* line 121, scss/sidebar.scss */
+.sidebar,
+.navbar-fixed-top,
+.content {
+  -webkit-transition: all 400ms ease;
+          transition: all 400ms ease;
+}
+
+/* line 127, scss/sidebar.scss */
+.navigation-active .navbar-fixed-top,
+.navigation-active .content {
+  margin-left: 0px;
+}
+
+/* line 133, scss/sidebar.scss */
+.tooltip.right {
+  display: none !important;
+  font-size: 3rem;
+}
+
+/* line 138, scss/sidebar.scss */
+.tooltip-inner {
+  background: #222;
+}
+
+/* line 142, scss/sidebar.scss */
+.tooltip.right .tooltip-arrow {
+  border-right-color: #222;
+}
+
+@media (max-width: 480px) {
+  /* line 152, scss/sidebar.scss */
+  .sidebar {
+    -webkit-transform: translate3D(-100%, 0, 0);
+        -ms-transform: translate3D(-100%, 0, 0);
+            transform: translate3D(-100%, 0, 0);
+    width: 250px;
+    padding-top: 51px;
+  }
+
+  /* line 159, scss/sidebar.scss */
+  .navigation-active .sidebar {
+    -webkit-transform: translate3D(0, 0, 0);
+        -ms-transform: translate3D(0, 0, 0);
+            transform: translate3D(0, 0, 0);
+  }
+
+  /* line 163, scss/sidebar.scss */
+  .navigation-active .content {
+    -webkit-transform: translate3D(20%, 0, 0);
+        -ms-transform: translate3D(20%, 0, 0);
+            transform: translate3D(20%, 0, 0);
+  }
+}
+@media (min-width: 481px) {
+  /* line 174, scss/sidebar.scss */
+  .tooltip.right {
+    display: block !important;
+  }
+
+  /* line 178, scss/sidebar.scss */
+  .sidebar {
+    -webkit-transform: translate3D(0, 0, 0);
+        -ms-transform: translate3D(0, 0, 0);
+            transform: translate3D(0, 0, 0);
+    width: 60px;
+  }
+
+  /* line 183, scss/sidebar.scss */
+  .navbar-fixed-top,
+  .content {
+    margin-left: 60px;
+  }
+
+  /* line 189, scss/sidebar.scss */
+  .navigation-active .sidebar {
+    -webkit-transform: translate3D(0, 0, 0);
+        -ms-transform: translate3D(0, 0, 0);
+            transform: translate3D(0, 0, 0);
+    width: 250px;
+  }
+
+  /* line 193, scss/sidebar.scss */
+  .navigation-active .content {
+    -webkit-transform: translate3D(0, 0, 0);
+        -ms-transform: translate3D(0, 0, 0);
+            transform: translate3D(0, 0, 0);
+  }
+
+  /* line 197, scss/sidebar.scss */
+  .navigation-active .navbar-fixed-top,
+  .navigation-active .content {
+    margin-left: 250px;
+  }
+
+  /* line 202, scss/sidebar.scss */
+  .navigation-active .tooltip.right {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) {
+  /* line 215, scss/sidebar.scss */
+  .tooltip.right {
+    display: block !important;
+  }
+
+  /* line 219, scss/sidebar.scss */
+  .sidebar {
+    -webkit-transform: translate3D(0, 0, 0);
+        -ms-transform: translate3D(0, 0, 0);
+            transform: translate3D(0, 0, 0);
+    width: 60px;
+  }
+
+  /* line 224, scss/sidebar.scss */
+  .navbar-fixed-top,
+  .content {
+    margin-left: 60px;
+  }
+
+  /* line 230, scss/sidebar.scss */
+  .navigation-active .sidebar {
+    -webkit-transform: translate3D(0, 0, 0);
+        -ms-transform: translate3D(0, 0, 0);
+            transform: translate3D(0, 0, 0);
+    width: 250px;
+  }
+
+  /* line 234, scss/sidebar.scss */
+  .navigation-active .content {
+    -webkit-transform: translate3D(0, 0, 0);
+        -ms-transform: translate3D(0, 0, 0);
+            transform: translate3D(0, 0, 0);
+  }
+
+  /* line 238, scss/sidebar.scss */
+  .navigation-active .navbar-fixed-top,
+  .navigation-active .content {
+    margin-left: 250px;
+  }
+
+  /* line 243, scss/sidebar.scss */
+  .navigation-active .tooltip.right {
+    display: none !important;
+  }
+}
+/*
+Name:   tables.SCSS
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  All custom styling for tables
+Since:    30/7/15
+
+*/
+/* line 23, scss/tables.scss */
+body {
+  color: #70808e;
+}
+
+/* line 37, scss/tables.scss */
+table {
+  display: table;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+}
+/* line 45, scss/tables.scss */
+table * {
+  -webkit-transition: all 100ms ease;
+          transition: all 100ms ease;
+}
+/* line 50, scss/tables.scss */
+table a {
+  color: #3C73C3;
+  text-decoration: none;
+}
+/* line 56, scss/tables.scss */
+table th {
+  color: #fff;
+  background: #2980b9;
+  background: rgba(41, 128, 185, 0.5);
+  font-size: 1.4rem;
+  line-height: 2.4em;
+  font-family: "Roboto Slab", serif;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+/* line 67, scss/tables.scss */
+table th > a {
+  display: block;
+  padding: 6px 12px;
+  color: #fff;
+  text-decoration: none;
+}
+/* line 74, scss/tables.scss */
+table th > a:focus, table th > a:hover {
+  background: #2e8ece;
+  color: #fff;
+  text-decoration: none;
+}
+/* line 81, scss/tables.scss */
+table th > a.asc, table th > a.desc {
+  background: #20638f;
+}
+/* line 86, scss/tables.scss */
+table th > a.asc:after {
+  content: '\25B2';
+  position: relative;
+  right: -0.5em;
+  font-size: 0.8em;
+}
+/* line 93, scss/tables.scss */
+table th > a.desc:after {
+  content: '\25BC';
+  position: relative;
+  right: -0.5em;
+  font-size: 0.8em;
+}
+/* line 105, scss/tables.scss */
+table tr {
+  background: #fcfcfc;
+  border-bottom: 1px solid #D5E4F1;
+}
+/* line 110, scss/tables.scss */
+table tr:nth-of-type(odd) {
+  background: whitesmoke;
+}
+/* line 114, scss/tables.scss */
+table tr:last-child {
+  border-bottom: 0;
+}
+/* line 118, scss/tables.scss */
+table tr:focus td, table tr:hover td {
+  background: white;
+  cursor: pointer;
+}
+/* line 124, scss/tables.scss */
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+}
+/* line 128, scss/tables.scss */
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 5px;
+}
+@media screen and (max-width: 580px) {
+  /* line 37, scss/tables.scss */
+  table {
+    padding: 8px 0;
+  }
+}
+/* line 140, scss/tables.scss */
+table td {
+  color: #555;
+  padding: 12px 12px;
+}
+@media screen and (max-width: 580px) {
+  /* line 140, scss/tables.scss */
+  table td {
+    padding: 2px 12px;
+  }
+}
+
+/*
+Name:   Blobal.SCSS
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  Global styling for the Monish Dashboard
+Since:    31/7/15
+
+*/
+/* line 9, scss/global.scss */
+body {
+  background: #C4E7EC;
+  background: #fff;
+  background: #ecf2f6;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+/* line 20, scss/global.scss */
+a {
+  color: #618DB6;
+}
+
+/* #### NAVBAR #### */
+/* line 26, scss/global.scss */
+.navbar {
+  background: #fff;
+}
+
+/* line 32, scss/global.scss */
+header {
+  height: auto;
+  padding: 0;
+}
+/* line 36, scss/global.scss */
+header .page-header {
+  margin-top: 0;
+}
+/* line 40, scss/global.scss */
+header .breadcrumb {
+  margin-left: 0;
+  margin-bottom: 0;
+  padding: 0px 30px;
+  list-style: none;
+  background: none;
+  border-radius: 0;
+  background: rgba(118, 170, 219, 0.5);
+}
+/* line 51, scss/global.scss */
+header .breadcrumb a {
+  font-size: 1.4rem;
+  font-weight: lighter;
+  color: #fff;
+}
+/* line 58, scss/global.scss */
+header .breadcrumb ul {
+  display: none;
+}
+
+/* line 66, scss/global.scss */
+.navbar-image img {
+  max-width: 100%;
+  height: 40px !important;
+}
+
+/* line 73, scss/global.scss */
+.navbar {
+  margin-bottom: 0;
+}
+/* line 77, scss/global.scss */
+.navbar .navbar-brand {
+  padding: 5px;
+}
+
+/* line 85, scss/global.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Slab", serif;
+  color: #5986AD;
+}
+
+/* line 101, scss/global.scss */
+.main-content {
+  min-height: 100vh;
+  -webkit-transition: all 400ms ease;
+          transition: all 400ms ease;
+}
+/* line 108, scss/global.scss */
+.main-content .content {
+  margin-top: 51px;
+}
+/* line 112, scss/global.scss */
+.main-content .panel {
+  box-shadow: 0 3px rgba(118, 170, 219, 0.2);
+  box-shadow: 0 3px #D5E4F1;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+/* line 119, scss/global.scss */
+.main-content .panel .panel-footer {
+  padding: 0 15px;
+}
+/* line 123, scss/global.scss */
+.main-content .panel .nav {
+  padding: 10px 0;
+}
+/* line 125, scss/global.scss */
+.main-content .panel .nav-pills > li > a {
+  border-radius: 100px;
+  padding: 5px 15px;
+  font-weight: 900;
+  font-size: 1.6rem;
+}
+/* line 134, scss/global.scss */
+.main-content .panel-default,
+.main-content .panel-primary {
+  border-color: #D5E4F1;
+}
+/* line 140, scss/global.scss */
+.main-content .paginator {
+  margin-bottom: 60px;
+}
+/* line 143, scss/global.scss */
+.main-content .paginator .pagination {
+  box-shadow: 0 3px #D5E4F1;
+  border-radius: 5px;
+  border: 1px solid #D5E4F1;
+}
+/* line 150, scss/global.scss */
+.main-content .paginator .pagination li a {
+  border-right: 1px solid #D5E4F1;
+  border: 0;
+}
+/* line 155, scss/global.scss */
+.main-content .paginator .pagination li a:last-child {
+  border-right: 0;
+}
+
+/* line 169, scss/global.scss */
+.navbar-toggle {
+  display: block;
+  position: relative;
+  float: left;
+  padding-left: 15px;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  left: 10px;
+}
+
+@media (min-width: 768px) {
+  /* line 185, scss/global.scss */
+  .navbar-toggle {
+    display: block;
+    position: relative;
+    float: left;
+    padding-left: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    left: 10px;
+  }
+}
+/* line 205, scss/global.scss */
+#navigation-toggle {
+  background: #337ab7;
+}
+/* line 207, scss/global.scss */
+#navigation-toggle span {
+  background: #eff5fa;
+}
 
 /*# sourceMappingURL=custom.css.map */

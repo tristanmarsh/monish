@@ -85,36 +85,43 @@ $cakeDescription = 'Monish Dashboard';
 		<div class="row">
 
 			<!-- Retrieve correct sidebar -->
-			<div class="col-sm-1 col-md-2 sidebar hidden-xs">
+			<div class="sidebar">
 
 				<?php echo $this->element('sidebar'); ?>
 
 			</div>
 
 
-			<div class="col-sm-11 col-sm-offset-1 col-md-offset-2 col-md-10 main-content">
+			<div class="main-content">
 				
 				<div class="row">
 					
-					<nav class="navbar navbar-fixed-top col-sm-11 col-sm-offset-1 col-md-offset-2 col-md-10 pull-right">
+					<nav class="navbar navbar-fixed-top">
 
 						<div class="container-fluid">
 
 							<!-- Brand and toggle get grouped for better mobile display -->
 							<div class="navbar-header">
-								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+
+								<button type="button" id="navigation-toggle" class="navbar-toggle">
 									<span class="sr-only">Toggle navigation</span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
+
 								<a class="navbar-brand" href="#">
-									<div class="navbar-image">
+									
+
+
+<!-- 									<div class="navbar-image">
 										<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
 										<span>Monash ISH Dashboard</span>
-									</div>
+									</div> -->
 								</a>
 							</div>
+
+					
 
 
 							<!-- Collect the nav links, forms, and other content for toggling -->
@@ -172,52 +179,30 @@ $cakeDescription = 'Monish Dashboard';
 
 				</div>
 
-				<div class="row">
+
+				<div class="content">
 
 					<header>
-						<div class="container-fluid">
-
-							<div class="page-header">
-								<span><?= $this->fetch('title') ?>--></span> 
-							</div>
-
-							<div class="row">
-
-								<ol class="breadcrumb">
-									<?= $this->Html->getCrumbs(' > ', 'Home') ?>
-									<? echo $this->Html->getCrumbList(); ?>
-								</ol>
-
-							</div>
-
-						</div>
+						<ol class="breadcrumb">
+							<? echo $this->Html->getCrumbs(' > ', 'Home') ?>
+							<? echo $this->Html->getCrumbList(); ?>
+						</ol>
 					</header>
 
-				</div>
-
-
-
-				<div class="container-fluid">
-
-					<div class="content">
+					<div class="container-fluid">
 
 						<?= $this->Flash->render() ?>
 
 
 						<?= $this->fetch('h1') ?>
+			
 
 						<?= $this->fetch('content') ?>
 
-
-
 					</div>
-
-
-
-					<footer>
-						<?php echo $this->element('footer'); ?>
-					</footer>
 					
+					<?php echo $this->element('footer'); ?>
+
 				</div>
 
 			</div>

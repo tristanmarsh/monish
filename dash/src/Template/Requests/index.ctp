@@ -1,22 +1,33 @@
+<?php
+    $this->Html->addCrumb('Requests', '/requests');
+?>
+
 <!-- File: src/Template/Requests/index.ctp -->
 <?php $user = $this->Session->read('Auth.User'); ?>
 
 <h1>Requests</h1>
 
-<div class="panel clearfix">
-    <ul class="nav nav-pills pull-left">
-        <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-        <li role="presentation"><a href="#">Pending</a></li>
-        <li role="presentation"><a href="#">Completed</a></li>
-    </ul>
-    <form class="navbar-form navbar-left" role="search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Submit</button>
-            </span>
-        </div><!-- /input-group -->
-    </form>
+<div class="panel panel-default clearfix">
+    
+    <div class="panel-body">
+        
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+        </ul>
+
+    </div>
+
+    <div class="panel-footer">
+
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><a href="#">Imagine</a></li>
+            <li role="presentation"><a href="#">Secondary</a></li>
+            <li role="presentation"><a href="#">Buttons</a></li>
+        </ul>
+
+    </div>
+
 </div>
 
 
@@ -87,9 +98,10 @@
     <?php echo $this->element('paginator'); ?>
 </paginator>
 
+<!-- Clickable Row to View Record -->
 <script>
     $("table").on("click", "tr", function(e) {
-        if ($(e.target).is("a,input")) // anything else you don't want to trigger the click
+        if ($(e.target).is("a"))
             return;
         location.href = $(this).find("a").attr("href");
     });

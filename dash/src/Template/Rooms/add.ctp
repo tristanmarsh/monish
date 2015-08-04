@@ -1,3 +1,7 @@
+<?php
+    $this->Html->addCrumb('Rooms', '/rooms');
+    $this->Html->addCrumb('Add Room', array('controller' => 'rooms', 'action' => 'add'));
+?>    
 <div class="rooms form large-10 medium-9 columns">
     <?= $this->Form->create($room); ?>
     <fieldset>

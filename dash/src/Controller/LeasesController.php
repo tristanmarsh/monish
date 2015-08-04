@@ -41,7 +41,7 @@ class LeasesController extends AppController
     public function view($id = null)
     {
         $lease = $this->Leases->get($id, [
-            'contain' => ['Rooms', 'Students', 'InternetConnection', 'Payments']
+            'contain' => ['Rooms', 'Students']
         ]);
         $this->set('lease', $lease);
         //$lion = $this->User;

@@ -26,7 +26,12 @@
             <tbody>
                 <?php foreach ($rooms as $room): ?>
                     <tr>
-                        <td><?= h($room->room_name) ?></td>
+                        <td>
+
+                            <?= h($room->room_name) ?>
+                            <?= $this->Html->link("", ['action' => 'view', $room->id]) ?>
+
+                        </td>
                         <td>
                             <?= $room->property->address ?>
                         </td>
@@ -46,3 +51,12 @@
 <paginator>
     <?php echo $this->element('paginator'); ?>
 </paginator>
+
+
+  <script>
+    $("table").on("click", "tr", function(e) {
+        if ($(e.target).is("a,input")) // anything else you don't want to trigger the click
+            return;
+        location.href = $(this).find("a").attr("href");
+    });
+</script>

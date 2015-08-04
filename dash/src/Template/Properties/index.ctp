@@ -36,7 +36,10 @@
                 <tbody>
                 <?php foreach ($property->rooms as $rooms): ?>
                     <tr>
-                        <td><?= $rooms->room_name ?></td>
+                        
+                        <td><?= $rooms->room_name ?>
+                        <?= $this->Html->link("", ['action' => 'view', $rooms->id]) ?>
+                    </td>
                         <td>
                             <?php
                             $room = $roomlease->get($rooms->id, ['contain'=>'Leases']);
@@ -72,4 +75,12 @@
     </div>
 
 <?php endforeach; ?>
+
+  <script>
+    $("table").on("click", "tr", function(e) {
+        if ($(e.target).is("a,input")) // anything else you don't want to trigger the click
+            return;
+        location.href = $(this).find("a").attr("href");
+    });
+</script>
 

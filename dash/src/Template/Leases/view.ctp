@@ -32,7 +32,7 @@
         </div>
     </div>
 </div>
-<div class="related row">
+<!-- <div class="related row">
     <div class="column large-12">
     <h4 class="subheader"><?= __('Related InternetConnection') ?></h4>
     <?php if (!empty($lease->internet_connection)): ?>
@@ -68,7 +68,7 @@
     </table>
     <?php endif; ?>
     </div>
-</div>
+</div> -->
 <div class="related row">
     <div class="column large-12">
     <h4 class="subheader"><?= __('Related Payments') ?></h4>

@@ -33,6 +33,8 @@
       <tr>
         <td>
           <?= $lease->property->address ?>
+          <?= $this->Html->link("", ['action' => 'view', $lease->id]) ?>
+
         </td>
         <td>
           <?= $lease->room->room_name ?>
@@ -65,3 +67,11 @@
           <paginator>
             <?php echo $this->element('paginator'); ?>
           </paginator>
+
+  <script>
+    $("table").on("click", "tr", function(e) {
+        if ($(e.target).is("a,input")) // anything else you don't want to trigger the click
+            return;
+        location.href = $(this).find("a").attr("href");
+    });
+</script>

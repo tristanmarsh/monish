@@ -38,7 +38,7 @@
                     <tr>
                         
                         <td><?= $rooms->room_name ?>
-                        <?= $this->Html->link("", ['action' => 'view', $rooms->id]) ?>
+                        <?= $this->Html->link("", ['action' => 'view', $property->id]) ?>
                     </td>
                         <td>
                             <?php

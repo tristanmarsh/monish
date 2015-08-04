@@ -116,3 +116,18 @@
 	<?php endif; ?>
 
 </ul>
+
+<!-- Script to highlight current location -->
+// <script>
+//     $(document).ready(function() {
+//         var path = this.location.pathname;
+//         var count = (path.match(/\//g) || []).length;
+//         if (count > 2) {
+//             index = path.indexOf("/");            
+//             for (var i = 0; i < 2; i++)
+//                 index = path.indexOf("/", parseInt(index+1));
+//            path = path.substr(0, index);
+//         }
+//         $('a[href="' + path + '"]').parent().addClass('active');
+//     });
+// </script>

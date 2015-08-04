@@ -4,13 +4,11 @@
 <h1>Requests</h1>
 
 <div class="panel clearfix">
-    
     <ul class="nav nav-pills pull-left">
         <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
         <li role="presentation"><a href="#">Pending</a></li>
         <li role="presentation"><a href="#">Completed</a></li>
     </ul>
-
     <form class="navbar-form navbar-left" role="search">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search">
@@ -19,8 +17,9 @@
             </span>
         </div><!-- /input-group -->
     </form>
-
 </div>
+
+
 
 <!-- Panel -->
 <div class="panel panel-primary">
@@ -47,7 +46,8 @@
             <?php if ($article->person_id === $userEntity->person_id OR $user['role'] === 'admin') : ?>
                 <tr>
                     <td>
-                        <?= $this->Html->link($article->title, ['action' => 'view', $article->id]) ?>
+                        <?= $this->Html->link("", ['action' => 'view', $article->id]) ?>
+                        <?= $article->title ?>
                     </td>
                     <td>
                         <?php
@@ -94,6 +94,7 @@
         location.href = $(this).find("a").attr("href");
     });
 </script>
+
 
 
 

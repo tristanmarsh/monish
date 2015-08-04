@@ -32,11 +32,12 @@ class TenantsController extends AppController
         $this->loadModel('Leases');
         $this->loadModel('Properties');
         $this->loadModel('Macaddresses');
+        $this->loadModel('Rooms');
 
         $user = $this->People->newEntity();
 
         $properties = $this->Properties->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'address']);
-        $rooms = $this->Leases->Rooms->find('list', ['groupField' => 'property.address'])->contain('Properties');
+        $rooms = $this->Leases->Rooms->find('list', ['groupField' => 'property.address', 'conditions'=>['vacant'=>'TRUE']])->contain('Properties');
         $this->set(compact('rooms', 'properties'));  
 
         if ($this->request->is('post')) {
@@ -57,9 +58,12 @@ class TenantsController extends AppController
                 $newUser->role = 'tenant';
                 $newUsersTable->save($newUser);
 
+                $room = $this->Rooms->get($user->room_id);
+                $this->set(compact('room'));
+
                 $leasesTable = TableRegistry::get('Leases');
                 $lease = $leasesTable->newEntity();
-                $lease->property_id = $user->property_id;
+                $lease->property_id = $room->property_id;
                 $lease->room_id = $user->room_id;
                 $lease->student_id = $student->id;
                 //$lease->date_start = $user->date_start['year']."-".$user->date_start['month']."-".$user->date_start['day'];
@@ -81,7 +85,7 @@ class TenantsController extends AppController
                 $macaddressesTable->save($macaddress);
 
                 $this->Flash->success(__('Person Added'));
-                return $this->redirect(['controller' => 'tenants', 'action' => 'index']);
+                return $this->redirect(['controller' => 'tenants', 'action' => 'updaterooms']);
             }
             $this->Flash->error(__('Unable to add the user.'));
         }

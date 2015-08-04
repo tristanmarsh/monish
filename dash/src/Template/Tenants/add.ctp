@@ -85,7 +85,7 @@
            <?= $this->Form->input('phone', array('class' => 'form-control')) ?>
            <?= $this->Form->input('email', array('class' => 'form-control')) ?>
            <?= $this->Form->input('internet_plan', ['options' => ['FREE' => 'FREE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM']]) ?>
-           <?= $this->Form->input('property_id', ['options' => $properties]); ?>
+           
            <?= $this->Form->input('room_id', ['options' => $rooms]); ?>
            <?= $this->form->input('date_start',['id'=>'dateStartPicker']); ?>
            <?= $this->form->input('date_end',['id'=>'dateEndPicker']); ?>
@@ -100,9 +100,10 @@
           ]);
          echo $this->Form->button(__('Cancel'));
          ?>
+         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
-         <div class="input-group">
+         <!-- <div class="input-group">
           <span class="input-group-addon" id="basic-addon1">@</span>
           <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
         </div>
@@ -131,7 +132,7 @@
         <div class="input-group input-group-sm">
           <span class="input-group-addon" id="sizing-addon3">@</span>
           <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon3">
-        </div>
+        </div> -->
 
 
       </div>

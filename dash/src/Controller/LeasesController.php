@@ -79,7 +79,7 @@ class LeasesController extends AppController
                 //Always remember to save
                 $this->Leases->save($lease);
                 $this->Flash->success('The lease has been saved.');
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'tenants', 'action' => 'updaterooms']);
             } else {
                 $this->Flash->error('The lease could not be saved. Please, try again.');
             }

@@ -38,8 +38,6 @@ class RequestsController extends AppController
 
         $elephant = $this->paginate($this->Requests->find('all')->contain('People'));
         $this->set(compact('elephant'));
-
-        $this->Post->virtualFields['first_name'] = 'People.first_name';
     }
 
     public function view($id = null)

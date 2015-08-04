@@ -22,12 +22,14 @@
 
 </div>
 
+<!-- Panel -->
 <div class="panel panel-primary">
     <!-- Default panel contents -->
     <div class="panel-heading">
         <h2 class="panel-title">All Requests</h2>
     </div>
 
+<!-- Table -->
 <div class="table-responsive">
     <table>
         <tr>
@@ -42,52 +44,56 @@
         <!-- Here is where we iterate through our $articles query object, printing out article info -->
 
         <?php foreach ($elephant as $article): ?>
-        <?php if ($article->person_id === $userEntity->person_id OR $user['role'] === 'admin') : ?>
-        
-        <tr>
-            <td>
-                <?= $article->title ?>
-            </td>
-            <td>
-                <?php
-                echo $article->person->first_name;
-                echo " ".$article->person->last_name;
-                ?>
-            </td>
-            <td>
-                <?= $article->category ?>
-            </td>
-            <td>
-                <?= $article->property_address ?>
-            </td>
-            <td>
-                <?= $article->created->format('d/m/y' /*'h:m A'*/) ?>
-            </td>
-            <td>
-             <?php 
-        				if ($article->person_id === $userEntity->person_id OR $user['role'] === 'admin') // If the user owns it, or they are admin, they can see the actions
-        				{
-        					echo $this->Form->postLink(
-                               'Delete',
-                               ['action' => 'delete', $article->id],
-                               ['confirm' => 'Are you sure?']);
-        					echo " "; // this puts a space between Delete and Edit button
-        					echo $this->Html->link('Edit', ['action' => 'edit', $article->id]);
-        				};
-                     ?>
-                 </td>
-             </tr>
-
-         <?php endif ?>
-         
-     <?php endforeach; ?>
- </table>
+            <?php if ($article->person_id === $userEntity->person_id OR $user['role'] === 'admin') : ?>
+                <tr>
+                    <td>
+                        <?= $this->Html->link($article->title, ['action' => 'view', $article->id]) ?>
+                    </td>
+                    <td>
+                        <?php
+                        echo $article->person->first_name;
+                        echo " ".$article->person->last_name;
+                        ?>
+                    </td>
+                    <td>
+                        <?= $article->category ?>
+                    </td>
+                    <td>
+                        <?= $article->property_address ?>
+                    </td>
+                    <td>
+                        <?= $article->created->format('d/m/y' /*'h:m A'*/) ?>
+                    </td>
+                    <td>
+                        <?php 
+            				if ($article->person_id === $userEntity->person_id OR $user['role'] === 'admin') // If the user owns it, or they are admin, they can see the actions
+            				{
+            					echo $this->Form->postLink(
+                                   'Delete',
+                                   ['action' => 'delete', $article->id],
+                                   ['confirm' => 'Are you sure?']);
+            					echo " "; // this puts a space between Delete and Edit button
+            					echo $this->Html->link('Edit', ['action' => 'edit', $article->id]);
+            				};
+                        ?>
+                    </td>
+                </tr>
+            <?php endif ?>
+        <?php endforeach; ?>
+    </table>
 </div></div>
 
 <paginator>
-<?php echo $this->element('paginator'); ?>
+    <?php echo $this->element('paginator'); ?>
 </paginator>
 
+<script>
+    $("table").on("click", "tr", function(e) {
+        if ($(e.target).is("a,input")) // anything else you don't want to trigger the click
+            return;
+        location.href = $(this).find("a").attr("href");
+    });
+</script>
 
 
 

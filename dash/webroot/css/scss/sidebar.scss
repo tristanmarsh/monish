@@ -41,12 +41,11 @@ Since:    3/6/15
 
     .menu-item-link {
       display:block;
-      position:static;
       text-align: center;
     }
   
     .menu-item-label {
-      margin-left:30px;
+      margin-left:10px;
     }
 
     .glyphicon {
@@ -54,20 +53,29 @@ Since:    3/6/15
     }
 
     a {
+      display:block;
       color:#788188;
-      transition:all 100ms ease;
+      transition:all 200ms ease;
+    }
+
+    a.active {
+      color:#D4D9E0;
     }
 
   }
 
+  li:active,
+  li:focus,
   li:hover {
 
-    &>.menu-item-link {
-      color:#BCEEFF;
+    a {
+      color:#D4D9E0;
     }
 
-    &>.menu-item-label {
-      color:#BCEEFF;
+    .menu-item-link {
+    }
+
+    .menu-item-label {
     }
 
   }
@@ -96,40 +104,10 @@ Since:    3/6/15
 
       .menu-item-link {
         display:block;
-        position:absolute;
         text-align: left;
       }
     }
   }
 
 }
-
-
-  
-//   .nav>li:hover>a,
-//   .nav>li:focus>a {
-//     text-decoration: none;
-//     background-color: #111920;
-//     color:#3FBAE4;
-//   }
-
-//   .glyphicon {
-//     color:#fff;
-//     display:block;
-//     position:absolute;
-//     padding:10px;
-//     font-size:30px;
-//   }
-
-//   .nav>li:hover>.glyphicon,
-//   .nav>li:focus>.glyphicon {
-//     color:#76AADB;
-//     z-index:10;
-//   }
-
-// }
-
-// .sidebar li:hover>.glyphicon {
-//   color:#3FBAE4;
-// }
 

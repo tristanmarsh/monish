@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2015 at 04:54 PM
+-- Generation Time: Aug 04, 2015 at 12:11 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `leases` (
   KEY `student_id` (`student_id`),
   KEY `property_id` (`property_id`),
   KEY `property_id_2` (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `leases`
@@ -79,7 +79,10 @@ INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`
 (11, 1, 1, 12, '2015-07-16', '2015-12-11', 300),
 (12, 13, 3, 11, '2015-07-15', '2016-11-23', 230),
 (13, 1, 1, 13, '2015-07-15', '2016-01-21', 500),
-(14, 17, 4, 14, '0000-00-00', '2015-07-09', 450);
+(14, 17, 4, 14, '2015-04-07', '2015-07-09', 450),
+(15, 6, 1, 10, '2015-08-12', '2015-08-03', 200),
+(16, 6, 2, 10, '2015-08-10', '2015-08-06', 222),
+(19, 27, 6, 14, '2015-08-03', '2015-08-06', 123);
 
 -- --------------------------------------------------------
 
@@ -238,19 +241,19 @@ CREATE TABLE IF NOT EXISTS `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
-(1, 1, 'room 1', 'TRUE'),
-(2, 1, 'room 2', 'TRUE'),
+(1, 1, 'room 1', 'FALSE'),
+(2, 1, 'room 2', 'FALSE'),
 (3, 1, 'room 3', 'TRUE'),
 (4, 1, 'room 4', 'TRUE'),
 (5, 1, 'room 5', 'TRUE'),
-(6, 2, 'room 1', 'TRUE'),
+(6, 2, 'room 1', 'FALSE'),
 (7, 2, 'room 2', 'TRUE'),
 (8, 2, 'room 3', 'TRUE'),
 (9, 2, 'room 4', 'TRUE'),
 (10, 2, 'room 5', 'TRUE'),
-(11, 3, 'room 1', 'TRUE'),
+(11, 3, 'room 1', 'FALSE'),
 (12, 3, 'room 2', 'TRUE'),
-(13, 3, 'room 3', 'TRUE'),
+(13, 3, 'room 3', 'FALSE'),
 (14, 3, 'room 4', 'TRUE'),
 (15, 4, 'room 1', 'TRUE'),
 (16, 4, 'room 2', 'TRUE'),
@@ -261,10 +264,10 @@ INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
 (21, 5, 'room 2', 'TRUE'),
 (22, 5, 'room 3', 'TRUE'),
 (23, 5, 'room 4', 'TRUE'),
-(24, 5, 'room 5', 'TRUE'),
+(24, 5, 'room 5', 'FALSE'),
 (25, 6, 'room 1', 'TRUE'),
 (26, 6, 'room 2', 'TRUE'),
-(27, 6, 'room 3', 'TRUE');
+(27, 6, 'room 3', 'FALSE');
 
 -- --------------------------------------------------------
 

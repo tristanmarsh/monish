@@ -163,4 +163,49 @@ class TenantsController extends AppController
 
     }
 
+    public function updaterooms()
+    {
+        $this->loadModel('Rooms');
+        $this->loadModel('Properties');
+        $this->loadModel('Leases');
+
+        $roomlease = $this->Rooms;
+        $this->set(compact('roomlease'));
+
+        $allrooms = $this->Rooms->find('all', ['contain' => ['Properties', 'Leases']]);
+        $this->set(compact('allrooms'));
+
+        foreach ($allrooms as $room){
+            $roomsTable = TableRegistry::get('Rooms');
+            $currentroom = $roomsTable->get($room->id, ['contain'=>'Leases']); 
+            
+            $test = "";
+            $sentinel = true; //true if Never Been Leased
+            if (!empty($currentroom->leases)) {
+                foreach ($currentroom->leases as $leastenddate) {
+                    $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                }
+            }
+            else {
+                $currentroom->vacant = 'TRUE';
+                $sentinel = false;
+            }
+            if ($sentinel) { 
+                $toArray = explode("||", $test);
+                if (max($toArray) > date("Y-m-d")) {
+                    $currentroom->vacant = 'FALSE';
+                } else if (max($toArray) === date("Y-m-d")) {
+                    $currentroom->vacant = 'FALSE';
+                } else if (max($toArray) < date("Y-m-d")) {
+                    $currentroom->vacant = 'TRUE';
+                }
+            }
+
+            $roomsTable->save($currentroom);
+        }
+        $this->Flash->success('Rooms have been updated for today!');    
+        return $this->redirect($this->referer());
+
+    }
+
 }

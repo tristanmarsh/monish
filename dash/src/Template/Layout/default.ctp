@@ -135,8 +135,6 @@ $cakeDescription = 'Monish Dashboard';
 									<li class="visible-xs"><a href="#">Link</a></li>
 								</ul>
 
-
-
 								<ul class="nav navbar-nav navbar-right">
 									
 									<!-- User logged in -->
@@ -160,6 +158,11 @@ $cakeDescription = 'Monish Dashboard';
 
 								</ul>
 
+								<ul class="nav navbar-nav navbar-right">
+									
+									<li><?= $this->Html->link(__('Update Rooms'), ['controller' => 'Tenants', 'action' => 'updaterooms']) ?></li>
+
+								</ul>
 							</div><!-- /.collapse -->
 
 						</div><!-- /.container-fluid -->

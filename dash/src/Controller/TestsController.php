@@ -38,8 +38,61 @@ class TestsController extends AppController
     }
 
     public function modal()
-
     {
+        $this->loadModel('Rooms');
+        $this->loadModel('Properties');
+
+        $room = $this->Rooms->get(1, ['contain' => ['Properties']]);
+        $this->set(compact('room'));
+
+
+
+        $propertyid = $room->property_id;
+        $this->set(compact('propertyid'));
+    }
+
+    public function updaterooms()
+    {
+        $this->loadModel('Rooms');
+        $this->loadModel('Properties');
+        $this->loadModel('Leases');
+
+        $roomlease = $this->Rooms;
+        $this->set(compact('roomlease'));
+
+        $allrooms = $this->Rooms->find('all', ['contain' => ['Properties', 'Leases']]);
+        $this->set(compact('allrooms'));
+
+        foreach ($allrooms as $room){
+            $roomsTable = TableRegistry::get('Rooms');
+            $currentroom = $roomsTable->get($room->id, ['contain'=>'Leases']); 
+            
+            $test = "";
+            $sentinel = true; //true if Never Been Leased
+            if (!empty($currentroom->leases)) {
+                foreach ($currentroom->leases as $leastenddate) {
+                    $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                }
+            }
+            else {
+                $currentroom->vacant = 'TRUE';
+                $sentinel = false;
+            }
+            if ($sentinel) { 
+                $toArray = explode("||", $test);
+                if (max($toArray) > date("Y-m-d")) {
+                    $currentroom->vacant = 'FALSE';
+                } else if (max($toArray) === date("Y-m-d")) {
+                    $currentroom->vacant = 'FALSE';
+                } else if (max($toArray) < date("Y-m-d")) {
+                    $currentroom->vacant = 'TRUE';
+                }
+            }
+
+            $roomsTable->save($currentroom);
+        }
+        $this->Flash->success('Refreshed!');    
+        return $this->redirect(['action' => 'index']);
 
     }
 

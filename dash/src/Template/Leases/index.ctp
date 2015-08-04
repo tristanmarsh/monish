@@ -48,7 +48,6 @@
         <td><?= h($lease->date_end->format('Y M d')) ?></td>
         <td><?= $this->Number->currency($lease->weekly_price) ?></td>
         <td class="actions">
-          <?= $this->Html->link(__('View'), ['action' => 'view', $lease->id]) ?>
           <?= $this->Html->link(__('Edit'), ['action' => 'edit', $lease->id]) ?>
           <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $lease->id], ['confirm' => __('Are you sure you want to delete # {0}?', $lease->id)]) ?>
         </td>

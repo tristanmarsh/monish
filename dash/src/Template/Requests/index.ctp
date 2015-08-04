@@ -82,10 +82,11 @@
          
      <?php endforeach; ?>
  </table>
+</div></div>
 
-           <paginator>
-            <?php echo $this->element('paginator'); ?>
-          </paginator>
+<paginator>
+<?php echo $this->element('paginator'); ?>
+</paginator>
 
 
 

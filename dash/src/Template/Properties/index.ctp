@@ -29,7 +29,13 @@
 <div class="clearfix">
 <div class="row">
 
+
+
+
+
 <?php foreach ($properties as $property): ?>
+
+    <?php $variable ="hello" ?>
 
 <div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-3">  
 
@@ -37,9 +43,15 @@
         <!-- Default panel contents -->
         <div class="panel-heading"> 
             <h2 class="panel-title text-center">
-                <?php
+
+                
+                    <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-remote="<?= $variable?>">
+              <?php
                     echo $property->address;
                 ?>
+                </button>
+
             </h2>
         </div>
 
@@ -95,6 +107,27 @@
 <?php endforeach; ?>
 
 </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+      
+      </div>
+      <div class="modal-footer">
+
+
+        <button type="button" href="http://localhost/monish/dash/properties/add" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
 
   <script>

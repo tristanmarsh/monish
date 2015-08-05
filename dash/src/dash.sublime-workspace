@@ -180,6 +180,7 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sidebar.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/animate.min.css",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/error.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tests/index.ctp",
@@ -217,7 +218,6 @@
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/CHANGELOG.txt",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/languages/en_EN.po",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/dashboard.css",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sidebar.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/footer.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/xs.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sm.scss",
@@ -337,6 +337,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"width",
 			"element",
 			"margin",
 			"heading",
@@ -463,8 +464,7 @@
 			"sidebar",
 			"normal",
 			"30px",
-			"<div class=\"price\">$500,000</div>",
-			"<h2>"
+			"<div class=\"price\">$500,000</div>"
 		],
 		"highlight": true,
 		"in_selection": false,

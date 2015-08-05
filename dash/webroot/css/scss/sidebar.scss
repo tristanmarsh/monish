@@ -16,7 +16,7 @@ Since:    3/6/15
 }
 
 .sidebar {
-  width:200px;
+  width:60px;
   position: fixed;
   left:0;
   padding-left:0;
@@ -151,13 +151,14 @@ Since:    3/6/15
   // Inactive
   .sidebar {
     transform:translate3D(-100%,0,0);
-    width:250px;
     padding-top:51px;
+    width:60px;
   }  
 
   // Active
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
+    width:250px;
   }
   
   .navigation-active .content {

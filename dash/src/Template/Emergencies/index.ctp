@@ -1,8 +1,39 @@
 <h1>Manage Emergency Contacts</h1>
 
-    <?= $this->Html->link(__('Add Emergency Contact'), ['action' => 'add']) ?>
+<div class="panel panel-default clearfix">
+    
+    <div class="panel-body">
+        
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+        </ul>
 
-    <table cellpadding="0" cellspacing="0">
+    </div>
+
+    <div class="panel-footer">
+
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><a href="#">Imagine</a></li>
+            <li role="presentation"><a href="#">Secondary</a></li>
+            <li role="presentation"><a href="#">Buttons</a></li>
+        </ul>
+
+    </div>
+
+</div>
+
+
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h2 class="panel-title">All Emergencies</h2>
+</div>
+
+
+  <!-- Table -->
+    <div class="table-responsive">
+        <table cellpadding="0" cellspacing="0" class="">
     <thead>
         <tr>
             <th><?= $this->Paginator->sort('first_name') ?></th>
@@ -15,7 +46,9 @@
     <tbody>
     <?php foreach ($query as $emergency): ?>
         <tr>
-            <td><?= h($emergency->first_name) ?></td>
+            <td>
+                <?= h($emergency->first_name) ?>
+            </td>
             <td><?= h($emergency->last_name) ?></td>
             <td><?= h($emergency->phone) ?></td>
             <td><?= h($emergency->email) ?></td>
@@ -34,12 +67,8 @@
         
 
 
-<ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-        </ul>
-        <p><?= $this->Paginator->counter() ?></p>
-    </div>
+          <paginator>
+            <?php echo $this->element('paginator'); ?>
+          </paginator>
 
 

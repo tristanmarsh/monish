@@ -18,11 +18,11 @@
 			        <?= $this->Flash->render('auth') ?>
 			        <?= $this->Form->create() ?>
 			        <fieldset>
-			            <legend><?= __('Please enter your username and password') ?></legend>
-			            <?= $this->Form->input('username') ?>
-			            <?= $this->Form->input('password') ?>
+			            <legend><?= __('Please enter your username and password', array('class' => 'form-control')) ?></legend>
+			            <?= $this->Form->input('username', array('class' => 'form-control')) ?>
+			            <?= $this->Form->input('password', array('class' => 'form-control')) ?>
 			        </fieldset>
-			        <?= $this->Form->button(__('Login')); ?>
+			        <?= $this->Form->button(__('Login'), ['class' => 'form-control btn btn-success']); ?>
 			        <?= $this->Form->end() ?>
 			      
 			    </div>

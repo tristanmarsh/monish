@@ -44,7 +44,7 @@
             echo $this->Form->input('room_name', array('class' => 'form-control'));
             echo $this->Form->input('property_id', ['options' => $properties,'class' => 'form-control']);
             echo $this->Form->input('vacant', [
-                'options' => ['TRUE' => 'Yes', 'FALSE' => 'No'],['class' => 'form-control']
+                'options' => ['TRUE' => 'Yes', 'FALSE' => 'No'], 'class' => 'form-control'
             ]);
         ?>
     </fieldset>

@@ -42,17 +42,16 @@
         <?php
             echo $this->Form->input('address', array('class' => 'form-control'));
             echo $this->Form->input('number_rooms', array('class' => 'form-control'));
-            echo $this->Form->input('bathrooms', [
-                'options' => ['0' => 'None', '1', '2', '3', '4', 'class' => 'form-control']
+            echo $this->Form->input('bathrooms', ['options' => ['0' => 'None', '1', '2', '3', '4'], 'class' => 'form-control'
             ]);
             echo $this->Form->input('kitchens', [
-                'options' => ['0' => 'None', '1', '2', 'class' => 'form-control']
+                'options' => ['0' => 'None', '1', '2'], 'class' => 'form-control'
             ]);
             echo $this->Form->input('storeys', [
-                'options' => ['1', '2', '3', 'class' => 'form-control']
+                'options' => ['1', '2', '3'], 'class' => 'form-control'
             ]);
             echo $this->Form->input('garage', [
-                'options' => ['TRUE' => 'Yes', 'FALSE' => 'No', 'class' => 'form-control']
+                'options' => ['TRUE' => 'Yes', 'FALSE' => 'No'], 'class' => 'form-control'
             ]);
         ?>
     </fieldset>

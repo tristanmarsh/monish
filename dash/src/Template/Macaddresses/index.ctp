@@ -10,29 +10,32 @@
 
     <h1>Registered Devices</h1>
 
-    <div class="panel clearfix">
-
-        <div class="container-fluid">
-
-            <div class="row">
-            
-                <p>
-                    Register the MAC address of your devices to access your internet connecton.<br>
-                    <a class="btn btn-default float-right" href="http://www.wikihow.com/Find-the-MAC-Address-of-Your-Computer">Help me find my MAC Address</a>
-                </p>
-
-                <hr>
-            
-            </div>
-
-        </div>
-
+<div class="panel panel-default clearfix">
+    
+    <div class="panel-body">
+        
         <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('Edit Devices', ['action' => 'edit', $personEntity->macaddress->id]); ?></li>
+            <li role="presentation" class="active">
+                <?= $this->Html->link('Update Devices', ['action' => 'edit', $personEntity->macaddress->id]) ?>
+            </li>
+            <li role="presentation" class="active">
+                <a class="btn btn-default float-right" href="http://www.wikihow.com/Find-the-MAC-Address-of-Your-Computer">Help me find my MAC Address</a>
+            </li>
         </ul>
 
     </div>
+
+    <div class="panel-footer">
+
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><a href="#">Imagine</a></li>
+            <li role="presentation"><a href="#">Secondary</a></li>
+            <li role="presentation"><a href="#">Buttons</a></li>
+        </ul>
+
+    </div>
+
+</div>
 
     
 

@@ -1,6 +1,6 @@
 <!-- File: src/Template/Articles/edit.ctp -->
 
-<h1>Update Request</h1>
+<h1>Update Devices</h1>
 
 <style type="text/css" >
 

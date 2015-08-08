@@ -18,7 +18,7 @@
 			        <?= $this->Flash->render('auth') ?>
 			        <?= $this->Form->create() ?>
 			        <fieldset>
-			            <legend><?= __('Please enter your username and password', array('class' => 'form-control')) ?></legend>
+			            <legend><?= __('Please enter your username and password',array('class' => 'form-control')) ?></legend>
 			            <?= $this->Form->input('username', array('class' => 'form-control')) ?>
 			            <?= $this->Form->input('password', array('class' => 'form-control')) ?>
 			        </fieldset>

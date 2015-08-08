@@ -13,6 +13,7 @@
 					<div class="panel clearfix">
 						<h2 class="text-center">Tenants</h2>
 						<hr>
+						<div class="panel-body">
 						<ul class="nav nav-pills pull-left">
 							<li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
 							<li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
@@ -26,13 +27,14 @@
 								</span>
 							</div><!-- /input-group -->
 						</form>
-
+					</div>
 					</div>
 				</div>
 				<div class="col-sm-12 col-md-4">
 					<div class="panel clearfix">
 						<h2 class="text-center">Requests</h2>
 						<hr>
+						<div class="panel-body">
 						<ul class="nav nav-pills pull-left">
 							<li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
 							<li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
@@ -46,13 +48,14 @@
 								</span>
 							</div><!-- /input-group -->
 						</form>
-
+						</div>
 					</div>
 				</div>
 				<div class="col-sm-12 col-md-4">
 					<div class="panel clearfix">
 						<h2 class="text-center">Properties</h2>
 						<hr>
+						<div class="panel-body">
 						<ul class="nav nav-pills pull-left">
 							<li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
 							<li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
@@ -66,7 +69,7 @@
 								</span>
 							</div><!-- /input-group -->
 						</form>
-
+						</div>
 					</div>
 				</div>
 			</div>

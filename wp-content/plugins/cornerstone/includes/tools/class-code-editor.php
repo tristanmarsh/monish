@@ -18,9 +18,9 @@ class Cornerstone_Code_Editor {
   }
 
   public function register() {
-    wp_register_style( 'cs-code-editor-style' , CS()->url() . '/assets/css/admin/code-editor.css', array(), CS()->version() );
+    wp_register_style( 'cs-code-editor-style' , CS()->url( 'assets/css/admin/code-editor.css' ), array(), CS()->version() );
 
-    wp_register_script( 'cs-code-editor', CS()->url() . '/assets/js/dist/admin/code-editor' . CS()->common()->jsSuffix(), array( 'jquery' ), CS()->version(), true );
+    wp_register_script( 'cs-code-editor', CS()->url( 'assets/js/dist/admin/code-editor' . CS()->common()->jsSuffix() ), array( 'jquery' ), CS()->version(), true );
     wp_localize_script( 'cs-code-editor', 'csCodeEditor', array() );
 
   }

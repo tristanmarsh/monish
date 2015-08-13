@@ -10,7 +10,8 @@
 //   01. Functions, Variables, and Mixins
 //   02. Shortcodes
 //   03. Components
-//   04. Utilities
+//   04. Animations
+//   05. Utilities
 // =============================================================================
 
 // Functions, Variables, and Mixins
@@ -41,6 +42,15 @@
 }
 
 @import "site/font-awesome";
+
+
+
+// Animations
+// =============================================================================
+
+.x-section {
+  @import "site/animate";
+}
 
 
 

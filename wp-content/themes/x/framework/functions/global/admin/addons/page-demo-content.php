@@ -178,7 +178,7 @@ function x_addons_demo_content_output() {
             }, 1500);
 
             setTimeout(function() {
-              alertMessage.html('<span>You demo content is being setup.</span>');
+              alertMessage.html('<span>Your demo content is being setup.</span>');
               $('#x-addons-demo-content-submit').removeAttr('disabled');
             }, 2000);
 

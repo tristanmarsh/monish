@@ -99,7 +99,7 @@ class Cornerstone_Builder {
 
 		wp_register_style( 'cs-lato', '//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700&subset=latin%2Clatin-ext' );
 		wp_register_style( 'cs-dashicons', "/wp-includes/css/dashicons.min.css" );
-		wp_enqueue_style( 'cs-styles', CS()->url() . 'assets/css/admin/builder.css', array( 'open-sans', 'cs-lato', 'cs-dashicons' ), CS()->version() );
+		wp_enqueue_style( 'cs-styles', CS()->url( 'assets/css/admin/builder.css' ), array( 'open-sans', 'cs-lato', 'cs-dashicons' ), CS()->version() );
 
 	}
 
@@ -111,12 +111,12 @@ class Cornerstone_Builder {
 
 
 
-		wp_register_script( 'cs-code-editor', CS()->url() . '/assets/js/dist/admin/code-editor' . CS()->common()->jsSuffix(), array( 'jquery' ), CS()->version(), true );
+		wp_register_script( 'cs-code-editor', CS()->url( 'assets/js/dist/admin/code-editor' . CS()->common()->jsSuffix() ), array( 'jquery' ), CS()->version(), true );
 
 		// Register
 		wp_register_script(
 			'cs-builder',
-			CS()->url() . 'assets/js/dist/admin/builder' . CS()->common()->jsSuffix(),
+			CS()->url( 'assets/js/dist/admin/builder' . CS()->common()->jsSuffix() ),
 			array( 'backbone' ),
 			CS()->version(),
 			true
@@ -138,7 +138,7 @@ class Cornerstone_Builder {
 		$settings = CS()->settings();
 
 		return wp_parse_args( array(
-				'strings' => include( CS()->path() . 'includes/builder/strings-builder.php' ),
+				'strings' => include( CS()->path( 'includes/builder/strings-builder.php' ) ),
 				'isPreview' => ( $this->isPreview() ) ? 'true' : 'false',
 				'post' => $this->getPostData(),
 				'elementLibrarySections' => CS()->elements()->sections(),
@@ -156,6 +156,7 @@ class Cornerstone_Builder {
 				'savedLast' => get_the_modified_time('U'),
 				'visualEnhancements' => ($settings['visual_enhancements']) ? 'true' : 'false',
 				'isRTL' => is_rtl() ? 'true' : 'false',
+				'keybindings' => apply_filters( 'cornerstone_keybindings', include( CS()->path( 'includes/builder/keybindings.php' ) ) ),
 			), apply_filters( 'cornerstone_config_data', array() )
 		);
 
@@ -225,6 +226,9 @@ class Cornerstone_Builder {
 		remove_all_filters('mce_buttons');
 		remove_all_filters('tiny_mce_before_init');
 		add_filter( 'tiny_mce_before_init', '_mce_set_direction' );
+
+		// Cornerstone's editor is modified, so we will allow visual editing for all users.
+		add_filter( 'user_can_richedit', '__return_true' );
 
 		if( apply_filters( 'cornerstone_use_br_tags', false ) ) {
 			add_filter('tiny_mce_before_init', array( $this, 'allowBrTags' ) );

@@ -23,6 +23,8 @@
 //   14. Text Type
 //   15. Card
 //   16. Creative CTA
+//   17. Feature Box
+//   18. Feature List
 // =============================================================================
 
 // Container
@@ -493,4 +495,231 @@
   &.slide-left   { &:hover { > span.text { @include translate(-80%, 0);  } } }
   &.slide-right  { &:hover { > span.text { @include translate(80%, 0);   } } }
   &.slide-bottom { &:hover { > span.text { @include translate(0, 150%);  } } }
+}
+
+
+
+// Feature Box
+// =============================================================================
+
+//
+// Base.
+//
+
+.x-feature-box {
+  position: relative;
+  margin: 0 auto $baseMargin;
+}
+
+
+//
+// Graphic.
+//
+
+.x-feature-box-graphic {
+  display: inline-block;
+  margin: 0 0 10px;
+
+  i,
+  img {
+    &.rounded { border-radius: 0.15em; }
+    &.circle  { border-radius: 100em;  }
+  }
+
+  i {
+    display: block;
+    position: relative;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+
+    &:before {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1em;
+      margin-top: -0.5em;
+      font-size: 0.395em;
+      line-height: 1;
+    }
+  }
+
+  img {
+    display: block;
+  }
+}
+
+.x-feature-box-graphic-outer,
+.x-feature-box-graphic-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.x-feature-box-graphic-inner {
+  width: 1em;
+}
+
+
+//
+// Graphic - shapes.
+//
+
+.x-feature-box-graphic-inner.hexagon {
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    border: 0 solid transparent;
+    border-left-width: 0.5em;
+    border-right-width: 0.5em;
+  }
+
+  &:before {
+    border-bottom-width: 0.285em;
+    border-bottom-color: inherit;
+  }
+
+  &:after {
+    border-top-width: 0.285em;
+    border-top-color: inherit;
+  }
+
+  i {
+    height: 0.6em;
+  }
+}
+
+.x-feature-box-graphic-inner.badge {
+  -webkit-transform: scale(0.725) rotate(15deg);
+      -ms-transform: scale(0.725) rotate(15deg);
+          transform: scale(0.725) rotate(15deg);
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0.5em solid;
+    border-color: inherit;
+    z-index: 1;
+  }
+
+  &:before {
+    @include rotate(30deg);
+  }
+
+  &:after {
+    @include rotate(60deg);
+  }
+
+  i {
+    position: relative;
+    z-index: 2;
+
+    &:before {
+      -webkit-transform: scale(1.275) rotate(-15deg);
+          -ms-transform: scale(1.275) rotate(-15deg);
+              transform: scale(1.275) rotate(-15deg);
+    }
+  }
+}
+
+
+//
+// Connector.
+//
+
+.x-feature-box-connector {
+  display: block;
+  position: absolute;
+  width: 0;
+  margin: 0 auto;
+  z-index: 1;
+
+  &.full  { height: 100%; top: 0.5em; }
+  &.upper { height: 50%;  top: 0;     }
+  &.lower { height: 50%;  top: 50%;   }
+}
+
+
+//
+// Content.
+//
+
+.x-feature-box-title {
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+
+.x-feature-box-text {
+  margin: 8px 0 0;
+}
+
+
+
+// Feature List
+// =============================================================================
+
+.x-feature-list {
+  margin: 0 0 $baseMargin;
+  padding: 1px 0;
+  list-style: none;
+  counter-reset: xFeatureListNum;
+
+
+  //
+  // Child feature boxes.
+  //
+
+  .x-feature-box {
+    margin-bottom: 0;
+    counter-increment: xFeatureListNum;
+
+    &.top-text {
+      > div {
+        padding: 0 0 $baseMargin;
+      }
+
+      &:last-child {
+        > div {
+          padding-bottom: 0;
+        }
+
+        .full {
+          display: none;
+        }
+      }
+    }
+
+    &.middle-text {
+      > div {
+        padding: ($baseMargin / 2) 0;
+      }
+
+      &:first-child { margin-top:    -($baseMargin / 2); }
+      &:last-child  { margin-bottom: -($baseMargin / 2); }
+
+      &:first-child .upper,
+      &:last-child .lower {
+        display: none;
+      }
+    }
+  }
+
+
+  //
+  // Numbers.
+  //
+
+  .x-feature-box-graphic {
+    i.number:before {
+      content: counter(xFeatureListNum);
+      font-style: normal;
+    }
+  }
 }

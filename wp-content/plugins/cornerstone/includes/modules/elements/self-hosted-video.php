@@ -129,7 +129,7 @@ class CS_Self_Hosted_Video extends Cornerstone_Element_Base {
 
     extract( $atts );
 
-    $shortcode = "[x_video_player type=\"$aspect_ratio\" src=\"$src\" hide_controls=\"$hide_controls\" autoplay=\"$autoplay\" no_container=\"$no_container\" preload=\"$preload\" advanced_controls=\"$advanced_controls\" muted=\"$muted\"{$extra}]";
+    $shortcode = "[x_video_player type=\"$aspect_ratio\" src=\"$src\" hide_controls=\"$hide_controls\" autoplay=\"$autoplay\" no_container=\"$no_container\" preload=\"$preload\" advanced_controls=\"$advanced_controls\" muted=\"$muted\"{$extra} poster=\"{$poster}\"]";
 
     return $shortcode;
 

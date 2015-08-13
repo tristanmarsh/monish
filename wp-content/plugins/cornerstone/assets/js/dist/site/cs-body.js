@@ -3776,13 +3776,14 @@ xData.api.map('column', function( params ) {
     $(this).waypoint(function() {
 
       var options = { opacity: '1' };
+      var duration = params.duration || 750;
 
       if      ( params.animation === 'in-from-top' )    { options.top = '0';    }
       else if ( params.animation === 'in-from-left' )   { options.left = '0';   }
       else if ( params.animation === 'in-from-right' )  { options.right = '0';  }
       else if ( params.animation === 'in-from-bottom' ) { options.bottom = '0'; }
 
-      $(this).animate(options, 750, 'easeOutExpo');
+      $(this).animate( options, duration, 'easeOutExpo' );
 
     }, { offset : '65%', triggerOnce : true });
 
@@ -3944,6 +3945,156 @@ jQuery(document).ready(function($) {
 
 });
 // =============================================================================
+// FEATURE.JS
+// -----------------------------------------------------------------------------
+// Shortcode data attribute API information.
+// =============================================================================
+
+// =============================================================================
+// TABLE OF CONTENTS
+// -----------------------------------------------------------------------------
+//   01. Feature Box
+//   02. Feature List
+//   03. Helper
+// =============================================================================
+
+// Feature Box
+// =============================================================================
+
+xData.api.map('feature_box', function( params ) {
+
+  //
+  // Variables.
+  //
+
+  var element = this;
+
+
+  //
+  // Graphic animation.
+  //
+
+  if ( params.child !== true && params.graphicAnimation !== 'none' ) {
+
+    $(element).waypoint(function() {
+
+      setTimeout(function() {
+
+        var $gTarget   = $(element).find('.x-feature-box-graphic-outer');
+        var gAnimation = 'animated ' + params.graphicAnimation;
+
+        animationHelper( $gTarget, gAnimation );
+
+      }, params.graphicAnimationDelay);
+
+    }, { offset : params.graphicAnimationOffset + '%', triggerOnce : true });
+
+  }
+
+});
+
+
+
+// Feature List
+// =============================================================================
+
+xData.api.map('feature_list', function( params ) {
+
+  //
+  // Variables.
+  //
+
+  var element     = this;
+  var childParams = $(element).children().first().data('x-params');
+  var counter     = 0;
+
+
+  //
+  // Animations.
+  //
+
+  if ( childParams.graphicAnimation !== 'none' || childParams.connectorAnimation !== 'none' ) {
+
+    $(element).waypoint(function() {
+      setTimeout(function() {
+
+        $(element).children('li').each(function() {
+
+          var $li = $(this);
+
+
+          //
+          // Graphic.
+          //
+
+          if ( childParams.graphicAnimation !== 'none' ) {
+
+            var $gTarget   = $li.find('.x-feature-box-graphic-outer');
+            var gAnimation = 'animated ' + childParams.graphicAnimation;
+
+            animationHelper( $gTarget, gAnimation, counter++, params.animationDelayBetween );
+
+          }
+
+
+          //
+          // Connector.
+          //
+
+          if ( childParams.connectorAnimation !== 'none' ) {
+
+            var cAnimation = 'animated ' + childParams.connectorAnimation;
+
+            if ( childParams.alignV === 'middle' ) {
+
+              var $lTarget = $li.children('.lower');
+              var $uTarget = $li.next().children('.upper');
+
+              animationHelper( $lTarget, cAnimation, counter, params.animationDelayBetween );
+              animationHelper( $uTarget, cAnimation, counter++, params.animationDelayBetween );
+
+            } else {
+
+              var $fTarget = $li.children('.full');
+
+              animationHelper( $fTarget, cAnimation, counter++, params.animationDelayBetween );
+
+            }
+
+          }
+
+        });
+
+      }, params.animationDelayInitial);
+    }, { offset : params.animationOffset + '%', triggerOnce : true });
+
+  }
+
+});
+
+
+
+// Helper
+// =============================================================================
+
+function animationHelper( target, targetAnimation, i, msDelay ) {
+
+  i       = ( typeof i       === 'undefined' ) ? 0 : i;
+  msDelay = ( typeof msDelay === 'undefined' ) ? 0 : msDelay;
+
+  var theDelay     = i * msDelay;
+  var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+
+  target.delay(theDelay).queue(function(){
+
+    target.removeClass('animated-hide').addClass(targetAnimation).one(animationEnd, function() {
+      target.removeClass(targetAnimation);
+    }).dequeue();
+
+  });
+
+}
+// =============================================================================
 // GOOGLE-MAPS.JS
 // -----------------------------------------------------------------------------
 // Shortcode data attribute API information.
@@ -4091,6 +4242,8 @@ $('.x-widgetbar').on('shown.bs.collapse', function() {
 // =============================================================================
 
 xData.api.map('lightbox', function( params ) {
+
+  if ( params.disable || xData.isPreview ) return;
 
   var options = {
     skin    : 'light',

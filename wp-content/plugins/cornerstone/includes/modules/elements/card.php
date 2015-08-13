@@ -91,7 +91,7 @@ class CS_Card extends Cornerstone_Element_Base {
         'defaultValue' => '#2772a4',
         'options'      => array(
           'condition' => array(
-            '!front_border_style' => 'none',
+            'front_border_style:not' => 'none',
           )
         )
       ),
@@ -100,7 +100,7 @@ class CS_Card extends Cornerstone_Element_Base {
         'defaultValue' => array( '8px', '8px', '8px', '8px', 'linked' ),
         'options'      => array(
           'condition' => array(
-            '!front_border_style' => 'none',
+            'front_border_style:not' => 'none',
           )
         )
       )
@@ -252,7 +252,7 @@ class CS_Card extends Cornerstone_Element_Base {
         'defaultValue' => '#744288',
         'options'      => array(
           'condition' => array(
-            '!back_border_style' => 'none',
+            'back_border_style:not' => 'none',
           )
         )
       ),
@@ -261,7 +261,7 @@ class CS_Card extends Cornerstone_Element_Base {
         'defaultValue' => array( '8px', '8px', '8px', '8px', 'linked' ),
         'options'      => array(
           'condition' => array(
-            '!back_border_style' => 'none',
+            'back_border_style:not' => 'none',
           )
         )
       )

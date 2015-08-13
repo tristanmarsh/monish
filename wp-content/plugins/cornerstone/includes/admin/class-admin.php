@@ -44,9 +44,9 @@ class Cornerstone_Admin {
 	 */
 	public function enqueue( $hook ) {
 
-		wp_enqueue_style( 'cornerstone-admin-css', CS()->url() . '/assets/css/admin/dashboard.css', array('wp-color-picker'), CS()->version() );
+		wp_enqueue_style( 'cornerstone-admin-css', CS()->url( 'assets/css/admin/dashboard.css' ), array('wp-color-picker'), CS()->version() );
 
-    wp_register_script( 'cs-admin-js', CS()->url() . '/assets/js/dist/admin/dashboard' . CS()->common()->jsSuffix() , array( 'jquery', 'wp-color-picker', 'postbox' ), CS()->version(), true );
+    wp_register_script( 'cs-admin-js', CS()->url( 'assets/js/dist/admin/dashboard' . CS()->common()->jsSuffix() ) , array( 'jquery', 'wp-color-picker', 'postbox' ), CS()->version(), true );
 
     ob_start();
     include( CS()->path() . 'includes/admin/editor-tab.php' );
@@ -157,7 +157,7 @@ class Cornerstone_Admin {
 	 */
 	public function addToolbarEditLink() {
 
-		if ( is_singular() && CS()->common()->isPostTypeAllowed() )  {
+		if ( is_singular() && CS()->common()->isPostTypeAllowed() && $this->usesCornerstone() )  {
 
 			global $wp_admin_bar;
 

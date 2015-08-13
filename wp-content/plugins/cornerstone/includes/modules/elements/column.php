@@ -80,6 +80,19 @@ class CS_Column extends Cornerstone_Element_Base {
       )
     );
 
+    $this->addControl(
+      'fade_duration',
+      'text',
+      __( 'Duration', csl18n() ),
+      __( 'Determines how long the fade effect will be.', csl18n() ),
+      '750',
+      array(
+        'condition' => array(
+          'fade' => true
+        )
+      )
+    );
+
   }
 
   public function render( $atts ) {
@@ -88,6 +101,9 @@ class CS_Column extends Cornerstone_Element_Base {
 
     if ( $fade == 'true' ) {
       $fade = ' fade="' . $fade . '" fade_animation="' . $fade_animation . '" fade_animation_offset="' . $fade_animation_offset . '"';
+      if ( $fade_duration != '750' ) {
+        $fade .= " fade_duration=\"{$fade_duration}\"";
+      }
     } else {
       $fade = '';
     }

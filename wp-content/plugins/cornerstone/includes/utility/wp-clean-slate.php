@@ -43,7 +43,7 @@ class WP_Clean_Slate {
 			'injectTemplate' => true, // Set false if you are filtering template_include yourself
 			'removejQueryMigrate' => false, // We have full control, so we can probaly be sure we're using up to date jQuery APIs
 			'mediaTemplates' => true,
-			'resetFooter' => false,
+			'resetFooter' => true,
 			'showAdminBar' => false
 		));
 
@@ -79,10 +79,6 @@ class WP_Clean_Slate {
 		remove_all_actions( 'wp_print_styles' );
 		remove_all_actions( 'wp_print_head_scripts' );
 
-
-		if ($this->options['resetFooter'])
-			add_action( 'wp_footer', array( $this, 'resetFooter'), -999999 );
-
 		// Add back WP native actions that we need
 		add_action( 'wp_head', 'wp_enqueue_scripts', 1 );
 		add_action( 'wp_head', 'wp_print_styles', 8 );
@@ -97,7 +93,7 @@ class WP_Clean_Slate {
 		}
 
 		// Strip all scripts and styles
-		add_action( 'wp_enqueue_scripts', array( $this, 'reset' ), 999999 );
+		add_action( 'wp_head', array( $this, 'stripEnqueues' ), -1 );
 
 	}
 
@@ -126,6 +122,9 @@ class WP_Clean_Slate {
 	 * @return none
 	 */
 	public function renderFooter() {
+		if ($this->options['resetFooter']) {
+			$this->resetFooter();
+		}
 		wp_footer(); do_action( 'wp_clean_slate_footer' );?></body></html><?php
 	}
 
@@ -165,9 +164,20 @@ class WP_Clean_Slate {
 	}
 
 	/**
-	 * Reset the style and script registries
+	 * Remove all enqueue actions as early as possible
 	 */
-	public function reset() {
+	public function stripEnqueues() {
+
+		remove_all_actions( 'wp_enqueue_scripts' );
+		add_action( 'wp_enqueue_scripts', array( $this, 'resetEnqueues' ), 999999 );
+
+	}
+
+	/**
+	 * Reset the style and script registries in case anything is still registered
+	 *
+	 */
+	public function resetEnqueues() {
 
 		global $wp_styles;
 		global $wp_scripts;
@@ -192,7 +202,6 @@ class WP_Clean_Slate {
 			add_action( 'wp_footer', 'wp_print_media_templates' );
 		}
 
-		do_action( 'wp_footer' );
 	}
 
 	/**

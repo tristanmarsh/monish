@@ -153,11 +153,11 @@ class CS_Section extends Cornerstone_Element_Base {
 
     switch ( $bg_type ) {
       case 'video' :
-        $bg = ' bg_video="' . $bg_video . '" bg_video_poster="' . $bg_video_poster . '"';
+        $bg = ' bg_video="' . $bg_video . '" bg_video_poster="' . $bg_video_poster . '" bg_color="' . $bg_color . '"';
         break;
       case 'image' :
         $bg  = ' parallax="' . $parallax . '"';
-        $bg .= ( $bg_pattern_toggle == 'true' ) ? ' bg_pattern="' . $bg_image . '"' : ' bg_image="' . $bg_image . '"';
+        $bg .= ( $bg_pattern_toggle == 'true' ) ? ' bg_pattern="' . $bg_image . '"' : ' bg_image="' . $bg_image . '" bg_color="' . $bg_color . '"';
         break;
       case 'color' :
         $bg = ' bg_color="' . $bg_color . '"';

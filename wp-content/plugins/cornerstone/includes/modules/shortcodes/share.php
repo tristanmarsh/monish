@@ -21,9 +21,12 @@ function x_shortcode_share( $atts ) {
   $share_url        = urlencode( get_permalink() );
   $share_title      = urlencode( get_the_title() );
   $share_source     = urlencode( get_bloginfo( 'name' ) );
-  $share_content    = urlencode( get_the_excerpt() );
   $share_image_info = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
   $share_image      = ( function_exists( 'x_get_featured_image_with_fallback_url' ) ) ? urlencode( x_get_featured_image_with_fallback_url() ) : urlencode( $share_image_info[0] );
+
+  if ( $linkedin    == 'true' ) {
+    $share_content    = urlencode( cs_get_raw_excerpt() );
+  }
 
   $tooltip_attr = cs_generate_data_attributes_extra( 'tooltip', 'hover', 'bottom' );
 

@@ -1,4 +1,4 @@
-require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.CS_codeEditor = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 // Load Modes
 require('codemirror/mode/xml/xml');
 require('codemirror/mode/htmlmixed/htmlmixed');
@@ -649,6 +649,7 @@ require('./jquery.cs-code-editor');
         cm.replaceSelections(sels, "around");
       } else if (type == "both") {
         cm.replaceSelection(left + right, null);
+        cm.triggerElectric(left + right);
         cm.execCommand("goCharLeft");
       } else if (type == "addFour") {
         cm.replaceSelection(left + left + left + left, "before");
@@ -2151,7 +2152,7 @@ require('./jquery.cs-code-editor');
     if (!completion.options.hint) return;
 
     CodeMirror.signal(this, "startCompletion", this);
-    completion.update();
+    completion.update(true);
   });
 
   function Completion(cm, options) {
@@ -2179,6 +2180,7 @@ require('./jquery.cs-code-editor');
       this.tick = null;
       this.cm.off("cursorActivity", this.activityFunc);
 
+      if (this.widget && this.data) CodeMirror.signal(this.data, "close");
       if (this.widget) this.widget.close();
       CodeMirror.signal(this.cm, "endCompletion", this.cm);
     },
@@ -2194,15 +2196,6 @@ require('./jquery.cs-code-editor');
                                 completion.to || data.to, "complete");
       CodeMirror.signal(data, "pick", completion);
       this.close();
-    },
-
-    showHints: function(data) {
-      if (!data || !data.list.length || !this.active()) return this.close();
-
-      if (this.options.completeSingle && data.list.length == 1)
-        this.pick(data, 0);
-      else
-        this.showWidget(data);
     },
 
     cursorActivity: function() {
@@ -2223,33 +2216,32 @@ require('./jquery.cs-code-editor');
       }
     },
 
-    update: function() {
+    update: function(first) {
       if (this.tick == null) return;
       if (this.data) CodeMirror.signal(this.data, "update");
       if (!this.options.hint.async) {
-        this.finishUpdate(this.options.hint(this.cm, this.options), myTick);
+        this.finishUpdate(this.options.hint(this.cm, this.options), first);
       } else {
         var myTick = ++this.tick, self = this;
         this.options.hint(this.cm, function(data) {
-          if (self.tick == myTick) self.finishUpdate(data);
+          if (self.tick == myTick) self.finishUpdate(data, first);
         }, this.options);
       }
     },
 
-    finishUpdate: function(data) {
+    finishUpdate: function(data, first) {
       this.data = data;
-      var picked = this.widget && this.widget.picked;
+
+      var picked = (this.widget && this.widget.picked) || (first && this.options.completeSingle);
       if (this.widget) this.widget.close();
       if (data && data.list.length) {
-        if (picked && data.list.length == 1) this.pick(data, 0);
-        else this.widget = new Widget(this, data);
+        if (picked && data.list.length == 1) {
+          this.pick(data, 0);
+        } else {
+          this.widget = new Widget(this, data);
+          CodeMirror.signal(data, "shown");
+        }
       }
-    },
-
-    showWidget: function(data) {
-      this.data = data;
-      this.widget = new Widget(this, data);
-      CodeMirror.signal(data, "shown");
     },
 
     buildOptions: function(options) {
@@ -2825,11 +2817,9 @@ require('./jquery.cs-code-editor');
     this.onMouseOver = function(e) { onMouseOver(cm, e); };
   }
 
-  function parseOptions(cm, options) {
+  function parseOptions(_cm, options) {
     if (options instanceof Function) return {getAnnotations: options};
     if (!options || options === true) options = {};
-    if (!options.getAnnotations) options.getAnnotations = cm.getHelper(CodeMirror.Pos(0, 0), "lint");
-    if (!options.getAnnotations) throw new Error("Required option 'getAnnotations' missing (lint addon)");
     return options;
   }
 
@@ -2882,10 +2872,12 @@ require('./jquery.cs-code-editor');
   function startLinting(cm) {
     var state = cm.state.lint, options = state.options;
     var passOptions = options.options || options; // Support deprecated passing of `options` property in options
-    if (options.async || options.getAnnotations.async)
-      options.getAnnotations(cm.getValue(), updateLinting, passOptions, cm);
+    var getAnnotations = options.getAnnotations || cm.getHelper(CodeMirror.Pos(0, 0), "lint");
+    if (!getAnnotations) return;
+    if (options.async || getAnnotations.async)
+      getAnnotations(cm.getValue(), updateLinting, passOptions, cm);
     else
-      updateLinting(cm, options.getAnnotations(cm.getValue(), passOptions, cm));
+      updateLinting(cm, getAnnotations(cm.getValue(), passOptions, cm));
   }
 
   function updateLinting(cm, annotationsNotSorted) {
@@ -3238,7 +3230,7 @@ require('./jquery.cs-code-editor');
   var doReplaceConfirm = "Replace? <button>Yes</button> <button>No</button> <button>Stop</button>";
   function replace(cm, all) {
     if (cm.getOption("readOnly")) return;
-    var query = cm.getSelection() || getSearchState().lastQuery;
+    var query = cm.getSelection() || getSearchState(cm).lastQuery;
     dialog(cm, replaceQueryDialog, "Replace:", query, function(query) {
       if (!query) return;
       query = parseQuery(query);
@@ -3466,9 +3458,9 @@ require('./jquery.cs-code-editor');
   });
 
   CodeMirror.defineExtension("selectMatches", function(query, caseFold) {
-    var ranges = [], next;
+    var ranges = [];
     var cur = this.getSearchCursor(query, this.getCursor("from"), caseFold);
-    while (next = cur.findNext()) {
+    while (cur.findNext()) {
       if (CodeMirror.cmpPos(cur.to(), this.getCursor("to")) > 0) break;
       ranges.push({anchor: cur.from(), head: cur.to()});
     }
@@ -4956,12 +4948,9 @@ require('./jquery.cs-code-editor');
   }
 
   function postUpdateDisplay(cm, update) {
-    var force = update.force, viewport = update.viewport;
+    var viewport = update.viewport;
     for (var first = true;; first = false) {
-      if (first && cm.options.lineWrapping && update.oldDisplayWidth != displayWidth(cm)) {
-        force = true;
-      } else {
-        force = false;
+      if (!first || !cm.options.lineWrapping || update.oldDisplayWidth == displayWidth(cm)) {
         // Clip forced viewport to actual scrollable area.
         if (viewport && viewport.top != null)
           viewport = {top: Math.min(cm.doc.height + paddingVert(cm.display) - displayHeight(cm), viewport.top)};
@@ -5336,30 +5325,38 @@ require('./jquery.cs-code-editor');
                          origin: origin || (cm.state.pasteIncoming ? "paste" : cm.state.cutIncoming ? "cut" : "+input")};
       makeChange(cm.doc, changeEvent);
       signalLater(cm, "inputRead", cm, changeEvent);
-      // When an 'electric' character is inserted, immediately trigger a reindent
-      if (inserted && !cm.state.pasteIncoming && cm.options.electricChars &&
-          cm.options.smartIndent && range.head.ch < 100 &&
-          (!i || sel.ranges[i - 1].head.line != range.head.line)) {
-        var mode = cm.getModeAt(range.head);
-        var end = changeEnd(changeEvent);
-        var indented = false;
-        if (mode.electricChars) {
-          for (var j = 0; j < mode.electricChars.length; j++)
-            if (inserted.indexOf(mode.electricChars.charAt(j)) > -1) {
-              indented = indentLine(cm, end.line, "smart");
-              break;
-            }
-        } else if (mode.electricInput) {
-          if (mode.electricInput.test(getLine(doc, end.line).text.slice(0, end.ch)))
-            indented = indentLine(cm, end.line, "smart");
-        }
-        if (indented) signalLater(cm, "electricInput", cm, end.line);
-      }
     }
+    if (inserted && !cm.state.pasteIncoming)
+      triggerElectric(cm, inserted);
+
     ensureCursorVisible(cm);
     cm.curOp.updateInput = updateInput;
     cm.curOp.typing = true;
     cm.state.pasteIncoming = cm.state.cutIncoming = false;
+  }
+
+  function triggerElectric(cm, inserted) {
+    // When an 'electric' character is inserted, immediately trigger a reindent
+    if (!cm.options.electricChars || !cm.options.smartIndent) return;
+    var sel = cm.doc.sel;
+
+    for (var i = sel.ranges.length - 1; i >= 0; i--) {
+      var range = sel.ranges[i];
+      if (range.head.ch > 100 || (i && sel.ranges[i - 1].head.line == range.head.line)) continue;
+      var mode = cm.getModeAt(range.head);
+      var indented = false;
+      if (mode.electricChars) {
+        for (var j = 0; j < mode.electricChars.length; j++)
+          if (inserted.indexOf(mode.electricChars.charAt(j)) > -1) {
+            indented = indentLine(cm, range.head.line, "smart");
+            break;
+          }
+      } else if (mode.electricInput) {
+        if (mode.electricInput.test(getLine(cm.doc, range.head.line).text.slice(0, range.head.ch)))
+          indented = indentLine(cm, range.head.line, "smart");
+      }
+      if (indented) signalLater(cm, "electricInput", cm, range.head.line);
+    }
   }
 
   function copyableRanges(cm) {
@@ -6064,7 +6061,7 @@ require('./jquery.cs-code-editor');
       var partPos = getBidiPartAt(order, pos.ch);
       side = partPos % 2 ? "right" : "left";
     }
-    var result = nodeAndOffsetInLineMap(info.map, pos.ch, "left");
+    var result = nodeAndOffsetInLineMap(info.map, pos.ch, side);
     result.offset = result.collapse == "right" ? result.end : result.start;
     return result;
   }
@@ -9281,6 +9278,8 @@ require('./jquery.cs-code-editor');
         return commands[cmd](this);
     },
 
+    triggerElectric: methodOp(function(text) { triggerElectric(this, text); }),
+
     findPosH: function(from, amount, unit, visually) {
       var dir = 1;
       if (amount < 0) { dir = -1; amount = -amount; }
@@ -9948,7 +9947,7 @@ require('./jquery.cs-code-editor');
       for (var i = 0; i < keys.length; i++) {
         var val, name;
         if (i == keys.length - 1) {
-          name = keyname;
+          name = keys.join(" ");
           val = value;
         } else {
           name = keys.slice(0, i + 1).join(" ");
@@ -12960,7 +12959,7 @@ require('./jquery.cs-code-editor');
 
   // THE END
 
-  CodeMirror.version = "5.2.0";
+  CodeMirror.version = "5.3.0";
 
   return CodeMirror;
 });
@@ -13297,7 +13296,7 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
     if (type == "}") return popContext(state);
     if (type == "{" || type == ";") return popAndPass(type, stream, state);
     if (type == "word") override = "variable";
-    else if (type != "variable") override = "error";
+    else if (type != "variable" && type != "(" && type != ")") override = "error";
     return "interpolation";
   };
 
@@ -13621,16 +13620,6 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
     return ["comment", "comment"];
   }
 
-  function tokenSGMLComment(stream, state) {
-    if (stream.skipTo("-->")) {
-      stream.match("-->");
-      state.tokenize = null;
-    } else {
-      stream.skipToEnd();
-    }
-    return ["comment", "comment"];
-  }
-
   CodeMirror.defineMIME("text/css", {
     documentTypes: documentTypes,
     mediaTypes: mediaTypes,
@@ -13642,11 +13631,6 @@ CodeMirror.defineMode("css", function(config, parserConfig) {
     colorKeywords: colorKeywords,
     valueKeywords: valueKeywords,
     tokenHooks: {
-      "<": function(stream, state) {
-        if (!stream.match("!--")) return false;
-        state.tokenize = tokenSGMLComment;
-        return tokenSGMLComment(stream, state);
-      },
       "/": function(stream, state) {
         if (!stream.eat("*")) return false;
         state.tokenize = tokenCComment;
@@ -13796,9 +13780,9 @@ CodeMirror.defineMode("htmlmixed", function(config, parserConfig) {
   }
   function maybeBackup(stream, pat, style) {
     var cur = stream.current();
-    var close = cur.search(pat), m;
+    var close = cur.search(pat);
     if (close > -1) stream.backUp(cur.length - close);
-    else if (m = cur.match(/<\/?$/)) {
+    else if (cur.match(/<\/?$/)) {
       stream.backUp(cur.length);
       if (!stream.match(pat, false)) stream.match(cur);
     }
@@ -14954,7 +14938,8 @@ module.exports = window.Backbone;
 module.exports = window.jQuery;
 },{}],"underscore":[function(require,module,exports){
 module.exports = window._;
-},{}]},{},[1])
+},{}]},{},[1])("underscore")
+});
 //# sourceMappingURL=code-editor.map
 
 /* Modules bundled with Browserify */

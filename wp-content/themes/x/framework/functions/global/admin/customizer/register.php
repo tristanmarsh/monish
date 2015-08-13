@@ -859,7 +859,7 @@ function x_customizer_options_register( $wp_customize ) {
       $x['set'][] = array( 'x_navbar_adjust_links_top', '37', 'refresh' );
       $x['con'][] = array( 'x_navbar_adjust_links_top', 'text', __( 'Navbar Top Link Alignment (px)', '__x__' ), 'x_customizer_section_header' );
 
-      $x['set'][] = array( 'x_navbar_adjust_links_top_spacing', '15', 'refresh' );
+      $x['set'][] = array( 'x_navbar_adjust_links_top_spacing', '20', 'refresh' );
       $x['con'][] = array( 'x_navbar_adjust_links_top_spacing', 'text', __( 'Navbar Top Link Spacing (px)', '__x__' ), 'x_customizer_section_header' );
 
       $x['set'][] = array( 'x_logo_adjust_navbar_side', '30', 'refresh' );

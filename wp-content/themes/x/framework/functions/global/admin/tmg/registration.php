@@ -62,7 +62,7 @@ if ( ! function_exists( 'x_register_theme_plugins' ) ) :
         'slug'               => 'js_composer',
         'source'             => X_TEMPLATE_URL . '/framework/plugins/js_composer.zip',
         'required'           => false,
-        'version'            => '4.5.3',
+        'version'            => '4.6.1',
         'force_activation'   => false,
         'force_deactivation' => false,
         'external_url'       => '',

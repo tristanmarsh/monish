@@ -40,9 +40,9 @@ class Cornerstone_Shortcode_Generator {
 
   public function enqueue( ) {
 
-    wp_enqueue_style( 'cs-generator-css' , CS()->url() . '/assets/css/admin/generator.css', array(), CS()->version() );
+    wp_enqueue_style( 'cs-generator-css' , CS()->url( 'assets/css/admin/generator.css' ), array(), CS()->version() );
 
-    wp_register_script( 'cs-generator', CS()->url() . '/assets/js/dist/admin/generator' . CS()->common()->jsSuffix(), array( 'backbone', 'jquery-ui-core', 'jquery-ui-accordion' ), CS()->version(), true );
+    wp_register_script( 'cs-generator', CS()->url( 'assets/js/dist/admin/generator' . CS()->common()->jsSuffix() ), array( 'backbone', 'jquery-ui-core', 'jquery-ui-accordion' ), CS()->version(), true );
     wp_localize_script( 'cs-generator', 'csgData', $this->getData() ) ;
     wp_enqueue_script( 'cs-generator' );
 

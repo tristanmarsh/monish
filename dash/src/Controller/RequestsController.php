@@ -157,6 +157,18 @@ class RequestsController extends AppController
         return $test->first_name;
     }
 
+    // public function changestatus($id){
+
+    //         $dog = $this->Requests->get($id);
+
+    //         if($dog->status=='unread'){
+    //             $dog->status='viewed';
+    //         }
+        
+
+    // }
+
 }
+
 
 ?>

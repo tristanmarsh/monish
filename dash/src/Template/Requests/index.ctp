@@ -48,6 +48,7 @@
             <th><?= $this->Paginator->sort('category') ?></th>
             <th><?= $this->Paginator->sort('property_address', 'property') ?></th>
             <th><?= $this->Paginator->sort('created', 'requested') ?></th>
+            <th><?= $this->Paginator->sort('status') ?></th>
             <th>Action</th>
         </tr>
 
@@ -74,6 +75,9 @@
                     </td>
                     <td>
                         <?= $article->created->format('d/m/y' /*'h:m A'*/) ?>
+                    </td>
+                    <td>
+                        <?= $article->status ?>
                     </td>
                     <td>
                         <?php 

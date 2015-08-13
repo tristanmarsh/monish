@@ -10,6 +10,9 @@
 <tr><td>Category: <?= h($giraffe->category) ?></td></tr>
 <tr><td>Property: <?= h($giraffe->property_address) ?></td></tr>
 <tr><td><?= h($giraffe->description) ?></td></tr>
+<!-- <tr><td> <?php echo $this->Html->link('changestatus', ['action' => 'changestatus', $article->id]);
+
+?></td></tr> -->
 
 
 </table>

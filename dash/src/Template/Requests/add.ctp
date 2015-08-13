@@ -72,7 +72,7 @@
     </div>
 </div>
 
-// <?php
+<!-- // <?php
 //     // note $this->Form->create() generates <form method="post" action="/articles/add">
 //     echo $this->Form->create($zebra, array('class' => 'form-group'));
 //     echo $this->Form->input('title', array('class' => 'form-control'));
@@ -85,4 +85,4 @@
 // 		'url' => ['controller' => 'Requests', 'action' => 'index']
 // 		]);
 // 	echo $this->Form->button(__('Cancel'));
-// ?>
+// ?> -->

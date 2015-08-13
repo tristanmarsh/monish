@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2015 at 12:27 PM
+-- Generation Time: Aug 13, 2015 at 08:47 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -45,6 +45,25 @@ INSERT INTO `emergencies` (`id`, `person_id`, `first_name`, `last_name`, `phone`
 (4, 9, 'Ethan', 'Chen', '2147483647', 'ethan@ethan.com'),
 (5, 9, 'mike', 'lai', '123', '12313@123.com'),
 (7, 9, 'tristan', 'marsh', '043131', '421@123.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lastroomupdate`
+--
+
+CREATE TABLE IF NOT EXISTS `lastroomupdate` (
+  `id` int(11) DEFAULT NULL,
+  `date` date NOT NULL,
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lastroomupdate`
+--
+
+INSERT INTO `lastroomupdate` (`id`, `date`) VALUES
+(1, '2015-08-13');
 
 -- --------------------------------------------------------
 
@@ -252,7 +271,7 @@ INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
 (3, 1, 'room 3', 'TRUE'),
 (4, 1, 'room 4', 'TRUE'),
 (5, 1, 'room 5', 'TRUE'),
-(6, 2, 'room 1', 'FALSE'),
+(6, 2, 'room 1', 'TRUE'),
 (7, 2, 'room 2', 'TRUE'),
 (8, 2, 'room 3', 'TRUE'),
 (9, 2, 'room 4', 'TRUE'),
@@ -272,8 +291,8 @@ INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
 (23, 5, 'room 4', 'TRUE'),
 (24, 5, 'room 5', 'FALSE'),
 (25, 6, 'room 1', 'TRUE'),
-(26, 6, 'room 2', 'FALSE'),
-(27, 6, 'room 3', 'FALSE');
+(26, 6, 'room 2', 'TRUE'),
+(27, 6, 'room 3', 'TRUE');
 
 -- --------------------------------------------------------
 

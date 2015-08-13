@@ -165,11 +165,6 @@ $cakeDescription = 'Monish Dashboard';
 
 								</ul>
 
-								<ul class="nav navbar-nav navbar-right">
-									
-									<li><?= $this->Html->link(__('Update Rooms'), ['controller' => 'Tenants', 'action' => 'updaterooms']) ?></li>
-
-								</ul>
 							</div><!-- /.collapse -->
 
 						</div><!-- /.container-fluid -->

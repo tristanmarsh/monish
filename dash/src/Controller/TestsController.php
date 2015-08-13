@@ -17,6 +17,7 @@ class TestsController extends AppController
         $this->loadModel('Students');
         $this->loadModel('Properties');
         $this->loadModel('Rooms');
+        $this->loadModel('Lastroomupdate');
 
         $query = $this->Leases->find('all', ['contain' => ['Rooms', 'Properties']]);
         $this->set(compact('query'));

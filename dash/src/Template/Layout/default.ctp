@@ -156,6 +156,7 @@ $cakeDescription = 'Monish Dashboard';
 											<li><?= $this->Html->link('My Profile', ['controller' => 'people', 'action' => 'index']) ?></li>
 
 											<li class="divider"></li>
+				<?php echo $this->element('navbar'); ?>
 
 											<li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
 

@@ -257,11 +257,6 @@ Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  Overriding cake css for compatability with bootstrap framework
 Since:    25/5/15
 */
-.row {
-  width: auto;
-  max-width: none;
-}
-
 /*
 Name:   footer.scss
 Author:   Team Dash
@@ -270,7 +265,12 @@ Purpose:  All custom styling for the Monish Dashboard Footer
 Since:    28/5/15
 
 */
-footer {
+.footer-container {
+  -webkit-transition: all 400ms ease;
+          transition: all 400ms ease;
+}
+.footer-container footer {
+  max-width: 100%;
   position: static;
   bottom: 0;
   left: 0;
@@ -280,17 +280,18 @@ footer {
   color: #999;
   -webkit-transition: all 400ms ease;
           transition: all 400ms ease;
+  overflow-x: hidden;
 }
-footer .col-md-3 {
+.footer-container footer .col-md-3 {
   padding: 20px;
 }
-footer .col-md-4:nth-of-type(1) {
+.footer-container footer .col-md-4:nth-of-type(1) {
   text-align: left;
 }
-footer .col-md-4:nth-of-type(2) {
+.footer-container footer .col-md-4:nth-of-type(2) {
   text-align: center;
 }
-footer .col-md-4:nth-of-type(3) {
+.footer-container footer .col-md-4:nth-of-type(3) {
   text-align: right;
 }
 
@@ -419,7 +420,8 @@ Since:    3/6/15
     width: 250px;
   }
 
-  .navigation-active .content {
+  .navigation-active .content,
+  .navigation-active .footer-container {
     -webkit-transform: translate3D(20%, 0, 0);
         -ms-transform: translate3D(20%, 0, 0);
             transform: translate3D(20%, 0, 0);
@@ -443,7 +445,7 @@ Since:    3/6/15
 
   .navbar-fixed-top,
   .content,
-  footer {
+  .footer-container {
     margin-left: 60px;
   }
 
@@ -462,7 +464,7 @@ Since:    3/6/15
 
   .navigation-active .navbar-fixed-top,
   .navigation-active .content,
-  .navigation-active footer {
+  .navigation-active .footer-container {
     margin-left: 250px;
   }
 
@@ -484,7 +486,7 @@ Since:    3/6/15
 
   .navbar-fixed-top,
   .content,
-  footer {
+  .footer-container {
     margin-left: 60px;
   }
 
@@ -503,7 +505,7 @@ Since:    3/6/15
 
   .navigation-active .navbar-fixed-top,
   .navigation-active .content,
-  .navigation-active footer {
+  .navigation-active .footer-container {
     margin-left: 250px;
   }
 
@@ -616,12 +618,28 @@ Since:    31/7/15
 
 */
 body {
-  background: #C4E7EC;
-  background: #fff;
-  background: #000;
+  background: #293846;
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
+}
+
+.vertical-align:before {
+  content: 'ge';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  background: red;
+  width: 20px;
+  height: 100%;
+  margin-right: -0.25em;
+  /* Adjusts for spacing */
+}
+
+.vertical-align .panel {
+  display: inline-block;
+  vertical-align: middle;
+  width: 300px;
 }
 
 a {
@@ -681,6 +699,7 @@ h6 {
 }
 
 .main-content {
+  overflow-x: hidden;
   -webkit-transition: all 400ms ease;
           transition: all 400ms ease;
   background: #ecf2f6;

@@ -161,7 +161,8 @@ Since:    3/6/15
     width:250px;
   }
   
-  .navigation-active .content {
+  .navigation-active .content,
+  .navigation-active .footer-container {
     transform:translate3D(20%,0,0);
   }
 
@@ -187,7 +188,7 @@ Since:    3/6/15
 
   .navbar-fixed-top,
   .content,
-  footer {
+  .footer-container {
     margin-left:60px;
   }
 
@@ -202,7 +203,7 @@ Since:    3/6/15
 
   .navigation-active .navbar-fixed-top,
   .navigation-active .content,
-  .navigation-active footer {
+  .navigation-active .footer-container {
     margin-left:250px;
   }
     // Show tooltips
@@ -230,7 +231,7 @@ Since:    3/6/15
 
   .navbar-fixed-top,
   .content,
-  footer {
+  .footer-container {
     margin-left:60px;
   }
 
@@ -245,7 +246,7 @@ Since:    3/6/15
 
   .navigation-active .navbar-fixed-top,
   .navigation-active .content,
-  .navigation-active footer {
+  .navigation-active .footer-container {
     margin-left:250px;
   }
     // Show tooltips

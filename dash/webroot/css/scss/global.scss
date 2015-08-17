@@ -7,13 +7,33 @@ Since:    31/7/15
 */
 
 body {
-  background: #C4E7EC;
-  background: #fff;
-  background: #000;
+  background: #293846;
   font-family:$open-sans-font-stack;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }
+
+// #### UTILITY ####
+
+
+
+.vertical-align:before {
+  content: 'ge';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  background: red;
+  width:20px;
+  height:100%;
+  margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+.vertical-align .panel {
+  display: inline-block;
+  vertical-align: middle;
+  width: 300px;
+}
+
 
 // #### GLOBAL ####
 
@@ -99,7 +119,7 @@ h6 {
 
 
 .main-content {
-  
+  overflow-x: hidden; //prevents scrollable panels when mobile nav visible
   transition:all 400ms ease;
   background: rgb(236,242,246);
 

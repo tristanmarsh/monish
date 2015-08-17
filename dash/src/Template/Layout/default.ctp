@@ -20,7 +20,8 @@ $cakeDescription = 'Monish Dashboard';
 <html>
 <head>
 	<?= $this->Html->charset() ?>
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">

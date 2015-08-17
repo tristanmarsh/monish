@@ -165,6 +165,10 @@ Since:    3/6/15
     transform:translate3D(20%,0,0);
   }
 
+  .navigation-active .main-content {
+    opacity:(0.5);
+  }
+
 }
 
 // sm
@@ -182,7 +186,8 @@ Since:    3/6/15
   }
 
   .navbar-fixed-top,
-  .content {
+  .content,
+  footer {
     margin-left:60px;
   }
 
@@ -196,7 +201,8 @@ Since:    3/6/15
   }
 
   .navigation-active .navbar-fixed-top,
-  .navigation-active .content {
+  .navigation-active .content,
+  .navigation-active footer {
     margin-left:250px;
   }
     // Show tooltips
@@ -223,7 +229,8 @@ Since:    3/6/15
   }
 
   .navbar-fixed-top,
-  .content {
+  .content,
+  footer {
     margin-left:60px;
   }
 
@@ -237,7 +244,8 @@ Since:    3/6/15
   }
 
   .navigation-active .navbar-fixed-top,
-  .navigation-active .content {
+  .navigation-active .content,
+  .navigation-active footer {
     margin-left:250px;
   }
     // Show tooltips

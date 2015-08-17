@@ -9,7 +9,7 @@ Since:    31/7/15
 body {
   background: #C4E7EC;
   background: #fff;
-  background: rgb(236,242,246);
+  background: #000;
   font-family:$open-sans-font-stack;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
@@ -100,12 +100,14 @@ h6 {
 
 .main-content {
   
-  min-height:100vh;
   transition:all 400ms ease;
+  background: rgb(236,242,246);
 
-
-
-  .content {margin-top:51px;}
+  .content {
+    margin-top:51px;
+    min-height:80vh;
+    margin-bottom:20px;
+  }
 
   .header {}
 

@@ -278,6 +278,8 @@ footer {
   background: rgba(118, 170, 219, 0.5);
   padding: 40px 0;
   color: #999;
+  -webkit-transition: all 400ms ease;
+          transition: all 400ms ease;
 }
 footer .col-md-3 {
   padding: 20px;
@@ -422,6 +424,10 @@ Since:    3/6/15
         -ms-transform: translate3D(20%, 0, 0);
             transform: translate3D(20%, 0, 0);
   }
+
+  .navigation-active .main-content {
+    opacity: 0.5;
+  }
 }
 @media (min-width: 481px) {
   .tooltip.right {
@@ -436,7 +442,8 @@ Since:    3/6/15
   }
 
   .navbar-fixed-top,
-  .content {
+  .content,
+  footer {
     margin-left: 60px;
   }
 
@@ -454,7 +461,8 @@ Since:    3/6/15
   }
 
   .navigation-active .navbar-fixed-top,
-  .navigation-active .content {
+  .navigation-active .content,
+  .navigation-active footer {
     margin-left: 250px;
   }
 
@@ -475,7 +483,8 @@ Since:    3/6/15
   }
 
   .navbar-fixed-top,
-  .content {
+  .content,
+  footer {
     margin-left: 60px;
   }
 
@@ -493,7 +502,8 @@ Since:    3/6/15
   }
 
   .navigation-active .navbar-fixed-top,
-  .navigation-active .content {
+  .navigation-active .content,
+  .navigation-active footer {
     margin-left: 250px;
   }
 
@@ -671,12 +681,14 @@ h6 {
 }
 
 .main-content {
-  min-height: 100vh;
   -webkit-transition: all 400ms ease;
           transition: all 400ms ease;
+  background: #ecf2f6;
 }
 .main-content .content {
   margin-top: 51px;
+  min-height: 80vh;
+  margin-bottom: 20px;
 }
 .main-content .panel {
   box-shadow: 0 3px rgba(118, 170, 219, 0.2);

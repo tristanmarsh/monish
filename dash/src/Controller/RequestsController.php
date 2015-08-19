@@ -163,15 +163,6 @@ class RequestsController extends AppController
         return $test->first_name;
     }
 
-    public function getclass($result){
-
-            $request = TableRegistry::get('Requests');
-            $wolf = $this->Requests->get($id); 
-            
-
-        if ($wolf->status = 'viewed')
-            return "unread";
-    }
 
     // public function changestatus($id){
 

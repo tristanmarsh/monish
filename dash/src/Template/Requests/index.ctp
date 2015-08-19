@@ -56,7 +56,7 @@
 
         <?php foreach ($elephant as $article): ?>
             <?php if ($article->person_id === $userEntity->person_id OR $user['role'] === 'admin') : ?>
-                <tr>
+                <tr > 
                     <td>
                         <?= $this->Html->link("", ['action' => 'view', $article->id]) ?>
                         <?= $article->title ?>

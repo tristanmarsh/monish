@@ -18,7 +18,7 @@
 
     </div>
 
-    <div class="panel-footer">
+<!--     <div class="panel-footer">
 
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><a href="#">Imagine</a></li>
@@ -26,7 +26,7 @@
             <li role="presentation"><a href="#">Buttons</a></li>
         </ul>
 
-    </div>
+    </div> -->
 
 </div>
 
@@ -56,7 +56,7 @@
 
         <?php foreach ($elephant as $article): ?>
             <?php if ($article->person_id === $userEntity->person_id OR $user['role'] === 'admin') : ?>
-                <tr>
+                <tr > 
                     <td>
                         <?= $this->Html->link("", ['action' => 'view', $article->id]) ?>
                         <?= $article->title ?>
@@ -74,7 +74,7 @@
                         <?= $article->property_address ?>
                     </td>
                     <td>
-                        <?= $article->created->format('d/m/y' /*'h:m A'*/) ?>
+                        <?= $article->created->format('d/m/Y' /*'h:m A'*/) ?>
                     </td>
                     <td>
                         <?= $article->status ?>
@@ -84,7 +84,7 @@
             				if ($article->person_id === $userEntity->person_id OR $user['role'] === 'admin') // If the user owns it, or they are admin, they can see the actions
             				{
             					echo $this->Form->postLink(
-                                   'Delete',
+                                   'Done',
                                    ['action' => 'delete', $article->id],
                                    ['confirm' => 'Are you sure?']);
             					echo " "; // this puts a space between Delete and Edit button

@@ -14,7 +14,7 @@
 
     </div>
 
-    <div class="panel-footer">
+<!--     <div class="panel-footer">
 
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><a href="#">Imagine</a></li>
@@ -22,7 +22,7 @@
             <li role="presentation"><a href="#">Buttons</a></li>
         </ul>
 
-    </div>
+    </div> -->
 
 </div>
 
@@ -68,11 +68,10 @@
           <?= $person->first_name ?>
           <?= $person->last_name ?>
         </td>
-        <td><?= h($lease->date_start->format('Y M d')) ?></td>
-        <td><?= h($lease->date_end->format('Y M d')) ?></td>
+        <td><?= h($lease->date_start->format('d/m/Y')) ?></td>
+        <td><?= h($lease->date_end->format('d/m/Y')) ?></td>
         <td><?= $this->Number->currency($lease->weekly_price) ?></td>
         <td class="actions">
-          <?= $this->Html->link(__('Edit'), ['action' => 'edit', $lease->id]) ?>
           <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $lease->id], ['confirm' => __('Are you sure you want to delete # {0}?', $lease->id)]) ?>
         </td>
       </tr>

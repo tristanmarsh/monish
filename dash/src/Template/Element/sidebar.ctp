@@ -132,14 +132,14 @@
 		); ?>
 	</li>
 	
-	<li data-toggle="tooltip" data-placement="right" title="Rooms">
+<!-- 	<li data-toggle="tooltip" data-placement="right" title="Rooms">
 		<?= $this->Html->link(
-		'<span class="glyphicon glyphicon-home"></span>
-		<span class="menu-item-label">Rooms</span>',
-		array('controller' => 'rooms', 'action' => 'index'),
-		array('class' => 'menu-item-link', 'escape' => false)
+		//'<span class="glyphicon glyphicon-home"></span>
+		//<span class="menu-item-label">Rooms</span>',
+		//array('controller' => 'rooms', 'action' => 'index'),
+		//array('class' => 'menu-item-link', 'escape' => false)
 		); ?>
-	</li>
+	</li> -->
 
 <!-- 	<li data-toggle="tooltip" data-placement="right" title="Tests">
 		// <?= $this->Html->link(

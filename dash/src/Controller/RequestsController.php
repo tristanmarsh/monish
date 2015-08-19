@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 class RequestsController extends AppController
 {
@@ -49,6 +50,11 @@ class RequestsController extends AppController
 
         //my take on how to do this (like the index())
         $this->set('giraffe', $this->Requests->get($id));
+
+            $request = TableRegistry::get('Requests');
+            $wolf = $this->Requests->get($id); 
+            $wolf->status = 'viewed';
+            $request->save($wolf);
 
         $lion = $this->Requests->get($id, [
             'contain' => ['People']
@@ -156,6 +162,7 @@ class RequestsController extends AppController
         $this->set(compact($test));
         return $test->first_name;
     }
+
 
     // public function changestatus($id){
 

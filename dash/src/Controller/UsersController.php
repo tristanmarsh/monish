@@ -102,5 +102,29 @@ class UsersController extends AppController
         $this->set(compact('people'));
     }
 
+    public function isAuthorized($user)
+    {
+
+        if (in_array($this->request->action, ['edit'])) {
+            $requestId = (int)$this->request->params['pass'][0];
+
+            $this->loadModel('People');
+            $this->loadModel('Users');
+
+            $authid = $this->Auth->user('id');
+            $this->set(compact('authid'));
+            $userEntity = $this->Users->get($authid);
+            $this->set(compact('userEntity'));
+            $personEntity = $this->People->get($userEntity->person_id);
+            $this->set(compact('personEntity'));
+
+            if ($authid === $requestId) {
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
+    }
+
 }
 ?>

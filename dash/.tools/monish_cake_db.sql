@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2015 at 08:35 AM
+-- Generation Time: Aug 19, 2015 at 09:58 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -47,6 +47,25 @@ INSERT INTO `emergencies` (`id`, `person_id`, `first_name`, `last_name`, `phone`
 (7, 9, 'tristan', 'marsh', '043131', '421@123.com'),
 (8, 9, 'Hi', 'Hey', '123558525', 'this@this.com'),
 (9, 9, 'Water', 'Melon', '04123456', 'this@this123.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lastroomupdate`
+--
+
+CREATE TABLE IF NOT EXISTS `lastroomupdate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `lastroomupdate`
+--
+
+INSERT INTO `lastroomupdate` (`id`, `date`) VALUES
+(1, '2015-08-19');
 
 -- --------------------------------------------------------
 

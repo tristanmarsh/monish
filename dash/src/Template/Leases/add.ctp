@@ -43,7 +43,7 @@
 
       </div>
 
-      <div class="panel-footer">
+<!--       <div class="panel-footer">
 
         <ul class="nav nav-pills pull-left">
           <li role="presentation" class="active"><a href="#">Imagine</a></li>
@@ -52,7 +52,7 @@
           <li role="presentation"><a href="#">Buttons</a></li>
         </ul>
 
-      </div>
+      </div> -->
     </div>
 <div class="panel panel-default">
       <div class="panel-body">

@@ -46,6 +46,12 @@ class UsersTable extends Table
             'rule' => 'email',
             'message' => 'E-mail must be valid'
             ])
+            ->add('phone', [
+            'length' => [
+            'rule' => ['minLength', 10],
+            'message' => 'Your phone number need to be at least 10 numbers long',
+            ]
+            ])
 			->notEmpty('person_id', 'A person is required')
             ->notEmpty('role', 'A role is required')
             ->add('role', 'inList', [

@@ -74,7 +74,7 @@
                         <?= $article->property_address ?>
                     </td>
                     <td>
-                        <?= $article->created->format('d/m/y' /*'h:m A'*/) ?>
+                        <?= $article->created->format('d/m/Y' /*'h:m A'*/) ?>
                     </td>
                     <td>
                         <?= $article->status ?>

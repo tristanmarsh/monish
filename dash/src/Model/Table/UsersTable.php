@@ -36,6 +36,12 @@ class UsersTable extends Table
         return $validator
             ->notEmpty('username', 'A username is required')
             ->notEmpty('password', 'A password is required')
+            ->add('password', [
+            'length' => [
+            'rule' => ['minLength', 6],
+            'message' => 'Your passward needs to be at least 6 letters long',
+            ]
+            ])
             ->add('username', 'validFormat', [
             'rule' => 'email',
             'message' => 'E-mail must be valid'

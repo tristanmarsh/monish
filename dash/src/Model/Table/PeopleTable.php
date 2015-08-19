@@ -40,7 +40,7 @@ class PeopleTable extends Table
             ->add('phone', [
             'length' => [
             'rule' => ['minLength', 10],
-            'message' => 'phone need to be at least 10 numbers long',
+            'message' => 'Your phone number need to be at least 10 numbers long',
             ]
             ])
             ->notEmpty('email', 'An email is required')

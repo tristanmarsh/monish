@@ -55,7 +55,7 @@
 <!-- THIS IS WHAT THE TENANTS SEES -->
 <?php if ($currentlogged['role'] === "tenant") : ?>
 
-    <h1>Manage Personal Details</h1>
+    <h1>Profile</h1>
     
     <div class="table-responsive">
 

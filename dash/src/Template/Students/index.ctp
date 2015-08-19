@@ -62,7 +62,7 @@
 
 
 
-        <h1>Manage Internet Plan</h1>
+        <h1>Internet Plan</h1>
 
         <table cellpadding="0" cellspacing="0">
 

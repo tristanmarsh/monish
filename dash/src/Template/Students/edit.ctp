@@ -23,13 +23,14 @@
 <?php endif; ?>
 
 <?php if ($currentlogged['role'] === "tenant") : ?>
+    <h1>Internet Plan</h1>
 
     <div class="students form large-10 medium-9 columns">
-        <?= $this->Form->create($student); ?>
+        <?= $this->Form->create($student, array('class' => 'form-group')); ?>
         <fieldset>
-            <legend><?= __('Edit Student') ?></legend>
+            <legend><?= __('Select Plan', array('class' => 'form-control')) ?></legend>
             <?php
-            echo $this->Form->input('internet_plan', ['options' => ['NONE' => 'NONE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM']]);
+            echo $this->Form->input('internet_plan', ['options' => ['NONE' => 'NONE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM'], 'class' => 'form-control']);
             ?>
         </fieldset>
 		Available Internet Plans
@@ -60,12 +61,12 @@
 					<td>$120 / Month</td>
 				</tr>
 			</table>
-        <?= $this->Form->button(__('Submit')) ?>
+        <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-success']) ?>
         <?= $this->Form->end() ?>
         <?= $this->Form->create(null, [
             'url' => ['controller' => 'Students', 'action' => 'index']
         ])?>
-        <?= $this->Form->button(__('Cancel')) ?>
+<!--         <?= $this->Form->button(__('Cancel')) ?> -->
 			
     </div>
 	

@@ -1,4 +1,4 @@
-<h1>Manage Emergency Contacts</h1>
+<h1>Emergencies</h1>
 
 <div class="panel panel-default clearfix">
     
@@ -11,7 +11,7 @@
 
     </div>
 
-    <div class="panel-footer">
+<!--     <div class="panel-footer">
 
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><a href="#">Imagine</a></li>
@@ -19,7 +19,7 @@
             <li role="presentation"><a href="#">Buttons</a></li>
         </ul>
 
-    </div>
+    </div> -->
 
 </div>
 

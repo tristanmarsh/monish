@@ -283,6 +283,9 @@ Since:    28/5/15
           transition: all 400ms ease;
   overflow-x: hidden;
 }
+.footer-container footer:hover {
+  background: rgba(118, 170, 219, 0.8);
+}
 .footer-container footer h3 {
   margin-top: 0;
 }

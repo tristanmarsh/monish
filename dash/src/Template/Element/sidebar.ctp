@@ -233,7 +233,7 @@
 <script>
 	$(function () {
 		$('[data-toggle="tooltip"]').tooltip( {
-			container: 'body'
+			container: '.main-content'
 		});
 	})
 </script>

@@ -8,7 +8,7 @@
 
 				<div class="col-md-4">
 					<h4>Monash International Student House</h4>
-					<ul class="list-stle">
+					<ul class="list-unstyled">
 						<li><a href="http://localhost/monish/contact/">Contact</a></li>
 						<li><a href="http://localhost/monish/privacy-policy/">Privacy Policy</a></li>
 					</ul>
@@ -17,7 +17,7 @@
 
 				<div class="col-md-4">
 					<h4>Help</h4>
-					<ul class="list-style">
+					<ul class="list-unstyled">
 						<li><a href="http://localhost/monish/documentation/">Doumentation</a></li>
 						<li><a href="http://localhost/monish/documentation/#screencasts	">Screencasts</a></li>
 					</ul>
@@ -25,7 +25,7 @@
 
 				<div class="col-md-4">
 					<h4>Issues</h4>
-					<ul class="list-style">
+					<ul class="list-unstyled">
 						<li><a href="#bug-report">Report a problem</a></li>
 						<li><a href="javascript:var s = document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='http://erkie.github.com/asteroids.min.js';void(0);">Destroy This Website</a></li>
 					</ul>

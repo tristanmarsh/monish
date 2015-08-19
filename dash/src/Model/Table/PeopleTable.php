@@ -44,6 +44,14 @@ class PeopleTable extends Table
             ]
             ])
             ->notEmpty('email', 'An email is required')
+            ->add('email', 'validFormat', [
+            'rule' => 'email',
+            'message' => 'E-mail must be valid'
+            ])
+            ->add('username', 'validFormat', [
+            'rule' => 'email',
+            'message' => 'E-mail must be valid'
+            ])
             ->notEmpty('internet_plan', 'An internet plan is required')
             ->notEmpty('username', 'A username is required')
             ->notEmpty('password', 'A password is required')

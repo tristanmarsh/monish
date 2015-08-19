@@ -277,24 +277,41 @@ Since:    28/5/15
   width: 100%;
   background: rgba(118, 170, 219, 0.5);
   padding: 40px 0;
-  color: #999;
+  color: #fff;
+  font-size: 1.4rem;
   -webkit-transition: all 400ms ease;
           transition: all 400ms ease;
   overflow-x: hidden;
 }
+.footer-container footer:hover {
+  background: rgba(118, 170, 219, 0.8);
+}
+.footer-container footer h3 {
+  margin-top: 0;
+}
+.footer-container footer a {
+  color: #fff;
+  -webkit-transition: all 400ms ease;
+          transition: all 400ms ease;
+}
 .footer-container footer .col-md-3 {
   padding: 20px;
 }
-.footer-container footer .col-md-4:nth-of-type(1) {
-  text-align: left;
+.footer-container footer .credits {
+  font-size: 1.2rem;
 }
-.footer-container footer .col-md-4:nth-of-type(2) {
-  text-align: center;
+.footer-container footer .credits, .footer-container footer .credits a {
+  color: #ECEDFA;
 }
-.footer-container footer .col-md-4:nth-of-type(3) {
-  text-align: right;
+.footer-container footer:hover > .credits, .footer-container footer:hover > .credits a {
+  color: #fff;
 }
 
+@media (max-width: 991px) {
+  .footer-container footer .col-md-4:nth-of-type(1n) {
+    text-align: center;
+  }
+}
 /*
 Name:   sidebar.SCSS
 Author:   Team Dash
@@ -622,24 +639,6 @@ body {
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
-}
-
-.vertical-align:before {
-  content: 'ge';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  background: red;
-  width: 20px;
-  height: 100%;
-  margin-right: -0.25em;
-  /* Adjusts for spacing */
-}
-
-.vertical-align .panel {
-  display: inline-block;
-  vertical-align: middle;
-  width: 300px;
 }
 
 a {

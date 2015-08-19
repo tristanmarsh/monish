@@ -131,7 +131,6 @@ $cakeDescription = 'Monish Dashboard';
 
 	</div><!-- /.container -->
 
-<!-- 	<?php endif; ?>
-
+<?php endif; ?>
 </body>
-</html> -->
+</html>

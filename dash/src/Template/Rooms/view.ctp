@@ -3,24 +3,17 @@
     $this->Html->addCrumb('View Room', array('controller' => 'rooms', 'action' => 'view'));
 ?>    
 <div class="rooms view large-10 medium-9 columns">
-    <h2><?= h($room->id) ?></h2>
-    <div class="row">
-        <div class="large-5 columns strings">
-            <h6 class="subheader"><?= __('Property') ?></h6>
-            <p><?= $room->has('property') ? $this->Html->link($room->property->address, ['controller' => 'Properties', 'action' => 'view', $room->property->id]) : '' ?></p>
-        </div>
-        <div class="large-2 columns numbers end">
-            <h6 class="subheader"><?= __('Id') ?></h6>
-            <p><?= $this->Number->format($room->id) ?></p>
-        </div>
-    </div>
-    <div class="row texts">
-        <div class="columns large-9">
-            <h6 class="subheader"><?= __('Vacant') ?></h6>
-            <?= $this->Text->autoParagraph(h($room->vacant)); ?>
+    <h1><?= h($room->property['address']) ?></h1>
+    <h1><?= h($room->room_name) ?></h1>
+    <h1>
+    <?php
+    if ($room->vacant === "FALSE"){
+        echo "Not Vacant";
+    }
+    else {echo "Vacant";}
+    ?>
+    </h1>
 
-        </div>
-    </div>
 </div>
 <div class="related row">
     <div class="column large-12">

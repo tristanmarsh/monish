@@ -6,6 +6,8 @@ Since:    31/7/15
 
 */
 
+
+
 body {
   background: #293846;
   font-family:$open-sans-font-stack;
@@ -16,23 +18,34 @@ body {
 // #### UTILITY ####
 
 
+.vertical-align {
 
-.vertical-align:before {
-  content: 'ge';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  background: red;
-  width:20px;
-  height:100%;
-  margin-right: -0.25em; /* Adjusts for spacing */
 }
 
 .vertical-align .panel {
-  display: inline-block;
-  vertical-align: middle;
-  width: 300px;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-100%, -50%);
 }
+
+
+// .vertical-align:before {
+//   content: 'ge';
+//   display: inline-block;
+//   height: 100%;
+//   vertical-align: middle;
+//   background: red;
+//   width:20px;
+//   height:100%;
+//   margin-right: -0.25em; /* Adjusts for spacing */
+// }
+
+// .vertical-align .panel {
+//   display: inline-block;
+//   vertical-align: middle;
+//   width: 300px;
+// }
 
 
 // #### GLOBAL ####

@@ -145,7 +145,7 @@ class RoomsController extends AppController
                 $this->Flash->error('The room could not be saved. Please, try again.');
             }
         }
-        $properties = $this->Rooms->Properties->find('list', ['limit' => 200]);
+        $properties = $this->Rooms->Properties->find('list', ['limit' => 200, 'valueField'=>'address']);
         $this->set(compact('room', 'properties'));
         $this->set('_serialize', ['room']);
     }

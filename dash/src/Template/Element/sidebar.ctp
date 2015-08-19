@@ -141,14 +141,14 @@
 		); ?>
 	</li>
 
-	<li data-toggle="tooltip" data-placement="right" title="Tests">
-		<?= $this->Html->link(
-		'<span class="glyphicon glyphicon-star"></span>
-		<span class="menu-item-label">Tests</span>',
-		array('controller' => 'tests', 'action' => 'index'),
-		array('class' => 'menu-item-link', 'escape' => false)
+<!-- 	<li data-toggle="tooltip" data-placement="right" title="Tests">
+		// <?= $this->Html->link(
+		// '<span class="glyphicon glyphicon-star"></span>
+		// <span class="menu-item-label">Tests</span>',
+		// array('controller' => 'tests', 'action' => 'index'),
+		// array('class' => 'menu-item-link', 'escape' => false)
 		); ?>
-	</li>
+	</li> -->
 
 
 	<?php elseif ($user['role'] === "tenant") : ?>

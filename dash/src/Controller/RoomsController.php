@@ -88,6 +88,18 @@ class RoomsController extends AppController
         $this->set('_serialize', ['room']);
         //$lion = $this->Rooms->Leases->get($room->leases->id, ['contain' => 'Students']);
         //$this->set('lion', $lion);
+
+        $this->loadModel('People');
+        $this->loadModel('Students');
+        $this->loadModel('Leases');
+
+        $leasesTable = $this->Leases;
+        $this->set(compact('leasesTable'));
+        $peopleTable = $this->People;
+        $this->set(compact('peopleTable'));
+        $studentsTable = $this->Students;
+        $this->set(compact('studentsTable'));
+
     }
 
     /**

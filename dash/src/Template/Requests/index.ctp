@@ -84,7 +84,7 @@
             				if ($article->person_id === $userEntity->person_id OR $user['role'] === 'admin') // If the user owns it, or they are admin, they can see the actions
             				{
             					echo $this->Form->postLink(
-                                   'Delete',
+                                   'Done',
                                    ['action' => 'delete', $article->id],
                                    ['confirm' => 'Are you sure?']);
             					echo " "; // this puts a space between Delete and Edit button

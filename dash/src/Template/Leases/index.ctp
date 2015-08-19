@@ -68,8 +68,8 @@
           <?= $person->first_name ?>
           <?= $person->last_name ?>
         </td>
-        <td><?= h($lease->date_start->format('Y M d')) ?></td>
-        <td><?= h($lease->date_end->format('Y M d')) ?></td>
+        <td><?= h($lease->date_start->format('d/m/Y')) ?></td>
+        <td><?= h($lease->date_end->format('d/m/Y')) ?></td>
         <td><?= $this->Number->currency($lease->weekly_price) ?></td>
         <td class="actions">
           <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $lease->id], ['confirm' => __('Are you sure you want to delete # {0}?', $lease->id)]) ?>

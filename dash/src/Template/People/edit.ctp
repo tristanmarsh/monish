@@ -31,7 +31,6 @@
 
     echo $this->Form->create($user);
     echo $this->Form->input( 'phone', array( 'type' => 'number' ) );
-    echo $this->Form->input('email');
     echo $this->Form->button(__('Update Details'));
     echo $this->Form->end();
     echo $this->Form->create(null, [

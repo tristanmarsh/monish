@@ -85,8 +85,8 @@
                 <td><?= $user->phone ?></td>
                 <td><?= $user->email ?></td>
                 <td>
-                <?php echo $this->Html->link('Edit', ['action' => 'edit', $user->id, ]); ?>
-                <?php echo $this->Html->link('Edit Password', ['controller' => 'users', 'action' => 'edit', $currentlogged['id'], ]); ?>
+                <?php echo $this->Html->link('Edit Phone Number', ['action' => 'edit', $user->id, ]); ?><br>
+                <?php echo $this->Html->link('Edit Login Details', ['controller' => 'users', 'action' => 'edit', $currentlogged['id'], ]); ?>
             </td>
 
             </tr>

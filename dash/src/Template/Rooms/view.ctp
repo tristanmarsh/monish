@@ -4,20 +4,23 @@
 ?>    
 <div class="rooms view large-10 medium-9 columns">
     <h1><?= h($room->property['address']) ?></h1>
-    <h1><?= h($room->room_name) ?></h1>
-    <h1>
+    <h2><?= h($room->room_name) ?></h2>
+    <h2>
     <?php
     if ($room->vacant === "FALSE"){
         echo "Not Vacant";
     }
     else {echo "Vacant";}
     ?>
-    </h1>
-
+    </h2>
+    <h3><?= $this->Html->link('Edit Room', ['action' => 'edit', $room->id]) ?></h3>
 </div>
-<div class="related row">
-    <div class="column large-12">
-    <h4 class="subheader"><?= __('Related Leases') ?></h4>
+
+<div class="panel panel-primary">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+        <h2 class="panel-title">Related Leases</h2>
+    </div>
     <?php if (!empty($room->leases)): ?>
     <table cellpadding="0" cellspacing="0">
         <tr>
@@ -48,6 +51,7 @@
         <?php endforeach; ?>
     </table>
     <?php endif; ?>
+</div>    
         <?= $this->Form->create(null, [
         'url' => ['controller' => 'Rooms', 'action' => 'index']
     ])?>

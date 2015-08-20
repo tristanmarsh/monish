@@ -16,7 +16,7 @@
       <div class="panel-body">
 
         <ul class="nav nav-pills pull-left">
-          <li role="presentation"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+          <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
           <li role="presentation" class="active"><?= $this->Html->link('New Room', ['action' => 'add']) ?></li>
         </ul>
 
@@ -50,7 +50,7 @@
         ?>
         <br>
     </fieldset>
-    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']) ?>
+    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-success']) ?>
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Rooms', 'action' => 'index']
@@ -58,7 +58,7 @@
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Properties', 'action' => 'index']
     ])?>
-<!--     <?= $this->Form->button(__('Cancel')) ?> -->
+    <?= $this->Form->button(__('Cancel'), ['class' => 'form-control btn btn-fail']) ?>
 </div>
 </div>
 </div>

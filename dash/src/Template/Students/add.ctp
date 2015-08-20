@@ -4,7 +4,7 @@
         <legend><?= __('Add Student') ?></legend>
         <?php
             echo $this->Form->input('person_id', ['options' => $person]);
-			echo $this->Form->input('internet_plan', ['options' => ['FREE' => 'FREE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM']]);
+			echo $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium']]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

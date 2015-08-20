@@ -23,9 +23,12 @@
         
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active">
+                <?= $this->Html->link('All', ['action' => 'index']) ?>
+            </li>
+            <li role="presentation">
                 <?= $this->Html->link('Update Devices', ['action' => 'edit', $personEntity->macaddress->id]) ?>
             </li>
-            <li role="presentation" class="active">
+            <li role="presentation">
                 <a class="btn btn-default float-right" href="http://www.wikihow.com/Find-the-MAC-Address-of-Your-Computer">Help me find my MAC Address</a>
             </li>
         </ul>

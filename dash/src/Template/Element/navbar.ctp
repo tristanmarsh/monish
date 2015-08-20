@@ -70,4 +70,11 @@
 
 						</div><!-- /.container-fluid -->
 
+						<header>
+							<ol class="breadcrumb">
+								<?php echo $this->Html->getCrumbs(' > ', 'Home') ?>
+								<?php echo $this->Html->getCrumbList(); ?>
+							</ol>
+						</header>
+						
 					</nav>

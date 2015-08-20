@@ -52,6 +52,14 @@ table {
     text-decoration: none;
   }
 
+  //not a th
+  & th>* {
+    display:block;
+    padding: 6px 12px;
+    color:#fff;
+    text-decoration: none;
+  }
+
   // Table Header
   & th {
     color: #fff;

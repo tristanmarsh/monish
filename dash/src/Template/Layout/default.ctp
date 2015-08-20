@@ -77,9 +77,7 @@ $cakeDescription = 'Monish Dashboard';
 
 	<?php echo $this->element('login'); ?>
 
-<?php else : ?>
-
-
+	<?php else : ?>
 
 	<div class="container-fluid">
 
@@ -103,12 +101,7 @@ $cakeDescription = 'Monish Dashboard';
 
 				<div class="content">
 
-					<header>
-						<ol class="breadcrumb">
-							<?php echo $this->Html->getCrumbs(' > ', 'Home') ?>
-							<?php echo $this->Html->getCrumbList(); ?>
-						</ol>
-					</header>
+
 
 					<div class="container-fluid">
 

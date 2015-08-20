@@ -29,15 +29,17 @@ body {
 // #### UTILITY ####
 
 
-.vertical-align {
 
-}
-
-.vertical-align .panel {
+.log-in-window {
+  margin-top:8vw;
   // position: absolute;
   // top: 50%;
   // left: 50%;
-  // transform: translate(-100%, -50%);
+  // transform: translate(-50%, -50%);
+}
+
+.img-center {
+  margin:0 auto;
 }
 
 
@@ -69,6 +71,7 @@ a {color:#618DB6;}
 
 .navbar {
   background:#fff;
+  border-bottom:0;
 }
 
 
@@ -87,14 +90,18 @@ header {
     padding: 0px 30px;
     list-style: none;
     background: none;
-    // border-top:1px solid rgba(229, 255, 235, 0);
-    // border-bottom:1px solid rgba(229, 255, 235, 0);
     border-radius:0;
-    background:rgba(118, 170, 219,0.5);
+    background:rgba(118, 170, 219,0.8);
+    background: #337ab7;
+    color:#fff;
 
     a {
       font-size:1.4rem;
       font-weight:lighter;
+      color:#fff;
+    }
+
+    a.active {
       color:#fff;
     }
     
@@ -143,6 +150,29 @@ h6 {
   margin-top:20px;
 }
 
+  .panel {
+    box-shadow: 0 3px rgba(118, 170, 219,0.2);
+    box-shadow: 0 3px #D5E4F1;
+    border-radius:5px;
+    margin-bottom:20px;
+
+
+    .panel-footer {
+      padding:0 15px;
+    }
+
+    .nav {padding:10px 0;}
+
+    .nav-pills>li>a {
+      border-radius:100px;
+      padding:5px 15px;
+      font-weight: 900;
+      font-size: 1.6rem;
+    }
+
+  }
+
+
 // holds the main view of the dashboard
 
 .main-content {
@@ -173,27 +203,6 @@ h6 {
 
   .header {}
 
-  .panel {
-    box-shadow: 0 3px rgba(118, 170, 219,0.2);
-    box-shadow: 0 3px #D5E4F1;
-    border-radius:5px;
-    margin-bottom:20px;
-
-
-    .panel-footer {
-      padding:0 15px;
-    }
-
-    .nav {padding:10px 0;}
-
-    .nav-pills>li>a {
-      border-radius:100px;
-      padding:5px 15px;
-      font-weight: 900;
-      font-size: 1.6rem;
-    }
-
-  }
 
   .panel-default,
   .panel-primary {
@@ -244,7 +253,7 @@ h6 {
     border-radius: 4px;
     left: 10px;
   }
-  
+
 @media (min-width: 768px) {
   .navbar-toggle {
       display: block;
@@ -260,6 +269,12 @@ h6 {
     border-radius: 4px;
     left: 10px;
   }
+
+  .navbar>.container .navbar-brand,
+  .navbar>.container-fluid .navbar-brand {
+      margin-left: 10px;
+  }
+
 }
 
 

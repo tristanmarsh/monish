@@ -151,9 +151,13 @@ Since:    3/6/15
   // Inactive
   .sidebar {
     transform:translate3D(-100%,0,0);
-    padding-top:51px;
+    padding-top:71px;
     width:60px;
   }  
+
+  .navigation-active {
+    background-color: #293846;
+  }
 
   // Active
   .navigation-active .sidebar {

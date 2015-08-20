@@ -2,7 +2,7 @@
 	
 	<footer>
 		
-		<div class="container">
+		<div class="container-fluid">
 			
 			<div class="row">
 
@@ -34,7 +34,7 @@
 			</div>
 		</div>
 
-		<div class="container credits">
+		<div class="container-fluid credits">
 			<div class="row">
 				<div class="col-sm-6">
 					<span>© Monash International Student House <?php echo date('Y'); ?></span>

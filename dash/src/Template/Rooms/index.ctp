@@ -1,4 +1,5 @@
 <?php
+    $this->Html->addCrumb('Properties', '/properties');
     $this->Html->addCrumb('Rooms', '/rooms');
 ?>    
 <h1>Rooms</h1>

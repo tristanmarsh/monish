@@ -61,17 +61,22 @@
 <?php if ($currentlogged['role'] === "tenant") : ?>
 
     <h1>Profile</h1>
-    
+    <div class="panel panel-primary">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+        <h2 class="panel-title">All Requests</h2>
+    </div>
     <div class="table-responsive">
 
         <table>
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Common Name</th>
-                <th>Gender</th>
-                <th>Phone</th>
-                <th>Email</th>
+
+                <th><?= $this->Paginator->sort('First Name') ?></th>
+                <th><?= $this->Paginator->sort('Last Name') ?></th>
+                <th><?= $this->Paginator->sort('Common Name') ?></th>
+                <th><?= $this->Paginator->sort('Gender') ?></th>
+                <th><?= $this->Paginator->sort('Phone') ?></th>
+                <th><?= $this->Paginator->sort('Email') ?></th>
                 <th>Action</th>
             </tr>
 
@@ -101,6 +106,7 @@
             <?php endforeach; ?>
 
         </table>
+    </div>
 
     </div>
 

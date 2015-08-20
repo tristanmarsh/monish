@@ -37,7 +37,7 @@
 	echo $this->Form->input('category', ['options' => ['GENERAL' => 'GENERAL', 'MAINTENANCE' => 'MAINTENANCE', 'INTERNET' => 'INTERNET', 'LEASE' => 'LEASE'], 'class' => 'form-control']);
     echo $this->Form->input('property_address', ['options' => $addresses,'class' => 'form-control']);
     echo $this->Form->input('description', ['rows' => '3', 'class' => 'form-control']);
-    echo $this->Form->button(__('Update Request'), ['class' => 'form-control btn btn-success']);
+    echo $this->Form->button(__('Update Request'), ['class' => 'form-control btn btn-info']);
     echo $this->Form->end();
 	echo $this->Form->create(null, [
 		'url' => ['controller' => 'Requests', 'action' => 'index']

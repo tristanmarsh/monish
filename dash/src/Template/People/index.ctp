@@ -1,6 +1,6 @@
 <?php
     // $this->Html->addCrumb('Requests', '/requests');
-    $this->Html->addCrumb('Personal Details', array('controller' => 'Personal Details', 'action' => 'view'));
+    $this->Html->addCrumb('Personal Details', array('controller' => 'People', 'action' => 'index'));
 ?>
 
 <!-- File: src/Template/People/index.ctp -->

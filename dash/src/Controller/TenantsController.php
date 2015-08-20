@@ -131,7 +131,7 @@ class TenantsController extends AppController
                 $this->Flash->success(__('Person Added'));
                 return $this->redirect(['controller' => 'tenants', 'action' => 'updaterooms']);
             }
-            $this->Flash->error(__('Unable to add the user.'));
+            $this->Flash->error(__('Unable to add the person.'));
         }
         $this->set('user', $user);
     }
@@ -172,10 +172,10 @@ class TenantsController extends AppController
                 $student->internet_plan = $user->internet_plan;
                 $studentsTable->save($person); //Must have this statement to save the changes
 
-                $this->Flash->success(__('This user has been updated.'));
+                $this->Flash->success(__('This tenant has been updated.'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('Unable to update this user.'));
+            $this->Flash->error(__('Unable to update this tenant.'));
         }
         $this->set('user', $user);
 

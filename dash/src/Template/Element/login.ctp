@@ -25,8 +25,13 @@
 					            <?= $this->Form->input('username', array('class' => 'form-control')) ?>
 					            <?= $this->Form->input('password', array('class' => 'form-control')) ?>
 					        </fieldset>
+					        <br>
+
 					        <?= $this->Form->button(__('Login'), ['class' => 'form-control btn btn-info']); ?>
 					        <?= $this->Form->end() ?>
+					        <br>
+					        <?= $this->Html->link('Forgot your password?', ['controller' => 'recoveries', 'action' => 'index'], ['class' => 'form-control btn btn-xs']) ?>
+					        <br><br>
 					      
 					    </div>
 					<?php endif; ?>

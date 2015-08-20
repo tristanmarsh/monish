@@ -14,6 +14,7 @@ class RecoveriesController extends AppController
     public function index()
     {   
         $this->layout = false;
+        //$this->element('recovery');
         $user = $this->Recoveries->newEntity();
         
         $array = ['mjlai3@student.monash.edu', 'tmar41@student.monash.edu', 'yche265@student.monash.edu', 'ybtan6@student.monash.edu'];

@@ -17,7 +17,7 @@
       <div class="panel-body">
 
         <ul class="nav nav-pills pull-left">
-          <li role="presentation" ><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+          <li role="presentation" ><?= $this->Html->link('All', ['action' => 'index']) ?></li>
           <li role="presentation" class="active"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
         </ul>
 
@@ -50,6 +50,7 @@
             echo $this->Form->input('email', array('class' => 'form-control'));
         ?>
     </fieldset>
+    <br>
     <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-success']) ?>
     <?= $this->Form->end() ?>
 	<?= $this->Form->create(null, [

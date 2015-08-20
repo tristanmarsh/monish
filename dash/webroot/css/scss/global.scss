@@ -139,9 +139,12 @@ h6 {
 
 // #### CONTENT ####
 
+
+.alert {
+  margin-top:20px;
+}
+
 // holds the main view of the dashboard
-
-
 
 .main-content {
   overflow-x: hidden; //prevents scrollable panels when mobile nav visible

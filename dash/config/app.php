@@ -180,27 +180,23 @@ return [
      */
     'EmailTransport' => [
         'default' => [
-            'className' => 'Mail',
+            'className' => 'Smtp',
             // The following keys are used in SMTP transports
-            'host' => 'localhost',
-            'port' => 25,
-            'timeout' => 30,
-            'username' => 'user',
-            'password' => 'secret',
-            'client' => null,
-            'tls' => null,
+            'host' => 'ssl://smtp.gmail.com',
+            'port' => 465,
+            'username' => 'michaeldummyiedash@gmail.com',
+            'password' => 'asdasdasd123123123',
         ],
     ],
 
     'Email' => [
         'default' => [
             'transport' => 'default',
-            'from' => 'you@localhost',
+            'from' => 'michaeldummyiedash@gmail.com',
             //'charset' => 'utf-8',
             //'headerCharset' => 'utf-8',
         ],
     ],
-
     /**
      * Connection information used by the ORM to connect
      * to your application's datastores.

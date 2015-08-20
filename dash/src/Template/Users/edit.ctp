@@ -1,3 +1,10 @@
+<?php
+    $this->Html->addCrumb('Personal details', array('controller' => 'people', 'action' => 'index'));
+    $this->Html->addCrumb('Login Details');
+
+?>
+
+
 <!-- File: src/Template/Users/edit.ctp -->
 
 <h1>Update User</h1>

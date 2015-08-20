@@ -1,3 +1,9 @@
+<?php
+    $this->Html->addCrumb('Mac Address', array('controller' => 'Macaddresses', 'action' => 'index'));
+    $this->Html->addCrumb('Edit Macaddresses');
+
+?>
+
 <!-- File: src/Template/Articles/edit.ctp -->
 
 <h1>Update Devices</h1>

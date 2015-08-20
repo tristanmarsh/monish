@@ -1,3 +1,11 @@
+<?php
+    $this->Html->addCrumb('Emergency Contacts', array('controller' => 'Emergencies', 'action' => 'index'));
+    $this->Html->addCrumb('Add New Contact', array('controller' => 'Emergencies', 'action' => 'add'));
+
+?>
+
+
+
 <h1>Emergencies</h1>
 
 <div class="panel panel-default clearfix">

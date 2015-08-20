@@ -1,3 +1,10 @@
+<?php
+    $this->Html->addCrumb('Mac Address', array('controller' => 'Macaddresses', 'action' => 'index'));
+
+?>
+
+
+
 <!-- File: src/Template/Requests/index.ctp -->
 <?php $user = $this->Session->read('Auth.User'); ?>
 

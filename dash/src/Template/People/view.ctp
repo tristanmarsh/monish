@@ -1,6 +1,6 @@
 <?php
     $this->Html->addCrumb('personal details', '/personal details');
-    $this->Html->addCrumb('Personal details', array('controller' => 'personal details', 'action' => 'view'));
+    $this->Html->addCrumb('Personal details');
 
 ?>
 

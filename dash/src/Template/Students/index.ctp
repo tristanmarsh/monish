@@ -1,3 +1,8 @@
+<?php
+    $this->Html->addCrumb('Internet Plan', array('controller' => 'students', 'action' => 'index'));
+
+?>
+
 <?php $currentlogged = $this->Session->read('Auth.User'); ?>
 
 <?php if ($currentlogged['role'] === "admin") : ?>

@@ -60,7 +60,7 @@
            
            </fieldset>
 
-           <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-success']); ?>
+           <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']); ?>
            <?= $this->Form->end() ?>
            <?php
            echo $this->Form->create(null, [

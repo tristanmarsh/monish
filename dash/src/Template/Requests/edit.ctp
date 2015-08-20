@@ -1,6 +1,6 @@
 <?php
     $this->Html->addCrumb('Requests', '/requests');
-    $this->Html->addCrumb('Edit', array('controller' => 'requests', 'action' => 'edit'));
+    $this->Html->addCrumb('Edit');
 ?>
 <!-- File: src/Template/Articles/edit.ctp -->
 

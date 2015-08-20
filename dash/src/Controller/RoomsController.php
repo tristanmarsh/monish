@@ -113,6 +113,7 @@ class RoomsController extends AppController
         if ($this->request->is('post')) {
             $room = $this->Rooms->patchEntity($room, $this->request->data);
             if ($this->Rooms->save($room)) {
+                //$room->vacant = "TRUE"; 
                 $this->Flash->success('The room has been saved.');
                 return $this->redirect(['action' => 'index']);
             } else {
@@ -145,7 +146,7 @@ class RoomsController extends AppController
                 $this->Flash->error('The room could not be saved. Please, try again.');
             }
         }
-        $properties = $this->Rooms->Properties->find('list', ['limit' => 200]);
+        $properties = $this->Rooms->Properties->find('list', ['limit' => 200, 'valueField'=>'address']);
         $this->set(compact('room', 'properties'));
         $this->set('_serialize', ['room']);
     }

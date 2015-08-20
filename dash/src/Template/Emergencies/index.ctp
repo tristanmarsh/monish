@@ -1,4 +1,9 @@
-<h1>Manage Emergency Contacts</h1>
+<h1>Emergency Contacts</h1>
+
+<?php
+    // $this->Html->addCrumb('Requests', '/requests');
+    $this->Html->addCrumb('Emergency Contacts', array('controller' => 'Emergencies', 'action' => 'index'));
+?>
 
 <div class="panel panel-default clearfix">
     
@@ -11,7 +16,7 @@
 
     </div>
 
-    <div class="panel-footer">
+<!--     <div class="panel-footer">
 
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><a href="#">Imagine</a></li>
@@ -19,7 +24,7 @@
             <li role="presentation"><a href="#">Buttons</a></li>
         </ul>
 
-    </div>
+    </div> -->
 
 </div>
 

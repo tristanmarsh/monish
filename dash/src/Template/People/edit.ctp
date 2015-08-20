@@ -1,3 +1,9 @@
+<?php
+    $this->Html->addCrumb('Personal details', array('controller' => 'People', 'action' => 'index'));
+    $this->Html->addCrumb('Edit Phone Number');
+
+?>
+
 <!-- File: src/Template/People/edit.ctp -->
 
 <?php $currentlogged = $this->Session->read('Auth.User'); ?>

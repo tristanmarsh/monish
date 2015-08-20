@@ -36,17 +36,18 @@
         <?php
             echo $this->Form->input('room_name', array('class' => 'form-control'));
             echo $this->Form->input('property_id', ['options' => $properties,'class' => 'form-control']);
-            echo $this->Form->input('vacant', [
-                'options' => ['TRUE' => 'Yes', 'FALSE' => 'No'], 'class' => 'form-control'
-            ]);
+            //echo $this->Form->input('vacant', [
+            //    'options' => ['TRUE' => 'Yes', 'FALSE' => 'No'], 'class' => 'form-control'
+            //]);
         ?>
+        <br>
     </fieldset>
     <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-success']) ?>
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, [
-        'url' => ['controller' => 'Rooms', 'action' => 'index']
+        'url' => ['controller' => 'Properties', 'action' => 'index']
     ])?>
-<!--     <?= $this->Form->button(__('Cancel'), ['class' => 'form-control btn btn-fail']) ?> -->
+    <?= $this->Form->button(__('Cancel'), ['class' => 'form-control btn btn-fail']) ?> 
 </div>
 </div>
 </div>

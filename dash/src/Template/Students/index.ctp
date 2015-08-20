@@ -1,3 +1,8 @@
+<?php
+    $this->Html->addCrumb('Internet Plan', array('controller' => 'students', 'action' => 'index'));
+
+?>
+
 <?php $currentlogged = $this->Session->read('Auth.User'); ?>
 
 <?php if ($currentlogged['role'] === "admin") : ?>
@@ -62,7 +67,7 @@
 
 
 
-        <h1>Manage Internet Plan</h1>
+        <h1>Internet Plan</h1>
 
         <table cellpadding="0" cellspacing="0">
 

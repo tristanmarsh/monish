@@ -49,7 +49,7 @@
         ?>
         <br>
     </fieldset>
-    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-success']) ?>
+    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']) ?>
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Rooms', 'action' => 'index']
@@ -57,7 +57,7 @@
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Properties', 'action' => 'index']
     ])?>
-    <?= $this->Form->button(__('Cancel'), ['class' => 'form-control btn btn-fail']) ?>
+<!--     <?= $this->Form->button(__('Cancel')) ?> -->
 </div>
 </div>
 </div>

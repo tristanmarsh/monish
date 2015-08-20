@@ -55,7 +55,7 @@
         echo $this->Form->input('weekly_price', array('class' => 'form-control'));
         ?>
       </fieldset>
-      <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-success']); ?>
+      <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']); ?>
       <?= $this->Form->end() ?>
       <?= $this->Form->create(null, [
       'url' => ['controller' => 'Leases', 'action' => 'index']

@@ -1,3 +1,8 @@
+<?php
+    $this->Html->addCrumb('Emergency', '/emergency');
+    $this->Html->addCrumb('View Emergency', array('controller' => 'emergency', 'action' => 'view'));
+
+?>
 <div class="actions columns large-2 medium-3">
     <h1><?= __('Actions') ?></h1>
     <ul class="side-nav">

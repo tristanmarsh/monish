@@ -1,4 +1,13 @@
+<<<<<<< Updated upstream
 <h1>Emergencies</h1>
+=======
+<?php
+    // $this->Html->addCrumb('Requests', '/requests');
+    $this->Html->addCrumb('Emergency Contacts', array('controller' => 'Emergency Contacts', 'action' => 'view'));
+?>
+
+<h1>Manage Emergency Contacts</h1>
+>>>>>>> Stashed changes
 
 <div class="panel panel-default clearfix">
     

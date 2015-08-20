@@ -1,3 +1,12 @@
+<?php
+    // $this->Html->addCrumb('Requests', '/requests');
+    $this->Html->addCrumb('Personal Details', array('controller' => 'Personal Details', 'action' => 'view'));
+?>
+
+
+
+
+
 <!-- File: src/Template/People/index.ctp -->
 <?php $currentlogged = $this->Session->read('Auth.User'); ?>
 

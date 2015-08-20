@@ -56,7 +56,7 @@
             ]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-success']) ?>
+    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']) ?>
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Properties', 'action' => 'index']

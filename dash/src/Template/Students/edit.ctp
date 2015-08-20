@@ -69,7 +69,7 @@
 					<td>$120 / Month</td>
 				</tr>
 			</table>
-        <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-success']) ?>
+        <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']) ?>
         <?= $this->Form->end() ?>
         <?= $this->Form->create(null, [
             'url' => ['controller' => 'Students', 'action' => 'index']

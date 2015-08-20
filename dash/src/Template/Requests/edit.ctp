@@ -34,7 +34,7 @@
 
     echo $this->Form->create($lion, array('class' => 'form-group'));
     echo $this->Form->input('title', array('class' => 'form-control'));
-	echo $this->Form->input('category', ['options' => ['GENERAL' => 'GENERAL', 'MAINTENANCE' => 'MAINTENANCE', 'INTERNET' => 'INTERNET', 'LEASE' => 'LEASE'], 'class' => 'form-control']);
+	echo $this->Form->input('category', ['options' => ['General' => 'General', 'Maintenance' => 'Maintenance', 'Internet' => 'Internet', 'Lease' => 'Lease'], 'class' => 'form-control']);
     echo $this->Form->input('property_address', ['options' => $addresses,'class' => 'form-control']);
     echo $this->Form->input('description', ['rows' => '3', 'class' => 'form-control']);
     echo $this->Form->button(__('Update Request'), ['class' => 'form-control btn btn-info']);

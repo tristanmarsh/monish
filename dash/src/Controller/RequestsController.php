@@ -53,7 +53,7 @@ class RequestsController extends AppController
 
             $request = TableRegistry::get('Requests');
             $wolf = $this->Requests->get($id); 
-            $wolf->status = 'viewed';
+            $wolf->status = 'Viewed';
             $request->save($wolf);
 
         $lion = $this->Requests->get($id, [

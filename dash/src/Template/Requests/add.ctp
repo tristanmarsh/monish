@@ -50,7 +50,7 @@
             <div class="col-md-3">
             
               <?= $this->Form->input('title', array('class' => 'form-control')) ?>
-              <?= $this->Form->input('category', ['options' => ['GENERAL' => 'GENERAL', 'MAINTENANCE' => 'MAINTENANCE', 'INTERNET' => 'INTERNET', 'LEASE' => 'LEASE'],'class' => 'form-control']) ?>
+              <?= $this->Form->input('category', ['options' => ['General' => 'General', 'Maintenance' => 'Maintenance', 'Internet' => 'Internet', 'Lease' => 'Lease'],'class' => 'form-control']) ?>
               <?= $this->Form->input('property_address', ['options' => $addresses,'class' => 'form-control']) ?>
               <?= $this->Form->input('description', ['rows' => '3', 'class' => 'form-control']) ?>
 

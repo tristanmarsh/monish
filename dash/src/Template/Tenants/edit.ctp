@@ -38,7 +38,7 @@
     echo $this->Form->input('last_name', array('default' => $defaultPerson->last_name,'class' => 'form-control'));
     echo $this->Form->input('common_name', array('default' => $defaultPerson->common_name,'class' => 'form-control'));
     echo $this->Form->input('phone', array('default' => $defaultPerson->phone,'class' => 'form-control'));
-    echo $this->Form->input('internet_plan', ['options' => ['FREE' => 'FREE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM'], 'default' => $defaultStudent->internet_plan, 'class' => 'form-control']);
+    echo $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'], 'default' => $defaultStudent->internet_plan, 'class' => 'form-control']);
 	echo $this->Form->input('username', array('class' => 'form-control'));
 	echo $this->Form->input('password', array('class' => 'form-control'));
 	echo $this->Form->input('role', ['options' => ['admin' => 'Admin', 'tenant' => 'Tenant'], 'class' => 'form-control']);

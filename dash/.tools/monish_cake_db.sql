@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2015 at 06:54 AM
+-- Generation Time: Aug 20, 2015 at 08:27 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `people` (
 
 INSERT INTO `people` (`id`, `first_name`, `last_name`, `common_name`, `gender`, `phone`, `email`) VALUES
 (1, 'Tony', 'Wise', '', 'M', '404040404', 'tonywise@monish.com'),
-(9, 'Amy', 'Insurance', 'Amy', 'F', '0404000404', 'amy@amy.com'),
+(9, 'Amy', 'Insurance', 'Amyy', 'F', '0404000404', 'amy@amy.com'),
 (10, 'Ben', 'Hudson', 'Benny', 'M', '0404040404', 'ben@ben.com'),
 (12, 'Constance', 'Petrovski', 'Con', 'F', '0404040404', 'constance@constance.com'),
 (13, 'Darren', 'Man', 'Darraman', 'M', '0404040404', 'darren@darren.com'),
@@ -232,28 +232,28 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   `person_id` int(11) DEFAULT NULL,
-  `category` enum('GENERAL','MAINTENANCE','INTERNET','LEASE') NOT NULL,
+  `category` enum('General','Maintenance','Internet','Lease') NOT NULL,
   `property_address` varchar(100) NOT NULL,
-  `status` enum('unread','viewed') NOT NULL,
+  `status` enum('Unread','Viewed') NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`person_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `requests`
 --
 
 INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `person_id`, `category`, `property_address`, `status`) VALUES
-(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-04-13 14:52:35', 10, 'MAINTENANCE', '200 two street', 'unread'),
-(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-04-13 14:52:26', 10, 'MAINTENANCE', '200 two street', 'unread'),
-(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-04-13 14:53:50', 9, 'MAINTENANCE', '200 two street', 'unread'),
-(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-04-13 15:18:31', 12, 'MAINTENANCE', '100 one street', 'unread'),
-(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 10, 'MAINTENANCE', '100 one street', 'unread'),
-(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-04-16 05:25:43', 9, 'MAINTENANCE', '100 one street', 'unread'),
-(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-04-25 09:33:29', 9, 'MAINTENANCE', '300 three street', 'unread'),
-(17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-05-14 04:50:05', 9, 'GENERAL', '300 three street', 'unread'),
-(18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-14 04:49:49', 9, 'INTERNET', '300 three street', 'unread'),
-(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-14 04:49:37', 9, 'LEASE', '300 three street', 'unread');
+(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-08-20 06:07:44', 10, 'Maintenance', '200 two street', 'Viewed'),
+(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-04-13 14:52:26', 10, 'Maintenance', '200 two street', 'Unread'),
+(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-04-13 14:53:50', 9, 'Maintenance', '200 two street', 'Unread'),
+(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-04-13 15:18:31', 12, 'Maintenance', '100 one street', 'Unread'),
+(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 10, 'Maintenance', '100 one street', 'Unread'),
+(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-04-16 05:25:43', 9, 'Maintenance', '100 one street', 'Unread'),
+(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-04-25 09:33:29', 9, 'Maintenance', '300 three street', 'Unread'),
+(17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-05-14 04:50:05', 9, 'General', '300 three street', 'Unread'),
+(18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-14 04:49:49', 9, 'Internet', '300 three street', 'Unread'),
+(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-14 04:49:37', 9, 'Lease', '300 three street', 'Unread');
 
 -- --------------------------------------------------------
 
@@ -313,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` int(11) NOT NULL,
   `emergency_id` int(11) DEFAULT NULL,
-  `internet_plan` enum('FREE','BASIC','STANDARD','PREMIUM') DEFAULT NULL,
+  `internet_plan` enum('Free','Basic','Standard','Premium') DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `person_id` (`person_id`),
   KEY `emergency_id` (`emergency_id`)
@@ -324,12 +324,12 @@ CREATE TABLE IF NOT EXISTS `students` (
 --
 
 INSERT INTO `students` (`id`, `person_id`, `emergency_id`, `internet_plan`) VALUES
-(10, 9, NULL, 'STANDARD'),
-(11, 10, NULL, 'PREMIUM'),
-(12, 12, NULL, 'FREE'),
-(13, 13, NULL, 'FREE'),
-(14, 14, NULL, 'PREMIUM'),
-(15, 15, NULL, 'FREE');
+(10, 9, NULL, 'Standard'),
+(11, 10, NULL, 'Premium'),
+(12, 12, NULL, 'Free'),
+(13, 13, NULL, 'Free'),
+(14, 14, NULL, 'Premium'),
+(15, 15, NULL, 'Free');
 
 -- --------------------------------------------------------
 
@@ -345,6 +345,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` varchar(20) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
+  `tokenhash` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   KEY `person_id` (`person_id`)
@@ -354,14 +355,14 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `person_id`, `username`, `password`, `role`, `created`, `modified`) VALUES
-(35, 1, 'admin', '$2y$10$W4EJplARM6UTAznYCvS50O37iSU.eyc1IUDFPuyxu0kju27md8G6e', 'admin', '2015-05-16 08:08:00', '2015-05-16 08:08:00'),
-(41, 9, 'amy@amy.com', '$2y$10$2usxqP2wfF6KVyKN/7aOf.bN6oF0YMZ/7ZebnyVH/PeKZ8onp/6fa', 'tenant', '2015-07-03 05:24:37', '2015-08-19 09:50:42'),
-(42, 10, 'ben@ben.com', '$2y$10$yPfJ9tHptXXaSeqpja9X2uf9Q/MaIe8jRpQm82XIqI.rCu6zzv4fK', 'tenant', '2015-07-03 10:18:53', '2015-07-03 10:19:57'),
-(43, 12, 'constance@constance.com', '$2y$10$HSGV/kNZOdGcA6S6T8b8e.UiYzvelCpocBFOWHtCcUQ5S6wiW.HrG', 'tenant', '2015-07-04 13:20:44', '2015-07-04 13:26:51'),
-(44, 13, 'darren@darren.com', '$2y$10$.Z7/9q8Bw3RfhZ0Q3Qo58Ou64ZtD32J/JKdKC1aRNKZPuFdNd88eq', 'tenant', '2015-07-09 16:12:08', '2015-07-09 16:12:08'),
-(45, 14, 'esther@esther.com', '$2y$10$QRZYZSxPClT1HF0HgO8PnOW4zO5.eDkEnBljNiEETG8HmtHdCY0l6', 'tenant', '2015-07-09 16:57:20', '2015-07-09 16:57:20'),
-(46, 15, 'fiona@fiona.com', '$2y$10$OEVNCpzk9TvOHqlHGdCzr.tw3rLfrXchAVuVZDW83lYBIfV9KTwma', 'tenant', '2015-08-19 09:36:36', '2015-08-19 09:52:22');
+INSERT INTO `users` (`id`, `person_id`, `username`, `password`, `role`, `created`, `modified`, `tokenhash`) VALUES
+(35, 1, 'admin', '$2y$10$W4EJplARM6UTAznYCvS50O37iSU.eyc1IUDFPuyxu0kju27md8G6e', 'admin', '2015-05-16 08:08:00', '2015-05-16 08:08:00', ''),
+(41, 9, 'amy@amy.com', '$2y$10$2usxqP2wfF6KVyKN/7aOf.bN6oF0YMZ/7ZebnyVH/PeKZ8onp/6fa', 'tenant', '2015-07-03 05:24:37', '2015-08-20 06:22:58', ''),
+(42, 10, 'ben@ben.com', '$2y$10$yPfJ9tHptXXaSeqpja9X2uf9Q/MaIe8jRpQm82XIqI.rCu6zzv4fK', 'tenant', '2015-07-03 10:18:53', '2015-07-03 10:19:57', ''),
+(43, 12, 'constance@constance.com', '$2y$10$HSGV/kNZOdGcA6S6T8b8e.UiYzvelCpocBFOWHtCcUQ5S6wiW.HrG', 'tenant', '2015-07-04 13:20:44', '2015-07-04 13:26:51', ''),
+(44, 13, 'darren@darren.com', '$2y$10$.Z7/9q8Bw3RfhZ0Q3Qo58Ou64ZtD32J/JKdKC1aRNKZPuFdNd88eq', 'tenant', '2015-07-09 16:12:08', '2015-07-09 16:12:08', ''),
+(45, 14, 'esther@esther.com', '$2y$10$QRZYZSxPClT1HF0HgO8PnOW4zO5.eDkEnBljNiEETG8HmtHdCY0l6', 'tenant', '2015-07-09 16:57:20', '2015-07-09 16:57:20', ''),
+(46, 15, 'fiona@fiona.com', '$2y$10$OEVNCpzk9TvOHqlHGdCzr.tw3rLfrXchAVuVZDW83lYBIfV9KTwma', 'tenant', '2015-08-19 09:36:36', '2015-08-19 09:52:22', '');
 
 --
 -- Triggers `users`

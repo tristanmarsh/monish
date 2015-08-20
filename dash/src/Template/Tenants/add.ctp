@@ -105,7 +105,7 @@
             </div>
 
             
-             <?= $this->Form->input('internet_plan', ['options' => ['FREE' => 'FREE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM'], 'class' => 'form-control']) ?>
+             <?= $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'], 'class' => 'form-control']) ?>
              
              <?= $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']); ?>
             

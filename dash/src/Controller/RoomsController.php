@@ -112,10 +112,10 @@ class RoomsController extends AppController
         $room = $this->Rooms->newEntity();
         if ($this->request->is('post')) {
             $room = $this->Rooms->patchEntity($room, $this->request->data);
+            $room->vacant = 'TRUE';
             if ($this->Rooms->save($room)) {
-                //$room->vacant = "TRUE"; 
                 $this->Flash->success('The room has been saved.');
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'properties', 'action' => 'index']);
             } else {
                 $this->Flash->error('The room could not be saved. Please, try again.');
             }

@@ -7,25 +7,24 @@ Since:    31/7/15
 */
 
 body {
-  background: #293846;
   font-family:$open-sans-font-stack;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
+  background:rgb(178,207,233);
 }
-
 
 // Prevents Overscrolling
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
+// html, body {
+//     width: 100%;
+//     height: 100%;
+//     overflow: hidden;
+// }
 
-body > div {
-    height: 100%;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-}
+// body > div {
+//     height: 100%;
+//     overflow: scroll;
+//     -webkit-overflow-scrolling: touch;
+// }
 
 // #### UTILITY ####
 
@@ -147,13 +146,28 @@ h6 {
 // holds the main view of the dashboard
 
 .main-content {
+  position: relative;
   overflow-x: hidden; //prevents scrollable panels when mobile nav visible
+  overflow-y: scrollable; 
   transition:all 400ms ease;
   background: rgb(236,242,246);
 
+
+  &:before {
+    // content: "";
+    // display: block;
+    // width:100vw;
+    // height:100vh;
+    // background: #bada55;
+    // position:absolute;
+    // top:-30%;
+    // left:0%;
+    // z-index:9999;
+  }
+
   .content {
     margin-top:51px;
-    min-height:80vh;
+    min-height:70vh;
     margin-bottom:20px;
   }
 

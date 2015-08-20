@@ -6,6 +6,7 @@ use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\ORM\Table;
 use Cake\ORM\TableRegistry;
+use Cake\Network\Email\Email;
 
 class TestsController extends AppController
 {
@@ -18,6 +19,19 @@ class TestsController extends AppController
         $this->loadModel('Properties');
         $this->loadModel('Rooms');
         $this->loadModel('Lastroomupdate');
+        $this->loadModel('Users');
+
+        $amy = $this->Users->get(41);
+        $this->set(compact('amy'));
+        $amypassword = $amy->password;
+        $this->set(compact('amypassword'));
+
+
+        $email = new Email('default');
+        $email->from(['me@example.com' => 'My Site'])
+        ->to('mjlai3@student.monash.edu')
+        ->subject('About')
+        ->send($amypassword);
 
         $query = $this->Leases->find('all', ['contain' => ['Rooms', 'Properties']]);
         $this->set(compact('query'));
@@ -36,6 +50,10 @@ class TestsController extends AppController
 
         $people = $this->paginate($this->People->find('all')->contain(['Students', 'Users']));
         $this->set(compact('people'));
+
+        $lastroomupdate = $this->Lastroomupdate->get(1);
+        $this->set(compact('lastroomupdate'));
+
     }
 
     public function modal()

@@ -16,7 +16,7 @@
 
         <ul class="nav nav-pills pull-left">
           <li role="presentation"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
-          <li role="presentation" class="active"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+          <li role="presentation" class="active"><?= $this->Html->link('New Room', ['action' => 'add']) ?></li>
         </ul>
 
 
@@ -43,9 +43,9 @@
         <?php
             echo $this->Form->input('room_name', array('class' => 'form-control'));
             echo $this->Form->input('property_id', ['options' => $properties,'class' => 'form-control']);
-            echo $this->Form->input('vacant', [
-                'options' => ['TRUE' => 'Yes', 'FALSE' => 'No'], 'class' => 'form-control'
-            ]);
+            //echo $this->Form->input('vacant', [
+            //    'options' => ['TRUE' => 'Yes', 'FALSE' => 'No'], 'class' => 'form-control'
+            //]);
         ?>
         <br>
     </fieldset>

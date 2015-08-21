@@ -22,7 +22,7 @@
 						<!-- Nav tabs -->
 						<ul class="nav nav-pills" role="tablist">
 							<li role="presentation" class="active"><a href="#log-in" aria-controls="log-in" role="tab" data-toggle="tab">Login</a></li>
-							<li role="presentation"><a href="#account-recovery" aria-controls="account-recovery" role="tab" data-toggle="tab">Account Recovery</a></li>
+							<li role="presentation"><a href="#account-recovery" aria-controls="account-recovery" role="tab" data-toggle="tab" style="padding-top:0;padding-bottom:0;"><?= $this->Html->link('Account Recovery', ['action' => 'forgot_password']) ?></a></li>
 						</ul>
 
 						<!-- Tab panes -->
@@ -53,7 +53,7 @@
 							</div>
 							<div role="tabpanel" class="tab-pane fade in" id="account-recovery">
 
-								<?php if (!$this->Session->read('Auth.User')) : ?>             			
+								<?php if (!$this->Session->read('Auth.User')) : ?>
 								<div class="users form">
 									<?= $this->Flash->render('auth') ?>
 									<?= $this->Form->create() ?>

@@ -18,11 +18,11 @@ class UsersController extends AppController
 
     function forgot_password(){
 
-        // $this->layout = 'login';
+         $this->layout = false;
 
         if(!empty($this->request->data))
         {
-
+			
             if(empty($this->request->data['username']))
             {
                 $this->Flash->error('Please enter your username address.');
@@ -81,7 +81,7 @@ class UsersController extends AppController
 
     function reset_password($token=null){
 
-        // $this->layout = 'login';
+        $this->layout = false;
 
         // User must have a token in order to proceed
         if(!empty($token)){
@@ -147,7 +147,7 @@ class UsersController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['add', 'logout']);
+        $this->Auth->allow(['add', 'logout', 'forgot_password', 'reset_password']);
     }
 
     public function index()

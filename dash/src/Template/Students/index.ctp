@@ -99,7 +99,8 @@
 
 		</table>
 		
-		Available Internet Plans
+        <br>
+        Available Internet Plans
 		<table>
 			<tr>
 				<th>Type</th>

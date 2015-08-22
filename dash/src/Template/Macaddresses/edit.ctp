@@ -8,6 +8,24 @@
 
 <h1>Update Devices</h1>
 
+<div class="panel panel-default clearfix">
+<div class="panel-body">
+
+    <ul class="nav nav-pills pull-left">
+        <li role="presentation">
+            <?= $this->Html->link('All', ['action' => 'index']) ?>
+        </li>
+        <li role="presentation" class="active">
+            <a class="btn float-right">Update Devices</a>
+        </li>
+        <li role="presentation">
+            <a class="btn float-right" href="http://www.wikihow.com/Find-the-MAC-Address-of-Your-Computer">Help me find my MAC Address</a>
+        </li>
+    </ul>
+
+</div>
+</div>
+
 <style type="text/css" >
 
 .form {}

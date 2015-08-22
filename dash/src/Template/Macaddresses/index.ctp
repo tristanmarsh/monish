@@ -29,7 +29,7 @@
                 <?= $this->Html->link('Update Devices', ['action' => 'edit', $personEntity->macaddress->id]) ?>
             </li>
             <li role="presentation">
-                <a class="btn btn-default float-right" href="http://www.wikihow.com/Find-the-MAC-Address-of-Your-Computer">Help me find my MAC Address</a>
+                <a class="btn float-right" href="http://www.wikihow.com/Find-the-MAC-Address-of-Your-Computer">Help me find my MAC Address</a>
             </li>
         </ul>
 

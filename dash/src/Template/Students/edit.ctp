@@ -38,9 +38,11 @@
         <fieldset>
             <legend><?= __('Select Plan', array('class' => 'form-control')) ?></legend>
             <?php
-            echo $this->Form->input('internet_plan', ['options' => ['NONE' => 'NONE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM'], 'class' => 'form-control']);
+            echo $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'], 'class' => 'form-control']);
             ?>
         </fieldset>
+
+        <br>
 		Available Internet Plans
             <table>
                 <tr>

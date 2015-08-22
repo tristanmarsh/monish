@@ -60,21 +60,29 @@ Since:    3/6/15
   li {
     display:block;
     position:relative;
-    font-size:2.5rem;
+    font-size:2rem;
     transition:background-color 200ms ease;
+    border-bottom:1px solid #1D2832;
 
     .menu-item-link {
       display:block;
-      font-size:3rem;
-
-      .menu-item-label {
-        position:absolute;
-        left:60px;
-        top:7px;
-      }
+      height:6rem;
 
       .glyphicon {
         position: static;
+        vertical-align: middle;
+        vertical-align: -webkit-baseline-middle;
+        width:60px;
+        margin:0 auto;
+        margin-left:5px;        
+      }
+
+      .menu-item-label {
+        position: absolute;
+        left: 6rem;
+        top: 1.2rem;
+        vertical-align: baseline;
+        font-size: 2.6rem;
       }
 
     }
@@ -113,6 +121,23 @@ Since:    3/6/15
     .menu-item-label {
     }
 
+  }
+
+  
+  // Spotlight active effect
+  a.active {
+    // position: relative;
+  }
+
+
+  li:hover > a {
+    background:rgba(255,255,255,0.1);
+    color:#fff;
+  }
+
+  :not(.navigation-active) a.active {
+    background:rgba(0,0,0,0.3);
+    color:#fff;
   }
 
 }

@@ -85,7 +85,11 @@ class LeasesController extends AppController
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
     public function view($id = null)
+
     {
+        $this->loadModel('People');
+        $walrus = $this->People;
+        $this->set('walrus', $walrus);
         $lease = $this->Leases->get($id, [
             'contain' => ['Rooms', 'Students']
         ]);

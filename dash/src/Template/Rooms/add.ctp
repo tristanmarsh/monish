@@ -2,6 +2,7 @@
     $this->Html->addCrumb('Properties', '/properties');
     $this->Html->addCrumb('Rooms', '/rooms');
     $this->Html->addCrumb('Add Room', array('controller' => 'rooms', 'action' => 'add'));
+
 ?>    
 
 
@@ -18,6 +19,7 @@
         <ul class="nav nav-pills pull-left">
           <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
           <li role="presentation" class="active"><?= $this->Html->link('New Room', ['action' => 'add']) ?></li>
+          <li role="presentation"><?= $this->Html->link('Properties', ['controller' => 'properties', 'action' => 'index']) ?></li>
         </ul>
 
 
@@ -40,7 +42,7 @@
 <div class="rooms form large-10 medium-9 columns">
     <?= $this->Form->create($room, array('class' => 'form-group')); ?>
     <fieldset>
-        <legend><?= __('Add Room', array('class' => 'form-control')) ?></legend>
+        <legend><?= __('New Room', array('class' => 'form-control')) ?></legend>
         <?php
             echo $this->Form->input('room_name', array('class' => 'form-control'));
             echo $this->Form->input('property_id', ['options' => $properties,'class' => 'form-control']);
@@ -50,7 +52,7 @@
         ?>
         <br>
     </fieldset>
-    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-success']) ?>
+    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']) ?>
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Rooms', 'action' => 'index']
@@ -58,7 +60,7 @@
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Properties', 'action' => 'index']
     ])?>
-    <?= $this->Form->button(__('Cancel'), ['class' => 'form-control btn btn-fail']) ?>
+<!--     <?= $this->Form->button(__('Cancel'), ['class' => 'form-control btn btn-fail']) ?> -->
 </div>
 </div>
 </div>

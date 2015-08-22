@@ -46,7 +46,7 @@
 
       <?= $this->Form->create($lease, array('class' => 'form-group')); ?>
       <fieldset>
-        <legend><?= __('Add Lease', array('class' => 'form-control')) ?></legend>
+        <legend><?= __('New Lease', array('class' => 'form-control')) ?></legend>
         <?php
         echo $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']);
         echo $this->Form->input('student_id', ['options' => $students,'class' => 'form-control']);
@@ -55,6 +55,7 @@
         echo $this->Form->input('weekly_price', array('class' => 'form-control'));
         ?>
       </fieldset>
+      <br>
       <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']); ?>
       <?= $this->Form->end() ?>
       <?= $this->Form->create(null, [

@@ -1,6 +1,6 @@
 <?php
     $this->Html->addCrumb('Tenants', '/tenants');
-    $this->Html->addCrumb('View Tenant', array('controller' => 'tenants', 'action' => 'view'));
+    $this->Html->addCrumb('View Tenant');
 ?>
 <h1>Tenant Details</h1>
 
@@ -15,13 +15,13 @@
         <table cellpadding="0" cellspacing="0">
             <thead>
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Common Name</th>
-                <th>Gender</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Internet Plan</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;First Name</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;Last Name</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;Common Name</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;Gender</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;Phone</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;Email</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;Internet Plan</th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             </thead>
@@ -55,11 +55,11 @@
         <?php if (!empty($student->leases)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th><?= __('Property') ?></th>
-                <th><?= __('Room') ?></th>
-                <th><?= __('Date Start') ?></th>
-                <th><?= __('Date End') ?></th>
-                <th><?= __('Weekly Price') ?></th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Property') ?></th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Room') ?></th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Date Start') ?></th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Date End') ?></th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Weekly Price') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($query as $leases): ?>
@@ -70,7 +70,7 @@
                 <td><?= h($leases->date_end->format('Y M d')) ?></td>
                 <td><?= h($this->Number->currency($leases->weekly_price)) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Leases', 'action' => 'edit', $leases->id]) ?>
+                 <!--    <?= $this->Html->link(__('Edit'), ['controller' => 'Leases', 'action' => 'edit', $leases->id]) ?> -->
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Leases', 'action' => 'delete', $leases->id], ['confirm' => __('Are you sure you want to delete # {0}?', $leases->id)]) ?>
                 </td>
             </tr>
@@ -91,10 +91,10 @@
     <div class="table-responsive">
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th><?= __('First Name') ?></th>
-                <th><?= __('Last Name') ?></th>
-                <th><?= __('Phone') ?></th>
-                <th><?= __('Email') ?></th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('First Name') ?></th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Last Name') ?></th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Phone') ?></th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Email') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($emergencyQuery as $emergency): ?>
@@ -272,4 +272,4 @@
     </div>
 </div>
 
-<a href="javascript: window.history.back()">Go Back</a>
+<!-- <a href="javascript: window.history.back()">Go Back</a> -->

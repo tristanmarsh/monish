@@ -1,6 +1,6 @@
 <?php
     $this->Html->addCrumb('Properties', '/properties');
-    $this->Html->addCrumb('View Property', array('controller' => 'properties', 'action' => 'view'));
+    $this->Html->addCrumb('View Property');
 ?>
 <h2>Property Details</h2>
 

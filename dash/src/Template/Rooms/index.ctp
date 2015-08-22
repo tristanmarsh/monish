@@ -11,6 +11,7 @@
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
             <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+            <li role="presentation"><?= $this->Html->link('Properties', ['controller' => 'properties', 'action' => 'index']) ?></li>
         </ul>
 
     </div>

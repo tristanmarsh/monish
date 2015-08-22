@@ -107,9 +107,7 @@ $cakeDescription = 'Monish Dashboard';
 
 						<?= $this->Flash->render() ?>
 
-
 						<?= $this->fetch('h1') ?>
-			
 
 						<?= $this->fetch('content') ?>
 

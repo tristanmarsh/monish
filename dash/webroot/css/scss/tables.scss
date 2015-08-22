@@ -86,23 +86,41 @@ table {
       text-decoration: none;
     }
 
+    // Preview Hidden
+    &>a:after {
+     content:'\25B2';
+      position:absolute;
+      float:right;
+      right:1em;
+      font-size: 0.8em;
+      opacity:0;
+    }
+
     &>a.asc,
     &>a.desc {
       background: darken(#2980b9,10%);
     }
 
-    &>a.asc:after {
-      content:'\25B2';
-      position:relative;
-      right:-0.5em;
-      font-size: 0.8em;
+    // Hover ASC Preview
+    &>a:focus:after,
+    &>a:hover:after {
+      opacity:1;
+    }
+    
+    //Make preview Hidden for active state
+    &>a.asc:after,
+    &>a.desc:after {
+      opacity:1;
     }
 
+    //inherited from hover preview
+    &>a.asc:after {
+      content:inherit;
+    }
+    
+    //modify from inherited hover preview
     &>a.desc:after {
       content:'\25BC';
-      position:relative;
-      right:-0.5em;
-      font-size: 0.8em;
     }
 
 

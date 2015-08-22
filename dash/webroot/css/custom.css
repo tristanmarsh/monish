@@ -359,21 +359,29 @@ Since:    3/6/15
 .sidebar li {
   display: block;
   position: relative;
-  font-size: 2.5rem;
+  font-size: 2rem;
   -webkit-transition: background-color 200ms ease;
           transition: background-color 200ms ease;
+  border-bottom: 1px solid #1D2832;
 }
 .sidebar li .menu-item-link {
   display: block;
-  font-size: 3rem;
-}
-.sidebar li .menu-item-link .menu-item-label {
-  position: absolute;
-  left: 60px;
-  top: 7px;
+  height: 6rem;
 }
 .sidebar li .menu-item-link .glyphicon {
   position: static;
+  vertical-align: middle;
+  vertical-align: -webkit-baseline-middle;
+  width: 60px;
+  margin: 0 auto;
+  margin-left: 5px;
+}
+.sidebar li .menu-item-link .menu-item-label {
+  position: absolute;
+  left: 6rem;
+  top: 1.2rem;
+  vertical-align: baseline;
+  font-size: 2.6rem;
 }
 .sidebar li a {
   display: block;
@@ -396,6 +404,14 @@ Since:    3/6/15
 .sidebar li:hover span,
 .sidebar li:hover a {
   color: #D4D9E0;
+}
+.sidebar li:hover > a {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.sidebar :not(.navigation-active) a.active {
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
 }
 
 .sidebar,
@@ -589,20 +605,28 @@ table th > a:focus, table th > a:hover {
   color: #fff;
   text-decoration: none;
 }
+table th > a:after {
+  content: '\25B2';
+  position: absolute;
+  float: right;
+  right: 1em;
+  font-size: 0.8em;
+  opacity: 0;
+}
 table th > a.asc, table th > a.desc {
   background: #20638f;
 }
+table th > a:focus:after, table th > a:hover:after {
+  opacity: 1;
+}
+table th > a.asc:after, table th > a.desc:after {
+  opacity: 1;
+}
 table th > a.asc:after {
-  content: '\25B2';
-  position: relative;
-  right: -0.5em;
-  font-size: 0.8em;
+  content: inherit;
 }
 table th > a.desc:after {
   content: '\25BC';
-  position: relative;
-  right: -0.5em;
-  font-size: 0.8em;
 }
 table tr {
   background: #fcfcfc;
@@ -690,9 +714,19 @@ header .breadcrumb {
   color: #fff;
 }
 header .breadcrumb a {
+  display: inline-block;
   font-size: 1.4rem;
   font-weight: lighter;
   color: #fff;
+  -webkit-transition: all 400ms ease;
+          transition: all 400ms ease;
+  background: none;
+}
+header .breadcrumb a.active:hover,
+header .breadcrumb a:hover {
+  text-decoration: none;
+  background: #b2cfe9;
+  color: #337ab7;
 }
 header .breadcrumb a.active {
   color: #fff;
@@ -755,7 +789,7 @@ h6 {
   background: #ecf2f6;
 }
 .main-content .content {
-  margin-top: 51px;
+  margin-top: 70px;
   min-height: 70vh;
   margin-bottom: 20px;
 }

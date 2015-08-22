@@ -39,7 +39,7 @@
 <div class="properties form large-10 medium-9 columns">
     <?= $this->Form->create($property, array('class' => 'form-group')); ?>
     <fieldset>
-        <legend><?= __('Add Property', array('class' => 'form-control')) ?></legend>
+        <legend><?= __('New Property', array('class' => 'form-control')) ?></legend>
         <?php
             echo $this->Form->input('address', array('class' => 'form-control'));
             echo $this->Form->input('number_rooms', array('class' => 'form-control'));
@@ -56,6 +56,7 @@
             ]);
         ?>
     </fieldset>
+    <br>
     <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']) ?>
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, [

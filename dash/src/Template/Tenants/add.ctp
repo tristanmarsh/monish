@@ -80,7 +80,7 @@
         <fieldset class="input-group">
 
           <div class="panel-heading">
-            <legend><?= __('Create New Tenant & Lease', array('class' => 'form-control')) ?></legend>
+            <legend><?= __('New Tenant & Lease', array('class' => 'form-control')) ?></legend>
           </div>
 
           <div class="panel-body">

@@ -10,8 +10,10 @@
     <div class="panel-body">
         
         <ul class="nav nav-pills pull-left">
-            <li role="presentation" ><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
-            <li role="presentation"class="active"><?= $this->Html->link('Edit', ['action' => 'edit', $room->id]) ?></li>
+          <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
+          <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $room->id]) ?></li>
+          <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $room->id]) ?></li>
+          <li role="presentation"><?= $this->Html->link('Properties', ['controller' => 'properties', 'action' => 'index']) ?></li>
         </ul>
 
     </div>
@@ -43,12 +45,12 @@
         ?>
         <br>
     </fieldset>
-    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-success']) ?>
+    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']) ?>
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Properties', 'action' => 'index']
     ])?>
-    <?= $this->Form->button(__('Cancel'), ['class' => 'form-control btn btn-fail']) ?> 
+<!--     <?= $this->Form->button(__('Cancel'), ['class' => 'form-control btn btn-fail']) ?>  -->
 </div>
 </div>
 </div>

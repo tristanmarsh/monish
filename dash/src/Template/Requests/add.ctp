@@ -15,7 +15,7 @@
       <div class="panel-body">
 
         <ul class="nav nav-pills pull-left">
-          <li role="presentation"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+          <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
           <li role="presentation" class="active"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
         </ul>
 
@@ -37,28 +37,28 @@
 <div class="panel panel-default">
       <div class="panel-body">
 
+        <div class="requests form large-10 medium-9 columns">
+
 
         <?= $this->Form->create($zebra, array('class' => 'form-group')) ?>
-        <fieldset class="input-group">
+        <fieldset>
 
-          <div class="panel-heading">
-            <legend><?= __('Create New Request', array('class' => 'form-control')) ?></legend>
-          </div>
 
-          <div class="panel-body">
-            
-            <div class="col-md-3">
+            <legend><?= __('New Request', array('class' => 'form-control')) ?></legend>
+
+
+
             
               <?= $this->Form->input('title', array('class' => 'form-control')) ?>
               <?= $this->Form->input('category', ['options' => ['General' => 'General', 'Maintenance' => 'Maintenance', 'Internet' => 'Internet', 'Lease' => 'Lease'],'class' => 'form-control']) ?>
               <?= $this->Form->input('property_address', ['options' => $addresses,'class' => 'form-control']) ?>
               <?= $this->Form->input('description', ['rows' => '3', 'class' => 'form-control']) ?>
 
-              
-            </div>
+
 
            
            </fieldset>
+           <br>
 
            <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']); ?>
            <?= $this->Form->end() ?>

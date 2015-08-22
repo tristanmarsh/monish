@@ -69,13 +69,20 @@
 
         <h1>Internet Plan</h1>
 
+    <div class="panel panel-primary">
+            <div class="panel-heading">
+        <h2 class="panel-title">Current Plan</h2>
+    </div>
+    <!-- Default panel contents -->
+
+
         <table cellpadding="0" cellspacing="0">
 
             <table>
                 <tr>
-                    <th>Name</th>
-                    <th>Internet Plan</th>
-                    <th>Action</th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;Name</th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;Internet Plan</th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;Action</th>
                 </tr>
 
             <?php foreach ($students as $student): ?>
@@ -98,13 +105,15 @@
             <?php endforeach; ?>
 
 		</table>
+	    <div class="panel-heading">
+        <h2 class="panel-title">Available Internet Plans</h2>
+    </div>	
 		
-		Available Internet Plans
 		<table>
 			<tr>
-				<th>Type</th>
-				<th>Data</th>
-				<th>Price</th>
+				<th>&nbsp;&nbsp;&nbsp;&nbsp;Type</th>
+				<th>&nbsp;&nbsp;&nbsp;&nbsp;Data</th>
+				<th>&nbsp;&nbsp;&nbsp;&nbsp;Price</th>
 			</tr>
 			<tr>				
 				<td>Free</td>
@@ -130,5 +139,7 @@
 
 
 
+
 <?php endif; ?>
+</div>
 

@@ -16,13 +16,13 @@
 									<span class="icon-bar"></span>
 								</button>
 
-								<a class="navbar-brand" href="#">
+<!-- 								<a class="navbar-brand" href="#">
 									<div class="navbar-image">
 										<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
 										<span>Monash ISH Dashboard</span>
 									</div>
 								</a>
-								
+ -->								
 							</div>
 
 							<!-- Collect the nav links, forms, and other content for toggling -->

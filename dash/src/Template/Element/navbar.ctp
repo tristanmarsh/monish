@@ -9,20 +9,20 @@
 							<!-- Brand and toggle get grouped for better mobile display -->
 							<div class="navbar-header">
 
-								<button type="button" id="navigation-toggle" class="navbar-toggle">
+								<button type="button" id="navigation-toggle" class="navbar-toggle pull-right">
 									<span class="sr-only">Toggle navigation</span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
 
-<!-- 								<a class="navbar-brand" href="#">
+ 								<a class="navbar-brand" href="#">
 									<div class="navbar-image">
 										<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
-										<span>Monash ISH Dashboard</span>
+										<span>Monash ISH</span>
 									</div>
 								</a>
- -->								
+							
 							</div>
 
 							<!-- Collect the nav links, forms, and other content for toggling -->

@@ -51,7 +51,6 @@ $cakeDescription = 'Monish Dashboard';
 
 	<?= $this->Html->css('bootstrap.min.css') ?>
 	<?= $this->Html->css('custom.css') ?>
-	<?= $this->Html->css('animate.min.css') ?>
 
 	<?= $this->Html->script('wow.min.js') ?>
 	<?= $this->Html->script('min/custom-min.js') ?>

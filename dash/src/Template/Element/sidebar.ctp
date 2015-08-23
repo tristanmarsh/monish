@@ -6,7 +6,7 @@
 
 	<!-- Experimental Collapsible Sidebar -->
 
-	<!-- <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<!-- 	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 		
 		/* Requests */
 		<div class="panel panel-default">
@@ -159,9 +159,17 @@
 		); ?>
 	</li> -->
 
-
 	<?php elseif ($user['role'] === "tenant") : ?>
 
+
+	<li data-toggle="tooltip" data-placement="right" title="Home">
+		<?= $this->Html->link(
+		'<span class="icon-monish" id="icon-monish-home"></span>
+		<span class="menu-item-label">Home</span>',
+		array('controller' => 'Users', 'action' => 'login'),
+		array('class' => 'menu-item-link', 'escape' => false)
+		); ?>
+	</li>
 
 	<li data-toggle="tooltip" data-placement="right" title="Profile">
 		<?= $this->Html->link(

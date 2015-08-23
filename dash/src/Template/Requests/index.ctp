@@ -30,8 +30,6 @@
 
 </div>
 
-
-
 <!-- Panel -->
 <div class="panel panel-primary">
     <!-- Default panel contents -->
@@ -110,11 +108,3 @@
         location.href = $(this).find("a").attr("href");
     });
 </script>
-
-
-
-
-
-
-
-

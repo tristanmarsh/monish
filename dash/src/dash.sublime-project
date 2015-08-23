@@ -3,6 +3,9 @@
 	[
 		{
 			"path": "/Applications/MAMP/htdocs/monish/dash"
+		},
+		{
+			"path": "/Applications/MAMP/htdocs/monish/dash/webroot/css/scss"
 		}
 	]
 }

@@ -7,7 +7,8 @@ Note:     Remeber mobile first methodology when styling
 Since:    29/4/15
 
 */
-@import '../../../../bower_components/animate.css-scss/_fading-entrances/fading-entrances.scss';
+// @import '../../../../bower_components/animate.css-scss/_fading-entrances/fading-entrances.scss';
+@import 'animate.css-scss/animate.scss';
 @import 'variables.scss';
 @import 'sm.scss';
 @import 'override.scss';

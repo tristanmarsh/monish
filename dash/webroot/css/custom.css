@@ -714,8 +714,12 @@ body {
   background: #b2cfe9;
 }
 
-.log-in-window {
+.logo {
   margin-top: 8vw;
+}
+
+.log-in-window {
+  margin-top: 20px;
 }
 
 .img-center {

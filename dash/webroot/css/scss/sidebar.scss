@@ -25,48 +25,50 @@ Since:    3/6/15
   overflow-x: hidden;
   padding: 0;
   background-color: #293846;
-  // box-shadow:inset -20px 0 20px rgba(38, 56, 73, 0.2);
-  transition:transform 400ms ease;
+  transition:transform 200ms ease;
   overflow-x:hidden;
 
   .nav-sidebar {
     margin-left:0;
   }
 
-  .panel {
-    background:none;
-    border:0;
-    border-radius:0;
-
-
-  }
-  .panel-group {
-
-    .panel-heading {
-      background:none;
-    }
-
-    &.panel-heading+.panel-collapse>.panel-body,
-    & .panel-heading+.panel-collapse>.list-group {
-      border-top:0;
-    }
-
-  }
-  
   ul {
     padding-left:0;
   }
-
+  
+  // Default Menu Item
   li {
     display:block;
     position:relative;
     font-size:2rem;
-    transition:background-color 200ms ease;
     border-bottom:1px solid #334658;
+    height:6rem;
+
+
+    //Home Link
+    &[data-original-title="Home"] {
+      
+      &>a.menu-item-link {
+        background: rgba(0,0,0,0.4);
+        padding:10px;
+        transition:none;
+
+        [class^="icon-"] {
+          color:#76AADB;
+        }
+      }
+
+      &:hover>a.menu-item-link {
+        background: rgba(0,0,0,0.4);
+      }
+
+    }
 
     .menu-item-link {
       display:block;
-      height:6rem;
+      color:#5F666C;
+      transition:color 200ms ease;
+      height:100%;
 
       #icon-monish-home {
         font-size:4rem;
@@ -78,88 +80,51 @@ Since:    3/6/15
         vertical-align: -webkit-baseline-middle;
         width:60px;
         margin:0 auto;
-        margin-left:5px;        
+        margin-left:5px;
       }
 
       .menu-item-label {
         position: absolute;
         left: 6rem;
-        top: 1.2rem;
-        vertical-align: baseline;
-        font-size: 2.6rem;
+        top: 1.7rem;
+        font-size: 2rem;
+        color:#fff;
       }
 
     }
 
+    // Current Menu Item
+    .menu-item-link.active {
+      background:rgba(0,0,0,0.2);
 
-    a {
-      display:block;
-      color:#788188;
-      transition:all 200ms ease;
+      .glyphicon,
+      .menu-item-label {
+        color:#fff;
+      }
+
     }
     
-    h4.panel-title,
-    span {
-      color:#788188;
-    }
-
-    a.active span,
-    a.active {
-      color:#D4D9E0;
-    }
-
   }
 
+  // Hover Menu Item
   li:active,
   li:focus,
   li:hover {
 
-    span,
-    a {
-      color:#D4D9E0;
-    }
-
     .menu-item-link {
+      color:#D4D9E0;
+      background:rgba(255,255,255,0.05);
+      color:#fff;
     }
 
     .menu-item-label {
+
     }
 
   }
 
-  
-  // Spotlight active effect
-  a.active {
-    // position: relative;
-  }
-
-
-  li:hover > a {
-    background:rgba(255,255,255,0.1);
-    color:#fff;
-  }
-
-  a.active {
-    background:rgba(0,0,0,0.3);
-    color:#fff;
-  }
-
 }
 
-
-//Home Link
-[data-original-title="Home"] {
-  
-  &>a.menu-item-link {
-    background: rgba(0,0,0,0.7);
-    padding:10px;
-    
-    [class^="icon-"] {
-      color:#76AADB;
-    }
-  }
-
-}
 
 
 // Classes to animate
@@ -177,17 +142,18 @@ Since:    3/6/15
 // hide tooltips by default
 .tooltip.right {
   display:none!important;
-  font-size:3rem;
-}
-
-.tooltip-inner {
-  background:#222;
+  font-size:2rem;
+  @include fadeInLeft($duration:600ms,$delay:500ms);
+  margin-left:-10px;
 }
 
 .tooltip.right .tooltip-arrow {
-  border-right-color:#222;
+  border-right-color: #374A5D;
 }
 
+.tooltip-inner {
+  background: #374A5D;
+}
 
 // xs
 @media(max-width:480px){
@@ -197,7 +163,8 @@ Since:    3/6/15
   .sidebar {
     transform:translate3D(-100%,0,0);
     padding-top:71px;
-    width:60px;
+    width:300px;
+    transition:transform 400ms ease;
   }  
 
   .navigation-active {
@@ -207,7 +174,10 @@ Since:    3/6/15
   // Active
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
-    width:250px;
+    width:300px;
+    transition:width 0s ease;
+    transition-delay: 400ms;
+    transition:transform 400ms ease;
   }
   
   .navigation-active .content,
@@ -244,7 +214,7 @@ Since:    3/6/15
   // Active
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
-    width:250px;
+    width:300px;
   }
   .navigation-active .content {
     transform:translate3D(0,0,0);
@@ -253,7 +223,7 @@ Since:    3/6/15
   .navigation-active .navbar-fixed-top,
   .navigation-active .content,
   .navigation-active .footer-container {
-    margin-left:250px;
+    margin-left:300px;
   }
     // Show tooltips
   .navigation-active .tooltip.right {
@@ -287,7 +257,7 @@ Since:    3/6/15
   // Active
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
-    width:250px;
+    width:300px;
   }
   .navigation-active .content {
     transform:translate3D(0,0,0);
@@ -296,7 +266,7 @@ Since:    3/6/15
   .navigation-active .navbar-fixed-top,
   .navigation-active .content,
   .navigation-active .footer-container {
-    margin-left:250px;
+    margin-left:300px;
   }
     // Show tooltips
   .navigation-active .tooltip.right {

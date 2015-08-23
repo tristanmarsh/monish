@@ -53,18 +53,19 @@ $cakeDescription = 'Monish Dashboard';
 	<?= $this->Html->css('custom.css') ?>
 
 	<?= $this->Html->script('wow.min.js') ?>
+	<?= $this->Html->script('min/nprogress-min.js') ?>
 	<?= $this->Html->script('min/custom-min.js') ?>
 
 	<?= $this->fetch('meta') ?>
 	<?= $this->fetch('css') ?>
 	<?= $this->fetch('script') ?>
 
-	<script>
-		new WOW().init();
-	</script>
 
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
 
+	<script>
+		NProgress.start();
+	</script>
 
 </head>
 

@@ -62,11 +62,15 @@ Since:    3/6/15
     position:relative;
     font-size:2rem;
     transition:background-color 200ms ease;
-    border-bottom:1px solid #1D2832;
+    border-bottom:1px solid #334658;
 
     .menu-item-link {
       display:block;
       height:6rem;
+
+      #icon-monish-home {
+        font-size:4rem;
+      }
 
       .glyphicon {
         position: static;
@@ -135,12 +139,28 @@ Since:    3/6/15
     color:#fff;
   }
 
-  :not(.navigation-active) a.active {
+  a.active {
     background:rgba(0,0,0,0.3);
     color:#fff;
   }
 
 }
+
+
+//Home Link
+[data-original-title="Home"] {
+  
+  &>a.menu-item-link {
+    background: rgba(0,0,0,0.7);
+    padding:10px;
+    
+    [class^="icon-"] {
+      color:#76AADB;
+    }
+  }
+
+}
+
 
 // Classes to animate
 .sidebar,

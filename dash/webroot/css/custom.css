@@ -1571,6 +1571,30 @@ Since:    29/4/15
             transform: translateX(100%) rotate(120deg);
   }
 }
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?hi5vxy");
+  src: url("../fonts/icomoon.eot?#iefixhi5vxy") format("embedded-opentype"), url("../fonts/icomoon.ttf?hi5vxy") format("truetype"), url("../fonts/icomoon.woff?hi5vxy") format("woff"), url("../fonts/icomoon.svg?hi5vxy#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-monish:before {
+  content: "\e600";
+}
+
 /*
 Name:   Variables.SCSS
 Author:   Team Dash
@@ -1734,11 +1758,14 @@ Since:    3/6/15
   font-size: 2rem;
   -webkit-transition: background-color 200ms ease;
           transition: background-color 200ms ease;
-  border-bottom: 1px solid #1D2832;
+  border-bottom: 1px solid #334658;
 }
 .sidebar li .menu-item-link {
   display: block;
   height: 6rem;
+}
+.sidebar li .menu-item-link #icon-monish-home {
+  font-size: 4rem;
 }
 .sidebar li .menu-item-link .glyphicon {
   position: static;
@@ -1781,9 +1808,17 @@ Since:    3/6/15
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
-.sidebar :not(.navigation-active) a.active {
+.sidebar a.active {
   background: rgba(0, 0, 0, 0.3);
   color: #fff;
+}
+
+[data-original-title="Home"] > a.menu-item-link {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+}
+[data-original-title="Home"] > a.menu-item-link [class^="icon-"] {
+  color: #76AADB;
 }
 
 .sidebar,

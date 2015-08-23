@@ -96,6 +96,15 @@
 
 	<!-- Traditional Sidebar -->
 
+	<li data-toggle="tooltip" data-placement="right" title="Home">
+		<?= $this->Html->link(
+		'<span class="icon-monish" id="icon-monish-home"></span>
+		<span class="menu-item-label">Home</span>',
+		array('controller' => 'Users', 'action' => 'login'),
+		array('class' => 'menu-item-link', 'escape' => false)
+		); ?>
+	</li>
+
 	<li data-toggle="tooltip" data-placement="right" title="Requests">
 		<?= $this->Html->link(
 		'<span class="glyphicon glyphicon-envelope"></span>

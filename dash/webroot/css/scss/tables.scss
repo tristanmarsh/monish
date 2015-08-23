@@ -169,7 +169,14 @@ table {
     @media screen and (max-width: 580px) {
       padding: 2px 12px;
     }
+    
+    & .checkbox {
+      margin:0;
+    }
+
   }
+
+
 
 }
 

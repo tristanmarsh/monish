@@ -40,7 +40,8 @@
 <!-- Table -->
 <div class="table-responsive">
     <table>
-        <tr>
+        <tr class="wow fadeInDown">
+            <th>    Select</th>
             <th><?= $this->Paginator->sort('title') ?></th>
             <th><?= $this->Paginator->sort('person_id', 'Requested By') ?></th>
             <th><?= $this->Paginator->sort('category') ?></th>
@@ -54,7 +55,12 @@
 
         <?php foreach ($elephant as $article): ?>
             <?php if ($article->person_id === $userEntity->person_id OR $user['role'] === 'admin') : ?>
-                <tr > 
+                <tr>
+                    <td>
+                        <div class="checkbox">
+                              <label><input type="checkbox" value=""></label>
+                        </div>
+                    </td>
                     <td>
                         <?= $this->Html->link("", ['action' => 'view', $article->id]) ?>
                         <?= $article->title ?>
@@ -81,12 +87,14 @@
                         <?php 
             				if ($article->person_id === $userEntity->person_id OR $user['role'] === 'admin') // If the user owns it, or they are admin, they can see the actions
             				{
-            					echo $this->Form->postLink(
-                                   'Done',
+            					echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['action' => 'edit', $article->id], ['escape' => false]);
+
+                                echo "\t"; // this puts a space between Delete and Edit button
+
+                                echo $this->Form->postLink(
+                                   '<span class="glyphicon glyphicon-ok"></span>',
                                    ['action' => 'delete', $article->id],
-                                   ['confirm' => 'Are you sure?']);
-            					echo " "; // this puts a space between Delete and Edit button
-            					echo $this->Html->link('Edit', ['action' => 'edit', $article->id]);
+                                   ['confirm' => 'Are you sure?', "escape" => false]);
             				};
                         ?>
                     </td>
@@ -94,6 +102,24 @@
             <?php endif ?>
         <?php endforeach; ?>
     </table>
+
+        <div class="panel-footer">
+
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><a href="#">Imagine</a></li>
+            <li role="presentation"><a href="#">Secondary</a></li>
+            <li role="presentation"><a href="#">Buttons</a></li>
+            <li role="presentation"><a href="#">Just</a></li>
+            <li role="presentation"><a href="#">For</a></li>
+            <li role="presentation"><a href="#">Your</a></li>
+            <li role="presentation"><a href="#">Imagination</a></li>
+            <li role="presentation"><a href="#">Michael</a></li>
+            <li role="presentation"><a href="#">:</a></li>
+            <li role="presentation"><a href="#">Mark As Unread</a></li>
+            <li role="presentation"><a href="#">Delete</a></li>
+        </ul>
+
+    </div>
 </div></div>
 
 <paginator>
@@ -103,8 +129,15 @@
 <!-- Clickable Row to View Record -->
 <script>
     $("table").on("click", "tr", function(e) {
+        window.console.log("click");
+        window.console.log(e.target);
         if ($(e.target).is("a"))
             return;
-        location.href = $(this).find("a").attr("href");
+        if ($(e.target).is("input")) {
+            window.console.log(e.target);
+        }
+        else {
+            location.href = $(this).find("a").attr("href");
+        }
     });
 </script>

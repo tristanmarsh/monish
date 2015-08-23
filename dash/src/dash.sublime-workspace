@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"jqur",
+				"jQuery.sub	jQuery.sub"
+			],
+			[
 				"tr",
 				"transform"
 			],
@@ -188,16 +192,18 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/js/custom.js",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/custom.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sidebar.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/symfony/config/Symfony/Component/Config/Definition/Builder/ArrayNodeDefinition.php",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/debug_kit/tests/test_app/View/DebugKitTest/request_action_render.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/footer.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/custom.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/dash.sublime-workspace",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Students/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Students/edit.ctp",
@@ -208,10 +214,8 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/wow.min.js",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/modal.classie.js",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/modal.modalEffects.js",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/js/custom.js",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/custom.css",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/animate.min.css",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/error.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tests/index.ctp",
@@ -565,6 +569,22 @@
 		"selected_items":
 		[
 			[
+				"requests/index",
+				"dash/src/Template/Requests/index.ctp"
+			],
+			[
+				"scss",
+				"scss/custom.scss"
+			],
+			[
+				"layout.ctp",
+				"dash/src/Template/Layout/default.ctp"
+			],
+			[
+				"custom.js",
+				"dash/webroot/js/custom.js"
+			],
+			[
 				"login",
 				"dash/src/Template/Element/login.ctp"
 			],
@@ -657,16 +677,8 @@
 				"src/Template/Leases/index.ctp"
 			],
 			[
-				"requests/index",
-				"src/Template/Requests/index.ctp"
-			],
-			[
 				"tenants/index",
 				"src/Template/Tenants/index.ctp"
-			],
-			[
-				"custom.js",
-				"webroot/js/custom.js"
 			],
 			[
 				"layout/default",

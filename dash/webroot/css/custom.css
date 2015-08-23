@@ -359,23 +359,12 @@ Since:    3/6/15
   overflow-x: hidden;
   padding: 0;
   background-color: #293846;
-  -webkit-transition: -webkit-transform 400ms ease;
-          transition: transform 400ms ease;
+  -webkit-transition: -webkit-transform 200ms ease;
+          transition: transform 200ms ease;
   overflow-x: hidden;
 }
 .sidebar .nav-sidebar {
   margin-left: 0;
-}
-.sidebar .panel {
-  background: none;
-  border: 0;
-  border-radius: 0;
-}
-.sidebar .panel-group .panel-heading {
-  background: none;
-}
-.sidebar .panel-group.panel-heading + .panel-collapse > .panel-body, .sidebar .panel-group .panel-heading + .panel-collapse > .list-group {
-  border-top: 0;
 }
 .sidebar ul {
   padding-left: 0;
@@ -384,13 +373,27 @@ Since:    3/6/15
   display: block;
   position: relative;
   font-size: 2rem;
-  -webkit-transition: background-color 200ms ease;
-          transition: background-color 200ms ease;
   border-bottom: 1px solid #334658;
+  height: 6rem;
+}
+.sidebar li[data-original-title="Home"] > a.menu-item-link {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  -webkit-transition: none;
+          transition: none;
+}
+.sidebar li[data-original-title="Home"] > a.menu-item-link [class^="icon-"] {
+  color: #76AADB;
+}
+.sidebar li[data-original-title="Home"]:hover > a.menu-item-link {
+  background: rgba(0, 0, 0, 0.4);
 }
 .sidebar li .menu-item-link {
   display: block;
-  height: 6rem;
+  color: #5F666C;
+  -webkit-transition: color 200ms ease;
+          transition: color 200ms ease;
+  height: 100%;
 }
 .sidebar li .menu-item-link #icon-monish-home {
   font-size: 4rem;
@@ -406,47 +409,23 @@ Since:    3/6/15
 .sidebar li .menu-item-link .menu-item-label {
   position: absolute;
   left: 6rem;
-  top: 1.2rem;
-  vertical-align: baseline;
-  font-size: 2.6rem;
-}
-.sidebar li a {
-  display: block;
-  color: #788188;
-  -webkit-transition: all 200ms ease;
-          transition: all 200ms ease;
-}
-.sidebar li h4.panel-title,
-.sidebar li span {
-  color: #788188;
-}
-.sidebar li a.active span,
-.sidebar li a.active {
-  color: #D4D9E0;
-}
-.sidebar li:active span,
-.sidebar li:active a,
-.sidebar li:focus span,
-.sidebar li:focus a,
-.sidebar li:hover span,
-.sidebar li:hover a {
-  color: #D4D9E0;
-}
-.sidebar li:hover > a {
-  background: rgba(255, 255, 255, 0.1);
+  top: 1.7rem;
+  font-size: 2rem;
   color: #fff;
 }
-.sidebar a.active {
-  background: rgba(0, 0, 0, 0.3);
+.sidebar li .menu-item-link.active {
+  background: rgba(0, 0, 0, 0.2);
+}
+.sidebar li .menu-item-link.active .glyphicon,
+.sidebar li .menu-item-link.active .menu-item-label {
   color: #fff;
 }
-
-[data-original-title="Home"] > a.menu-item-link {
-  background: rgba(0, 0, 0, 0.7);
-  padding: 10px;
-}
-[data-original-title="Home"] > a.menu-item-link [class^="icon-"] {
-  color: #76AADB;
+.sidebar li:active .menu-item-link,
+.sidebar li:focus .menu-item-link,
+.sidebar li:hover .menu-item-link {
+  color: #D4D9E0;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
 }
 
 .sidebar,
@@ -463,15 +442,30 @@ Since:    3/6/15
 
 .tooltip.right {
   display: none !important;
-  font-size: 3rem;
-}
-
-.tooltip-inner {
-  background: #222;
+  font-size: 2rem;
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-duration: 600ms;
+  animation-duration: 600ms;
+  -webkit-animation-delay: 500ms;
+  animation-delay: 500ms;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  margin-left: -10px;
 }
 
 .tooltip.right .tooltip-arrow {
-  border-right-color: #222;
+  border-right-color: #374A5D;
+}
+
+.tooltip-inner {
+  background: #374A5D;
 }
 
 @media (max-width: 480px) {
@@ -480,7 +474,9 @@ Since:    3/6/15
         -ms-transform: translate3D(-100%, 0, 0);
             transform: translate3D(-100%, 0, 0);
     padding-top: 71px;
-    width: 60px;
+    width: 300px;
+    -webkit-transition: -webkit-transform 400ms ease;
+            transition: transform 400ms ease;
   }
 
   .navigation-active {
@@ -491,7 +487,13 @@ Since:    3/6/15
     -webkit-transform: translate3D(0, 0, 0);
         -ms-transform: translate3D(0, 0, 0);
             transform: translate3D(0, 0, 0);
-    width: 250px;
+    width: 300px;
+    -webkit-transition: width 0s ease;
+            transition: width 0s ease;
+    -webkit-transition-delay: 400ms;
+            transition-delay: 400ms;
+    -webkit-transition: -webkit-transform 400ms ease;
+            transition: transform 400ms ease;
   }
 
   .navigation-active .content,
@@ -527,7 +529,7 @@ Since:    3/6/15
     -webkit-transform: translate3D(0, 0, 0);
         -ms-transform: translate3D(0, 0, 0);
             transform: translate3D(0, 0, 0);
-    width: 250px;
+    width: 300px;
   }
 
   .navigation-active .content {
@@ -539,7 +541,7 @@ Since:    3/6/15
   .navigation-active .navbar-fixed-top,
   .navigation-active .content,
   .navigation-active .footer-container {
-    margin-left: 250px;
+    margin-left: 300px;
   }
 
   .navigation-active .tooltip.right {
@@ -568,7 +570,7 @@ Since:    3/6/15
     -webkit-transform: translate3D(0, 0, 0);
         -ms-transform: translate3D(0, 0, 0);
             transform: translate3D(0, 0, 0);
-    width: 250px;
+    width: 300px;
   }
 
   .navigation-active .content {
@@ -580,7 +582,7 @@ Since:    3/6/15
   .navigation-active .navbar-fixed-top,
   .navigation-active .content,
   .navigation-active .footer-container {
-    margin-left: 250px;
+    margin-left: 300px;
   }
 
   .navigation-active .tooltip.right {
@@ -794,6 +796,22 @@ h6 {
 
 .alert {
   margin-top: 20px;
+  border-width: 0;
+  color: #fff;
+}
+.alert .close {
+  top: -4px;
+  font-size: 3rem;
+  color: #fff;
+  opacity: 0.5;
+}
+
+.alert-success {
+  background-color: #5fcf80;
+}
+
+.alert-danger {
+  background-color: #ED5A5A;
 }
 
 .panel {
@@ -836,9 +854,9 @@ h6 {
   position: relative;
   overflow-x: hidden;
   overflow-y: scrollable;
+  background: #ecf2f6;
   -webkit-transition: all 400ms ease;
           transition: all 400ms ease;
-  background: #ecf2f6;
 }
 .main-content .content {
   margin-top: 70px;
@@ -906,6 +924,10 @@ h6 {
 }
 #navigation-toggle span {
   background: #eff5fa;
+}
+
+.footer-container {
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=custom.css.map */

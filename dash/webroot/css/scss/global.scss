@@ -158,6 +158,25 @@ h6 {
 
 .alert {
   margin-top:20px;
+  border-width:0;
+  color:#fff;
+
+  .close {
+    top:-4px;
+    font-size:3rem;
+    color:#fff;
+    opacity:0.5;
+  }
+
+}
+
+.alert-success {
+  background-color:#5fcf80;
+}
+
+
+.alert-danger  {
+  background-color:#ED5A5A;
 }
 
   .panel {
@@ -179,6 +198,7 @@ h6 {
       font-size: 1.6rem;
     }
 
+
   }
 
   .panel-primary {
@@ -192,8 +212,8 @@ h6 {
   position: relative;
   overflow-x: hidden; //prevents scrollable panels when mobile nav visible
   overflow-y: scrollable; 
-  transition:all 400ms ease;
   background: rgb(236,242,246);
+  transition: all 400ms ease;
 
 
   &:before {
@@ -304,3 +324,7 @@ h6 {
 
 // #### CONTENT ####
 
+// #### FOOTER ####
+.footer-container {
+  overflow:hidden;
+}

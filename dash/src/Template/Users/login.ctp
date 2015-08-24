@@ -42,7 +42,7 @@
 						
 						<form class="navbar-form navbar-left" role="search">
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Search">
+								<input type="text" class="form-control" placeholder="Search" id="myInputTextField">
 								<span class="input-group-btn">
 									<button class="btn btn-default" type="button">Submit</button>
 								</span>
@@ -86,7 +86,7 @@
     </div>
 
 <div class="table-responsive">
-    <table id="requests" class="display">
+    <table id="requests" class="">
         <thead>
         <tr class="wow fadeInDown">
             <th>Title</th>
@@ -166,7 +166,7 @@
     </script>
 
     <!-- DataTables CSS -->
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.8/css/jquery.dataTables.css">
+<!--    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.8/css/jquery.dataTables.css">-->
 
     <!-- jQuery -->
     <script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -178,6 +178,12 @@
         $(document).ready( function () {
             $('#requests').DataTable();
         } );
+    </script>
+    <script>
+        oTable = $('#requests').dataTable();
+        $('#myInputTextField').keyup(function(){
+            oTable.fnFilter($(this).val());
+        })
     </script>
 
 <?php endif; ?>

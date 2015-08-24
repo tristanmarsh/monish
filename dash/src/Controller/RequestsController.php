@@ -37,8 +37,8 @@ class RequestsController extends AppController
         $personEntity = $this->People->get($userEntity->person_id);
         $this->set(compact('personEntity'));
 
-        $elephant = $this->paginate($this->Requests->find('all')->contain('People'));
-        $this->set(compact('elephant'));
+        $requests = $this->Requests->find('all')->contain('People');
+        $this->set(compact('requests'));
     }
 
     public function view($id = null)

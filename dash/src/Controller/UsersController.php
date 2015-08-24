@@ -198,7 +198,7 @@ class UsersController extends AppController
         $this->loadModel('People');
         $this->loadModel('Requests');
 
-        $requests = /*$this->paginate(*/$this->Requests->find('all')->contain('People')/*)*/;
+        $requests = $this->Requests->find('all')->contain('People');
         $this->set(compact('requests'));
 
         if ($this->request->is('post')) {

@@ -106,24 +106,30 @@
                 <?php echo $request->title; ?>
             </td>
             <td>
+                <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
                 <?php
                 echo $request->person->first_name;
                 echo " ".$request->person->last_name;
                 ?>
             </td>
             <td>
+                <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
                 <?= $request->category ?>
             </td>
             <td>
+                <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
                 <?= $request->property_address ?>
             </td>
             <td>
+                <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
                 <?= $request->created->format('d/m/Y' /*'h:m A'*/) ?>
             </td>
             <td>
+                <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
                 <?= $request->status ?>
             </td>
             <td>
+                <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
                 <?php
 
                     echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller'=>'requests', 'action' => 'edit', $request->id], ['escape' => false]);
@@ -145,7 +151,7 @@
     </div>
 
     <script>
-        $("table").on("click", "tr", function(e) {
+        $("table").on("click", "td", function(e) {
             window.console.log("click");
             window.console.log(e.target);
             if ($(e.target).is("a"))

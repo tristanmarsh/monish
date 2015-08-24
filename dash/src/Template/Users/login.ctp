@@ -42,7 +42,7 @@
 						
 						<form class="navbar-form navbar-left" role="search">
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Search" id="myInputTextField">
+								<input name="requestinput" type="text" class="form-control" placeholder="Search" id="myInputTextField">
 								<span class="input-group-btn">
 									<button class="btn btn-default" type="button">Submit</button>
 								</span>
@@ -78,6 +78,78 @@
 
 	</div>
     <link rel="stylesheet" type="text/css" href="/DataTables-1.10.8/media/css/jquery.dataTables.css">
+
+    <span ng-show="requestinput : $dirty">Error!</span>
+
+    <!--experimental angular js-->
+
+    <html ng-app="gemStore">
+    <body ng-controller="StoreController as store">
+
+    <!--  Products Container  -->
+    <div class="list-group">
+        <!--  Product Container  -->
+
+            <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+
+            <!-- Image Gallery  -->
+            <div ng-controller="GalleryController as gallery"  ng-show="product.images.length">
+                <div class="img-wrap">
+                    <img ng-src="{{product.images[gallery.current]}}" />
+                </div>
+                <ul class="img-thumbnails clearfix">
+                    <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+                        <img ng-src="{{image}}" />
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Product Tabs  -->
+            <section ng-controller="TabController as tab">
+                <ul class="nav nav-pills">
+                    <li ng-class="{ active:tab.isSet(1) }">
+                        <a href="" ng-click="tab.setTab(1)">Description</a>
+                    </li>
+                    <li ng-class="{ active:tab.isSet(2) }">
+                        <a href="" ng-click="tab.setTab(2)">Specs</a>
+                    </li>
+                    <li ng-class="{ active:tab.isSet(3) }">
+                        <a href="" ng-click="tab.setTab(3)">Reviews</a>
+                    </li>
+                </ul>
+
+                <!--  Description Tab's Content  -->
+                <div ng-show="tab.isSet(1)">
+                    <h4>Description</h4>
+                    <blockquote>{{product.description}}</blockquote>
+                </div>
+
+                <!--  Spec Tab's Content  -->
+                <div ng-show="tab.isSet(2)">
+                    <h4>Specs</h4>
+                    <blockquote>Shine: {{product.shine}}</blockquote>
+                </div>
+
+                <!--  Review Tab's Content  -->
+                <div ng-show="tab.isSet(3)">
+                    <!--  Product Reviews List -->
+                    <ul>
+                        <h4>Reviews</h4>
+                        <li ng-repeat="review in product.reviews">
+                            <blockquote>
+                                <strong>{{review.stars}} Stars</strong>
+                                {{review.body}}
+                                <cite class="clearfix">—{{review.author}}</cite>
+                            </blockquote>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </section>
+
+    </div>
+    </body></html>
 
 <div class="panel panel-primary">
     <!-- Default panel contents -->

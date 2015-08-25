@@ -1,6 +1,6 @@
 <?php
     $this->Html->addCrumb('Emergency', '/emergency');
-    $this->Html->addCrumb('View Emergency', array('controller' => 'emergency', 'action' => 'view'));
+    $this->Html->addCrumb('View Emergency');
 
 ?>
 <div class="actions columns large-2 medium-3">

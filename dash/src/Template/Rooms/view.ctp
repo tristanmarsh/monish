@@ -1,7 +1,7 @@
 <?php
     $this->Html->addCrumb('Properties', '/properties');
     $this->Html->addCrumb('Rooms', '/rooms');
-    $this->Html->addCrumb('View Room', array('controller' => 'rooms', 'action' => 'view'));
+    $this->Html->addCrumb('View Room');
 ?>   
 <h1>Rooms</h1>
 

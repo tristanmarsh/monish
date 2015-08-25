@@ -15,13 +15,22 @@
 
         <ul class="nav nav-pills pull-left">
           <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-          <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $room->id]) ?></li>
-          <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $room->id]) ?></li>
-          <li role="presentation"><?= $this->Html->link('Properties', ['controller' => 'properties', 'action' => 'index']) ?></li>
+          <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+
         </ul>
 
 
       </div>
+
+              <div class="panel-footer">
+
+        
+        <ul class="nav nav-pills pull-left">
+          <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $room->id]) ?></li>
+          <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $room->id]) ?></li>
+        </ul>
+
+    </div>
 
 <!--       <div class="panel-footer">
 

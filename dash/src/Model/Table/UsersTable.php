@@ -10,6 +10,8 @@ use Cake\ORM\isUnique;
 class UsersTable extends Table
 {
 
+
+
     public function initialize(array $config)
     {
         $this->addBehavior('Timestamp');
@@ -52,6 +54,18 @@ class UsersTable extends Table
             'message' => 'Your phone number need to be at least 10 numbers long',
             ]
             ])
+            // ->add('password','custom',['rule'=> function($value, $context){
+            //         if(isset($context->data['confirm_password']) && $value != $context->data['confirm_password']){
+            //             return false;
+            //     }
+            //     return true;
+            // },    'message'=>"Your password does not match your confirm password.  Please try again",    'on'=> ['create','update'],'allowEmpty'=>true])
+
+            ->add('password', [
+    'compare' => [
+        'rule' => ['compareWith', 'confirm_password']
+    ]
+])
 			->notEmpty('person_id', 'A person is required')
             ->notEmpty('role', 'A role is required')
             ->add('role', 'inList', [

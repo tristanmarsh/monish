@@ -37,7 +37,7 @@
 <?php foreach ($properties as $property): ?>
 
     <?php $variable ="hello" ?>
-    
+
 <div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-3">
 
     <div class="panel panel-primary">
@@ -62,7 +62,7 @@
             <tr>
                 <th>Room</th>
                 <th>Status</th>
-                <th>Current Student</th>
+                <th>Current Tenant</th>
             </tr>
             </thead>
             <tbody>
@@ -117,7 +117,7 @@
                             }
                         }
                         else {
-                            echo "No Student";
+                            echo "No Tenant";
                             $sentinel = false;
                         }
                         if ($sentinel) { //THIS CHECK MAKES THE TABLE ALIGNMENT WEIRD I HAVE NO IDEA WHY, But it is the only way for the code to correctly check room status
@@ -136,7 +136,7 @@
                             } else if (max($toArray) === date("Y-m-d")) {
                                 echo $personEntity->first_name." ".$personEntity->last_name;
                             } else if (max($toArray) < date("Y-m-d")) {
-                                echo "No Student ";
+                                echo "No Tenant ";
                             }
                         }
                         ?>

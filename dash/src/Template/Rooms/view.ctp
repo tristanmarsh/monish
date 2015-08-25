@@ -43,29 +43,29 @@
 
       </div> -->
     </div>
+
 <div class="panel panel-primary"> 
         <div class="panel-heading">
-        <h2 class="panel-title">Room Detail</h2>
+        <h2 class="panel-title">Room Details</h2>
     </div>
 
     <table>
         <tr>
-            <th>&nbsp;&nbsp;&nbsp;&nbsp;Room ID</th>
-        </tr>
-        <tr>
-            <td><?= h($room->id) ?></td>
+            <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= h($room->room_name) ?></th>
         </tr>
         <tr>
             <td><?= h($room->property['address']) ?></td>
         </tr>
         <tr>
-            <td><?= h($room->room_name) ?></td>
-        </tr>
-        <tr>
-            <td>    <?php
-        if ($room->vacant === "FALSE"){
-        echo "Not Vacant";}
-    else {echo "Vacant";}?>
+            <td>
+                <?php
+                    if ($room->vacant === "FALSE"){
+                        echo "Not Vacant";
+                    }
+                    else {
+                        echo "Vacant";
+                    }
+                ?>
             </td>
         </tr>
 
@@ -83,11 +83,11 @@
     </h2>
     <h3><?= $this->Html->link('Edit Room', ['action' => 'edit', $room->id]) ?></h3>
 </div> -->
-
+</div>
 
     <!-- Default panel contents -->
-
-    <div class="panel-heading">
+<div class="panel panel-primary">
+<div class="panel-heading">
         <h2 class="panel-title">Related Leases</h2>
     </div>
     <?php if (!empty($room->leases)): ?>
@@ -126,5 +126,5 @@
     ])?>
 <!--     <?= $this->Form->button(__('Cancel')) ?> -->
     </div>
-    </div>
+
 </div>

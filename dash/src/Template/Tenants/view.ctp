@@ -3,6 +3,17 @@
     $this->Html->addCrumb('View Tenant');
 ?>
 <h1>Tenant Details</h1>
+<div class="panel panel-default clearfix">
+    
+    <div class="panel-body">
+        
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+        </ul>
+
+    </div>
+</div>
 
 <div class="panel panel-primary">
   <!-- Default panel contents -->

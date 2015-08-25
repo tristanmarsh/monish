@@ -8,11 +8,13 @@
 <h1>Update Tenant</h1>
 <div class="panel panel-default clearfix">
     
+
+    
     <div class="panel-body">
         
         <ul class="nav nav-pills pull-left">
-            <li role="presentation" ><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
-            <li role="presentation"class="active"><?= $this->Html->link('Edit', ['action' => 'edit', $user->id]) ?></li>
+            <li role="presentation"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
         </ul>
 
     </div>

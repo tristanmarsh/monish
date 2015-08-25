@@ -11,15 +11,15 @@
         <h1 class="panel-title">Example</h1>
       </div> -->
 
-      <div class="panel-body">
-
+    <div class="panel-body">
+        
         <ul class="nav nav-pills pull-left">
-          <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-          <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $lion->id]) ?></li>
+            <li role="presentation"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+            <li><input type="text" class="form-control" placeholder="Search" id="myInputTextField"></li>
         </ul>
 
-
-      </div>
+    </div>
 
 <!--       <div class="panel-footer">
 

@@ -49,35 +49,7 @@
 
 </style>
 
-<div class="panel panel-default clearfix">
-    
-    <div class="panel-body">
-        
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation">
-                <?= $this->Html->link('All', ['action' => 'index']) ?>
-            </li>
-            <li role="presentation" class="active">
-                <?= $this->Html->link('Update Devices', ['action' => 'edit', $lion->id]) ?>
-            </li>
-            <li role="presentation">
-                <a class="btn btn-default float-right" href="http://www.wikihow.com/Find-the-MAC-Address-of-Your-Computer">Help me find my MAC Address</a>
-            </li>
-        </ul>
 
-    </div>
-
-<!--     <div class="panel-footer">
-
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><a href="#">Imagine</a></li>
-            <li role="presentation"><a href="#">Secondary</a></li>
-            <li role="presentation"><a href="#">Buttons</a></li>
-        </ul>
-
-    </div> -->
-
-</div>
 
 
    <div class="panel panel-default">

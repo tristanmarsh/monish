@@ -37,20 +37,20 @@
 <?php foreach ($properties as $property): ?>
 
     <?php $variable ="hello" ?>
-
-<div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-3">  
+    
+<div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-3">
 
     <div class="panel panel-primary">
         <!-- Default panel contents -->
-        <div class="panel-heading"> 
+        <div class="panel-heading">
             <h2 class="panel-title text-center">
 
-                
-                    <!-- Button trigger modal -->
+
+                <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-remote="<?= $variable?>">
-              <?php
+                    <?php
                     echo $property->address;
-                ?>
+                    ?>
                 </button>
 
             </h2>
@@ -62,20 +62,22 @@
             <tr>
                 <th>Room</th>
                 <th>Status</th>
+                <th>Current Student</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($property->rooms as $rooms): ?>
                 <tr>
-                    
+
                     <td><?= $rooms->room_name ?>
-                    <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
-                </td>
+                        <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
+                    </td>
                     <td>
                         <?php
                         $room = $roomlease->get($rooms->id, ['contain'=>'Leases']);
 
                         $test = "";
+                        $testtwo = "";
                         $sentinel = true; //true if Never Been Leased
                         if (!empty($room->leases)) {
                             foreach ($room->leases as $leastenddate) {
@@ -88,12 +90,53 @@
                         }
                         if ($sentinel) { //THIS CHECK MAKES THE TABLE ALIGNMENT WEIRD I HAVE NO IDEA WHY, But it is the only way for the code to correctly check room status
                             $toArray = explode("||", $test);
+
+                            foreach ($room->leases as $leastenddate) {
+                                if ($leastenddate->date_end->format('Y-m-d') === max($toArray)) {
+                                        $studentid = $leastenddate->student_id;
+                                        $studentEntity = $studentTable->get($studentid, ['contain'=>'People']);
+                                        $personEntity = $peopleTable->get($studentEntity->person_id);
+                                    };
+                            }
+
                             if (max($toArray) > date("Y-m-d")) {
                                 echo "Leased Until " . max($toArray);
                             } else if (max($toArray) === date("Y-m-d")) {
                                 echo "Lease Expires Today";
                             } else if (max($toArray) < date("Y-m-d")) {
                                 echo "Lease Expired Since ".max($toArray);
+                            }
+                        }
+                        ?>
+                    </td>
+                    <td>
+                        <?php
+                        if (!empty($room->leases)) {
+                            foreach ($room->leases as $leastenddate) {
+                                $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                            }
+                        }
+                        else {
+                            echo "No Student";
+                            $sentinel = false;
+                        }
+                        if ($sentinel) { //THIS CHECK MAKES THE TABLE ALIGNMENT WEIRD I HAVE NO IDEA WHY, But it is the only way for the code to correctly check room status
+                            $toArray = explode("||", $test);
+
+                            foreach ($room->leases as $leastenddate) {
+                                if ($leastenddate->date_end->format('Y-m-d') === max($toArray)) {
+                                    $studentid = $leastenddate->student_id;
+                                    $studentEntity = $studentTable->get($studentid, ['contain'=>'People']);
+                                    $personEntity = $peopleTable->get($studentEntity->person_id);
+                                };
+                            }
+
+                            if (max($toArray) > date("Y-m-d")) {
+                                echo $personEntity->first_name." ".$personEntity->last_name;
+                            } else if (max($toArray) === date("Y-m-d")) {
+                                echo $personEntity->first_name." ".$personEntity->last_name;
+                            } else if (max($toArray) < date("Y-m-d")) {
+                                echo "No Student ";
                             }
                         }
                         ?>

@@ -52,6 +52,9 @@
             </thead>
             <tbody>
             <?php foreach ($requests as $request): ?>
+           <!-- <?php if ($request->status=='unread'){
+
+            } ?>-->
             <tr>
                 <td>
                     <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>

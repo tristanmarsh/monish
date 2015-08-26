@@ -1,17 +1,42 @@
 <!-- File: src/Template/Users/index.ctp -->
 <?php $user = $this->Session->read('Auth.User'); ?>
 
-<h1>Manage Users</h1>
-<?= $this->Html->link('Add User', ['action' => 'add']) ?>
+<?php
+    $this->Html->addCrumb('Users', '/users');
+?>
+
+<h1>Users</h1>
+
+<div class="panel panel-default clearfix">
+    
+    <div class="panel-body">
+        
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+            <li role="presentation"><?= $this->Html->link('New', ['controller' => 'tenants', 'action' => 'add']) ?></li>
+        </ul>
+
+    </div>
+</div>
+
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    <h2 class="panel-title">All Users</h2>
+</div>
+
+
+
+<!--<?= $this->Html->link('Add User', ['action' => 'add']) ?>-->
 
 <div class="table-responsive">
   <table>
     <tr>
-      <th>Username</th>
-      <th>Role</th>
-      <th>Created</th>
-      <th>Modified</th>
-      <th>Action</th>
+      <th><?= $this->Paginator->sort('Username') ?></th>
+      <th><?= $this->Paginator->sort('Role') ?></th>
+      <th><?= $this->Paginator->sort('Created') ?></th>
+      <th><?= $this->Paginator->sort('Modified') ?></th>
+      <th class="actions"><?= __('Actions') ?></th>
     </tr>
 
     <!-- Here is where we iterate through our $articles query object, printing out article info -->
@@ -47,4 +72,5 @@
     </tr>
     <?php endforeach; ?>
   </table>
+</div>
 </div>

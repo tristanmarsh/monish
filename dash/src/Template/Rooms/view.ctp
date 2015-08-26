@@ -1,6 +1,6 @@
 <?php
     $this->Html->addCrumb('Properties', '/properties');
-    $this->Html->addCrumb('Rooms', '/rooms');
+    $this->Html->addCrumb('Rooms', '/properties');
     $this->Html->addCrumb('View Room');
 ?>   
 <h1>Rooms</h1>
@@ -52,6 +52,44 @@
     <table>
         <tr>
             <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= h($room->room_name) ?></th>
+        </tr>
+        <tr>
+            <td>
+                Current Tenant: 
+                        <?php
+                        $test = "";
+                        $testtwo = "";
+                        $sentinel = true; //true if Never Been Leased
+                        if (!empty($room->leases)) {
+                            foreach ($room->leases as $leastenddate) {
+                                $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                            }
+                        }
+                        else {
+                            echo "Nobody";
+                            $sentinel = false;
+                        }
+                        if ($sentinel) { 
+                            $toArray = explode("||", $test);
+
+                            foreach ($room->leases as $leastenddate) {
+                                if ($leastenddate->date_end->format('Y-m-d') === max($toArray)) {
+                                    $studentid = $leastenddate->student_id;
+                                    $studentEntity = $studentTable->get($studentid, ['contain'=>'People']);
+                                    $personEntity = $peopleTable->get($studentEntity->person_id);
+                                };
+                            }
+
+                            if (max($toArray) > date("Y-m-d")) {
+                                echo $personEntity->first_name." ".$personEntity->last_name;
+                            } else if (max($toArray) === date("Y-m-d")) {
+                                echo $personEntity->first_name." ".$personEntity->last_name;
+                            } else if (max($toArray) < date("Y-m-d")) {
+                                echo "Nobody ";
+                            }
+                        }
+                        ?>
+            </td>
         </tr>
         <tr>
             <td><?= h($room->property['address']) ?></td>

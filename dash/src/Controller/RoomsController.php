@@ -86,13 +86,15 @@ class RoomsController extends AppController
         ]);
         $this->set('room', $room);
         $this->set('_serialize', ['room']);
+
         //$lion = $this->Rooms->Leases->get($room->leases->id, ['contain' => 'Students']);
         //$this->set('lion', $lion);
 
         $this->loadModel('People');
         $this->loadModel('Students');
         $this->loadModel('Leases');
-
+        $this->loadModel('Properties');
+        
         $leasesTable = $this->Leases;
         $this->set(compact('leasesTable'));
         $peopleTable = $this->People;
@@ -100,6 +102,14 @@ class RoomsController extends AppController
         $studentsTable = $this->Students;
         $this->set(compact('studentsTable'));
 
+        $properties = $this->Properties->find('all', ['contain' => ['Rooms']]);
+        $this->set(compact('properties'));
+
+        $roomlease = $this->Rooms;
+        $this->set(compact('roomlease'));
+
+        $studentTable = $this->Students;
+        $this->set(compact('studentTable'));
     }
 
     /**

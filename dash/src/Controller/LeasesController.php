@@ -112,6 +112,8 @@ class LeasesController extends AppController
 
         $this->loadModel('Rooms');
         $this->loadModel('Properties');
+        $this->loadModel('People');
+
 
         $lease = $this->Leases->newEntity();
         if ($this->request->is('post')) {
@@ -136,7 +138,7 @@ class LeasesController extends AppController
         }
         //$properties = $this->Leases->Properties->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'address']);
         $rooms = $this->Leases->Rooms->find('list', ['groupField' => 'property.address', 'conditions'=>['vacant'=>'TRUE']])->contain('Properties');
-        $students = $this->Leases->Students->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'person.first_name'])->contain(['People']);
+        $students = $this->Leases->Students->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'person.full_name'])->contain(['People']);
         $this->set(compact('lease', 'rooms', 'students', 'properties'));
         $this->set('_serialize', ['lease']);
     }

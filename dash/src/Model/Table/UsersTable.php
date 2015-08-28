@@ -41,7 +41,7 @@ class UsersTable extends Table
             ->add('password', [
             'length' => [
             'rule' => ['minLength', 6],
-            'message' => 'Your passward needs to be at least 6 letters long',
+            'message' => 'Your password needs to be at least 6 letters long',
             ]
             ])
             ->add('username', 'validFormat', [
@@ -61,11 +61,11 @@ class UsersTable extends Table
             //     return true;
             // },    'message'=>"Your password does not match your confirm password.  Please try again",    'on'=> ['create','update'],'allowEmpty'=>true])
 
-            ->add('password', [
-    'compare' => [
-        'rule' => ['compareWith', 'confirm_password']
-    ]
-])
+            //->add('password', [
+			//'compare' => [
+			//'rule' => ['compareWith', 'confirm_password']
+			//]
+			//])
 			->notEmpty('person_id', 'A person is required')
             ->notEmpty('role', 'A role is required')
             ->add('role', 'inList', [

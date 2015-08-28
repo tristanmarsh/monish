@@ -42,7 +42,7 @@
     <?php
 
     echo $this->Form->create($user,array('class' => 'form-group'));
-    echo $this->Form->input( 'phone', array( 'type' => 'number','class' => 'form-group' ) );
+    echo $this->Form->input( 'phone', array( 'type' => 'number', 'class' => 'form-control' ) );
     echo $this->Form->button(__('Update Details'), ['class' => 'form-control btn btn-info']);
     echo $this->Form->end();
     echo $this->Form->create(null, [

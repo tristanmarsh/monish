@@ -229,7 +229,7 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)){
                 $this->Flash->success(__('This user has been updated.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'people', 'action' => 'index']);
             }
             $this->Flash->error(__('Unable to update this user.'));
         }

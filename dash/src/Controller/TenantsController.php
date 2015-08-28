@@ -145,6 +145,7 @@ class TenantsController extends AppController
         $this->loadModel('Students');
 
         $user = $this->Users->get($id, ['contain' => ['People']]);
+		//$user['confirm_password'] = $user['password'];
 
         //This provides the variable to use in edit.ctp to auto populate the current person's details
         $defaultPerson = $this->People->get($user->person_id, ['contain' => ['Students']]);
@@ -152,7 +153,6 @@ class TenantsController extends AppController
 
         $defaultStudent = $this->Students->get($defaultPerson->student->id);
         $this->set(compact('defaultStudent'));
-
         if ($this->request->is(['post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)){

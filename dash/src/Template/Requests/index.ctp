@@ -52,6 +52,7 @@
             </thead>
             <tbody>
             <?php foreach ($requests as $request): ?>
+			<?php if ($request->person_id === $userEntity->person_id OR $user['role'] === 'admin') : ?>
            <!-- <?php if ($request->status=='unread'){
 
             } ?>-->
@@ -99,6 +100,7 @@
                     ?>
                 </td>
             </tr>
+			<?php endif ?>
             <?php endforeach; ?>
             </tbody>
         </table>

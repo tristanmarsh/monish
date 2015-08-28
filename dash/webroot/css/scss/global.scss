@@ -73,6 +73,13 @@ a {color:#618DB6;}
 .navbar {
   background:#fff;
   border-bottom:0;
+
+  .nav>li>a {
+      position: relative;
+      display: block;
+      padding: 5px;
+  }
+
 }
 
 

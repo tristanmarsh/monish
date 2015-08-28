@@ -1,5 +1,12 @@
 <?php $user = $this->Session->read('Auth.User'); ?>
 
+<?php
+	$emailHash = md5( strtolower( trim( $user['username'] ) ) );
+	// $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
+	$gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
+	$gravatarImage = '<img height="40px" class="img img-circle gravatar" src="' . $gravatarQuery . '"/>';
+?>
+
 <ul class="nav nav-sidebar">
 
 	<?php if ($user['role'] === "admin") : ?>
@@ -105,6 +112,15 @@
 		); ?>
 	</li>
 
+	<li data-toggle="tooltip" data-placement="right" title="Profile">
+		<?= $this->Html->link(
+		'<span>'. $gravatarImage .'</span>
+		<span class="menu-item-label">Profile</span>',
+		array('controller' => 'people', 'action' => 'index'),
+		array('class' => 'menu-item-link', 'escape' => false)
+		); ?>
+	</li>
+
 	<li data-toggle="tooltip" data-placement="right" title="Requests">
 		<?= $this->Html->link(
 		'<span class="glyphicon glyphicon-envelope"></span>
@@ -165,7 +181,7 @@
 	<li data-toggle="tooltip" data-placement="right" title="Home">
 		<?= $this->Html->link(
 		'<span class="icon-monish" id="icon-monish-home"></span>
-		<span class="menu-item-label">Home</span>',
+		<div class="menu-item-label">Home</div>',
 		array('controller' => 'Users', 'action' => 'login'),
 		array('class' => 'menu-item-link', 'escape' => false)
 		); ?>
@@ -173,7 +189,7 @@
 
 	<li data-toggle="tooltip" data-placement="right" title="Profile">
 		<?= $this->Html->link(
-		'<span class="glyphicon glyphicon-user"></span>
+		'<span>'. $gravatarImage .'</span>
 		<span class="menu-item-label">Profile</span>',
 		array('controller' => 'people', 'action' => 'index'),
 		array('class' => 'menu-item-link', 'escape' => false)
@@ -183,7 +199,7 @@
 	<li data-toggle="tooltip" data-placement="right" title="Emergency Contacts">
 		<?= $this->Html->link(
 		'<span class="glyphicon glyphicon-user"></span>
-		<span class="menu-item-label">Emergency Contacts</span>',
+		<div class="menu-item-label">Emergency Contacts</div>',
 		array('controller' => 'emergencies', 'action' => 'index'),
 		array('class' => 'menu-item-link', 'escape' => false)
 		); ?>
@@ -192,7 +208,7 @@
 	<li data-toggle="tooltip" data-placement="right" title="Requests">
 		<?= $this->Html->link(
 		'<span class="glyphicon glyphicon-envelope"></span>
-		<span class="menu-item-label">Requests</span>',
+		<div class="menu-item-label">Requests</div>',
 		array('controller' => 'requests', 'action' => 'index'),
 		array('class' => 'menu-item-link', 'escape' => false)
 		); ?>
@@ -201,7 +217,7 @@
 	<li data-toggle="tooltip" data-placement="right" title="MAC Addresses">
 		<?= $this->Html->link(
 		'<span class="glyphicon glyphicon-th-list"></span>
-		<span class="menu-item-label">MAC Addresses</span>',
+		<div class="menu-item-label">MAC Addresses</div>',
 		array('controller' => 'macaddresses', 'action' => 'index'),
 		array('class' => 'menu-item-link', 'escape' => false)
 		); ?>
@@ -210,7 +226,7 @@
 	<li data-toggle="tooltip" data-placement="right" title="Internet Plan">
 		<?= $this->Html->link(
 		'<span class="glyphicon glyphicon-globe"></span>
-		<span class="menu-item-label">Internet Plan</span>',
+		<div class="menu-item-label">Internet Plan</div>',
 		array('controller' => 'students', 'action' => 'index'),
 		array('class' => 'menu-item-link', 'escape' => false)
 		); ?>

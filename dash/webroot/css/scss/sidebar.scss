@@ -44,34 +44,23 @@ Since:    3/6/15
     border-bottom:1px solid #334658;
     height:6rem;
 
-
-    //Home Link
-    &[data-original-title="Home"] {
-      
-      &>a.menu-item-link {
-        background: rgba(0,0,0,0.4);
-        padding:10px;
-        transition:none;
-
-        [class^="icon-"] {
-          color:#76AADB;
-        }
-      }
-
-      &:hover>a.menu-item-link {
-        background: rgba(0,0,0,0.4);
-      }
-
-    }
-
     .menu-item-link {
       display:block;
       color:#5F666C;
       transition:color 200ms ease;
       height:100%;
+      padding:10px;
+
+      // Home Link
 
       #icon-monish-home {
         font-size:4rem;
+        color:#76AADB!important;
+      }
+
+      .gravatar {
+        opacity:0.8;
+        transition:opacity 200ms ease;
       }
 
       .glyphicon {
@@ -80,15 +69,43 @@ Since:    3/6/15
         vertical-align: -webkit-baseline-middle;
         width:60px;
         margin:0 auto;
-        margin-left:5px;
+        margin-left: -10px;
+        text-align: center;
+
+        &:before {
+          text-align: center;
+        }
+
       }
 
       .menu-item-label {
         position: absolute;
+        white-space: nowrap;
         left: 6rem;
+        margin-left: 10px;
         top: 1.7rem;
         font-size: 2rem;
         color:#fff;
+      }
+
+    }
+
+    //Home Link
+    &[data-original-title="Home"],
+    &[title="Home"] {
+      
+      &>a.menu-item-link {
+        background: rgba(0,0,0,0.4);
+        transition:none;
+
+        #icon-monish-home.icon-monish:before {
+          color:#76AADB!important;
+        }
+
+      }
+
+      &:hover>a.menu-item-link {
+        background: rgba(0,0,0,0.4);
       }
 
     }
@@ -121,6 +138,10 @@ Since:    3/6/15
 
     }
 
+    .gravatar {
+      opacity:1;
+    }
+
   }
 
 }
@@ -143,7 +164,7 @@ Since:    3/6/15
 .tooltip.right {
   display:none!important;
   font-size:2rem;
-  @include fadeInLeft($duration:600ms,$delay:500ms);
+  @include fadeInLeft($duration:600ms,$delay:100ms);
   margin-left:-10px;
 }
 

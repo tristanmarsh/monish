@@ -40,7 +40,7 @@
 
 									 <!-- Set cookies later -->
 									<div class="checkbox">
-										<label><input type="checkbox"> Remember me</label>
+										<!-- <label><input type="checkbox"> Remember me</label> -->
 									</div>
 
 								</fieldset>

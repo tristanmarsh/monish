@@ -167,6 +167,10 @@ class UsersController extends AppController
 
     public function add()
     {
+        //I made this function redirect back to the tenants index because this should not be accessible, and can break the system
+        $this->Flash->error(__('Restricted area. Redirecting you to tenants.'));
+        $this->redirect(['controller'=>'tenants', 'action' => 'index']);
+
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);

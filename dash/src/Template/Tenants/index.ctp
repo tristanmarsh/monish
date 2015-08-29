@@ -40,14 +40,14 @@
         <table id="tenants" cellpadding="0" cellspacing="0" class="">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('first_name') ?></th>
-                    <th><?= $this->Paginator->sort('last_name') ?></th>
-                    <th><?= $this->Paginator->sort('common_name') ?></th>
-                    <th><?= $this->Paginator->sort('gender') ?></th>
-                    <th><?= $this->Paginator->sort('phone') ?></th>
-                    <th><?= $this->Paginator->sort('email') ?></th>
-                    <th><?= $this->Paginator->sort('internet_plan') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Common Name</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Internet Plan</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -83,6 +83,7 @@
                         <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
                     </td>
                     <td class="actions">
+                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['controller' => 'tenants', 'action' => 'edit', $person->user->id]) ?>
                     </td>
                 <?php endif; ?>

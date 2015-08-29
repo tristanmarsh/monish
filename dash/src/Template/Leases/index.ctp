@@ -10,6 +10,7 @@
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
             <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+            <li><input type="text" class="form-control" placeholder="Search" id="myInputTextField"></li>
         </ul>
 
     </div>
@@ -36,16 +37,16 @@
 
   <!-- Table -->
     <div class="table-responsive">
-        <table cellpadding="0" cellspacing="0" class="">
+        <table id="leases" cellpadding="0" cellspacing="0" class="">
     <thead>
       <tr>
-        <th><?= $this->Paginator->sort('property_id') ?></th>
-        <th><?= $this->Paginator->sort('room_id') ?></th>
-        <th><?= $this->Paginator->sort('student_id') ?></th>
-        <th><?= $this->Paginator->sort('date_start') ?></th>
-        <th><?= $this->Paginator->sort('date_end') ?></th>
-        <th><?= $this->Paginator->sort('weekly_price') ?></th>
-        <th class="actions"><?= __('Actions') ?></th>
+        <th>Property</th>
+        <th>Room</th>
+        <th>Student</th>
+        <th>Date Start</th>
+        <th>Date End</th>
+        <th>Weekly Price</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -55,8 +56,6 @@
       <tr>
         <td>
           <?= $lease->property->address ?>
-          <?= $this->Html->link("", ['action' => 'view', $lease->id]) ?>
-
         </td>
         <td>
           <?= $lease->room->room_name ?>
@@ -68,9 +67,15 @@
           <?= $person->first_name ?>
           <?= $person->last_name ?>
         </td>
-        <td><?= h($lease->date_start->format('d/m/Y')) ?></td>
-        <td><?= h($lease->date_end->format('d/m/Y')) ?></td>
-        <td><?= $this->Number->currency($lease->weekly_price) ?></td>
+        <td>
+          <?= h($lease->date_start->format('d/m/Y')) ?>
+        </td>
+        <td>
+          <?= h($lease->date_end->format('d/m/Y')) ?>
+        </td>
+        <td>
+          <?= $this->Number->currency($lease->weekly_price) ?>
+        </td>
         <td class="actions">
           <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $lease->id], ['confirm' => __('Are you sure you want to delete # {0}?', $lease->id)]) ?>
         </td>
@@ -84,15 +89,24 @@
 
 </div>
 
+<!-- Clickable Row to View Record -->
 
-          <paginator>
-            <?php echo $this->element('paginator'); ?>
-          </paginator>
 
-  <script>
-    $("table").on("click", "tr", function(e) {
-        if ($(e.target).is("a,input")) // anything else you don't want to trigger the click
-            return;
-        location.href = $(this).find("a").attr("href");
-    });
+<!-- jQuery -->
+<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
+
+<script>
+    $(document).ready( function () {
+        $('#leases').DataTable();
+    } );
+</script>
+
+<script>
+    oTable = $('#leases').dataTable();
+    $('#myInputTextField').keyup(function(){
+        oTable.fnFilter($(this).val());
+    })
 </script>

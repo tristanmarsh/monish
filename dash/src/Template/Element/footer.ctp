@@ -27,7 +27,7 @@
 					<h4>Issues</h4>
 					<ul class="list-unstyled">
 						<li><a href="#bug-report">Report a problem</a></li>
-						<li><a href="javascript:var s = document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='http://erkie.github.com/asteroids.min.js';void(0);">Destroy This Website</a></li>
+				
 					</ul>
 				</div>
 

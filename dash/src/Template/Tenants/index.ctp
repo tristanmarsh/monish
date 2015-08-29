@@ -11,6 +11,7 @@
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
             <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+            <li><input type="text" class="form-control" placeholder="Search" id="myInputTextField"></li>
         </ul>
 
     </div>
@@ -36,7 +37,7 @@
 
   <!-- Table -->
     <div class="table-responsive">
-        <table cellpadding="0" cellspacing="0" class="">
+        <table id="tenants" cellpadding="0" cellspacing="0" class="">
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('first_name') ?></th>
@@ -57,12 +58,30 @@
                         <?= $person->first_name ?>
                         <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
                     </td>
-                    <td><?= $person->last_name ?></td>
-                    <td><?= $person->common_name ?></td>
-                    <td><?= $person->gender ?></td>
-                    <td><?= $person->phone ?></td>
-                    <td><?= $person->email ?></td>
-                    <td><?= $person->student->internet_plan ?></td>
+                    <td>
+                        <?= $person->last_name ?>
+                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
+                    </td>
+                    <td>
+                        <?= $person->common_name ?>
+                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
+                    </td>
+                    <td>
+                        <?= $person->gender ?>
+                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
+                    </td>
+                    <td>
+                        <?= $person->phone ?>
+                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
+                    </td>
+                    <td>
+                        <?= $person->email ?>
+                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
+                    </td>
+                    <td>
+                        <?= $person->student->internet_plan ?>
+                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
+                    </td>
                     <td class="actions">
                         <?= $this->Html->link(__('Edit'), ['controller' => 'tenants', 'action' => 'edit', $person->user->id]) ?>
                     </td>
@@ -75,20 +94,37 @@
 
 </div>
 
+<!-- Clickable Row to View Record -->
+<script>
+    $("table").on("click", "td", function(e) {
+        window.console.log("click");
+        window.console.log(e.target);
+        if ($(e.target).is("a"))
+            return;
+        if ($(e.target).is("input")) {
+            window.console.log(e.target);
+        }
+        else {
+            location.href = $(this).find("a").attr("href");
+        }
+    });
+</script>
 
+<!-- jQuery -->
+<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 
-
-<paginator>
-<?php echo $this->element('paginator'); ?>
-</paginator>
-
-
-
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
 
 <script>
-    $("table").on("click", "tr", function(e) {
-        if ($(e.target).is("a,input")) // anything else you don't want to trigger the click
-            return;
-        location.href = $(this).find("a").attr("href");
-    });
+    $(document).ready( function () {
+        $('#tenants').DataTable();
+    } );
+</script>
+
+<script>
+    oTable = $('#tenants').dataTable();
+    $('#myInputTextField').keyup(function(){
+        oTable.fnFilter($(this).val());
+    })
 </script>

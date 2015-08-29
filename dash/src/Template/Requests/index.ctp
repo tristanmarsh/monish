@@ -52,55 +52,51 @@
             </thead>
             <tbody>
             <?php foreach ($requests as $request): ?>
-			<?php if ($request->person_id === $userEntity->person_id OR $user['role'] === 'admin') : ?>
-           <!-- <?php if ($request->status=='unread'){
+    			<?php if ($request->person_id === $userEntity->person_id OR $user['role'] === 'admin') : ?>
+                    <tr>
+                        <td>
+                            <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+                            <?php echo $request->title; ?>
+                        </td>
+                        <td>
+                            <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+                            <?php
+                            echo $request->person->first_name;
+                            echo " ".$request->person->last_name;
+                            ?>
+                        </td>
+                        <td>
+                            <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+                            <?= $request->category ?>
+                        </td>
+                        <td>
+                            <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+                            <?= $request->property_address ?>
+                        </td>
+                        <td>
+                            <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+                            <?= $request->created->format('d/m/Y') ?>
+                        </td>
+                        <td>
+                            <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+                            <?= $request->status ?>
+                        </td>
+                        <td>
+                            <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+                            <?php
 
-            } ?>-->
-            <tr>
-                <td>
-                    <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
-                    <?php echo $request->title; ?>
-                </td>
-                <td>
-                    <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
-                    <?php
-                    echo $request->person->first_name;
-                    echo " ".$request->person->last_name;
-                    ?>
-                </td>
-                <td>
-                    <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
-                    <?= $request->category ?>
-                </td>
-                <td>
-                    <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
-                    <?= $request->property_address ?>
-                </td>
-                <td>
-                    <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
-                    <?= $request->created->format('d/m/Y' /*'h:m A'*/) ?>
-                </td>
-                <td>
-                    <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
-                    <?= $request->status ?>
-                </td>
-                <td>
-                    <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
-                    <?php
+                                echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller'=>'requests', 'action' => 'edit', $request->id], ['escape' => false]);
 
-                        echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller'=>'requests', 'action' => 'edit', $request->id], ['escape' => false]);
+                                echo "\t"; // this puts a space between Delete and Edit button
 
-                        echo "\t"; // this puts a space between Delete and Edit button
-
-                        echo $this->Form->postLink(
-                            '<span class="glyphicon glyphicon-ok"></span>',
-                            ['controller'=>'requests', 'action' => 'delete', $request->id],
-                            ['confirm' => 'Are you sure?', "escape" => false]);
-
-                    ?>
-                </td>
-            </tr>
-			<?php endif ?>
+                                echo $this->Form->postLink(
+                                    '<span class="glyphicon glyphicon-ok"></span>',
+                                    ['controller'=>'requests', 'action' => 'delete', $request->id],
+                                    ['confirm' => 'Are you sure?', "escape" => false]);
+                            ?>
+                        </td>
+                    </tr>
+    			<?php endif ?>
             <?php endforeach; ?>
             </tbody>
         </table>

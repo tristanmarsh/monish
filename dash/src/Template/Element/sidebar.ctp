@@ -1,5 +1,6 @@
 <?php $user = $this->Session->read('Auth.User'); ?>
 
+<!-- Tristan's Gravatar Script  - should be replaced with offical PHP API -->
 <?php
 	$emailHash = md5( strtolower( trim( $user['username'] ) ) );
 	// $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');

@@ -6,11 +6,11 @@ Purpose:  All custom scripting for Monish Dashboard
 Since:    31/7/15
 */
 
-jQuery(document).ready(function($) {
-	new WOW().init();
-});
+// jQuery(document).ready(function($) {
+// 	new WOW().init();
+// });
 
 
-jQuery(window).load(function($) {
-	NProgress.done();
-});
+// jQuery(window).load(function($) {
+// 	NProgress.done();
+// });

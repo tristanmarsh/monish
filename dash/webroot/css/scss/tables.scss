@@ -10,10 +10,6 @@ Since:    30/7/15
 // Taken from forked codepen http://codepen.io/tristanmarsh/pen/VLVQqo
 
 
-// /* Universal Transition */
-// * {
-//   transition:all 100ms ease;
-// }
 
 // html {
 //   font-size:1em;
@@ -43,7 +39,7 @@ table {
 
 
   * {
-    transition:all 100ms ease;
+    transition:all 200ms ease;
   }
   
   // Link Style
@@ -52,17 +48,9 @@ table {
     text-decoration: none;
   }
 
-  //not a th
-  & th>* {
-    display:block;
-    padding: 6px 12px;
-    color:#fff;
-    text-decoration: none;
-  }
-
+  
   // Table Header
-  & th {
-    color: #fff;
+  & thead th {
     background: #2980b9;
     background: rgba(41, 128, 185,0.5);
     font-size:1.4rem;
@@ -71,23 +59,18 @@ table {
     position:relative;
     overflow:hidden;
     color:#fff;
+    padding: 6px 12px;
+    color:#fff;
   
-    &>a {
-      display:block;
-      padding: 6px 12px;
-      color:#fff;
-      text-decoration: none;
-    }    
-
-    &>a:focus,
-    &>a:hover {
+    &:focus,
+    &:hover {
       background: lighten(#2980b9,5%);
       color:#fff;
       text-decoration: none;
     }
 
     // Preview Hidden
-    &>a:after {
+    &:after {
      content:'\25B2';
       position:absolute;
       float:right;
@@ -95,34 +78,32 @@ table {
       font-size: 0.8em;
       opacity:0;
     }
-
-    &>a.asc,
-    &>a.desc {
-      background: darken(#2980b9,10%);
+    
+    // Actively Sorting State
+    &[class^='sorting_'] {
+      background: darken(#2980b9,5%);
     }
 
-    // Hover ASC Preview
-    &>a:focus:after,
-    &>a:hover:after {
+    // Hover Direction Preview
+    &:focus:after,
+    &:hover:after {
       opacity:1;
     }
     
     //Make preview Hidden for active state
-    &>a.asc:after,
-    &>a.desc:after {
+    &[class^='sorting_']:after {
       opacity:1;
     }
 
     //inherited from hover preview
-    &>a.asc:after {
+    &.asc:after {
       content:inherit;
     }
     
     //modify from inherited hover preview
-    &>a.desc:after {
+    &.sorting_desc:after {
       content:'\25BC';
     }
-
 
   }
 
@@ -147,16 +128,20 @@ table {
     cursor:pointer;
   }
 
-  & tr:last-child td:first-child {
-    border-bottom-left-radius:5px;
-  }
+  // No need to apply border radius when table footer has same effect
+  // & tr:last-child td:first-child {
+  //   border-bottom-left-radius:5px;
+  // }
 
-  & tr:last-child td:last-child {
-    border-bottom-right-radius:5px;
-  }
+  // & tr:last-child td:last-child {
+  //   border-bottom-right-radius:5px;
+  // }
 
   // Table Action Buttons
-  & td.actions a {}
+  & td a {
+    display:block;
+    text-align: center;
+  }
 
   @media screen and (max-width: 580px) {
     padding: 8px 0;
@@ -164,16 +149,58 @@ table {
   }
 
   td {
-    color:#555;
-    padding: 12px 12px;
-    @media screen and (max-width: 580px) {
-      padding: 2px 12px;
-    }
-    
-    & .checkbox {
-      margin:0;
-    }
+    padding:0;
+    position: relative;
+    height:100%;
+    overflow: hidden;
+  }
 
+  // td>span:not([class="glyphicon"]) {
+  td>* {
+    // display: block;
+    color:#555;
+  }
+
+  td>span,
+  td>img {
+    // display: block;
+    padding: 0;
+  }
+
+  td.action>a {
+    display: block;
+    margin: -10em;
+    padding: 10em;
+  }
+  
+  // General Action hover background
+  td.action>a:focus,
+  td.action>a:hover {
+    background: lighten(#2980b9,10%);
+  }
+
+  // Action hover background
+  td.action-close>a:focus,
+  td.action-close>a:hover {
+    background: lighten(#5fcf80,10%);
+  }
+
+  // Action hover icon color
+  td>a:focus>span.glyphicon:before,
+  td>a:hover>span.glyphicon:before {
+    color:#fff;
+  }
+
+  // Used for hiding the 1px * 0px view links
+  td>[href*="view"] {
+    padding: 0;
+    @media screen and (max-width: 580px) {
+      padding: 0;
+    }
+  }
+
+  & .checkbox {
+    margin:0;
   }
 
 

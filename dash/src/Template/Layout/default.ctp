@@ -50,14 +50,15 @@ $cakeDescription = 'Monish Dashboard';
 	<!-- <?= $this->Html->meta('icon') ?> -->
 
 	<?= $this->Html->css('bootstrap.min.css') ?>
+	<?= $this->Html->css('animate.min.css') ?>
 	<?= $this->Html->css('custom.css') ?>
 
 	<?= $this->Html->script('wow.min.js') ?>
 	<?= $this->Html->script('min/nprogress-min.js') ?>
 	<?= $this->Html->script('min/custom-min.js') ?>
-	<?= $this->Html->script('min/angular.min.js') ?>
+<!-- 	<?= $this->Html->script('min/angular.min.js') ?>
 	<?= $this->Html->script('app.js') ?>
-
+ -->
 	<?= $this->fetch('meta') ?>
 	<?= $this->fetch('css') ?>
 	<?= $this->fetch('script') ?>
@@ -66,7 +67,16 @@ $cakeDescription = 'Monish Dashboard';
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
 
 	<script>
+		new WOW().init();
+	</script>
+
+
+	<script>
 		NProgress.start();
+
+		jQuery(window).load(function($) {
+			NProgress.done();
+		});
 	</script>
 
 </head>

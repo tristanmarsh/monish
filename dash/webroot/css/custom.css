@@ -704,7 +704,7 @@ table {
       padding: 8px 0; } }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003151}}
   table td {
-    padding: 0;
+    padding: 0 10px 0 10px;
     position: relative;
     height: 100%;
     overflow: hidden; }
@@ -715,31 +715,45 @@ table {
   table td > span,
   table td > img {
     padding: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003170}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003171}}
+  table td:first-child > img.gravatar {
+    margin-left: -10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003176}}
+  table td:first-child > img.gravatar + span {
+    margin-left: 10px; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003180}}
   table td.action > a {
     display: block;
     margin: -10em;
     padding: 10em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003177}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003187}}
+  table td.action > a span:before,
+  table td.action > a span:before {
+    color: #409ad5; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003193}}
   table td.action > a:focus,
   table td.action > a:hover {
     background: #409ad5; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003183}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003200}}
+  table td.action-close > a span:before,
+  table td.action-close > a span:before {
+    color: #86db9f; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003206}}
   table td.action-close > a:focus,
   table td.action-close > a:hover {
     background: #86db9f; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003189}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003212}}
   table td > a:focus > span.glyphicon:before,
   table td > a:hover > span.glyphicon:before {
     color: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003195}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003218}}
   table td > [href*="view"] {
     padding: 0; }
     @media screen and (max-width: 580px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003195}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003218}}
       table td > [href*="view"] {
         padding: 0; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003202}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003225}}
   table .checkbox {
     margin: 0; }
 

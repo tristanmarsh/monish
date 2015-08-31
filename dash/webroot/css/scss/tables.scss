@@ -149,7 +149,7 @@ table {
   }
 
   td {
-    padding:0;
+    padding:0 10px 0 10px;
     position: relative;
     height:100%;
     overflow: hidden;
@@ -166,6 +166,16 @@ table {
     // display: block;
     padding: 0;
   }
+  
+  // Gravatar flush
+  td:first-child>img.gravatar {
+    margin-left:-10px;
+  }
+  
+  // Profile Name after gravatar offset
+  td:first-child>img.gravatar + span {
+    margin-left:10px;
+  }
 
   td.action>a {
     display: block;
@@ -173,11 +183,24 @@ table {
     padding: 10em;
   }
   
+  // General Icon Color
+  td.action>a span:before,
+  td.action>a span:before{
+    color: lighten(#2980b9,10%);
+  }  
+
   // General Action hover background
   td.action>a:focus,
   td.action>a:hover {
     background: lighten(#2980b9,10%);
   }
+
+
+  // Action Icon Color
+  td.action-close>a span:before,
+  td.action-close>a span:before{
+    color: lighten(#5fcf80,10%);
+  }  
 
   // Action hover background
   td.action-close>a:focus,

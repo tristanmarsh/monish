@@ -1,3 +1,8 @@
+<?php
+    $this->Html->addCrumb('Requests', '/requests');
+    $this->Html->addCrumb('View Request', array('controller' => 'requests', 'action' => 'view'));
+?>
+
 <br>
 <table>
 
@@ -8,11 +13,5 @@
 
 
 </table>
-Maintenace Requested By: <?= h($test->first_name)?> <?= h($test->last_name)?>
+Maintenace Requested By: <?= h($lion->person->first_name)?> <?= h($lion->person->last_name)?>
 <p><small>Created: <?= $giraffe->created->format('d M Y H:i:s') ?></small></p>
-<p>
-    <?php
-        echo "Back to ";
-        echo $this->Html->link('Requests', ['controller' => 'Requests', 'action' => 'index']);
-    ?>
-</p>

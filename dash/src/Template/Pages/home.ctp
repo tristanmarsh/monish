@@ -132,14 +132,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </div>
         <div class="row">
             <div class="columns large-6">
-                <h3>Editing this Page</h3>
+                <h1>Editing this Page</h1>
                 <ul>
                     <li>To change the content of this page, edit: src/Template/Pages/home.ctp.</li>
                     <li>You can also add some CSS styles for your pages at: webroot/css/.</li>
                 </ul>
             </div>
             <div class="columns large-6">
-                <h3>Getting Started</h3>
+                <h1>Getting Started</h1>
                 <ul>
                     <li><a target="_blank" href="http://book.cakephp.org/3.0/en/">CakePHP 3.0 Docs</a></li>
                     <li><a target="_blank" href="http://book.cakephp.org/3.0/en/tutorials-and-examples/bookmarks/intro.html">The 15 min Bookmarker Tutorial</a></li>
@@ -152,7 +152,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <hr/>
         <div class="row">
             <div class="columns large-12">
-                <h3 class="">More about Cake</h3>
+                <h3 class="">More about Cake</h1>
                 <p>
                     CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Front Controller and MVC.
                 </p>

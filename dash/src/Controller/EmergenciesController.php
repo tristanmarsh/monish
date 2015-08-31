@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\Table;
+use Cake\ORM\Query;
 
 /**
  * Emergencies Controller
@@ -17,8 +19,24 @@ class EmergenciesController extends AppController
      */
     public function index()
     {
+        $this->loadModel('People');
+        $this->loadModel('Users');
+
+        $this->paginate = [
+            'contain' => ['People']
+        ];
         $this->set('emergencies', $this->paginate($this->Emergencies));
         $this->set('_serialize', ['emergencies']);
+
+        $authid = $this->Auth->user('id');
+        $this->set(compact('authid'));
+        $userEntity = $this->Users->get($authid);
+        $this->set(compact('userEntity'));
+        $personEntity = $this->People->get($userEntity->person_id);
+        $this->set(compact('personEntity'));
+
+        $query = $this->Emergencies->find('all', ['conditions' => ['person_id' => $personEntity->id]]);
+        $this->set(compact('query'));
     }
 
     /**
@@ -48,8 +66,26 @@ class EmergenciesController extends AppController
     public function add()
     {
         $emergency = $this->Emergencies->newEntity();
+        
+        $this->loadModel('People');
+        $this->loadModel('Users');
+
+        $this->paginate = [
+            'contain' => ['People']
+        ];
+        $this->set('emergencies', $this->paginate($this->Emergencies));
+        $this->set('_serialize', ['emergencies']);
+
+        $authid = $this->Auth->user('id');
+        $this->set(compact('authid'));
+        $userEntity = $this->Users->get($authid);
+        $this->set(compact('userEntity'));
+        $personEntity = $this->People->get($userEntity->person_id);
+        $this->set(compact('personEntity'));
+
         if ($this->request->is('post')) {
             $emergency = $this->Emergencies->patchEntity($emergency, $this->request->data);
+            $emergency->person_id = $personEntity->id;
             if ($this->Emergencies->save($emergency)) {
                 $this->Flash->success('The emergency has been saved.');
                 return $this->redirect(['action' => 'index']);
@@ -77,7 +113,7 @@ class EmergenciesController extends AppController
             $emergency = $this->Emergencies->patchEntity($emergency, $this->request->data);
             if ($this->Emergencies->save($emergency)) {
                 $this->Flash->success('The emergency has been saved.');
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'tenants','action' => 'index']);
             } else {
                 $this->Flash->error('The emergency could not be saved. Please, try again.');
             }
@@ -104,4 +140,15 @@ class EmergenciesController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    public function isAuthorized($user)
+    {
+        // All registered users can add articles
+        if (in_array($this->request->action, ['index','add','edit'])) {
+            return true;
+        }
+
+        return parent::isAuthorized($user);
+    }
+
 }

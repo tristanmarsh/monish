@@ -80,7 +80,7 @@ div.x-notice a.dismiss {
   text-decoration: none;
 }
 
-.about-wrap div.x-notice.shortcodes {
+.about-wrap div.x-notice.cornerstone {
   display: block !important;
   margin: 35px 0;
 }
@@ -115,7 +115,7 @@ div.rs-update-notice-wrap {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.85);
   z-index: 999999999;
 }
 

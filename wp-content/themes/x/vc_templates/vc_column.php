@@ -59,7 +59,7 @@ if ( $fade == 'true' ) {
     'animation' => $fade_animation
   );
 
-  $data = ( function_exists( 'x_generate_data_attributes' ) ) ? x_generate_data_attributes( 'column', $js_params ) : '';
+  $data = ( function_exists( 'cs_generate_data_attributes' ) ) ? cs_generate_data_attributes( 'column', $js_params ) : '';
 
   switch ( $fade_animation ) {
     case 'in' :

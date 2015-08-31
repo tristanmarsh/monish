@@ -428,33 +428,33 @@ if ( ! function_exists( 'x_buddypress_navbar_menu' ) ) :
       $submenu_items  = '';
 
       if ( bp_is_active( 'activity' ) ) {
-        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_activity_directory_permalink() . '" class="cf"><i class="x-icon x-icon-thumbs-up"></i> <span>' . x_get_option( 'x_buddypress_activity_title', __( 'Activity', '__x__' ) ) . '</span></a></li>';
+        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_activity_directory_permalink() . '" class="cf"><i class="x-icon-thumbs-up" data-x-icon="&#xf164;"></i> <span>' . x_get_option( 'x_buddypress_activity_title', __( 'Activity', '__x__' ) ) . '</span></a></li>';
       }
 
       if ( bp_is_active( 'groups' ) ) {
-        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_groups_directory_permalink() . '" class="cf"><i class="x-icon x-icon-sitemap"></i> <span>' . x_get_option( 'x_buddypress_groups_title', __( 'Groups', '__x__' ) ) . '</span></a></li>';
+        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_groups_directory_permalink() . '" class="cf"><i class="x-icon-sitemap" data-x-icon="&#xf0e8;"></i> <span>' . x_get_option( 'x_buddypress_groups_title', __( 'Groups', '__x__' ) ) . '</span></a></li>';
       }
 
       if ( is_multisite() && bp_is_active( 'blogs' ) ) {
-        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_blogs_directory_permalink() . '" class="cf"><i class="x-icon x-icon-file"></i> <span>' . x_get_option( 'x_buddypress_blogs_title', __( 'Blogs', '__x__' ) ) . '</span></a></li>';
+        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_blogs_directory_permalink() . '" class="cf"><i class="x-icon-file" data-x-icon="&#xf15b;"></i> <span>' . x_get_option( 'x_buddypress_blogs_title', __( 'Blogs', '__x__' ) ) . '</span></a></li>';
       }
 
-      $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_members_directory_permalink() . '" class="cf"><i class="x-icon x-icon-male"></i> <span>' . x_get_option( 'x_buddypress_members_title', __( 'Members', '__x__' ) ) . '</span></a></li>';
+      $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_members_directory_permalink() . '" class="cf"><i class="x-icon-male" data-x-icon="&#xf183;"></i> <span>' . x_get_option( 'x_buddypress_members_title', __( 'Members', '__x__' ) ) . '</span></a></li>';
 
       if ( ! is_user_logged_in() ) {
         if ( bp_get_signup_allowed() ) {
-          $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_signup_page() . '" class="cf"><i class="x-icon x-icon-pencil"></i> <span>' . x_get_option( 'x_buddypress_register_title', __( 'Create an Account', '__x__' ) ) . '</span></a></li>';
-          $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_activation_page() . '" class="cf"><i class="x-icon x-icon-key"></i> <span>' . x_get_option( 'x_buddypress_activate_title', __( 'Activate Your Account', '__x__' ) ) . '</span></a></li>';
+          $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_signup_page() . '" class="cf"><i class="x-icon-pencil" data-x-icon="&#xf040;"></i> <span>' . x_get_option( 'x_buddypress_register_title', __( 'Create an Account', '__x__' ) ) . '</span></a></li>';
+          $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_get_activation_page() . '" class="cf"><i class="x-icon-key" data-x-icon="&#xf084;"></i> <span>' . x_get_option( 'x_buddypress_activate_title', __( 'Activate Your Account', '__x__' ) ) . '</span></a></li>';
         }
-        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . wp_login_url() . '" class="cf"><i class="x-icon x-icon-sign-in"></i> <span>' . __( 'Log in', '__x__' ) . '</span></a></li>';
+        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . wp_login_url() . '" class="cf"><i class="x-icon-sign-in" data-x-icon="&#xf090;"></i> <span>' . __( 'Log in', '__x__' ) . '</span></a></li>';
       } else {
-        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_loggedin_user_domain() . '" class="cf"><i class="x-icon x-icon-cog"></i> <span>' . __( 'Profile', '__x__' ) . '</span></a></li>';
+        $submenu_items .= '<li class="menu-item menu-item-buddypress-navigation"><a href="' . bp_loggedin_user_domain() . '" class="cf"><i class="x-icon-cog" data-x-icon="&#xf013;"></i> <span>' . __( 'Profile', '__x__' ) . '</span></a></li>';
       }
 
       if ( $args->theme_location == 'primary' ) {
         $items .= '<li class="menu-item current-menu-parent menu-item-has-children x-menu-item x-menu-item-buddypress">'
                   . '<a href="' . $top_level_link . '" class="x-btn-navbar-buddypress">'
-                    . '<span><i class="x-icon x-icon-user"></i><span class="x-hidden-desktop"> ' . __( 'Social', '__x__' ) . '</span></span>'
+                    . '<span><i class="x-icon-user" data-x-icon="&#xf007;"></i><span class="x-hidden-desktop"> ' . __( 'Social', '__x__' ) . '</span></span>'
                   . '</a>'
                   . '<ul class="sub-menu">'
                     . $submenu_items
@@ -466,7 +466,7 @@ if ( ! function_exists( 'x_buddypress_navbar_menu' ) ) :
     return $items;
 
   }
-  add_filter( 'wp_nav_menu_items', 'x_buddypress_navbar_menu', 9998, 2 );
+  add_filter( 'wp_nav_menu_items', 'x_buddypress_navbar_menu', 9997, 2 );
 endif;
 
 

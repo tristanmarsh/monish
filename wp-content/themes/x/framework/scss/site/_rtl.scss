@@ -48,6 +48,36 @@
       .desktop {
         .x-nav {
           float: left;
+
+          > li:not(.x-megamenu) {
+            .sub-menu {
+              left: 0;
+              right: auto;
+
+              .sub-menu {
+                left: $dropdownOffset;
+                right: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .masthead-stacked {
+      .desktop {
+        .x-nav {
+          > li:not(.x-megamenu) {
+            .sub-menu {
+              left: auto;
+              right: 0;
+
+              .sub-menu {
+                left: auto;
+                right: $dropdownOffset;
+              }
+            }
+          }
         }
       }
     }
@@ -62,9 +92,13 @@
     }
   }
 
-  @include break(cubs) {
-    .masthead-inline {
-      .x-btn-navbar {
+  .x-navbar .x-nav {
+    li > a > span {
+      display: inline-block;
+
+      &:after {
+        margin-left: 0;
+        margin-right: 0.35em;
         float: left;
       }
     }
@@ -77,6 +111,14 @@
   .x-sub-toggle {
     left: 0;
     right: auto;
+  }
+
+  @include break(cubs) {
+    .masthead-inline {
+      .x-btn-navbar {
+        float: left;
+      }
+    }
   }
 }
 
@@ -108,8 +150,7 @@
     margin-left: 0.25em;
   }
 
-  .x-btn [class^="x-icon-"],
-  .x-btn [class*=" x-icon-"] {
+  .x-btn [class*="#{$fa-css-prefix}-"] {
     float: right;
     margin-right: 0;
     margin-left: 0.5em;
@@ -173,7 +214,7 @@
   .x-pricing-column-info {
     ul {
       > li {
-        [class*="x-icon"] {
+        [class*="#{$fa-css-prefix}-"] {
           margin-right: 0.85em;
           margin-left: 0;
         }

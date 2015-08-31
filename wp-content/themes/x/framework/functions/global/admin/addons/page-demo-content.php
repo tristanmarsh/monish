@@ -41,8 +41,6 @@ function x_addons_page_demo_content() { ?>
 function x_addons_demo_content_output() {
 
   $request = wp_remote_get( 'https://theme.co/x/member/demo-api/' );
-  $data    = json_decode( $request['body'], true );
-
 
   //
   // Check if request returns an error.
@@ -64,6 +62,8 @@ function x_addons_demo_content_output() {
 
   else :
 
+    $data = json_decode( $request['body'], true );
+
   ?>
 
   <div class="x-addons-postbox demo-content">
@@ -71,7 +71,7 @@ function x_addons_demo_content_output() {
       <form id="x-demo-content-form" method="post">
         <?php wp_nonce_field( 'x-addons-demo-content' ); ?>
         <div class="controls">
-          <div class="control">
+          <div class="control full">
             <h3>Demo Content</h3>
             <p>Select which demo content you would like to use on your website. This will setup the Customizer settings for that demo.</p>
             <select name="demo" id="demo">
@@ -84,15 +84,6 @@ function x_addons_demo_content_output() {
               ?>
             </select>
             <p><a href="//theme.co/x/demo/integrity/1/" id="demo-content-link" target="_blank">Online Demo</a></p>
-          </div>
-          <div class="control">
-            <h3>Homepage Markup</h3>
-            <p>Choose for your homepage markup to be output in X's standard shortcodes or to be compatible with Visual Composer.</p>
-            <fieldset>
-              <legend class="screen-reader-text"><span>input type="radio"</span></legend>
-              <label class="radio-label"><input type="radio" class="radio" name="homepage-markup" value="standard" checked="checked"> <span><?php _e( 'Standard', '__x__' ); ?></span></label>
-              <label class="radio-label"><input type="radio" class="radio" name="homepage-markup" value="vc"> <span><?php _e( 'Visual Composer', '__x__' ); ?></span></label>
-            </fieldset>
           </div>
         </div>
         <div class="controls">

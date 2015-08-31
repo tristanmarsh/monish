@@ -22,7 +22,7 @@ class RoomsTable extends Table
     public function initialize(array $config)
     {
         $this->table('rooms');
-        $this->displayField('id');
+        $this->displayField('room_name');
         $this->primaryKey('id');
         $this->belongsTo('Properties', [
             'foreignKey' => 'property_id'

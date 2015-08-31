@@ -1,50 +1,140 @@
-    
+<?php
+    $this->Html->addCrumb('Properties', '/properties');
+?>    
+<h1>Properties</h1>
 
-            <h3>Manage Properties</h3>
-            <?= $this->Html->link(__('Add New Property'), ['action' => 'add']) ?>
-            
-            <table cellpadding="0" cellspacing="0">
+<div class="panel panel-default clearfix">
+    
+    <div class="panel-body">
+        
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+        </ul>
+
+    </div>
+
+    <div class="panel-footer">
+
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><a href="#">Imagine</a></li>
+            <li role="presentation"><a href="#">Secondary</a></li>
+            <li role="presentation"><a href="#">Buttons</a></li>
+        </ul>
+
+    </div>
+
+</div>
+    
+<div class="clearfix">
+<div class="row">
+
+
+
+
+
+<?php foreach ($properties as $property): ?>
+
+    <?php $variable ="hello" ?>
+
+<div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-3">  
+
+    <div class="panel panel-primary">
+        <!-- Default panel contents -->
+        <div class="panel-heading"> 
+            <h2 class="panel-title text-center">
+
+                
+                    <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-remote="<?= $variable?>">
+              <?php
+                    echo $property->address;
+                ?>
+                </button>
+
+            </h2>
+        </div>
+
+        <!-- Table -->
+        <table cellpadding="0" cellspacing="0" class="">
             <thead>
-                <tr>
-                    <th><?= $this->Paginator->sort('address') ?></th>
-                    <th><?= $this->Paginator->sort('number_rooms') ?></th>
-                    <th><?= $this->Paginator->sort('bathrooms') ?></th>
-                    <th><?= $this->Paginator->sort('kitchens') ?></th>
-                    <th><?= $this->Paginator->sort('storeys') ?></th>
-                    <th><?= $this->Paginator->sort('garage') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
+            <tr>
+                <th>Room</th>
+                <th>Status</th>
+            </tr>
             </thead>
             <tbody>
-            <?php foreach ($properties as $property): ?>
+            <?php foreach ($property->rooms as $rooms): ?>
                 <tr>
-                    <td><?= h($property->address) ?></td>
-                    <td><?= $this->Number->format($property->number_rooms) ?></td>
-                    <td><?= $this->Number->format($property->bathrooms) ?></td>
-                    <td><?= $this->Number->format($property->kitchens) ?></td>
-                    <td><?= $this->Number->format($property->storeys) ?></td>
-                    <td><?= $this->Number->format($property->garage) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $property->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $property->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $property->id], ['confirm' => __('Are you sure you want to delete # {0}?', $property->id)]) ?>
+                    
+                    <td><?= $rooms->room_name ?>
+                    <?= $this->Html->link("", ['action' => 'view', $property->id]) ?>
+                </td>
+                    <td>
+                        <?php
+                        $room = $roomlease->get($rooms->id, ['contain'=>'Leases']);
+
+                        $test = "";
+                        $sentinel = true; //true if Never Been Leased
+                        if (!empty($room->leases)) {
+                            foreach ($room->leases as $leastenddate) {
+                                $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                            }
+                        }
+                        else {
+                            echo "Never Been Leased";
+                            $sentinel = false;
+                        }
+                        if ($sentinel) { //THIS CHECK MAKES THE TABLE ALIGNMENT WEIRD I HAVE NO IDEA WHY, But it is the only way for the code to correctly check room status
+                            $toArray = explode("||", $test);
+                            if (max($toArray) > date("Y-m-d")) {
+                                echo "Leased Until " . max($toArray);
+                            } else if (max($toArray) === date("Y-m-d")) {
+                                echo "Lease Expires Today";
+                            } else if (max($toArray) < date("Y-m-d")) {
+                                echo "Lease Expired Since ".max($toArray);
+                            }
+                        }
+                        ?>
                     </td>
                 </tr>
-
             <?php endforeach; ?>
             </tbody>
-            </table>
-            <div class="paginator">
-                <ul class="pagination">
-                    <?= $this->Paginator->prev('< ' . __('previous')) ?>
-                    <?= $this->Paginator->numbers() ?>
-                    <?= $this->Paginator->next(__('next') . ' >') ?>
-                </ul>
-                <p><?= $this->Paginator->counter() ?></p>
-            </div>
-            <p>
-                <?php
-                echo "Back to ";
-                echo $this->Html->link('Dashboard', ['controller' => '', 'action' => 'index']);
-                ?>
-            </p>
+        </table>
+    </div>
+</div>
+
+<?php endforeach; ?>
+
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+      
+      </div>
+      <div class="modal-footer">
+
+
+        <button type="button" href="http://localhost/monish/dash/properties/add" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script>
+    $("table").on("click", "tr", function(e) {
+        if ($(e.target).is("a,input,th")) // anything else you don't want to trigger the click
+            return;
+        location.href = $(this).find("a").attr("href");
+    });
+</script>
+

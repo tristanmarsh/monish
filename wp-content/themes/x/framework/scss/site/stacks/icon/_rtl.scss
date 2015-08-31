@@ -44,57 +44,6 @@
 // =============================================================================
 
 .rtl {
-  .x-navbar .x-nav {
-    li > a > span {
-      display: inline-block;
-
-      &:after {
-        margin-left: 0;
-        margin-right: 0.35em;
-        float: left;
-      }
-    }
-  }
-
-  &.x-navbar-static-active,
-  &.x-navbar-fixed-top-active {
-    .masthead-inline {
-      .desktop {
-        .x-nav {
-          > li:not(.x-megamenu) {
-            .sub-menu {
-              left: 0;
-              right: auto;
-
-              .sub-menu {
-                left: $dropdownOffset;
-                right: auto;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .masthead-stacked {
-      .desktop {
-        .x-nav {
-          > li:not(.x-megamenu) {
-            .sub-menu {
-              left: auto;
-              right: 0;
-
-              .sub-menu {
-                left: auto;
-                right: $dropdownOffset;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
   .x-nav-articles {
     float: left;
     text-align: left;

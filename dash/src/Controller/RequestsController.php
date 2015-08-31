@@ -1,6 +1,4 @@
 <?php
-// src/Controller/ArticlesController.php
-
 
 namespace App\Controller;
 
@@ -8,7 +6,7 @@ use App\Controller\AppController;
 
 class RequestsController extends AppController
 {
-	
+
     public function initialize()
     {
         parent::initialize();
@@ -17,8 +15,8 @@ class RequestsController extends AppController
     }
 
     //By defining function index() in our ArticlesController, users can now access the logic there by requesting www.example.com/articles/index.
-	//Similarly, if we were to define a function called foobar(), users would be able to access that at www.example.com/articles/foobar.
-	public function index()
+    //Similarly, if we were to define a function called foobar(), users would be able to access that at www.example.com/articles/foobar.
+    public function index()
     {
         /*
         $articles = $this->Articles->find('all');
@@ -27,8 +25,19 @@ class RequestsController extends AppController
 		//The line sets the view variable called ‘articles’ equal to the return value of the find('all') method of the Articles table object.
         $this->set(compact('articles'));
         */
-		
-        $this->set('elephant', $this->Requests->find('all'));
+
+        $this->loadModel('People');
+        $this->loadModel('Users');
+
+        $authid = $this->Auth->user('id');
+        $this->set(compact('authid'));
+        $userEntity = $this->Users->get($authid);
+        $this->set(compact('userEntity'));
+        $personEntity = $this->People->get($userEntity->person_id);
+        $this->set(compact('personEntity'));
+
+        $elephant = $this->paginate($this->Requests->find('all')->contain('People'));
+        $this->set(compact('elephant'));
     }
 
     public function view($id = null)
@@ -40,21 +49,30 @@ class RequestsController extends AppController
 
         //my take on how to do this (like the index())
         $this->set('giraffe', $this->Requests->get($id));
-		
-		$lion = $this->Requests->get($id, [
-            'contain' => ['Users']
+
+        $lion = $this->Requests->get($id, [
+            'contain' => ['People']
         ]);
-		$this->set(compact('lion'));
-        $test = $this->People->get($lion->user->person_id);
-        $this->set(compact('test'));
+        $this->set(compact('lion'));
     }
 
     public function add()
     {
         $zebra = $this->Requests->newEntity();
+
+        $this->loadModel('Users');
+        $this->loadModel('People');
+
+        $authid = $this->Auth->user('id');
+        $this->set(compact('authid'));
+        $userEntity = $this->Users->get($authid);
+        $this->set(compact('userEntity'));
+        $personEntity = $this->People->get($userEntity->person_id);
+        $this->set(compact('personEntity'));
+
         if ($this->request->is('post')) {
             $zebra = $this->Requests->patchEntity($zebra, $this->request->data);
-            $zebra->user_id = $this->Auth->user('id');
+            $zebra->person_id = $personEntity->id;
             // You could also do the following
             //$newData = ['user_id' => $this->Auth->user('id')];
             //$zebra = $this->Articles->patchEntity($zebra, $newData);
@@ -110,13 +128,33 @@ class RequestsController extends AppController
 
         // The owner of an article can edit and delete it
         if (in_array($this->request->action, ['edit', 'delete'])) {
-            $articleId = (int)$this->request->params['pass'][0];
-            if ($this->Requests->isOwnedBy($articleId, $user['id'])) {
+            $requestId = (int)$this->request->params['pass'][0];
+            $requestEntity = $this->Requests->get($requestId);
+            $this->set(compact('requestEntity'));
+
+            $this->loadModel('People');
+            $this->loadModel('Users');
+
+            $authid = $this->Auth->user('id');
+            $this->set(compact('authid'));
+            $userEntity = $this->Users->get($authid);
+            $this->set(compact('userEntity'));
+            $personEntity = $this->People->get($userEntity->person_id);
+            $this->set(compact('personEntity'));
+
+            if ($requestEntity->person_id === $personEntity->id) {
                 return true;
             }
         }
 
         return parent::isAuthorized($user);
+    }
+
+    public function testing($x){
+        $this->loadModel('People');
+        $test = $this->People->get($x);
+        $this->set(compact($test));
+        return $test->first_name;
     }
 
 }

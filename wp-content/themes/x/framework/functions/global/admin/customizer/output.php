@@ -27,20 +27,21 @@ function x_customizer_generated_css_output() {
 
   echo '<style id="x-customizer-css-output" type="text/css">';
 
-    require_once( $outp_path . '/' . x_get_stack() . '.php' );
+    require_once( $outp_path . '/' . $x_stack . '.php' );
     require_once( $outp_path . '/base.php' );
     require_once( $outp_path . '/masthead.php' );
     require_once( $outp_path . '/buttons.php' );
     require_once( $outp_path . '/widgets.php' );
     require_once( $outp_path . '/bbpress.php' );
     require_once( $outp_path . '/buddypress.php' );
+    require_once( $outp_path . '/woocommerce.php' );
     require_once( $outp_path . '/gravity-forms.php' );
 
     do_action( 'x_head_css' );
 
   echo '</style>';
 
-  $css = ob_get_contents(); ob_end_clean();
+  $css = ob_get_clean();
 
 
   //

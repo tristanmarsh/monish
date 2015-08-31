@@ -147,10 +147,34 @@
 .x-navbar .x-nav-wrap .x-nav > li > a {
   font-style: <?php echo ( $x_navbar_font_is_italic ) ? 'italic' : 'normal'; ?>;
   font-weight: <?php echo $x_navbar_font_weight; ?>;
+  letter-spacing: <?php echo $x_navbar_letter_spacing . 'px'; ?>;
   <?php if ( x_get_option( 'x_navbar_uppercase_enable', '' ) == '1' ) : ?>
     text-transform: uppercase;
   <?php endif; ?>
 }
+
+<?php if ( $x_navbar_positioning == 'static-top' || $x_navbar_positioning == 'fixed-top' ) : ?>
+
+  .x-navbar .desktop .x-nav > li > a:not(.x-btn-navbar-woocommerce) {
+    padding-left: <?php echo $x_navbar_adjust_links_top_spacing . 'px'; ?>;
+    padding-right: <?php echo $x_navbar_adjust_links_top_spacing . 'px'; ?>;
+  }
+
+<?php endif; ?>
+
+<?php if ( $x_stack != 'icon' ) : ?>
+
+  .x-navbar .desktop .x-nav > li > a > span {
+    margin-right: -<?php echo $x_navbar_letter_spacing . 'px'; ?>;
+  }
+
+<?php else : ?>
+
+  .x-navbar .desktop .x-nav > li > a > span {
+    padding-right: calc(1.25em - <?php echo $x_navbar_letter_spacing . 'px'; ?>);
+  }
+
+<?php endif; ?>
 
 .x-btn-navbar {
   margin-top: <?php echo $x_navbar_adjust_button . 'px'; ?>;;

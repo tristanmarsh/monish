@@ -8,9 +8,8 @@
 // TABLE OF CONTENTS
 // -----------------------------------------------------------------------------
 //   01. Background Clipping
-//   02. Background Sizing
-//   03. Alpha Transparency
-//   04. Gradients
+//   02. Alpha Transparency
+//   03. Gradients
 //       a. Horizontal
 //       b. Vertical
 //       c. Vertical (3 Colors)
@@ -24,16 +23,6 @@
 @mixin background-clip($clip) {
   -webkit-background-clip: $clip;
           background-clip: $clip;
-}
-
-
-
-// Background Sizing
-// =============================================================================
-
-@mixin background-size($size){
-  -webkit-background-size: $size;
-          background-size: $size;
 }
 
 

@@ -74,6 +74,7 @@ require_once( $eque_path . '/scripts.php' );
 // Global functions.
 //
 
+require_once( $glob_path . '/meta.php' );
 require_once( $glob_path . '/featured.php' );
 require_once( $glob_path . '/pagination.php' );
 require_once( $glob_path . '/navbar.php' );

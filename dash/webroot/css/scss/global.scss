@@ -1,0 +1,214 @@
+/*
+Name:   Blobal.SCSS
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  Global styling for the Monish Dashboard
+Since:    31/7/15
+
+*/
+
+body {
+  background: #C4E7EC;
+  background: #fff;
+  background: rgb(236,242,246);
+  font-family:$open-sans-font-stack;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+// #### GLOBAL ####
+
+a {color:#618DB6;}
+
+
+/* #### NAVBAR #### */
+
+
+.navbar {
+  background:#fff;
+}
+
+
+// #### HEADER ####
+header {
+  height: auto;
+  padding: 0;
+
+  .page-header {
+    margin-top:0;
+  }
+
+  .breadcrumb {
+    margin-left:0;
+    margin-bottom:0;
+    padding: 0px 30px;
+    list-style: none;
+    background: none;
+    // border-top:1px solid rgba(229, 255, 235, 0);
+    // border-bottom:1px solid rgba(229, 255, 235, 0);
+    border-radius:0;
+    background:rgba(118, 170, 219,0.5);
+
+    a {
+      font-size:1.4rem;
+      font-weight:lighter;
+      color:#fff;
+    }
+    
+    //uneccessary cakePHP generated list
+    ul {
+      display:none;
+    }
+
+  }
+
+}
+
+.navbar-image img {
+  max-width: 100%;
+  height: 40px!important;
+}
+
+// #### NAVBAR ####
+
+.navbar {
+  // position:static;
+  margin-bottom:0;
+
+  .navbar-brand {
+    padding:5px;
+  }
+}
+
+
+// #### HEADER ####
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:$roboto-slab-font-stack;
+  color:#5986AD;
+}
+
+// #### CONTENT ####
+
+// holds the main view of the dashboard
+
+
+
+.main-content {
+  
+  min-height:100vh;
+  transition:all 400ms ease;
+
+
+
+  .content {margin-top:51px;}
+
+  .header {}
+
+  .panel {
+    box-shadow: 0 3px rgba(118, 170, 219,0.2);
+    box-shadow: 0 3px #D5E4F1;
+    border-radius:5px;
+    margin-bottom:20px;
+
+
+    .panel-footer {
+      padding:0 15px;
+    }
+
+    .nav {padding:10px 0;}
+
+    .nav-pills>li>a {
+      border-radius:100px;
+      padding:5px 15px;
+      font-weight: 900;
+      font-size: 1.6rem;
+    }
+
+  }
+
+  .panel-default,
+  .panel-primary {
+    border-color:#D5E4F1;
+  }
+
+
+  .paginator {
+    margin-bottom:60px;
+    
+    .pagination {
+      box-shadow: 0 3px #D5E4F1;
+      border-radius:5px;
+      // border-left:1px solid #D5E4F1;
+      // border-right:1px solid #D5E4F1;
+      border:1px solid #D5E4F1;
+      
+      li a {
+        border-right:1px solid #D5E4F1;
+        border:0;
+      }
+
+      li a:last-child {
+        border-right:0;
+      }
+
+      li:last-child>a {
+        // border-left:1px solid #D5E4F1;
+      }
+
+    }
+
+  }
+
+}
+
+  .navbar-toggle {
+      display: block;
+    position: relative;
+    float: left;
+    padding-left: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    left: 10px;
+  }
+  
+@media (min-width: 768px) {
+  .navbar-toggle {
+      display: block;
+    position: relative;
+    float: left;
+    padding-left: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    left: 10px;
+  }
+}
+
+
+// #### HEADER ####
+
+
+#navigation-toggle {
+  background:#337ab7;
+  span {
+    background:lighten(#337ab7,50%);
+  }
+}
+
+
+// #### CONTENT ####
+

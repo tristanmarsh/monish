@@ -1,7 +1,7 @@
 // =============================================================================
 // SCSS/SITE/SHORTCODES_DEFAULT/_SHORTCODES.SCSS
 // -----------------------------------------------------------------------------
-// Additional default styles for shortcodes.
+// Default styles for shortcodes.
 // =============================================================================
 
 // =============================================================================
@@ -12,28 +12,30 @@
 //   03. Gap
 //   04. Clear
 //   05. Highlight
-//   06. Quotes
+//   06. Quote
 //       a. Blockquote
 //       b. Pullquote
-//       c. Cite
 //   07. Alert
-//   08. Maps
+//   08. Map
+//       a. Embed
+//       b. Google Map
+//       c. Google Map Marker
 //   09. Skill Bar
 //   10. Code
-//   11. Buttons
-//       a. Individual Buttons
-//       b. Button Group
-//   12. Icons
+//   11. Button
+//   12. Icon
 //   13. Block Grid
 //       a. Grid
 //       b. Grid Item
-//   14. Images
-//   15. Icon list
+//   14. Image
+//   15. Icon List
 //       a. List
 //       b. List Item
 //   16. Popovers and Tooltips
 //   17. Text Columns
 //   18. Video
+//       a. Video Player
+//       b. Video Embed
 //   19. Accordion
 //       a. Accordion
 //       b. Accordion Item
@@ -43,14 +45,18 @@
 //       c. Tabs
 //       d. Tab
 //   21. Responsive Visibility
-//   22. Content Columns
+//   22. Column
 //   23. Responsive Slider
 //       a. Slider
 //       b. Slide
 //   24. Protected Content
 //   25. Recent Posts
 //   26. Audio
-//   27. Responsive Pricing Table
+//       a. Audio Player
+//       b. Audio Embed
+//   27. Pricing Table
+//       a. Pricing Table
+//       b. Pricing Table Column
 //   28. Callout
 //   29. Promo
 //   30. Post Author
@@ -64,43 +70,44 @@
 //   36. Feature Headline
 //   37. Search
 //   38. Counter
-//   39. Shortcode Container
+//   39. Section
+//   40. Shortcode Container
 // =============================================================================
 
-// Dropcaps
+// Dropcap
 // =============================================================================
 
-.x-content-band .x-dropcap {
+.x-section .x-dropcap {
   float: left;
   display: block;
   margin: 0.175em 0.215em 0 0;
   padding: 0.105em 0.2em 0.135em;
   font-size: 3.3em;
-  font-weight: bold;
   line-height: 1;
+  border-radius: 3px;
   color: $white;
   background-color: $accentColor;
-  border-radius: 3px;
 }
 
 
 
-// Horizontal Rules
+// Horizontal Rule
 // =============================================================================
 
-.x-content-band .x-hr {
+.x-section .x-hr {
   height: 0;
   margin: $baseMargin 0;
   border: 0;
-  border-top: 1px solid darken($baseModBackground, 5%);
+  border-top: 1px solid $baseBorderColor;
+  background-color: transparent;
 }
 
 
 
-// Gaps
+// Gap
 // =============================================================================
 
-.x-content-band .x-gap {
+.x-section .x-gap {
   height: 0;
   margin: 0;
   border: 0;
@@ -111,7 +118,7 @@
 // Clear
 // =============================================================================
 
-.x-content-band .x-clear {
+.x-section .x-clear {
   height: 0;
   margin: 0;
   border: 0;
@@ -122,7 +129,7 @@
 // Highlight
 // =============================================================================
 
-.x-content-band .x-highlight {
+.x-section .x-highlight {
   padding: 0.15em 0.475em;
   color: $white;
   background-color: $accentColor;
@@ -130,13 +137,13 @@
 
   &.dark {
     color: $white;
-    background-color: darken($gray, 5%);
+    background-color: rgba(0, 0, 0, 0.75);
   }
 }
 
 
 
-// Quotes
+// Quote
 // =============================================================================
 
 //
@@ -145,17 +152,18 @@
 // 3. Cite.
 //
 
-.x-content-band .x-blockquote { // 1
+.x-section .x-blockquote { // 1
   margin: $baseMargin 0;
-  border: 1px solid darken($baseModBackground, 15%);
+  border: 1px solid $baseBorderColor;
   border-left: 0;
   border-right: 0;
-  padding: 1em 0;
-  font-size: 171.4%;
-  line-height: 1.4;
+  padding: 1em;
+  font-size: 1.75em;
+  line-height: 1.3;
+  background-color: transparent;
 }
 
-.x-content-band .x-pullquote { // 2
+.x-section .x-pullquote { // 2
   width: 40%;
   margin: 0.375em 1.25em 0.55em 0;
   font-size: 1.35em;
@@ -175,11 +183,11 @@
   }
 }
 
-.x-content-band .x-cite { // 3
+.x-section .x-cite { // 3
   display: block;
-  margin-top: 0.5em;
-  font-size: 0.725em;
-  opacity: 0.5;
+  margin-top: 0.75em;
+  font-size: 0.625em;
+  opacity: 0.35;
 
   &:before {
     content: "\2013\00A0";
@@ -191,24 +199,22 @@
 // Alert
 // =============================================================================
 
-.x-content-band .x-alert {
+.x-section .x-alert {
   margin-bottom: $baseMargin;
-  border: 1px solid $warningBorder;
-  padding: 0.875em 2.25em 1em 1.15em;
+  border-left: 4px solid $warningBorder;
+  padding: 0.915em 2.25em 1.15em 1.15em;
   @include font-size(1.4);
   line-height: 1.4;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
   color: $warningText;
   background-color: $warningBackground;
   border-radius: 3px;
-  @include box-shadow(#{inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 2px 3px rgba(0, 0, 0, 0.065)});
 
   &.x-alert-block {
-    padding: 0.875em 1.15em 1em;
+    padding: 0.915em 1.15em 1.15em;
   }
 
   .h-alert {
-    margin: 0 0 0.35em;
+    margin: 0 0 0.25em;
     @include font-size(1.8);
     letter-spacing: -0.05em;
     line-height: 1.3;
@@ -237,7 +243,7 @@
     -webkit-appearance: none;
 
     &:hover {
-      opacity: 0.75;
+      opacity: 1;
     }
 
     &:focus {
@@ -254,7 +260,7 @@
   }
 }
 
-.x-content-band .x-alert-muted {
+.x-section .x-alert-muted {
   color: $mutedText;
   border-color: $mutedBorder;
   background-color: $mutedBackground;
@@ -264,7 +270,7 @@
   }
 }
 
-.x-content-band .x-alert-info {
+.x-section .x-alert-info {
   color: $infoText;
   border-color: $infoBorder;
   background-color: $infoBackground;
@@ -274,7 +280,7 @@
   }
 }
 
-.x-content-band .x-alert-success {
+.x-section .x-alert-success {
   color: $successText;
   border-color: $successBorder;
   background-color: $successBackground;
@@ -284,7 +290,7 @@
   }
 }
 
-.x-content-band .x-alert-danger {
+.x-section .x-alert-danger {
   color: $errorText;
   border-color: $errorBorder;
   background-color: $errorBackground;
@@ -296,29 +302,28 @@
 
 
 
-// Maps
+// Map
 // =============================================================================
 
-.x-content-band .x-map {  }
+.x-section .x-map {  }
 
 
 
 // Skill Bar
 // =============================================================================
 
-.x-content-band .h-skill-bar {
-  margin: 0 0 8px;
-  @include font-size(1.1);
-  letter-spacing: -0.025em;
+.x-section .h-skill-bar {
+  margin: 0 0 5px;
+  @include font-size(1.0);
+  letter-spacing: -0.015em;
   line-height: 1;
   text-transform: uppercase;
 }
 
-.x-content-band .x-skill-bar {
+.x-section .x-skill-bar {
   height: 25px;
   margin-bottom: $baseMargin;
-  background-color: darken($baseModBackground, 5%);
-  @include box-shadow(#{inset 0 1px 2px rgba(0, 0, 0, 0.15)});
+  background-color: $baseBorderColor;
   border-radius: 3px;
 
   .bar {
@@ -329,20 +334,16 @@
     float: left;
     background-color: $accentColor;
     border-radius: 3px;
-    @include box-shadow(#{inset 0 1px 5px rgba(0, 0, 0, 0.45)});
 
     .percent {
       position: absolute;
       right: 4px;
       bottom: 4px;
       height: 17px;
-      padding: 0 5px;
+      padding: 0 2px;
       font-size: 11px;
       line-height: 17px;
-      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
-      color: $baseModBackground;
-      background-color: rgba(0, 0, 0, 0.35);
-      border-radius: 3px;
+      color: $white;
     }
   }
 }
@@ -352,34 +353,34 @@
 // Code
 // =============================================================================
 
-.x-content-band .x-code {
+.x-section .x-code {
   display: block;
   margin: 0 0 $baseMargin;
-  border: 1px solid $baseBorderColor;
-  padding: 0.786em 1.071em;
+  border: 0;
+  padding: 0.75em 1.25em;
   @include font-family-monospace();
-  font-size: 1.25em;
+  font-size: 1em;
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;
   white-space: pre-wrap;
   border-radius: 3px;
-  color: $gray;
-  background-color: darken($baseModBackground, 10%);
+  background-color: $baseBorderColor;
 
   code {
     border: 0;
     padding: 0;
+    font-size: 1.15em;
     background-color: transparent;
   }
 }
 
 
 
-// Buttons
+// Button
 // =============================================================================
 
-.x-content-band .x-btn {
+.x-section .x-btn {
   display: inline-block;
   position: relative;
   border: 1px solid $btnBorder;
@@ -406,42 +407,6 @@
 
   &:visited {
     color: $white;
-  }
-
-
-  //
-  // Styles.
-  //
-
-  &.x-btn-real,
-  &.x-btn-real:hover {
-    margin-bottom: 0.25em;
-    text-shadow: 0 0.075em 0.075em rgba(0, 0, 0, 0.65);
-  }
-
-  &.x-btn-real {
-    box-shadow: 0 0.25em 0 0 darken($btnBackground, 10%), 0 4px 9px rgba(0, 0, 0, 0.75);
-  }
-
-  &.x-btn-real:hover {
-    box-shadow: 0 0.25em 0 0 darken($btnBackground, 10%), 0 4px 9px rgba(0, 0, 0, 0.75);
-  }
-
-  &.x-btn-flat,
-  &.x-btn-flat:hover {
-    margin-bottom: 0;
-    text-shadow: 0 0.075em 0.075em rgba(0, 0, 0, 0.65);
-    box-shadow: none;
-  }
-
-  &.x-btn-transparent,
-  &.x-btn-transparent:hover {
-    margin-bottom: 0;
-    border-width: 3px;
-    text-shadow: none;
-    text-transform: uppercase;
-    background-color: transparent;
-    box-shadow: none;
   }
 
 
@@ -501,15 +466,13 @@
   // Icons.
   //
 
-  [class^="x-icon-"],
-  [class*=" x-icon-"] {
+  [class*="#{$fa-css-prefix}-"] {
     display: inline;
     margin-right: 0.5em;
   }
 
   &.x-btn-icon-only {
-    [class^="x-icon-"],
-    [class*=" x-icon-"] {
+    [class*="#{$fa-css-prefix}-"] {
       margin: 0;
     }
   }
@@ -520,7 +483,7 @@
 // Button circle.
 //
 
-.x-content-band .x-btn-circle-wrap {
+.x-section .x-btn-circle-wrap {
   display: inline-block;
   position: relative;
 
@@ -547,8 +510,7 @@
     width: 172px;
     height: 43px;
     background-image: url(../../img/btn-circle-top-small.png);
-    -webkit-background-size: 172px 43px;
-            background-size: 172px 43px;
+    background-size: 172px 43px;
   }
 
   &:after {
@@ -556,8 +518,7 @@
     width: 190px;
     height: 43px;
     background-image: url(../../img/btn-circle-bottom-small.png);
-    -webkit-background-size: 190px 43px;
-            background-size: 190px 43px;
+    background-size: 190px 43px;
   }
 
   .x-btn {
@@ -571,35 +532,35 @@
 // Block buttons.
 //
 
-.x-content-band .x-btn-block {
+.x-section .x-btn-block {
   display: block;
   width: 100%;
 }
 
-.x-content-band .x-btn-block + .x-btn-block {
+.x-section .x-btn-block + .x-btn-block {
   margin-top: 1em;
 }
 
 
 
-// Icons
+// Icon
 // =============================================================================
 
-.x-content-band .x-icon {  }
+.x-section [class*="#{$fa-css-prefix}-"] {  }
 
 
 
 // Block Grid
 // =============================================================================
 
-.x-content-band .x-block-grid {  }
+.x-section .x-block-grid {  }
 
 
 
-// Images
+// Image
 // =============================================================================
 
-.x-content-band {
+.x-section {
 
   //
   // Standard images.
@@ -695,18 +656,12 @@
 // Icon List
 // =============================================================================
 
-.x-content-band .x-ul-icons {
-  margin: 0 0 $baseMargin 1.425em;
-  list-style: none;
-  text-indent: -0.85em;
-
+.x-section .x-ul-icons {
   li {
-    [class^="x-icon-"],
-    [class*=" x-icon-"] {
+    [class*="#{$fa-css-prefix}-"] {
       margin: 0;
       border: 0;
       padding: 0;
-      width: 0.85em;
     }
   }
 }
@@ -716,9 +671,9 @@
 // Popovers and Tooltips
 // =============================================================================
 
-.x-content-band .x-extra {  }
+.x-section .x-extra {  }
 
-.x-content-band {
+.x-section {
 
   //
   // Tooltips.
@@ -731,7 +686,6 @@
     visibility: visible;
     padding: 0.455em;
     @include font-size(1.1);
-    font-weight: normal;
     line-height: 1.2;
     text-shadow: none;
     @include opacity(0);
@@ -751,7 +705,7 @@
     text-align: center;
     text-decoration: none;
     background-color: $tooltipBackground;
-    border-radius: 4px;
+    border-radius: 3px;
   }
 
   .tooltip-arrow {
@@ -808,11 +762,9 @@
     z-index: $zindexPopover;
     display: none;
     width: 236px;
-    padding: 1px;
     background-color: $popoverBackground;
-    border: 1px solid #ccc;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
+    border-radius: 5px;
     @include translate3d(0, 0, 0);
     @include background-clip(padding-box);
     @include box-shadow(#{0 5px 10px rgba(0, 0, 0, 0.2)});
@@ -826,19 +778,17 @@
 
   .popover-title {
     margin: 0;
-    padding: 0.571em 0.75em;
+    padding: 0.575em 0.75em;
     @include font-size(1.5);
-    font-weight: 400;
     line-height: 1.3;
     background-color: $popoverTitleBackground;
-    border-bottom: 1px solid darken($popoverTitleBackground, 5%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px 5px 0 0;
   }
 
   .popover-content {
-    padding: 0.563em 0.875em;
+    padding: 0.675em 0.875em;
     @include font-size(1.3);
-    font-weight: 400;
     line-height: 1.5;
 
     p,
@@ -936,7 +886,7 @@
 // Text Columns
 // =============================================================================
 
-.x-content-band .x-columnize {
+.x-section .x-columnize {
   @include content-columns( 2, 3em, 1px solid $baseBorderColor );
   margin: 0 0 $baseMargin;
 
@@ -954,30 +904,79 @@
 // Video
 // =============================================================================
 
-.x-content-band .x-video {  }
+.x-section .x-video {  }
 
 
 
 // Accordion
 // =============================================================================
 
-//
-// Parent container.
-//
-
-.x-accordion {
-  margin-bottom: $baseMargin;
-}
+.x-section {
+  .x-accordion {
+    margin-bottom: $baseMargin;
+  }
 
 
-//
-// Group (beading + body).
-//
+  //
+  // Group (heading + body).
+  //
 
-.x-accordion-group {
-  margin: 8px 0;
-  border: 1px solid $baseBorderColor;
-  @include box-shadow(#{$baseBoxShadow});
+  .x-accordion-group {
+    margin: 0 0 10px;
+    border: 1px solid $baseBorderColor;
+    background-color: $baseModBackground;
+    @include box-shadow(#{$baseBoxShadow});
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+
+  //
+  // Heading.
+  //
+
+  .x-accordion-heading {
+    overflow: hidden;
+    border-bottom: 0;
+
+    .x-accordion-toggle {
+      display: block;
+      padding: 10px 15px;
+      font-size: 1.15em;
+      text-decoration: none;
+      background-color: rgba(0, 0, 0, 0.025);
+      cursor: pointer;
+      @include transition(#{color 0.3s ease, background-color 0.3s ease});
+
+      &.collapsed {
+        background-color: $baseModBackground;
+
+        &:before {
+          @include rotate(0);
+        }
+      }
+
+      &:before {
+        content: "\f067";
+        position: relative;
+        display: inline-block;
+        bottom: 0.1em;
+        margin-right: 10px;
+        font-size: 74%;
+        color: rgba(0, 0, 0, 0.25);
+        @include rotate(45deg);
+        @include transition(#{all 0.3s ease});
+        @include font-awesome();
+      }
+    }
+  }
+
+
+  //
+  // Inner.
+  //
 
   .x-accordion-inner {
     padding: 10px 15px;
@@ -993,66 +992,18 @@
 }
 
 
-//
-// Heading.
-//
-
-.x-accordion-heading {
-  overflow: hidden;
-  border-bottom: 0;
-
-  .x-accordion-toggle {
-    display: block;
-    padding: 10px 15px;
-    font-size: 114.2%;
-    color: lighten($black, 5%);
-    background-color: $baseModBackground;
-    cursor: pointer;
-
-    &.collapsed {
-      background-color: $baseModBackground;
-
-      &:before {
-        color: darken($baseModBackground, 20%);
-        @include rotate(0);
-      }
-    }
-
-    &:hover {
-      color: $linkColor;
-
-      &:before {
-        color: darken($baseModBackground, 20%);
-      }
-    }
-
-    &:before {
-      content: "\f067";
-      position: relative;
-      display: inline-block;
-      bottom: 0.1em;
-      margin-right: 10px;
-      font-size: 74%;
-      color: darken($baseModBackground, 20%);
-      @include rotate(45deg);
-      @include transition(#{all 0.3s ease});
-      @include font-awesome();
-    }
-  }
-}
-
-
 
 // Tabbed Content
 // =============================================================================
 
-.x-content-band {
+.x-section {
   .x-nav-tabs {
     position: relative;
     margin: 0;
     border: 1px solid $baseBorderColor;
     border-bottom: 0;
     list-style: none;
+    background-color: $baseModBackground;
     @include box-shadow(#{$baseBoxShadow});
     @include clearfix();
 
@@ -1062,6 +1013,7 @@
       border-right: 1px solid $baseBorderColor;
       border-bottom: 1px solid $baseBorderColor;
       text-align: center;
+      background-color: $baseModBackground;
       @include break(cubs) {
         border-right: 0;
       }
@@ -1071,12 +1023,17 @@
         padding: 0.75em;
         @include font-size(1.4);
         line-height: 1.3;
-        color: $textColor;;
+        text-decoration: none;
         background-color: $baseModBackground;
+        @include transition(#{color 0.3s ease, background-color 0.3s ease});
 
         &:hover {
-          color: $textColor;
-          background-color: $baseModBackground;
+          background-color: rgba(0, 0, 0, 0.025);
+        }
+
+        &:focus,
+        &:active {
+          outline: 0;
         }
       }
     }
@@ -1122,10 +1079,8 @@
 
   .x-nav-tabs > .active > a,
   .x-nav-tabs > .active > a:hover {
-    color: $black;
-    background-color: lighten($baseModBackground, 6%);
+    background-color: rgba(0, 0, 0, 0.025);
     cursor: default;
-    @include box-shadow(#{inset 0 3px 0 0 $accentColor});
   }
 
 
@@ -1208,21 +1163,21 @@
 // Responsive Visibility
 // =============================================================================
 
-.x-content-band .x-visibility {  }
+.x-section .x-visibility {  }
 
 
 
-// Content Columns
+// Column
 // =============================================================================
 
-@include columns();
+@include column();
 
 
 
 // Responsive Slider
 // =============================================================================
 
-.x-content-band {
+.x-section {
 
   //
   // Browser resets.
@@ -1296,33 +1251,37 @@
     display: block;
     cursor: pointer;
     position: absolute;
-    top: 14px;
+    top: 15px;
     height: 30px;
     width: 30px;
     @include font-size(1.4);
     line-height: 30px;
     text-align: center;
     text-shadow: none;
+    text-decoration: none;
     color: $white;
-    background-color: $accentColor;
-    border-radius: 4px;
-    @include opacity(0.5);
-    @include transition(#{opacity 0.3s ease});
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    @include transition(#{background-color 0.3s ease});
     z-index: 10;
 
-    [class^="x-icon-"],
-    [class*=" x-icon-"] {
+    [class*="#{$fa-css-prefix}-"] {
       width: auto;
     }
 
     &:hover {
       text-decoration: none;
       color: $white;
-      @include opacity(1);
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &:focus,
+    &:active {
+      outline: 0;
     }
 
     &.flex-prev {
-      left: 14px;
+      left: 15px;
     }
 
     &.flex-next {
@@ -1337,40 +1296,39 @@
 
   .flex-control-nav {
     position: absolute;
-    padding: 0 4px;
-    top: 14px;
-    right: 14px;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    top: 15px;
+    right: 13px;
     line-height: 1;
     text-align: center;
-    background-color: $baseModBackground;
-    border-radius: 4px;
+    background-color: transparent;
 
     li {
-      margin: 7px 4px 6px;
+      margin: 0 2px 0;
       display: inline-block;
       text-indent: -9999px;
     }
 
     a {
       display: block;
-      width: 14px;
-      height: 14px;
-      background-color: $black;
+      width: 15px;
+      height: 15px;
+      background-color: rgba(0, 0, 0, 0.25);
       border-radius: 3px;
+      cursor: pointer;
+      @include transition(#{background-color 0.3s ease});
 
-      &:hover {
-        cursor: pointer;
-        background-color: $accentColor;
-      }
-
+      &:hover,
       &.flex-active {
-        background-color: $accentColor;
+        background-color: rgba(0, 0, 0, 0.5);
       }
     }
   }
 }
 
-.no-js .x-content-band .x-slides > li:first-child {
+.no-js .x-section .x-slides > li:first-child {
   display: block;
 }
 
@@ -1379,7 +1337,7 @@
 // Protected Content
 // =============================================================================
 
-.x-content-band .x-protect {
+.x-section .x-protect {
   padding: 7% 18%;
   text-align: center;
   background-color: darken($baseModBackground, 5%);
@@ -1413,7 +1371,7 @@
 // Recent Posts
 // =============================================================================
 
-.x-content-band {
+.x-section {
   .x-recent-posts {
     margin: 0 0 $baseMargin;
 
@@ -1428,9 +1386,8 @@
       margin: 0 4% 0 0;
       border: 1px solid $baseBorderColor;
       padding: 5px 5px 0;
-      color: #999;
+      text-decoration: none;
       background-color: $baseModBackground;
-      border-radius: 3px;
       @include box-shadow(#{$baseBoxShadow});
       @include translate3d(0, 0, 0);
 
@@ -1439,23 +1396,26 @@
       }
 
       &:hover {
-        color: #999;
-
-        img {
-          opacity: 0;
-        }
-
         .x-recent-posts-img {
-          background-color: $linkColorHover;
+          &:before { opacity: 1; }
+          &:after  { opacity: 1; }
         }
 
-        .h-recent-posts {
-          color: $linkColorHover;
+        .has-post-thumbnail {
+          .x-recent-posts-img {
+            &:before { opacity: 1;    }
+            &:after  { opacity: 0.85; }
+          }
         }
       }
 
+      &:focus,
+      &:active {
+        outline: 0;
+      }
+
       &.no-image {
-        padding: 5px;
+        padding: 0 5px;
       }
 
       &.x-recent-post1 {
@@ -1541,47 +1501,50 @@
       }
     }
 
-    img {
-      position: relative;
-      margin: 0;
-      min-width: 100%;
-      border-radius: 2px;
-      box-shadow: none;
-      z-index: 1;
-      @include transition(#{opacity 0.6s ease});
-    }
-
     .x-recent-posts-img {
-      overflow: hidden;
       position: relative;
-      padding-bottom: 55.8823529%;
-      background-color: $linkColor;
-      border-radius: 2px;
-      @include transition(#{background-color 0.3s ease});
+      padding-bottom: 56.25%;
+      background: center center/cover no-repeat;
 
-      &:before {
+      &:before,
+      &:after {
         display: block;
         position: absolute;
+        @include transition(#{opacity 0.3s ease});
+      }
+
+      &:before {
         margin: -30px 0 0 -30px;
         top: 50%;
         left: 50%;
         width: 60px;
         height: 60px;
         @include font-size(3.2);
-        line-height: 59px;
+        line-height: 60px;
         text-align: center;
-        text-shadow: none;
-        vertical-align: middle;
         color: $white;
-        background-color: $linkColor;
-        border-radius: 100em;
-        z-index: 0;
+        opacity: 0.35;
+        z-index: 2;
         @include font-awesome();
+      }
+
+      &:after {
+        content: "";
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $linkColor;
+        opacity: 1;
+        z-index: 1;
       }
     }
 
-    .has-post-thumbnail .x-recent-posts-img {
-      padding: 0;
+    .has-post-thumbnail {
+      .x-recent-posts-img {
+        &:before { opacity: 0; }
+        &:after  { opacity: 0; }
+      }
     }
 
     .format-standard .x-recent-posts-img:before { content: "\f0f6"; }
@@ -1591,34 +1554,31 @@
     .format-gallery .x-recent-posts-img:before  { content: "\f03e"; }
     .format-link .x-recent-posts-img:before     { content: "\f0c1"; }
     .format-quote .x-recent-posts-img:before    { content: "\f10d"; }
-    .x-portfolio .x-recent-posts-img:before     {
-      content: "\f067";
-      line-height: 62px;
-    }
+    .x-portfolio .x-recent-posts-img:before     { content: "\f067"; }
 
     .x-recent-posts-content {
-      border-top: 0;
-      padding: 0.65em 0.75em 0.775em;
-      border-radius: 0 0 3px 3px;
+      padding: 10px 5px;
     }
 
     .h-recent-posts,
     .x-recent-posts-date {
       display: block;
-      line-height: 1;
       @include text-overflow();
     }
 
     .h-recent-posts {
-      margin: 0 0 2px;
-      padding-bottom: 4px;
+      margin: 0 0 6px;
+      border: 0;
+      padding: 0;
       @include font-size(1.6);
+      line-height: 1.2;
       @include transition(#{color 0.3s ease});
     }
 
     .x-recent-posts-date {
       margin: 0;
       @include font-size(1.0);
+      line-height: 1;
       text-transform: uppercase;
     }
 
@@ -1643,7 +1603,7 @@
 }
 
 .js {
-  .x-content-band .x-recent-posts {
+  .x-section .x-recent-posts {
     &[data-fade="true"] {
       a {
         opacity: 0;
@@ -1661,10 +1621,10 @@
 
 
 
-// Responsive Pricing Table
+// Pricing Table
 // =============================================================================
 
-.x-content-band {
+.x-section {
   .x-pricing-table {
     width: 100%;
     margin: $baseMargin 0;
@@ -1697,34 +1657,33 @@
     float: left;
     margin: 0 0 -1px -1px;
     text-align: center;
+    background-color: $baseModBackground;
     @include break(middle-bear) {
       float: none;
       margin-left: 0;
     }
 
     h2 {
-      border: 1px solid darken($baseModBackground, 8%);
+      border: 1px solid $baseBorderColor;
       padding: 20px 20px 25px;
       letter-spacing: 0;
       line-height: 1.1;
       @include font-size(3.2);
-      background-color: darken($baseModBackground, 1.5%);
 
       span {
         display: block;
-        margin-top: 5px;
+        margin: 5px -2px 0 0;
         @include font-size(1.3);
         letter-spacing: 2px;
         text-transform: uppercase;
-        color: $black;
-        opacity: 0.5;
+        color: rgba(0, 0, 0, 0.35);
       }
     }
 
     &.featured {
       position: relative;
       margin-top: -20px;
-      @include box-shadow(#{0 0 10px rgba(0, 0, 0, 0.125)});
+      @include box-shadow(#{0 0 35px rgba(0, 0, 0, 0.275)});
       @include break(middle-bear) {
         margin-top: 0;
       }
@@ -1734,7 +1693,6 @@
         padding-bottom: 28px;
         color: $white;
         background-color: $accentColor;
-        @include box-shadow(#{inset 0 0 0 5px rgba(0, 0, 0, 0.15)});
       }
 
       .x-pricing-column-info {
@@ -1748,20 +1706,22 @@
   }
 
   .x-pricing-column-info {
-    border: 1px solid darken($baseModBackground, 8%);
+    border: 1px solid $baseBorderColor;
     border-top: 0;
-    padding: 10px 0 32px;
+    padding: 15px 0 32px;
 
     .x-price {
-      margin: 0;
+      margin: 0 0 10px;
       @include font-size(5.4);
       letter-spacing: -3px;
+      line-height: 1;
     }
 
     span {
       display: block;
       margin-top: -4px;
       @include font-size(1.2);
+      line-height: 1;
     }
 
     p {
@@ -1773,21 +1733,17 @@
 
       > li {
         margin: 0;
-        border-bottom: 1px solid darken($baseModBackground, 8%);
+        border-bottom: 1px solid $baseBorderColor;
         padding: 10px 40px 11px;
         @include font-size(1.6);
         line-height: 1.4;
 
-        [class*="x-icon"] {
+        [class*="#{$fa-css-prefix}-"] {
           margin-left: 0.85em;
         }
 
         &:first-child {
-          border-top: 1px solid darken($baseModBackground, 8%);
-        }
-
-        &:nth-child(2n+1) {
-          background-color: darken($baseModBackground, 1.5%);
+          border-top: 1px solid $baseBorderColor;
         }
       }
     }
@@ -1804,35 +1760,18 @@
 // Callout
 // =============================================================================
 
-.x-content-band .x-callout {
+.x-section .x-callout {
   position: relative;
-  margin: ($baseMargin * 2) 0;
-  border: 1px solid darken($baseModBackground, 8%);
+  margin: $baseMargin 0;
+  border: 0.65em solid $baseBorderColor;
   padding: 2.35em;
   @include font-size(2.1);
-  background-color: darken($baseModBackground, 3%);
-  border-radius: 0.5em;
-  @include box-shadow(#{inset 0 1px 0 0 rgba(255, 255, 255, 0.95), 0 1px 3px rgba(0, 0, 0, 0.05)});
+  background-color: $baseModBackground;
   @include break(cubs) {
     @include font-size(1.8);
   }
   @include break(baby-bear) {
     @include font-size(1.6);
-  }
-
-  &:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
-    border: 1px solid darken($baseModBackground, 8%);
-    background-color: $baseModBackground;
-    border-radius: 0.275em;
-    z-index: 0;
-    @include box-shadow(#{inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 0 0 rgba(255, 255, 255, 0.95)});
   }
 
   .h-callout {
@@ -1858,22 +1797,24 @@
 // Promo
 // =============================================================================
 
-.x-content-band .x-promo {
+.x-section .x-promo {
   overflow: hidden;
   margin-bottom: $baseMargin;
   border: 1px solid $baseBorderColor;
-  border-radius: 4px;
+  border-radius: 3px;
+  background-color: $baseModBackground;
   @include box-shadow(#{$baseBoxShadow});
 
   .x-promo-image-wrap {
     img {
       min-width: 100%;
+      border-radius: 0;
+      box-shadow: none;
     }
   }
 
   .x-promo-content {
     padding: 1.5em;
-    background-color: $baseModBackground;
   }
 }
 
@@ -1882,14 +1823,14 @@
 // Post Author
 // =============================================================================
 
-.x-content-band .x-author-box {
+.x-section .x-author-box {
   margin: 0 0 $baseMargin;
 
   .h-about-the-author {
-    margin: 0 0 0.925em;
-    border-bottom: 1px solid darken($baseModBackground, 5%);
-    padding-bottom: 0.45em;
-    @include font-size(1.2);
+    margin: 0 0 18px;
+    border-bottom: 1px solid $baseBorderColor;
+    padding: 0;
+    @include font-size(1.0);
     letter-spacing: 1px;
     text-transform: uppercase;
   }
@@ -1898,7 +1839,7 @@
     float: left;
     width: 90px;
     height: 90px;
-    border-radius: 0.35em;
+    border-radius: 3px;
     box-shadow: none;
     @include break(baby-bear) {
       display: none;
@@ -1915,14 +1856,15 @@
   }
 
   .h-author {
-    margin-bottom: 0.35em;
+    margin-bottom: 7px;
+    font-size: 1.5em;
     line-height: 1;
   }
 
   .x-author-social {
     display: inline-block;
     margin-right: 1em;
-    @include font-size(1.3);
+    text-decoration: none;
     white-space: nowrap;
 
     [class*="x-social"] {
@@ -1932,7 +1874,7 @@
   }
 
   .p-author {
-    margin-top: 0.5em;
+    margin-top: 7px;
   }
 }
 
@@ -1941,13 +1883,13 @@
 // Prompt
 // =============================================================================
 
-.x-content-band {
+.x-section {
   .x-prompt {
     margin: 0 0 $baseMargin;
     border: 1px solid $baseBorderColor;
     padding: 1.75em;
     background-color: $baseModBackground;
-    border-radius: 4px;
+    border-radius: 3px;
     @include box-shadow(#{$baseBoxShadow});
 
     &.message-left {
@@ -1986,7 +1928,7 @@
   }
 
   .h-prompt {
-    margin-top: 0;
+    margin: 0 0 0.5em;
     @include font-size(2.8);
     line-height: 1.1;
   }
@@ -2032,33 +1974,33 @@
 // Entry Share
 // =============================================================================
 
-.x-content-band .x-entry-share {
+.x-section .x-entry-share {
   margin: 0 0 $baseMargin;
-  border: 1px solid darken($baseModBackground, 5%);
+  border: 1px solid $baseBorderColor;
   border-left: 0;
   border-right: 0;
-  padding: 10px 0;
-  @include font-size(1.2);
+  padding: 25px 0;
   line-height: 1;
   text-align: center;
 
   p {
-    margin: 8px 0 10px;
+    margin: 0 0 10px;
+    @include font-size(1.2);
+    line-height: 1;
     text-transform: uppercase;
   }
 
   .x-share {
     display: inline-block;
-    margin: 0 0.05em;
-    width: 45px;
-    height: 45px;
+    margin: 0 0.45em;
     @include font-size(2.4);
-    line-height: 45px;
-    border-radius: 2px;
+    line-height: 1;
+    text-decoration: none;
+    @include transition(#{color 0.3s ease});
 
-    &:hover {
-      color: #fff;
-      background-color: $linkColor;
+    &:focus,
+    &:active {
+      outline: 0;
     }
   }
 }
@@ -2068,7 +2010,7 @@
 // Table of Contents
 // =============================================================================
 
-.x-content-band {
+.x-section {
 
   //
   // Container.
@@ -2081,7 +2023,6 @@
     padding: 15px;
     @include font-size(1.1);
     background-color: $baseModBackground;
-    border-radius: 3px;
     @include box-shadow(#{$baseBoxShadow});
 
     &.left  { margin-right: 1.75em; }
@@ -2108,7 +2049,7 @@
 
   .h-toc {
     margin: 0 0 10px;
-    @include font-size(1.4);
+    @include font-size(1.2);
     letter-spacing: 1px;
     text-transform: uppercase;
   }
@@ -2165,6 +2106,8 @@
     a {
       display: block;
       border-bottom: 1px solid $baseBorderColor;
+      text-decoration: none;
+      @include transition(#{color 0.3s ease});
       @include text-overflow();
     }
   }
@@ -2175,7 +2118,7 @@
 // Custom Headline
 // =============================================================================
 
-.x-content-band .h-custom-headline {
+.x-section .h-custom-headline {
   letter-spacing: -1px;
   line-height: 1.1;
 
@@ -2196,8 +2139,8 @@
         width: 9999px;
         display: block;
         margin-top: -2px;
-        border-top: 1px solid lighten(#e1e1e1, 6%);
-        border-bottom: 1px solid lighten(#e1e1e1, 6%);
+        border-top: 1px solid $baseBorderColor;
+        border-bottom: 1px solid $baseBorderColor;
       }
 
       &:before {
@@ -2218,67 +2161,13 @@
 // Feature Headline
 // =============================================================================
 
-.x-content-band .h-feature-headline {
+.x-section .h-feature-headline {
   line-height: 1.1;
 
   span {
-    display: inline-block;
-
     i {
-      float: left;
-      width: 2em;
-      height: 2em;
-      margin-right: 0.25em;
+      margin: 0 0.35em 0 0;
       font-size: 1em;
-      line-height: 2em;
-      text-align: center;
-      color: $baseModBackground;
-      background-color: lighten($black, 5%);
-      border-radius: 100em;
-    }
-  }
-}
-
-.x-content-band {
-  h1,
-  .h1 {
-    &.h-feature-headline span i {
-      margin-top: -0.335em;
-    }
-  }
-
-  h2,
-  .h2 {
-    &.h-feature-headline span i {
-      margin-top: -0.335em;
-    }
-  }
-
-  h3,
-  .h3 {
-    &.h-feature-headline span i {
-      margin-top: -0.285em;
-    }
-  }
-
-  h4,
-  .h4 {
-    &.h-feature-headline span i {
-      margin-top: -0.275em;
-    }
-  }
-
-  h5,
-  .h5 {
-    &.h-feature-headline span i {
-      margin-top: -0.265em;
-    }
-  }
-
-  h6,
-  .h6 {
-    &.h-feature-headline span i {
-      margin-top: -0.255em;
     }
   }
 }
@@ -2288,24 +2177,63 @@
 // Search
 // =============================================================================
 
-.x-content-band .x-search-shortcode {  }
+.x-section .x-search-shortcode {
+  form {
+    position: relative;
+    margin-bottom: 0;
+    line-height: 1;
+
+    &:before {
+      content: "\f002";
+      position: absolute;
+      left: 12px;
+      bottom: 50%;
+      display: block;
+      margin-bottom: -6px;
+      @include font-size(1.2);
+      line-height: 1;
+      text-decoration: inherit;
+      text-shadow: none;
+      color: inherit;
+      @include font-awesome();
+    }
+
+    input[type="text"],
+    input[type="search"] {
+      width: 100%;
+      margin-bottom: 0;
+      padding-left: 30px;
+    }
+
+    input[type="submit"] {
+      display: none;
+    }
+  }
+}
 
 
 
 // Counter
 // =============================================================================
 
-.x-content-band .x-counter {  }
+.x-section .x-counter {  }
+
+
+
+// Section
+// =============================================================================
+
+@include section();
 
 
 
 // Shortcode Container
 // =============================================================================
 
-.x-content-band .with-container {
+.x-section .with-container {
   border: 1px solid $baseBorderColor;
-  padding: 2.5%;
+  padding: 5px;
   background-color: $baseModBackground;
-  border-radius: 2px;
-  @include box-shadow(#{0 1px 3px rgba(0, 0, 0, 0.1)});
+  border-radius: 3px;
+  @include box-shadow(#{$baseBoxShadow});
 }

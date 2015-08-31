@@ -19,6 +19,7 @@
 //   08. Custom Fonts
 //   09. Custom Fonts - Colors
 //   10. Responsive Styling
+//   11. Adminbar Styling
 // =============================================================================
 
 $x_integrity_design                     = x_get_option( 'x_integrity_design', 'light' );
@@ -52,15 +53,15 @@ h6 a:hover,
 .x-widgetbar .widget ul li a:hover,
 .x-accordion-heading .x-accordion-toggle:hover,
 .x-comment-author a:hover,
-.x-comment-time:hover {
+.x-comment-time:hover,
+.x-recent-posts a:hover .h-recent-posts {
   color: <?php echo $x_site_link_color; ?>;
 }
 
 a:hover,
 .widget.widget_text ul li a:hover,
 .widget.widget_text ol li a:hover,
-.x-twitter-widget ul li a:hover,
-.x-recent-posts a:hover .h-recent-posts {
+.x-twitter-widget ul li a:hover {
   color: <?php echo $x_site_link_color_hover; ?>;
 }
 
@@ -111,13 +112,8 @@ a.x-img-thumbnail:hover,
 .h-comments-title small,
 .x-entry-share .x-share:hover,
 .x-highlight,
-.x-recent-posts .x-recent-posts-img,
-.x-recent-posts .x-recent-posts-img:before {
+.x-recent-posts .x-recent-posts-img:after {
   background-color: <?php echo $x_site_link_color; ?>;
-}
-
-.x-recent-posts a:hover .x-recent-posts-img {
-  background-color: <?php echo $x_site_link_color_hover; ?>;
 }
 
 <?php if ( X_WOOCOMMERCE_IS_ACTIVE ) : ?>
@@ -237,6 +233,14 @@ a.x-img-thumbnail:hover,
 
 <?php endif; ?>
 
+<?php if ( $x_navbar_positioning == 'fixed-top' ) : ?>
+
+  .x-navbar-fixed-top-active .x-navbar-wrap {
+    margin-bottom: 1px;
+  }
+
+<?php endif; ?>
+
 <?php if ( $x_navbar_positioning == 'fixed-left' ) : ?>
 
   .x-navbar .desktop .x-nav > li > a:hover,
@@ -330,7 +334,7 @@ font-weight: <?php echo $x_headings_font_weight; ?>;
 <?php if ( x_is_font_italic( $x_headings_font_weight_and_style ) ) : ?>
   font-style: italic;
 <?php endif; ?>
-<?php if ( x_get_option( 'x_headings_uppercase_enable', '' ) == 1 ) : ?>
+<?php if ( $x_headings_uppercase_enable == 1 ) : ?>
   text-transform: uppercase;
 <?php endif; ?>
 }
@@ -445,6 +449,14 @@ font-weight: <?php echo $x_headings_font_weight; ?>;
 
 @media (max-width: 979px) {
 
+  <?php if ( $x_navbar_positioning == 'fixed-top' ) : ?>
+
+    .x-navbar-fixed-top-active .x-navbar-wrap {
+      margin-bottom: 0;
+    }
+
+  <?php endif; ?>
+
   <?php if ( $x_navbar_positioning == 'fixed-top' && $x_layout_site == 'boxed' ) : ?>
 
     .x-navbar.x-navbar-fixed-top.x-container.max.width {
@@ -468,3 +480,52 @@ font-weight: <?php echo $x_headings_font_weight; ?>;
     right: 0;
   }
 }
+
+
+
+/* Adminbar Styling
+// ========================================================================== */
+
+<?php if ( is_admin_bar_showing() ) : ?>
+
+  html body #wpadminbar {
+    z-index: 99999 !important;
+  }
+
+
+  /*
+  // Fixed navbar.
+  */
+
+  .admin-bar .x-navbar-fixed-top,
+  .admin-bar .x-navbar-fixed-left,
+  .admin-bar .x-navbar-fixed-right {
+    top: 32px;
+  }
+
+  @media (max-width: 979px) {
+    .admin-bar .x-navbar-fixed-top,
+    .admin-bar .x-navbar-fixed-left,
+    .admin-bar .x-navbar-fixed-right {
+      top: 0;
+    }
+  }
+
+
+  /*
+  // Widgetbar.
+  */
+
+  .admin-bar .x-widgetbar,
+  .admin-bar .x-btn-widgetbar {
+    top: 32px;
+  }
+
+  @media screen and (max-width: 782px) {
+    .admin-bar .x-widgetbar,
+    .admin-bar .x-btn-widgetbar {
+      top: 46px;
+    }
+  }
+
+<?php endif; ?>

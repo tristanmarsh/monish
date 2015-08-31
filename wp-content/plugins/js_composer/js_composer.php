@@ -3,17 +3,25 @@
 Plugin Name: WPBakery Visual Composer
 Plugin URI: http://vc.wpbakery.com
 Description: Drag and drop page builder for WordPress. Take full control over your WordPress site, build any layout you can imagine – no programming knowledge required.
-Version: 4.3.5
+Version: 4.5.3
 Author: Michael M - WPBakery.com
 Author URI: http://wpbakery.com
 */
 
 // don't load directly
-if ( ! defined( 'ABSPATH' ) ) die( '-1' );
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '-1' );
+}
 /**
  * Current visual composer version
  */
-if ( ! defined( 'WPB_VC_VERSION' ) ) define( 'WPB_VC_VERSION', '4.3.5' );
+if ( ! defined( 'WPB_VC_VERSION' ) ) {
+	/**
+	 *
+	 */
+	define( 'WPB_VC_VERSION', '4.5.3' );
+}
+
 /**
  * Vc starts here. Manager sets mode, adds required wp hooks and loads required object of structure
  *
@@ -49,54 +57,75 @@ class Vc_Manager {
 	private $is_as_theme = false;
 	/**
 	 * Vc is network plugin or not.
-	 *
+	 * @since 4.2
 	 * @var bool
 	 */
 	private $is_network_plugin = null;
 	/**
 	 * List of paths.
 	 *
+	 * @since 4.2
 	 * @var array
 	 */
 	private $paths = array();
 	/**
 	 * Default post types where to activate visual composer meta box settings
-	 *
+	 * @since 4.2
 	 * @var array
 	 */
 	private $editor_default_post_types = array( 'page' ); // TODO: move to Vc settings
 	/**
 	 * Directory name in theme folder where composer should search for alternative templates of the shortcode.
-	 *
+	 * @since 4.2
 	 * @var string
 	 */
 	private $custom_user_templates_dir = false;
 	/**
 	 * Is used by vc shortcodes generator by searching custom
+	 * @todo check for usage, looks like no more used since 4.4
+	 * @since 4.2
+	 * @deprecated
 	 *
 	 * @var bool
 	 */
 	private $use_custom_user_template_dir = false;
+
 	/**
 	 * Set updater mode
-	 *
+	 * @since 4.2
 	 * @var bool
 	 */
 	private $disable_updater = false;
 	/**
 	 * Modules and objects instances list
-	 *
+	 * @since 4.2
 	 * @var array
 	 */
 	private $factory = array();
-
+	/**
+	 * File name for components manifest file.
+	 *
+	 * @since 4.4
+	 * @var string
+	 */
+	private $components_manifest = 'components.json';
+	/**
+	 * @var string
+	 */
 	private $plugin_name = 'js_composer/js_composer.php';
+
+	/**
+	 * Core singleton class
+	 * @var Singleton self - pattern realization
+	 */
+	private static $_instance;
+
 	/**
 	 * Constructor loads API functions, defines paths and adds required wp actions
 	 *
 	 * @since  4.2
 	 */
-	function __construct() {
+	private function __construct() {
 		$dir = dirname( __FILE__ );
 		/**
 		 * Define path settings for visual composer.
@@ -109,7 +138,7 @@ class Vc_Manager {
 		 * ASSETS_DIR_NAME - directory name for assets. Used from urls creating.
 		 * CORE_DIR        - classes directory for core vc files.
 		 * HELPERS_DIR     - directory with helpers functions files.
-		 * SHORTCODES_DIR  - shortcodes classes
+		 * SHORTCODES_DIR  - shortcodes classes.
 		 * SETTINGS_DIR    - main dashboard settings classes.
 		 * TEMPLATES_DIR   - directory where all html templates are hold.
 		 * EDITORS_DIR     - editors for the post contents
@@ -123,6 +152,7 @@ class Vc_Manager {
 			'CONFIG_DIR' => $dir . '/config',
 			'ASSETS_DIR' => $dir . '/assets',
 			'ASSETS_DIR_NAME' => 'assets',
+			'AUTOLOAD_DIR' => $dir . '/include/autoload',
 			'CORE_DIR' => $dir . '/include/classes/core',
 			'HELPERS_DIR' => $dir . '/include/helpers',
 			'SHORTCODES_DIR' => $dir . '/include/classes/shortcodes',
@@ -131,12 +161,13 @@ class Vc_Manager {
 			'EDITORS_DIR' => $dir . '/include/classes/editors',
 			'PARAMS_DIR' => $dir . '/include/params',
 			'UPDATERS_DIR' => $dir . '/include/classes/updaters',
-			'VENDORS_DIR'  => $dir.'/include/classes/vendors'
+			'VENDORS_DIR' => $dir . '/include/classes/vendors'
 		) );
 		// Load API
 		require_once $this->path( 'HELPERS_DIR', 'helpers_factory.php' );
 		require_once $this->path( 'HELPERS_DIR', 'helpers.php' );
 		require_once $this->path( 'CORE_DIR', 'interfaces.php' );
+		require_once $this->path( 'CORE_DIR', 'class-vc-sort.php' ); // used by wpb-map
 		require_once $this->path( 'CORE_DIR', 'class-wpb-map.php' );
 		require_once $this->path( 'HELPERS_DIR', 'helpers_api.php' );
 		require_once $this->path( 'HELPERS_DIR', 'filters.php' );
@@ -145,6 +176,39 @@ class Vc_Manager {
 		// Add hooks
 		add_action( 'plugins_loaded', array( &$this, 'pluginsLoaded' ), 9 );
 		add_action( 'init', array( &$this, 'init' ), 9 );
+
+		register_activation_hook( __FILE__, array( $this, 'activationHook' ) );
+	}
+
+	/**
+	 * Get the instane of VC_Manager
+	 *
+	 * @return self
+	 */
+	public static function getInstance() {
+		if ( ! ( self::$_instance instanceof self ) ) {
+			self::$_instance = new self();
+		}
+
+		return self::$_instance;
+	}
+
+	/**
+	 * Cloning disabled
+	 */
+	private function __clone() {
+	}
+
+	/**
+	 * Serialization disabled
+	 */
+	private function __sleep() {
+	}
+
+	/**
+	 * De-serialization disabled
+	 */
+	private function __wakeup() {
 	}
 
 	/**
@@ -156,7 +220,7 @@ class Vc_Manager {
 	public function pluginsLoaded() {
 		// Setup locale
 		do_action( 'vc_plugins_loaded' );
-		load_plugin_textdomain( 'js_composer', false, $this->path('APP_DIR', 'locale') );
+		load_plugin_textdomain( 'js_composer', false, $this->path( 'APP_DIR', 'locale' ) );
 	}
 
 	/**
@@ -164,12 +228,13 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @return void
 	 */
 	public function init() {
 		do_action( 'vc_before_init' );
-
 		$this->setMode();
+		do_action( 'vc_after_set_mode' );
 		/**
 		 * Set version of VC if required.
 		 */
@@ -200,21 +265,71 @@ class Vc_Manager {
 	}
 
 	/**
+	 * Enables to add hooks in activation process.
+	 * @since 4.5
+	 */
+	public function activationHook() {
+		do_action( 'vc_activation_hook' );
+	}
+
+	/**
+	 * Load required components to enable useful functionality.
+	 *
+	 * @access public
+	 * @since 4.4
+	 */
+	public function loadComponents() {
+		$manifest_file = apply_filters(
+			'vc_autoload_components_manifest_file',
+			vc_path_dir( 'AUTOLOAD_DIR', $this->components_manifest )
+		);
+		if ( is_file( $manifest_file ) ) {
+			ob_start();
+			require_once $manifest_file;
+			$data = ob_get_clean();
+			if ( $data ) {
+				$components = (array) json_decode( $data );
+				$components = apply_filters(
+					'vc_autoload_components_list',
+					$components
+				);
+				foreach ( $components as $component => $description ) {
+					$component_path = vc_path_dir( 'AUTOLOAD_DIR', $component );
+					if ( strpos( $component_path, '*' ) === false && is_file( $component_path ) ) {
+						require $component_path;
+					} else {
+						$components_paths = glob( $component_path );
+						if ( is_array( $components_paths ) && ! empty( $components_paths ) ) {
+							foreach ( $components_paths as $path ) {
+								if ( strpos( $path, '*' ) === false && is_file( $path ) ) {
+									require $path;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/**
 	 * Load required logic for operating in Wp Admin dashboard.
 	 *
 	 * @since  4.2
 	 * @access protected
+	 *
 	 * @return void
 	 */
-	protected  function asAdmin() {
+	protected function asAdmin() {
 		// License management and activation/deactivation methods.
 		vc_license()->addAjaxHooks();
 		// Settings page. Adds menu page in admin panel.
-		vc_settings()->addMenuPageHooks();
+		// vc_settings()->addMenuPageHooks();
 		// Load backend editor hooks
 		vc_backend_editor()->addHooksSettings();
 		// If auto updater is enabled initialize updating notifications service.
 	}
+
 	/**
 	 * Set VC mode.
 	 *
@@ -222,13 +337,24 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access protected
+	 *
 	 * @return void
 	 */
 	protected function setMode() {
+		/**
+		 * @todo: Create another system (When ajax rebuild).
+		 * Use vc_action param to define mode.
+		 * 1. admin_frontend_editor - set by editor or request param
+		 * 2. admin_backend_editor - set by editor or request param
+		 * 3. admin_frontend_editor_ajax - set by request param
+		 * 4. admin_backend_editor_ajax - set by request param
+		 * 5. admin_updater - by vc_action
+		 * 6. page_editable - by vc_action
+		 */
 		if ( is_admin() ) {
 			if ( vc_action() === 'vc_inline' ) {
 				$this->mode = 'admin_frontend_editor';
-			} elseif ( vc_action() === 'vc_upgrade' || (vc_get_param('action') === 'update-selected' && vc_get_param('plugins') === $this->pluginName())) {
+			} elseif ( vc_action() === 'vc_upgrade' || ( vc_get_param( 'action' ) === 'update-selected' && vc_get_param( 'plugins' ) === $this->pluginName() ) ) {
 				$this->mode = 'admin_updater';
 			} elseif ( isset( $_GET['page'] ) && $_GET['page'] === $this->settings()->page() ) {
 				$this->mode = 'admin_settings_page';
@@ -243,25 +369,29 @@ class Vc_Manager {
 			}
 		}
 	}
+
 	/**
 	 * Sets version of the VC in DB as option `vc_version`
 	 *
 	 * @since 4.3.2
 	 * @access protected
+	 *
 	 * @return void
 	 */
 	protected function setVersion() {
-		$version = get_option('vc_version');
-		if( !is_string($version) || version_compare($version, WPB_VC_VERSION) !== 0 ) {
-			add_action('vc_after_init', array(vc_settings(), 'rebuild'));
-			update_option('vc_version', WPB_VC_VERSION);
+		$version = get_option( 'vc_version' );
+		if ( ! is_string( $version ) || version_compare( $version, WPB_VC_VERSION ) !== 0 ) {
+			add_action( 'vc_after_init', array( vc_settings(), 'rebuild' ) );
+			update_option( 'vc_version', WPB_VC_VERSION );
 		}
 	}
+
 	/**
 	 * Get current mode for VC.
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @return string
 	 */
 	public function mode() {
@@ -273,6 +403,7 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access protected
+	 *
 	 * @param $paths
 	 */
 	protected function setPaths( $paths ) {
@@ -284,13 +415,16 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
-	 * @param $name        - name of path dir
+	 *
+	 * @param $name - name of path dir
 	 * @param string $file - file name or directory inside path
+	 *
 	 * @return string
 	 */
 	public function path( $name, $file = '' ) {
-		$path = $this->paths[$name] . ( strlen( $file ) > 0 ? '/' . preg_replace( '/^\//', '', $file ) : '' );
-		return apply_filters('vc_path_filter', $path);
+		$path = $this->paths[ $name ] . ( strlen( $file ) > 0 ? '/' . preg_replace( '/^\//', '', $file ) : '' );
+
+		return apply_filters( 'vc_path_filter', $path );
 	}
 
 	/**
@@ -307,6 +441,7 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @return array
 	 */
 	public function editorDefaultPostTypes() {
@@ -318,6 +453,7 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @return array
 	 */
 	public function editorPostTypes() {
@@ -325,7 +461,21 @@ class Vc_Manager {
 			$pt_array = vc_settings()->get( 'content_types' );
 			$this->editor_post_types = $pt_array ? $pt_array : $this->editorDefaultPostTypes();
 		}
+
 		return $this->editor_post_types;
+	}
+
+	/**
+	 * Set post types where VC editors are enabled.
+	 *
+	 * @since  4.4
+	 * @access public
+	 *
+	 * @param array $post_types
+	 */
+	public function setEditorPostTypes( array $post_types ) {
+		$this->editor_post_types = ! empty( $post_types ) ? $post_types : $this->editorDefaultPostTypes();
+		vc_settings()->set( 'content_types', $this->editor_post_types );
 	}
 
 	/**
@@ -333,10 +483,11 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @param bool $value
 	 */
 	public function setIsAsTheme( $value = true ) {
-		$this->is_as_theme = (boolean)$value;
+		$this->is_as_theme = (boolean) $value;
 	}
 
 	/**
@@ -346,10 +497,11 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @return bool
 	 */
 	public function isAsTheme() {
-		return (boolean)$this->is_as_theme;
+		return (boolean) $this->is_as_theme;
 	}
 
 	/**
@@ -357,6 +509,7 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @param bool $value
 	 */
 	public function setAsNetworkPlugin( $value = true ) {
@@ -368,24 +521,27 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @return bool
 	 */
 	public function isNetworkPlugin() {
 		if ( is_null( $this->is_network_plugin ) ) {
 			// Check is VC as network plugin
 			if ( is_multisite() && ( is_plugin_active_for_network( 'js_composer/js_composer.php' )
-			  || is_network_only_plugin( 'js_composer/js_composer.php' ) )
+			                         || is_network_only_plugin( 'js_composer/js_composer.php' ) )
 			) {
 				$this->setAsNetworkPlugin( true );
 			}
 		}
+
 		return $this->is_network_plugin;
 	}
 
 	/**
 	 * Setter for disable updater variable.
-	 *
+	 * @since 4.2
 	 * @see
+	 *
 	 * @param bool $value
 	 */
 	public function disableUpdater( $value = true ) {
@@ -395,7 +551,9 @@ class Vc_Manager {
 	/**
 	 * Get is vc updater is disabled;
 	 *
+	 * @since 4.2
 	 * @see to where updater will be
+	 *
 	 * @return bool
 	 */
 	public function isUpdaterDisabled() {
@@ -409,6 +567,7 @@ class Vc_Manager {
 	 *
 	 * @since    4.2
 	 * @access   public
+	 *
 	 * @param $dir - path to shortcodes templates inside developers theme
 	 */
 	public function setCustomUserShortcodesTemplateDir( $dir ) {
@@ -421,6 +580,7 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @return string - path to default shortcodes
 	 */
 	public function getDefaultShortcodesTemplatesDir() {
@@ -433,7 +593,12 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @ruturn string
+	 *
+	 * @param $template
+	 *
+	 * @return string
 	 */
 	public function getShortcodesTemplateDir( $template ) {
 		return $this->custom_user_templates_dir !== false ? $this->custom_user_templates_dir . '/' . $template : locate_template( 'vc_templates' . '/' . $template );
@@ -444,6 +609,7 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @return string
 	 */
 	public function uploadDir() {
@@ -455,6 +621,7 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @return Vc_Mapper
 	 */
 	public function mapper() {
@@ -462,6 +629,7 @@ class Vc_Manager {
 			require_once $this->path( 'CORE_DIR', 'class-vc-mapper.php' );
 			$this->factory['mapper'] = new Vc_Mapper();
 		}
+
 		return $this->factory['mapper'];
 	}
 
@@ -470,6 +638,7 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @return Vc_Base
 	 */
 	public function vc() {
@@ -477,18 +646,24 @@ class Vc_Manager {
 			do_action( 'vc_before_init_vc' );
 			require_once $this->path( 'CORE_DIR', 'class-vc-base.php' );
 			$vc = new Vc_Base();
-			// DI Set template editor.
+			// DI Set template editor. @deprecated and will be removed
 			require_once $this->path( 'EDITORS_DIR', 'popups/class-vc-templates-editor.php' );
-			$vc->setTemplatesEditor(new Vc_Templates_Editor());
+			$vc->setTemplatesEditor( new Vc_Templates_Editor() );
+			// DI Set template new modal editor.
+			require_once $this->path( 'EDITORS_DIR', 'popups/class-vc-templates-panel-editor.php' );
+			$vc->setTemplatesPanelEditor( new Vc_Templates_Panel_Editor() );
 			// DI Set edit form
 			require_once $this->path( 'EDITORS_DIR', 'popups/class-vc-shortcode-edit-form.php' );
-			$vc->setEditForm(new Vc_Shortcode_Edit_Form());
+			$vc->setEditForm( new Vc_Shortcode_Edit_Form() );
+
 			// DI for third-party plugins manager.
-			require_once $this->path('VENDORS_DIR', 'class-vc-vendors-manager.php');
-			$vc->setVendorsManager(new Vc_Vendors_Manager());
+			require_once $this->path( 'VENDORS_DIR', 'class-vc-vendors-manager.php' );
+			$vc->setVendorsManager( new Vc_Vendors_Manager() );
+
 			$this->factory['vc'] = $vc;
 			do_action( 'vc_after_init_vc' );
 		}
+
 		return $this->factory['vc'];
 	}
 
@@ -497,6 +672,7 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @return Vc_Settings
 	 */
 	public function settings() {
@@ -506,6 +682,7 @@ class Vc_Manager {
 			$this->factory['settings'] = new Vc_Settings();
 			do_action( 'vc_after_init_settings' );
 		}
+
 		return $this->factory['settings'];
 	}
 
@@ -514,6 +691,7 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @return Vc_License
 	 */
 	public function license() {
@@ -523,6 +701,7 @@ class Vc_Manager {
 			$this->factory['license'] = new Vc_License();
 			do_action( 'vc_after_init_license' );
 		}
+
 		return $this->factory['license'];
 	}
 
@@ -531,19 +710,23 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @return Vc_Frontend_Editor
 	 */
 	public function frontendEditor() {
 		if ( ! isset( $this->factory['frontend_editor'] ) ) {
 			do_action( 'vc_before_init_frontend_editor' );
-			require_once  $this->path( 'EDITORS_DIR', 'class-vc-frontend-editor.php' );
+			require_once $this->path( 'EDITORS_DIR', 'class-vc-frontend-editor.php' );
 			$this->factory['frontend_editor'] = new Vc_Frontend_Editor();
 		}
+
 		return $this->factory['frontend_editor'];
 	}
 
 	/**
 	 * Get backend VC editor. Edit page version.
+	 *
+	 * @since 4.2
 	 *
 	 * @return Vc_Backend_Editor
 	 */
@@ -553,6 +736,7 @@ class Vc_Manager {
 			require_once $this->path( 'EDITORS_DIR', 'class-vc-backend-editor.php' );
 			$this->factory['backend_editor'] = new Vc_Backend_Editor();
 		}
+
 		return $this->factory['backend_editor'];
 	}
 
@@ -561,6 +745,7 @@ class Vc_Manager {
 	 *
 	 * @since  4.2
 	 * @access public
+	 *
 	 * @return Vc_Automapper
 	 */
 	public function automapper() {
@@ -570,11 +755,13 @@ class Vc_Manager {
 			$this->factory['automapper'] = new Vc_Automapper();
 			do_action( 'vc_after_init_automapper' );
 		}
+
 		return $this->factory['automapper'];
 	}
 
 	/**
 	 * Gets updater instance.
+	 * @since 4.2
 	 *
 	 * @return Vc_Updater
 	 */
@@ -584,36 +771,48 @@ class Vc_Manager {
 			require_once $this->path( 'UPDATERS_DIR', 'class-vc-updater.php' );
 			$updater = new Vc_Updater();
 			require_once vc_path_dir( 'UPDATERS_DIR', 'class-vc-updating-manager.php' );
-			$updater->setUpdateManager(new Vc_Updating_Manager ( WPB_VC_VERSION, $updater->versionUrl(), vc_plugin_name() ));
+			$updater->setUpdateManager( new Vc_Updating_Manager ( WPB_VC_VERSION, $updater->versionUrl(), vc_plugin_name() ) );
 			$this->factory['updater'] = $updater;
 			do_action( 'vc_after_init_updater' );
 		}
+
 		return $this->factory['updater'];
 	}
 
 	/**
 	 * Getter for plugin name variable.
+	 * @since 4.2
 	 *
 	 * @return string
 	 */
 	public function pluginName() {
 		return $this->plugin_name;
 	}
+
 	/**
 	 * Get absolute url for VC asset file.
 	 *
 	 * Assets are css, javascript, less files and images.
 	 *
+	 * @since 4.2
+	 *
 	 * @param $file
+	 *
 	 * @return string
 	 */
 	public function assetUrl( $file ) {
 		return preg_replace( '/\s/', '%20', plugins_url( $this->path( 'ASSETS_DIR_NAME', $file ), __FILE__ ) );
 	}
 }
+
 /**
  * Main Visual composer manager.
- * @var Vc_Manager - instance of composer management.
+ * @var Vc_Manager $vc_manager - instance of composer management.
+ * @since 4.2
  */
 global $vc_manager;
-$vc_manager = new Vc_Manager();
+if ( ! $vc_manager ) {
+	$vc_manager = Vc_Manager::getInstance();
+	// Load components
+	$vc_manager->loadComponents();
+}

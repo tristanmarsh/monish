@@ -19,10 +19,10 @@ function x_addons_page_home() { ?>
 
   <div class="wrap about-wrap x-addons-home">
 
-    <?php if ( ! x_plugin_shortcodes_exists() ) : ?>
+    <?php if ( ! x_plugin_cornerstone_exists() ) : ?>
 
-      <div class="updated x-notice shortcodes">
-        <p><strong>Only one final step!</strong> Please head over to the <a href="<?php echo x_addons_get_link_extensions(); ?>" target="_blank">Extensions</a> page and install our required shortcodes plugin to finalize the theme setup process. While you're there, you can optionally choose to manage any of our additional included plugins as well.</p>
+      <div class="updated x-notice cornerstone">
+        <p><strong>Only one final step!</strong> Please head over to the <a href="<?php echo x_addons_get_link_extensions(); ?>" target="_blank">Extensions</a> page and install Cornerstone to finalize the theme setup process. While you're there, you can optionally choose to manage any of our additional included plugins as well.</p>
       </div>
 
     <?php endif; ?>
@@ -30,7 +30,7 @@ function x_addons_page_home() { ?>
     <header class="x-addons-home-header">
       <div class="x-addons-home-header-text">
         <h1><?php echo apply_filters( 'x_addons_home_heading', 'Congratulations!' ); ?></h1>
-        <div class="about-text"><?php echo apply_filters( 'x_addons_home_subheading', ( x_is_validated() ) ? '<strong>X is now installed (woo-hoo).</strong> Read on to learn more about various member center resources and other helpful tools. There are many important parts to each update, so be sure to <a href="//theme.co/x/changelog/" target="_blank">check out the release notes and changelog</a> for this latest version.' : '<strong>X is now installed (woo-hoo).</strong> Follow the steps below to validate your product, which unlocks automatic updates, additional Extensions, and more.' ); ?></div>
+        <div class="about-text"><?php echo apply_filters( 'x_addons_home_subheading', ( x_is_validated() ) ? '<strong>X is now installed (woo-hoo).</strong> Read on to learn more about various member center resources and other helpful tools. There are many important parts to each update, so be sure to <a href="//theme.co/changelog/" target="_blank">check out the release notes and changelog</a> for this latest version.' : '<strong>X is now installed (woo-hoo).</strong> Follow the steps below to validate your product, which unlocks automatic updates, additional Extensions, and more.' ); ?></div>
       </div>
       <div class="x-badge">
         <div class="text">Version</div>
@@ -62,7 +62,7 @@ function x_addons_page_home() { ?>
         <div class="feature-section col three-col">
           <div>
             <h4><span class="dashicons dashicons-admin-page"></span> Child Themes</h4>
-            <p>If you're planning on doing any amount of customization outside of the settings afforded in the Custoimzer, <a href="//theme.co/x/member/child-themes/" target="_blank">child themes</a> are absolutely the way to go.</p>
+            <p>If you're planning on doing any amount of customization outside of the settings afforded in the Customizer, <a href="//theme.co/x/member/child-themes/" target="_blank">child themes</a> are absolutely the way to go.</p>
             <p>We provide child themes for X in our member center, which come bootstrapped with all of the necessary code so that they can be used right out of the box!</p>
           </div>
           <div>
@@ -91,7 +91,7 @@ function x_addons_page_home() { ?>
           </div>
           <div class="last-feature">
             <h4><span class="dashicons dashicons-awards"></span> Step 3: Validate</h4>
-            <p>After acquiring your product API key from the memeber center, enter it on the <a href="<?php echo x_addons_get_link_product_validation(); ?>">Product Validation</a> page to start receiving automatic updates once they're available.</p>
+            <p>After acquiring your product API key from the member center, enter it on the <a href="<?php echo x_addons_get_link_product_validation(); ?>">Product Validation</a> page to start receiving automatic updates once they're available.</p>
           </div>
         </div>
         <div class="feature-section col one-col">

@@ -24,6 +24,7 @@
 //   13. Custom Fonts
 //   14. Custom Fonts - Colors
 //   15. Responsive Styling
+//   16. Adminbar Styling
 // =============================================================================
 
 $x_icon_post_title_icon_enable      = x_get_option( 'x_icon_post_title_icon_enable', '1' );
@@ -615,6 +616,14 @@ input[type="color"]:focus,
 
 <?php endif; ?>
 
+<?php if ( $x_navbar_positioning == 'fixed-top' ) : ?>
+
+  .x-navbar-fixed-top-active .x-navbar-wrap {
+    margin-bottom: 1px;
+  }
+
+<?php endif; ?>
+
 <?php if ( $x_navbar_positioning == 'fixed-left' ) : ?>
 
   .x-widgetbar {
@@ -775,6 +784,14 @@ input[type="color"]:focus,
 
 @media (max-width: 979px) {
 
+  <?php if ( $x_navbar_positioning == 'fixed-top' ) : ?>
+
+    .x-navbar-fixed-top-active .x-navbar-wrap {
+      margin-bottom: 0;
+    }
+
+  <?php endif; ?>
+
   <?php if ( $x_navbar_positioning == 'fixed-top' && $x_layout_site == 'boxed' ) : ?>
 
     .x-navbar.x-navbar-fixed-top.x-container.max.width {
@@ -798,3 +815,58 @@ input[type="color"]:focus,
     right: 0;
   }
 }
+
+
+
+/* Adminbar Styling
+// ========================================================================== */
+
+<?php if ( is_admin_bar_showing() ) : ?>
+
+  html body #wpadminbar {
+    z-index: 99999 !important;
+  }
+
+
+  /*
+  // Fixed navbar.
+  */
+
+  .admin-bar .x-navbar-fixed-top,
+  .admin-bar .x-navbar-fixed-left,
+  .admin-bar .x-navbar-fixed-right {
+    top: 32px;
+  }
+
+  @media (max-width: 979px) {
+    .admin-bar .x-navbar-fixed-top,
+    .admin-bar .x-navbar-fixed-left,
+    .admin-bar .x-navbar-fixed-right {
+      top: 0;
+    }
+  }
+
+
+  /*
+  // Widgetbar.
+  */
+
+  .admin-bar .x-widgetbar     { top: 31px; }
+  .admin-bar .x-btn-widgetbar { top: 32px; }
+
+  @media screen and (max-width: 782px) {
+    .admin-bar .x-widgetbar     { top: 45px; }
+    .admin-bar .x-btn-widgetbar { top: 46px; }
+  }
+
+
+  /*
+  // Sidebar
+  */
+
+  @media (min-width: 1200px) {
+    .admin-bar.x-icon                     .x-sidebar { top: 32px; }
+    .admin-bar.x-icon.x-full-width-active .x-sidebar { top: 0;    }
+  }
+
+<?php endif; ?>

@@ -6,8 +6,12 @@ extract( shortcode_atts( array(
 	'el_class' => ''
 ), $atts ) );
 $options = explode( ",", $options );
-if ( in_array( "dropdown", $options ) ) $atts['dropdown'] = true;
-if ( in_array( "count", $options ) ) $atts['count'] = true;
+if ( in_array( "dropdown", $options ) ) {
+	$atts['dropdown'] = true;
+}
+if ( in_array( "count", $options ) ) {
+	$atts['count'] = true;
+}
 
 $el_class = $this->getExtraClass( $el_class );
 

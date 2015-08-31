@@ -4,11 +4,10 @@
 
 
             <?php
-                $this->Html->addCrumb('Users', '/users');
-                $this->Html->addCrumb('Add User', array('controller' => 'users', 'action' => 'add'));
+                $this->Html->addCrumb('Students', 'students');
             ?>
 
-            <h3>Manage Students</h3>
+            <h1>Manage Students</h1>
             <?= $this->Html->link('Add Student', ['action' => 'add']) ?>
             
             <table cellpadding="0" cellspacing="0">
@@ -41,20 +40,18 @@
             <?php endforeach; ?>
             </tbody>
             </table>
-            <div class="paginator">
-                <ul class="pagination">
+            <div class="paginator text-center">
+                
+
+
+<ul class="pagination">
                     <?= $this->Paginator->prev('< ' . __('previous')) ?>
                     <?= $this->Paginator->numbers() ?>
                     <?= $this->Paginator->next(__('next') . ' >') ?>
                 </ul>
                 <p><?= $this->Paginator->counter() ?></p>
             </div>
-            <p>
-                <?php
-                echo "Back to ";
-                echo $this->Html->link('Dashboard', ['controller' => '', 'action' => 'index']);
-                ?>
-            </p>
+<h1>Children's Retail Franchise - from $500,000</h1>
 
 
 <?php endif; ?>
@@ -65,7 +62,7 @@
 
 
 
-        <h3>Manage Internet Plan</h3>
+        <h1>Manage Internet Plan</h1>
 
         <table cellpadding="0" cellspacing="0">
 

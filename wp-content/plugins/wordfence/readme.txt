@@ -3,7 +3,7 @@ Contributors: mmaunder
 Tags: wordpress, security, performance, speed, caching, cache, caching plugin, wordpress cache, wordpress caching, wordpress security, security plugin, secure, anti-virus, malware, firewall, antivirus, virus, google safe browsing, phishing, scrapers, hacking, wordfence, securty, secrity, secure, two factor, cellphone sign-in, cellphone signin, cellphone, twofactor, security, secure, htaccess, login, log, users, login alerts, lock, chmod, maintenance, plugin, private, privacy, protection, permissions, 503, base64, injection, code, encode, script, attack, hack, hackers, block, blocked, prevent, prevention, RFI, XSS, CRLF, CSRF, SQL Injection, vulnerability, website security, WordPress security, security log, logging, HTTP log, error log, login security, personal security, infrastructure security, firewall security, front-end security, web server security, proxy security, reverse proxy security, secure website, secure login, two factor security, maximum login security, heartbleed, heart bleed, heartbleed vulnerability, openssl vulnerability, nginx, litespeed, php5-fpm, woocommerce support, woocommerce caching, IPv6, IP version 6
 Requires at least: 3.9
 Tested up to: 4.2.2
-Stable tag: 6.0.3
+Stable tag: 6.0.11
 
 Wordfence Security is a free enterprise class security and performance plugin that makes your site up to 50 times faster and more secure. 
 
@@ -11,9 +11,9 @@ Wordfence Security is a free enterprise class security and performance plugin th
 
 Wordfence starts by checking if your site is already infected. We do a deep server-side scan of your source code comparing it to the Official WordPress repository for core, themes and plugins. Then Wordfence secures your site and makes it up to 50 times faster. 
 
-Wordfence Security is 100% free. We also offer a Premium API key that gives you access to our premium support ticketing system at [support.wordfence.com](http://support.wordfence.com/) along with two factor authentication via SMS, country blocking and the ability to schedule scans for specific times.
+Wordfence Security is 100% free and open source. We also offer a Premium API key that gives you Premium Support, Country Blocking, Scheduled Scans, Password Auditing and we even check if your website IP address is being used to Spamvertize. [Click here to sign-up for Wordfence Premium now](http://www.wordfence.com/?utm_source=repo&utm_medium=web&utm_campaign=pluginDescCTA) or simply install Wordfence free and start protecting your website.
 
-You can find our official documentation at [docs.wordfence.com](http://docs.wordfence.com/) and our Frequently Asked Questions on our support portal at [support.wordfence.com](https://support.wordfence.com/solution/categories/1000023037/folders/1000035543). We are also active in our community support forums on [wordpress.org](https://wordpress.org/support/plugin/wordfence) if you are one of our free users.
+You can find our official documentation at [docs.wordfence.com](http://docs.wordfence.com/?utm_source=repo&utm_medium=web&utm_campaign=pluginDesc) and our Frequently Asked Questions on our support portal at [support.wordfence.com](https://support.wordfence.com/solution/categories/1000023037/folders/1000035543?utm_source=repo&utm_medium=web&utm_campaign=pluginDesc). We are also active in our community support forums on [wordpress.org](https://wordpress.org/support/plugin/wordfence) if you are one of our free users. Our Premium Support Ticket System is at [support.wordfence.com](https://support.wordfence.com/?utm_source=repo&utm_medium=web&utm_campaign=pluginDesc).
 
 This is a brief introductory video for Wordfence:
 
@@ -85,7 +85,7 @@ To install Wordfence Security on WordPress Multi-Site installations:
 
 == Frequently Asked Questions ==
 
-[Visit our support website which contains a FAQ and knowledgebase which is more comprehensive and updated frequently.](http://support.wordfence.com/)
+[Visit our support website which contains a FAQ and knowledgebase which is more comprehensive and updated frequently.](http://support.wordfence.com/?utm_source=repo&utm_medium=web&utm_campaign=pluginDesc)
 
 = What does Wordfence Security do that other WordPress security plugins don't do? =
 
@@ -119,7 +119,7 @@ that we can blog any security threat as soon as it emerges in the wild.
 = What if I need support? =
 
 All our paid customers receive priority support. Excellent customer service is a key part
-of being a Wordfence Security member. As free or Premium member can visit [support.wordfence.com](http://support.wordfence.com/) and where you will find out knowledgebase. If you're a Premium member you can also open a support ticket.
+of being a Wordfence Security member. As free or Premium member can visit [support.wordfence.com](http://support.wordfence.com/?utm_source=repo&utm_medium=web&utm_campaign=pluginDesc) and where you will find out knowledgebase. If you're a Premium member you can also open a support ticket.
 
 = Can I disable certain security features of Wordfence Security? =
 
@@ -172,8 +172,77 @@ fully compatible with both IPv4 and IPv6 whether you run both or only one addres
 
 == Changelog ==
 
+= 6.0.11 =
+* Improvement: Updated local GeoIP database to July version.
+* Improvement: Updated local browser data cache to support newer browsers and user-agents.
+* Fix: Hooked up network ranges in CIDR format (192.168.0.0/16) in Whois to support data coming back from whois that includes CIDR network format.
+* Fix: Fixed 2 PHP notices in wfUtils.
+
+= 6.0.10 =
+* Improvement: Removed locked out IPs from locked out list when permanently blocking all locked out IPs.
+* Improvement: Added admin-configured blocked IPs and blocked network ranges to import/export.
+* Fix: Fixed PHP warnings in activity report where an array is not returned.
+* Fix: Fixed PHP notice in IP spam check portion of scan.
+
+= 6.0.9 =
+* Fix: Fixed bug in Live Traffic where v5 style blocked ranges generated PHP warning breaking the JSON response.
+* Fix: Fixed invalid date bug in Live Traffic: Top Consumers and Top 404s.
+* Fix: Fixed edge case bug with author=N scans redirecting to author archives page.
+
+= 6.0.8 =
+* Improvement: Added the local time stamp to 'time since' labels in Live Traffic and Blocked IPs pages.
+* Improvement: Added a check to prompt the admin to download a backup copy of the wp-config.php in the event it's flagged as containing malware.
+* Improvement: Added option in Live Traffic to remove a blocked network range defined in Advanced Blocking in the Live Traffic feed for IPs within that range.
+* Improvement: Added option to permanently block all IPs that are currently temporarily blocked or locked out from the Blocked IPs page.
+* Improvement: Updated local GeoIP database.
+* Fix: Fixed double forward slash in file path in the 'View the File' action of malicious code scan.
+* Fix: Fixed notice in block IP JSON callback.
+
+= 6.0.7 =
+* Fix: Fixed bug with Top 5 Logins displaying all failed logins opposed to timeframe set by email frequency.
+* Fix: Fixed bug with /?author=N scan protection not working for authors with no published posts.
+* Improvement: Fixed Wordfence logo width in dashboard widget on smaller screens.
+* Improvement: Added country names to flag icons in widget dashboard.
+* Improvement: Updated issues email to use WordPress' charset instead of ISO-8859-1.
+* Improvement: Added check to see if premium API key is set to auto-renew and send email reminder prior to renewal.
+* Improvement: Updated to API version 2.17.
+* Improvement: Changed auto-renew reminder email to go out 10 days before renewal, 12 days before expiration.
+
+= 6.0.6 =
+* Improvement: Handled uncaught exception when noc1 is not available in 2FA.
+* Improvement: Fixed issue with limit-logins mu-plugin on GoDaddy counting first login attempt in 2FA against total allowed login attempts.
+* Fix: Fixed bug with IPs not resolving to countries when printable IP passed to logBlockedIP.
+* Fix: Fixed issue with free users country blocking redirects working after downgrade.
+* Fix: Encoded URL field in country blocking options.
+* Fix: Added a check to verify field has not already been altered prior to calling ALTER in runInstall.
+* Fix: Fixed issue with scan_options method being called after method has been removed.
+* Fix: Fixed bug in scan when dns_get_record fails and error condition was not handled.
+* Fix: Fixed PHP notice when 'Crawler' not included in browser pcap result.
+
+= 6.0.5 =
+* Fix: Removed anonymous function to ensure PHP 5.2 compatability.
+
+= 6.0.4 =
+* Improvement: Added option to disable SSL verification for hosts that have outdated versions cURL.
+* Improvement: Added default of 127.0.0.1 when $_SERVER['REMOTE_ADDR'] is not set. Helps if you're running WordPress cron from Linux cron.
+* Improvement: Added compatability with Godaddy's MU (must use) limit login plugin and our two factor. Change makes sure you can see the message from Wordfence to enter your cellphone code.
+* Improvement: Added direction: ltr; to admin pages.
+* Improvement: Added focus/blur events to scan activity log ajax to improve server performance.
+* Improvement: Merged wp_option charset and database vulnerability scans to improve performance and make UI more intuitive.
+* Improvement: Opened 'See recent traffic' in a new window from the Live Traffic page.
+* Improvement: Updated browser pcap cache file for compatibility with detecting newer Firefox browsers.
+* Fix: Fixed bug in directories excluded from scans (escaped directory separator).
+* Fix: Updated known files and outdated plugins/themes to use wp_get_themes.
+* Fix: Fixed bug with wfScanEngine where scans forked between scan_database_main and scan_database_finish would not display results of database scan.
+* Fix: Added return false; to wfScan::error_handler to allow default error handler to process error.
+* Fix: Fixed notice with wfUserIPRange::isValidIPv4Range.
+* Fix: Fixed bug with 'Allow HTTPS pages to be cached' setting being unset after saving options.
+* Fix: Fixed a couple of typos and spelling.
+* Fix: Fixed errors upon plugin activation where wfConfig was queried before it was created.
+* Fix: Fixed issue with notices from serializing wordfenceDBScanner and private properties belonging to parent class.
+
 = 6.0.3 =
-* Fix: Fix for hosts that don't have IPv6 compiled into PHP (which is rare) we now manually define certain functions. 
+* Fix: Fix for hosts that don't have IPv6 compiled into PHP (which is rare) we not manually define certain functions. 
 
 = 6.0.2 =
 * Fix: Fixed an issue with the schema not updating when customers migrate to IPv6 schema to store IP's. 

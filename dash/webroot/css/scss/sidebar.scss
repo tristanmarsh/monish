@@ -1,0 +1,262 @@
+/*
+Name:   sidebar.SCSS
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Since:    3/6/15
+*/
+
+
+// #### NAVIGATION ####
+
+
+// override default bootstrap
+.nav>li>a:hover, .nav>li>a:focus {
+  text-decoration: none;
+  background:none;
+}
+
+.sidebar {
+  width:60px;
+  position: fixed;
+  left:0;
+  padding-left:0;
+  height:100vh;
+  z-index: 1000;
+  overflow-x: hidden;
+  padding: 0;
+  background-color: #293846;
+  // box-shadow:inset -20px 0 20px rgba(38, 56, 73, 0.2);
+  transition:transform 400ms ease;
+  overflow-x:hidden;
+
+  .nav-sidebar {
+    margin-left:0;
+  }
+
+  .panel {
+    background:none;
+    border:0;
+    border-radius:0;
+
+
+  }
+  .panel-group {
+
+    .panel-heading {
+      background:none;
+    }
+
+    &.panel-heading+.panel-collapse>.panel-body,
+    & .panel-heading+.panel-collapse>.list-group {
+      border-top:0;
+    }
+
+  }
+  
+  ul {
+    padding-left:0;
+  }
+
+  li {
+    display:block;
+    position:relative;
+    font-size:2.5rem;
+    transition:background-color 200ms ease;
+
+    .menu-item-link {
+      display:block;
+      font-size:3rem;
+
+      .menu-item-label {
+        position:absolute;
+        left:60px;
+        top:7px;
+      }
+
+      .glyphicon {
+        position: static;
+      }
+
+    }
+
+
+    a {
+      display:block;
+      color:#788188;
+      transition:all 200ms ease;
+    }
+    
+    h4.panel-title,
+    span {
+      color:#788188;
+    }
+
+    a.active span,
+    a.active {
+      color:#D4D9E0;
+    }
+
+  }
+
+  li:active,
+  li:focus,
+  li:hover {
+
+    span,
+    a {
+      color:#D4D9E0;
+    }
+
+    .menu-item-link {
+    }
+
+    .menu-item-label {
+    }
+
+  }
+
+}
+
+// Classes to animate
+.sidebar,
+.navbar-fixed-top,
+.content {
+  transition:all 400ms ease;
+}
+
+.navigation-active .navbar-fixed-top,
+.navigation-active .content {
+  margin-left:0px;
+}
+
+// hide tooltips by default
+.tooltip.right {
+  display:none!important;
+  font-size:3rem;
+}
+
+.tooltip-inner {
+  background:#222;
+}
+
+.tooltip.right .tooltip-arrow {
+  border-right-color:#222;
+}
+
+
+// xs
+@media(max-width:480px){
+
+
+  // Inactive
+  .sidebar {
+    transform:translate3D(-100%,0,0);
+    padding-top:51px;
+    width:60px;
+  }  
+
+  // Active
+  .navigation-active .sidebar {
+    transform:translate3D(0,0,0);
+    width:250px;
+  }
+  
+  .navigation-active .content {
+    transform:translate3D(20%,0,0);
+  }
+
+}
+
+// sm
+@media(min-width:481px){
+// Inactive
+
+  // Show tooltips
+  .tooltip.right {
+    display:block!important;
+  }
+
+  .sidebar {
+    transform:translate3D(0,0,0);
+    width:60px;
+  }
+
+  .navbar-fixed-top,
+  .content {
+    margin-left:60px;
+  }
+
+  // Active
+  .navigation-active .sidebar {
+    transform:translate3D(0,0,0);
+    width:250px;
+  }
+  .navigation-active .content {
+    transform:translate3D(0,0,0);
+  }
+
+  .navigation-active .navbar-fixed-top,
+  .navigation-active .content {
+    margin-left:250px;
+  }
+    // Show tooltips
+  .navigation-active .tooltip.right {
+    display:none!important;
+  }
+    
+
+}
+
+// md
+@media(min-width:768px){
+
+  // Inactive
+
+  // Show tooltips
+  .tooltip.right {
+    display:block!important;
+  }
+
+  .sidebar {
+    transform:translate3D(0,0,0);
+    width:60px;
+  }
+
+  .navbar-fixed-top,
+  .content {
+    margin-left:60px;
+  }
+
+  // Active
+  .navigation-active .sidebar {
+    transform:translate3D(0,0,0);
+    width:250px;
+  }
+  .navigation-active .content {
+    transform:translate3D(0,0,0);
+  }
+
+  .navigation-active .navbar-fixed-top,
+  .navigation-active .content {
+    margin-left:250px;
+  }
+    // Show tooltips
+  .navigation-active .tooltip.right {
+    display:none!important;
+  }
+    
+ 
+
+}
+
+// lg
+@media(min-width:992px){
+
+
+}
+
+// xl
+@media(min-width:1200px){
+
+  
+}

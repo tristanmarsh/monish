@@ -18,15 +18,16 @@
 //   07. Is Product
 //   08. Is Product Category
 //   09. Is Product Tag
-//   10. Is bbPress
-//   11. Is BuddyPress
-//   12. Is BuddyPress Activity Directory
-//   13. Is BuddyPress Groups Directory
-//   14. Is BuddyPress Group
-//   15. Is BuddyPress Members Directory
-//   16. Is BuddyPress User
-//   17. Is BuddyPress Blogs Directory
-//   18. Is BuddyPress Component
+//   10. Is Product Index
+//   11. Is bbPress
+//   12. Is BuddyPress
+//   13. Is BuddyPress Activity Directory
+//   14. Is BuddyPress Groups Directory
+//   15. Is BuddyPress Group
+//   16. Is BuddyPress Members Directory
+//   17. Is BuddyPress User
+//   18. Is BuddyPress Blogs Directory
+//   19. Is BuddyPress Component
 // =============================================================================
 
 // Is Blank Page Template
@@ -159,6 +160,21 @@ function x_is_product_category() {
 function x_is_product_tag() {
 
   if ( function_exists( 'is_product_tag' ) && is_product_tag() ) {
+    return true;
+  } else {
+    return false;
+  }
+
+}
+
+
+
+// Is Product Index
+// =============================================================================
+
+function x_is_product_index() {
+
+  if ( x_is_shop() || x_is_product_category() || is_product_tag() ) {
     return true;
   } else {
     return false;

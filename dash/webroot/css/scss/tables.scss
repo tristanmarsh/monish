@@ -1,0 +1,149 @@
+/*
+Name:   tables.SCSS
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  All custom styling for tables
+Since:    30/7/15
+
+*/
+
+// Taken from forked codepen http://codepen.io/tristanmarsh/pen/VLVQqo
+
+
+// /* Universal Transition */
+// * {
+//   transition:all 100ms ease;
+// }
+
+// html {
+//   font-size:1em;
+//   font-size:16px;
+// }
+
+body {
+  // font-family: $open-sans-font-stack;
+  // line-height: 20px;
+  // font-weight: 400;
+  color: #70808e;
+}
+
+// .wrapper {
+//   margin: 0 auto;
+//   padding: 40px;
+//   max-width: 800px;
+// }
+
+
+table {
+  display: table;
+  width: 100%;
+  font-family: $open-sans-font-stack;
+  // box-shadow: 0 3px rgba(118, 170, 219,0.2);
+  // border-radius:5px;
+
+
+  * {
+    transition:all 100ms ease;
+  }
+  
+  // Link Style
+  a {
+    color: #3C73C3;
+    text-decoration: none;
+  }
+
+  // Table Header
+  & th {
+    color: #fff;
+    background: #2980b9;
+    background: rgba(41, 128, 185,0.5);
+    font-size:1.4rem;
+    line-height: 2.4em;
+    font-family:$roboto-slab-font-stack;
+    position:relative;
+    overflow:hidden;
+    color:#fff;
+  
+    &>a {
+      display:block;
+      padding: 6px 12px;
+      color:#fff;
+      text-decoration: none;
+    }    
+
+    &>a:focus,
+    &>a:hover {
+      background: lighten(#2980b9,5%);
+      color:#fff;
+      text-decoration: none;
+    }
+
+    &>a.asc,
+    &>a.desc {
+      background: darken(#2980b9,10%);
+    }
+
+    &>a.asc:after {
+      content:'\25B2';
+      position:relative;
+      right:-0.5em;
+      font-size: 0.8em;
+    }
+
+    &>a.desc:after {
+      content:'\25BC';
+      position:relative;
+      right:-0.5em;
+      font-size: 0.8em;
+    }
+
+
+  }
+
+  // Table Row
+
+  & tr {
+    background: darken(#fff, 1%);
+    border-bottom:1px solid #D5E4F1;
+  }
+
+  & tr:nth-of-type(odd) {
+    background: darken(#fff, 4%);
+  }
+
+  & tr:last-child {
+    border-bottom:0;
+  }
+
+  & tr:focus td,
+  & tr:hover td, {
+    background: darken(#fff, 0%);
+    cursor:pointer;
+  }
+
+  & tr:last-child td:first-child {
+    border-bottom-left-radius:5px;
+  }
+
+  & tr:last-child td:last-child {
+    border-bottom-right-radius:5px;
+  }
+
+  // Table Action Buttons
+  & td.actions a {}
+
+  @media screen and (max-width: 580px) {
+    padding: 8px 0;
+    // display: block;
+  }
+
+  td {
+    color:#555;
+    padding: 12px 12px;
+    @media screen and (max-width: 580px) {
+      padding: 2px 12px;
+    }
+  }
+
+}
+

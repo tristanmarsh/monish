@@ -7,6 +7,249 @@ Note:     Remeber mobile first methodology when styling
 Since:    29/4/15
 
 */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-2000px);
+            transform: translateY(-2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@-webkit-keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2000px);
+            transform: translateX(-2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+            transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@-webkit-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(2000px);
+            transform: translateX(2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+@keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(2000px);
+            transform: translateY(2000px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+/*
+Name:   Variables.SCSS
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  All custom styling for the Monish Dashboard
+Note:     Remeber mobile first methodology when styling
+Since:    29/4/15
+
+*/
+/* #### Font Varaiables #### */
+/* Headings */
+/* Content */
+/*
+Name:   sm.SCSS
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  Style for small devices
+Since:    3/6/15
+*/
+@media (max-width: 767px) {
+  .clearing.col-sm-6:nth-of-type(2n+1) {
+    clear: left;
+  }
+}
+@media (min-width: 768px) {
+  .clearing.col-sm-6:nth-of-type(2n+1) {
+    clear: none;
+  }
+
+  .clearing.col-md-4:nth-of-type(2n+1) {
+    clear: left;
+  }
+}
+@media (min-width: 992px) {
+  .clearing.col-md-4:nth-of-type(2n+1) {
+    clear: none;
+  }
+
+  .clearing.col-lg-3:nth-of-type(3n+1) {
+    clear: left;
+  }
+}
+@media (min-width: 1200px) {
+  .clearing.col-lg-3:nth-of-type(3n+1) {
+    clear: none;
+  }
+
+  .clearing.col-lg-3:nth-of-type(4n+1) {
+    clear: left;
+  }
+}
 /*
 Name:   override.scss
 Author:   Tristan Marsh
@@ -16,7 +259,8 @@ Since:    25/5/15
 */
 .row {
   width: auto;
-  max-width: none; }
+  max-width: none;
+}
 
 /*
 Name:   footer.scss
@@ -27,59 +271,40 @@ Since:    28/5/15
 
 */
 footer {
-  position: absolute;
+  position: static;
   bottom: 0;
   left: 0;
-  width: 100%; }
-
-.footer {
   width: 100%;
-  background: #76AADB; }
-  .footer .col-md-3 {
-    padding: 20px; }
-  .footer .col-md-3:nth-child(1) {
-    border: 1px solid red;
-    text-align: left; }
-  .footer .col-md-3:nth-child(2) {
-    border: 1px solid green;
-    text-align: center; }
-  .footer .col-md-3:nth-child(3) {
-    border: 1px solid blue;
-    text-align: right; }
+  background: rgba(118, 170, 219, 0.5);
+  padding: 40px 0;
+  color: #999;
+}
+footer .col-md-3 {
+  padding: 20px;
+}
+footer .col-md-4:nth-of-type(1) {
+  text-align: left;
+}
+footer .col-md-4:nth-of-type(2) {
+  text-align: center;
+}
+footer .col-md-4:nth-of-type(3) {
+  text-align: right;
+}
 
-body {
-  background: #C4E7EC;
-  margin-top: 50px; }
-
-a {
-  color: #76AADB; }
-
-header {
-  height: auto;
-  padding-top: 0;
-  background-color: #76AADB;
-  margin-bottom: 40px; }
-  header .page-header {
-    margin-top: 0; }
-
-.navbar-image img {
-  max-width: 100%;
-  height: 40px !important; }
-
-.breadcrumb {
-  display: none;
-  margin-left: 0; }
-
-.navbar {
-  margin-bottom: 0; }
-  .navbar .navbar-brand {
-    padding: 5px; }
-
-.main-content {
-  min-height: 100vh;
-  padding-bottom: 50px; }
+/*
+Name:   sidebar.SCSS
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Since:    3/6/15
+*/
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background: none;
+}
 
 .sidebar {
+  width: 60px;
   position: fixed;
   left: 0;
   padding-left: 0;
@@ -87,25 +312,446 @@ header {
   z-index: 1000;
   overflow-x: hidden;
   padding: 0;
-  background-color: #39536D;
-  box-shadow: inset -10px 0 10px rgba(38, 56, 73, 0.5); }
-  .sidebar .nav-sidebar {
-    margin-left: 0; }
-  .sidebar li > a {
-    padding: 15px;
-    color: #fff;
-    padding-left: 50px; }
-  .sidebar .nav > li:hover > a,
-  .sidebar .nav > li:focus > a {
-    text-decoration: none;
-    background-color: #111920;
-    color: #3FBAE4; }
-  .sidebar .glyphicon {
+  background-color: #293846;
+  -webkit-transition: -webkit-transform 400ms ease;
+          transition: transform 400ms ease;
+  overflow-x: hidden;
+}
+.sidebar .nav-sidebar {
+  margin-left: 0;
+}
+.sidebar .panel {
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+.sidebar .panel-group .panel-heading {
+  background: none;
+}
+.sidebar .panel-group.panel-heading + .panel-collapse > .panel-body, .sidebar .panel-group .panel-heading + .panel-collapse > .list-group {
+  border-top: 0;
+}
+.sidebar ul {
+  padding-left: 0;
+}
+.sidebar li {
+  display: block;
+  position: relative;
+  font-size: 2.5rem;
+  -webkit-transition: background-color 200ms ease;
+          transition: background-color 200ms ease;
+}
+.sidebar li .menu-item-link {
+  display: block;
+  font-size: 3rem;
+}
+.sidebar li .menu-item-link .menu-item-label {
+  position: absolute;
+  left: 60px;
+  top: 7px;
+}
+.sidebar li .menu-item-link .glyphicon {
+  position: static;
+}
+.sidebar li a {
+  display: block;
+  color: #788188;
+  -webkit-transition: all 200ms ease;
+          transition: all 200ms ease;
+}
+.sidebar li h4.panel-title,
+.sidebar li span {
+  color: #788188;
+}
+.sidebar li a.active span,
+.sidebar li a.active {
+  color: #D4D9E0;
+}
+.sidebar li:active span,
+.sidebar li:active a,
+.sidebar li:focus span,
+.sidebar li:focus a,
+.sidebar li:hover span,
+.sidebar li:hover a {
+  color: #D4D9E0;
+}
+
+.sidebar,
+.navbar-fixed-top,
+.content {
+  -webkit-transition: all 400ms ease;
+          transition: all 400ms ease;
+}
+
+.navigation-active .navbar-fixed-top,
+.navigation-active .content {
+  margin-left: 0px;
+}
+
+.tooltip.right {
+  display: none !important;
+  font-size: 3rem;
+}
+
+.tooltip-inner {
+  background: #222;
+}
+
+.tooltip.right .tooltip-arrow {
+  border-right-color: #222;
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    -webkit-transform: translate3D(-100%, 0, 0);
+        -ms-transform: translate3D(-100%, 0, 0);
+            transform: translate3D(-100%, 0, 0);
+    padding-top: 51px;
+    width: 60px;
+  }
+
+  .navigation-active .sidebar {
+    -webkit-transform: translate3D(0, 0, 0);
+        -ms-transform: translate3D(0, 0, 0);
+            transform: translate3D(0, 0, 0);
+    width: 250px;
+  }
+
+  .navigation-active .content {
+    -webkit-transform: translate3D(20%, 0, 0);
+        -ms-transform: translate3D(20%, 0, 0);
+            transform: translate3D(20%, 0, 0);
+  }
+}
+@media (min-width: 481px) {
+  .tooltip.right {
+    display: block !important;
+  }
+
+  .sidebar {
+    -webkit-transform: translate3D(0, 0, 0);
+        -ms-transform: translate3D(0, 0, 0);
+            transform: translate3D(0, 0, 0);
+    width: 60px;
+  }
+
+  .navbar-fixed-top,
+  .content {
+    margin-left: 60px;
+  }
+
+  .navigation-active .sidebar {
+    -webkit-transform: translate3D(0, 0, 0);
+        -ms-transform: translate3D(0, 0, 0);
+            transform: translate3D(0, 0, 0);
+    width: 250px;
+  }
+
+  .navigation-active .content {
+    -webkit-transform: translate3D(0, 0, 0);
+        -ms-transform: translate3D(0, 0, 0);
+            transform: translate3D(0, 0, 0);
+  }
+
+  .navigation-active .navbar-fixed-top,
+  .navigation-active .content {
+    margin-left: 250px;
+  }
+
+  .navigation-active .tooltip.right {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) {
+  .tooltip.right {
+    display: block !important;
+  }
+
+  .sidebar {
+    -webkit-transform: translate3D(0, 0, 0);
+        -ms-transform: translate3D(0, 0, 0);
+            transform: translate3D(0, 0, 0);
+    width: 60px;
+  }
+
+  .navbar-fixed-top,
+  .content {
+    margin-left: 60px;
+  }
+
+  .navigation-active .sidebar {
+    -webkit-transform: translate3D(0, 0, 0);
+        -ms-transform: translate3D(0, 0, 0);
+            transform: translate3D(0, 0, 0);
+    width: 250px;
+  }
+
+  .navigation-active .content {
+    -webkit-transform: translate3D(0, 0, 0);
+        -ms-transform: translate3D(0, 0, 0);
+            transform: translate3D(0, 0, 0);
+  }
+
+  .navigation-active .navbar-fixed-top,
+  .navigation-active .content {
+    margin-left: 250px;
+  }
+
+  .navigation-active .tooltip.right {
+    display: none !important;
+  }
+}
+/*
+Name:   tables.SCSS
+Author:   Team Dash
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  All custom styling for tables
+Since:    30/7/15
+
+*/
+body {
+  color: #70808e;
+}
+
+table {
+  display: table;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+}
+table * {
+  -webkit-transition: all 100ms ease;
+          transition: all 100ms ease;
+}
+table a {
+  color: #3C73C3;
+  text-decoration: none;
+}
+table th {
+  color: #fff;
+  background: #2980b9;
+  background: rgba(41, 128, 185, 0.5);
+  font-size: 1.4rem;
+  line-height: 2.4em;
+  font-family: "Roboto Slab", serif;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+table th > a {
+  display: block;
+  padding: 6px 12px;
+  color: #fff;
+  text-decoration: none;
+}
+table th > a:focus, table th > a:hover {
+  background: #2e8ece;
+  color: #fff;
+  text-decoration: none;
+}
+table th > a.asc, table th > a.desc {
+  background: #20638f;
+}
+table th > a.asc:after {
+  content: '\25B2';
+  position: relative;
+  right: -0.5em;
+  font-size: 0.8em;
+}
+table th > a.desc:after {
+  content: '\25BC';
+  position: relative;
+  right: -0.5em;
+  font-size: 0.8em;
+}
+table tr {
+  background: #fcfcfc;
+  border-bottom: 1px solid #D5E4F1;
+}
+table tr:nth-of-type(odd) {
+  background: whitesmoke;
+}
+table tr:last-child {
+  border-bottom: 0;
+}
+table tr:focus td, table tr:hover td {
+  background: white;
+  cursor: pointer;
+}
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+}
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 5px;
+}
+@media screen and (max-width: 580px) {
+  table {
+    padding: 8px 0;
+  }
+}
+table td {
+  color: #555;
+  padding: 12px 12px;
+}
+@media screen and (max-width: 580px) {
+  table td {
+    padding: 2px 12px;
+  }
+}
+
+/*
+Name:   Blobal.SCSS
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  Global styling for the Monish Dashboard
+Since:    31/7/15
+
+*/
+body {
+  background: #C4E7EC;
+  background: #fff;
+  background: #ecf2f6;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+a {
+  color: #618DB6;
+}
+
+/* #### NAVBAR #### */
+.navbar {
+  background: #fff;
+}
+
+header {
+  height: auto;
+  padding: 0;
+}
+header .page-header {
+  margin-top: 0;
+}
+header .breadcrumb {
+  margin-left: 0;
+  margin-bottom: 0;
+  padding: 0px 30px;
+  list-style: none;
+  background: none;
+  border-radius: 0;
+  background: rgba(118, 170, 219, 0.5);
+}
+header .breadcrumb a {
+  font-size: 1.4rem;
+  font-weight: lighter;
+  color: #fff;
+}
+header .breadcrumb ul {
+  display: none;
+}
+
+.navbar-image img {
+  max-width: 100%;
+  height: 40px !important;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+.navbar .navbar-brand {
+  padding: 5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Slab", serif;
+  color: #5986AD;
+}
+
+.main-content {
+  min-height: 100vh;
+  -webkit-transition: all 400ms ease;
+          transition: all 400ms ease;
+}
+.main-content .content {
+  margin-top: 51px;
+}
+.main-content .panel {
+  box-shadow: 0 3px rgba(118, 170, 219, 0.2);
+  box-shadow: 0 3px #D5E4F1;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.main-content .panel .panel-footer {
+  padding: 0 15px;
+}
+.main-content .panel .nav {
+  padding: 10px 0;
+}
+.main-content .panel .nav-pills > li > a {
+  border-radius: 100px;
+  padding: 5px 15px;
+  font-weight: 900;
+  font-size: 1.6rem;
+}
+.main-content .panel-default,
+.main-content .panel-primary {
+  border-color: #D5E4F1;
+}
+.main-content .paginator {
+  margin-bottom: 60px;
+}
+.main-content .paginator .pagination {
+  box-shadow: 0 3px #D5E4F1;
+  border-radius: 5px;
+  border: 1px solid #D5E4F1;
+}
+.main-content .paginator .pagination li a {
+  border-right: 1px solid #D5E4F1;
+  border: 0;
+}
+.main-content .paginator .pagination li a:last-child {
+  border-right: 0;
+}
+
+.navbar-toggle {
+  display: block;
+  position: relative;
+  float: left;
+  padding-left: 15px;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  left: 10px;
+}
+
+@media (min-width: 768px) {
+  .navbar-toggle {
     display: block;
-    position: absolute;
-    padding: 5px;
-    font-size: 40px; }
-  .sidebar .nav > li:hover > .glyphicon,
-  .sidebar .nav > li:focus > .glyphicon {
-    color: #76AADB;
-    display: none; }
+    position: relative;
+    float: left;
+    padding-left: 15px;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    left: 10px;
+  }
+}
+#navigation-toggle {
+  background: #337ab7;
+}
+#navigation-toggle span {
+  background: #eff5fa;
+}
+
+/*# sourceMappingURL=custom.css.map */

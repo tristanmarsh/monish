@@ -5,7 +5,7 @@
 
 	<div class="col-sm-3 sidebar">
 
-		<?php echo $this->element('tenant-sidebar'); ?>
+		<?php echo $this->element('sidebar'); ?>
 		
 	</div>
 
@@ -13,21 +13,19 @@
 
 		<div class="content">
 
-			<h3>Welcome to the tenants dashboard</h3>
+			<h1>Dashboard</h1>
+
+			<div class="panel">
+
+				<p>You can manage the database with the buttons on the left:</p>
+				
+			</div>
 
 		</div>
 
+		<footer>
+			<?php echo $this->element('footer'); ?>
+			
+		</footer>
+
 	</div>
-<p>
-
-You can manage the database with the buttons on the left:<br>
-
-</p>
-
-
-
-
-
-
-
-

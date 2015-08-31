@@ -1,11 +1,4 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Menu') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit This Student'), ['action' => 'edit', $student->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete This Student'), ['action' => 'delete', $student->id], ['confirm' => __('Are you sure you want to delete # {0}?', $student->id)]) ?> </li>
-        <li><a href="javascript:history.back()">Go Back</a></li>
-    </ul>
-</div>
+
 <div class="students view large-10 medium-9 columns">
     <h2><?= h("Student Details") ?></h2>
     <div class="row">
@@ -87,5 +80,9 @@
         <?php endforeach; ?>
     </table>
     <?php endif; ?>
+    <?= $this->Form->create(null, [
+        'url' => ['controller' => 'students', 'action' => 'index']
+    ])?>
+    <?= $this->Form->button(__('Cancel')) ?>
     </div>
 </div>

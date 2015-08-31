@@ -8,7 +8,7 @@
 	<div class="row">
 
 		<div class="col-sm-6 col-sm-offset-3 text-center">
-			<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
+			<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House','class' => 'navbar-logo img-responsive text-center','width'=>'200px'])  ?>
 			<div>Monash ISH Dashboard</div>
 		</div>
 
@@ -18,14 +18,13 @@
 			        <?= $this->Flash->render('auth') ?>
 			        <?= $this->Form->create() ?>
 			        <fieldset>
-			            <legend><?= __('Please enter your username and password') ?></legend>
-			            <?= $this->Form->input('username') ?>
-			            <?= $this->Form->input('password') ?>
+			            <legend><?= __('Please enter your username and password',array('class' => 'form-control')) ?></legend>
+			            <?= $this->Form->input('username', array('class' => 'form-control')) ?>
+			            <?= $this->Form->input('password', array('class' => 'form-control')) ?>
 			        </fieldset>
-			        <?= $this->Form->button(__('Login')); ?>
+			        <?= $this->Form->button(__('Login'), ['class' => 'form-control btn btn-success']); ?>
 			        <?= $this->Form->end() ?>
-			        <!--<p>Don't have an account? <?= $this->Html->link('Sign Up', ['action' => 'add']) ?>!</p>-->
-			        <!--<p><small>Testing Purposes Only: Admin Credentials <br>username: admin <br>password: asdasd</small></p>-->
+			      
 			    </div>
 			<?php endif; ?>	
 </div>

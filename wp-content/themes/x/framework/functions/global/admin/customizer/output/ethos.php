@@ -18,6 +18,7 @@
 //   07. Post Slider
 //   08. Custom Fonts - Colors
 //   09. Responsive Styling
+//   10. Adminbar Styling
 // =============================================================================
 
 $x_ethos_navbar_desktop_link_side_padding = x_get_option( 'x_ethos_navbar_desktop_link_side_padding' );
@@ -141,16 +142,6 @@ a.x-img-thumbnail:hover {
 // ========================================================================== */
 
 /*
-// Desktop link side padding.
-*/
-
-.x-navbar .desktop .x-nav > li > a {
-  padding-left: <?php echo $x_ethos_navbar_desktop_link_side_padding . 'px'; ?>;
-  padding-right: <?php echo $x_ethos_navbar_desktop_link_side_padding . 'px'; ?>;
-}
-
-
-/*
 // Color.
 */
 
@@ -260,6 +251,14 @@ foreach ( $items as $item ) {
 
   .desktop .x-megamenu > .sub-menu {
     width: <?php echo 879 - $x_navbar_width . 'px'; ?>
+  }
+
+<?php endif; ?>
+
+<?php if ( $x_navbar_positioning == 'fixed-top' ) : ?>
+
+  .x-navbar-fixed-top-active .x-navbar-wrap {
+    margin-bottom: 2px;
   }
 
 <?php endif; ?>
@@ -462,6 +461,14 @@ foreach ( $items as $item ) {
 
 @media (max-width: 979px) {
 
+  <?php if ( $x_navbar_positioning == 'fixed-top' ) : ?>
+
+    .x-navbar-fixed-top-active .x-navbar-wrap {
+      margin-bottom: 0;
+    }
+
+  <?php endif; ?>
+
   <?php if ( $x_navbar_positioning == 'fixed-top' && $x_layout_site == 'boxed' ) : ?>
 
     .x-navbar.x-navbar-fixed-top.x-container.max.width {
@@ -535,3 +542,48 @@ foreach ( $items as $item ) {
     padding-bottom: 65% !important;
   }
 }
+
+
+
+/* Adminbar Styling
+// ========================================================================== */
+
+<?php if ( is_admin_bar_showing() ) : ?>
+
+  html body #wpadminbar {
+    z-index: 99999 !important;
+  }
+
+
+  /*
+  // Fixed navbar.
+  */
+
+  .admin-bar .x-navbar-fixed-top,
+  .admin-bar .x-navbar-fixed-left,
+  .admin-bar .x-navbar-fixed-right {
+    top: 32px;
+  }
+
+  @media (max-width: 979px) {
+    .admin-bar .x-navbar-fixed-top,
+    .admin-bar .x-navbar-fixed-left,
+    .admin-bar .x-navbar-fixed-right {
+      top: 0;
+    }
+  }
+
+
+  /*
+  // Widgetbar.
+  */
+
+  .admin-bar .x-widgetbar     { top: 30px; }
+  .admin-bar .x-btn-widgetbar { top: 32px; }
+
+  @media screen and (max-width: 782px) {
+    .admin-bar .x-widgetbar     { top: 44px; }
+    .admin-bar .x-btn-widgetbar { top: 46px; }
+  }
+
+<?php endif; ?>

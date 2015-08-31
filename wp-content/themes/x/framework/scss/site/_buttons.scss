@@ -175,8 +175,7 @@
 //
 
 .x-btn {
-  [class^="x-icon-"],
-  [class*=" x-icon-"] {
+  [class*="#{$fa-css-prefix}-"] {
     display: inline;
     margin-right: 0.5em;
   }
@@ -188,8 +187,7 @@
 //
 
 .x-btn-icon-only {
-  [class^="x-icon-"],
-  [class*=" x-icon-"] {
+  [class*="#{$fa-css-prefix}-"] {
     margin: 0;
   }
 }
@@ -226,8 +224,7 @@
     width: 172px;
     height: 43px;
     background-image: url(../../../img/global/btn-circle-top-small.png);
-    -webkit-background-size: 172px 43px;
-            background-size: 172px 43px;
+    background-size: 172px 43px;
   }
 
   &:after {
@@ -235,8 +232,7 @@
     width: 190px;
     height: 43px;
     background-image: url(../../../img/global/btn-circle-bottom-small.png);
-    -webkit-background-size: 190px 43px;
-            background-size: 190px 43px;
+    background-size: 190px 43px;
   }
 
   .x-btn {

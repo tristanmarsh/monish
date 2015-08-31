@@ -8,6 +8,7 @@
 // TABLE OF CONTENTS
 // -----------------------------------------------------------------------------
 //   01. Customizer Control Handling
+//   02. Unpersist WooCommerce Navbar Cart
 // =============================================================================
 
 // Customizer Control Handling
@@ -149,5 +150,19 @@
       $( '.x-icon.post-type-archive-product .x-breadcrumbs .current' ).html( newval );
     } );
   } );
+
+} )( jQuery );
+
+
+// Unpersist WooCommerce Navbar Cart
+// =============================================================================
+
+( function( $ ) {
+
+  if ( x_customizer_data.woocommerce_is_active && 'sessionStorage' in window && window.sessionStorage !== null ) {
+    var fragments = jQuery.parseJSON( window.sessionStorage.wc_fragments );
+    delete fragments['div.x-cart'];
+    window.sessionStorage.wc_fragments = JSON.stringify( fragments );
+  }
 
 } )( jQuery );

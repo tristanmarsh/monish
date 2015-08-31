@@ -358,16 +358,19 @@ class wfUtils {
 		//For debugging. 
 		//return '54.232.205.132';
 		//return self::makeRandomIP();
+
+		// if no REMOTE_ADDR, it's probably running from the command line
+		$connection_ip = array_key_exists('REMOTE_ADDR', $_SERVER) ? $_SERVER['REMOTE_ADDR'] : '127.0.0.1';
+
 		$howGet = wfConfig::get('howGetIPs', false);
 		if($howGet){
 			if($howGet == 'REMOTE_ADDR'){
-				$IP = self::getCleanIP(array($_SERVER['REMOTE_ADDR']));
+				$IP = self::getCleanIP(array($connection_ip));
 			} else {
-				$IP = self::getCleanIP(array($_SERVER[$howGet], $_SERVER['REMOTE_ADDR']));
+				$IP = self::getCleanIP(array($_SERVER[$howGet], $connection_ip));
 			}
 		} else {
-			// if no REMOTE_ADDR, it's probably running from the command line
-			$IPs = array(isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '127.0.0.1');
+			$IPs = array($connection_ip);
 			if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])){ $IPs[] = $_SERVER['HTTP_X_FORWARDED_FOR']; }
 			if(isset($_SERVER['HTTP_X_REAL_IP'])){ $IPs[] = $_SERVER['HTTP_X_REAL_IP']; }
 			$IP = self::getCleanIP($IPs);
@@ -770,10 +773,10 @@ class wfUtils {
 		wfCache::doNotCache();
 	}
 	public static function isUABlocked($uaPattern){ // takes a pattern using asterisks as wildcards, turns it into regex and checks it against the visitor UA returning true if blocked
-		return fnmatch($uaPattern, $_SERVER['HTTP_USER_AGENT'], FNM_CASEFOLD);
+		return fnmatch($uaPattern, !empty($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '', FNM_CASEFOLD);
 	}
 	public static function isRefererBlocked($refPattern){
-		return fnmatch($refPattern, $_SERVER['HTTP_REFERER'], FNM_CASEFOLD);
+		return fnmatch($refPattern, !empty($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '', FNM_CASEFOLD);
 	}
 
 	/**

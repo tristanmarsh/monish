@@ -37,8 +37,7 @@
   background-color: $baseModBackground;
   background-repeat: no-repeat;
   background-position: center center;
-  -webkit-background-size: cover;
-          background-size: cover;
+  background-size: cover;
 
   > a {
     display: block;

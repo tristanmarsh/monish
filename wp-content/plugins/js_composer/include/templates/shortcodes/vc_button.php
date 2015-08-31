@@ -7,7 +7,7 @@ extract( shortcode_atts( array(
 	'target' => '_self',
 	'href' => '',
 	'el_class' => '',
-	'title' => __( 'Text on the button', "js_composer" ),
+	'title' => __( 'Text on the Button', "js_composer" ),
 	'position' => ''
 ), $atts ) );
 $a_class = '';

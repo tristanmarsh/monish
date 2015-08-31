@@ -9,7 +9,8 @@
 // -----------------------------------------------------------------------------
 //   01. Site Wrap
 //   02. Body Reset
-//   03. Links
+//   03. Grid Container
+//   04. Links
 // =============================================================================
 
 // Site Wrap
@@ -42,6 +43,20 @@ body {
 
   &.x-navbar-fixed-right-active {
     padding-right: $navbarFixedSideWidth;
+  }
+}
+
+
+
+// Grid Container
+// =============================================================================
+
+.x-container {
+  &.offset {
+    margin: 2.75em auto;
+    @include break(middle-bear) {
+      margin: 2em auto;
+    }
   }
 }
 

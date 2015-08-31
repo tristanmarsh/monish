@@ -233,31 +233,33 @@ $placeholderText:    $grayLight !default;
 // 4. Brand styles.
 //
 
-$navbarHeight:                     90px                          !default; // 1
-$navbarFixedSideWidth:             228px                         !default; // 1
-$navbarFontSize:                   14px                          !default; // 1
-$navbarLinkFontWeight:             400                           !default; // 1
-$navbarBackground:                 $baseModBackground            !default; // 1
-$navbarLeftBoxShadow:              2px 0 4px rgba(0, 0, 0, 0.1)  !default; // 1
-$navbarRightBoxShadow:             -2px 0 4px rgba(0, 0, 0, 0.1) !default; // 1
+$navbarHeight:                        90px                          !default; // 1
+$navbarFixedSideWidth:                228px                         !default; // 1
+$navbarFontSize:                      14px                          !default; // 1
+$navbarDesktopLinkSideSpacing:        5px                           !default; // 1
+$navbarDesktopLinkSpanSideSpacing:    1.25em                        !default; // 1
+$navbarLinkFontWeight:                400                           !default; // 1
+$navbarBackground:                    $baseModBackground            !default; // 1
+$navbarLeftBoxShadow:                 2px 0 4px rgba(0, 0, 0, 0.1)  !default; // 1
+$navbarRightBoxShadow:                -2px 0 4px rgba(0, 0, 0, 0.1) !default; // 1
 
-$navbarLinkColor:                  $headingsColor                !default; // 2
-$navbarLinkColorHover:             $navbarLinkColor              !default; // 2
-$navbarLinkColorActive:            $gray                         !default; // 2
-$navbarLinkBackgroundHover:        transparent                   !default; // 2
-$navbarLinkBackgroundActive:       darken($navbarBackground, 3%) !default; // 2
-$navbarTopLinkBoxShadowHover:      inset 0 4px 0 0 $accentColor  !default; // 2
-$navbarLeftLinkBoxShadowHover:     inset 8px 0 0 0 $accentColor  !default; // 2
-$navbarRightLinkBoxShadowHover:    inset -8px 0 0 0 $accentColor !default; // 2
+$navbarLinkColor:                     $headingsColor                !default; // 2
+$navbarLinkColorHover:                $navbarLinkColor              !default; // 2
+$navbarLinkColorActive:               $gray                         !default; // 2
+$navbarLinkBackgroundHover:           transparent                   !default; // 2
+$navbarLinkBackgroundActive:          darken($navbarBackground, 3%) !default; // 2
+$navbarTopLinkBoxShadowHover:         inset 0 4px 0 0 $accentColor  !default; // 2
+$navbarLeftLinkBoxShadowHover:        inset 8px 0 0 0 $accentColor  !default; // 2
+$navbarRightLinkBoxShadowHover:       inset -8px 0 0 0 $accentColor !default; // 2
 
-$navbarBtnBackground:              darken($navbarBackground, 0%)                               !default; // 3
-$navbarBtnBackgroundHover:         darken($navbarBackground, 2%)                               !default; // 3
-$navbarBtnTextShadow:              0 1px 1px rgba(255, 255, 255, 0.75)                         !default; // 3
-$navbarBtnBoxShadow:               inset 0 0 0 rgba(0, 0, 0, 0), 0 1px 5px rgba(0, 0, 0, 0.25) !default; // 3
-$navbarBtnBoxShadowHover:          inset 0 1px 3px rgba(0, 0, 0, 0.1)                          !default; // 3
+$navbarBtnBackground:                 darken($navbarBackground, 0%)                               !default; // 3
+$navbarBtnBackgroundHover:            darken($navbarBackground, 2%)                               !default; // 3
+$navbarBtnTextShadow:                 0 1px 1px rgba(255, 255, 255, 0.75)                         !default; // 3
+$navbarBtnBoxShadow:                  inset 0 0 0 rgba(0, 0, 0, 0), 0 1px 5px rgba(0, 0, 0, 0.25) !default; // 3
+$navbarBtnBoxShadowHover:             inset 0 1px 3px rgba(0, 0, 0, 0.1)                          !default; // 3
 
-$navbarBrandFontWeight:            700              !default; // 4
-$navbarBrandColor:                 $navbarLinkColor !default; // 4
+$navbarBrandFontWeight:               700              !default; // 4
+$navbarBrandColor:                    $navbarLinkColor !default; // 4
 
 
 //

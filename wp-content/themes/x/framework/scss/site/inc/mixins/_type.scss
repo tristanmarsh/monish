@@ -73,11 +73,13 @@
 //
 
 @mixin font-awesome() {
-  font-family: "fontawesome" !important;
+  font-family: "FontAwesome" !important;
   font-style: normal !important;
   font-weight: normal !important;
-  speak: none;
+  text-decoration: inherit;
+  text-rendering: auto;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 

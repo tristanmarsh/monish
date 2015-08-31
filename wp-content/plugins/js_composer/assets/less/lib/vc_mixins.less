@@ -64,6 +64,11 @@
         margin-top: 2px;
         float: right;
         display: block;
+        &:focus {
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
         .vc_icon {
             background: transparent url(../vc/fe/close_panel.png) center center;
         }
@@ -176,11 +181,6 @@
         display: none !important;
     }
 }
-.wpb_box_sizing(@box-sizing: border-box) {
-    -webkit-box-sizing:@box-sizing;
-    -moz-box-sizing:@box-sizing;
-    box-sizing:@box-sizing;
-}
 //Transition
 .wpb_transition(@param: all, @time: 0.2s, @easing: linear) {
     transition: @param @time @easing;
@@ -207,35 +207,7 @@
 //Button variants mixin
 .vc_btn_variants(@selector, @color, @txt_color) {
     &@{selector} {
-        //border-color: @color;
-        background-color: @color;
-        color: @txt_color !important; //TODO: WTF? why it is not rendering?
-        .transition(all 0.5s);
-        &:hover {
-            background-color: darken(@color, 6%);
-            color: darken(@txt_color, 3%) !important;
-        }
-        &.vc_btn_outlined,
-        &.vc_btn_square_outlined {
-            color: @color !important;
-            &:hover {
-                border-color: darken(@color, 6%);
-            }
-        }
-        &.vc_btn_3d {
-            .box-shadow(0 5px 0 darken(@color, 11%));
-            margin-bottom: 5px;
-            &.vc_btn_xs {
-            //border-bottom-width: 3px;
-                .box-shadow(0 3px 0 darken(@color, 11%));
-                margin-bottom: 3px;
-            }
-            &.vc_btn_sm {
-            //border-bottom-width: 4px;
-                .box-shadow(0 4px 0 darken(@color, 11%));
-                margin-bottom: 4px;
-            }
-        }
+        .vc_btn_variants(@color,@txt_color);
     }
 }
 .vc_frontend-editor-invisibility-settings {
@@ -275,6 +247,11 @@
     background: transparent url('../vc/empty_row.png') no-repeat center center;
     min-height: 50px;
     cursor: pointer;
-    box-sizing: border-box;
+    .box-sizing(border-box);
+}
+.vc_bg_color_variants(@color) {
+    .vc_bg-@{color} {
+      background-color:  @@color;
+    }
 }
 // End Mixins

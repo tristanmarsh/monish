@@ -1,11 +1,8 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('Edit This Lease'), ['action' => 'edit', $lease->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete This Lease'), ['action' => 'delete', $lease->id], ['confirm' => __('Are you sure you want to delete # {0}?', $lease->id)]) ?> </li>
-		<li><a href="javascript:history.back()">Go Back</a></li>
-    </ul>
-</div>
+<?php
+    $this->Html->addCrumb('Leases', '/leases');
+    $this->Html->addCrumb('View Lease', array('controller' => 'leases', 'action' => 'view'));
+?>
+
 <div class="leases view large-10 medium-9 columns">
     <h2>Lease Details</h2>
     <div class="row">
@@ -39,7 +36,7 @@
         </div>
     </div>
 </div>
-<div class="related row">
+<!-- <div class="related row">
     <div class="column large-12">
     <h4 class="subheader"><?= __('Related InternetConnection') ?></h4>
     <?php if (!empty($lease->internet_connection)): ?>
@@ -75,7 +72,7 @@
     </table>
     <?php endif; ?>
     </div>
-</div>
+</div> -->
 <div class="related row">
     <div class="column large-12">
     <h4 class="subheader"><?= __('Related Payments') ?></h4>
@@ -107,5 +104,9 @@
         <?php endforeach; ?>
     </table>
     <?php endif; ?>
+     <?= $this->Form->create(null, [
+        'url' => ['controller' => 'Leases', 'action' => 'index']
+    ])?>
+    <?= $this->Form->button(__('Cancel')) ?>
     </div>
 </div>

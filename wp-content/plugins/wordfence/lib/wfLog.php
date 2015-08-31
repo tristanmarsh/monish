@@ -426,7 +426,8 @@ class wfLog {
 			//$lastLeech will be true because we use aggregation functions, so check actual values
 			if($lastLeech['lastHit']){ 
 				$totalHits += $lastLeech['totalHits']; 
-				$lastHitAgo = $serverTime - $lastLeech['lastHit']; 
+				$lastHitAgo = $serverTime - $lastLeech['lastHit'];
+				$elem['lastHit'] = $lastLeech['lastHit'];
 			}
 			$lastScan = $this->getDB()->querySingleRec("select max(eMin) * 60 as lastHit, sum(hits) as totalHits from " . $this->scanTable . " where IP=%s", $elem['IP']);
 			if($lastScan['lastHit']){ //Checking actual value because we will get a row back from aggregation funcs
@@ -434,6 +435,7 @@ class wfLog {
 				$lastScanAgo = $serverTime - $lastScan['lastHit']; 
 				if($lastScanAgo < $lastHitAgo){
 					$lastHitAgo = $lastScanAgo;
+					$elem['lastHit'] = $lastScan['lastHit'];
 				}
 			}
 			$elem['totalHits'] = $totalHits;
@@ -457,10 +459,10 @@ class wfLog {
 			wordfence::status(1, 'error', "Invalid type to getLeechers(): $type");
 			return false;
 		}
-		$results = $this->getDB()->querySelect("select IP, sum(hits) as totalHits from $table where eMin > ((unix_timestamp() - 86400) / 60) group by IP order by totalHits desc limit 20");
+		$results = $this->getDB()->querySelect("select IP, sum(hits) as totalHits, eMin * 60 as timestamp, (UNIX_TIMESTAMP() - (eMin * 60)) as timeAgo  from $table where eMin > ((unix_timestamp() - 86400) / 60) group by IP order by totalHits desc limit 20");
 		$this->resolveIPs($results);
 		foreach($results as &$elem){
-			$elem['timeAgo'] = wfUtils::makeTimeAgo($this->getDB()->querySingle("select unix_timestamp() - (eMin * 60) from $table where IP=%s", $elem['IP']));
+			$elem['timeAgo'] = wfUtils::makeTimeAgo($elem['timeAgo']);
 			$elem['blocked'] = $this->getDB()->querySingle("select blockedTime from " . $this->blocksTable . " where IP=%s and ((blockedTime + %s > unix_timestamp()) OR permanent = 1)", $elem['IP'], wfConfig::get('blockedTime'));
 			//take action
 			$elem['IP'] = wfUtils::inet_ntop($elem['IP']);
@@ -568,10 +570,35 @@ class wfLog {
 		$ourHost = strtolower($ourURL['host']);
 		$ourHost = preg_replace('/^www\./i', '', $ourHost);
 		$browscap = new wfBrowscap();
-		foreach($results as &$res){ 
+
+		$advanced_blocking_results = $this->getDB()->querySelect('SELECT * FROM ' . $this->ipRangesTable);
+		$advanced_blocking = array();
+		foreach ($advanced_blocking_results as $advanced_blocking_row) {
+			list($blocked_range) = explode('|', $advanced_blocking_row['blockString']);
+			$blocked_range = explode('-', $blocked_range);
+			if (count($blocked_range) == 2) {
+				// Still using v5 32 bit int style format.
+				if (!preg_match('/[\.:]/', $blocked_range[0])) {
+					$blocked_range[0] = long2ip($blocked_range[0]);
+					$blocked_range[1] = long2ip($blocked_range[1]);
+				}
+				$advanced_blocking[] = array(wfUtils::inet_pton($blocked_range[0]), wfUtils::inet_pton($blocked_range[1]), $advanced_blocking_row['id']);
+			}
+		}
+
+		foreach($results as &$res){
 			$res['type'] = $type;
 			$res['timeAgo'] = wfUtils::makeTimeAgo($serverTime - $res['ctime']);
 			$res['blocked'] = $this->getDB()->querySingle("select blockedTime from " . $this->blocksTable . " where IP=%s and (permanent = 1 OR (blockedTime + %s > unix_timestamp()))", $res['IP'], wfConfig::get('blockedTime'));
+			$res['rangeBlocked'] = false;
+			$res['ipRangeID'] = -1;
+			foreach ($advanced_blocking as $advanced_blocking_row) {
+				if (strcmp($res['IP'], $advanced_blocking_row[0]) >= 0 && strcmp($res['IP'], $advanced_blocking_row[1]) <= 0) {
+					$res['rangeBlocked'] = true;
+					$res['ipRangeID'] = $advanced_blocking_row[2];
+					break;
+				}
+			}
 			$res['IP'] = wfUtils::inet_ntop($res['IP']);
 			$res['extReferer'] = false;
 			if(isset( $res['referer'] ) && $res['referer']){
@@ -790,57 +817,60 @@ class wfLog {
 		}
 		//End range/UA blocking
 
-		$blockedCountries = wfConfig::get('cbl_countries', false);
-		$bareRequestURI = wfUtils::extractBareURI($_SERVER['REQUEST_URI']);
-		$bareBypassRedirURI = wfUtils::extractBareURI(wfConfig::get('cbl_bypassRedirURL', ''));
-		$skipCountryBlocking = false;
+		// Country blocking
+		if (wfConfig::get('isPaid')) {
+			$blockedCountries = wfConfig::get('cbl_countries', false);
+			$bareRequestURI = wfUtils::extractBareURI($_SERVER['REQUEST_URI']);
+			$bareBypassRedirURI = wfUtils::extractBareURI(wfConfig::get('cbl_bypassRedirURL', ''));
+			$skipCountryBlocking = false;
 
-		if($bareBypassRedirURI && $bareRequestURI == $bareBypassRedirURI){ //Run this before country blocking because even if the user isn't blocked we need to set the bypass cookie so they can bypass future blocks.
-			$bypassRedirDest = wfConfig::get('cbl_bypassRedirDest', '');
-			if($bypassRedirDest){
-				self::setCBLCookieBypass();
-				$this->redirect($bypassRedirDest); //exits
+			if($bareBypassRedirURI && $bareRequestURI == $bareBypassRedirURI){ //Run this before country blocking because even if the user isn't blocked we need to set the bypass cookie so they can bypass future blocks.
+				$bypassRedirDest = wfConfig::get('cbl_bypassRedirDest', '');
+				if($bypassRedirDest){
+					self::setCBLCookieBypass();
+					$this->redirect($bypassRedirDest); //exits
+				}
 			}
-		}
-		$bareBypassViewURI = wfUtils::extractBareURI(wfConfig::get('cbl_bypassViewURL', ''));
-		if($bareBypassViewURI && $bareBypassViewURI == $bareRequestURI){
-			self::setCBLCookieBypass();
-			$skipCountryBlocking = true;
-		}
-			
-		if((! $skipCountryBlocking) && $blockedCountries && wfConfig::get('isPaid') && (! self::isCBLBypassCookieSet()) ){
-			if(is_user_logged_in() && (! wfConfig::get('cbl_loggedInBlocked', false)) ){ //User is logged in and we're allowing logins
-				//Do nothing
-			} else if(strpos($_SERVER['REQUEST_URI'], '/wp-login.php') !== false && (! wfConfig::get('cbl_loginFormBlocked', false))  ){ //It's the login form and we're allowing that
-				//Do nothing 
-			} else if(strpos($_SERVER['REQUEST_URI'], '/wp-login.php') === false && (! wfConfig::get('cbl_restOfSiteBlocked', false))  ){ //It's the rest of the site and we're allowing that 
-				//Do nothing
-			} else {
-				if($country = wfUtils::IP2Country($IP) ){
-					foreach(explode(',', $blockedCountries) as $blocked){
-						if(strtoupper($blocked) == strtoupper($country)){ //At this point we know the user has been blocked
-							if(wfConfig::get('cbl_action') == 'redir'){
-								$redirURL = wfConfig::get('cbl_redirURL');
-								$eRedirHost = wfUtils::extractHostname($redirURL);
-								$isExternalRedir = false;
-								if($eRedirHost && $eRedirHost != wfUtils::extractHostname(home_url())){ //It's an external redirect...
-									$isExternalRedir = true;
-								}
-								if( (! $isExternalRedir) && wfUtils::extractBareURI($redirURL) == $bareRequestURI){ //Is this the URI we want to redirect to, then don't block it
-									//Do nothing
-								/* Uncomment the following if page components aren't loading for the page we redirect to.
-								   Uncommenting is not recommended because it means that anyone from a blocked country
-								   can crawl your site by sending the page blocked users are redirected to as the referer for every request.
-								   But it's your call.
-								} else if(wfUtils::extractBareURI($_SERVER['HTTP_REFERER']) == $redirURL){ //If the referer the page we want to redirect to? Then this might be loading as a component so don't block.
-									//Do nothing	
-								*/
+			$bareBypassViewURI = wfUtils::extractBareURI(wfConfig::get('cbl_bypassViewURL', ''));
+			if($bareBypassViewURI && $bareBypassViewURI == $bareRequestURI){
+				self::setCBLCookieBypass();
+				$skipCountryBlocking = true;
+			}
+
+			if((! $skipCountryBlocking) && $blockedCountries && (! self::isCBLBypassCookieSet()) ){
+				if(is_user_logged_in() && (! wfConfig::get('cbl_loggedInBlocked', false)) ){ //User is logged in and we're allowing logins
+					//Do nothing
+				} else if(strpos($_SERVER['REQUEST_URI'], '/wp-login.php') !== false && (! wfConfig::get('cbl_loginFormBlocked', false))  ){ //It's the login form and we're allowing that
+					//Do nothing
+				} else if(strpos($_SERVER['REQUEST_URI'], '/wp-login.php') === false && (! wfConfig::get('cbl_restOfSiteBlocked', false))  ){ //It's the rest of the site and we're allowing that
+					//Do nothing
+				} else {
+					if($country = wfUtils::IP2Country($IP) ){
+						foreach(explode(',', $blockedCountries) as $blocked){
+							if(strtoupper($blocked) == strtoupper($country)){ //At this point we know the user has been blocked
+								if(wfConfig::get('cbl_action') == 'redir'){
+									$redirURL = wfConfig::get('cbl_redirURL');
+									$eRedirHost = wfUtils::extractHostname($redirURL);
+									$isExternalRedir = false;
+									if($eRedirHost && $eRedirHost != wfUtils::extractHostname(home_url())){ //It's an external redirect...
+										$isExternalRedir = true;
+									}
+									if( (! $isExternalRedir) && wfUtils::extractBareURI($redirURL) == $bareRequestURI){ //Is this the URI we want to redirect to, then don't block it
+										//Do nothing
+										/* Uncomment the following if page components aren't loading for the page we redirect to.
+										   Uncommenting is not recommended because it means that anyone from a blocked country
+										   can crawl your site by sending the page blocked users are redirected to as the referer for every request.
+										   But it's your call.
+										} else if(wfUtils::extractBareURI($_SERVER['HTTP_REFERER']) == $redirURL){ //If the referer the page we want to redirect to? Then this might be loading as a component so don't block.
+											//Do nothing
+										*/
+									} else {
+										$this->redirect(wfConfig::get('cbl_redirURL'));
+									}
 								} else {
-									$this->redirect(wfConfig::get('cbl_redirURL'));
+									$this->do503(3600, "Access from your area has been temporarily limited for security reasons");
+									wfConfig::inc('totalCountryBlocked');
 								}
-							} else {
-								$this->do503(3600, "Access from your area has been temporarily limited for security reasons");
-								wfConfig::inc('totalCountryBlocked');
 							}
 						}
 					}
@@ -1171,12 +1201,15 @@ class wfUserIPRange {
 	 */
 	public function isValidIPv4Range() {
 		$ip_string = $this->getIPString();
-		preg_match('(\d)', $ip_string, $matches);
-		foreach ($matches as $match) {
-			if ($match[1] > 255 || $match[1] < 0) {
-				return false;
+		if (preg_match_all('/(\d+)/', $ip_string, $matches) > 0) {
+			foreach ($matches[1] as $match) {
+				$group = (int) $match;
+				if ($group > 255 || $group < 0) {
+					return false;
+				}
 			}
 		}
+
 		$group_regex = '([0-9]{1,3}|\[[0-9]{1,3}\-[0-9]{1,3}\])';
 		return preg_match('/^' . str_repeat("$group_regex.", 3) . $group_regex . '$/i', $ip_string) > 0;
 	}

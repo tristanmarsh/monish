@@ -14,6 +14,3 @@
 // =============================================================================
 
 // =include "inc/x-head-*.js"
-// =include "vendor/bigvideo/imagesloaded-3.0.4.min.js"
-// =include "vendor/bigvideo/video-4.1.0.min.js"
-// =include "vendor/bigvideo/bigvideo-1.0.0.min.js"

@@ -24,6 +24,10 @@
     border-bottom: 1px solid $baseBorderRgba;
   }
 
+  &.bg-video {
+    background-color: $black;
+  }
+
   .rev_slider_wrapper {
     padding: 0 !important;
   }
@@ -62,7 +66,7 @@
 .x-slider-scroll-bottom {
   position: absolute;
   display: block;
-  border: 3px solid $white;
+  border: 3px solid;
   width: 60px;
   height: 60px;
   font-size: 41px;
@@ -96,7 +100,6 @@
 
   &:hover {
     color: $linkColor;
-    border-color: $linkColor;
   }
 
   @include break(old-bear) {

@@ -1,12 +1,15 @@
 <?php
+
 /**
  * WPBakery Visual Composer shortcodes
  *
  * @package WPBakeryVisualComposer
  *
  */
-
 class WPBakeryShortCode_VC_Column extends WPBakeryShortCode {
+	/**
+	 * @var array
+	 */
 	protected $predefined_atts = array(
 		'font_color' => '',
 		'el_class' => '',
@@ -14,25 +17,81 @@ class WPBakeryShortCode_VC_Column extends WPBakeryShortCode {
 		'width' => '1/1'
 	);
 
+	/**
+	 * @param $controls
+	 * @param string $extended_css
+	 *
+	 * @return string
+	 */
 	public function getColumnControls( $controls, $extended_css = '' ) {
-		$controls_start = '<div class="vc_controls vc_controls-visible controls' . ( ! empty( $extended_css ) ? " {$extended_css}" : '' ) . '">';
+		$output = '<div class="vc_controls vc_control-column vc_controls-visible controls' . ( ! empty( $extended_css ) ? " {$extended_css}" : '' ) . '">';
 		$controls_end = '</div>';
 
-		if ( $extended_css == 'bottom-controls' ) $control_title = __( 'Append to this column', 'js_composer' );
-		else $control_title = __( 'Prepend to this column', 'js_composer' );
+		if ( $extended_css == 'bottom-controls' ) {
+			$control_title = __( 'Append to this column', 'js_composer' );
+		} else {
+			$control_title = __( 'Prepend to this column', 'js_composer' );
+		}
+		$controls_add = ' <a class="vc_control column_add vc_column-add" data-vc-control="add" href="#" title="' . $control_title . '"><i class="vc_icon"></i></a>';
+		$controls_edit = ' <a class="vc_control column_edit vc_column-edit"  data-vc-control="edit" href="#" title="' . __( 'Edit this column', 'js_composer' ) . '"><i class="vc_icon"></i></a>';
+		$controls_delete = ' <a class="vc_control column_delete vc_column-delete" data-vc-control="delete"  href="#" title="' . __( 'Delete this column', 'js_composer' ) . '"><i class="vc_icon"></i></a>';
+		if ( is_array( $controls ) && ! empty( $controls ) ) {
+			foreach ( $controls as $control ) {
+				$method_name = vc_camel_case( 'output-editor-control-' . $control );
+				if ( method_exists( $this, $method_name ) ) {
+					$output .= $this->$method_name();
+				} else {
+					$control_var = 'controls_' . $control;
+					$output .= $$control_var;
+				}
+			}
 
-		$controls_add = ' <a class="vc_control column_add" href="#" title="' . $control_title . '"><i class="vc_icon"></i></a>';
-		$controls_edit = ' <a class="vc_control column_edit" href="#" title="' . __( 'Edit this column', 'js_composer' ) . '"><i class="vc_icon"></i></a>';
-		$controls_delete = ' <a class="vc_control column_delete" href="#" title="' . __( 'Delete this column', 'js_composer' ) . '"><i class="vc_icon"></i></a>';
+			return $output . $controls_end;
+		} elseif ( is_string( $controls ) && 'full' === $controls ) {
+			return $output . $controls_add . $controls_edit . $controls_delete . $controls_end;
+		} elseif ( is_string( $controls ) ) {
+			$control_var = 'controls_' . $controls;
+			if ( isset( $$control_var ) ) {
+				return $output . $$control_var . $controls_end;
+			}
+		}
 
-		return $controls_start . $controls_add . $controls_edit . $controls_delete . $controls_end;
+		return $output . $controls_add . $controls_edit . $controls_delete . $controls_end;
 	}
 
+	/**
+	 * @param $param
+	 * @param $value
+	 * @param array $settings
+	 * @param array $atts
+	 *
+	 * @return string
+	 */
 	public function singleParamHtmlHolder( $param, $value ) {
 		$output = '';
 		// Compatibility fixes.
-		$old_names = array( 'yellow_message', 'blue_message', 'green_message', 'button_green', 'button_grey', 'button_yellow', 'button_blue', 'button_red', 'button_orange' );
-		$new_names = array( 'alert-block', 'alert-info', 'alert-success', 'btn-success', 'btn', 'btn-info', 'btn-primary', 'btn-danger', 'btn-warning' );
+		$old_names = array(
+			'yellow_message',
+			'blue_message',
+			'green_message',
+			'button_green',
+			'button_grey',
+			'button_yellow',
+			'button_blue',
+			'button_red',
+			'button_orange'
+		);
+		$new_names = array(
+			'alert-block',
+			'alert-info',
+			'alert-success',
+			'btn-success',
+			'btn',
+			'btn-info',
+			'btn-primary',
+			'btn-danger',
+			'btn-warning'
+		);
 		$value = str_ireplace( $old_names, $new_names, $value );
 		//$value = __($value, "js_composer");
 		//
@@ -43,9 +102,16 @@ class WPBakeryShortCode_VC_Column extends WPBakeryShortCode {
 		if ( isset( $param['holder'] ) == true && $param['holder'] != 'hidden' ) {
 			$output .= '<' . $param['holder'] . ' class="wpb_vc_param_value ' . $param_name . ' ' . $type . ' ' . $class . '" name="' . $param_name . '">' . $value . '</' . $param['holder'] . '>';
 		}
+
 		return $output;
 	}
 
+	/**
+	 * @param $atts
+	 * @param null $content
+	 *
+	 * @return string
+	 */
 	public function contentAdmin( $atts, $content = null ) {
 		$width = $el_class = '';
 		extract( shortcode_atts( $this->predefined_atts, $atts ) );
@@ -81,7 +147,7 @@ class WPBakeryShortCode_VC_Column extends WPBakeryShortCode {
 		}
 		for ( $i = 0; $i < count( $width ); $i ++ ) {
 			$output .= '<div ' . $this->mainHtmlBlockParams( $width, $i ) . '>';
-			$output .= str_replace( "%column_size%", wpb_translateColumnWidthToFractional( $width[$i] ), $column_controls );
+			$output .= str_replace( "%column_size%", wpb_translateColumnWidthToFractional( $width[ $i ] ), $column_controls );
 			$output .= '<div class="wpb_element_wrapper">';
 			$output .= '<div ' . $this->containerHtmlBlockParams( $width, $i ) . '>';
 			$output .= do_shortcode( shortcode_unautop( $content ) );
@@ -94,44 +160,74 @@ class WPBakeryShortCode_VC_Column extends WPBakeryShortCode {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
 				$output .= $inner;
 			}
 			$output .= '</div>';
-			$output .= str_replace( "%column_size%", wpb_translateColumnWidthToFractional( $width[$i] ), $column_controls_bottom );
+			$output .= str_replace( "%column_size%", wpb_translateColumnWidthToFractional( $width[ $i ] ), $column_controls_bottom );
 			$output .= '</div>';
 		}
+
 		return $output;
 	}
 
+	/**
+	 * @return string
+	 */
 	public function customAdminBlockParams() {
 		return '';
 	}
 
+	/**
+	 * @param $width
+	 * @param $i
+	 *
+	 * @return string
+	 */
 	public function mainHtmlBlockParams( $width, $i ) {
-		return 'data-element_type="' . $this->settings["base"] . '" data-vc-column-width="' . wpb_vc_get_column_width_indent( $width[$i] ) . '" class="wpb_' . $this->settings['base'] . ' wpb_sortable ' . $this->templateWidth() . ' wpb_content_holder"' . $this->customAdminBlockParams();
+		return 'data-element_type="' . $this->settings["base"] . '" data-vc-column-width="' . wpb_vc_get_column_width_indent( $width[ $i ] ) . '" class="wpb_' . $this->settings['base'] . ' wpb_sortable ' . $this->templateWidth() . ' wpb_content_holder"' . $this->customAdminBlockParams();
 	}
 
+	/**
+	 * @param $width
+	 * @param $i
+	 *
+	 * @return string
+	 */
 	public function containerHtmlBlockParams( $width, $i ) {
 		return 'class="wpb_column_container vc_container_for_children"';
 	}
 
+	/**
+	 * @param string $content
+	 *
+	 * @return string
+	 */
 	public function template( $content = '' ) {
 		return $this->contentAdmin( $this->atts );
 	}
 
+	/**
+	 * @return string
+	 */
 	protected function templateWidth() {
 		return '<%= window.vc_convert_column_size(params.width) %>';
 	}
 
+	/**
+	 * @param string $font_color
+	 *
+	 * @return string
+	 */
 	public function buildStyle( $font_color = '' ) {
 		$style = '';
 		if ( ! empty( $font_color ) ) {
 			$style .= vc_get_css_color( 'color', $font_color );
 		}
-		return empty( $style ) ? $style : ' style="' . $style . '"';
+
+		return empty( $style ) ? $style : ' style="' . esc_attr( $style ) . '"';
 	}
 }

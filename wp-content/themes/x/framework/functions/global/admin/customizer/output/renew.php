@@ -19,6 +19,7 @@
 //   08. Custom Fonts
 //   09. Custom Fonts - Colors
 //   10. Responsive Styling
+//   11. Adminbar Styling
 // =============================================================================
 
 $x_renew_entry_icon_color               = x_get_option( 'x_renew_entry_icon_color' );
@@ -55,13 +56,13 @@ h6 a:hover,
 .x-comment-time:hover,
 #reply-title small a,
 .comment-reply-link:hover,
-.x-comment-author a:hover {
+.x-comment-author a:hover,
+.x-recent-posts a:hover .h-recent-posts {
   color: <?php echo $x_site_link_color; ?>;
 }
 
 a:hover,
-#reply-title small a:hover,
-.x-recent-posts a:hover .h-recent-posts {
+#reply-title small a:hover {
   color: <?php echo $x_site_link_color_hover; ?>;
 }
 
@@ -123,13 +124,11 @@ li.bypostauthor > article.comment {
 .widget_tag_cloud .tagcloud a:hover,
 .widget_product_tag_cloud .tagcloud a:hover,
 .x-highlight,
-.x-recent-posts .x-recent-posts-img,
-.x-recent-posts .x-recent-posts-img:before,
+.x-recent-posts .x-recent-posts-img:after,
 .x-portfolio-filters {
   background-color: <?php echo $x_site_link_color; ?>;
 }
 
-.x-recent-posts a:hover .x-recent-posts-img,
 .x-portfolio-filters:hover {
   background-color: <?php echo $x_site_link_color_hover; ?>;
 }
@@ -470,6 +469,55 @@ li.bypostauthor > article.comment {
       font-size: 3.2rem;
       line-height: 70px;
       border-radius: 100em;
+    }
+  }
+
+<?php endif; ?>
+
+
+
+/* Adminbar Styling
+// ========================================================================== */
+
+<?php if ( is_admin_bar_showing() ) : ?>
+
+  html body #wpadminbar {
+    z-index: 99999 !important;
+  }
+
+
+  /*
+  // Fixed navbar.
+  */
+
+  .admin-bar .x-navbar-fixed-top,
+  .admin-bar .x-navbar-fixed-left,
+  .admin-bar .x-navbar-fixed-right {
+    top: 32px;
+  }
+
+  @media (max-width: 979px) {
+    .admin-bar .x-navbar-fixed-top,
+    .admin-bar .x-navbar-fixed-left,
+    .admin-bar .x-navbar-fixed-right {
+      top: 0;
+    }
+  }
+
+
+  /*
+  // Widgetbar.
+  */
+
+  .admin-bar .x-widgetbar,
+  .admin-bar .x-btn-widgetbar {
+    top: 32px;
+  }
+
+  @media screen and (max-width: 782px) {
+    .admin-bar .x-widgetbar,
+    .admin-bar .x-btn-widgetbar {
+      top: 46px;
     }
   }
 

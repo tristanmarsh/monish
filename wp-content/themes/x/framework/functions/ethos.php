@@ -215,7 +215,7 @@ if ( ! function_exists( 'x_ethos_entry_top_navigation' ) ) :
     ?>
 
       <div class="entry-top-navigation">
-        <a href="<?php echo $link; ?>" class="entry-parent" title="<?php $title; ?>"><i class="x-icon-th"></i></a>
+        <a href="<?php echo $link; ?>" class="entry-parent" title="<?php $title; ?>"><i class="x-icon-th" data-x-icon="&#xf00a;"></i></a>
         <?php x_entry_navigation(); ?>
       </div>
 
@@ -364,9 +364,9 @@ if ( ! function_exists( 'x_ethos_comment' ) ) :
               );
               ?>
               <?php if ( ! x_is_product() ) : ?>
-                <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span class="comment-reply-link-after"><i class="x-icon-reply"></i></span>', '__x__' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+                <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span class="comment-reply-link-after"><i class="x-icon-reply" data-x-icon="&#xf112;"></i></span>', '__x__' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
               <?php endif; ?>
-              <?php edit_comment_link( __( 'Edit <i class="x-icon-edit"></i>', '__x__' ) ); ?>
+              <?php edit_comment_link( __( 'Edit <i class="x-icon-edit" data-x-icon="&#xf044;"></i>', '__x__' ) ); ?>
             </div>
             <?php
             printf( '<cite class="x-comment-author">%1$s</cite>',

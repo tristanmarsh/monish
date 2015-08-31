@@ -17,8 +17,6 @@
 // =============================================================================
 
 .mejs-container {
-  width: 100% !important;
-
   &:focus,
   &:active {
     outline: 0;
@@ -129,6 +127,7 @@
   margin: 0;
   position: relative;
   width: 100% !important;
+  cursor: pointer;
 
   &:focus,
   &:active {
@@ -185,27 +184,6 @@
   }
 }
 
-// .mejs-volume-slider {
-//   display: none;
-//   position: absolute;
-//   width: 100%;
-//   height: 100px;
-//   bottom: 100%;
-
-//   .mejs-volume-total,
-//   .mejs-volume-current {
-//     position: absolute;
-//     top: 12px;
-//     left: 12px;
-//     right: 12px;
-//     bottom: 12px;
-//   }
-
-//   .mejs-volume-handle {
-//     display: none;
-//   }
-// }
-
 
 
 // MEJS Layers
@@ -222,15 +200,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    // position: absolute;
-    // top: -2px;
-    // left: -2px;
-    // right: -2px;
-    // bottom: -2px;
-    // width: auto !important;
-    // height: auto !important;
+    width: 100%;
+    height: 100%;
   }
 
   .mejs-poster {
@@ -241,30 +212,6 @@
 
   .mejs-overlay-play {
     cursor: pointer;
-
-    // .mejs-overlay-button {
-    //   position: absolute;
-    //   top: 50%;
-    //   left: 50%;
-    //   width: 60px;
-    //   height: 60px;
-    //   margin: -30px 0 0 -30px !important;
-    //   @include font-size(5.6);
-    //   line-height: 60px;
-    //   text-align: center;
-    //   @include transition(#{color 0.3s ease, text-shadow 0.3s ease});
-
-    //   &:before {
-    //     content: "\f04b";
-    //     display: block;
-    //     @include font-awesome();
-    //   }
-    // }
-
-    // &:hover {
-    //   color: $white;
-    //   text-shadow: 0 0 15px rgba(0, 0, 0, 0.425);
-    // }
   }
 
   .mejs-overlay-loading,
@@ -278,6 +225,21 @@
 
 // MEJS Miscellaneous
 // =============================================================================
+
+//
+// Background videos.
+//
+
+.bg {
+  .mejs-mediaelement {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+}
 
 //
 // Hidden elements.
@@ -297,7 +259,8 @@
 // Hidden controls.
 //
 
-.hide-controls {
+.hide-controls,
+.vimeo {
   .mejs-video {
     .mejs-controls {
       display: none !important;
@@ -316,8 +279,34 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 100% !important;
-      height: 100% !important;
+      width: 100%;
+      height: 100%;
     }
   }
+}
+
+
+//
+// Cannot play.
+//
+
+.me-cannotplay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+//
+// Fallback container.
+//
+
+.me-plugin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

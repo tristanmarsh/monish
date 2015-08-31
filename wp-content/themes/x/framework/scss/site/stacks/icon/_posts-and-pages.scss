@@ -69,14 +69,6 @@
       border-bottom: 1px solid $baseBorderRgba;
     }
   }
-
-  p,
-  ul,
-  ol {
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 }
 
 .single .hentry .entry-wrap {
@@ -211,7 +203,7 @@ a.entry-thumb:hover {
 }
 
 .p-meta {
-  margin-top: 1%;
+  margin: 1% 0 0;
   font-size: 125%;
   line-height: 1;
   text-align: center;
@@ -239,6 +231,14 @@ a.entry-thumb:hover {
   object {
     width: 100%;
     max-width: 100%;
+  }
+
+  > p,
+  > ul,
+  > ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .more-link {

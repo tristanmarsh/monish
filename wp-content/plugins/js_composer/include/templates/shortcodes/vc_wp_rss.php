@@ -1,20 +1,28 @@
 <?php
 $output = $title = $url = $items = $options = $el_class = '';
-extract( shortcode_atts( array(
+$atts = shortcode_atts( array(
 	'title' => '',
 	'url' => '',
 	'items' => 10,
 	'options' => '',
 	'el_class' => ''
-), $atts ) );
-if ( $url == '' ) return;
-$atts['title'] = $title;
-$atts['items'] = $items;
+), $atts );
+$atts['url'] = html_entity_decode( $atts['url'], ENT_QUOTES ); // fix #2034
+extract( $atts );
+if ( $url == '' ) {
+	return;
+}
 
 $options = explode( ",", $options );
-if ( in_array( "show_summary", $options ) ) $atts['show_summary'] = true;
-if ( in_array( "show_author", $options ) ) $atts['show_author'] = true;
-if ( in_array( "show_date", $options ) ) $atts['show_date'] = true;
+if ( in_array( "show_summary", $options ) ) {
+	$atts['show_summary'] = true;
+}
+if ( in_array( "show_author", $options ) ) {
+	$atts['show_author'] = true;
+}
+if ( in_array( "show_date", $options ) ) {
+	$atts['show_date'] = true;
+}
 
 $el_class = $this->getExtraClass( $el_class );
 

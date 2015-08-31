@@ -1,9 +1,9 @@
 <?php $user = $this->Session->read('Auth.User'); ?>
 
 
-			<h3>
+			<h1>
 				<?php echo $user['first_name'].nl2br("\n").$user['last_name']; ?>
-			</h3>
+			</h1>
 				<u><?php echo "Username:"; ?></u>
 				<?php echo " ".$user['username']; ?>
 				<u><?php echo nl2br("\nContact Number:"); ?></u>

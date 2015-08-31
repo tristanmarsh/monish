@@ -9,9 +9,8 @@
 // -----------------------------------------------------------------------------
 //   01. Home
 //   02. Header
-//   03. Demo Content
-//   04. Extensions
-//   05. Postboxes
+//   03. Extensions
+//   04. Postboxes
 // ========================================================================== */
 
 /* Home
@@ -65,7 +64,7 @@
   text-transform: uppercase;
   border-radius: 4px;
   color: #fff;
-  background-color: #222;
+  background-color: #23282d;
 }
 
 .x-addons-home .x-badge .text {
@@ -99,7 +98,7 @@
 
 .x-addons-home .changelog .feature-section {
   margin: 0 0 50px;
-  padding: 0;
+  padding: 0 0 40px;
   overflow: visible;
 }
 
@@ -221,7 +220,8 @@
 */
 
 .x-addons-extensions-list {
-  margin: 0;
+  max-width: 1400px;
+  margin: 0 auto;
   list-style: none;
 }
 
@@ -459,6 +459,11 @@ div.x-addons-extension .desc {
 // Page specific styles - customizer manager.
 */
 
+.x-addons-customizer-manager .x-addons-postboxes {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 .x-addons-postbox.customizer-manager .title .dashicons {
   width: 19px;
   height: 19px;
@@ -524,7 +529,7 @@ div.x-addons-extension .desc {
 .x-addons-postbox.demo-content {
   float: none;
   width: 100%;
-  max-width: 700px;
+  max-width: 575px;
   margin: 0 auto;
   position: relative;
 }
@@ -550,6 +555,11 @@ div.x-addons-extension .desc {
 
 .x-addons-postbox.demo-content .controls .control:first-child {
   border-right: 1px solid #e5e5e5;
+}
+
+.x-addons-postbox.demo-content .controls .control.full {
+  width: 100%;
+  border-right: 0;
 }
 
 .x-addons-postbox.demo-content h3 {
@@ -613,6 +623,129 @@ div.x-addons-extension .desc {
 .x-addons-postbox.demo-content .message span:last-child {
   margin-bottom: 0;
 }
+
+/*
+////////////////////////////////////////
+*/
+
+.progress-outer {
+  display: table;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 999999999;
+}
+
+.progress-inner {
+  display: table-cell;
+  padding: 25px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.progress-content {
+  opacity: 1;
+  -webkit-transition: all 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+          transition: all 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
+.progress-content-title {
+  margin: 0 0 25px;
+  padding: 0;
+  font-size: 28px;
+  font-size: 24px;
+  font-weight: 300;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.progress-content-bar-outer {
+  overflow: hidden;
+  height: 10px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 500px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+.progress-content-bar-inner {
+  height: 10px;
+  background-color: #0074a2;
+  border-radius: 3px;
+  -webkit-transition: width 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+          transition: width 0.65s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+}
+
+.progress-complete {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: -90px auto 0;
+  opacity: 0;
+  -webkit-transition: all 1.25s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+          transition: all 1.25s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+  -webkit-transform: scale(0.5);
+      -ms-transform: scale(0.5);
+          transform: scale(0.5);
+}
+
+.progress-complete-icon.dashicons {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  font-size: 150px;
+  color: #0074a2;
+  -webkit-transition: all 1.25s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+          transition: all 1.25s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+  -webkit-transform: rotate(-540deg);
+      -ms-transform: rotate(-540deg);
+          transform: rotate(-540deg);
+}
+
+.progress-complete-title {
+  margin: -35px 0 0;
+  padding: 0;
+  font-size: 28px;
+  font-size: 24px;
+  font-weight: 300;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.complete .progress-content {
+  opacity: 0;
+  -webkit-transform: scale(0.5);
+      -ms-transform: scale(0.5);
+          transform: scale(0.5);
+}
+
+.complete .progress-complete {
+  opacity: 1;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
+.complete .progress-complete-icon.dashicons {
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+/*
+////////////////////////////////////////
+*/
 
 
 /*

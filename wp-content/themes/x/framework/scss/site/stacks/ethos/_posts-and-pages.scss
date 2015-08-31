@@ -52,14 +52,6 @@
 
 .hentry {
   @include clearfix();
-
-  p,
-  ul,
-  ol {
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 }
 
 
@@ -81,8 +73,7 @@ a.entry-thumb {
   padding-bottom: 65%;
   background-repeat: no-repeat;
   background-position: center center;
-  -webkit-background-size: cover;
-          background-size: cover;
+  background-size: cover;
 
   .view {
     display: block;
@@ -265,7 +256,7 @@ h2.entry-title {
 }
 
 .p-meta {
-  margin-top: 1em;
+  margin: 1em 0 0;
   font-family: $altFontFamily;
   font-size: 0.75em;
 
@@ -304,6 +295,14 @@ h2.entry-title {
   object {
     width: 100%;
     max-width: 100%;
+  }
+
+  > p,
+  > ul,
+  > ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -745,8 +744,7 @@ h2.entry-title {
   background-color: $navbarBackground;
   background-repeat: no-repeat;
   background-position: center center;
-  -webkit-background-size: cover;
-          background-size: cover;
+  background-size: cover;
 
   &:hover {
     .h-entry-cover {

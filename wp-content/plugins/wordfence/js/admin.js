@@ -39,6 +39,8 @@
 			welcomeClosed: false,
 			passwdAuditUpdateInt: false,
 			_windowHasFocus: true,
+			serverTimestampOffset: 0,
+
 			init: function() {
 				this.nonce = WordfenceAdminVars.firstNonce;
 				this.debugOn = WordfenceAdminVars.debugOn == '1' ? true : false;
@@ -54,6 +56,25 @@
 				}).focus();
 
 				$(document).focus();
+
+				// (docs|support).wordfence.com GA links
+				$(document).on('click', 'a', function() {
+					if (this.href && this.href.indexOf('utm_source') > -1) {
+						return;
+					}
+					var utm = '';
+					if (this.host == 'docs.wordfence.com') {
+						utm = 'utm_source=plugin&utm_medium=pluginUI&utm_campaign=docsIcon';
+					}
+					if (utm) {
+						utm = (this.search ? '&' : '?') + utm;
+						this.href = this.protocol + '//' + this.host + this.pathname + this.search + utm + this.hash;
+					}
+
+					if (this.href == 'http://support.wordfence.com/') {
+						this.href = 'https://support.wordfence.com/support/home?utm_source=plugin&utm_medium=pluginUI&utm_campaign=supportLink';
+					}
+				});
 
 				if (jQuery('#wordfenceMode_scan').length > 0) {
 					this.mode = 'scan';
@@ -345,7 +366,7 @@
 				}, parseInt(WordfenceAdminVars.actUpdateInterval));
 			},
 			updateActivityLog: function() {
-				if (this.activityLogUpdatePending) {
+				if (this.activityLogUpdatePending || !this.windowHasFocus()) {
 					return;
 				}
 				this.activityLogUpdatePending = true;
@@ -535,6 +556,8 @@
 					jQuery('#wfLiveStatus').hide().html(newMsg).fadeIn(200);
 				}
 				var haveEvents, newElem;
+				this.serverTimestampOffset = (new Date().getTime() / 1000) - res.serverTime;
+
 				if (this.mode == 'activity') {
 					if (res.alsoGet != 'logList_' + this.activityMode) {
 						return;
@@ -570,9 +593,7 @@
 						}
 					}
 					var self = this;
-					jQuery('.wfTimeAgo').each(function(idx, elem) {
-						jQuery(elem).html(self.makeTimeAgo(res.serverTime - jQuery(elem).data('wfctime')) + ' ago');
-					});
+					this.updateTimeAgo();
 				} else if (this.mode == 'perfStats') {
 					haveEvents = false;
 					if (jQuery('#wfPerfStats .wfPerfEvent').length > 0) {
@@ -599,9 +620,7 @@
 							jQuery('#wfPerfStats').html('<p>No events to report yet.</p>');
 						}
 					}
-					jQuery('.wfTimeAgo').each(function(idx, elem) {
-						jQuery(elem).html(self.makeTimeAgo(res.serverTime - jQuery(elem).data('wfctime')) + ' ago');
-					});
+					this.updateTimeAgo();
 				}
 			},
 			reverseLookupIPs: function() {
@@ -917,10 +936,11 @@
 					});
 				}
 			},
-			deleteFile: function(issueID) {
+			deleteFile: function(issueID, force) {
 				var self = this;
 				this.ajax('wordfence_deleteFile', {
-					issueID: issueID
+					issueID: issueID,
+					forceDelete: force
 				}, function(res) {
 					self.doneDeleteFile(res);
 				});
@@ -971,7 +991,7 @@
 				var self = this;
 				if (res.ok) {
 					this.loadIssues(function() {
-						self.colorbox("400px", "File restored OK", "The file " + res.file + " was restored succesfully.");
+						self.colorbox("400px", "File restored OK", "The file " + res.file + " was restored successfully.");
 					});
 				} else if (res.cerrorMsg) {
 					this.loadIssues(function() {
@@ -1351,6 +1371,7 @@
 				});
 			},
 			completeWhois: function(res) {
+				var self = this;
 				if (res.ok && res.result && res.result.rawdata && res.result.rawdata.length > 0) {
 					var rawhtml = "";
 					for (var i = 0; i < res.result.rawdata.length; i++) {
@@ -1361,7 +1382,6 @@
 						if (this.getQueryParam('wfnetworkblock')) {
 							redStyle = " style=\"color: #F00;\"";
 						}
-						var self = this;
 
 						function wfm21(str, ipRange, offset, totalStr) {
 							var ips = ipRange.split(/\s*\-\s*/);
@@ -1371,10 +1391,32 @@
 								var ip2num = self.inet_aton(ips[1]);
 								totalIPs = ip2num - ip1num + 1;
 							}
-							return "<a href=\"admin.php?page=WordfenceRangeBlocking&wfBlockRange=" + ipRange + "\"" + redStyle + ">" + ipRange + " [" + (!isNaN(totalIPs) ? "<strong>" + totalIPs + "</strong> addresses in this network." : "") + "Click to block this network]<\/a>";
+							return "<a href=\"admin.php?page=WordfenceRangeBlocking&wfBlockRange=" + ipRange + "\"" + redStyle + ">" + ipRange + " [" + (!isNaN(totalIPs) ? "<strong>" + totalIPs + "</strong> addresses in this network. " : "") + "Click to block this network]<\/a>";
+						}
+
+						function buildRangeLink2(str, octet1, octet2, octet3, octet4, cidrRange) {
+
+							octet3 = octet3.length > 0 ? octet3 : '0';
+							octet4 = octet4.length > 0 ? octet4 : '0';
+
+							var rangeStart = [octet1, octet2, octet3, octet4].join('.');
+							var rangeStartNum = self.inet_aton(rangeStart);
+							cidrRange = parseInt(cidrRange, 10);
+							if (!isNaN(rangeStartNum) && cidrRange > 0 && cidrRange < 32) {
+								var rangeEndNum = rangeStartNum;
+								for (var i = 32, j = 1; i >= cidrRange; i--, j *= 2) {
+									rangeEndNum |= j;
+								}
+								rangeEndNum = rangeEndNum >>> 0;
+								var ipRange = self.inet_ntoa(rangeStartNum) + '-' + self.inet_ntoa(rangeEndNum);
+								var totalIPs = rangeEndNum - rangeStartNum;
+								return "<a href=\"admin.php?page=WordfenceRangeBlocking&wfBlockRange=" + ipRange + "\"" + redStyle + ">" + ipRange + " [" + (!isNaN(totalIPs) ? "<strong>" + totalIPs + "</strong> addresses in this network. " : "") + "Click to block this network]<\/a>";
+							}
+							return str;
 						}
 
 						res.result.rawdata[i] = res.result.rawdata[i].replace(/(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3} - \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|[a-f0-9:.]{3,} - [a-f0-9:.]{3,})/i, wfm21);
+						res.result.rawdata[i] = res.result.rawdata[i].replace(/(\d{1,3})\.(\d{1,3})\.?(\d{0,3})\.?(\d{0,3})\/(\d{1,3})/i, buildRangeLink2);
 						rawhtml += res.result.rawdata[i] + "<br />";
 					}
 					jQuery('#wfrawhtml').html(rawhtml);
@@ -1465,6 +1507,14 @@
 				var self = this;
 				this.ajax('wordfence_unblockIP', {
 					IP: IP
+				}, function(res) {
+					self.reloadActivities();
+				});
+			},
+			unblockNetwork: function(id) {
+				var self = this;
+				this.ajax('wordfence_unblockRange', {
+					id: id
 				}, function(res) {
 					self.reloadActivities();
 				});
@@ -1684,7 +1734,7 @@
 				}
 			},
 			invalidCountryURLMsg: function(URL) {
-				this.colorbox('400px', "Invalid URL", "URL's that you provide for bypassing country blocking must start with '/' or 'http://' without quotes. The URL that is invalid is: " + URL);
+				this.colorbox('400px', "Invalid URL", "URL's that you provide for bypassing country blocking must start with '/' or 'http://' without quotes. The URL that is invalid is: " + this.htmlEscape(URL));
 				return;
 			},
 			confirmSaveCountryBlocking: function() {
@@ -2032,9 +2082,59 @@
 				}
 				// Older versions of Opera
 				return this._windowHasFocus;
+			},
+
+			htmlEscape: function(html) {
+				return String(html)
+					.replace(/&/g, '&amp;')
+					.replace(/"/g, '&quot;')
+					.replace(/'/g, '&#39;')
+					.replace(/</g, '&lt;')
+					.replace(/>/g, '&gt;');
+			},
+
+			permanentlyBlockAllIPs: function(type) {
+				var self = this;
+				this.ajax('wordfence_permanentlyBlockAllIPs', {
+					type: type
+				}, function(res) {
+					$('#wfTabs').find('.wfTab1').eq(0).trigger('click');
+				});
+			},
+
+			showTimestamp: function(timestamp, serverTime, format) {
+				serverTime = serverTime === undefined ? new Date().getTime() / 1000 : serverTime;
+				format = format === undefined ? '${dateTime} (${timeAgo} ago)' : format;
+				var date = new Date(timestamp * 1000);
+
+				return jQuery.tmpl(format, {
+					dateTime: date.toLocaleDateString() + ' ' + date.toLocaleTimeString(),
+					timeAgo: this.makeTimeAgo(serverTime - timestamp)
+				});
+			},
+
+			updateTimeAgo: function() {
+				var self = this;
+				jQuery('.wfTimeAgo-timestamp').each(function(idx, elem) {
+					var el = jQuery(elem);
+					var timestamp = el.data('wfctime');
+					if (!timestamp) {
+						timestamp = el.attr('data-timestamp');
+					}
+					var serverTime = (new Date().getTime() / 1000) - self.serverTimestampOffset;
+					var format = el.data('wfformat');
+					if (!format) {
+						format = el.attr('data-format');
+					}
+					el.html(self.showTimestamp(timestamp, serverTime, format));
+				});
 			}
 		};
 		window['WFAD'] = window['wordfenceAdmin'];
+
+		setInterval(function() {
+			WFAD.updateTimeAgo();
+		}, 1000);
 	}
 	jQuery(function() {
 		wordfenceAdmin.init();

@@ -176,6 +176,29 @@ function x_customizer_options_register( $wp_customize ) {
     'step' => '10'
   );
 
+  $list_woocommerce_navbar_cart_info = array(
+    'inner'       => __( 'Single (Inner)', '__x__' ),
+    'outer'       => __( 'Single (Outer)', '__x__' ),
+    'inner-outer' => __( 'Double (Inner / Outer)', '__x__' ),
+    'outer-inner' => __( 'Double (Outer / Inner)', '__x__' )
+  );
+
+  $list_woocommerce_navbar_cart_layout = array(
+    'inline'  => __( 'Inline', '__x__' ),
+    'stacked' => __( 'Stacked', '__x__' )
+  );
+
+  $list_woocommerce_navbar_cart_style = array(
+    'square'  => __( 'Square', '__x__' ),
+    'rounded' => __( 'Rounded', '__x__' )
+  );
+
+  $list_woocommerce_navbar_cart_content = array(
+    'icon'  => __( 'Icon', '__x__' ),
+    'total' => __( 'Cart Total', '__x__' ),
+    'count' => __( 'Item Count', '__x__' )
+  );
+
   $list_fonts            = x_font_data_families();
   $list_font_weights     = x_font_data_family_weights();
   $list_all_font_weights = x_font_data_all_weights();
@@ -524,14 +547,6 @@ function x_customizer_options_register( $wp_customize ) {
 
 
       //
-      // Navbar options.
-      //
-
-      $x['set'][] = array( 'x_ethos_navbar_desktop_link_side_padding', '20', 'refresh' );
-      $x['con'][] = array( 'x_ethos_navbar_desktop_link_side_padding', 'text', __( 'Navbar Link Side Padding (px)', '__x__' ), 'x_customizer_section_ethos' );
-
-
-      //
       // Blog options.
       //
 
@@ -665,6 +680,9 @@ function x_customizer_options_register( $wp_customize ) {
 
       $x['set'][] = array( 'x_navbar_font_weight', '400', 'refresh' );
       $x['con'][] = array( 'x_navbar_font_weight', 'radio', __( 'Navbar Font Weight', '__x__' ), $list_all_font_weights, 'x_customizer_section_typography' );
+
+      $x['set'][] = array( 'x_navbar_letter_spacing', '1', 'refresh' );
+      $x['con'][] = array( 'x_navbar_letter_spacing', 'text', __( 'Navbar Letter Spacing (px)', '__x__' ), 'x_customizer_section_typography' );
 
       $x['set'][] = array( 'x_navbar_uppercase_enable', '', 'refresh' );
       $x['con'][] = array( 'x_navbar_uppercase_enable', 'radio', __( 'Uppercase', '__x__' ), $list_on_off, 'x_customizer_section_typography' );
@@ -838,8 +856,11 @@ function x_customizer_options_register( $wp_customize ) {
       $x['set'][] = array( 'x_logo_adjust_navbar_top', '13', 'refresh' );
       $x['con'][] = array( 'x_logo_adjust_navbar_top', 'text', __( 'Navbar Top Logo Alignment (px)', '__x__' ), 'x_customizer_section_header' );
 
-      $x['set'][] = array( 'x_navbar_adjust_links_top', '34', 'refresh' );
+      $x['set'][] = array( 'x_navbar_adjust_links_top', '37', 'refresh' );
       $x['con'][] = array( 'x_navbar_adjust_links_top', 'text', __( 'Navbar Top Link Alignment (px)', '__x__' ), 'x_customizer_section_header' );
+
+      $x['set'][] = array( 'x_navbar_adjust_links_top_spacing', '15', 'refresh' );
+      $x['con'][] = array( 'x_navbar_adjust_links_top_spacing', 'text', __( 'Navbar Top Link Spacing (px)', '__x__' ), 'x_customizer_section_header' );
 
       $x['set'][] = array( 'x_logo_adjust_navbar_side', '30', 'refresh' );
       $x['con'][] = array( 'x_logo_adjust_navbar_side', 'text', __( 'Navbar Side Logo Alignment (px)', '__x__' ), 'x_customizer_section_header' );
@@ -1118,6 +1139,44 @@ function x_customizer_options_register( $wp_customize ) {
 
   if ( X_WOOCOMMERCE_IS_ACTIVE ) {
 
+      $x['set'][] = array( 'x_woocommerce_header_menu_enable', '', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_header_menu_enable', 'radio', __( 'Navbar Menu', '__x__' ), $list_on_off, 'x_customizer_section_woocommerce' );
+
+      $x['set'][] = array( 'x_woocommerce_header_cart_info', 'outer-inner', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_header_cart_info', 'radio', __( 'Cart Information', '__x__' ), $list_woocommerce_navbar_cart_info, 'x_customizer_section_woocommerce' );
+
+      $x['set'][] = array( 'x_woocommerce_header_cart_style', 'square', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_header_cart_style', 'radio', __( 'Cart Style', '__x__' ), $list_woocommerce_navbar_cart_style, 'x_customizer_section_woocommerce' );
+
+      $x['set'][] = array( 'x_woocommerce_header_cart_layout', 'inline', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_header_cart_layout', 'radio', __( 'Cart Layout', '__x__' ), $list_woocommerce_navbar_cart_layout, 'x_customizer_section_woocommerce' );
+
+      $x['set'][] = array( 'x_woocommerce_header_cart_adjust', '30', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_header_cart_adjust', 'text', __( 'Cart Alignment (px)', '__x__' ), 'x_customizer_section_woocommerce' );
+
+      $x['set'][] = array( 'x_woocommerce_header_cart_content_inner', 'count', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_header_cart_content_inner', 'radio', __( 'Cart Content &ndash; Inner', '__x__' ), $list_woocommerce_navbar_cart_content, 'x_customizer_section_woocommerce' );
+
+      $x['set'][] = array( 'x_woocommerce_header_cart_content_outer', 'total', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_header_cart_content_outer', 'radio', __( 'Cart Content &ndash; Outer', '__x__' ), $list_woocommerce_navbar_cart_content, 'x_customizer_section_woocommerce' );
+
+      $x['set'][] = array( 'x_woocommerce_header_cart_content_inner_color', '#ffffff', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_header_cart_content_inner_color', 'color', __( 'Cart Content &ndash; Inner Color', '__x__' ), 'x_customizer_section_woocommerce' );
+
+      $x['set'][] = array( 'x_woocommerce_header_cart_content_inner_color_hover', '#ffffff', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_header_cart_content_inner_color_hover', 'color', __( 'Cart Content &ndash; Inner Color Hover', '__x__' ), 'x_customizer_section_woocommerce' );
+
+      $x['set'][] = array( 'x_woocommerce_header_cart_content_outer_color', '#b7b7b7', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_header_cart_content_outer_color', 'color', __( 'Cart Content &ndash; Outer Color', '__x__' ), 'x_customizer_section_woocommerce' );
+
+      $x['set'][] = array( 'x_woocommerce_header_cart_content_outer_color_hover', '#272727', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_header_cart_content_outer_color_hover', 'color', __( 'Cart Content &ndash; Outer Color Hover', '__x__' ), 'x_customizer_section_woocommerce' );
+
+
+      //
+      // Shop.
+      //
+
       $x['set'][] = array( 'x_woocommerce_shop_layout_content', 'sidebar', 'refresh' );
       $x['con'][] = array( 'x_woocommerce_shop_layout_content', 'radio', __( 'Shop Layout', '__x__' ), $list_section_layouts, 'x_customizer_section_woocommerce' );
 
@@ -1178,6 +1237,23 @@ function x_customizer_options_register( $wp_customize ) {
 
 
       //
+      // AJAX add to cart.
+      //
+
+      $x['set'][] = array( 'x_woocommerce_ajax_add_to_cart_color', '#545454', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_ajax_add_to_cart_color', 'color', __( 'Icon Color', '__x__' ), 'x_customizer_section_woocommerce' );
+
+      $x['set'][] = array( 'x_woocommerce_ajax_add_to_cart_bg_color', '#000000', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_ajax_add_to_cart_bg_color', 'color', __( 'Background Color', '__x__' ), 'x_customizer_section_woocommerce' );
+
+      $x['set'][] = array( 'x_woocommerce_ajax_add_to_cart_color_hover', '#ffffff', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_ajax_add_to_cart_color_hover', 'color', __( 'Icon Color Hover', '__x__' ), 'x_customizer_section_woocommerce' );
+
+      $x['set'][] = array( 'x_woocommerce_ajax_add_to_cart_bg_color_hover', '#46a546', 'refresh' );
+      $x['con'][] = array( 'x_woocommerce_ajax_add_to_cart_bg_color_hover', 'color', __( 'Background Color Hover', '__x__' ), 'x_customizer_section_woocommerce' );
+
+
+      //
       // Widgets.
       //
 
@@ -1232,6 +1308,9 @@ function x_customizer_options_register( $wp_customize ) {
 
       $x['set'][] = array( 'x_social_tumblr', '', 'refresh' );
       $x['con'][] = array( 'x_social_tumblr', 'text', __( 'Tumblr Profile URL', '__x__' ), 'x_customizer_section_social' );
+
+      $x['set'][] = array( 'x_social_whatsapp', '', 'refresh' );
+      $x['con'][] = array( 'x_social_whatsapp', 'text', __( 'Whatsapp Profile URL', '__x__' ), 'x_customizer_section_social' );
 
       $x['set'][] = array( 'x_social_soundcloud', '', 'refresh' );
       $x['con'][] = array( 'x_social_soundcloud', 'text', __( 'SoundCloud Profile URL', '__x__' ), 'x_customizer_section_social' );
@@ -1503,7 +1582,6 @@ function x_customizer_options_list() {
     'x_ethos_post_slider_archive_height',
     'x_ethos_post_slider_archive_count',
     'x_ethos_post_slider_archive_display',
-    'x_ethos_navbar_desktop_link_side_padding',
     'x_ethos_filterable_index_enable',
     'x_ethos_filterable_index_categories',
     'x_ethos_shop_title',
@@ -1524,6 +1602,7 @@ function x_customizer_options_list() {
     'x_navbar_link_color_hover',
     'x_navbar_font_size',
     'x_navbar_font_weight',
+    'x_navbar_letter_spacing',
     'x_navbar_uppercase_enable',
     'x_headings_font_family',
     'x_headings_font_color_enable',
@@ -1562,6 +1641,7 @@ function x_customizer_options_list() {
     'x_header_search_enable',
     'x_logo_adjust_navbar_top',
     'x_navbar_adjust_links_top',
+    'x_navbar_adjust_links_top_spacing',
     'x_logo_adjust_navbar_side',
     'x_navbar_adjust_links_side',
     'x_navbar_adjust_button',
@@ -1620,6 +1700,17 @@ function x_customizer_options_list() {
     'x_buddypress_members_subtitle',
     'x_buddypress_register_subtitle',
     'x_buddypress_activate_subtitle',
+    'x_woocommerce_header_menu_enable',
+    'x_woocommerce_header_cart_info',
+    'x_woocommerce_header_cart_style',
+    'x_woocommerce_header_cart_layout',
+    'x_woocommerce_header_cart_adjust',
+    'x_woocommerce_header_cart_content_inner',
+    'x_woocommerce_header_cart_content_outer',
+    'x_woocommerce_header_cart_content_inner_color',
+    'x_woocommerce_header_cart_content_inner_color_hover',
+    'x_woocommerce_header_cart_content_outer_color',
+    'x_woocommerce_header_cart_content_outer_color_hover',
     'x_woocommerce_shop_layout_content',
     'x_woocommerce_shop_columns',
     'x_woocommerce_shop_count',
@@ -1636,11 +1727,16 @@ function x_customizer_options_list() {
     'x_woocommerce_cart_cross_sells_enable',
     'x_woocommerce_cart_cross_sells_columns',
     'x_woocommerce_cart_cross_sells_count',
+    'x_woocommerce_ajax_add_to_cart_color',
+    'x_woocommerce_ajax_add_to_cart_bg_color',
+    'x_woocommerce_ajax_add_to_cart_color_hover',
+    'x_woocommerce_ajax_add_to_cart_bg_color_hover',
     'x_woocommerce_widgets_image_alignment',
     'x_social_facebook',
     'x_social_twitter',
     'x_social_googleplus',
     'x_social_linkedin',
+    'x_social_xing',
     'x_social_foursquare',
     'x_social_youtube',
     'x_social_vimeo',
@@ -1650,7 +1746,11 @@ function x_customizer_options_list() {
     'x_social_flickr',
     'x_social_behance',
     'x_social_tumblr',
+    'x_social_whatsapp',
+    'x_social_soundcloud',
     'x_social_rss',
+    'x_social_open_graph',
+    'x_social_fallback_image',
     'x_icon_favicon',
     'x_icon_touch',
     'x_icon_tile',

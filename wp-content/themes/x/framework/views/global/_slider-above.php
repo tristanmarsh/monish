@@ -6,10 +6,6 @@
 // Slider output above all page content.
 // =============================================================================
 
-?>
-
-<?php
-
 if ( X_REVOLUTION_SLIDER_IS_ACTIVE ) :
 
   GLOBAL $post;
@@ -38,24 +34,17 @@ if ( X_REVOLUTION_SLIDER_IS_ACTIVE ) :
 
     <div class="x-slider-container above<?php if ( $bg_video != '' ) { echo ' bg-video'; } ?>">
 
+      <?php if ( $bg_video != '' ) : echo function_exists( 'cs_bg_video' ) ? cs_bg_video( $bg_video, $bg_video_poster ) : ''; endif; ?>
+
       <?php if ( $anchor == 'on' ) : ?>
 
         <style scoped>
-
-          .x-slider-scroll-bottom.above {
-            color: <?php echo $anchor_color; ?>;
-            border-color: <?php echo $anchor_color; ?>;
-          }
-
-          .x-slider-scroll-bottom.above:hover {
-            color: <?php echo $anchor_color_hover; ?>;
-            border-color: <?php echo $anchor_color_hover; ?>;
-          }
-
+          .x-slider-scroll-bottom.above       { color: <?php echo $anchor_color; ?>;       }
+          .x-slider-scroll-bottom.above:hover { color: <?php echo $anchor_color_hover; ?>; }
         </style>
 
         <a href="#" class="x-slider-scroll-bottom above <?php echo $anchor_alignment; ?>">
-          <i class="x-icon-angle-down"></i>
+          <i class="x-icon-angle-down" data-x-icon="&#xf107;"></i>
         </a>
 
       <?php endif; ?>
@@ -63,21 +52,6 @@ if ( X_REVOLUTION_SLIDER_IS_ACTIVE ) :
       <?php putRevSlider( $slider ); ?>
 
     </div>
-
-    <?php if ( $bg_video != '' ) : ?>
-
-    <script>
-      jQuery(function(){
-        var BV = new jQuery.BigVideo(); BV.init();
-        if ( Modernizr.touch ) {
-          BV.show('<?php echo $bg_video_poster; ?>');
-        } else {
-          BV.show('<?php echo $bg_video; ?>', { ambient : true });
-        }
-      });
-    </script>
-
-    <?php endif; ?>
 
   <?php endif;
 

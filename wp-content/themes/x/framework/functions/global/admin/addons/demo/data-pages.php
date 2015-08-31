@@ -35,13 +35,15 @@ if ( $front_page_is_page && x_demo_content_home_page() == false ) {
     'post_type'     => 'page',
     'post_status'   => 'publish',
     'post_date'     => date( 'Y-m-d H:i:s', strtotime( '-2 days' ) ),
-    'page_template' => $front_page_template
+    'page_template' => $front_page_template,
+    'x_info' => array(
+      'cs_data'     => $front_page_cs_data,
+      'cs_settings' => $front_page_cs_settings
+    )
   );
 
   if ( ! empty( $front_page_meta ) ) {
-    $pages['page-page']['x_info'] = array(
-      'meta' => $front_page_meta
-    );
+    $pages['page-page']['x_info']['meta'] = $front_page_meta;
   }
 
 }

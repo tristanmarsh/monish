@@ -14,14 +14,16 @@
 //   03. Make Protocol Relative
 //   04. Get Featured Image URL
 //   05. Get Social Fallback Image URL
-//   06. Return an Array of Integer Values from String
-//   07. Get Post by Title
-//   08. Get Page by Title
-//   09. Get Portfolio Item by Title
-//   10. Plugin Exists
-//   11. Shortcode Plugin Exists
-//   12. Array to Object
-//   13. Object to Array
+//   06. Output Style Block
+//   07. Return an Array of Integer Values from String
+//   08. Get Post by Title
+//   09. Get Page by Title
+//   10. Get Portfolio Item by Title
+//   11. Plugin Exists
+//   12. Shortcode Plugin Exists
+//   13. Array to Object
+//   14. Object to Array
+//   15. Get Current Admin Color Scheme
 // =============================================================================
 
 // Get View
@@ -114,6 +116,27 @@ endif;
 
 
 
+// Output Style Block
+// =============================================================================
+
+if ( ! function_exists( 'x_output_style_block' ) ) :
+  function x_output_style_block( $css = array() ) {
+
+    echo '<style scoped>';
+      foreach ( $css as $selector => $styles ) {
+        echo $selector . '{';
+          foreach ( $styles as $property => $value ) {
+            echo $property . ':' . $value . ';';
+          }
+        echo '}';
+      }
+    echo '</style>';
+
+  }
+endif;
+
+
+
 // Return an Array of Integer Values from String
 // =============================================================================
 
@@ -195,9 +218,9 @@ function x_plugin_exists( $plugin ) {
 // Shortcode Plugin Exists
 // =============================================================================
 
-function x_plugin_shortcodes_exists() {
+function x_plugin_cornerstone_exists() {
 
-  if ( x_plugin_exists( 'x-shortcodes/x-shortcodes.php' ) ) {
+  if ( x_plugin_exists( 'cornerstone/cornerstone.php' ) ) {
     return true;
   } else {
     return false;
@@ -229,4 +252,21 @@ function x_array_to_object( $array ) {
 
 function x_object_to_array( $object ) {
   return (array) $object;
+}
+
+
+
+// Get Current Admin Color Scheme
+// =============================================================================
+
+function x_get_current_admin_color_scheme( $type = 'colors' ) {
+
+  GLOBAL $_wp_admin_css_colors;
+
+  $current_color_scheme = get_user_option( 'admin_color' );
+  $admin_colors         = $_wp_admin_css_colors;
+  $user_colors          = (array) $admin_colors[$current_color_scheme];
+
+  return ( $type == 'icons' ) ? $user_colors['icon_colors'] : $user_colors['colors'];
+
 }

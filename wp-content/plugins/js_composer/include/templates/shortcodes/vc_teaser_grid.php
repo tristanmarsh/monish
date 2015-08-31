@@ -8,10 +8,13 @@ extract( shortcode_atts( array(
 	'title' => '',
 	'grid_columns_count' => 4,
 	'grid_teasers_count' => 8,
-	'grid_layout' => 'title_thumbnail_text', // title_thumbnail_text, thumbnail_title_text, thumbnail_text, thumbnail_title, thumbnail, title_text
-	'grid_link' => 'link_post', // link_post, link_image, link_image_post, link_no
+	'grid_layout' => 'title_thumbnail_text',
+	// title_thumbnail_text, thumbnail_title_text, thumbnail_text, thumbnail_title, thumbnail, title_text
+	'grid_link' => 'link_post',
+	// link_post, link_image, link_image_post, link_no
 	'grid_link_target' => '_self',
-	'grid_template' => 'grid', //grid, carousel
+	'grid_template' => 'grid',
+	//grid, carousel
 	'grid_thumb_size' => 'thumbnail',
 	'grid_posttypes' => '',
 	'grid_taxomonies' => '',
@@ -19,10 +22,11 @@ extract( shortcode_atts( array(
 	'grid_layout_mode' => 'fitRows',
 	'posts_in' => '',
 	'posts_not_in' => '',
-	'grid_content' => 'teaser', // teaser, content
+	'grid_content' => 'teaser',
+	// teaser, content
 	'el_class' => '',
 	'width' => '1/1',
-	'orderby' => NULL,
+	'orderby' => null,
 	'order' => 'DESC',
 	'el_position' => ''
 ), $atts ) );
@@ -72,8 +76,12 @@ if ( $posts_in == '' || $posts_not_in != '' ) {
 }
 
 // Post teasers count
-if ( $grid_teasers_count != '' && ! is_numeric( $grid_teasers_count ) ) $grid_teasers_count = - 1;
-if ( $grid_teasers_count != '' && is_numeric( $grid_teasers_count ) ) $query_args['posts_per_page'] = $grid_teasers_count;
+if ( $grid_teasers_count != '' && ! is_numeric( $grid_teasers_count ) ) {
+	$grid_teasers_count = - 1;
+}
+if ( $grid_teasers_count != '' && is_numeric( $grid_teasers_count ) ) {
+	$query_args['posts_per_page'] = $grid_teasers_count;
+}
 
 // Post types
 $pt = array();
@@ -120,7 +128,7 @@ if ( $grid_categories != '' ) {
 }
 
 // Order posts
-if ( $orderby != NULL ) {
+if ( $orderby != null ) {
 	$query_args['orderby'] = $orderby;
 }
 $query_args['order'] = $order;
@@ -131,7 +139,10 @@ $my_query = new WP_Query( $query_args );
 $teasers = '';
 $teaser_categories = Array();
 if ( $grid_template == 'filtered_grid' && empty( $grid_taxomonies ) ) {
-	$taxonomies = get_object_taxonomies( ! empty( $query_args['post_type'] ) ? $query_args['post_type'] : get_post_types( array( 'public' => false, 'name' => 'attachment' ), 'names', 'NOT' ) );
+	$taxonomies = get_object_taxonomies( ! empty( $query_args['post_type'] ) ? $query_args['post_type'] : get_post_types( array(
+		'public' => false,
+		'name' => 'attachment'
+	), 'names', 'NOT' ) );
 }
 
 $posts_Ids = array();
@@ -146,7 +157,7 @@ while ( $my_query->have_posts() ) {
 
 	$categories_css = '';
 	if ( $grid_template == 'filtered_grid' ) {
-		/** @var $post_cate``gories get list of categories */
+		/** @var $post_cate ``gories get list of categories */
 		// $post_categories = get_the_category($my_query->post->ID);
 		$post_categories = wp_get_object_terms( $my_query->post->ID, array_values( $taxonomies ) );
 		if ( ! is_wp_error( $post_categories ) ) {
@@ -182,7 +193,14 @@ while ( $my_query->have_posts() ) {
 	}
 
 	// Thumbnail logic
-	if ( in_array( $grid_layout, array( 'title_thumbnail_text', 'thumbnail_title_text', 'thumbnail_text', 'thumbnail_title', 'thumbnail', 'title_text' ) ) ) {
+	if ( in_array( $grid_layout, array(
+		'title_thumbnail_text',
+		'thumbnail_title_text',
+		'thumbnail_text',
+		'thumbnail_title',
+		'thumbnail',
+		'title_text'
+	) ) ) {
 		$post_thumbnail = $p_img_large = '';
 		//$attach_id = get_post_thumbnail_id($post_id);
 
@@ -224,70 +242,135 @@ while ( $my_query->have_posts() ) {
 		$link_title_start = '';
 		$link_title_end = $link_image_end = '';
 	}
-    $teasers .= '<li class="' . $isotope_item.apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $li_span_class, 'vc_teaser_grid_li', $atts ) . $categories_css . '">';
+	$teasers .= '<li class="' . $isotope_item . apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $li_span_class, 'vc_teaser_grid_li', $atts ) . $categories_css . '">';
 	// If grid layout is: Title + Thumbnail + Text
 	if ( $grid_layout == 'title_thumbnail_text' ) {
 		if ( $post_title ) {
 			$to_filter = '<h2 class="post-title">' . $link_title_start . $post_title . $link_title_end . '</h2>';
-			$teasers .= apply_filters( 'vc_teaser_grid_title', $to_filter, array( "grid_layout" => $grid_layout, "ID" => $post_id, "title" => $post_title, "media_link" => $p_link ) );
+			$teasers .= apply_filters( 'vc_teaser_grid_title', $to_filter, array(
+				"grid_layout" => $grid_layout,
+				"ID" => $post_id,
+				"title" => $post_title,
+				"media_link" => $p_link
+			) );
 		}
 		if ( $thumbnail ) {
 			$to_filter = '<div class="post-thumb">' . $link_image_start . $thumbnail . $link_image_end . '</div>';
-			$teasers .= apply_filters( 'vc_teaser_grid_thumbnail', $to_filter, array( "grid_layout" => $grid_layout, "ID" => $post_id, "thumbnail" => $thumbnail, "media_link" => $p_link ) );
+			$teasers .= apply_filters( 'vc_teaser_grid_thumbnail', $to_filter, array(
+				"grid_layout" => $grid_layout,
+				"ID" => $post_id,
+				"thumbnail" => $thumbnail,
+				"media_link" => $p_link
+			) );
 		}
 		if ( $content ) {
 			$to_filter = '<div class="entry-content">' . $content . '</div>';
-			$teasers .= apply_filters( 'vc_teaser_grid_content', $to_filter, array( "grid_layout" => $grid_layout, "ID" => $post_id, "content" => $content, "media_link" => $p_link ) );
+			$teasers .= apply_filters( 'vc_teaser_grid_content', $to_filter, array(
+				"grid_layout" => $grid_layout,
+				"ID" => $post_id,
+				"content" => $content,
+				"media_link" => $p_link
+			) );
 		}
 	} // If grid layout is: Thumbnail + Title + Text
 	else if ( $grid_layout == 'thumbnail_title_text' ) {
 		if ( $thumbnail ) {
 			$to_filter = '<div class="post-thumb">' . $link_image_start . $thumbnail . $link_image_end . '</div>';
-			$teasers .= apply_filters( 'vc_teaser_grid_thumbnail', $to_filter, array( "grid_layout" => $grid_layout, "ID" => $post_id, "thumbnail" => $thumbnail, "media_link" => $p_link ) );
+			$teasers .= apply_filters( 'vc_teaser_grid_thumbnail', $to_filter, array(
+				"grid_layout" => $grid_layout,
+				"ID" => $post_id,
+				"thumbnail" => $thumbnail,
+				"media_link" => $p_link
+			) );
 		}
 		if ( $post_title ) {
 			$to_filter = '<h2 class="post-title">' . $link_title_start . $post_title . $link_title_end . '</h2>';
-			$teasers .= apply_filters( 'vc_teaser_grid_title', $to_filter, array( "grid_layout" => $grid_layout, "ID" => $post_id, "title" => $post_title, "media_link" => $p_link ) );
+			$teasers .= apply_filters( 'vc_teaser_grid_title', $to_filter, array(
+				"grid_layout" => $grid_layout,
+				"ID" => $post_id,
+				"title" => $post_title,
+				"media_link" => $p_link
+			) );
 		}
 		if ( $content ) {
 			$to_filter = '<div class="entry-content">' . $content . '</div>';
-			$teasers .= apply_filters( 'vc_teaser_grid_content', $to_filter, array( "grid_layout" => $grid_layout, "ID" => $post_id, "content" => $content, "media_link" => $p_link ) );
+			$teasers .= apply_filters( 'vc_teaser_grid_content', $to_filter, array(
+				"grid_layout" => $grid_layout,
+				"ID" => $post_id,
+				"content" => $content,
+				"media_link" => $p_link
+			) );
 		}
 	} // If grid layout is: Thumbnail + Text
 	else if ( $grid_layout == 'thumbnail_text' ) {
 		if ( $thumbnail ) {
 			$to_filter = '<div class="post-thumb">' . $link_image_start . $thumbnail . $link_image_end . '</div>';
-			$teasers .= apply_filters( 'vc_teaser_grid_thumbnail', $to_filter, array( "grid_layout" => $grid_layout, "ID" => $post_id, "thumbnail" => $thumbnail, "media_link" => $p_link ) );
+			$teasers .= apply_filters( 'vc_teaser_grid_thumbnail', $to_filter, array(
+				"grid_layout" => $grid_layout,
+				"ID" => $post_id,
+				"thumbnail" => $thumbnail,
+				"media_link" => $p_link
+			) );
 		}
 		if ( $content ) {
 			$to_filter = '<div class="entry-content">' . $content . '</div>';
-			$teasers .= apply_filters( 'vc_teaser_grid_content', $to_filter, array( "grid_layout" => $grid_layout, "ID" => $post_id, "content" => $content, "media_link" => $p_link ) );
+			$teasers .= apply_filters( 'vc_teaser_grid_content', $to_filter, array(
+				"grid_layout" => $grid_layout,
+				"ID" => $post_id,
+				"content" => $content,
+				"media_link" => $p_link
+			) );
 		}
 	} // If grid layout is: Thumbnail + Title
 	else if ( $grid_layout == 'thumbnail_title' ) {
 		if ( $thumbnail ) {
 			$to_filter = '<div class="post-thumb">' . $link_image_start . $thumbnail . $link_image_end . '</div>';
-			$teasers .= apply_filters( 'vc_teaser_grid_thumbnail', $to_filter, array( "grid_layout" => $grid_layout, "ID" => $post_id, "thumbnail" => $thumbnail, "media_link" => $p_link ) );
+			$teasers .= apply_filters( 'vc_teaser_grid_thumbnail', $to_filter, array(
+				"grid_layout" => $grid_layout,
+				"ID" => $post_id,
+				"thumbnail" => $thumbnail,
+				"media_link" => $p_link
+			) );
 		}
 		if ( $post_title ) {
 			$to_filter = '<h2 class="post-title">' . $link_title_start . $post_title . $link_title_end . '</h2>';
-			$teasers .= apply_filters( 'vc_teaser_grid_title', $to_filter, array( "grid_layout" => $grid_layout, "ID" => $post_id, "title" => $post_title, "media_link" => $p_link ) );
+			$teasers .= apply_filters( 'vc_teaser_grid_title', $to_filter, array(
+				"grid_layout" => $grid_layout,
+				"ID" => $post_id,
+				"title" => $post_title,
+				"media_link" => $p_link
+			) );
 		}
 	} // If grid layout is: Thumbnail
 	else if ( $grid_layout == 'thumbnail' ) {
 		if ( $thumbnail ) {
 			$to_filter = '<div class="post-thumb">' . $link_image_start . $thumbnail . $link_image_end . '</div>';
-			$teasers .= apply_filters( 'vc_teaser_grid_thumbnail', $to_filter, array( "grid_layout" => $grid_layout, "ID" => $post_id, "thumbnail" => $thumbnail, "media_link" => $p_link ) );
+			$teasers .= apply_filters( 'vc_teaser_grid_thumbnail', $to_filter, array(
+				"grid_layout" => $grid_layout,
+				"ID" => $post_id,
+				"thumbnail" => $thumbnail,
+				"media_link" => $p_link
+			) );
 		}
 	} // If grid layout is: Title + Text
 	else if ( $grid_layout == 'title_text' ) {
 		if ( $post_title ) {
 			$to_filter = '<h2 class="post-title">' . $link_title_start . $post_title . $link_title_end . '</h2>';
-			$teasers .= apply_filters( 'vc_teaser_grid_title', $to_filter, array( "grid_layout" => $grid_layout, "ID" => $post_id, "title" => $post_title, "media_link" => $p_link ) );
+			$teasers .= apply_filters( 'vc_teaser_grid_title', $to_filter, array(
+				"grid_layout" => $grid_layout,
+				"ID" => $post_id,
+				"title" => $post_title,
+				"media_link" => $p_link
+			) );
 		}
 		if ( $content ) {
 			$to_filter = '<div class="entry-content">' . $content . '</div>';
-			$teasers .= apply_filters( 'vc_teaser_grid_content', $to_filter, array( "grid_layout" => $grid_layout, "ID" => $post_id, "content" => $content, "media_link" => $p_link ) );
+			$teasers .= apply_filters( 'vc_teaser_grid_content', $to_filter, array(
+				"grid_layout" => $grid_layout,
+				"ID" => $post_id,
+				"content" => $content,
+				"media_link" => $p_link
+			) );
 		}
 	}
 	$teasers .= '</li> ' . $this->endBlockComment( 'single teaser' );

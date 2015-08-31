@@ -148,7 +148,7 @@ class Vc_Edit_Form_Fields implements Vc_Render {
 	 */
 	protected function renderGroupedFields( $groups, $groups_content ) {
 		$output = '';
-		if ( sizeof( $groups ) > 1 ) {
+		if ( sizeof( $groups ) > 1 || ( sizeof( $groups ) >= 1 && empty( $groups_content['_general'] ) ) ) {
 			$output .= '<div class="vc_panel-tabs" id="vc_edit-form-tabs"><ul class="vc_edit-form-tabs-menu">';
 			$key = 0;
 			foreach ( $groups as $g ) {
@@ -196,17 +196,19 @@ class Vc_Edit_Form_Fields implements Vc_Render {
 		$output .= '<div class="' . implode( ' ',
 				$editor_css_classes ) . '" data-title="' . htmlspecialchars( __( 'Edit',
 					'js_composer' ) . ' ' . __( $this->setting( 'name' ), "js_composer" ) ) . '">';
-		foreach ( $params as $param ) {
-			$name = isset( $param['param_name'] ) ? $param['param_name'] : null;
-			if ( ! is_null( $name ) ) {
-				$value = isset( $this->atts[ $name ] ) ? $this->atts[ $name ] : null;
-				$value = $this->parseShortcodeAttributeValue( $param, $value );
-				$group = isset( $param['group'] ) && '' !== $param['group'] ? $param['group'] : '_general';
-				if ( ! isset( $groups_content[ $group ] ) ) {
-					$groups[] = $group;
-					$groups_content[ $group ] = '';
+		if ( is_array( $params ) ) {
+			foreach ( $params as $param ) {
+				$name = isset( $param['param_name'] ) ? $param['param_name'] : null;
+				if ( ! is_null( $name ) ) {
+					$value = isset( $this->atts[ $name ] ) ? $this->atts[ $name ] : null;
+					$value = $this->parseShortcodeAttributeValue( $param, $value );
+					$group = isset( $param['group'] ) && '' !== $param['group'] ? $param['group'] : '_general';
+					if ( ! isset( $groups_content[ $group ] ) ) {
+						$groups[] = $group;
+						$groups_content[ $group ] = '';
+					}
+					$groups_content[ $group ] .= $this->renderField( $param, $value );
 				}
-				$groups_content[ $group ] .= $this->renderField( $param, $value );
 			}
 		}
 		$output .= $this->renderGroupedFields( $groups, $groups_content );
@@ -242,7 +244,7 @@ class Vc_Edit_Form_Fields implements Vc_Render {
 		}
 		$param = apply_filters( 'vc_single_param_edit', $param, $value );
 		$output = '<div class="' . implode( ' ',
-				$param['vc_single_param_edit_holder_class'] ) . '" data-param_name="' . $param['param_name'] . '" data-param_type="' . $param['type'] . '">';
+				$param['vc_single_param_edit_holder_class'] ) . '" data-param_name="' . esc_attr( $param['param_name'] ) . '" data-param_type="' . esc_attr( $param['type'] ) . '" data-param_settings="' . esc_attr( json_encode( $param ) ) . '">';
 		$output .= ( isset( $param['heading'] ) ) ? '<div class="wpb_element_label">' . __( $param['heading'],
 				"js_composer" ) . '</div>' : '';
 		$output .= '<div class="edit_form_line">';

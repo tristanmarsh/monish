@@ -152,20 +152,24 @@
 		 * @return {*}
 		 */
 		createShortcodeString: function ( model ) {
-			var params = _.extend( {}, model.params ),
-				params_to_string = {};
-			_.each( params, function ( value, key ) {
-				if ( key !== 'content' ) {
-					params_to_string[ key ] = this.escapeParam( value );
+			var content, isContainer, params, paramsString, mergedParams;
+
+			params = _.extend( {}, model.params );
+			mergedParams = vc.getMergedParams( model.shortcode, params );
+			paramsString = {};
+			_.each( mergedParams, function ( value, key ) {
+				if ( 'content' !== key ) {
+					paramsString[ key ] = this.escapeParam( value );
 				}
 			}, this );
-			var content = this._getShortcodeContent( model ),
-				is_container = _.isObject( vc.map[ model.shortcode ] ) && ( ( _.isBoolean( vc.map[ model.shortcode ].is_container ) && vc.map[ model.shortcode ].is_container === true ) || ! _.isEmpty( vc.map[ model.shortcode ].as_parent ) );
+			content = this._getShortcodeContent( model );
+			isContainer = _.isObject( vc.map[ model.shortcode ] ) && ( ( _.isBoolean( vc.map[ model.shortcode ].is_container ) && true === vc.map[ model.shortcode ].is_container ) || ! _.isEmpty( vc.map[ model.shortcode ].as_parent ) );
+
 			return wp.shortcode.string( {
 				tag: model.shortcode,
-				attrs: params_to_string,
+				attrs: paramsString,
 				content: content,
-				type: ! is_container && _.isUndefined( vc.getParamSettings( model.shortcode,
+				type: ! isContainer && _.isUndefined( vc.getParamSettings( model.shortcode,
 					'content' ) ) ? 'single' : ''
 			} );
 		},
@@ -373,7 +377,7 @@
 				var current_content = this.getContent();
 				this.setContent( current_content + "" + content );
 			} catch ( e ) {
-				window.console && window.console.log && console.log( e );
+				window.console && window.console.error && console.error( e );
 			}
 		},
 		/**

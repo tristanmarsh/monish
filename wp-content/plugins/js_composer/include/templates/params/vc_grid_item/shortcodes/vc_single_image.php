@@ -1,20 +1,9 @@
 <?php
 
 $output = $el_class = $image = $img_size = $img_link = $img_link_target = $img_link_large = $title = $alignment = $css_animation = $css = '';
-
-extract( shortcode_atts( array(
-	'title' => '',
-	'image' => $image,
-	'img_size' => 'thumbnail',
-	'link' => '',
-	'img_link_target' => '_self',
-	'alignment' => 'left',
-	'el_class' => '',
-	'css_animation' => '',
-	'style' => '',
-	'border_color' => '',
-	'css' => ''
-), $atts ) );
+/** @var $this WPBakeryShortCode_VC_Single_image */
+$atts = vc_map_get_attributes( $this->getShortcode(), $atts );
+extract( $atts );
 
 $style = ( $style != '' ) ? $style : '';
 $border_color = ( $border_color != '' ) ? ' vc_box_border_' . $border_color : '';

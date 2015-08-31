@@ -7,13 +7,60 @@ Since:    31/7/15
 */
 
 body {
-  background: #C4E7EC;
-  background: #fff;
-  background: rgb(236,242,246);
   font-family:$open-sans-font-stack;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
+  background:rgb(178,207,233);
 }
+
+// Prevents Overscrolling
+// html, body {
+//     width: 100%;
+//     height: 100%;
+//     overflow: hidden;
+// }
+
+// body > div {
+//     height: 100%;
+//     overflow: scroll;
+//     -webkit-overflow-scrolling: touch;
+// }
+
+// #### UTILITY ####
+
+
+
+.logo{
+  margin-top:8vw;
+}
+
+
+.log-in-window {
+  margin-top:20px;
+}
+
+.img-center {
+  margin:0 auto;
+}
+
+
+// .vertical-align:before {
+//   content: 'ge';
+//   display: inline-block;
+//   height: 100%;
+//   vertical-align: middle;
+//   background: red;
+//   width:20px;
+//   height:100%;
+//   margin-right: -0.25em; /* Adjusts for spacing */
+// }
+
+// .vertical-align .panel {
+//   display: inline-block;
+//   vertical-align: middle;
+//   width: 300px;
+// }
+
 
 // #### GLOBAL ####
 
@@ -25,6 +72,14 @@ a {color:#618DB6;}
 
 .navbar {
   background:#fff;
+  border-bottom:0;
+
+  .nav>li>a {
+      position: relative;
+      display: block;
+      padding: 5px;
+  }
+
 }
 
 
@@ -43,14 +98,29 @@ header {
     padding: 0px 30px;
     list-style: none;
     background: none;
-    // border-top:1px solid rgba(229, 255, 235, 0);
-    // border-bottom:1px solid rgba(229, 255, 235, 0);
     border-radius:0;
-    background:rgba(118, 170, 219,0.5);
+    background:rgba(118, 170, 219,0.8);
+    background: #337ab7;
+    color:#fff;
 
     a {
+      display:inline-block;
       font-size:1.4rem;
       font-weight:lighter;
+      color:#fff;
+      transition:all 400ms ease;
+      background: none;
+    }
+
+
+    a.active:hover,
+    a:hover {
+      text-decoration: none;
+      background:#b2cfe9;
+      color:#337ab7;
+    }
+
+    a.active {
       color:#fff;
     }
     
@@ -94,27 +164,34 @@ h6 {
 
 // #### CONTENT ####
 
-// holds the main view of the dashboard
+.alert {
+  margin-top:20px;
+  border-width:0;
+  color:#fff;
+
+  .close {
+    top:-4px;
+    font-size:3rem;
+    color:#fff;
+    opacity:0.5;
+  }
+
+}
+
+.alert-success {
+  background-color:#5fcf80;
+}
 
 
-
-.main-content {
-  
-  min-height:100vh;
-  transition:all 400ms ease;
-
-
-
-  .content {margin-top:51px;}
-
-  .header {}
+.alert-danger  {
+  background-color:#ED5A5A;
+}
 
   .panel {
     box-shadow: 0 3px rgba(118, 170, 219,0.2);
     box-shadow: 0 3px #D5E4F1;
     border-radius:5px;
     margin-bottom:20px;
-
 
     .panel-footer {
       padding:0 15px;
@@ -129,7 +206,44 @@ h6 {
       font-size: 1.6rem;
     }
 
+
   }
+
+  .panel-primary {
+    @include fadeInUp($duration:400ms);
+  }
+
+
+// holds the main view of the dashboard
+
+.main-content {
+  position: relative;
+  overflow-x: hidden; //prevents scrollable panels when mobile nav visible
+  overflow-y: scrollable; 
+  background: rgb(236,242,246);
+  transition: all 400ms ease;
+
+
+  &:before {
+    // content: "";
+    // display: block;
+    // width:100vw;
+    // height:100vh;
+    // background: #bada55;
+    // position:absolute;
+    // top:-30%;
+    // left:0%;
+    // z-index:9999;
+  }
+
+  .content {
+    margin-top:70px;
+    min-height:70vh;
+    margin-bottom:20px;
+  }
+
+  .header {}
+
 
   .panel-default,
   .panel-primary {
@@ -180,7 +294,7 @@ h6 {
     border-radius: 4px;
     left: 10px;
   }
-  
+
 @media (min-width: 768px) {
   .navbar-toggle {
       display: block;
@@ -196,6 +310,12 @@ h6 {
     border-radius: 4px;
     left: 10px;
   }
+
+  .navbar>.container .navbar-brand,
+  .navbar>.container-fluid .navbar-brand {
+      margin-left: 10px;
+  }
+
 }
 
 
@@ -212,3 +332,7 @@ h6 {
 
 // #### CONTENT ####
 
+// #### FOOTER ####
+.footer-container {
+  overflow:hidden;
+}

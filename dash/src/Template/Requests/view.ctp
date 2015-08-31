@@ -1,17 +1,63 @@
 <?php
     $this->Html->addCrumb('Requests', '/requests');
-    $this->Html->addCrumb('View Request', array('controller' => 'requests', 'action' => 'view'));
-?>
+    $this->Html->addCrumb('View Request');
 
-<br>
+?>
+<h1>Requests</h1>
+
+<div class="panel panel-default clearfix">
+
+<!--     <div class="panel-heading">
+        <h1 class="panel-title">Example</h1>
+      </div> -->
+
+    <div class="panel-body">
+        
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+            <li><input type="text" class="form-control" placeholder="Search" id="myInputTextField"></li>
+        </ul>
+
+    </div>
+
+<!--       <div class="panel-footer">
+
+        <ul class="nav nav-pills pull-left">
+          <li role="presentation" class="active"><a href="#">Imagine</a></li>
+          <li role="presentation"><a href="#">Alternative</a></li>
+          <li role="presentation"><a href="#">Secondary</a></li>
+          <li role="presentation"><a href="#">Buttons</a></li>
+        </ul>
+
+      </div> -->
+    </div>
+
+<div class="panel panel-primary">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+        <h2 class="panel-title">Request Detail</h2>
+    </div>
+
+
 <table>
 
-<th>Title: <?= h($giraffe->title) ?></th>
+<tr><th>&nbsp;&nbsp;&nbsp;&nbsp;Title: <?= h($giraffe->title) ?></th></tr>
+
 <tr><td>Category: <?= h($giraffe->category) ?></td></tr>
 <tr><td>Property: <?= h($giraffe->property_address) ?></td></tr>
 <tr><td><?= h($giraffe->description) ?></td></tr>
+<!-- <tr><td> <?php echo $this->Html->link('changestatus', ['action' => 'changestatus', $article->id]);
+
+?></td></tr> -->
 
 
-</table>
+
+<tr><td>
 Maintenace Requested By: <?= h($lion->person->first_name)?> <?= h($lion->person->last_name)?>
-<p><small>Created: <?= $giraffe->created->format('d M Y H:i:s') ?></small></p>
+</td></tr>
+<tr><td><small>Created: <?= $giraffe->created->format('d M Y H:i:s') ?></small></td></tr>
+</table>
+</div>
+
+

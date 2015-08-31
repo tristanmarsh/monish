@@ -135,7 +135,7 @@ class Vc_Settings {
 
 		if ( $this->showConfigurationTabs() ) {
 			$this->tabs['vc-general'] = __( 'General Settings', 'js_composer' );
-			if ( ! vc_is_as_theme() ) {
+			if ( ! vc_is_as_theme() || apply_filters( 'vc_settings_page_show_design_tabs', false ) ) {
 				$this->tabs['vc-color'] = __( 'Design Options', 'js_composer' );
 				// $this->tabs['element_css'] = __('Element Class Names', 'js_composer');
 				$this->tabs['vc-custom_css'] = __( 'Custom CSS', 'js_composer' );
@@ -795,30 +795,7 @@ class Vc_Settings {
 		// echo '<p class="description indicator-hint">'.__('To change class name for the row element, enter it here. By default vc_row is used.', 'js_composer').'</p>';
 
 	}
-
-	/**
-	 * Content types checkboxes list callback function
-	 */
-	public function column_css_classes_callback() {
-		$classes = ( $classes = get_option( self::$field_prefix . 'column_css_classes' ) ) ? $classes : array();
-		for ( $i = 1; $i <= 12; $i ++ ) {
-			if ( ! empty( $classes[ 'span' . $i ] ) ) {
-				$v = $classes[ 'span' . $i ];
-			} else {
-				$v = '<i>' . __( 'Empty value', "js_composer" ) . '</i>';
-			}
-			$id = self::$field_prefix . 'column_css_classes_span_' . $i;
-			echo '<div class="column_css_class">';
-			echo '<label for="' . $id . '">' . sprintf( 'Span %d:', $i ) . '</label>';
-			// echo '<input type="text" name="'.self::$field_prefix.'column_css_classes'.'[span'.$i.']" id="'.$id.'" value="'.(!empty($classes['span'.$i]) ? $classes['span'.$i]: '').'">';
-			echo $v;
-			echo '</div>';
-		}
-		?>
-		<?php // <p class="description indicator-hint"> _e("To change class names for the columns elements, enter them here. By default vc_col-sm-X are used, where X number from 1 to 12.", "js_composer");</p> ?>
-	<?php
-	}
-
+	
 	/**
 	 * Not responsive checkbox callback function
 	 *
@@ -1026,23 +1003,7 @@ class Vc_Settings {
 	public function sanitize_row_css_class_callback( $value ) {
 		return $value; // return preg_match('/^[a-z_]\w+$/i', $value) ? $value : '';
 	}
-
-	/**
-	 * @param $classes
-	 *
-	 * @return array
-	 */
-	public function sanitize_column_css_classes_callback( $classes ) {
-		$sanitize_rules = array();
-		for ( $i = 1; $i <= 12; $i ++ ) {
-			if ( isset( $classes[ 'span' . $i ] ) ) {
-				$sanitize_rules[ 'span' . $i ] = $classes[ 'span' . $i ];
-			}
-		}
-
-		return $sanitize_rules;
-	}
-
+	
 	/**
 	 * Post types fields sanitize
 	 *

@@ -368,7 +368,7 @@ var vc_iframe = {
 							type: 'text/javascript'
 						} ).html( $element.html() ).appendTo( 'body' );
 					} catch ( e ) {
-						window.console && window.console.log && console.log( e );
+						window.console && window.console.error && console.error( e );
 					}
 					vc_iframe.scripts_to_wait -= 1;
 					vc_iframe.scripts_to_wait < 1 && vc_iframe.reload()
@@ -646,9 +646,44 @@ var vc_iframe = {
 		window.vc_toggleBehaviour( $el );
 	};
 	vc_iframe.gridInit = function ( model_id ) {
+		var $grid = $( '[data-model-id=' + model_id + '] [data-vc-grid-settings]' ),
+			vcGrid;
+		if ( ! $grid.find( '.vc_grid-loading:visible' ).length ) {
+			vcGrid = $grid.data( 'vcGrid' );
+			if ( vcGrid ) {
+				$grid.html( '' ); // todo need to add reinit in plugin
+				vcGrid.init();
+			} else {
+				$grid.vcGrid();
+			}
+		}
+	};
+	vc_iframe.updateChildGrids = function ( model_id ) {
 		var $grid = $( '[data-model-id=' + model_id + '] [data-vc-grid-settings]' );
-		$grid.data( 'vcGrid', undefined );
-		$grid.vcGrid();
+		$grid.each( function () {
+			var $grid = $( this );
+			var vcGrid = $( this ).data( 'vcGrid' );
+			if ( ! $grid.find( '.vc_grid-loading:visible' ).length && vcGrid ) {
+				$grid.html( '' ); // todo need to add reinit in plugin
+				vcGrid.init();
+			}
+		} );
+	};
+	vc_iframe.buildTTA = function () {
+		$( '[data-vc-accordion]:not(.vc_is-ready-fe)' ).on( 'show.vc.accordion', function ( e ) {
+			var ui = {};
+			ui.newPanel = $( this ).data( 'vc.accordion' ).getTarget();
+			window.wpb_prepare_tab_content( e, ui );
+		} ).addClass( 'vc_is-ready-fe' );
+	};
+	vc_iframe.vc_pieChart = function () {
+		window.vc_pieChart();
+		window.setTimeout( function () {
+			$( window ).unbind( 'resize.vcPieChartEditable' ).bind( 'resize.vcPieChartEditable', function () {
+				$( '.vc_pie_chart.vc_ready' ).vcChat( 'resize' );
+			} );
+		}, 500 );
+
 	};
 	$( document ).ready( function () {
 		if ( parent && parent.vc && ! parent.vc.loaded ) {

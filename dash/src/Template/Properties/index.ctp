@@ -8,13 +8,14 @@
     <div class="panel-body">
         
         <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+            <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
+            <li role="presentation"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>
+            <li role="presentation"><?= $this->Html->link('New Room', ['controller' => 'rooms', 'action' => 'add']) ?></li>
         </ul>
 
     </div>
 
-    <div class="panel-footer">
+<!--     <div class="panel-footer">
 
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><a href="#">Imagine</a></li>
@@ -22,7 +23,7 @@
             <li role="presentation"><a href="#">Buttons</a></li>
         </ul>
 
-    </div>
+    </div> -->
 
 </div>
     
@@ -37,19 +38,19 @@
 
     <?php $variable ="hello" ?>
 
-<div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-3">  
+<div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-3">
 
     <div class="panel panel-primary">
         <!-- Default panel contents -->
-        <div class="panel-heading"> 
+        <div class="panel-heading">
             <h2 class="panel-title text-center">
 
-                
-                    <!-- Button trigger modal -->
+
+                <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-remote="<?= $variable?>">
-              <?php
+                    <?php
                     echo $property->address;
-                ?>
+                    ?>
                 </button>
 
             </h2>
@@ -61,20 +62,22 @@
             <tr>
                 <th>Room</th>
                 <th>Status</th>
+                <th>Current Tenant</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($property->rooms as $rooms): ?>
                 <tr>
-                    
+
                     <td><?= $rooms->room_name ?>
-                    <?= $this->Html->link("", ['action' => 'view', $property->id]) ?>
-                </td>
+                        <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
+                    </td>
                     <td>
                         <?php
                         $room = $roomlease->get($rooms->id, ['contain'=>'Leases']);
 
                         $test = "";
+                        $testtwo = "";
                         $sentinel = true; //true if Never Been Leased
                         if (!empty($room->leases)) {
                             foreach ($room->leases as $leastenddate) {
@@ -87,12 +90,53 @@
                         }
                         if ($sentinel) { //THIS CHECK MAKES THE TABLE ALIGNMENT WEIRD I HAVE NO IDEA WHY, But it is the only way for the code to correctly check room status
                             $toArray = explode("||", $test);
+
+                            foreach ($room->leases as $leastenddate) {
+                                if ($leastenddate->date_end->format('Y-m-d') === max($toArray)) {
+                                        $studentid = $leastenddate->student_id;
+                                        $studentEntity = $studentTable->get($studentid, ['contain'=>'People']);
+                                        $personEntity = $peopleTable->get($studentEntity->person_id);
+                                    };
+                            }
+
                             if (max($toArray) > date("Y-m-d")) {
                                 echo "Leased Until " . max($toArray);
                             } else if (max($toArray) === date("Y-m-d")) {
                                 echo "Lease Expires Today";
                             } else if (max($toArray) < date("Y-m-d")) {
                                 echo "Lease Expired Since ".max($toArray);
+                            }
+                        }
+                        ?>
+                    </td>
+                    <td>
+                        <?php
+                        if (!empty($room->leases)) {
+                            foreach ($room->leases as $leastenddate) {
+                                $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                            }
+                        }
+                        else {
+                            echo "No Tenant";
+                            $sentinel = false;
+                        }
+                        if ($sentinel) { //THIS CHECK MAKES THE TABLE ALIGNMENT WEIRD I HAVE NO IDEA WHY, But it is the only way for the code to correctly check room status
+                            $toArray = explode("||", $test);
+
+                            foreach ($room->leases as $leastenddate) {
+                                if ($leastenddate->date_end->format('Y-m-d') === max($toArray)) {
+                                    $studentid = $leastenddate->student_id;
+                                    $studentEntity = $studentTable->get($studentid, ['contain'=>'People']);
+                                    $personEntity = $peopleTable->get($studentEntity->person_id);
+                                };
+                            }
+
+                            if (max($toArray) > date("Y-m-d")) {
+                                echo $personEntity->first_name." ".$personEntity->last_name;
+                            } else if (max($toArray) === date("Y-m-d")) {
+                                echo $personEntity->first_name." ".$personEntity->last_name;
+                            } else if (max($toArray) < date("Y-m-d")) {
+                                echo "No Tenant ";
                             }
                         }
                         ?>

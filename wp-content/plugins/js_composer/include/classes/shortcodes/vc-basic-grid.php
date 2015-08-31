@@ -328,7 +328,8 @@ class WPBakeryShortCode_VC_Basic_Grid extends WPBakeryShortCodeVc_Pageable {
 			$id_to_save = $this->getId( $atts, $content );
 			$this->atts['shortcode_id'] = $id_to_save;
 		}
-		$this->atts = shortcode_atts( $this->attributes_defaults, $atts );
+		$atts = shortcode_atts( $this->attributes_defaults, vc_map_get_attributes( $this->getShortcode(), $atts ) );
+		$this->atts = $atts;
 		$this->atts['page_id'] = $this->postID();
 		if ( isset( $hash ) ) {
 			$this->atts['shortcode_hash'] = $hash;

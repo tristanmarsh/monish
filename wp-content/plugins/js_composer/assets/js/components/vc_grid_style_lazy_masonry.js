@@ -39,6 +39,7 @@ var vcGridStyleLazyMasonry;
 					window.vc_prettyPhoto();
 				}
 				self.unsetIsLoading();
+				jQuery(window).trigger( 'grid:items:added', self.$el );
 			} );
 		},
 		setIsLoading: function () {

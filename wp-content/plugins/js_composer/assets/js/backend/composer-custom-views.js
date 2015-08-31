@@ -359,20 +359,21 @@
 		},
 		designHelpersSelector: '> .vc_controls .column_add',
 		buildDesignHelpers: function () {
+			var matches;
 			var css = this.model.getParam( 'css' ),
 				$column_toggle = this.$el.find( this.designHelpersSelector ).get( 0 ),
 				image, color, $image, $color;
 			this.$el.find( '> .vc_controls .vc_column_color' ).remove();
 			this.$el.find( '> .vc_controls .vc_column_image' ).remove();
-			var matches = css.match( /background\-image:\s*url\(([^\)]+)\)/ )
+			matches = css.match( /background\-image:\s*url\(([^\)]+)\)/ );
 			if ( matches && ! _.isUndefined( matches[ 1 ] ) ) {
 				image = matches[ 1 ];
 			}
-			var matches = css.match( /background\-color:\s*([^\s\;]+)\b/ )
+			matches = css.match( /background\-color:\s*([^\s\;]+)\b/ );
 			if ( matches && ! _.isUndefined( matches[ 1 ] ) ) {
 				color = matches[ 1 ];
 			}
-			var matches = css.match( /background:\s*([^\s]+)\b\s*url\(([^\)]+)\)/ )
+			matches = css.match( /background:\s*([^\s]+)\b\s*url\(([^\)]+)\)/ );
 			if ( matches && ! _.isUndefined( matches[ 1 ] ) ) {
 				color = matches[ 1 ];
 				image = matches[ 2 ];
@@ -850,6 +851,18 @@
 				if ( params.title && _.isEmpty( params.title.trim() ) ) {
 					params.title = '<span class="vc_btn3-placeholder">&nbsp;</span>';
 				}
+				if ( 'custom' === params.style ) {
+					params.color = undefined;
+					if ( _.isEmpty( params.custom_background ) && _.isEmpty( params.custom_text ) ) {
+						params.color = 'grey';
+					}
+				} else if ( 'outline-custom' === params.style ) {
+					params.color = undefined;
+					if ( _.isEmpty( params.outline_custom_color ) && _.isEmpty( params.outline_custom_hover_background ) && _.isEmpty( params.outline_custom_hover_text ) ) {
+						params.style = 'outline';
+						params.color = 'grey';
+					}
+				}
 				var $element = $( _.template( this.buttonTemplate, { params: params }, vc.templateOptions.custom ) );
 				if ( 'custom' === params.style ) {
 					if ( 'undefined' !== params.custom_background ) {
@@ -858,9 +871,29 @@
 					if ( 'undefined' !== params.custom_text ) {
 						$element.css( 'color', params.custom_text );
 					}
+				} else if ( 'outline-custom' === params.style ) {
+					$element
+						.css( {
+							'background-color': 'transparent',
+							'border-color': params.outline_custom_color,
+							'color': params.outline_custom_color
+						} )
+						.hover(
+						function () {
+							$( this ).css( {
+								'background-color': params.outline_custom_hover_background,
+								'border-color': params.outline_custom_hover_background,
+								'color': params.outline_custom_hover_text
+							} );
+						}, function () {
+							$( this ).css( {
+								'background-color': 'transparent',
+								'border-color': params.outline_custom_color,
+								'color': params.outline_custom_color
+							} );
+						}
+					);
 				}
-
-				//params.style
 
 				this.$wrapper.find( '.vc_btn3-container' ).html( $element );
 			}
@@ -1322,6 +1355,437 @@
 			}
 		}
 	} );
+
+	/**
+	 * Note!! It is interface and must not be used as is
+	 * Must be extended
+	 * @since 4.5
+	 */
+	window.VcBackendTtaViewInterface = vc.shortcode_view.extend( {
+		sortableSelector: false,
+		$sortable: false,
+		$navigation: false,
+		defaultSectionTitle: window.i18nLocale.tab,
+		// sortablePlaceholderClass: 'vc_placeholder-tta',
+		sortableUpdateModelIdSelector: 'data-vc-target-model-id',
+		activeClass: 'vc_active',
+		sortingPlaceholder: "vc_placeholder",
+		events: {
+			'click > .vc_controls .vc_control-btn-delete': 'deleteShortcode',
+			'click > .vc_controls .vc_control-btn-edit': 'editElement',
+			'click > .vc_controls .vc_control-btn-clone': 'clone',
+			'click > .vc_controls .vc_control-btn-prepend': 'clickPrependSection',
+			'click .vc_tta-section-append': 'clickAppendSection'
+		},
+		initialize: function ( params ) {
+			window.VcBackendTtaViewInterface.__super__.initialize.call( this, params );
+			_.bindAll( this, 'updateSorting' );
+		},
+		render: function () {
+			window.VcBackendTtaViewInterface.__super__.render.call( this );
+			this.$el.addClass( 'vc_tta-container vc_tta-o-non-responsive' );
+			return this;
+		},
+		setContent: function () {
+			this.$content = this.$el.find( '> .wpb_element_wrapper .vc_tta-panels' );
+		},
+		clickAppendSection: function ( e ) {
+			e.preventDefault();
+			this.addSection();
+		},
+		clickPrependSection: function ( e ) {
+			e.preventDefault();
+			this.addSection( true );
+		},
+		/**
+		 * Function to hook event when addTab is clicked, actually adds vc_tta_section to container
+		 *
+		 * @returns vc.shortcode - window.VcBackendTtaSectionView - vc_tta_section
+		 */
+		addSection: function ( prepend ) {
+			var newTabTitle, params, shortcode;
+
+			newTabTitle = this.defaultSectionTitle;
+			params = {
+				shortcode: 'vc_tta_section',
+				params: { title: newTabTitle },
+				parent_id: this.model.get( 'id' ),
+				order: (_.isBoolean( prepend ) && prepend ? vc.add_element_block_view.getFirstPositionIndex() : vc.shortcodes.getNextOrder()),
+				prepend: prepend // used in notifySectionRendered to create in correct place tab
+			};
+			shortcode = vc.shortcodes.create( params );
+
+			return shortcode;
+		},
+		findSection: function ( modelId ) {
+			return this.$content.children( '[data-model-id="' + modelId + '"]' );
+		},
+		getIndex: function ( $element ) {
+			return $element.index();
+		},
+		buildSortable: function ( $element ) {
+			return $element.sortable( {
+				forcePlaceholderSize: true,
+				placeholder: this.sortingPlaceholder,
+				helper: this.renderSortingPlaceholder,
+				scroll: true,
+				cursor: 'move',
+				cursorAt: { top: 20, left: 16 },
+				start: function ( event, ui ) {
+					// ui.placeholder.width( ui.item.width() );
+				},
+				over: function ( event, ui ) {
+					// ui.placeholder.css( { maxWidth: ui.placeholder.parent().width() } );
+					// ui.placeholder.removeClass( 'vc_hidden-placeholder' );
+				},
+				stop: function ( event, ui ) {
+					ui.item.attr( 'style', '' );
+				},
+				update: this.updateSorting,
+				items: this.sortableSelector
+			} );
+		},
+		updateSorting: function ( event, ui ) {
+			var self;
+
+			self = this;
+			this.$sortable.find( this.sortableSelector ).each( function () {
+				var shortcode, modelId, $this;
+
+				$this = $( this );
+				modelId = $this.attr( self.sortableUpdateModelIdSelector );
+				shortcode = vc.shortcodes.get( modelId );
+				vc.storage.lock();
+				shortcode.save( { 'order': self.getIndex( $this ) } );
+			} );
+			vc.storage.unlock();
+			vc.storage.save();
+		},
+		makeFirstSectionActive: function () {
+			this.$content.children( ':first-child' ).addClass( this.activeClass );
+		},
+		checkForActiveSection: function () {
+			var $currentActive;
+
+			$currentActive = this.$content.children( '.' + this.activeClass );
+			if ( ! $currentActive.length ) {
+				this.makeFirstSectionActive();
+			}
+		},
+		changeActiveSection: function ( modelId ) {
+			this.$content.children( '.vc_tta-panel.' + this.activeClass ).removeClass( this.activeClass );
+			this.findSection( modelId ).addClass( this.activeClass );
+		},
+		/**
+		 * Called when sorting or initial rendering is finished
+		 *
+		 * @param view
+		 * @returns {*}
+		 */
+		changedContent: function ( view ) {
+			var changedContent;
+
+			changedContent = window.VcBackendTtaViewInterface.__super__.changedContent.call( this, view );
+			this.checkForActiveSection();
+			this.buildSortable( this.$sortable );
+			return changedContent;
+		},
+		notifySectionChanged: function ( model ) {
+			var view, title;
+
+			view = model.get( 'view' );
+			if ( _.isObject( view ) ) {
+				title = model.getParam( 'title' );
+				if ( ! _.isString( title ) || ! title.length ) {
+					title = this.defaultSectionTitle;
+				}
+				view.$el.find( '.vc_tta-panel-title a .vc_tta-title-text' ).text( title );
+			}
+		},
+		notifySectionRendered: function ( model ) {
+			//Nothing here
+		},
+		getNextTab: function ( $viewTab ) {
+			var lastIndex, viewTabIndex, tabIsActive, $nextTab, $navigationSections;
+
+			$navigationSections = this.$navigation.children();
+			lastIndex = $navigationSections.length - 2; // -2 because latest one is "ADD button" and length starts from 1
+			viewTabIndex = $viewTab.index();
+
+			if ( viewTabIndex !== lastIndex ) {
+				$nextTab = $navigationSections.eq( viewTabIndex + 1 );
+			} else {
+				// If we are the last tab in in navigation lets make active previous
+				$nextTab = $navigationSections.eq( viewTabIndex - 1 );
+			}
+			return $nextTab;
+		},
+		renderSortingPlaceholder: function ( event, element ) {
+			return vc.app.renderPlaceholder( event, element );
+		}
+	} );
+
+	window.VcBackendTtaTabsView = window.VcBackendTtaViewInterface.extend( {
+		sortableSelector: '> [data-vc-tab]',
+		sortablePlaceholderClass: 'vc_placeholder-tta-tab',
+		navigationSectionTemplate: null,
+		$navigationSectionAdd: null,
+		sortingPlaceholder: 'vc_placeholder-tab vc_tta-tab',
+		render: function () {
+			window.VcBackendTtaTabsView.__super__.render.call( this );
+
+			this.$navigation = this.$el.find( '> .wpb_element_wrapper .vc_tta-tabs-list' );
+			this.$sortable = this.$navigation;
+			// Build navigation
+			this.$navigationSectionAdd = this.$navigation.children( '.vc_tta-tab:first-child' );
+			this.setNavigationSectionTemplate( this.$navigationSectionAdd.prop( 'outerHTML' ) );
+			this.$navigationSectionAdd.addClass( 'vc_tta-section-append' )
+				.removeAttr( 'data-vc-target-model-id' )
+				.removeAttr( 'data-vc-tab' )
+				.find( '[data-vc-target]' )
+				.html( '<i class="vc_tta-controls-icon vc_tta-controls-icon-plus"></i>' )
+				.removeAttr( 'data-vc-tabs' )
+				.removeAttr( 'data-vc-target' )
+				.removeAttr( 'data-vc-target-model-id' )
+				.removeAttr( 'data-vc-toggle' );
+
+			return this;
+		},
+		setNavigationSectionTemplate: function ( html ) {
+			this.navigationSectionTemplate = html;
+		},
+		getNavigationSectionTemplate: function () {
+			return this.navigationSectionTemplate;
+		},
+		getParsedNavigationSectionTemplate: function ( data ) {
+			return _.template( this.getNavigationSectionTemplate(), data, vc.templateOptions.custom );
+		},
+		changeNavigationSectionTitle: function ( modelId, title ) {
+			this.findNavigationTab( modelId ).find( '[data-vc-target]' ).text( title );
+		},
+		changeActiveSection: function ( modelId ) {
+			window.VcBackendTtaTabsView.__super__.changeActiveSection.call( this, modelId );
+
+			this.$navigation.children( '.' + this.activeClass ).removeClass( this.activeClass );
+			// Set to new active
+			this.findNavigationTab( modelId ).addClass( this.activeClass );
+		},
+		notifySectionRendered: function ( model ) {
+			// We need to make "tab" for newly created shortcode.
+			// Also we need to insert this tab by following index logic
+			var $element, title, $insertAfter, clonedFrom;
+			window.VcBackendTtaTabsView.__super__.notifySectionRendered.call( this, model );
+
+			title = model.getParam( 'title' );
+			$element = $( this.getParsedNavigationSectionTemplate( {
+				model_id: model.get( 'id' ),
+				section_title: _.isString( title ) && title.length > 0 ? title : this.defaultSectionTitle
+			} ) );
+
+			if ( model.get( 'cloned' ) ) {
+				// just add after cloned id
+
+				clonedFrom = model.get( 'cloned_from' );
+				if ( _.isObject( clonedFrom ) ) {
+					$insertAfter = this.$navigation.children( '[data-vc-target-model-id="' + clonedFrom.id + '"]' );
+					if ( $insertAfter.length ) {
+						$element.insertAfter( $insertAfter );
+					} else {
+						$element.insertBefore( this.$navigation.children( '.vc_tta-section-append' ) );
+					}
+				}
+			} else {
+				if ( model.get( 'prepend' ) ) {
+					// just prepend to the start
+					$element.insertBefore( this.$navigation.children( ':first-child' ) );
+				} else {
+					// just append to the end
+					$element.insertBefore( this.$navigation.children( ':last-child' ) ); // last child is "add-button"
+				}
+			}
+		},
+		notifySectionChanged: function ( model ) {
+			var title;
+
+			window.VcBackendTtaTabsView.__super__.notifySectionChanged.call( this, model );
+
+			title = model.getParam( 'title' );
+			if ( ! _.isString( title ) || ! title.length ) {
+				title = this.defaultSectionTitle;
+			}
+			this.changeNavigationSectionTitle( model.get( 'id' ), title );
+			model.view.$el.find( '> .wpb_element_wrapper > .vc_tta-panel-body > .vc_controls .vc_element-name' ).removeClass( 'vc_element-move' );
+		},
+		makeFirstSectionActive: function () {
+			var $tab;
+
+			$tab = this.$navigation.children( ':first-child:not(.vc_tta-section-append)' ).addClass( this.activeClass );
+			if ( $tab.length ) {
+				this.findSection( $tab.data( 'vc-target-model-id' ) ).addClass( this.activeClass );
+			}
+		},
+		findNavigationTab: function ( modelId ) {
+			return this.$navigation.children( '[data-vc-target-model-id="' + modelId + '"]' );
+		},
+		removeSection: function ( model ) {
+			var $viewTab, $nextTab, tabIsActive;
+
+			$viewTab = this.findNavigationTab( model.get( 'id' ) );
+			tabIsActive = $viewTab.hasClass( this.activeClass );
+
+			// Make next tab active if needed
+			if ( tabIsActive ) {
+				$nextTab = this.getNextTab( $viewTab );
+				$nextTab.addClass( this.activeClass );
+				// and make next section active as well
+				this.changeActiveSection( $nextTab.data( 'vc-target-model-id' ) );
+			}
+			// Remove tab from navigation
+			$viewTab.remove();
+		},
+		renderSortingPlaceholder: function ( event, currentItem ) {
+			var helper, currentItemWidth, currentItemHeight;
+			helper = currentItem;
+			currentItemWidth = currentItem.width() + 1;
+			currentItemHeight = currentItem.height();
+			helper.width( currentItemWidth );
+			helper.height( currentItemHeight );
+			return helper;
+		}
+	} );
+	window.VcBackendTtaAccordionView = VcBackendTtaViewInterface.extend( {
+		sortableSelector: '> .vc_tta-panel:not(.vc_tta-section-append)',
+		sortableUpdateModelIdSelector: 'data-model-id',
+		defaultSectionTitle: window.i18nLocale.section,
+		render: function () {
+			window.VcBackendTtaTabsView.__super__.render.call( this );
+			this.$navigation = this.$content;
+			this.$sortable = this.$content;
+			return this;
+		},
+		removeSection: function ( model ) {
+			var $viewTab, $nextTab, tabIsActive;
+
+			$viewTab = this.findSection( model.get( 'id' ) );
+			tabIsActive = $viewTab.hasClass( this.activeClass );
+
+			// Make next tab active if needed
+			if ( tabIsActive ) {
+				$nextTab = this.getNextTab( $viewTab );
+				$nextTab.addClass( this.activeClass );
+			}
+		},
+		addShortcode: function ( view ) {
+			var beforeShortcode;
+
+			beforeShortcode = _.last( vc.shortcodes.filter( function ( shortcode ) {
+				return shortcode.get( 'parent_id' ) === this.get( 'parent_id' ) && parseFloat( shortcode.get( 'order' ) ) < parseFloat( this.get( 'order' ) );
+			}, view.model ) );
+			if ( beforeShortcode ) {
+				view.render().$el.insertAfter( '[data-model-id=' + beforeShortcode.id + ']' );
+			} else {
+				this.$content.prepend( view.render().el );
+			}
+		}
+	} );
+	window.VcBackendTtaTourView = window.VcBackendTtaTabsView.extend( {
+		defaultSectionTitle: window.i18nLocale.section
+	} );
+	window.VcBackendTtaSectionView = window.VcColumnView.extend( {
+		parentObj: null,
+		events: {
+			'click > .wpb_element_wrapper > .vc_tta-panel-body > .vc_controls .vc_control-btn-delete': 'deleteShortcode',
+			'click > .wpb_element_wrapper > .vc_tta-panel-body > .vc_controls .vc_control-btn-prepend': 'addElement',
+			'click > .wpb_element_wrapper > .vc_tta-panel-body > .vc_controls .vc_control-btn-edit': 'editElement',
+			'click > .wpb_element_wrapper > .vc_tta-panel-body > .vc_controls .vc_control-btn-clone': 'clone',
+			'click > .wpb_element_wrapper > .vc_tta-panel-body > .vc_empty-container': 'addToEmpty'
+		},
+		setContent: function () {
+			this.$content = this.$el.find( '> .wpb_element_wrapper > .vc_tta-panel-body > .vc_container_for_children' );
+		},
+		/**
+		 * Funtion to change tabs count for parent view
+		 *
+		 * @returns {VcBackendTtaSectionView}
+		 */
+		render: function () {
+			var parentObj;
+			window.VcBackendTtaSectionView.__super__.render.call( this );
+			parentObj = vc.shortcodes.get( this.model.get( 'parent_id' ) );
+			if ( _.isObject( parentObj ) && ! _.isUndefined( parentObj.view ) ) {
+				this.parentObj = parentObj;
+			}
+
+			this.$el.addClass( 'vc_tta-panel' );
+			this.$el.attr( 'style', '' ); // todo check this (after adding new tab display: block is in attribute style (because jquery sortable!)
+			this.$el.attr( 'data-vc-toggle', "tab" );
+
+			this.replaceTemplateVars();
+			return this;
+		},
+		replaceTemplateVars: function () {
+			var title, $panelHeading;
+			title = this.model.getParam( 'title' );
+			if ( _.isEmpty( title ) ) {
+				title = this.parentObj && this.parentObj.defaultSectionTitle && this.parentObj.defaultSectionTitle.length ? this.parentObj.defaultSectionTitle : window.i18nLocale.section;
+			}
+			$panelHeading = this.$el.find( '.vc_tta-panel-heading' );
+			$panelHeading.html( _.template( $panelHeading.html(), {
+				model_id: this.model.get( 'id' ),
+				section_title: title
+			}, vc.templateOptions.custom ) );
+		},
+		getIndex: function () {
+			return this.$el.index();
+		},
+		ready: function () {
+			this.updateParentNavigation();
+			window.VcBackendTtaSectionView.__super__.ready.call( this );
+		},
+		updateParentNavigation: function () {
+			/** @var parentObj - window.VcBackendTtaView **/
+			if ( _.isObject( this.parentObj ) ) {
+				this.parentObj.view && this.parentObj.view.notifySectionRendered && this.parentObj.view.notifySectionRendered( this.model );
+			}
+		},
+
+		/**
+		 * Event hook for deleting shortcode, to remove parent if no tabs exist
+		 * Also this hook changes tabs_count for parent view
+		 *
+		 * @param e
+		 * @returns {boolean}
+		 */
+		deleteShortcode: function ( e ) {
+			var answer;
+
+			_.isObject( e ) && e.preventDefault();
+			answer = confirm( window.i18nLocale.press_ok_to_delete_section );
+			if ( answer !== true ) {
+				return false;
+			}
+
+			// Because this function called before model get deleted length must be 1 to delete parent as well
+			if ( 1 === vc.shortcodes.where( { parent_id: this.model.get( 'parent_id' ) } ).length ) {
+				// so we deleting last one element, so we need to remove also parent element
+				this.model.destroy();
+				this.parentObj && this.parentObj.destroy();
+			} else {
+				// remove this and update active tab if needed (should be always needed, because now we cannot remove inactive tab).
+				this.parentObj && this.parentObj.view && this.parentObj.view.removeSection && this.parentObj.view.removeSection( this.model );
+				this.model.destroy();
+			}
+
+			return true;
+		},
+		changeShortcodeParams: function ( model ) {
+			window.VcBackendTtaSectionView.__super__.changeShortcodeParams.call( this, model );
+			if ( _.isObject( this.parentObj ) ) {
+				this.parentObj.view && this.parentObj.view.notifySectionChanged && this.parentObj.view.notifySectionChanged( model );
+			}
+		}
+	} );
+
 	/**
 	 * Append tab_id tempalate filters
 	 */

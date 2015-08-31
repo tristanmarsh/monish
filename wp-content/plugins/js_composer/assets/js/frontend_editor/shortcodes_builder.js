@@ -81,7 +81,7 @@
 			try {
 				vc.$page.html( content ).prepend( $( '<div class="vc_empty-placeholder"></div>' ) );
 			} catch ( e ) {
-				window.console && window.console.log && console.log( e );
+				window.console && window.console.error && console.error( e );
 			}
 			_.each( vc.post_shortcodes, function ( data ) {
 				var shortcode = JSON.parse( decodeURIComponent( data + '' ) );
@@ -104,7 +104,7 @@
 			try {
 				vc.frame_window.vc_iframe.reload();
 			} catch ( e ) {
-				window.console && window.console.log && console.log( e );
+				window.console && window.console.error && console.error( e );
 			}
 			//vc.frame_window.vc_js(); // causes bug #1499 with tour element, added in https://github.com/mmihey/js_composer/commit/1b0efa1460c7336da60530cfa330b9d62e71fa7b
 		},
@@ -278,33 +278,42 @@
 			return container;
 		},
 		toString: function ( model, type ) {
-			var paramsForString = {},
-				params = model.get( 'params' ),
-				content = _.isString( params.content ) ? params.content : '';
-			_.each( params, function ( value, key ) {
-				if ( key !== 'content' ) {
+			var paramsForString, params, content, mergedParams, tag;
+
+			paramsForString = {};
+			tag = model.get( 'shortcode' );
+			params = _.extend( {}, model.get( 'params' ) );
+			mergedParams = vc.getMergedParams( tag, params );
+
+			content = _.isString( params.content ) ? params.content : '';
+			_.each( mergedParams, function ( value, key ) {
+				if ( 'content' !== key ) {
 					paramsForString[ key ] = this.escapeParam( value );
 				}
 			}, this );
+
 			return wp.shortcode.string( {
-				tag: model.get( 'shortcode' ),
+				tag: tag,
 				attrs: paramsForString,
 				content: content,
 				type: _.isString( type ) ? type : ''
 			} );
 		},
 		modelsToString: function ( models ) {
-			var paramsForString = {},
-				string = '';
+			var string;
+			string = '';
 			_.each( models, function ( model ) {
-				var tag = model.get( 'shortcode' ),
-					params = model.get( 'params' ),
-					content = _.isString( params.content ) ? params.content : '',
-					paramsForString = {};
+				var tag, params, content, paramsForString, mergedParams, isContainer;
+
+				tag = model.get( 'shortcode' );
+				params = _.extend( {}, model.get( 'params' ) );
+				content = _.isString( params.content ) ? params.content : '';
+				paramsForString = {};
+				mergedParams = vc.getMergedParams( tag, params );
 				content += this.modelsToString( vc.shortcodes.where( { parent_id: model.get( 'id' ) } ) );
-				var is_container = _.isObject( vc.getMapped( tag ) ) && ( ( _.isBoolean( vc.getMapped( tag ).is_container ) && vc.getMapped( tag ).is_container === true ) || ! _.isEmpty( vc.getMapped( tag ).as_parent ) );
-				_.each( params, function ( value, key ) {
-					if ( key !== 'content' ) {
+				isContainer = _.isObject( vc.getMapped( tag ) ) && ( ( _.isBoolean( vc.getMapped( tag ).is_container ) && vc.getMapped( tag ).is_container === true ) || ! _.isEmpty( vc.getMapped( tag ).as_parent ) );
+				_.each( mergedParams, function ( value, key ) {
+					if ( 'content' !== key ) {
 						paramsForString[ key ] = this.escapeParam( value );
 					}
 				}, this );
@@ -312,9 +321,10 @@
 					tag: tag,
 					attrs: paramsForString,
 					content: content,
-					type: _.isUndefined( vc.getParamSettings( tag, 'content' ) ) && ! is_container ? 'single' : ''
+					type: _.isUndefined( vc.getParamSettings( tag, 'content' ) ) && ! isContainer ? 'single' : ''
 				} );
 			}, this );
+
 			return string;
 		},
 		getContent: function () {

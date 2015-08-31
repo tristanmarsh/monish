@@ -471,15 +471,17 @@ if ( ! class_exists( 'WPBakeryShortCode' ) ) {
 				$content = wpautop( stripslashes( $content ) );
 			}
 			$shortcode_attributes = array( 'width' => '1/1' );
-			foreach ( $this->settings['params'] as $param ) {
-				if ( $param['param_name'] != 'content' ) {
-					if ( isset( $param['value'] ) ) {
-						$shortcode_attributes[ $param['param_name'] ] = is_string( $param['value'] ) ? __( $param['value'], "js_composer" ) : $param['value'];
-					} else {
-						$shortcode_attributes[ $param['param_name'] ] = '';
+			if ( isset( $this->settings['params'] ) && is_array( $this->settings['params'] ) ) {
+				foreach ( $this->settings['params'] as $param ) {
+					if ( $param['param_name'] != 'content' ) {
+						if ( isset( $param['value'] ) ) {
+							$shortcode_attributes[ $param['param_name'] ] = is_string( $param['value'] ) ? __( $param['value'], "js_composer" ) : $param['value'];
+						} else {
+							$shortcode_attributes[ $param['param_name'] ] = '';
+						}
+					} else if ( $param['param_name'] == 'content' && $content == null ) {
+						$content = isset( $param['value'] ) ? __( $param['value'], "js_composer" ) : '';
 					}
-				} else if ( $param['param_name'] == 'content' && $content == null ) {
-					$content = isset( $param['value'] ) ? __( $param['value'], "js_composer" ) : '';
 				}
 			}
 			$atts = shortcode_atts(
@@ -780,10 +782,15 @@ if ( ! class_exists( 'WPBakeryShortCode' ) ) {
 				'position' => $this->controls_css_settings,
 				'extended_css' => $extended_css,
 				'name' => $this->settings( 'name' ),
-				'controls' => $this->getControlsList()
+				'controls' => $this->getControlsList(),
+				'name_css_class' => $this->getBackendEditorControlsElementCssClass()
 			) );
 
 			return ob_get_clean();
+		}
+
+		public function getBackendEditorControlsElementCssClass() {
+			return 'vc_control-btn vc_element-name vc_element-move';
 		}
 
 		/**
@@ -955,6 +962,7 @@ if ( ! class_exists( 'WPBakeryShortCode' ) ) {
 			if ( is_array( $matches ) && ! empty( $matches ) ) {
 				foreach ( $matches as $match ) {
 					switch ( strtolower( trim( $match[1] ) ) ) {
+						// @todo remove maybe create an wrappers as classes
 						case 'content': {
 							if ( $content != '' ) {
 								$markup = str_replace( $match[0], $content, $markup );
@@ -979,17 +987,27 @@ if ( ! class_exists( 'WPBakeryShortCode' ) ) {
 						}
 						case 'params': {
 							$iner = '';
-							foreach ( $this->settings['params'] as $param ) {
-								$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
-								if ( is_array( $param_value ) ) {
-									// Get first element from the array
-									reset( $param_value );
-									$first_key = key( $param_value );
-									$param_value = is_null( $first_key ) ? '' : $param_value[ $first_key ];
+							if ( isset( $this->settings['params'] ) && is_array( $this->settings['params'] ) ) {
+								foreach ( $this->settings['params'] as $param ) {
+									$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+									if ( is_array( $param_value ) ) {
+										// Get first element from the array
+										reset( $param_value );
+										$first_key = key( $param_value );
+										$param_value = is_null( $first_key ) ? '' : $param_value[ $first_key ];
+									}
+									$iner .= $this->singleParamHtmlHolder( $param, $param_value );
 								}
-								$iner .= $this->singleParamHtmlHolder( $param, $param_value );
 							}
 							$markup = str_replace( $match[0], $iner, $markup );
+							break;
+						}
+						case 'editor_controls': {
+							$markup = str_replace( $match[0], $this->getColumnControls( $this->settings( 'controls' ) ), $markup );
+							break;
+						}
+						case 'editor_controls_bottom_add': {
+							$markup = str_replace( $match[0], $this->getColumnControls( 'add', 'bottom-controls' ), $markup );
 							break;
 						}
 					}
@@ -1002,15 +1020,17 @@ if ( ! class_exists( 'WPBakeryShortCode' ) ) {
 		protected function paramsHtmlHolders( $atts ) {
 			extract( $atts );
 			$iner = '';
-			foreach ( $this->settings['params'] as $param ) {
-				$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
-				if ( is_array( $param_value ) ) {
-					// Get first element from the array
-					reset( $param_value );
-					$first_key = key( $param_value );
-					$param_value = is_null( $first_key ) ? '' : $param_value[ $first_key ];
+			if ( isset( $this->settings['params'] ) && is_array( $this->settings['params'] ) ) {
+				foreach ( $this->settings['params'] as $param ) {
+					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					if ( is_array( $param_value ) ) {
+						// Get first element from the array
+						reset( $param_value );
+						$first_key = key( $param_value );
+						$param_value = is_null( $first_key ) ? '' : $param_value[ $first_key ];
+					}
+					$iner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
-				$iner .= $this->singleParamHtmlHolder( $param, $param_value );
 			}
 
 			return $iner;
@@ -1026,6 +1046,7 @@ if ( ! class_exists( 'WPBakeryShortCodesContainer' ) ) {
 		 * @var array
 		 */
 		protected $predefined_atts = array();
+		protected $backened_editor_prepend_controls = true;
 
 		/**
 		 * @return string
@@ -1113,11 +1134,11 @@ if ( ! class_exists( 'WPBakeryShortCodesContainer' ) ) {
 			$this->atts = $atts;
 			$output = '';
 
-			$column_controls = $this->getColumnControls( $this->settings( 'controls' ) );
-			$column_controls_bottom = $this->getColumnControls( 'add', 'bottom-controls' );
 			for ( $i = 0; $i < count( $width ); $i ++ ) {
 				$output .= '<div ' . $this->mainHtmlBlockParams( $width, $i ) . '>';
-				$output .= $column_controls;
+				if ( $this->backened_editor_prepend_controls ) {
+					$output .= $this->getColumnControls( $this->settings( 'controls' ) );
+				}
 				$output .= '<div class="wpb_element_wrapper">';
 
 				if ( isset( $this->settings["custom_markup"] ) && $this->settings["custom_markup"] != '' ) {
@@ -1132,7 +1153,10 @@ if ( ! class_exists( 'WPBakeryShortCodesContainer' ) ) {
 				}
 
 				$output .= '</div>';
-				$output .= $column_controls_bottom;
+				if ( $this->backened_editor_prepend_controls ) {
+					$output .= $this->getColumnControls( 'add', 'bottom-controls' );
+
+				}
 				$output .= '</div>';
 			}
 
@@ -1158,6 +1182,9 @@ if ( ! class_exists( 'WPBakeryShortCodesContainer' ) ) {
 			return '<h4 class="wpb_element_title"> ' . $this->getIcon( $params ) . '</h4>';
 		}
 
+		public function getBackendEditorChildControlsElementCssClass() {
+			return 'vc_element-name';
+		}
 	}
 }
 if ( ! class_exists( 'WPBakeryShortCodeFishBones' ) ) {

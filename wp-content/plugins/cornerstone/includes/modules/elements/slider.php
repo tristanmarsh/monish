@@ -46,17 +46,9 @@ class CS_Slider extends Cornerstone_Element_Base {
     );
 
     $this->addControl(
-      'slide_time',
-      'number',
-      __( 'Slide Time', csl18n() ),
-      __( 'The amount of time in milliseconds each slide should remain visible before transitioning to the next one.', csl18n() ),
-      '7000'
-    );
-
-    $this->addControl(
       'slide_speed',
       'number',
-      __( 'Slide Speed', csl18n() ),
+      __( 'Animation Speed', csl18n() ),
       __( 'The amount of time in milliseconds the transition between each slide should take.', csl18n() ),
       '1000'
     );
@@ -67,6 +59,19 @@ class CS_Slider extends Cornerstone_Element_Base {
       __( 'Slideshow', csl18n() ),
       __( 'Enabling this control will have your slider automatically cycle through like a slideshow.', csl18n() ),
       false
+    );
+
+    $this->addControl(
+      'slide_time',
+      'number',
+      __( 'Slide Duration', csl18n() ),
+      __( 'The amount of time in milliseconds each slide should remain visible before transitioning to the next one.', csl18n() ),
+      '7000',
+      array(
+        'condition' => array(
+          'slideshow' => true
+        )
+      )
     );
 
     $this->addControl(

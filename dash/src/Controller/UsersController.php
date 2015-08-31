@@ -4,11 +4,142 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Core\App;
+use Cake\Routing\Router;
+use Cake\Utility\Security;
+use Cake\Utility\Text;
+use Cake\Network\Email\Email;
+
 use Cake\Event\Event;
 use Cake\Network\Exception\NotFoundException;
 
 class UsersController extends AppController
 {
+
+    function forgot_password(){
+
+         $this->layout = false;
+
+        if(!empty($this->request->data))
+        {
+			
+            if(empty($this->request->data['username']))
+            {
+                $this->Flash->error('Please enter your username address.');
+
+            }
+            else
+            {
+                $email=$this->request->data['username'];
+
+                // Match users to their username
+                $query = $this->Users->find('all', ['conditions'=> ['Users.username'=>$email]]); //i wanna look username colummn under use
+                $user = $query->first();
+                
+                if($user)
+                {
+                        // $key = Security::hash(Text::uuid(),'sha512',true); //original that we didn't have a controller for
+                        $key = Security::hash(Text::uuid(),'sha512',true);
+                        $hash=sha1($user['User']['username'].rand(0,100));
+                        $url = Router::url(['controller'=>'users','action'=>'reset_password'], true ).'/'.$key.'#'.$hash;
+                        $ms=$url;
+                        $ms=wordwrap($ms,1000);
+
+                        $user['tokenhash']=$key;
+
+                        if ($this->Users->save($user)) {
+
+                            //============Email================//
+                            /* SMTP Options */
+
+                            $email = new Email('default');
+                            $toemail = $user['username'];
+                            $email->template('reset_password')
+                                ->emailFormat('html')
+                                ->to($toemail)
+                                ->subject('Reset your Better Windows password')
+                                ->from('mafak1@student.monash.edu')
+                                ->viewVars(['ms' => $ms])
+                                ->send();
+
+                            $this->Flash->success('A link has been generated. Please check your email.');
+
+                            //============EndEmail=============//
+                        }
+                        else{
+
+                            $this->Flash->error('Error generating reset link.');
+                        }
+                }
+                else
+                {
+                    $this->Flash->error('Email does not exist.');
+                }
+            }
+        }
+    }
+
+    function reset_password($token=null){
+
+        $this->layout = false;
+
+        // User must have a token in order to proceed
+        if(!empty($token)){
+            $query = $this->Users->find('all', ['conditions'=> ['Users.tokenhash'=>$token]]);
+
+            $u = $query->first();
+            $uvalid = $u['username'];
+
+            if($uvalid){
+
+                $user = $this->Users->newEntity();
+                $user = $this->Users->patchEntity($user, $this->request->data);
+
+                if ($this->request->is('post')) {
+
+                    $this->Users->data = $this->request->data;
+                    $new_hash = sha1($u['username'].rand(0,100)); //created token
+                    $u['tokenhash'] = $new_hash;
+
+                    $passinput = $this->request->data['password'];
+                    $passconfirminput = $this->request->data['confirm_password'];
+
+
+                    if($passinput === $passconfirminput){
+                        $passinput = $this->request->data['password'];
+
+                        $u['password'] = $passinput;
+
+                        if($this->Users->save($u))
+                        {
+                            $this->Flash->success('Password Has been updated');
+
+                            $this->redirect(['controller' => 'users', 'action' => 'login']);
+                        }
+                        
+                    }
+                    else{
+                        $this->Flash->error('Oops! Please try again.');
+                    }
+                }
+            }
+            else
+            {
+                $this->redirect(['controller' => 'users', 'action' => 'login']);
+                $this->Flash->error('Token Corrupted, please retry. The reset link will only work once.');
+            }
+        }
+
+        else{
+            $this->redirect('/');
+        }
+
+        $this->set(compact('user'));
+        $this->set('_serialize', ['user']);
+
+    }
+
+ 
 
     public function beforeFilter(Event $event)
     {
@@ -16,7 +147,7 @@ class UsersController extends AppController
         // Allow users to register and logout.
         // You should not add the "login" action to allow list. Doing so would
         // cause problems with normal functioning of AuthComponent.
-        $this->Auth->allow(['add', 'logout']);
+        $this->Auth->allow(['add', 'logout', 'forgot_password', 'reset_password']);
     }
 
     public function index()
@@ -36,6 +167,10 @@ class UsersController extends AppController
 
     public function add()
     {
+        //I made this function redirect back to the tenants index because this should not be accessible, and can break the system
+        $this->Flash->error(__('Restricted area. Redirecting you to tenants.'));
+        $this->redirect(['controller'=>'tenants', 'action' => 'index']);
+
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
@@ -63,6 +198,13 @@ class UsersController extends AppController
 
     public function login()
     {
+
+        $this->loadModel('People');
+        $this->loadModel('Requests');
+
+        $requests = $this->Requests->find('all')->contain('People');
+        $this->set(compact('requests'));
+
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {
@@ -91,7 +233,7 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)){
                 $this->Flash->success(__('This user has been updated.'));
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller'=>'people', 'action' => 'index']);
             }
             $this->Flash->error(__('Unable to update this user.'));
         }
@@ -100,6 +242,30 @@ class UsersController extends AppController
         //finds the list of people in the people's table
         $people = $this->Users->People->find('list', ['limit' => 200]);
         $this->set(compact('people'));
+    }
+
+    public function isAuthorized($user)
+    {
+
+        if (in_array($this->request->action, ['edit'])) {
+            $requestId = (int)$this->request->params['pass'][0];
+
+            $this->loadModel('People');
+            $this->loadModel('Users');
+
+            $authid = $this->Auth->user('id');
+            $this->set(compact('authid'));
+            $userEntity = $this->Users->get($authid);
+            $this->set(compact('userEntity'));
+            $personEntity = $this->People->get($userEntity->person_id);
+            $this->set(compact('personEntity'));
+
+            if ($authid === $requestId) {
+                return true;
+            }
+        }
+
+        return parent::isAuthorized($user);
     }
 
 }

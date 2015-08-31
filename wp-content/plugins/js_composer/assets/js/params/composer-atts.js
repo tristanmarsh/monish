@@ -1071,8 +1071,7 @@ window.vc.addTemplateFilter = function ( callback ) {
 
 				param = {};
 				$field = $( this );
-				param.type = $field.data( 'param_type' );
-				param.param_name = $field.data( 'param_name' );
+				param = $field.data( 'param_settings' );
 				vc.atts.init.call( self, param, $field );
 			} );
 			return this;
@@ -1092,10 +1091,13 @@ window.vc.addTemplateFilter = function ( callback ) {
 		items: 0,
 		$ul: false,
 		initializer: {},
+		mappedParams: {},
+		adminLabelParams: [],
+		groupParamName: '',
 		events: {
 			'click > .edit_form_line > .vc_param_group-list > .vc_param_group-add_content': 'addNew'
 		},
-		initialize: function () {
+		initialize: function ( data ) {
 			var $elParam, settings, self;
 
 			this.$ul = this.$el.find( '> .edit_form_line > .vc_param_group-list' );
@@ -1103,7 +1105,29 @@ window.vc.addTemplateFilter = function ( callback ) {
 			this.initializer = new Vc_ParamInitializer( { el: this.$el } );
 			this.model = vc.active_panel.model;
 			settings = this.$ul.data( 'settings' );
-			this.options = _.defaults( {}, settings[ 'settings' ], this.options );
+
+			this.mappedParams = {};
+			this.adminLabelParams = [];
+			this.options = _.defaults( {},
+				_.isObject( data.settings ) ? data.settings : {},
+				settings,
+				this.options
+			);
+
+			this.groupParamName = this.options.param.param_name;
+
+			if ( _.isObject( this.options.param ) && _.isArray( this.options.param.params ) ) {
+				_.each( this.options.param.params, function ( param ) {
+					var elemName;
+					elemName = this.groupParamName + '_' + param.param_name;
+					this.mappedParams[ elemName ] = param;
+
+					if ( _.isObject( param ) && true === param.admin_label ) {
+						this.adminLabelParams.push( elemName );
+					}
+				}, this );
+			}
+
 			this.items = 0;
 
 			self = this;
@@ -1114,21 +1138,31 @@ window.vc.addTemplateFilter = function ( callback ) {
 						parent: self
 					} );
 					self.items ++;
-					self.afterAdd();
+					self.afterAdd( $( this ), 'init' );
 				} );
 			}
 
 			if ( this.options.sortable ) {
 				this.$ul.sortable( {
 					handle: '.vc_control.column_move',
-					items: '> .wpb_vc_row:not(vc_param_group-add_content-wrapper)'
+					items: '> .wpb_vc_row:not(vc_param_group-add_content-wrapper)',
+					placeholder: 'vc_placeholder'
 				} );
 			}
 		},
 		addNew: function ( ev ) {
 			ev.preventDefault();
 			if ( this.addAllowed() ) {
-				var $newEl;
+				var $newEl, fn;
+
+				if ( 'undefined' !== typeof(this.options.param.callbacks) && 'undefined' !== typeof(this.options.param.callbacks.before_add) ) {
+					fn = window[ this.options.param.callbacks.before_add ];
+					if ( 'function' === typeof(fn) ) {
+						if ( ! fn() ) {
+							return;
+						}
+					}
+				}
 
 				$newEl = $( JSON.parse( this.$ul.next( '.vc_param_group-template' ).html() ) );
 				$newEl.removeClass( 'vc_param_group-add_content-wrapper' );
@@ -1139,7 +1173,7 @@ window.vc.addTemplateFilter = function ( callback ) {
 				this.items ++;
 
 				new VC_ParamGroup_Param( { el: $newEl, parent: this } );
-				this.afterAdd();
+				this.afterAdd( $newEl, 'new' );
 			}
 		},
 		/**
@@ -1150,7 +1184,9 @@ window.vc.addTemplateFilter = function ( callback ) {
 		addAllowed: function () {
 			return (this.options.max_items > 0 && this.items + 1 <= this.options.max_items) || this.options.max_items <= 0;
 		},
-		afterAdd: function () {
+		afterAdd: function ( $newEl, action ) {
+			var fn;
+
 			if ( ! this.addAllowed() ) {
 				this.$ul.find( '> .wpb_vc_row > .vc_param_group-controls > .vc_row_edit_clone_delete > .vc_control.column_clone' ).hide();
 				this.$ul.find( '> .vc_param_group-add_content' ).hide();
@@ -1164,15 +1200,35 @@ window.vc.addTemplateFilter = function ( callback ) {
 			if ( ! this.options.collapsible ) {
 				this.$ul.find( '> .wpb_vc_row > .vc_param_group-controls > .vc_row_edit_clone_delete > .vc_control.column_toggle' ).hide();
 			}
+
+			if ( 'undefined' !== typeof(this.options.param.callbacks) && 'undefined' !== typeof(this.options.param.callbacks.after_add) ) {
+				fn = window[ this.options.param.callbacks.after_add ];
+				if ( 'function' === typeof(fn) ) {
+					fn( $newEl, action );
+				}
+			}
 		},
 		afterDelete: function () {
+			var fn;
+
 			if ( this.addAllowed() ) {
 				this.$ul.find( '> .wpb_vc_row > .vc_param_group-controls > .vc_row_edit_clone_delete > .vc_control.column_clone' ).show();
 				this.$ul.find( '> .vc_param_group-add_content' ).show();
 			}
+
+			if ( 'undefined' !== typeof(this.options.param.callbacks) && 'undefined' !== typeof(this.options.param.callbacks.after_delete) ) {
+				fn = window[ this.options.param.callbacks.after_delete ];
+				if ( 'function' === typeof(fn) ) {
+					fn();
+				}
+			}
 		}
 	} );
 	var VC_ParamGroup_Param = Backbone.View.extend( {
+		dependentElements: false,
+		mappedParams: false,
+		groupParamName: '',
+		adminLabelParams: [],
 		events: {
 			'click > .controls > .vc_row_edit_clone_delete > .vc_control.column_toggle': 'toggle',
 			'click > .controls > .vc_row_edit_clone_delete > .vc_control.column_delete': 'deleteParam',
@@ -1180,13 +1236,184 @@ window.vc.addTemplateFilter = function ( callback ) {
 		},
 		initialize: function ( options ) {
 			this.options = options;
+
 			this.$content = this.options.parent.$ul;
 			this.model = vc.active_panel.model;
+			this.mappedParams = this.options.parent.mappedParams;
+			this.groupParamName = this.options.parent.groupParamName;
+			this.adminLabelParams = this.options.parent.adminLabelParams;
+
+			this.dependentElements = {};
+			_.bindAll( this, 'hookDependent' );
+			this.initializeDependency();
+
+			_.bindAll( this, 'hookAdminLabel' );
+
+			this.initializeAdminLabels();
+		},
+		initializeAdminLabels: function () {
+			var i, $fields, callback;
+			callback = this.hookAdminLabel;
+
+			for ( i = 0;
+				  i < this.adminLabelParams.length;
+				  i ++ ) {
+				$fields = $( '[name=' + this.adminLabelParams[ i ] + '].wpb_vc_param_value', this.$el );
+
+				$fields.each( function () {
+					var $field = $( this );
+
+					if ( ! $field.data( 'vc_admin_labels' ) ) {
+						$field.data( 'vc_admin_labels', true );
+						$field.bind( 'keyup change', callback );
+						callback( { currentTarget: this } );
+					}
+				} );
+			}
+		},
+		hookAdminLabel: function ( e ) {
+			var i, $wrapperLabel, elemName, paramSettings, labelName, labelValue, labels, $field, $parent;
+
+			labelName = '';
+			labelValue = '';
+			labels = [];
+			$field = $( e.currentTarget );
+			$parent = $field.closest( '.vc_param_group-wrapper' );
+
+			$wrapperLabel = $field.closest( '.vc_param' ).find( '.vc_param-group-admin-labels' );
+
+			for ( i = 0;
+				  i < this.adminLabelParams.length;
+				  i ++ ) {
+				var $paramWrapper;
+
+				elemName = this.adminLabelParams[ i ];
+				$field = $parent.find( '[name=' + elemName + ']' );
+				$paramWrapper = $field.closest( '.vc_shortcode-param' );
+
+				if ( 'undefined' !== typeof( this.mappedParams[ elemName ] ) ) {
+					labelName = this.mappedParams[ elemName ][ 'heading' ];
+				}
+
+				if ( $field.is( 'select' ) ) {
+					labelValue = $field.find( 'option:selected' ).text();
+				} else if ( $field.is( 'input:checkbox' ) ) {
+					labelValue = $field.is( ':checked' ) ? $field.val() : '';
+				} else {
+					labelValue = $field.val();
+				}
+
+				paramSettings = {
+					type: $paramWrapper.data( 'param_type' ),
+					param_name: $paramWrapper.data( 'param_name' )
+				};
+
+				if ( _.isObject( vc.atts[ paramSettings.type ] ) && _.isFunction( vc.atts[ paramSettings.type ].render ) ) {
+					labelValue = vc.atts[ paramSettings.type ].render.call( this, paramSettings, labelValue );
+				}
+
+				if ( '' !== labelValue ) {
+					labels.push( '<label>' + labelName + '</label>: ' + labelValue );
+				}
+			}
+
+			$wrapperLabel
+				.html( labels.join( ', ' ) )
+				.toggleClass( 'vc_hidden-label', ! labels.length );
+		},
+		initializeDependency: function () {
+			var callDependencies;
+			callDependencies = {};
+			_.each( this.mappedParams, function ( param, name ) {
+				if ( _.isObject( param ) && _.isObject( param.dependency ) && _.isString( param.dependency.element ) ) {
+					var $masters, $slave;
+
+					$masters = $( '[name=' + this.groupParamName + '_' + param.dependency.element + '].wpb_vc_param_value',
+						this.$el );
+					$slave = $( '[name=' + name + '].wpb_vc_param_value',
+						this.$el );
+					if ( $slave.length ) {
+						_.each( $masters, function ( master ) {
+							var $master;
+							$master = $( master );
+							if ( ! $master.data( 'dependentSet' ) ) {
+								var masterName, rules;
+								masterName = $master.attr( 'name' );
+								rules = param.dependency;
+								if ( ! _.isArray( this.dependentElements[ masterName ] ) ) {
+									this.dependentElements[ masterName ] = [];
+								}
+								this.dependentElements[ masterName ].push( $slave );
+								$master.attr( 'data-dependent-set', 'true' );
+								$master.bind( 'keyup change', this.hookDependent );
+								if ( ! callDependencies[ masterName ] ) {
+									callDependencies[ masterName ] = $master;
+								}
+								if ( _.isString( rules.callback ) ) {
+									window[ rules.callback ].call( this );
+								}
+							}
+						}, this );
+					}
+				}
+			}, this );
+			_.each( callDependencies, function ( obj ) {
+				this.hookDependent( { currentTarget: obj } );
+			}, this );
+		},
+		hookDependent: function ( e ) {
+			var $master, $masterContainer, isMasterEmpty, dependentElements, masterValue;
+
+			$master = $( e.currentTarget );
+			$masterContainer = $master.closest( '.vc_column' );
+			dependentElements = this.dependentElements[ $master.attr( 'name' ) ];
+			masterValue = $master.is( ':checkbox' ) ? _.map( this.$el.find( '[name=' + $master.attr( 'name' ) + '].wpb_vc_param_value:checked' ),
+				function ( element ) {
+					return $( element ).val();
+				} )
+				: $master.val();
+
+			isMasterEmpty = $master.is( ':checkbox' ) ? ! this.$el.find( '[name=' + $master.attr( 'name' ) + '].wpb_vc_param_value:checked' ).length
+				: ! masterValue.length;
+
+			if ( $masterContainer.hasClass( 'vc_dependent-hidden' ) ) {
+				_.each( dependentElements, function ( $element ) {
+					var event = $.Event( 'change' );
+					event.extra_type = 'vcHookDependedParamGroup';
+					$element.closest( '.vc_column' ).addClass( 'vc_dependent-hidden' );
+					$element.trigger( event );
+				} );
+			} else {
+				_.each( dependentElements, function ( $element ) {
+					var event, paramName, rules, $paramBlock;
+
+					paramName = $element.attr( 'name' );
+					rules = _.isObject( this.mappedParams[ paramName ] ) && _.isObject( this.mappedParams[ paramName ].dependency ) ? this.mappedParams[ paramName ].dependency : {};
+					$paramBlock = $element.closest( '.vc_column' );
+					if ( _.isBoolean( rules.not_empty ) && true === rules.not_empty && ! isMasterEmpty ) { // Check is not empty show dependent Element.
+						$paramBlock.removeClass( 'vc_dependent-hidden' );
+					} else if ( _.isBoolean( rules.is_empty ) && true === rules.is_empty && isMasterEmpty ) {
+						$paramBlock.removeClass( 'vc_dependent-hidden' );
+					} else if ( rules.value && _.intersection( ( _.isArray( rules.value ) ? rules.value : [ rules.value ]),
+							(_.isArray( masterValue ) ? masterValue : [ masterValue ] ) ).length ) {
+						$paramBlock.removeClass( 'vc_dependent-hidden' );
+					} else if ( rules.value_not_equal_to && ! _.intersection( ( _.isArray( rules.value_not_equal_to ) ? rules.value_not_equal_to : [ rules.value_not_equal_to ]),
+							(_.isArray( masterValue ) ? masterValue : [ masterValue ] ) ).length ) {
+						$paramBlock.removeClass( 'vc_dependent-hidden' );
+					} else {
+						$paramBlock.addClass( 'vc_dependent-hidden' );
+					}
+					event = $.Event( 'change' );
+					event.extra_type = 'vcHookDependedParamGroup';
+					$element.trigger( event );
+				}, this );
+			}
+			return this;
 		},
 		deleteParam: function ( ev ) {
 			_.isObject( ev ) && ev.preventDefault && ev.preventDefault();
 			var answer = confirm( window.i18nLocale.press_ok_to_delete_section );
-			if ( answer === true ) {
+			if ( true === answer ) {
 				this.options.parent.items --;
 				this.options.parent.afterDelete();
 				this.$el.remove();
@@ -1232,16 +1459,22 @@ window.vc.addTemplateFilter = function ( callback ) {
 						parent: this.options.parent
 					} );
 					this.options.parent.items ++;
-					this.options.parent.afterAdd();
+					this.options.parent.afterAdd( $newEl, 'clone' );
 				} );
 
 			}
 		},
 		toggle: function ( ev ) {
 			ev.preventDefault();
-			var $elem = this.$el.find( '> .wpb_element_wrapper' );
+			var $parent = this.$el,
+				$elem = $parent.find( '> .wpb_element_wrapper' );
 			$elem.slideToggle();
-			$elem.parent().toggleClass( 'vc_param_group-collapsed' );
+			$parent
+				.toggleClass( 'vc_param_group-collapsed' )
+				.siblings( ':not(.vc_param_group-collapsed)' )
+				.addClass( 'vc_param_group-collapsed' )
+				.find( '> .wpb_element_wrapper' )
+				.slideUp();
 		}
 	} );
 
@@ -1320,21 +1553,22 @@ window.vc.addTemplateFilter = function ( callback ) {
 
 	vc.atts.checkbox = {
 		parse: function ( param ) {
-			var arr = [],
-				new_value = "";
-			if ( _.isUndefined( param.save_always ) ) {
-				param.save_always = true; // fix #1239
-			}
+			var arr, newValue;
+
+			arr = [];
+			newValue = '';
 			$( 'input[name=' + param.param_name + ']', this.content() ).each( function () {
-				var self = $( this );
+				var self;
+
+				self = $( this );
 				if ( self.is( ':checked' ) ) {
-					arr.push( self.attr( "value" ) );
+					arr.push( self.attr( 'value' ) );
 				}
 			} );
-			if ( arr.length > 0 ) {
-				new_value = arr.join( ',' );
+			if ( 0 < arr.length ) {
+				newValue = arr.join( ',' );
 			}
-			return new_value;
+			return newValue;
 		},
 		defaults: function ( param ) {
 			return '';
@@ -1349,14 +1583,15 @@ window.vc.addTemplateFilter = function ( callback ) {
 		 * @param clonedModel
 		 * @param paramValue
 		 * @param paramSettings
-		 * @param shortcodeParams
-		 * @param eventType
 		 */
 		clone: function ( clonedModel, paramValue, paramSettings ) {
 			var shortcodeParams;
-
 			shortcodeParams = clonedModel.get( 'params' );
-			shortcodeParams[ paramSettings.param_name ] = ""; // just reset a value
+			if ( ! _.isUndefined( paramSettings ) && ! _.isUndefined( paramSettings.settings ) && ! _.isUndefined( paramSettings.settings.auto_generate ) && true === paramSettings.settings.auto_generate ) {
+				shortcodeParams[ paramSettings.param_name ] = + new Date() + '-' + vc_guid();
+			} else {
+				shortcodeParams[ paramSettings.param_name ] = ""; // just reset a value
+			}
 			clonedModel.set( { params: shortcodeParams }, { silent: true } );
 		},
 		/**
@@ -1365,12 +1600,10 @@ window.vc.addTemplateFilter = function ( callback ) {
 		 * @param shortcodeModel
 		 * @param paramValue
 		 * @param paramSettings
-		 * @param shortcodeParams
-		 * @param eventType
 		 */
 		create: function ( shortcodeModel, paramValue, paramSettings ) {
 			if ( shortcodeModel.get( 'cloned' ) ) {
-				vc.atts.el_id.clone( shortcodeModel, paramValue, paramSettings );
+				return vc.atts.el_id.clone( shortcodeModel, paramValue, paramSettings );
 			}
 			if ( _.isEmpty( paramValue ) && ! _.isUndefined( paramSettings ) && ! _.isUndefined( paramSettings.settings ) && ! _.isUndefined( paramSettings.settings.auto_generate ) && true == paramSettings.settings.auto_generate ) {
 				var shortcodeParams;
@@ -1379,7 +1612,6 @@ window.vc.addTemplateFilter = function ( callback ) {
 				shortcodeParams[ paramSettings.param_name ] = + new Date() + '-' + vc_guid();
 				shortcodeModel.set( { params: shortcodeParams }, { silent: true } );
 			}
-			// shortcode_params is passed by reference (due to object) and this will saved after add/clone being
 		}
 	};
 	// Adding event listener on shortcode being created having param_type el_id
@@ -1628,7 +1860,8 @@ window.vc.addTemplateFilter = function ( callback ) {
 
 	vc.atts.param_group = {
 		parse: function ( param ) {
-			var $content,
+			var data,
+				$content,
 				$block,
 				$list;
 
@@ -1680,7 +1913,12 @@ window.vc.addTemplateFilter = function ( callback ) {
 			return encodeURIComponent( JSON.stringify( data ) );
 		},
 		init: function ( param, $field ) {
-			new VC_ParamGroup( { el: $field } );
+			new VC_ParamGroup( {
+				el: $field,
+				settings: {
+					param: param
+				}
+			} );
 		}
 	};
 	vc.atts.colorpicker = {
@@ -1698,7 +1936,10 @@ window.vc.addTemplateFilter = function ( callback ) {
 					clear: function ( event, ui ) {
 						$alpha.val( 100 );
 						$alpha_output.val( 100 + '%' );
-					}
+					},
+					change: _.debounce( function () {
+						$( this ).trigger( 'change' );
+					}, 500 )
 				} );
 				$( '<div class="vc_alpha-container">'
 				+ '<label>Alpha: <output class="rangevalue">' + alpha_val + '%</output></label>'
@@ -1799,7 +2040,7 @@ window.vc.addTemplateFilter = function ( callback ) {
 					dialog = window.wpLink;
 				}
 				// window.wpLink.textarea = this;
-				dialog.open('content');
+				dialog.open( 'content' );
 				if ( _.isString( value_object.url ) ) {
 					$( '#wp-link-url' ).length ? $( '#wp-link-url' ).val( value_object.url ) : $( '#url-field' ).val( value_object.url );
 				}
@@ -1892,7 +2133,7 @@ window.vc.addTemplateFilter = function ( callback ) {
 				iconRightClass: 'fip-fa fa fa-arrow-right',
 				iconSearchClass: 'fip-fa fa fa-search',
 				iconCancelClass: 'fip-fa fa fa-remove',
-				iconBlockClass: 'fip-fa fa fa-minus-circle'
+				iconBlockClass: 'fip-fa'
 			}, $el.data( 'settings' ) );
 
 			$field.find( '.vc-iconpicker' ).vcFontIconPicker( settings ).on( 'change', function ( e ) {
@@ -1973,7 +2214,7 @@ window.vc.addTemplateFilter = function ( callback ) {
 		}
 		model.save( 'params', params, { silent: true } );
 	};
-	vc.getMapped = function ( tag ) {
+	vc.getMapped = vc.memoizeWrapper( function ( tag ) {
 		return vc.map[ tag ] || {};
-	}
+	} );
 })( window.jQuery );

@@ -2,7 +2,6 @@
 
 class WPBakeryShortCode_VC_Single_image extends WPBakeryShortCode {
 
-
 	public function singleParamHtmlHolder( $param, $value ) {
 		$output = '';
 		// Compatibility fixes

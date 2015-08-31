@@ -83,6 +83,7 @@ function vc_grid_item_map_shortcodes() {
 	require_once vc_path_dir( 'PARAMS_DIR', 'vc_grid_item/class-vc-grid-item.php' );
 	$grid_item = new Vc_Grid_Item();
 	$grid_item->mapShortcodes();
+	vc_mapper()->setCheckForAccess( false );
 }
 
 /**
@@ -251,6 +252,7 @@ function vc_gitem_add_submenu_page() {
  */
 function vc_gitem_menu_highlight() {
 	global $parent_file, $submenu_file, $post_type;
+	require_once vc_path_dir( 'PARAMS_DIR', 'vc_grid_item/editor/class-vc-grid-item-editor.php' );
 	if ( $post_type === Vc_Grid_Item_Editor::postType() ) {
 		$parent_file = VC_PAGE_MAIN_SLUG;
 		$submenu_file = 'edit.php?post_type=' . rawurlencode( Vc_Grid_Item_Editor::postType() );
@@ -259,3 +261,13 @@ function vc_gitem_menu_highlight() {
 }
 
 add_action( 'admin_head', 'vc_gitem_menu_highlight' );
+
+
+function vc_gitem_set_mapper_check_access() {
+	if ( 'true' === vc_post_param( 'vc_grid_item_editor' ) ) {
+		vc_mapper()->setCheckForAccess( false );
+	}
+}
+
+add_action( 'wp_ajax_vc_edit_form', 'vc_gitem_set_mapper_check_access' );
+

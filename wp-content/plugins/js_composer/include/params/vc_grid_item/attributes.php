@@ -165,6 +165,31 @@ function vc_gitem_template_attribute_post_image_url_attr_prettyphoto( $value, $d
 }
 
 /**
+ * Get post image alt
+ *
+ * @return string
+ */
+function vc_gitem_template_attribute_post_image_alt( $value, $data) {
+	if ( empty( $data['post']->ID ) ) {
+		return '';
+	}
+
+	if ( 'attachment' === $data['post']->post_type ) {
+		$attachment_id = $data['post']->ID;
+	} else {
+		$attachment_id = get_post_thumbnail_id( $data['post']->ID );
+	}
+
+	if ( ! $attachment_id ) {
+		return '';
+	}
+
+	$alt = trim( strip_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) );
+
+	return apply_filters( 'vc_gitem_template_attribute_post_image_url_value', $alt );
+}
+
+/**
  * Get post image url
  *
  * @param $data
@@ -339,6 +364,7 @@ add_filter( 'vc_gitem_template_attribute_post_image', 'vc_gitem_template_attribu
 add_filter( 'vc_gitem_template_attribute_post_image_url', 'vc_gitem_template_attribute_post_image_url', 10, 2 );
 add_filter( 'vc_gitem_template_attribute_post_image_url_href', 'vc_gitem_template_attribute_post_image_url_href', 10, 2 );
 add_filter( 'vc_gitem_template_attribute_post_image_url_attr_prettyphoto', 'vc_gitem_template_attribute_post_image_url_attr_prettyphoto', 10, 2 );
+add_filter( 'vc_gitem_template_attribute_post_image_alt', 'vc_gitem_template_attribute_post_image_alt', 10, 2 );
 add_filter( 'vc_gitem_template_attribute_post_link_url', 'vc_gitem_template_attribute_post_link_url', 10, 2 );
 add_filter( 'vc_gitem_template_attribute_post_date', 'vc_gitem_template_attribute_post_date', 10, 2 );
 add_filter( 'vc_gitem_template_attribute_post_datetime', 'vc_gitem_template_attribute_post_datetime', 10, 2 );

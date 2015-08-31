@@ -66,11 +66,11 @@ var vcGridStylePagination = null;
 			return false; // already filtred
 		}
 		var $html;
-		if ( this.$content.data( 'owl.carousel' ) ) {
-			this.$content.off( 'initialized.owl.carousel' );
-			this.$content.off( 'changed.owl.carousel' );
+		if ( this.$content.data( 'owl.vccarousel' ) ) {
+			this.$content.off( 'initialized.owl.vccarousel' );
+			this.$content.off( 'changed.owl.vccarousel' );
 			this.$content.data( 'vcPagination' ) && this.$content.data( 'vcPagination' ).twbsPagination( 'destroy' );
-			this.$content.data( 'owl.carousel' ).destroy();
+			this.$content.data( 'owl.vccarousel' ).destroy();
 		}
 		this.$content.html( '' );
 		$html = $( '.vc_grid-item', this.htmlCache );
@@ -126,7 +126,9 @@ var vcGridStylePagination = null;
 	vcGridStylePagination.prototype.initCarousel = function () {
 		// If owlCarousel
 		if ( $.fn.vcOwlCarousel ) {
-			var that = this;
+			var that = this, $vcCarousel;
+			$vcCarousel = this.$content.data( 'owl.vccarousel' );
+			$vcCarousel && $vcCarousel.destroy();
 			this.$content.on( 'initialized.owl.vccarousel', function ( event ) {
 				if ( that.settings.paging_design.indexOf( 'pagination' ) > - 1 ) {
 					var $carousel = event.relatedTarget;
@@ -156,12 +158,13 @@ var vcGridStylePagination = null;
 					} );
 					$( this ).data( 'vcPagination', $pagination );
 					// let's synchronize the pagination and arrows
-					that.$content.on( 'changed.owl.carousel', function ( event ) {
+					that.$content.on( 'changed.owl.vccarousel', function ( event ) {
 						var $pagination = $( this ).data( 'vcPagination' ),
 							$pag_object = $pagination.data( 'twbsPagination' );
 						$pag_object.render( $pag_object.getPages( 1 + event.page.index ) );
 						$pag_object.setupEvents();
 					} );
+
 					window.vc_prettyPhoto();
 				}
 			} ).vcOwlCarousel( {
@@ -188,7 +191,19 @@ var vcGridStylePagination = null;
 				autoHeight: true,
 				autoplay: this.settings.auto_play === true,
 				autoplayTimeout: this.settings.speed,
-				callbacks: true
+				callbacks: true,
+				onTranslated: function () {
+					// wait for animation to complete
+					setTimeout( function () {
+						jQuery( window ).trigger( 'grid:items:added', that.$el );
+					}, 750 );
+				},
+				onRefreshed: function () {
+					// wait for animation to complete
+					setTimeout( function () {
+						jQuery( window ).trigger( 'grid:items:added', that.$el );
+					}, 750 );
+				}
 			} );
 			// set key up.
 			/*$(document).off('keyup').on('keyup', function (e) {

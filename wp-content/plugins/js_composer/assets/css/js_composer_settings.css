@@ -372,6 +372,7 @@
   -ms-transform: translate(-50%, 0);
   -o-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
+  z-index: 1;
 }
 .vc_settings .vc_controls > .vc_controls-br {
   bottom: 0;
@@ -479,14 +480,16 @@
 .vc_settings .vc_element-name .vc_btn-content:hover {
   text-decoration: none !important;
 }
-.vc_settings .vc_element-move .vc_btn-content {
+.vc_settings .vc_element-move .vc_btn-content,
+.vc_settings .vc_child-element-move .vc_btn-content {
   cursor: move !important;
   background-image: url(../vc/fe/move.png) !important;
   background-position: 10px center !important;
   background-repeat: no-repeat;
   padding-left: 30px !important;
 }
-.vc_settings .vc_element-move .vc_btn-content:hover {
+.vc_settings .vc_element-move .vc_btn-content:hover,
+.vc_settings .vc_child-element-move .vc_btn-content:hover {
   background-color: #669c22;
 }
 .vc_settings .vc_control-btn-prepend .icon,
@@ -529,6 +532,12 @@
 }
 .vc_settings .vc_control-btn-append:hover:before {
   border-bottom-color: #e78800;
+}
+.vc_settings .vc_control-btn-append.vc_control-parent:before {
+  border-bottom-color: #285a85;
+}
+.vc_settings .vc_control-btn-append.vc_control-parent:hover:before {
+  border-bottom-color: #032644;
 }
 .vc_settings .vc_control-btn-append .vc_btn-content {
   -webkit-border-radius: 3px;
@@ -591,6 +600,18 @@
 .vc_settings .vc_controls-container > div .vc_control-btn .vc_btn-content:hover {
   background-color: #e78800;
   border-color: #e78800;
+}
+.vc_settings .vc_controls-row > div .vc_control-parent .vc_btn-content,
+.vc_settings .vc_controls-column > div .vc_control-parent .vc_btn-content,
+.vc_settings .vc_controls-container > div .vc_control-parent .vc_btn-content {
+  background-color: #285a85;
+  border-color: #285a85;
+}
+.vc_settings .vc_controls-row > div .vc_control-parent.vc_control-btn .vc_btn-content:hover,
+.vc_settings .vc_controls-column > div .vc_control-parent.vc_control-btn .vc_btn-content:hover,
+.vc_settings .vc_controls-container > div .vc_control-parent.vc_control-btn .vc_btn-content:hover {
+  background-color: #032644;
+  border-color: #032644;
 }
 .vc_settings .vc_controls-row > div .vc_advanced,
 .vc_settings .vc_controls-column > div .vc_advanced,
@@ -1386,7 +1407,12 @@
   margin: 20px 0;
   padding: 1px 20px 10px;
 }
-.vc-page-welcome .feature-section {
+.vc-page-welcome .vc_feature-section-teaser {
+  overflow: hidden;
+  padding: 0 0 40px;
+}
+.vc-page-welcome .feature-section,
+.vc-page-welcome .vc_feature-section-teaser {
   padding-bottom: 15px;
 }
 .vc-page-welcome .vc-thank-you {

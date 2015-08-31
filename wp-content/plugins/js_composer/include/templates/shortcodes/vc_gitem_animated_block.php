@@ -1,18 +1,19 @@
 <?php
 /**
- * @var string $el_class
- * @var string $width
- * @var string $is_end
- * @var array $atts ;
- * @var string $content ;
- * @var array $atts ;
- * @var string bgimage;
+ * Shortcode attributes
+ * @var $atts
+ * @var $css
+ * @var $animation
+ * @var $bgimage
+ * @var $content - shortcode content
+ * Shortcode class
+ * @var $this WPBakeryShortCode_VC_Gitem_Animated_Block
  */
-$animation_attr = '';
+$css = $animation = $animation_attr = '';
+
 extract( shortcode_atts( array(
-	'css' => '',
+	'css' => '', // unmapped
 	'animation' => '',
-	'bgimage' => '',
 ), $atts ) );
 
 $css_style = '';
@@ -26,4 +27,4 @@ if ( ! empty( $animation ) ) {
 ?>
 <div class="<?php echo esc_attr( $css_class ) ?>"<?php echo $animation_attr ?><?php
 echo( empty( $css_style ) ? '' : ' style="' . esc_attr( $css_style ) . '"' )
-?>><?php echo do_shortcode( $content ) ?></div>
+?>><?php echo do_shortcode( $content ) ?></div><?php echo $this->endBlockComment( $this->getShortcode() ); ?>

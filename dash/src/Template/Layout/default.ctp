@@ -20,7 +20,8 @@ $cakeDescription = 'Monish Dashboard';
 <html>
 <head>
 	<?= $this->Html->charset() ?>
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
@@ -50,21 +51,23 @@ $cakeDescription = 'Monish Dashboard';
 
 	<?= $this->Html->css('bootstrap.min.css') ?>
 	<?= $this->Html->css('custom.css') ?>
-	<?= $this->Html->css('animate.min.css') ?>
 
 	<?= $this->Html->script('wow.min.js') ?>
+	<?= $this->Html->script('min/nprogress-min.js') ?>
 	<?= $this->Html->script('min/custom-min.js') ?>
+	<?= $this->Html->script('min/angular.min.js') ?>
+	<?= $this->Html->script('app.js') ?>
 
 	<?= $this->fetch('meta') ?>
 	<?= $this->fetch('css') ?>
 	<?= $this->fetch('script') ?>
 
-	<script>
-		new WOW().init();
-	</script>
 
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
 
+	<script>
+		NProgress.start();
+	</script>
 
 </head>
 
@@ -76,9 +79,7 @@ $cakeDescription = 'Monish Dashboard';
 
 	<?php echo $this->element('login'); ?>
 
-<?php else : ?>
-
-
+	<?php else : ?>
 
 	<div class="container-fluid">
 
@@ -91,126 +92,38 @@ $cakeDescription = 'Monish Dashboard';
 
 			</div>
 
+			<div class="row">
+				
+				<?php echo $this->element('navbar'); ?>
+
+			</div>
 
 			<div class="main-content">
 				
-				<div class="row">
-					
-					<nav class="navbar navbar-fixed-top">
-
-						<div class="container-fluid">
-
-							<!-- Brand and toggle get grouped for better mobile display -->
-							<div class="navbar-header">
-
-								<button type="button" id="navigation-toggle" class="navbar-toggle">
-									<span class="sr-only">Toggle navigation</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
-
-								<a class="navbar-brand" href="#">
-									
-
-
-<!-- 									<div class="navbar-image">
-										<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House'], ['class' => 'navbar-logo'] ) ?>
-										<span>Monash ISH Dashboard</span>
-									</div> -->
-								</a>
-							</div>
-
-					
-
-
-							<!-- Collect the nav links, forms, and other content for toggling -->
-							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-								
-								<ul class="nav navbar-nav">
-									<li class="active visible-xs"><a href="#">Link<span class="sr-only">(current)</span></a></li>
-									
-									<li class="visible-xs"><?= $this->Html->link('Requests', ['controller' => 'Requests', 'action' => 'index']) ?></li>
-									<li class="visible-xs"><?= $this->Html->link('Users', ['controller' => 'users', 'action' => 'index']) ?></li>
-									<li class="visible-xs"><?= $this->Html->link('People', ['controller' => 'people', 'action' => 'index']) ?></li>
-									<li class="visible-xs"><?= $this->Html->link('Students', ['controller' => 'students', 'action' => 'index']) ?></li>
-									<li class="visible-xs"><?= $this->Html->link('Leases', ['controller' => 'leases', 'action' => 'index']) ?></li>
-									<li class="visible-xs"><?= $this->Html->link('Properties', ['controller' => 'properties', 'action' => 'index']) ?></li>
-									<li class="visible-xs"><?= $this->Html->link('Rooms', ['controller' => 'rooms', 'action' => 'index']) ?></li>
-									<li class="visible-xs"><?= $this->Html->link('Tests', ['controller' => 'tests', 'action' => 'index']) ?></li>
-
-									<li class="visible-xs"><a href="#">Link</a></li>
-								</ul>
-
-								<ul class="nav navbar-nav navbar-right">
-									
-									<!-- User logged in -->
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-											<?php echo $user['username']; ?>
-											<span class="caret"></span>
-										</a>
-
-										<ul class="dropdown-menu" role="menu">
-
-											<li><?= $this->Html->link('My Profile', ['controller' => 'people', 'action' => 'index']) ?></li>
-
-											<li class="divider"></li>
-
-											<li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
-
-										</ul>
-
-									</li>
-
-								</ul>
-
-								<ul class="nav navbar-nav navbar-right">
-									
-									<li><?= $this->Html->link(__('Update Rooms'), ['controller' => 'Tenants', 'action' => 'updaterooms']) ?></li>
-
-								</ul>
-							</div><!-- /.collapse -->
-
-						</div><!-- /.container-fluid -->
-
-					</nav>
-
-
-				</div>
-
 
 				<div class="content">
 
-					<header>
-						<ol class="breadcrumb">
-							<? echo $this->Html->getCrumbs(' > ', 'Home') ?>
-							<? echo $this->Html->getCrumbList(); ?>
-						</ol>
-					</header>
+
 
 					<div class="container-fluid">
 
 						<?= $this->Flash->render() ?>
 
-
 						<?= $this->fetch('h1') ?>
-			
 
 						<?= $this->fetch('content') ?>
 
 					</div>
-					
-					<?php echo $this->element('footer'); ?>
 
 				</div>
+
+				<?php echo $this->element('footer'); ?>
 
 			</div>
 		</div>
 
 	</div><!-- /.container -->
 
-<!-- 	<?php endif; ?>
-
+<?php endif; ?>
 </body>
-</html> -->
+</html>

@@ -200,7 +200,7 @@ class WPBMap {
 						'vc_row',
 						'vc_row_inner',
 						'vc_column_inner'
-					) ) || ! isset( $settings[ self::$user_role ]['shortcodes'] )
+					) ) || ! isset( $settings[ self::$user_role ]['shortcodes'] ) || ! vc_mapper()->isCheckForAccess()
 				     || ( isset( $settings[ self::$user_role ]['shortcodes'][ $name ] ) && (int) $settings[ self::$user_role ]['shortcodes'][ $name ] == 1 )
 				) {
 					if ( ! isset( $values['content_element'] ) || $values['content_element'] === true ) {
@@ -365,11 +365,13 @@ class WPBMap {
 
 			return true;
 		}
-		foreach ( self::$sc[ $name ]['params'] as $index => $param ) {
-			if ( $param['param_name'] == $attribute_name ) {
-				array_splice( self::$sc[ $name ]['params'], $index, 1 );
+		if ( isset( self::$sc[ $name ], self::$sc[ $name ]['params'] ) && is_array( self::$sc[ $name ]['params'] ) ) {
+			foreach ( self::$sc[ $name ]['params'] as $index => $param ) {
+				if ( $param['param_name'] == $attribute_name ) {
+					array_splice( self::$sc[ $name ]['params'], $index, 1 );
 
-				return true;
+					return true;
+				}
 			}
 		}
 

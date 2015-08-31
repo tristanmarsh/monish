@@ -25,6 +25,22 @@ class CS_Button extends Cornerstone_Element_Base {
     $this->addSupport( 'link' );
 
     $this->addControl(
+      'type',
+      'select',
+      __( 'Type', csl18n() ),
+      __( 'Select the button type.', csl18n() ),
+      'global',
+      array(
+        'choices' => array(
+          array( 'value' => 'global',      'label' => __( '&ndash; Global Setting &ndash;', csl18n() ) ),
+          array( 'value' => 'real',        'label' => __( 'Real', csl18n() ) ),
+          array( 'value' => 'flat',        'label' => __( 'Flat', csl18n() ) ),
+          array( 'value' => 'transparent', 'label' => __( 'Transparent', csl18n() ) )
+        )
+      )
+    );
+
+    $this->addControl(
       'shape',
       'select',
       __( 'Shape', csl18n() ),
@@ -225,8 +241,9 @@ class CS_Button extends Cornerstone_Element_Base {
     }
 
     $shape = ($shape != 'global' ) ? "shape=\"$shape\"" : '';
+    $type = ($type != 'global' ) ? "type=\"$type\"" : '';
 
-    $shortcode = "[x_button {$shape} size=\"$button_size\" block=\"$block\" circle=\"$circle\" icon_only=\"$icon_only\" href=\"$href\" title=\"$href_title\" target=\"$href_target\" info=\"$info\" info_place=\"$info_place\" info_trigger=\"$info_trigger\" info_content=\"$info_content\"{$extra}]{$content}[/x_button]";
+    $shortcode = "[x_button {$type} {$shape} size=\"$button_size\" block=\"$block\" circle=\"$circle\" icon_only=\"$icon_only\" href=\"$href\" title=\"$href_title\" target=\"$href_target\" info=\"$info\" info_place=\"$info_place\" info_trigger=\"$info_trigger\" info_content=\"$info_content\"{$extra}]{$content}[/x_button]";
 
     return $shortcode;
 

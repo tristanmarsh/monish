@@ -13,6 +13,7 @@ function x_shortcode_column( $atts, $content = null ) {
     'fade'                  => '',
     'fade_animation'        => '',
     'fade_animation_offset' => '',
+    'fade_duration'         => '',
     'bg_color'              => ''
   ), $atts, 'x_column' ) );
 
@@ -86,6 +87,10 @@ function x_shortcode_column( $atts, $content = null ) {
       'fade'      => true,
       'animation' => $fade_animation
     );
+
+    if ( $fade_duration != '' ) {
+      $js_params['duration'] = (int) $fade_duration;
+    }
 
     $data = cs_generate_data_attributes( 'column', $js_params );
 

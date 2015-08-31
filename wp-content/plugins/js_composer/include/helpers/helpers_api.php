@@ -63,8 +63,10 @@ function vc_add_param( $shortcode, $attributes ) {
  * @param $attributes - list of attributes arrays
  */
 function vc_add_params( $shortcode, $attributes ) {
-	foreach ( $attributes as $attr ) {
-		vc_add_param( $shortcode, $attr );
+	if ( is_array( $attributes ) ) {
+		foreach ( $attributes as $attr ) {
+			vc_add_param( $shortcode, $attr );
+		}
 	}
 }
 
@@ -557,4 +559,54 @@ function vc_get_shortcode( $tag ) {
  */
 function vc_remove_all_elements() {
 	WPBMap::dropAllShortcodes();
+}
+
+/**
+ * Function to get defaults values for shortcode.
+ * @since 4.6
+ *
+ * @param $tag - shortcode tag
+ *
+ * @return array - list of param=>default_value
+ */
+function vc_map_get_defaults( $tag ) {
+	$shortcode = vc_get_shortcode( $tag );
+	$params = array();
+	if ( is_array( $shortcode ) && isset( $shortcode['params'] ) && ! empty( $shortcode['params'] ) ) {
+		foreach ( $shortcode['params'] as $param ) {
+			if ( isset( $param['param_name'] ) && 'content' !== $param['param_name'] ) {
+				$value = '';
+				if ( isset( $param['std'] ) ) {
+					$value = $param['std'];
+				} elseif ( isset( $param['value'] ) && 'checkbox' !== $param['type'] ) {
+					if ( is_array( $param['value'] ) ) {
+						$value = current( $param['value'] );
+						if ( is_array( $value ) ) {
+							// in case if two-dimensional array provided (vc_basic_grid)
+							$value = current( $value );
+						}
+						// return first value from array (by default)
+					} else {
+						$value = $param['value'];
+					}
+				}
+				$params[ $param['param_name'] ] = $value;
+			}
+		}
+	}
+
+	return $params;
+}
+
+/**
+ * @param $tag - shortcode tag
+ * @param $atts - shortcode attributes
+ *
+ * @return array - return merged values with provided attributes ( 'a'=>1,'b'=>2 + 'b'=>3,'c'=>4 == 'a'=>1,'b'=>3 )
+ *
+ * @see vc_shortcode_attribute_parse - return union of provided attributes ( 'a'=>1,'b'=>2 + 'b'=>3,'c'=>4 == 'a'=>1,
+ *     'b'=>3, 'c'=>4 )
+ */
+function vc_map_get_attributes( $tag, $atts = array() ) {
+	return shortcode_atts( vc_map_get_defaults( $tag ), $atts );
 }

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 class RequestsController extends AppController
 {
@@ -36,8 +37,8 @@ class RequestsController extends AppController
         $personEntity = $this->People->get($userEntity->person_id);
         $this->set(compact('personEntity'));
 
-        $elephant = $this->paginate($this->Requests->find('all')->contain('People'));
-        $this->set(compact('elephant'));
+        $requests = $this->Requests->find('all')->contain('People');
+        $this->set(compact('requests'));
     }
 
     public function view($id = null)
@@ -49,6 +50,11 @@ class RequestsController extends AppController
 
         //my take on how to do this (like the index())
         $this->set('giraffe', $this->Requests->get($id));
+
+            $request = TableRegistry::get('Requests');
+            $wolf = $this->Requests->get($id); 
+            $wolf->status = 'Viewed';
+            $request->save($wolf);
 
         $lion = $this->Requests->get($id, [
             'contain' => ['People']
@@ -157,6 +163,19 @@ class RequestsController extends AppController
         return $test->first_name;
     }
 
+
+    // public function changestatus($id){
+
+    //         $dog = $this->Requests->get($id);
+
+    //         if($dog->status=='unread'){
+    //             $dog->status='viewed';
+    //         }
+        
+
+    // }
+
 }
+
 
 ?>

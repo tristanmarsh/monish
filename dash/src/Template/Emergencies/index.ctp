@@ -1,17 +1,22 @@
-<h1>Manage Emergency Contacts</h1>
+<h1>Emergency Contacts</h1>
+
+<?php
+    // $this->Html->addCrumb('Requests', '/requests');
+    $this->Html->addCrumb('Emergency Contacts', array('controller' => 'Emergencies', 'action' => 'index'));
+?>
 
 <div class="panel panel-default clearfix">
     
     <div class="panel-body">
         
         <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+            <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
             <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
         </ul>
 
     </div>
 
-    <div class="panel-footer">
+<!--     <div class="panel-footer">
 
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><a href="#">Imagine</a></li>
@@ -19,7 +24,7 @@
             <li role="presentation"><a href="#">Buttons</a></li>
         </ul>
 
-    </div>
+    </div> -->
 
 </div>
 
@@ -56,14 +61,18 @@
                 <?= $this->Html->link(__('View'), ['action' => 'view', $emergency->id]) ?> -->
 <!--                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $emergency->id]) ?>
                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $emergency->id], ['confirm' => __('Are you sure you want to delete # {0}?', $emergency->id)]) ?> -->
-            </td>
+<!--             </td> -->
         </tr>
+
 
     <?php endforeach; ?>
     </tbody>
     </table>
+    </div>
+    </div>
 
-    <div class="paginator text-center">
+
+
         
 
 

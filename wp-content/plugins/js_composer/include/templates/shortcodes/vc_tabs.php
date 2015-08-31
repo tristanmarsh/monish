@@ -1,17 +1,24 @@
 <?php
-$output = $title = $interval = $el_class = '';
-extract( shortcode_atts( array(
-	'title' => '',
-	'interval' => 0,
-	'el_class' => ''
-), $atts ) );
+/**
+ * Shortcode attributes
+ * @var $atts
+ * @var $title
+ * @var $interval
+ * @var $el_class
+ * @var $content - shortcode content
+ * Shortcode class
+ * @var $this WPBakeryShortCode_VC_Tabs
+ */
+$output = '';
+$atts = vc_map_get_attributes( $this->getShortcode(), $atts );
+extract( $atts );
 
 wp_enqueue_script( 'jquery-ui-tabs' );
 
 $el_class = $this->getExtraClass( $el_class );
 
 $element = 'wpb_tabs';
-if ( 'vc_tour' == $this->shortcode ) {
+if ( 'vc_tour' === $this->shortcode ) {
 	$element = 'wpb_tour';
 }
 
@@ -42,10 +49,10 @@ $output .= "\n\t\t" . '<div class="wpb_wrapper wpb_tour_tabs_wrapper ui-tabs vc_
 $output .= wpb_widget_title( array( 'title' => $title, 'extraclass' => $element . '_heading' ) );
 $output .= "\n\t\t\t" . $tabs_nav;
 $output .= "\n\t\t\t" . wpb_js_remove_wpautop( $content );
-if ( 'vc_tour' == $this->shortcode ) {
+if ( 'vc_tour' === $this->shortcode ) {
 	$output .= "\n\t\t\t" . '<div class="wpb_tour_next_prev_nav vc_clearfix"> <span class="wpb_prev_slide"><a href="#prev" title="' . __( 'Previous tab', 'js_composer' ) . '">' . __( 'Previous tab', 'js_composer' ) . '</a></span> <span class="wpb_next_slide"><a href="#next" title="' . __( 'Next tab', 'js_composer' ) . '">' . __( 'Next tab', 'js_composer' ) . '</a></span></div>';
 }
 $output .= "\n\t\t" . '</div> ' . $this->endBlockComment( '.wpb_wrapper' );
-$output .= "\n\t" . '</div> ' . $this->endBlockComment( $element );
+$output .= "\n\t" . '</div> ' . $this->endBlockComment( $this->getShortcode() );
 
 echo $output;

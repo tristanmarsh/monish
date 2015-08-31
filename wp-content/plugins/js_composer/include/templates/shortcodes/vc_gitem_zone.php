@@ -1,34 +1,32 @@
 <?php
 /**
- * @var string $content ;
- * @var string $el_class
- * @var string $css ;
- * @var WPBakeryShortCode_VC_Gitem_Zone $this ;
- * @var array $atts ;
- * @var string $position ;
- * @var string $bgimage ;
- * @var string $height ;
- * @var string $link ;
- * @var string $url ;
- * @var string $featured_image ;
+ * Shortcode attributes
+ * @var $atts
+ * @var $el_class
+ * @var $css
+ * @var $position
+ * @var $bgimage
+ * @var $height
+ * @var $link
+ * @var $url
+ * @var $height_mode
+ * @var $featured_image
+ * @var $render
+ * @var $content - shortcode content
+ * Shortcode class
+ * @var $this WPBakeryShortCode_VC_Gitem_Zone
  */
-$css_style = $css_style_mini = $attr = '';
+$el_class = $css = $position = $bgimage = $height = $link = $url = $height_mode = $featured_image = $render = '';
+
+$css_style = $css_style_mini = '';
 $image_block = $image = '';
-$atts = shortcode_atts( array(
-	'el_class' => '',
-	'css' => '',
-	'position' => '',
-	'bgimage' => '',
-	'height' => '',
-	'link' => '',
-	'url' => '',
-	'height_mode' => '',
-	'height' => '',
-	'featured_image' => '',
-	'render' => '',
-), $atts );
+
+$atts = vc_map_get_attributes( $this->getShortcode(), $atts );
 extract( $atts );
-if ( $render === 'no' ) {
+
+extract( $atts );
+
+if ( 'no' === $render ) {
 	echo '';
 
 	return;
@@ -62,9 +60,9 @@ if ( 'yes' === $featured_image ) {
 	$css_style .= "{{ post_image_background_image_css }}";
 	$image = '<img src="{{ post_image_url'
 	         . ( false !== $background_image_css_editor ? ':' . rawurlencode( $background_image_css_editor ) . '' : '' )
-	         . ' }}" class="vc_gitem-zone-img">';
+	         . ' }}" class="vc_gitem-zone-img" alt="{{ post_image_alt }}">';
 } elseif ( false !== $background_image_css_editor ) {
-	$image = '<img src="' . esc_attr( $background_image_css_editor ) . '" class="vc_gitem-zone-img">';
+	$image = '<img src="' . esc_attr( $background_image_css_editor ) . '" class="vc_gitem-zone-img" alt="{{ post_image_alt }}">';
 }
 if ( strlen( $link ) > 0 && 'none' !== $link ) {
 	$css_class .= ' vc_gitem-is-link';
@@ -93,7 +91,7 @@ if ( strlen( $link ) > 0 && 'none' !== $link ) {
 	$image_block = apply_filters( 'vc_gitem_zone_image_block_link', $image_block, $link, 'vc_gitem-link vc-zone-link' );
 }
 ?>
-<div<?php echo $attr ?> class="<?php echo esc_attr( $css_class ) ?>"<?php
+<div class="<?php echo esc_attr( $css_class ) ?>"<?php
 echo( empty( $css_style ) ? '' : ' style="' . esc_attr( $css_style ) . '"' )
 ?>>
 	<?php echo $image_block ?>
@@ -103,4 +101,4 @@ echo( empty( $css_style ) ? '' : ' style="' . esc_attr( $css_style ) . '"' )
 	?>>
 		<?php echo do_shortcode( $content ) ?>
 	</div>
-</div>
+</div><?php echo $this->endBlockComment( $this->getShortcode() ); ?>

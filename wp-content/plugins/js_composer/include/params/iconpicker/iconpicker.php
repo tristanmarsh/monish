@@ -109,7 +109,9 @@ class Vc_IconPicker {
 
 		// call filter vc_iconpicker-type-{your_type}, e.g. vc_iconpicker-type-fontawesome with passed source from shortcode(default empty array). to get icons
 		$arr = apply_filters( 'vc_iconpicker-type-' . esc_attr( $this->settings['settings']['type'] ), $this->source );
-
+		if ( isset( $this->settings['settings'], $this->settings['settings']['emptyIcon'] ) && true === $this->settings['settings']['emptyIcon'] ) {
+			array_unshift( $arr, array() );
+		}
 		if ( ! empty( $arr ) ) {
 			foreach ( $arr as $group => $icons ) {
 				if ( ! is_array( $icons ) || ! is_array( current( $icons ) ) ) {

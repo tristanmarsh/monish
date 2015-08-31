@@ -1,13 +1,18 @@
 <?php
 /**
- * @var string $width ;
- * @var string $align ;
- * @var string $content ;
- * @var array $atts ;
- * @var array $css ;
- * @var array $el_class ;
- * @var array $featured_image ;
- * */
+ * Shortcode attributes
+ * @var $atts
+ * @var $width
+ * @var $align
+ * @var $css
+ * @var $el_class
+ * @var $featured_image
+ * @var $content - shortcode content
+ * Shortcode class
+ * @var $this WPBakeryShortCode_VC_Gitem_Col
+ */
+$width = $align = $css = $el_class = $featured_image = '';
+
 $atts = shortcode_atts( array(
 	'width' => '1/1',
 	'align' => 'left',
@@ -16,6 +21,8 @@ $atts = shortcode_atts( array(
 	'featured_image' => '',
 ), $atts );
 extract( $atts );
+// @todo: Note that vc_map_get_attributes doesnt return align so it should be checked in next bug fix
+
 $style = '';
 $width = wpb_translateColumnWidthToSpan( $width );
 $css_class = $width
@@ -31,3 +38,4 @@ echo '<div class="' . $css_class . '"'
      . '>'
      . do_shortcode( $content )
      . '</div>';
+echo $this->endBlockComment( $this->getShortcode() );

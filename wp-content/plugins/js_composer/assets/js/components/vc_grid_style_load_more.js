@@ -60,6 +60,7 @@ var vcGridStyleLoadMore = null;
 		this.setIsLoading();
 		$els.addClass( 'vc_visible-item ' + vcGridSettings.addItemsAnimation + ' animated' );
 		this.unsetIsLoading();
+		jQuery(window).trigger( 'grid:items:added', this.$el );
 	};
 	/**
 	 * Filter function called by grid object ot filter content.

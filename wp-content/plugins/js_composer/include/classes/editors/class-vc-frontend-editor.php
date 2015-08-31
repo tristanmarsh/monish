@@ -243,8 +243,8 @@ Class Vc_Frontend_Editor implements Vc_Editor_Interface {
 	 */
 	public function editableContent( $content ) {
 		// same addContentAnchor
-		do_shortcode( $content );
-
+		do_shortcode( $content ); // this will not be outputted, but this is needed to enqueue needed js/styles.
+		
 		return '<span id="vc_inline-anchor" style="display:none !important;"></span>';
 	}
 

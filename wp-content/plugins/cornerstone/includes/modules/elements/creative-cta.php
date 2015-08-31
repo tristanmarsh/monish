@@ -40,18 +40,15 @@ class CS_Creative_CTA extends Cornerstone_Element_Base {
 
     $this->addControl(
       'graphic',
-      'choose',
+      'select',
       __( 'Graphic', csl18n() ),
       __( 'Choose between an icon and a custom image for your graphic.', csl18n() ),
       'icon',
       array(
-        'condition' => array(
-          'fade' => true
-        ),
         'columns' => '2',
         'choices' => array(
-          array( 'value' => 'icon',  'label' => __( 'Icon', csl18n() ),  'icon' => fa_entity( 'flag' ) ),
-          array( 'value' => 'image', 'label' => __( 'Image', csl18n() ), 'icon' => fa_entity( 'image' ) )
+          array( 'value' => 'icon',  'label' => __( 'Icon', csl18n() ) ),
+          array( 'value' => 'image', 'label' => __( 'Image', csl18n() ) )
         )
       )
     );
@@ -115,15 +112,12 @@ class CS_Creative_CTA extends Cornerstone_Element_Base {
       __( 'Specify the animation you would like to use for you Creative CTA.', csl18n() ),
       'slide-top',
       array(
-        'condition' => array(
-          'fade' => true
-        ),
-        'columns' => '2',
+        'columns' => '4',
         'choices' => array(
-          array( 'value' => 'slide-top',    'label' => __( 'Slide Top', csl18n() ),    'icon' => fa_entity( 'arrow-up' ) ),
-          array( 'value' => 'slide-right',  'label' => __( 'Slide Right', csl18n() ),  'icon' => fa_entity( 'arrow-right' ) ),
-          array( 'value' => 'slide-bottom', 'label' => __( 'Slide Bottom', csl18n() ), 'icon' => fa_entity( 'arrow-down' ) ),
-          array( 'value' => 'slide-left',   'label' => __( 'Slide Left', csl18n() ),   'icon' => fa_entity( 'arrow-left' ) )
+          array( 'value' => 'slide-top',    'icon' => fa_entity( 'arrow-up' ) ),
+          array( 'value' => 'slide-right',  'icon' => fa_entity( 'arrow-right' ) ),
+          array( 'value' => 'slide-bottom', 'icon' => fa_entity( 'arrow-down' ) ),
+          array( 'value' => 'slide-left',   'icon' => fa_entity( 'arrow-left' ) )
         )
       )
     );

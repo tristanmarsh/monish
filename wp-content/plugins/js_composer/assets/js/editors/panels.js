@@ -166,6 +166,7 @@
 			this.model = _.isObject( model ) ? model : false;
 			this.$content = this.$el.find( '.wpb-elements-list' );
 			this.$buttons = $( '.wpb-layout-element-button', this.$content );
+			this.preventDoubleExecution = false;
 			return vc.AddElementBlockView.__super__.render.call( this );
 		},
 		hide: function () {
@@ -184,6 +185,11 @@
 			this.builder.render();
 		},
 		createElement: function ( e ) {
+			var that;
+			if ( this.preventDoubleExecution ) {
+				return;
+			}
+			this.preventDoubleExecution = true;
 			this.do_render = true;
 			e.preventDefault();
 			var $control = $( e.currentTarget ),
@@ -236,7 +242,10 @@
 				}, this );
 			}
 			this.show_settings = _.isBoolean( vc.getMapped( tag ).show_settings_on_create ) && vc.getMapped( tag ).show_settings_on_create === false ? false : true;
-			this.$el.modal( 'hide' );
+			that = this;
+			this.$el.one( 'hidden.bs.modal', function () {
+				that.preventDoubleExecution = false;
+			} ).modal( 'hide' );
 		},
 		getDefaultParams: function ( tag ) {
 			var params = {};
@@ -324,6 +333,11 @@
 			return vc.AddElementBlockView.__super__.render.call( this );
 		},
 		createElement: function ( e ) {
+			var that;
+			if ( this.preventDoubleExecution ) {
+				return;
+			}
+			this.preventDoubleExecution = true;
 			var model, column, row;
 			_.isObject( e ) && e.preventDefault();
 			this.do_render = true;
@@ -371,7 +385,10 @@
 			}
 			this.show_settings = _.isBoolean( vc.getMapped( tag ).show_settings_on_create ) && vc.getMapped( tag ).show_settings_on_create === false ? false : true;
 			this.model = model;
-			this.$el.modal( 'hide' );
+			that = this;
+			this.$el.one( 'hidden.bs.modal', function () {
+				that.preventDoubleExecution = false;
+			} ).modal( 'hide' );
 		},
 		showEditForm: function () {
 			vc.edit_element_block_view.render( this.model );
@@ -625,10 +642,11 @@
 		init: function () {
 			var self = this;
 			$( '.vc_shortcode-param', this.content() ).each( function () {
-				var param = {};
-				var $el = $( this );
-				param.type = $el.data( 'param_type' );
-				param.param_name = $el.data( 'param_name' );
+				var param, $el;
+
+				param = {};
+				$el = $( this );
+				param = $el.data( 'param_settings' );
 				vc.atts.init.call( self, param, $el );
 			} );
 			this.initDependency();
@@ -641,28 +659,33 @@
 			// setup dependencies
 			var callDependencies = {};
 			_.each( this.mapped_params, function ( param ) {
-				if ( _.isObject( param ) && _.isObject( param.dependency ) && _.isString( param.dependency.element ) ) {
-					var $masters = $( '[name=' + param.dependency.element + '].wpb_vc_param_value', this.$content ),
+				if ( _.isObject( param ) && _.isObject( param.dependency ) ) {
+					var rules = param.dependency;
+					if ( _.isString( param.dependency.element ) ) {
+						var $masters, $slave;
+
+						$masters = $( '[name=' + param.dependency.element + '].wpb_vc_param_value', this.$content );
 						$slave = $( '[name= ' + param.param_name + '].wpb_vc_param_value', this.$content );
-					_.each( $masters, function ( master ) {
-						var $master = $( master ),
-							name = $master.attr( 'name' ),
-							rules = param.dependency;
-						if ( ! _.isArray( this.dependent_elements[ $master.attr( 'name' ) ] ) ) {
-							this.dependent_elements[ $master.attr( 'name' ) ] = [];
-						}
-						this.dependent_elements[ $master.attr( 'name' ) ].push( $slave );
-						//
-						! $master.data( 'dependentSet' )
-						&& $master.attr( 'data-dependent-set', 'true' )
-						&& $master.bind( 'keyup change', this.hookDependent );
-						if ( ! callDependencies[ name ] ) {
-							callDependencies[ name ] = $master;
-						}
-						if ( _.isString( rules.callback ) ) {
-							window[ rules.callback ].call( this );
-						}
-					}, this );
+						_.each( $masters, function ( master ) {
+							var $master, name;
+							$master = $( master );
+							name = $master.attr( 'name' );
+							if ( ! _.isArray( this.dependent_elements[ $master.attr( 'name' ) ] ) ) {
+								this.dependent_elements[ $master.attr( 'name' ) ] = [];
+							}
+							this.dependent_elements[ $master.attr( 'name' ) ].push( $slave );
+							//
+							! $master.data( 'dependentSet' )
+							&& $master.attr( 'data-dependent-set', 'true' )
+							&& $master.bind( 'keyup change', this.hookDependent );
+							if ( ! callDependencies[ name ] ) {
+								callDependencies[ name ] = $master;
+							}
+						}, this );
+					}
+					if ( _.isString( rules.callback ) ) {
+						window[ rules.callback ].call( this );
+					}
 				}
 			}, this );
 			this.doCheckTabs = false;
@@ -674,16 +697,17 @@
 			callDependencies = null;
 		},
 		hookDependent: function ( e ) {
-			var $master = $( e.currentTarget ),
-				$master_container = $master.closest( '.vc_column' ),
-				is_empty,
-				dependent_elements = _.isArray( dependent_elements ) ? dependent_elements : this.dependent_elements[ $master.attr( 'name' ) ],
-				master_value = $master.is( ':checkbox' ) ? _.map( this.$content.find( '[name=' + $( e.currentTarget ).attr( 'name' ) + '].wpb_vc_param_value:checked' ),
-					function ( element ) {
-						return $( element ).val();
-					} )
-					: $master.val(),
-				checkTabs = true && this.doCheckTabs;
+			var $master, $master_container, is_empty, dependent_elements, master_value, checkTabs;
+
+			$master = $( e.currentTarget );
+			$master_container = $master.closest( '.vc_column' );
+			dependent_elements = this.dependent_elements[ $master.attr( 'name' ) ];
+			master_value = $master.is( ':checkbox' ) ? _.map( this.$content.find( '[name=' + $( e.currentTarget ).attr( 'name' ) + '].wpb_vc_param_value:checked' ),
+				function ( element ) {
+					return $( element ).val();
+				} )
+				: $master.val();
+			checkTabs = true && this.doCheckTabs;
 			this.doCheckTabs = false;
 			is_empty = $master.is( ':checkbox' ) ? ! this.$content.find( '[name=' + $master.attr( 'name' ) + '].wpb_vc_param_value:checked' ).length
 				: ! master_value.length;
@@ -765,15 +789,15 @@
 			return window;
 		},
 		getParams: function () {
-			var attributes_settings = this.mapped_params;
+			var paramsSettings;
+
+			paramsSettings = this.mapped_params;
 			this.params = _.extend( {}, this.model.get( 'params' ) );
-			_.each( attributes_settings, function ( param ) {
-				var value = vc.atts.parseFrame.call( this, param );
-				if ( (_.isUndefined( param.save_always ) || param.save_always == false) && (_.isNull( value ) || value === '') ) {
-					delete this.params[ param.param_name ];
-				} else {
-					this.params[ param.param_name ] = value;
-				}
+			_.each( paramsSettings, function ( param ) {
+				var value;
+
+				value = vc.atts.parseFrame.call( this, param );
+				this.params[ param.param_name ] = value;
 			}, this );
 			_.each( vc.edit_form_callbacks, function ( callback ) {
 				callback.call( this );
@@ -787,7 +811,9 @@
 			if ( ! this.panelInit ) {
 				return;
 			}
-			this.model.save( { params: this.getParams() } );
+			var params;
+			params = _.extend( {}, vc.getDefaults( this.model.get( 'shortcode' ) ), this.getParams() );
+			this.model.save( { params: params } );
 			this.showMessage( window.sprintf( window.i18nLocale.inline_element_saved,
 				vc.getMapped( this.model.get( 'shortcode' ) ).name ), 'success' );
 			! vc.frame_window && this.hide();

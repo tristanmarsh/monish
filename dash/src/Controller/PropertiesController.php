@@ -20,6 +20,8 @@ class PropertiesController extends AppController
         $this->loadModel('Leases');
         $this->loadModel('Properties');
         $this->loadModel('Rooms');
+        $this->loadModel('Students');
+        $this->loadModel('People');
 
         $rooms = $this->Rooms->find('all', ['contain' => ['Leases']]);
         $this->set(compact('rooms'));
@@ -29,6 +31,12 @@ class PropertiesController extends AppController
 
         $roomlease = $this->Rooms;
         $this->set(compact('roomlease'));
+
+        $studentTable = $this->Students;
+        $this->set(compact('studentTable'));
+
+        $peopleTable = $this->People;
+        $this->set(compact('peopleTable'));
     }
 
     /**

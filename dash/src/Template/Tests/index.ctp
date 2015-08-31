@@ -1,5 +1,7 @@
 <h1>Tests</h1>
 
+<br><br><br><br>
+
 <div class="panel panel-default clearfix">
     
     <div class="panel-body">
@@ -23,6 +25,8 @@
 
 </div>
 
+<?= $lastroomupdate->date->format('d/m/Y') ?>
+<br><br>
 
 <p>
 This function adds the person, student, lease and user. 

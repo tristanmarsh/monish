@@ -35,6 +35,7 @@ var vcGridStyleAllMasonry;
 				}
 				self.unsetIsLoading();
 				window.vc_prettyPhoto();
+				jQuery(window).trigger( 'grid:items:added', self.$el );
 			} );
 		},
 		filter: function ( filter ) {

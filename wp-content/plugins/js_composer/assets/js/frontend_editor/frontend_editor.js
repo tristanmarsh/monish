@@ -74,9 +74,11 @@ _.extend( vc, {
 		vc.$frame.height( height );
 		// vc.$frame.height(vc.$frame.contents() ? vc.$frame.contents().height() : 1000);
 	};
-	vc.getDefaults = function ( tag ) {
-		var defaults = {},
-			params = _.isArray( vc.getMapped( tag ).params ) ? vc.getMapped( tag ).params : [];
+	vc.getDefaults = vc.memoizeWrapper( function ( tag ) {
+		var defaults, params;
+
+		defaults = {};
+		params = _.isArray( vc.getMapped( tag ).params ) ? vc.getMapped( tag ).params : [];
 		_.each( params, function ( param ) {
 			if ( _.isObject( param ) ) {
 				if ( ! _.isUndefined( param.std ) ) {
@@ -94,8 +96,154 @@ _.extend( vc, {
 				}
 			}
 		} );
+
 		return defaults;
+	} );
+
+	vc.getDefaultsAndDependencyMap = vc.memoizeWrapper( function ( tag ) {
+		var defaults, dependencyMap, params;
+		dependencyMap = {};
+		defaults = {};
+		params = _.isArray( vc.getMapped( tag ).params ) ? vc.getMapped( tag ).params : [];
+
+		_.each( params, function ( param ) {
+			if ( _.isObject( param ) && 'content' !== param.param_name ) {
+				// Building defaults
+				if ( ! _.isUndefined( param.std ) ) {
+					defaults[ param.param_name ] = param.std;
+				} else if ( ! _.isUndefined( param.value ) ) {
+					if ( vc.atts[ param.type ] && vc.atts[ param.type ].defaults ) {
+						defaults[ param.param_name ] = vc.atts[ param.type ].defaults( param );
+					} else if ( _.isObject( param.value ) ) {
+						defaults[ param.param_name ] = _.values( param.value )[ 0 ];
+					} else if ( _.isArray( param.value ) ) {
+						defaults[ param.param_name ] = param.value[ 0 ];
+					} else {
+						defaults[ param.param_name ] = param.value;
+					}
+				}
+				// Building dependency map
+				if ( ! _.isUndefined( param.dependency ) && ! _.isUndefined( param.dependency.element ) ) {
+					// We can only hook dependency to exact element value
+					dependencyMap[ param.param_name ] = param.dependency;
+				}
+			}
+		} );
+
+		return { defaults: defaults, dependencyMap: dependencyMap };
+	} );
+
+	vc.getMergedParams = function ( tag, values ) {
+		var paramsMap, outputParams, paramsDependencies;
+		paramsMap = vc.getDefaultsAndDependencyMap( tag );
+		outputParams = {};
+
+		// Make all values extended from default
+		values = _.extend( {}, paramsMap.defaults, values );
+		paramsDependencies = _.extend( {}, paramsMap.dependencyMap );
+		_.each( values, function ( value, key ) {
+			if ( 'content' !== key ) {
+				var paramSettings;
+
+				// checking dependency
+				if ( ! _.isUndefined( paramsDependencies[ key ] ) ) {
+					// now we know that param has dependency, so we must check is it satisfy a statement
+					if ( ! _.isUndefined( paramsDependencies[ paramsDependencies[ key ].element ] ) && _.isBoolean( paramsDependencies[ paramsDependencies[ key ].element ].failed ) && true === paramsDependencies[ paramsDependencies[ key ].element ].failed ) {
+						paramsDependencies[ key ].failed = true;
+						return; // in case if we already failed a dependency (a-b-c)
+					}
+					var rules, isDependedEmpty, dependedElement, dependedValue;
+					dependedElement = paramsDependencies[ key ].element;
+					dependedValue = values[ dependedElement ];
+					isDependedEmpty = _.isEmpty( dependedValue );
+
+					rules = _.omit( paramsDependencies[ key ], 'element' );
+					if (
+						(
+							// check rule 'not_empty'
+						_.isBoolean( rules.not_empty ) && true === rules.not_empty && isDependedEmpty
+						) ||
+						(
+							// check rule 'is_empty'
+						_.isBoolean( rules.is_empty ) && true === rules.is_empty && ! isDependedEmpty
+						) ||
+						(
+							// check rule 'value'
+						rules.value && ! _.intersection( (
+								_.isArray( rules.value ) ? rules.value : [ rules.value ]),
+							(_.isArray( dependedValue ) ? dependedValue : [ dependedValue ] )
+						).length
+						) ||
+						(
+							// check rule 'value_not_equal_to'
+						rules.value_not_equal_to && _.intersection( (
+								_.isArray( rules.value_not_equal_to ) ? rules.value_not_equal_to : [ rules.value_not_equal_to ] ),
+							(_.isArray( dependedValue ) ? dependedValue : [ dependedValue ])
+						).length
+						)
+					) {
+						paramsDependencies[ key ].failed = true;
+						return; // some of these rules doesn't satisfy so just exit
+					}
+				}
+				// now check for defaults if not deleted already
+				paramSettings = vc.getParamSettings( tag, key );
+
+				if ( _.isUndefined( paramSettings ) ) {
+					outputParams[ key ] = value;
+					// this means that param is not mapped
+					// so maybe it is can be used somewhere in other place.
+					// We need to save it anyway. #93627986
+				} else if (
+					( // add value if it is not same as default
+					! _.isUndefined( paramsMap.defaults[ key ] ) && paramsMap.defaults[ key ] !== value
+					) || (
+						// or if no defaults exists -> add value if it is not empty
+					_.isUndefined( paramsMap.defaults[ key ] ) && '' !== value
+					) || (
+						// Or it is required to save always
+					! _.isUndefined( paramSettings.save_always ) && true === paramSettings.save_always )
+				) {
+					outputParams[ key ] = value;
+				}
+			}
+		} );
+
+		return outputParams;
 	};
+
+	vc.getParamSettings = vc.memoizeWrapper( function ( tag, paramName ) {
+		var params, paramSettings;
+
+		params = _.isArray( vc.getMapped( tag ).params ) ? vc.getMapped( tag ).params : [];
+		paramSettings = _.find( params, function ( settings ) {
+			return _.isObject( settings ) && settings.param_name === paramName;
+		}, this );
+		return paramSettings;
+	}, function () {
+		return arguments[ 0 ] + ',' + arguments[ 1 ];
+	} );
+
+	vc.getParamSettingsByType = vc.memoizeWrapper( function ( tag, paramType ) {
+		var params, paramSettings;
+
+		params = _.isArray( vc.getMapped( tag ).params ) ? vc.getMapped( tag ).params : [];
+		paramSettings = _.find( params, function ( settings ) {
+			return _.isObject( settings ) && settings.type === paramType;
+		}, this );
+
+		return paramSettings;
+	}, function () {
+		return arguments[ 0 ] + ',' + arguments[ 1 ];
+	} );
+
+	/**
+	 * Checks if given shortcode has el_id param
+	 */
+	vc.shortcodeHasIdParam = vc.memoizeWrapper( function ( tag ) {
+		return vc.getParamSettingsByType( tag, 'el_id' );
+	} );
+
 	vc.buildRelevance = function () {
 		vc.shortcode_relevance = {};
 		_.each( vc.map, function ( object ) {
@@ -276,14 +424,20 @@ _.extend( vc, {
 				model.view.parent_view = this;
 				model.view.parentChanged();
 			}, this );
+			_.defer( _.bind( function () {
+				vc.events.trigger( 'shortcodeView:updated', this.model );
+				vc.events.trigger( 'shortcodeView:updated:' + this.model.get( 'shortcode' ), this.model );
+				vc.events.trigger( 'shortcodeView:updated:' + this.model.get( 'id' ), this.model );
+			}, this ) );
 		},
 		parentChanged: function () {
 			this.checkControlsPosition();
 		},
 		rendered: function () {
 			_.defer( _.bind( function () {
-				vc.events.trigger( 'shortcodeView:ready' );
-				vc.events.trigger( 'shortcodeView:ready:' + this.model.get( 'shortcode' ) );
+				vc.events.trigger( 'shortcodeView:ready', this.model );
+				vc.events.trigger( 'shortcodeView:ready:' + this.model.get( 'shortcode' ), this.model );
+				vc.events.trigger( 'shortcodeView:ready:' + this.model.get( 'id' ), this.model );
 			}, this ) );
 		},
 		hasUserAccess: function () {

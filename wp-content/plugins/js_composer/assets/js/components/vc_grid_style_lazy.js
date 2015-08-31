@@ -87,6 +87,7 @@ var vcGridStyleLazy = null;
 		this.setIsLoading();
 		$els.addClass( 'vc_visible-item ' + vcGridSettings.addItemsAnimation + ' animated' );
 		this.unsetIsLoading();
+		jQuery(window).trigger( 'grid:items:added', this.$el );
 	};
 
 	/**

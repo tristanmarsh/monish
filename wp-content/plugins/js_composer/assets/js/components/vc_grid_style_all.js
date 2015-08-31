@@ -73,6 +73,7 @@ var vcGridStyleAll;
 		$els.addClass( 'vc_visible-item ' + (
 			vcGridSettings.addItemsAnimation != 'none' ? vcGridSettings.addItemsAnimation + ' animated' : '') );
 		this.unsetIsLoading();
+		jQuery(window).trigger( 'grid:items:added', this.$el );
 	};
 	/**
 	 * Add new grid elements to content block. Called by ajax in render method.

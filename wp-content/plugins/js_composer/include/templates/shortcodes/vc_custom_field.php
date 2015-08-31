@@ -1,10 +1,12 @@
 <?php
 /**
- * @var array $atts ;
- * @var string $field_key ;
- * @var string $custom_field_key ;
- * @var string $el_class ;
+ * @var array $atts
+ * @var string $field_key
+ * @var string $custom_field_key
+ * @var string $el_class
  */
+$field_key = $custom_field_key = $el_class = '';
+
 extract( shortcode_atts( array(
 	'field_key' => '',
 	'custom_field_key' => '',
@@ -19,3 +21,4 @@ if ( strlen( $key ) ):
 		}}
 	</div>
 <?php endif;
+echo $this->endBlockComment( $this->getShortcode() );

@@ -22,6 +22,50 @@ class TenantsController extends AppController
 
         $people = $this->paginate($this->People->find('all')->contain(['Students', 'Users']));
         $this->set(compact('people'));
+
+        $this->loadModel('Rooms');
+
+        $roomlease = $this->Rooms;
+        $this->set(compact('roomlease'));
+
+        $allrooms = $this->Rooms->find('all', ['contain' => ['Properties', 'Leases']]);
+        $this->set(compact('allrooms'));
+
+        foreach ($allrooms as $room){
+            $roomsTable = TableRegistry::get('Rooms');
+            $currentroom = $roomsTable->get($room->id, ['contain'=>'Leases']); 
+            
+            $test = "";
+            $sentinel = true; //true if Never Been Leased
+            if (!empty($currentroom->leases)) {
+                foreach ($currentroom->leases as $leastenddate) {
+                    $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                }
+            }
+            else {
+                $currentroom->vacant = 'TRUE';
+                $sentinel = false;
+            }
+            if ($sentinel) { 
+                $toArray = explode("||", $test);
+                if (max($toArray) > date("Y-m-d")) {
+                    $currentroom->vacant = 'FALSE';
+                } else if (max($toArray) === date("Y-m-d")) {
+                    $currentroom->vacant = 'FALSE';
+                } else if (max($toArray) < date("Y-m-d")) {
+                    $currentroom->vacant = 'TRUE';
+                }
+            }
+
+            $roomsTable->save($currentroom);
+        }
+
+        $lastroomupdateTable = TableRegistry::get('Lastroomupdate');
+        $lastroomupdate = $lastroomupdateTable->get(1); 
+
+        $lastroomupdate->date = date("Y-m-d");
+        $lastroomupdateTable->save($lastroomupdate);
+
     }
 
     public function add()
@@ -87,7 +131,7 @@ class TenantsController extends AppController
                 $this->Flash->success(__('Person Added'));
                 return $this->redirect(['controller' => 'tenants', 'action' => 'updaterooms']);
             }
-            $this->Flash->error(__('Unable to add the user.'));
+            $this->Flash->error(__('Unable to add the person.'));
         }
         $this->set('user', $user);
     }
@@ -101,6 +145,7 @@ class TenantsController extends AppController
         $this->loadModel('Students');
 
         $user = $this->Users->get($id, ['contain' => ['People']]);
+		//$user['confirm_password'] = $user['password'];
 
         //This provides the variable to use in edit.ctp to auto populate the current person's details
         $defaultPerson = $this->People->get($user->person_id, ['contain' => ['Students']]);
@@ -108,7 +153,6 @@ class TenantsController extends AppController
 
         $defaultStudent = $this->Students->get($defaultPerson->student->id);
         $this->set(compact('defaultStudent'));
-
         if ($this->request->is(['post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)){
@@ -128,10 +172,10 @@ class TenantsController extends AppController
                 $student->internet_plan = $user->internet_plan;
                 $studentsTable->save($person); //Must have this statement to save the changes
 
-                $this->Flash->success(__('This user has been updated.'));
+                $this->Flash->success(__('This tenant has been updated.'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('Unable to update this user.'));
+            $this->Flash->error(__('Unable to update this tenant.'));
         }
         $this->set('user', $user);
 
@@ -207,7 +251,14 @@ class TenantsController extends AppController
 
             $roomsTable->save($currentroom);
         }
-        $this->Flash->success('Rooms have been updated for today!');    
+
+        $lastroomupdateTable = TableRegistry::get('Lastroomupdate');
+        $lastroomupdate = $lastroomupdateTable->get(1); 
+
+        $lastroomupdate->date = date("Y-m-d");
+        $lastroomupdateTable->save($lastroomupdate);
+
+        $this->Flash->success('Rooms have been updated!');    
         return $this->redirect($this->referer());
 
     }

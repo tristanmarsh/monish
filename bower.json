@@ -16,6 +16,7 @@
     "animate.css-scss": "~3.1.0",
     "bootstrap": "~3.3.5",
     "wow.js": "~1.1.2",
-    "animate.css": "~3.3.0"
+    "animate.css": "~3.3.0",
+    "nprogress": "~0.2.0"
   }
 }

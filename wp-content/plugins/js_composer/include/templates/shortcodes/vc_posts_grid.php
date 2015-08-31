@@ -1,25 +1,28 @@
 <?php
-/** @var $this WPBakeryShortCode_VC_Posts_Grid */
+/**
+ * Shortcode attributes
+ * @var $atts
+ * @var $title
+ * @var $grid_columns_count
+ * @var $grid_teasers_count
+ * @var $grid_layout
+ * @var $grid_link_target
+ * @var $filter
+ * @var $grid_thumb_size
+ * @var $grid_layout_mode
+ * @var $el_class
+ * @var $loop
+ * @var $content - shortcode content
+ * Shortcode class
+ * @var $this WPBakeryShortCode_VC_Posts_Grid
+ */
+
 global $vc_teaser_box;
-$grid_link = $grid_layout_mode = $title = $filter = '';
+$grid_link = '';
 $posts = array();
-extract( shortcode_atts( array(
-	'title' => '',
-	'grid_columns_count' => 4,
-	'grid_teasers_count' => 8,
-	'grid_layout' => 'title,thumbnail,text',
-	// title_thumbnail_text, thumbnail_title_text, thumbnail_text, thumbnail_title, thumbnail, title_text
-	'grid_link_target' => '_self',
-	'filter' => '',
-	//grid,
-	'grid_thumb_size' => 'thumbnail',
-	'grid_layout_mode' => 'fitRows',
-	'el_class' => '',
-	'teaser_width' => '12',
-	'orderby' => null,
-	'order' => 'DESC',
-	'loop' => '',
-), $atts ) );
+$atts = vc_map_get_attributes( $this->getShortcode(), $atts );
+extract( $atts );
+
 $this->resetTaxonomies();
 if ( empty( $loop ) ) {
 	return;
@@ -29,6 +32,7 @@ $my_query = $this->query;
 $args = $this->loop_args;
 $teaser_blocks = vc_sorted_list_parse_value( $grid_layout );
 global $vc_posts_grid_exclude_id;
+/** @var $my_query WP_Query */
 while ( $my_query->have_posts() ) {
 	$my_query->the_post(); // Get post from query
 	$post = new stdClass(); // Creating post object.
@@ -37,7 +41,7 @@ while ( $my_query->have_posts() ) {
 	}
 	$post->id = get_the_ID();
 	$post->link = get_permalink( $post->id );
-	if ( $vc_teaser_box->getTeaserData( 'enable', $post->id ) === '1' ) {
+	if ( '1' === $vc_teaser_box->getTeaserData( 'enable', $post->id ) ) {
 		$post->custom_user_teaser = true;
 		$data = $vc_teaser_box->getTeaserData( 'data', $post->id );
 		if ( ! empty( $data ) ) {
@@ -49,10 +53,10 @@ while ( $my_query->have_posts() ) {
 		if ( ! empty( $data ) ) {
 			foreach ( $data as $block ) {
 				$settings = array();
-				if ( $block->name === 'title' ) {
+				if ( 'title' === $block->name ) {
 					$post->title = the_title( "", "", false );
-				} elseif ( $block->name === 'image' ) {
-					if ( $block->image === 'featured' ) {
+				} elseif ( 'image' === $block->name ) {
+					if ( 'featured' === $block->image ) {
 						$post->thumbnail_data = $this->getPostThumbnail( $post->id, $grid_thumb_size );
 					} elseif ( ! empty( $block->image ) ) {
 						$post->thumbnail_data = wpb_getImageBySize( array(
@@ -64,11 +68,11 @@ while ( $my_query->have_posts() ) {
 					}
 					$post->thumbnail = $post->thumbnail_data && isset( $post->thumbnail_data['thumbnail'] ) ? $post->thumbnail_data['thumbnail'] : '';
 					$post->image_link = empty( $video ) && $post->thumbnail && isset( $post->thumbnail_data['p_img_large'][0] ) ? $post->thumbnail_data['p_img_large'][0] : $video;
-				} elseif ( $block->name === 'text' ) {
-					if ( $block->mode === 'custom' ) {
+				} elseif ( 'text' === $block->name ) {
+					if ( 'custom' === $block->mode ) {
 						$settings[] = 'text';
 						$post->content = $block->text;
-					} elseif ( $block->mode === 'excerpt' ) {
+					} elseif ( 'excerpt' === $block->mode ) {
 						$settings[] = $block->mode;
 						$post->excerpt = $this->getPostExcerpt();
 					} else {
@@ -77,9 +81,9 @@ while ( $my_query->have_posts() ) {
 					}
 				}
 				if ( isset( $block->link ) ) {
-					if ( $block->link === 'post' ) {
+					if ( 'post' === $block->link ) {
 						$settings[] = 'link_post';
-					} elseif ( $block->link === 'big_image' ) {
+					} elseif ( 'big_image' === $block->link ) {
 						$settings[] = 'link_image';
 					} else {
 						$settings[] = 'no_link';
@@ -91,14 +95,14 @@ while ( $my_query->have_posts() ) {
 		}
 	} else {
 		$post->custom_user_teaser = false;
-		$post->title = the_title( "", "", false );
+		$post->title = the_title( '', '', false );
 		$post->title_attribute = the_title_attribute( 'echo=0' );
 		$post->post_type = get_post_type();
 		$post->content = $this->getPostContent();
 		$post->excerpt = $this->getPostExcerpt();
 		$post->thumbnail_data = $this->getPostThumbnail( $post->id, $grid_thumb_size );
 		$post->thumbnail = $post->thumbnail_data && isset( $post->thumbnail_data['thumbnail'] ) ? $post->thumbnail_data['thumbnail'] : '';
-		$video = get_post_meta( $post->id, "_p_video", true );
+		$video = get_post_meta( $post->id, '_p_video', true );
 		$post->image_link = empty( $video ) && $post->thumbnail && isset( $post->thumbnail_data['p_img_large'][0] ) ? $post->thumbnail_data['p_img_large'][0] : $video;
 	}
 
@@ -134,11 +138,11 @@ $this->setLinktarget( $grid_link_target );
 
 ?>
 	<div
-		class="<?php echo apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $css_class, $this->settings['base'], $atts ) ?>">
+		class="<?php echo esc_attr( apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $css_class, $this->settings['base'], $atts ) ); ?>">
 		<div class="wpb_wrapper">
 			<?php echo wpb_widget_title( array( 'title' => $title, 'extraclass' => 'wpb_teaser_grid_heading' ) ) ?>
 			<div class="teaser_grid_container">
-				<?php if ( $filter === 'yes' && ! empty( $this->filter_categories ) ):
+				<?php if ( 'yes' === $filter && ! empty( $this->filter_categories ) ):
 					$categories_array = $this->getFilterCategories();
 					echo '<ul class="categories_filter vc_col-sm-12 vc_clearfix">'
 					     . '<li class="active"><a href="#" data-filter="*">';
@@ -190,4 +194,4 @@ $this->setLinktarget( $grid_link_target );
 			</div>
 		</div> <?php echo $this->endBlockComment( '.wpb_wrapper' ) ?>
 		<div class="clear"></div>
-	</div> <?php echo $this->endBlockComment( '.wpb_teaser_grid' );
+	</div> <?php echo $this->endBlockComment( $this->getShortcode() ) ?>

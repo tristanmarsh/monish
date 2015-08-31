@@ -1,71 +1,63 @@
 <div class="vc_welcome-tab changelog">
-	<div class="feature-section col">
+	<div class="vc_feature-section-teaser col">
 		<div>
 			<img class="vc-featured-img" src="<?php echo vc_asset_url( 'vc/vc-welcome/screenshot.png' ); ?>"/>
 
-			<h3><?php _e( 'Focus on Design and Content Elements', 'js_composer' ); ?></h3>
+			<h3><?php _e( 'Complex Container Elements and Styling', 'js_composer' ); ?></h3>
 
-			<p><?php _e( 'Latest Visual Composer version 4.5 focuses on visual part of your beloved page builder by introducing completely new well crafted content elements with multiple styling options. Enhanced row and column structure allows you to create trendy layouts based on parallax effect which will take your site to the next level.', 'js_composer' ); ?></p>
+			<p><?php _e( 'Visual Composer 4.6 offers complete rebuilt of complex content elements - Tabs, Tours and Accordions backed up by multiple styling and configuration options. New enhancements has been added to row element allowing to use video background and stretch row in height. Additional new elements and improvements for old elements in terms of design and styling continue the route set by Visual Composer in last few releases.
+', 'js_composer' ); ?></p>
 		</div>
 	</div>
 
 	<div class="vc_welcome-feature feature-section col three-col">
 		<div>
-			<img class="vc-img-center" title="<?php _e( 'Parallax Background', 'js_composer' ); ?>"
-			     src="<?php echo vc_asset_url( 'vc/vc-welcome/parallax.png' ); ?>"/>
-			<h4><?php _e( 'Parallax Background', 'js_composer' ); ?></h4>
+			<img class="vc-img-center"
+			     src="<?php echo vc_asset_url( 'vc/vc-welcome/01.png' ); ?>"/>
+			<h4><?php _e( 'Tabs, Tours, Accordions', 'js_composer' ); ?></h4>
 
-			<p><?php _e( 'Easy to add and style parallax effect allows transforming any of your row into interactive section. Depending on chosen effect parallax will interact with row background, content or both.', 'js_composer' ); ?></p>
+			<p><?php _e( 'Completely rebuilt Tabs, Tours and Accordions offers wide range of styling options and additional technical features like easy to use hash navigation. Control for styles, spaces, gaps and much more available out of the box.', 'js_composer' ); ?></p>
 		</div>
 		<div>
-			<img class="vc-img-center" title="<?php _e( 'Button and Call to Action', 'js_composer' ); ?>"
-			     src="<?php echo vc_asset_url( 'vc/vc-welcome/button-cta.png' ); ?>"/>
-			<h4><?php _e( 'Button and Call to Action', 'js_composer' ); ?></h4>
+			<img class="vc-img-center"
+			     src="<?php echo vc_asset_url( 'vc/vc-welcome/02.png' ); ?>"/>
+			<h4><?php _e( 'Video and Full Height Container', 'js_composer' ); ?></h4>
 
-			<p><?php _e( 'Newly redesigned Button and Call to Action content elements allows quickly replicate classic style elements or choose new well crafted design with multiple styling options.', 'js_composer' ); ?></p>
+			<p><?php _e( 'YouTube video background for row element allows building dynamic sites within minutes. Ability to stretch row in full height is a perfect solution for dividing content or grabbing attention.
+', 'js_composer' ); ?></p>
 		</div>
 		<div class="last-feature">
-			<img class="vc-img-center" title="<?php _e( 'ID for Rows', 'js_composer' ); ?>"
-			     src="<?php echo vc_asset_url( 'vc/vc-welcome/ids.png' ); ?>"/>
-			<h4><?php _e( 'ID for Rows', 'js_composer' ); ?></h4>
+			<img class="vc-img-center"
+			     src="<?php echo vc_asset_url( 'vc/vc-welcome/03.png' ); ?>"/>
+			<h4><?php _e( 'Chart Elements', 'js_composer' ); ?></h4>
 
-			<p><?php _e( 'Row ID allows link anything to specific place within your website. Create fancy one-page sites or use ID in complex cross-linked e-commerce solutions.', 'js_composer' ); ?></p>
+			<p><?php _e( 'Four new JS based chart elements: doughnut, pie, line and bar available out of the box. Smooth animation and styling options allows representation of complex data in easy way.', 'js_composer' ); ?></p>
 		</div>
 	</div>
 
 	<div class="feature-section col three-col">
 		<div>
-			<h4><?php _e( 'Install Package', 'js_composer' ); ?></h4>
+			<h4><?php _e( 'Simplified Shortcodes', 'js_composer' ); ?></h4>
+			<p><?php _e( 'No more empty values for shortcodes - if the value is not set or used default it is not represented in shortcode.', 'js_composer' ); ?></p>
 
-			<p><?php _e( 'After-install dashboard which will quickly guide you through the hottest additions to Visual Composer.', 'js_composer' ); ?></p>
-
-			<h4><?php _e( 'New Translations', 'js_composer' ); ?></h4>
-
-			<p><?php _e( 'Turkish and Traditional Chinese languages joined the list of available translations for Visual Composer. Thanks to Furkan Karatoprakli and Ming Xuan Li.', 'js_composer' ); ?></p>
-
-			<h4><?php _e( 'Design Options Update', 'js_composer' ); ?></h4>
-
-			<p><?php _e( 'General Design Options has been taken to the next level with brand new modification and adaption process allowing you control even tiniest parts of your WordPress site.', 'js_composer' ); ?></p>
+			<h4><?php _e( 'ALT Tags for Images', 'js_composer' ); ?></h4>
+			<p><?php _e( 'All images added to your layout via Visual Composer are now containing ALT tag described in Media Library ensuring your content is better recognized in terms of SEO.', 'js_composer' ); ?></p>
 		</div>
 
 		<div>
-			<h4><?php _e( 'Guide Tour', 'js_composer' ); ?></h4>
+			<h4><?php _e( 'Image Filters', 'js_composer' ); ?></h4>
+			<p><?php _e( 'Visual Composer offers Instagram style filters for your media within Media Library to ensure your media content will look even better.', 'js_composer' ); ?></p>
 
-			<p><?php _e( 'WordPress based guide tour mechanism covering basics of Visual Composer in few steps is useful for new users.', 'js_composer' ); ?></p>
-
-			<h4><?php _e( 'Visual Composer Settings', 'js_composer' ); ?></h4>
-
-			<p><?php _e( 'Visual Composer is located in the top level of your WordPress administration menu for even quicker access to all the settings.', 'js_composer' ); ?></p>
+			<h4><?php _e( 'Theme Fonts in Custom Heading', 'js_composer' ); ?></h4>
+			<p><?php _e( 'Custom Heading Element allows choosing theme fonts to style them a little bit. It is not mandatory to rely on Google Fonts only anymore.', 'js_composer' ); ?></p>
 		</div>
 
 		<div class="last-feature">
-			<h4><?php _e( 'New Param in Shortcode Mapper', 'js_composer' ); ?></h4>
+			<h4><?php _e( 'Icon Element Background', 'js_composer' ); ?></h4>
+			<p><?php _e( 'Icon Element background can be set to custom color ensuring that you can use completely different set of colors within your site.', 'js_composer' ); ?></p>
 
-			<p><?php _e( 'Now you add hidden params to your shortcodes with default predefined values to hide them from your users.', 'js_composer' ); ?></p>
-
-			<h4><?php _e( 'Add to Cart for Grid Builder', 'js_composer' ); ?></h4>
-
-			<p><?php _e( 'WooCommerce "Add to Cart" action is available within Grid Builder elements. Now products can be added to cart right from the grid.', 'js_composer' ); ?></p>
+			<h4><?php _e( 'Custom Buttons Improvement', 'js_composer' ); ?></h4>
+			<p><?php _e( 'Additional style for custom buttons based on Outline button style offer quickly and easy choose your own color for outline buttons and add them to your WordPress site.', 'js_composer' ); ?></p>
 		</div>
 	</div>
 

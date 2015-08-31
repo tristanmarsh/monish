@@ -1,5 +1,9 @@
 <?php
-if ( $atts['show_filter'] === 'yes' && ! empty( $filter_terms ) ):
+/**
+ * Shortcode attributes
+ * @var $atts
+ */
+if ( 'yes' === $atts['show_filter'] && ! empty( $filter_terms ) ):
 	$unique_terms = array_unique( $filter_terms );
 	$terms_ids = ! empty( $atts['exclude_filter'] ) ?
 		array_diff(
@@ -9,7 +13,7 @@ if ( $atts['show_filter'] === 'yes' && ! empty( $filter_terms ) ):
 	$terms = count( $terms_ids ) > 0 ? get_terms( $atts['filter_source'], array(
 		'include' => implode( ',', $terms_ids )
 	) ) : array();
-	if ( $atts['filter_style'] != 'dropdown' ):
+	if ( 'dropdown' !== $atts['filter_style'] ):
 		echo '<ul class="vc_grid-filter vc_clearfix vc_grid-filter-'
 		     . esc_attr( $atts['filter_style'] )
 		     . ' vc_grid-filter-size-'
@@ -36,7 +40,7 @@ if ( $atts['show_filter'] === 'yes' && ! empty( $filter_terms ) ):
 	endif; ?>
 	<!-- for responsive vc_responsive !-->
 	<div
-		class="<?php echo $atts['filter_style'] == 'dropdown' ? 'vc_grid-filter-dropdown' : 'vc_grid-filter-select'; ?> vc_grid-filter-<?php echo esc_attr( $atts['filter_align'] ); ?> vc_grid-filter-color-<?php echo esc_attr( $atts['filter_color'] ); ?>"
+		class="<?php echo 'dropdown' === $atts['filter_style'] ? 'vc_grid-filter-dropdown' : 'vc_grid-filter-select'; ?> vc_grid-filter-<?php echo esc_attr( $atts['filter_align'] ); ?> vc_grid-filter-color-<?php echo esc_attr( $atts['filter_color'] ); ?>"
 		data-vc-grid-filter-select="<?php echo esc_attr( $atts['filter_source'] ) ?>">
 		<div class="vc_grid-styled-select"><select data-filter="<?php echo esc_attr( $atts['filter_source'] ) ?>">
 				<option class="vc_active" value="*"><?php _e( 'All', 'js_composer' ) ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
@@ -50,4 +54,4 @@ if ( $atts['show_filter'] === 'yes' && ! empty( $filter_terms ) ):
 			</select><i class="vc_arrow-icon-navicon"></i>
 		</div>
 	</div>
-<?php endif; ?>
+<?php endif; 

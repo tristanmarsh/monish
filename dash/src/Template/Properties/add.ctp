@@ -14,14 +14,15 @@
       <div class="panel-body">
 
         <ul class="nav nav-pills pull-left">
-          <li role="presentation"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
-          <li role="presentation" class="active"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+          <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
+          <li role="presentation" class="active"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>
+          <li role="presentation"><?= $this->Html->link('New Room', ['controller' => 'rooms', 'action' => 'add']) ?></li>
         </ul>
 
 
       </div>
 
-      <div class="panel-footer">
+<!--       <div class="panel-footer">
 
         <ul class="nav nav-pills pull-left">
           <li role="presentation" class="active"><a href="#">Imagine</a></li>
@@ -30,7 +31,7 @@
           <li role="presentation"><a href="#">Buttons</a></li>
         </ul>
 
-      </div>
+      </div> -->
     </div>
 
     <div class="panel panel-default">
@@ -38,7 +39,7 @@
 <div class="properties form large-10 medium-9 columns">
     <?= $this->Form->create($property, array('class' => 'form-group')); ?>
     <fieldset>
-        <legend><?= __('Add Property', array('class' => 'form-control')) ?></legend>
+        <legend><?= __('New Property', array('class' => 'form-control')) ?></legend>
         <?php
             echo $this->Form->input('address', array('class' => 'form-control'));
             echo $this->Form->input('number_rooms', array('class' => 'form-control'));
@@ -55,7 +56,8 @@
             ]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-success']) ?>
+    <br>
+    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']) ?>
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Properties', 'action' => 'index']

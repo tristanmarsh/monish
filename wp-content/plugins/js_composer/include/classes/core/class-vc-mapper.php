@@ -20,6 +20,7 @@ class Vc_Mapper {
 	protected $init_activity = array();
 
 	protected $hasAccess = array();
+	protected $checkForAccess = true;
 
 	/**
 	 * @since 4.2
@@ -107,23 +108,42 @@ class Vc_Mapper {
 	 * @return bool
 	 */
 	public function userHasAccess( $shortcode ) {
-		if ( isset( $this->hasAccess[ $shortcode ] ) ) {
-			return $this->hasAccess[ $shortcode ];
-		} else {
-			global $current_user;
-			get_currentuserinfo();
-			$show = true;
+		if ( $this->isCheckForAccess() ) {
+			if ( isset( $this->hasAccess[ $shortcode ] ) ) {
+				return $this->hasAccess[ $shortcode ];
+			} else {
+				global $current_user;
+				get_currentuserinfo();
+				$show = true;
 
-			$settings = vc_settings()->get( 'groups_access_rules' );
-			foreach ( $current_user->roles as $role ) {
-				if ( isset( $settings[ $role ]['shortcodes'] ) && ! isset( $settings[ $role ]['shortcodes'][ $shortcode ] ) ) {
-					$show = false;
-					break;
+				$settings = vc_settings()->get( 'groups_access_rules' );
+				foreach ( $current_user->roles as $role ) {
+					if ( isset( $settings[ $role ]['shortcodes'] ) && ! isset( $settings[ $role ]['shortcodes'][ $shortcode ] ) ) {
+						$show = false;
+						break;
+					}
 				}
+				$this->hasAccess[ $shortcode ] = $show;
 			}
-			$this->hasAccess[ $shortcode ] = $show;
+
+			return $this->hasAccess[ $shortcode ];
 		}
 
-		return $this->hasAccess[ $shortcode ];
+		return true;
 	}
+
+	/**
+	 * @return boolean
+	 */
+	public function isCheckForAccess() {
+		return $this->checkForAccess;
+	}
+
+	/**
+	 * @param boolean $checkForAccess
+	 */
+	public function setCheckForAccess( $checkForAccess ) {
+		$this->checkForAccess = $checkForAccess;
+	}
+
 }

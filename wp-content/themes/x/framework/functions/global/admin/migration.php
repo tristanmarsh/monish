@@ -21,7 +21,7 @@
 
 function x_version_migration() {
 
-  $prior = get_option( 'x_version', '1.0.0' );
+  $prior = get_option( 'x_version', X_VERSION );
 
   if ( version_compare( $prior, X_VERSION, '<' ) ) {
 
@@ -94,7 +94,7 @@ function x_version_migration() {
     if ( version_compare( $prior, '4.0.4', '<' ) ) {
 
       $stack            = get_option( 'x_stack' );
-      $navbar_font_size = get_option( 'x_navbar_font_size' );
+      $navbar_font_size = get_option( 'x_navbar_font_size', 12 );
 
       if ( $stack == 'integrity' ) {
         $link_spacing        = round( intval( $navbar_font_size ) * 1.429 );

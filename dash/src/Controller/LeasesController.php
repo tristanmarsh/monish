@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\ORM\Table;
 use Cake\ORM\Query;
+use Cake\ORM\TableRegistry;
 
 /**
  * Leases Controller
@@ -29,6 +30,51 @@ class LeasesController extends AppController
         $lion = $this->Leases->Students->find('all', ['contain' => ['Users']]);
         $this->set('lion', $lion);
         $this->set('walrus', $walrus);
+
+        $this->loadModel('Rooms');
+        $this->loadModel('Properties');
+
+        $roomlease = $this->Rooms;
+        $this->set(compact('roomlease'));
+
+        $allrooms = $this->Rooms->find('all', ['contain' => ['Properties', 'Leases']]);
+        $this->set(compact('allrooms'));
+
+        foreach ($allrooms as $room){
+            $roomsTable = TableRegistry::get('Rooms');
+            $currentroom = $roomsTable->get($room->id, ['contain'=>'Leases']); 
+            
+            $test = "";
+            $sentinel = true; //true if Never Been Leased
+            if (!empty($currentroom->leases)) {
+                foreach ($currentroom->leases as $leastenddate) {
+                    $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                }
+            }
+            else {
+                $currentroom->vacant = 'TRUE';
+                $sentinel = false;
+            }
+            if ($sentinel) { 
+                $toArray = explode("||", $test);
+                if (max($toArray) > date("Y-m-d")) {
+                    $currentroom->vacant = 'FALSE';
+                } else if (max($toArray) === date("Y-m-d")) {
+                    $currentroom->vacant = 'FALSE';
+                } else if (max($toArray) < date("Y-m-d")) {
+                    $currentroom->vacant = 'TRUE';
+                }
+            }
+
+            $roomsTable->save($currentroom);
+        }
+
+        $lastroomupdateTable = TableRegistry::get('Lastroomupdate');
+        $lastroomupdate = $lastroomupdateTable->get(1); 
+
+        $lastroomupdate->date = date("Y-m-d");
+        $lastroomupdateTable->save($lastroomupdate);
+
     }
 
     /**
@@ -39,7 +85,11 @@ class LeasesController extends AppController
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
     public function view($id = null)
+
     {
+        $this->loadModel('People');
+        $walrus = $this->People;
+        $this->set('walrus', $walrus);
         $lease = $this->Leases->get($id, [
             'contain' => ['Rooms', 'Students']
         ]);
@@ -62,6 +112,8 @@ class LeasesController extends AppController
 
         $this->loadModel('Rooms');
         $this->loadModel('Properties');
+        $this->loadModel('People');
+
 
         $lease = $this->Leases->newEntity();
         if ($this->request->is('post')) {
@@ -86,7 +138,7 @@ class LeasesController extends AppController
         }
         //$properties = $this->Leases->Properties->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'address']);
         $rooms = $this->Leases->Rooms->find('list', ['groupField' => 'property.address', 'conditions'=>['vacant'=>'TRUE']])->contain('Properties');
-        $students = $this->Leases->Students->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'person.first_name'])->contain(['People']);
+        $students = $this->Leases->Students->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'person.full_name'])->contain(['People']);
         $this->set(compact('lease', 'rooms', 'students', 'properties'));
         $this->set('_serialize', ['lease']);
     }

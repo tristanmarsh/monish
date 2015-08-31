@@ -1,25 +1,25 @@
-.fade {
+.vc_general.fade {
   opacity: 0;
   -webkit-transition: opacity 0.15s linear;
   -o-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear;
 }
-.fade.in {
+.vc_general.fade.in {
   opacity: 1;
 }
-.collapse {
+.vc_general.collapse {
   display: none;
 }
-.collapse.in {
+.vc_general.collapse.in {
   display: block;
 }
-tr.collapse.in {
+tr.vc_general.collapse.in {
   display: table-row;
 }
-tbody.collapse.in {
+tbody.vc_general.collapse.in {
   display: table-row-group;
 }
-.collapsing {
+.vc_general.collapsing {
   position: relative;
   height: 0;
   overflow: hidden;
@@ -3286,6 +3286,67 @@ button.vc_btn-danger .badge {
 .vc_table-bordered > thead > tr > td {
   border-bottom-width: 2px;
 }
+.media-modal .attachment-details .setting.vc-image-filter-setting {
+  float: none;
+}
+.media-modal .attachment-details .setting.vc-image-filter-setting select {
+  max-width: 65%;
+  width: 100%;
+}
+@media only screen and (max-width: 900px) {
+  .media-modal .attachment-details .setting.vc-image-filter-setting .name {
+    display: block;
+  }
+  .media-modal .attachment-details .setting.vc-image-filter-setting select {
+    max-width: 98%;
+  }
+}
+.media-modal .attachment-info .thumbnail {
+  max-width: 100%;
+  max-height: 250px;
+  width: 100%;
+}
+.media-modal .attachment-info .thumbnail img {
+  max-width: 100%;
+  max-height: 250px;
+}
+.media-modal .attachment-info .thumbnail.loading::before {
+  background: url('../images/spinner.gif') no-repeat center;
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.media-modal .attachment-info .uploaded,
+.media-modal .attachment-info .file-size {
+  float: left;
+}
+.media-modal .attachment-info .uploaded::after,
+.media-modal .attachment-info .file-size::after {
+  margin-right: 5px;
+  content: ';';
+}
+.media-modal .attachment-info .edit-attachment,
+.media-modal .attachment-info .delete-attachment {
+  display: inline;
+}
+.media-modal .attachment-info .delete-attachment::before {
+  content: '| ';
+  color: #666;
+}
+.media-modal.processing-media .media-button::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background: url('../images/spinner.gif');
+  display: inline-block;
+  margin-left: -40px;
+  position: absolute;
+  pointer-events: none;
+  margin-top: 6px;
+}
 .vc_badge {
   display: inline-block;
   min-width: 10px;
@@ -3760,7 +3821,7 @@ a.list-group-item.active > .vc_badge,
   }
 }
 .vc_element-icon {
-  background-image: url('../vc/elements_icons_sprite.png');
+  background-image: url('../vc/elements_icons_sprite.png?v2');
   background-position: 0 0;
   background-repeat: no-repeat;
   display: block;
@@ -3912,6 +3973,16 @@ a.list-group-item.active > .vc_badge,
 }
 .vc_icon-vc-masonry-grid {
   background-position: 0 -1600px;
+}
+.icon-wpb-vc-round-chart {
+  background-position: 0 -1664px;
+}
+.icon-wpb-vc-line-chart {
+  background-position: 0 -1632px;
+}
+.icon-wpb-ui-tta-section,
+.icon-wpb-ui-tta-section[data-is-container="true"] {
+  background-position: 0 -416px;
 }
 .wpb-elements-list-modal .vc_modal-dialog {
   margin: 74px auto 0;
@@ -5102,12 +5173,121 @@ select.btn-danger {
   min-width: 200px;
   width: auto;
 }
-.vc_param_group-controls {
-  background-color: #fff;
-  border-color: #E6E6E6;
-  border-style: solid solid none;
-  border-width: 1px 1px medium;
-  padding: 4px;
+.wpb_row_container > .wpb_vc_column {
+  margin-bottom: 15px;
+  position: relative;
+}
+.wpb_row_container > .wpb_vc_column > .vc_controls {
+  text-align: center;
+  background: #f5f5f5;
+  width: 100%;
+  line-height: 1px;
+  padding: 2px;
+  height: 24px;
+}
+.wpb_row_container > .wpb_vc_column > .vc_controls .vc_control {
+  padding: 0;
+}
+.wpb_row_container > .wpb_vc_column > .wpb_element_wrapper {
+  background: #f5f5f5;
+  padding: 1px 14px 1px;
+}
+.wpb_row_container > .wpb_vc_column_inner {
+  margin-bottom: 15px;
+  position: relative;
+}
+.wpb_row_container > .wpb_vc_column_inner > .vc_controls {
+  text-align: center;
+  background: #ffffff;
+  width: 100%;
+  line-height: 1px;
+  padding: 2px;
+  height: 24px;
+}
+.wpb_row_container > .wpb_vc_column_inner > .vc_controls .vc_control {
+  padding: 0;
+}
+.wpb_row_container > .wpb_vc_column_inner > .wpb_element_wrapper {
+  background: #ffffff;
+  padding: 1px 14px 1px;
+}
+.wpb_vc_row,
+.wpb_vc_row_inner {
+  /*
+    > .wpb_element_wrapper {
+        > .vc_closed {
+            height: 24px;
+            overflow: hidden;
+        }
+    }
+    > .controls {
+        .column_toggle.vc_inverse {
+            .vc_icon {
+                background-position: -16px -112px;
+            }
+        }
+    }
+*/
+}
+.wpb_vc_row > .controls > .column_move,
+.wpb_vc_row_inner > .controls > .column_move {
+  background-color: #f5f5f5;
+}
+.wpb_vc_row > .controls .column_delete:hover,
+.wpb_vc_row_inner > .controls .column_delete:hover {
+  background-color: #FFE0E0;
+}
+.wpb_vc_row > .controls .vc_row-hash-id,
+.wpb_vc_row_inner > .controls .vc_row-hash-id {
+  float: left;
+  display: inline-block;
+  line-height: 1;
+  color: #999999;
+  margin-top: 5px;
+  padding-left: 3px;
+}
+.vc_collapsed-row > .wpb_element_wrapper > .vc_container_for_children {
+  height: 39px;
+  overflow: hidden;
+}
+.vc_collapsed-row > .wpb_element_wrapper > .vc_container_for_children > .wpb_vc_column .vc_controls,
+.vc_collapsed-row > .wpb_element_wrapper > .vc_container_for_children .wpb_vc_column_inner .vc_controls {
+  border-bottom: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  margin-bottom: 15px;
+}
+.vc_collapsed-row > .controls .column_toggle .vc_icon {
+  background-position: -16px -112px;
+}
+.wpb_vc_row_inner > .controls > .column_move {
+  background-color: #FFFFFF;
+}
+.wpb_vc_row_inner.wpb_sortable {
+  margin-bottom: -15px;
+}
+.vc_placeholder {
+  width: 100% !important;
+  background: transparent url('../vc/pattern.gif');
+}
+.vc_placeholder-row {
+  padding: 0;
+  margin: 0 0 35px 0;
+  background: transparent url('../vc/pattern.gif');
+  height: 50px;
+}
+.vc_placeholder-column {
+  background: transparent url('../vc/pattern.gif');
+  float: left;
+}
+.vc_placeholder-tab {
+  background: transparent url('../vc/pattern.gif');
+}
+.vc_param_group-list .vc_placeholder {
+  height: 24px;
+  margin-bottom: 15px;
 }
 .vc_param_group-controls .vc_controls {
   background-color: #fff;
@@ -5115,23 +5295,34 @@ select.btn-danger {
   margin-bottom: 15px;
   width: 100%;
 }
-.vc_param_group-controls .vc_control {
-  background-color: #fff !important;
-}
 .vc_param_group-controls .vc_control.column_toggle .vc_icon {
   background-position: -16px -114px;
+}
+.vc_param_group-collapsed {
+  margin-bottom: 15px;
 }
 .vc_param_group-collapsed .vc_control.column_toggle .vc_icon {
   background-position: -16px -96px;
 }
-.vc_param_group-collapsed .controls.vc_param_group-controls.controls_row.vc_clearfix {
-  border-bottom: 1px solid #E6E6E6;
+.vc_param_group-collapsed > .wpb_element_wrapper {
+  display: none;
 }
-.vc_param_group-wrapper {
-  border-color: #E6E6E6;
-  border-style: none solid solid;
-  border-width: medium 1px 1px;
-  padding-bottom: 15px;
+.vc_settings .wpb_row_container > .wpb_vc_column > .wpb_element_wrapper {
+  padding: 1px 1px 14px 1px;
+}
+.vc_hidden-label {
+  display: none;
+}
+.vc_param-group-admin-labels {
+  color: #999999;
+  font-style: italic;
+  line-height: 24px;
+  float: left;
+  margin-left: 1em;
+}
+.vc_param-group-admin-labels label {
+  cursor: default;
+  vertical-align: inherit;
 }
 .vc_grid-custom-source .vc_not-for-custom {
   display: none;
@@ -5420,6 +5611,7 @@ select.btn-danger {
   -ms-transform: translate(-50%, 0);
   -o-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
+  z-index: 1;
 }
 .vc_controls > .vc_controls-br {
   bottom: 0;
@@ -5527,14 +5719,16 @@ select.btn-danger {
 .vc_element-name .vc_btn-content:hover {
   text-decoration: none !important;
 }
-.vc_element-move .vc_btn-content {
+.vc_element-move .vc_btn-content,
+.vc_child-element-move .vc_btn-content {
   cursor: move !important;
   background-image: url(../vc/fe/move.png) !important;
   background-position: 10px center !important;
   background-repeat: no-repeat;
   padding-left: 30px !important;
 }
-.vc_element-move .vc_btn-content:hover {
+.vc_element-move .vc_btn-content:hover,
+.vc_child-element-move .vc_btn-content:hover {
   background-color: #669c22;
 }
 .vc_control-btn-prepend .icon,
@@ -5577,6 +5771,12 @@ select.btn-danger {
 }
 .vc_control-btn-append:hover:before {
   border-bottom-color: #e78800;
+}
+.vc_control-btn-append.vc_control-parent:before {
+  border-bottom-color: #285a85;
+}
+.vc_control-btn-append.vc_control-parent:hover:before {
+  border-bottom-color: #032644;
 }
 .vc_control-btn-append .vc_btn-content {
   -webkit-border-radius: 3px;
@@ -5639,6 +5839,18 @@ select.btn-danger {
 .vc_controls-container > div .vc_control-btn .vc_btn-content:hover {
   background-color: #e78800;
   border-color: #e78800;
+}
+.vc_controls-row > div .vc_control-parent .vc_btn-content,
+.vc_controls-column > div .vc_control-parent .vc_btn-content,
+.vc_controls-container > div .vc_control-parent .vc_btn-content {
+  background-color: #285a85;
+  border-color: #285a85;
+}
+.vc_controls-row > div .vc_control-parent.vc_control-btn .vc_btn-content:hover,
+.vc_controls-column > div .vc_control-parent.vc_control-btn .vc_btn-content:hover,
+.vc_controls-container > div .vc_control-parent.vc_control-btn .vc_btn-content:hover {
+  background-color: #032644;
+  border-color: #032644;
 }
 .vc_controls-row > div .vc_advanced,
 .vc_controls-column > div .vc_advanced,
@@ -7591,6 +7803,18 @@ select.btn-danger {
 }
 .vc_message_box-round {
   border-radius: 4em;
+}
+[data-vc-shortcode="vc_line_chart"] .vc_chart-edit-form-custom-color .vc_shortcode-param[data-param_name="values_custom_color"],
+[data-vc-shortcode="vc_round_chart"] .vc_chart-edit-form-custom-color .vc_shortcode-param[data-param_name="values_custom_color"] {
+  display: block;
+}
+[data-vc-shortcode="vc_line_chart"] .vc_chart-edit-form-custom-color .vc_shortcode-param[data-param_name="values_color"],
+[data-vc-shortcode="vc_round_chart"] .vc_chart-edit-form-custom-color .vc_shortcode-param[data-param_name="values_color"] {
+  display: none;
+}
+[data-vc-shortcode="vc_line_chart"] .vc_shortcode-param[data-param_name="values_custom_color"],
+[data-vc-shortcode="vc_round_chart"] .vc_shortcode-param[data-param_name="values_custom_color"] {
+  display: none;
 }
 .vc_editor #adminmenuback {
   display: none;

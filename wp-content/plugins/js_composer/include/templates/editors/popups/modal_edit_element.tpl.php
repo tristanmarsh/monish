@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="vc_edit-element-dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabelTitle"
+<div class="vc_general modal fade" id="vc_edit-element-dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabelTitle"
      aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">

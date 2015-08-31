@@ -42,7 +42,7 @@
 
       </div>
 
-      <div class="panel-footer">
+<!--       <div class="panel-footer">
 
         <ul class="nav nav-pills pull-left">
           <li role="presentation" class="active"><a href="#">Imagine</a></li>
@@ -51,7 +51,7 @@
           <li role="presentation"><a href="#">Buttons</a></li>
         </ul>
 
-      </div>
+      </div> -->
 
 
 
@@ -80,7 +80,7 @@
         <fieldset class="input-group">
 
           <div class="panel-heading">
-            <legend><?= __('Create New Tenant & Lease', array('class' => 'form-control')) ?></legend>
+            <legend><?= __('New Tenant & Lease', array('class' => 'form-control')) ?></legend>
           </div>
 
           <div class="panel-body">
@@ -105,7 +105,7 @@
             </div>
 
             
-             <?= $this->Form->input('internet_plan', ['options' => ['FREE' => 'FREE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM'], 'class' => 'form-control']) ?>
+             <?= $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'], 'class' => 'form-control']) ?>
              
              <?= $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']); ?>
             
@@ -121,7 +121,7 @@
            
            </fieldset>
 
-           <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-success']); ?>
+           <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']); ?>
            <?= $this->Form->end() ?>
            <?php
            echo $this->Form->create(null, [

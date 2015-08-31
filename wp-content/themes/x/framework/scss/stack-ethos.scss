@@ -17,9 +17,10 @@
 //   08. Responsive Styles
 //   09. Internet Explorer
 //   10. Print Styles
-//   11. Helper Classes
-//   12. Fonts
-//   13. Media Query Debugging
+//   11. Animations
+//   12. Utilities
+//   13. Fonts
+//   14. Media Query Debugging
 // =============================================================================
 
 // Functions, Variables, and Mixins
@@ -148,7 +149,14 @@
 
 
 
-// Helper Classes
+// Animations
+// =============================================================================
+
+@import "site/animate";
+
+
+
+// Utilities
 // =============================================================================
 
 @import "site/util/main";

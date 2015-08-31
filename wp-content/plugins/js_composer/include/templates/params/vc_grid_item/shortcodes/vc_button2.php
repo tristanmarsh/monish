@@ -1,15 +1,8 @@
 <?php
 $wrapper_css_class = 'vc_button-2-wrapper';
-extract( shortcode_atts( array(
-	'link' => '',
-	'title' => __( 'Text on the button', "js_composer" ),
-	'color' => '',
-	'icon' => '',
-	'size' => '',
-	'style' => '',
-	'el_class' => '',
-	'align' => ''
-), $atts ) );
+/** @var $this WPBakeryShortCode_VC_Button2 */
+$atts = vc_map_get_attributes( $this->getShortcode(), $atts );
+extract( $atts );
 
 $class = 'vc_btn';
 //parse link

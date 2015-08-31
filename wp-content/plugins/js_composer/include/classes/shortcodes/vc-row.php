@@ -21,6 +21,7 @@ class WPBakeryShortCode_VC_Row extends WPBakeryShortCode {
 
 	protected function shortcodeScripts() {
 		wp_register_script( 'vc_jquery_skrollr_js', vc_asset_url( 'lib/bower/skrollr/dist/skrollr.min.js' ), array( 'jquery' ), WPB_VC_VERSION, true );
+		wp_register_script( 'vc_youtube_iframe_api_js', 'https://www.youtube.com/iframe_api', array(), WPB_VC_VERSION, true );
 	}
 
 	protected function content( $atts, $content = null ) {
@@ -136,6 +137,17 @@ class WPBakeryShortCode_VC_Row extends WPBakeryShortCode {
 		return '';
 	}
 
+	/**
+	 * @deprecated and will be removed in 4.7
+	 * @param string $bg_image
+	 * @param string $bg_color
+	 * @param string $bg_image_repeat
+	 * @param string $font_color
+	 * @param string $padding
+	 * @param string $margin_bottom
+	 *
+	 * @return string
+	 */
 	public function buildStyle( $bg_image = '', $bg_color = '', $bg_image_repeat = '', $font_color = '', $padding = '', $margin_bottom = '' ) {
 		$has_image = false;
 		$style = '';
@@ -147,11 +159,11 @@ class WPBakeryShortCode_VC_Row extends WPBakeryShortCode {
 			$style .= vc_get_css_color( 'background-color', $bg_color );
 		}
 		if ( ! empty( $bg_image_repeat ) && $has_image ) {
-			if ( $bg_image_repeat === 'cover' ) {
+			if ( 'cover' === $bg_image_repeat ) {
 				$style .= "background-repeat:no-repeat;background-size: cover;";
-			} elseif ( $bg_image_repeat === 'contain' ) {
+			} elseif ( 'contain' === $bg_image_repeat ) {
 				$style .= "background-repeat:no-repeat;background-size: contain;";
-			} elseif ( $bg_image_repeat === 'no-repeat' ) {
+			} elseif ( 'no-repeat' === $bg_image_repeat ) {
 				$style .= 'background-repeat: no-repeat;';
 			}
 		}
@@ -165,7 +177,7 @@ class WPBakeryShortCode_VC_Row extends WPBakeryShortCode {
 			$style .= 'margin-bottom: ' . ( preg_match( '/(px|em|\%|pt|cm)$/', $margin_bottom ) ? $margin_bottom : $margin_bottom . 'px' ) . ';';
 		}
 
-		return empty( $style ) ? $style : ' style="' . esc_attr( $style ) . '"';
+		return empty( $style ) ? '' : ' style="' . esc_attr( $style ) . '"';
 	}
 }
 

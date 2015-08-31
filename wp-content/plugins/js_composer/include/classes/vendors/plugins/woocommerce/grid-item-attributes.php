@@ -58,7 +58,7 @@ function vc_gitem_template_attribute_woocommerce_product( $value, $data ) {
 			$units = get_option( 'woocommerce_dimension_unit' );
 			$value = $product->length . $units . 'x' . $product->width . $units . 'x' . $product->height . $units;
 			break;
-		case 'raiting_count':
+		case 'rating_count':
 			$value = $product->get_rating_count();
 			break;
 		case 'weight':

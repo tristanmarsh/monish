@@ -15,6 +15,9 @@
  * @var $title
  * @var $button_block
  * @var $el_class
+ * @var $outline_custom_color
+ * @var $outline_custom_hover_background
+ * @var $outline_custom_hover_text
  *
  * @var $add_icon
  * @var $i_align
@@ -26,36 +29,13 @@ require_once vc_path_dir( 'SHORTCODES_DIR', 'vc-btn.php' );
 
 $vc_btn = new WPBakeryShortCode_VC_Btn( array( 'base' => 'vc_btn' ) );
 
-$defaults = array(
-	'style' => 'classic',
-	'shape' => 'rounded',
-	'color' => 'grey',
-	'custom_background' => '',
-	'custom_text' => '',
-	'size' => 'md',
-	'align' => 'inline',
-	'link' => '',
-	'url' => '',
-	'title' => '',
-	'button_block' => '',
-	'el_class' => '',
-	'add_icon' => '',
-	'add_icon' => '',
-	'i_align' => 'left',
-	'i_icon_pixelicons' => '',
-	'i_type' => 'fontawesome',
-	'i_icon_fontawesome' => 'fa fa-adjust',
-	'i_icon_openiconic' => 'vc-oi vc-oi-dial',
-	'i_icon_typicons' => 'typcn typcn-adjust-brightness',
-	'i_icon_entypo' => 'entypo-icon entypo-icon-note',
-	'i_icon_linecons' => 'vc_li vc_li-heart',
-	'css_animation' => '',
-);
 $inline_css = '';
 $icon_wrapper = false;
 $icon_html = false;
+$attributes = array();
 
-$atts = vc_shortcode_attribute_parse( $defaults, $atts );
+/** @var $vc_btn WPBakeryShortCode_VC_Btn */
+$atts = vc_map_get_attributes( $vc_btn->getShortcode(), $atts );
 extract( $atts );
 //parse link
 
@@ -103,6 +83,10 @@ if ( 'true' === $add_icon ) {
 
 if ( 'custom' === $style ) {
 	$inline_css = vc_get_css_color( 'background-color', $custom_background ) . vc_get_css_color( 'color', $custom_text );
+} else if ( 'outline-custom' === $style ) {
+	$inline_css = vc_get_css_color( 'border-color', $outline_custom_color ) . vc_get_css_color( 'color', $outline_custom_color );
+	$attributes[] = 'onmouseenter="this.style.borderColor=\'' . $outline_custom_hover_background . '\'; this.style.backgroundColor=\'' . $outline_custom_hover_background . '\'; this.style.color=\'' . $outline_custom_hover_text . '\'"';
+	$attributes[] = 'onmouseleave="this.style.borderColor=\'' . $outline_custom_color . '\'; this.style.backgroundColor=\'transparent\'; this.style.color=\'' . $outline_custom_color . '\'"';
 } else {
 	$button_class .= ' vc_btn3-color-' . $color . ' ';
 }
@@ -110,6 +94,9 @@ if ( 'custom' === $style ) {
 if ( '' != $inline_css ) {
 	$inline_css = ' style="' . $inline_css . '"';
 }
+
+$attributes = implode( ' ', $attributes );
+
 // Add link
 $use_link = strlen( $link ) > 0 && 'none' !== $link;
 $link_output = '';
@@ -120,9 +107,9 @@ $output = '<div class="'
           . esc_attr( trim( $css_class ) )
           . ' vc_btn3-' . esc_attr( $align ) . '">';
 if ( preg_match( '/href=\"[^\"]+/', $link_output ) ):
-	$output .= '<' . $link_output . $inline_css . '>' . $button_html . '</a>';
+	$output .= '<' . $link_output . ' ' . $inline_css . ' ' . $attributes . '>' . $button_html . '</a>';
 else:
-	$output .= '<button class="vc_general vc_btn3 ' . esc_attr( $button_class ) . '"' . $inline_css . '>' .
+	$output .= '<button class="vc_general vc_btn3 ' . esc_attr( $button_class ) . '"' . $inline_css . ' ' . $attributes . '>' .
 	           $button_html . '</button>';
 endif;
 $output .= '</div>' . $vc_btn->endBlockComment( 'vc_btn3' ) . "\n";

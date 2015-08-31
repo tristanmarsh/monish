@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Cornerstone package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Cornerstone 1.0.3\n"
+"Project-Id-Version: Cornerstone 1.0.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/cornerstone\n"
-"POT-Creation-Date: 2015-06-29 18:26:39+00:00\n"
+"POT-Creation-Date: 2015-07-30 16:48:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
-#. #-#-#-#-#  cornerstone.pot (Cornerstone 1.0.3)  #-#-#-#-#
+#. #-#-#-#-#  cornerstone.pot (Cornerstone 1.0.5)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: includes/admin/editor-tab.php:7 includes/admin/strings-admin.php:11
 #: includes/common/class-common.php:28
@@ -85,12 +85,12 @@ msgid "Updating"
 msgstr ""
 
 #: includes/admin/strings-admin.php:14 includes/builder/strings-builder.php:63
-#: includes/builder/strings-builder.php:143
+#: includes/builder/strings-builder.php:147
 msgid "Yep"
 msgstr ""
 
 #: includes/admin/strings-admin.php:15 includes/builder/strings-builder.php:64
-#: includes/builder/strings-builder.php:144
+#: includes/builder/strings-builder.php:148
 msgid "Nope"
 msgstr ""
 
@@ -104,7 +104,7 @@ msgstr ""
 #: includes/admin/strings-admin.php:17
 msgid ""
 "Hold up! The content has been modified outside of Cornerstone. Editing in "
-"Cornerstone will reset your changes. Do you wish to continue?"
+"Cornerstone will replace the current content. Do you wish to continue?"
 msgstr ""
 
 #: includes/admin/strings-admin.php:18
@@ -149,7 +149,7 @@ msgstr ""
 
 #: includes/admin/views/options-main.php:8
 #: includes/builder/class-setting-section-base.php:23
-#: includes/builder/strings-builder.php:111
+#: includes/builder/strings-builder.php:115
 msgid "Settings"
 msgstr ""
 
@@ -194,39 +194,39 @@ msgstr ""
 msgid "Current Color"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:55 includes/tools/map.php:979
+#: includes/builder/class-control-mixins.php:56 includes/tools/map.php:979
 #: includes/tools/map.php:1363 includes/tools/map.php:2685
 msgid "ID"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:56
+#: includes/builder/class-control-mixins.php:57
 msgid ""
 "Add an ID to this element so you can target it with your own customizations."
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:68 includes/tools/map.php:2696
+#: includes/builder/class-control-mixins.php:69 includes/tools/map.php:2696
 msgid "Class"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:69
+#: includes/builder/class-control-mixins.php:70
 msgid ""
 "Add custom classes to this element. Multiple classes should be seperated by "
 "spaces. They will be added at the root level element."
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:81
+#: includes/builder/class-control-mixins.php:82
 #: includes/modules/elements/image.php:21 includes/tools/map.php:859
 #: includes/tools/map.php:2706
 msgid "Style"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:82
+#: includes/builder/class-control-mixins.php:83
 msgid ""
 "Add an inline style to this element. This only contain valid CSS rules with "
 "no selectors or braces."
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:94
+#: includes/builder/class-control-mixins.php:95
 #: includes/modules/elements/card.php:49
 #: includes/modules/elements/column.php:33
 #: includes/modules/elements/creative-cta.php:20
@@ -235,7 +235,7 @@ msgstr ""
 msgid "Padding"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:95
+#: includes/builder/class-control-mixins.php:96
 #: includes/modules/elements/column.php:34
 #: includes/modules/elements/row.php:55
 #: includes/modules/elements/section.php:142
@@ -244,18 +244,19 @@ msgid ""
 "like px, ems, and % (default unit is px)."
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:106
+#: includes/builder/class-control-mixins.php:107
 msgid "Border"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:107
+#: includes/builder/class-control-mixins.php:108
 msgid ""
 "Specify a custom border for this element by selecting a style, choosing a "
 "color, and inputting your dimensions."
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:111
-#: includes/modules/elements/button.php:122
+#: includes/builder/class-control-mixins.php:112
+#: includes/builder/class-control-mixins.php:326
+#: includes/modules/elements/button.php:138
 #: includes/modules/elements/column.php:60
 #: includes/modules/elements/image.php:26
 #: includes/modules/elements/image.php:68
@@ -266,109 +267,114 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:112
+#: includes/builder/class-control-mixins.php:113
+#: includes/modules/elements/feature-list.php:145
 msgid "Solid"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:113
+#: includes/builder/class-control-mixins.php:114
+#: includes/modules/elements/feature-list.php:147
 msgid "Dotted"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:114
+#: includes/builder/class-control-mixins.php:115
+#: includes/modules/elements/feature-list.php:146
 msgid "Dashed"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:115
+#: includes/builder/class-control-mixins.php:116
 msgid "Double"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:116
+#: includes/builder/class-control-mixins.php:117
 msgid "Groove"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:117
+#: includes/builder/class-control-mixins.php:118
 msgid "Ridge"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:118
+#: includes/builder/class-control-mixins.php:119
 msgid "Inset"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:119
+#: includes/builder/class-control-mixins.php:120
 msgid "Outset"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:157 includes/tools/map.php:688
+#: includes/builder/class-control-mixins.php:158 includes/tools/map.php:688
 #: includes/tools/map.php:901 includes/tools/map.php:1914
 #: includes/tools/map.php:2165
 msgid "Href"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:158
+#: includes/builder/class-control-mixins.php:159
 msgid "Enter in the URL you want to link to."
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:165
+#: includes/builder/class-control-mixins.php:166
 msgid "Link Title Attribute"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:166
+#: includes/builder/class-control-mixins.php:167
 msgid "Enter in the title attribute you want for your link."
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:173
+#: includes/builder/class-control-mixins.php:174
 msgid "Open Link in New Window"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:174
+#: includes/builder/class-control-mixins.php:175
 msgid "Select to open your link in a new window."
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:185
+#: includes/builder/class-control-mixins.php:186
 msgid "Hide based on screen width"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:186
+#: includes/builder/class-control-mixins.php:187
 msgid ""
 "Hide this element at different screen widths. Keep in mind that the &ldquo;"
 "Extra Large&rdquo; toggle is 1200px+, so you may not see your element "
 "disappear if your preview window is not large enough."
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:191
+#: includes/builder/class-control-mixins.php:192
 msgid "XL"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:192
+#: includes/builder/class-control-mixins.php:193
 msgid "LG"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:193
+#: includes/builder/class-control-mixins.php:194
 msgid "MD"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:194
+#: includes/builder/class-control-mixins.php:195
 msgid "SM"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:195
+#: includes/builder/class-control-mixins.php:196
 msgid "XS"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:207
+#: includes/builder/class-control-mixins.php:208
 msgid "Text Align"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:208
+#: includes/builder/class-control-mixins.php:209
 msgid ""
 "Set a text alignment, or use <em>none</em> to inherit from parent elements."
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:215
+#: includes/builder/class-control-mixins.php:216
 #: includes/modules/elements/blockquote.php:46
-#: includes/modules/elements/button.php:141
+#: includes/modules/elements/button.php:157
 #: includes/modules/elements/callout.php:71
 #: includes/modules/elements/column.php:64
+#: includes/modules/elements/feature-box.php:264
+#: includes/modules/elements/feature-list.php:96
 #: includes/modules/elements/image.php:92
 #: includes/modules/elements/prompt.php:71
 #: includes/modules/elements/pullquote.php:46
@@ -376,17 +382,20 @@ msgstr ""
 msgid "Left"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:216
+#: includes/builder/class-control-mixins.php:217
 #: includes/modules/elements/blockquote.php:47
 #: includes/modules/elements/callout.php:72
+#: includes/modules/elements/feature-box.php:265
 msgid "Center"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:217
+#: includes/builder/class-control-mixins.php:218
 #: includes/modules/elements/blockquote.php:48
-#: includes/modules/elements/button.php:139
+#: includes/modules/elements/button.php:155
 #: includes/modules/elements/callout.php:73
 #: includes/modules/elements/column.php:62
+#: includes/modules/elements/feature-box.php:266
+#: includes/modules/elements/feature-list.php:97
 #: includes/modules/elements/image.php:90
 #: includes/modules/elements/prompt.php:72
 #: includes/modules/elements/pullquote.php:47
@@ -394,8 +403,159 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: includes/builder/class-control-mixins.php:218
+#: includes/builder/class-control-mixins.php:219
 msgid "Justify"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:231
+#: includes/modules/elements/creative-cta.php:111
+#: includes/modules/elements/slider.php:37 includes/tools/map.php:1463
+msgid "Animation"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:232
+#: includes/modules/elements/feature-list.php:177
+#: includes/modules/elements/feature-list.php:188
+msgid "Optionally add animation to your element as users scroll down the page."
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:242
+#: includes/modules/elements/feature-list.php:198
+msgid "Animation Offset (%)"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:243
+#: includes/modules/elements/feature-list.php:199
+msgid ""
+"Specify a percentage value where the element should appear on screen for the "
+"animation to take place."
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:255
+msgid "Animation Delay (ms)"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:256
+#: includes/modules/elements/feature-list.php:213
+msgid ""
+"Specify an amount of time before the graphic animation starts in "
+"milliseconds."
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:327
+msgid "Jello"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:328
+msgid "Pulse"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:329
+msgid "Rubber Band"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:330
+msgid "Swing"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:331
+msgid "Tada"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:332
+msgid "Wobble"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:333
+msgid "Flip"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:334
+msgid "Flip In X"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:335
+msgid "Flip In Y"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:336
+msgid "Fade In"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:337
+msgid "Fade In Up"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:338
+msgid "Fade In Down"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:339
+msgid "Fade In Left"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:340
+msgid "Fade In Right"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:341
+msgid "Bounce In"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:342
+msgid "Bounce In Up"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:343
+msgid "Bounce In Down"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:344
+msgid "Bounce In Left"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:345
+msgid "Bounce In Right"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:346
+msgid "Rotate In"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:347
+msgid "Rotate In Up Left"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:348
+msgid "Rotate In Up Right"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:349
+msgid "Rotate In Down Left"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:350
+msgid "Rotate In Down Right"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:351
+msgid "Zoom In"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:352
+msgid "Zoom In Up"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:353
+msgid "Zoom In Down"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:354
+msgid "Zoom In Left"
+msgstr ""
+
+#: includes/builder/class-control-mixins.php:355
+msgid "Zoom In Right"
 msgstr ""
 
 #: includes/builder/preloader.php:5
@@ -554,7 +714,7 @@ msgstr ""
 
 #: includes/builder/strings-builder.php:53
 #: includes/builder/strings-builder.php:56
-#: includes/modules/elements/button.php:65 includes/tools/map.php:664
+#: includes/modules/elements/button.php:81 includes/tools/map.php:664
 msgid "Block"
 msgstr ""
 
@@ -603,365 +763,385 @@ msgid "Unable to save template."
 msgstr ""
 
 #: includes/builder/strings-builder.php:68
-msgid "Remove Templates"
+msgid "Could not load template."
 msgstr ""
 
 #: includes/builder/strings-builder.php:69
-#: includes/builder/strings-builder.php:87
-#: includes/builder/strings-builder.php:99
-msgid "Delete"
+msgid "Remove Templates"
 msgstr ""
 
 #: includes/builder/strings-builder.php:70
-msgid "(Block) %s"
+#: includes/builder/strings-builder.php:91
+#: includes/builder/strings-builder.php:103
+msgid "Delete"
 msgstr ""
 
 #: includes/builder/strings-builder.php:71
-msgid "(Page) %s"
+msgid "(Block) %s"
 msgstr ""
 
 #: includes/builder/strings-builder.php:72
-msgid "Are you sure you wish to delete this template? This can not be undone."
+msgid "(Page) %s"
 msgstr ""
 
 #: includes/builder/strings-builder.php:73
-msgid "Template removed from library."
+msgid "Are you sure you wish to delete this template? This can not be undone."
 msgstr ""
 
 #: includes/builder/strings-builder.php:74
+msgid "Template removed from library."
+msgstr ""
+
+#: includes/builder/strings-builder.php:75
 msgid "Unable to delete stored template."
 msgstr ""
 
+#: includes/builder/strings-builder.php:76
+msgid "Page updated."
+msgstr ""
+
 #: includes/builder/strings-builder.php:77
+msgid "Block inserted."
+msgstr ""
+
+#: includes/builder/strings-builder.php:81
 msgid "Elements"
 msgstr ""
 
-#: includes/builder/strings-builder.php:78
+#: includes/builder/strings-builder.php:82
 msgid "Search Elements"
 msgstr ""
 
-#: includes/builder/strings-builder.php:79
+#: includes/builder/strings-builder.php:83
 msgid "Back to Elements"
 msgstr ""
 
-#: includes/builder/strings-builder.php:82
+#: includes/builder/strings-builder.php:86
 msgid "Inspector"
 msgstr ""
 
-#: includes/builder/strings-builder.php:83
+#: includes/builder/strings-builder.php:87
 msgid "Back to Inspector"
 msgstr ""
 
-#: includes/builder/strings-builder.php:84
+#: includes/builder/strings-builder.php:88
 msgid "No elements are selected!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:85
+#: includes/builder/strings-builder.php:89
 msgid "Inspect an element by clicking on it in the preview pane."
 msgstr ""
 
-#: includes/builder/strings-builder.php:86
-#: includes/builder/strings-builder.php:98
+#: includes/builder/strings-builder.php:90
+#: includes/builder/strings-builder.php:102
 msgid "Duplicate"
 msgstr ""
 
-#: includes/builder/strings-builder.php:88
+#: includes/builder/strings-builder.php:92
 msgid "Are you sure you wish to delete this element?"
 msgstr ""
 
-#: includes/builder/strings-builder.php:89
+#: includes/builder/strings-builder.php:93
 msgid "Erase"
 msgstr ""
 
-#: includes/builder/strings-builder.php:90
+#: includes/builder/strings-builder.php:94
 msgid "Manage Layout"
 msgstr ""
 
-#: includes/builder/strings-builder.php:93
+#: includes/builder/strings-builder.php:97
 msgid "On"
 msgstr ""
 
-#: includes/builder/strings-builder.php:94
+#: includes/builder/strings-builder.php:98
 msgid "Off"
 msgstr ""
 
-#: includes/builder/strings-builder.php:95
-#: includes/modules/elements/creative-cta.php:134
+#: includes/builder/strings-builder.php:99
+#: includes/modules/elements/creative-cta.php:128
 #: includes/modules/elements/image.php:53 includes/tools/map.php:894
 msgid "Link"
 msgstr ""
 
-#: includes/builder/strings-builder.php:96
+#: includes/builder/strings-builder.php:100
 msgid "Unlink"
 msgstr ""
 
-#: includes/builder/strings-builder.php:97
+#: includes/builder/strings-builder.php:101
 msgid "Inspect"
 msgstr ""
 
-#: includes/builder/strings-builder.php:100
+#: includes/builder/strings-builder.php:104
 msgid "Add"
 msgstr ""
 
-#: includes/builder/strings-builder.php:101
+#: includes/builder/strings-builder.php:105
 msgid "Are you sure you wish to remove this item?"
 msgstr ""
 
-#: includes/builder/strings-builder.php:102
+#: includes/builder/strings-builder.php:106
 msgid ""
 "This element has a minimum required amount. You can&apos;t delete any more."
 msgstr ""
 
-#: includes/builder/strings-builder.php:103
+#: includes/builder/strings-builder.php:107
 msgid ""
 "This element has reached it&apos;s capacity. You can&apos;t add any more."
 msgstr ""
 
-#: includes/builder/strings-builder.php:104
+#: includes/builder/strings-builder.php:108
 msgid "New Item %s"
 msgstr ""
 
-#: includes/builder/strings-builder.php:105
+#: includes/builder/strings-builder.php:109
 msgid "Copy of %s"
 msgstr ""
 
-#: includes/builder/strings-builder.php:106
+#: includes/builder/strings-builder.php:110
 msgid "No items!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:107
+#: includes/builder/strings-builder.php:111
 msgid "Add some to continue building."
 msgstr ""
 
-#: includes/builder/strings-builder.php:108
+#: includes/builder/strings-builder.php:112
 msgid "Expand"
 msgstr ""
 
-#: includes/builder/strings-builder.php:112
+#: includes/builder/strings-builder.php:116
 msgid "Back to Settings"
 msgstr ""
 
-#: includes/builder/strings-builder.php:113
+#: includes/builder/strings-builder.php:117
 msgid "Please wait while the settings are loaded."
 msgstr ""
 
-#: includes/builder/strings-builder.php:114
+#: includes/builder/strings-builder.php:118
 msgid "Custom CSS"
 msgstr ""
 
-#: includes/builder/strings-builder.php:115
+#: includes/builder/strings-builder.php:119
 msgid "Custom JS"
 msgstr ""
 
-#: includes/builder/strings-builder.php:116
+#: includes/builder/strings-builder.php:120
 msgid "Your user role does not permit editing javascript."
 msgstr ""
 
-#: includes/builder/strings-builder.php:117
+#: includes/builder/strings-builder.php:121
 msgid "Remember to save to see your script applied."
 msgstr ""
 
-#: includes/builder/strings-builder.php:118
+#: includes/builder/strings-builder.php:122
 msgid ""
 "You&apos;ve updated a WordPress setting. Please save your page to apply the "
 "changes."
 msgstr ""
 
-#: includes/builder/strings-builder.php:119
+#: includes/builder/strings-builder.php:123
 msgid ""
 "You&apos;ve updated a theme setting. Please save your page to apply the "
 "changes."
 msgstr ""
 
-#: includes/builder/strings-builder.php:122
+#: includes/builder/strings-builder.php:126
 msgid "You have not saved any changes!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:123
+#: includes/builder/strings-builder.php:127
 msgid "Last saved: %s."
 msgstr ""
 
-#: includes/builder/strings-builder.php:124
+#: includes/builder/strings-builder.php:128
 msgid "View Page"
 msgstr ""
 
-#: includes/builder/strings-builder.php:125
+#: includes/builder/strings-builder.php:129
 msgid "Dashboard"
 msgstr ""
 
-#: includes/builder/strings-builder.php:126
+#: includes/builder/strings-builder.php:130
 msgid "Wait! You have unsaved changes."
 msgstr ""
 
-#: includes/builder/strings-builder.php:129
+#: includes/builder/strings-builder.php:133
 msgid "Help Text"
 msgstr ""
 
-#: includes/builder/strings-builder.php:130
+#: includes/builder/strings-builder.php:134
 msgid "Adv. Controls"
 msgstr ""
 
-#: includes/builder/strings-builder.php:131
+#: includes/builder/strings-builder.php:135
 msgid ""
 "Enables tooltips when you hover over control labels and other bits of "
 "informational text througout the interface."
 msgstr ""
 
-#: includes/builder/strings-builder.php:132
+#: includes/builder/strings-builder.php:136
 msgid ""
 "Enables additional ID, class, and style controls for each element. Some "
 "elements may not support certain inputs."
 msgstr ""
 
-#: includes/builder/strings-builder.php:135
+#: includes/builder/strings-builder.php:139
 #: includes/customizer/register.php:47
 msgid "Extra Large"
 msgstr ""
 
-#: includes/builder/strings-builder.php:136
+#: includes/builder/strings-builder.php:140
 msgid "Fullscreen"
 msgstr ""
 
-#: includes/builder/strings-builder.php:137
-#: includes/customizer/register.php:46 includes/modules/elements/button.php:54
+#: includes/builder/strings-builder.php:141
+#: includes/customizer/register.php:46 includes/modules/elements/button.php:70
 msgid "Large"
 msgstr ""
 
-#: includes/builder/strings-builder.php:138
+#: includes/builder/strings-builder.php:142
 msgid "Medium"
 msgstr ""
 
-#: includes/builder/strings-builder.php:139
-#: includes/customizer/register.php:44 includes/modules/elements/button.php:52
+#: includes/builder/strings-builder.php:143
+#: includes/customizer/register.php:44 includes/modules/elements/button.php:68
 msgid "Small"
 msgstr ""
 
-#: includes/builder/strings-builder.php:142
+#: includes/builder/strings-builder.php:146
 msgid "Are you sure?"
 msgstr ""
 
-#: includes/builder/strings-builder.php:145
+#: includes/builder/strings-builder.php:149
 msgid "Back"
 msgstr ""
 
-#: includes/builder/strings-builder.php:148
+#: includes/builder/strings-builder.php:152
 msgid "Unable to save page."
 msgstr ""
 
-#: includes/builder/strings-builder.php:149
+#: includes/builder/strings-builder.php:153
 msgid "Content saved."
 msgstr ""
 
-#: includes/builder/strings-builder.php:151
+#: includes/builder/strings-builder.php:155
 msgid "Woohoo!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:152
+#: includes/builder/strings-builder.php:156
 msgid "Rock On!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:153
+#: includes/builder/strings-builder.php:157
 msgid "Radical!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:154
+#: includes/builder/strings-builder.php:158
 msgid "Tubular!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:155
+#: includes/builder/strings-builder.php:159
 msgid "Spiffy!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:156
+#: includes/builder/strings-builder.php:160
 msgid "Yahoo!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:157
+#: includes/builder/strings-builder.php:161
 msgid "Yippee!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:158
+#: includes/builder/strings-builder.php:162
 msgid "Have Fun!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:159
+#: includes/builder/strings-builder.php:163
 msgid "Neat-O!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:160
+#: includes/builder/strings-builder.php:164
 msgid "Bodacious!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:161
+#: includes/builder/strings-builder.php:165
 msgid "Scintillating!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:166
+#: includes/builder/strings-builder.php:170
 msgid "Hey!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:167
+#: includes/builder/strings-builder.php:171
 msgid "Awesome!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:168
+#: includes/builder/strings-builder.php:172
 msgid "Uh oh!"
 msgstr ""
 
-#: includes/builder/strings-builder.php:170
+#: includes/builder/strings-builder.php:174
 msgid "January_February_March_April_May_June_July_August_September_October_November_December"
 msgstr ""
 
-#: includes/builder/strings-builder.php:171
+#: includes/builder/strings-builder.php:175
 msgid "Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec"
 msgstr ""
 
-#: includes/builder/strings-builder.php:172
+#: includes/builder/strings-builder.php:176
 msgid "Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday"
 msgstr ""
 
-#: includes/builder/strings-builder.php:173
+#: includes/builder/strings-builder.php:177
 msgid "Sun_Mon_Tue_Wed_Thu_Fri_Sat"
 msgstr ""
 
-#: includes/builder/strings-builder.php:174
+#: includes/builder/strings-builder.php:178
 msgid "Su_Mo_Tu_We_Th_Fr_Sa"
+msgstr ""
+
+#: includes/builder/strings-builder.php:181
+msgid "We're sorry! Your web browser does not support this action."
 msgstr ""
 
 #: includes/customizer/register.php:31
 msgid "3D"
 msgstr ""
 
-#: includes/customizer/register.php:32
+#: includes/customizer/register.php:32 includes/modules/elements/button.php:37
 msgid "Flat"
 msgstr ""
 
-#: includes/customizer/register.php:33
+#: includes/customizer/register.php:33 includes/modules/elements/button.php:38
 msgid "Transparent"
 msgstr ""
 
-#: includes/customizer/register.php:37 includes/modules/elements/button.php:36
+#: includes/customizer/register.php:37 includes/modules/elements/button.php:52
+#: includes/modules/elements/feature-box.php:153
+#: includes/modules/elements/feature-list-item.php:123
 msgid "Square"
 msgstr ""
 
-#: includes/customizer/register.php:38 includes/modules/elements/button.php:37
+#: includes/customizer/register.php:38 includes/modules/elements/button.php:53
+#: includes/modules/elements/feature-box.php:154
+#: includes/modules/elements/feature-list-item.php:124
 #: includes/modules/elements/image.php:28
 msgid "Rounded"
 msgstr ""
 
-#: includes/customizer/register.php:39 includes/modules/elements/button.php:38
+#: includes/customizer/register.php:39 includes/modules/elements/button.php:54
 msgid "Pill"
 msgstr ""
 
-#: includes/customizer/register.php:43 includes/modules/elements/button.php:51
+#: includes/customizer/register.php:43 includes/modules/elements/button.php:67
 msgid "Mini"
 msgstr ""
 
-#: includes/customizer/register.php:45 includes/modules/elements/button.php:53
+#: includes/customizer/register.php:45 includes/modules/elements/button.php:69
 msgid "Regular"
 msgstr ""
 
-#: includes/customizer/register.php:48 includes/modules/elements/button.php:56
+#: includes/customizer/register.php:48 includes/modules/elements/button.php:72
 msgid "Jumbo"
 msgstr ""
 
@@ -990,6 +1170,8 @@ msgid "Container Max Width"
 msgstr ""
 
 #: includes/customizer/register.php:81
+#: includes/modules/elements/feature-box.php:246
+#: includes/modules/elements/feature-list-item.php:186
 msgid "Link Color"
 msgstr ""
 
@@ -1059,6 +1241,9 @@ msgstr ""
 #: includes/modules/elements/card.php:74
 #: includes/modules/elements/card.php:235
 #: includes/modules/elements/code.php:20
+#: includes/modules/elements/feature-box.php:36
+#: includes/modules/elements/feature-list-item.php:34
+#: includes/modules/elements/feature-list-item.php:38
 #: includes/modules/elements/pricing-table-column.php:30
 #: includes/modules/elements/promo.php:21
 #: includes/modules/elements/prompt.php:32
@@ -1168,6 +1353,7 @@ msgid "Alert"
 msgstr ""
 
 #: includes/modules/elements/alert.php:10
+#: includes/modules/elements/gravity-forms.php:12
 msgid "Alert description."
 msgstr ""
 
@@ -1187,7 +1373,8 @@ msgstr ""
 msgid "Click to inspect, then edit as needed."
 msgstr ""
 
-#: includes/modules/elements/alert.php:39 includes/tools/map.php:365
+#: includes/modules/elements/alert.php:39
+#: includes/modules/elements/button.php:30 includes/tools/map.php:365
 #: includes/tools/map.php:798 includes/tools/map.php:1036
 msgid "Type"
 msgstr ""
@@ -1207,7 +1394,7 @@ msgid "Success"
 msgstr ""
 
 #: includes/modules/elements/alert.php:47
-#: includes/modules/elements/button.php:117
+#: includes/modules/elements/button.php:133
 #: includes/modules/elements/image.php:63 includes/tools/map.php:710
 #: includes/tools/map.php:920
 msgid "Info"
@@ -1419,169 +1606,183 @@ msgstr ""
 msgid "Click Me!"
 msgstr ""
 
-#: includes/modules/elements/button.php:30 includes/tools/map.php:626
-msgid "Shape"
-msgstr ""
-
-#: includes/modules/elements/button.php:31 includes/tools/map.php:627
-msgid "Select the button shape."
+#: includes/modules/elements/button.php:31
+msgid "Select the button type."
 msgstr ""
 
 #: includes/modules/elements/button.php:35
+#: includes/modules/elements/button.php:51
 msgid "&ndash; Global Setting &ndash;"
 msgstr ""
 
-#: includes/modules/elements/button.php:46
+#: includes/modules/elements/button.php:36
+msgid "Real"
+msgstr ""
+
+#: includes/modules/elements/button.php:46 includes/tools/map.php:626
+msgid "Shape"
+msgstr ""
+
+#: includes/modules/elements/button.php:47 includes/tools/map.php:627
+msgid "Select the button shape."
+msgstr ""
+
+#: includes/modules/elements/button.php:62
 #: includes/modules/elements/gap.php:21 includes/tools/map.php:218
 #: includes/tools/map.php:637
 msgid "Size"
 msgstr ""
 
-#: includes/modules/elements/button.php:47 includes/tools/map.php:638
+#: includes/modules/elements/button.php:63 includes/tools/map.php:638
 msgid "Select the button size."
 msgstr ""
 
-#: includes/modules/elements/button.php:55
+#: includes/modules/elements/button.php:71
 msgid "X-Large"
 msgstr ""
 
-#: includes/modules/elements/button.php:66 includes/tools/map.php:665
+#: includes/modules/elements/button.php:82 includes/tools/map.php:665
 msgid "Select to make your button go fullwidth."
 msgstr ""
 
-#: includes/modules/elements/button.php:73
+#: includes/modules/elements/button.php:89
 #: includes/modules/elements/callout.php:55
 #: includes/modules/elements/prompt.php:55 includes/tools/map.php:672
 #: includes/tools/map.php:1906 includes/tools/map.php:2157
 msgid "Marketing Circle"
 msgstr ""
 
-#: includes/modules/elements/button.php:74
+#: includes/modules/elements/button.php:90
 #: includes/modules/elements/callout.php:56 includes/tools/map.php:673
 #: includes/tools/map.php:1907 includes/tools/map.php:2158
 msgid "Select to include a marketing circle around your button."
 msgstr ""
 
-#: includes/modules/elements/button.php:81
+#: includes/modules/elements/button.php:97
 msgid "Enable Icon"
 msgstr ""
 
-#: includes/modules/elements/button.php:82
+#: includes/modules/elements/button.php:98
 msgid "Select if you would like to add an icon to your button"
 msgstr ""
 
-#: includes/modules/elements/button.php:89
+#: includes/modules/elements/button.php:105
 msgid "Icon Placement"
 msgstr ""
 
-#: includes/modules/elements/button.php:90
+#: includes/modules/elements/button.php:106
 msgid ""
 "Place the icon before or after the button text, or even override the button "
 "text."
 msgstr ""
 
-#: includes/modules/elements/button.php:96 includes/tools/map.php:680
+#: includes/modules/elements/button.php:112 includes/tools/map.php:680
 msgid "Icon Only"
 msgstr ""
 
-#: includes/modules/elements/button.php:97
+#: includes/modules/elements/button.php:113
 msgid "Before"
 msgstr ""
 
-#: includes/modules/elements/button.php:98
+#: includes/modules/elements/button.php:114
 msgid "After"
 msgstr ""
 
-#: includes/modules/elements/button.php:106
+#: includes/modules/elements/button.php:122
 #: includes/modules/elements/card.php:134
 #: includes/modules/elements/card.php:148
-#: includes/modules/elements/creative-cta.php:53
-#: includes/modules/elements/creative-cta.php:62
+#: includes/modules/elements/creative-cta.php:50
+#: includes/modules/elements/creative-cta.php:59
+#: includes/modules/elements/feature-box.php:69
 #: includes/modules/elements/feature-headline.php:60
+#: includes/modules/elements/feature-list-item.php:66
+#: includes/modules/elements/feature-list.php:68
 #: includes/modules/elements/icon-list-item.php:30
 #: includes/modules/elements/icon.php:8 includes/modules/elements/icon.php:20
 #: includes/modules/integrations/x-theme.php:179 includes/tools/map.php:2506
 msgid "Icon"
 msgstr ""
 
-#: includes/modules/elements/button.php:107
+#: includes/modules/elements/button.php:123
 msgid "Icon to be displayed inside your button."
 msgstr ""
 
-#: includes/modules/elements/button.php:118 includes/tools/map.php:711
+#: includes/modules/elements/button.php:134 includes/tools/map.php:711
 msgid ""
 "Select whether or not you want to add a popover or tooltip to your button."
 msgstr ""
 
-#: includes/modules/elements/button.php:123
+#: includes/modules/elements/button.php:139
 #: includes/modules/elements/image.php:69
 msgid "Popover"
 msgstr ""
 
-#: includes/modules/elements/button.php:124
+#: includes/modules/elements/button.php:140
 #: includes/modules/elements/image.php:70
 msgid "Tooltip"
 msgstr ""
 
-#: includes/modules/elements/button.php:132
+#: includes/modules/elements/button.php:148
 #: includes/modules/elements/image.php:83 includes/tools/map.php:722
 #: includes/tools/map.php:931
 msgid "Info Placement"
 msgstr ""
 
-#: includes/modules/elements/button.php:133
+#: includes/modules/elements/button.php:149
 #: includes/modules/elements/image.php:84 includes/tools/map.php:723
 #: includes/tools/map.php:932
 msgid "Select where you want your popover or tooltip to appear."
 msgstr ""
 
-#: includes/modules/elements/button.php:138
+#: includes/modules/elements/button.php:154
 #: includes/modules/elements/column.php:61
+#: includes/modules/elements/feature-box.php:279
+#: includes/modules/elements/feature-list.php:110
 #: includes/modules/elements/image.php:89
 #: includes/modules/elements/tabs.php:44
 msgid "Top"
 msgstr ""
 
-#: includes/modules/elements/button.php:140
+#: includes/modules/elements/button.php:156
 #: includes/modules/elements/column.php:63
 #: includes/modules/elements/image.php:91
 msgid "Bottom"
 msgstr ""
 
-#: includes/modules/elements/button.php:152
+#: includes/modules/elements/button.php:168
 #: includes/modules/elements/image.php:106 includes/tools/map.php:735
 #: includes/tools/map.php:943
 msgid "Info Trigger"
 msgstr ""
 
-#: includes/modules/elements/button.php:153
+#: includes/modules/elements/button.php:169
 #: includes/modules/elements/image.php:107 includes/tools/map.php:736
 #: includes/tools/map.php:944
 msgid "Select what actions you want to trigger the popover or tooltip."
 msgstr ""
 
-#: includes/modules/elements/button.php:157
+#: includes/modules/elements/button.php:173
 #: includes/modules/elements/image.php:111
 msgid "Hover"
 msgstr ""
 
-#: includes/modules/elements/button.php:158
+#: includes/modules/elements/button.php:174
 #: includes/modules/elements/image.php:112
 msgid "Click"
 msgstr ""
 
-#: includes/modules/elements/button.php:159
+#: includes/modules/elements/button.php:175
 #: includes/modules/elements/image.php:113
 msgid "Focus"
 msgstr ""
 
-#: includes/modules/elements/button.php:170
+#: includes/modules/elements/button.php:186
 #: includes/modules/elements/image.php:125 includes/tools/map.php:747
 #: includes/tools/map.php:954
 msgid "Info Content"
 msgstr ""
 
-#: includes/modules/elements/button.php:171
+#: includes/modules/elements/button.php:187
 #: includes/modules/elements/image.php:126 includes/tools/map.php:748
 #: includes/tools/map.php:955
 msgid "Extra content for the popover."
@@ -1720,8 +1921,11 @@ msgstr ""
 
 #: includes/modules/elements/card.php:135
 #: includes/modules/elements/card.php:192
-#: includes/modules/elements/creative-cta.php:54
-#: includes/modules/elements/creative-cta.php:88
+#: includes/modules/elements/creative-cta.php:51
+#: includes/modules/elements/creative-cta.php:85
+#: includes/modules/elements/feature-box.php:70
+#: includes/modules/elements/feature-list-item.php:79
+#: includes/modules/elements/feature-list.php:69
 #: includes/modules/elements/google-map-marker.php:53
 #: includes/modules/elements/image.php:8
 #: includes/modules/elements/section.php:29
@@ -1734,12 +1938,12 @@ msgid "Specify the icon you would like to use for your Card."
 msgstr ""
 
 #: includes/modules/elements/card.php:161
-#: includes/modules/elements/creative-cta.php:75
+#: includes/modules/elements/creative-cta.php:72
 msgid "Icon Size"
 msgstr ""
 
 #: includes/modules/elements/card.php:162
-#: includes/modules/elements/creative-cta.php:76
+#: includes/modules/elements/creative-cta.php:73
 msgid "Specify the size of your icon."
 msgstr ""
 
@@ -1756,12 +1960,12 @@ msgid "Specify the image you would like to use for your Card."
 msgstr ""
 
 #: includes/modules/elements/card.php:205
-#: includes/modules/elements/creative-cta.php:101
+#: includes/modules/elements/creative-cta.php:98
 msgid "Image Width"
 msgstr ""
 
 #: includes/modules/elements/card.php:206
-#: includes/modules/elements/creative-cta.php:102
+#: includes/modules/elements/creative-cta.php:99
 msgid "Specify the width of your image."
 msgstr ""
 
@@ -1868,7 +2072,7 @@ msgid ""
 msgstr ""
 
 #: includes/modules/elements/column.php:25
-#: includes/modules/elements/creative-cta.php:150
+#: includes/modules/elements/creative-cta.php:144
 #: includes/modules/elements/row.php:37
 #: includes/modules/elements/section.php:38
 msgid "Background Color"
@@ -1907,6 +2111,14 @@ msgstr ""
 msgid "Determines how drastic the fade effect will be."
 msgstr ""
 
+#: includes/modules/elements/column.php:86
+msgid "Duration"
+msgstr ""
+
+#: includes/modules/elements/column.php:87
+msgid "Determines how long the fade effect will be."
+msgstr ""
+
 #: includes/modules/elements/columnize.php:8 includes/tools/map.php:1057
 msgid "Columnize"
 msgstr ""
@@ -1924,6 +2136,8 @@ msgid "Contact Form 7 description."
 msgstr ""
 
 #: includes/modules/elements/contact-form-7.php:29
+#: includes/modules/elements/gravity-forms.php:36
+#: includes/modules/elements/mailchimp.php:30
 msgid "No Forms available"
 msgstr ""
 
@@ -2018,7 +2232,7 @@ msgid "Options"
 msgstr ""
 
 #: includes/modules/elements/counter.php:84
-#: includes/modules/elements/creative-cta.php:142 includes/tools/map.php:2659
+#: includes/modules/elements/creative-cta.php:136 includes/tools/map.php:2659
 msgid "Text Color"
 msgstr ""
 
@@ -2057,63 +2271,45 @@ msgid "Specify the size of your text."
 msgstr ""
 
 #: includes/modules/elements/creative-cta.php:44
+#: includes/modules/elements/feature-box.php:64
+#: includes/modules/elements/feature-list.php:63
 msgid "Graphic"
 msgstr ""
 
 #: includes/modules/elements/creative-cta.php:45
+#: includes/modules/elements/feature-box.php:65
 msgid "Choose between an icon and a custom image for your graphic."
 msgstr ""
 
-#: includes/modules/elements/creative-cta.php:63
+#: includes/modules/elements/creative-cta.php:60
 msgid "Specify the icon you would like to use for your Creative CTA."
 msgstr ""
 
-#: includes/modules/elements/creative-cta.php:89
+#: includes/modules/elements/creative-cta.php:86
 msgid "Specify the image you would like to use for your Creative CTA."
 msgstr ""
 
-#: includes/modules/elements/creative-cta.php:114
-#: includes/modules/elements/slider.php:37 includes/tools/map.php:1463
-msgid "Animation"
-msgstr ""
-
-#: includes/modules/elements/creative-cta.php:115
+#: includes/modules/elements/creative-cta.php:112
 msgid "Specify the animation you would like to use for you Creative CTA."
 msgstr ""
 
-#: includes/modules/elements/creative-cta.php:123
-msgid "Slide Top"
-msgstr ""
-
-#: includes/modules/elements/creative-cta.php:124
-msgid "Slide Right"
-msgstr ""
-
-#: includes/modules/elements/creative-cta.php:125
-msgid "Slide Bottom"
-msgstr ""
-
-#: includes/modules/elements/creative-cta.php:126
-msgid "Slide Left"
-msgstr ""
-
-#: includes/modules/elements/creative-cta.php:135
+#: includes/modules/elements/creative-cta.php:129
 msgid "Specify the URL for your Creative CTA."
 msgstr ""
 
-#: includes/modules/elements/creative-cta.php:143
+#: includes/modules/elements/creative-cta.php:137
 msgid "Select the text color for your Creative CTA."
 msgstr ""
 
-#: includes/modules/elements/creative-cta.php:151
+#: includes/modules/elements/creative-cta.php:145
 msgid "Select the background color for your Creative CTA."
 msgstr ""
 
-#: includes/modules/elements/creative-cta.php:158
+#: includes/modules/elements/creative-cta.php:152
 msgid "Background Color Hover"
 msgstr ""
 
-#: includes/modules/elements/creative-cta.php:159
+#: includes/modules/elements/creative-cta.php:153
 msgid "Select the background color hover for your Creative CTA."
 msgstr ""
 
@@ -2280,7 +2476,7 @@ msgstr ""
 #: includes/modules/elements/google-map.php:89
 #: includes/modules/elements/map-embed.php:29
 #: includes/modules/elements/self-hosted-video.php:90
-#: includes/modules/elements/slider.php:99 includes/tools/map.php:412
+#: includes/modules/elements/slider.php:104 includes/tools/map.php:412
 #: includes/tools/map.php:485 includes/tools/map.php:1136
 #: includes/tools/map.php:1183 includes/tools/map.php:1522
 msgid "No Container"
@@ -2290,6 +2486,163 @@ msgstr ""
 #: includes/modules/elements/self-hosted-video.php:91
 #: includes/tools/map.php:1137 includes/tools/map.php:1184
 msgid "Select to remove the container around the video."
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:8
+msgid "Feature Box"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:10
+msgid "Feature Box description."
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:24
+#: includes/modules/elements/prompt.php:20
+msgid "Title &amp; Content"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:25
+msgid "Specify the title and content for your Feature Box."
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:26
+msgid "Feature Box Title"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:34
+msgid ""
+"This is where the text for your Feature Box should go. It&apos;s best to "
+"keep it short and sweet."
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:43
+#: includes/modules/elements/feature-list-item.php:45
+msgid "Title &amp; Content Colors"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:44
+#: includes/modules/elements/feature-list-item.php:46
+msgid "Optionally specify colors for your title and content."
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:114
+#: includes/modules/elements/feature-list.php:78
+msgid "Graphic Size"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:115
+#: includes/modules/elements/feature-list.php:79
+msgid "Specify the size of your graphic."
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:127
+#: includes/modules/elements/feature-list-item.php:97
+msgid "Graphic Color &amp; Background Color"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:128
+#: includes/modules/elements/feature-list-item.php:98
+msgid "Specify the color and background color of your graphic."
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:148
+#: includes/modules/elements/feature-list-item.php:118
+msgid "Graphic Shape"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:149
+msgid "Choose a shape for your Feature Box graphic."
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:155
+#: includes/modules/elements/feature-list-item.php:125
+#: includes/modules/elements/image.php:29
+msgid "Circle"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:156
+msgid "Hexagon (Icon Only)"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:157
+msgid "Badge (Icon Only)"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:170
+#: includes/modules/elements/feature-list-item.php:140
+msgid "Graphic Border"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:206
+#: includes/modules/elements/feature-list.php:176
+msgid "Graphic Animation"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:210
+msgid "Graphic Animation Offset (%)"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:219
+msgid "Graphic Animation Delay (ms)"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:236
+#: includes/modules/elements/feature-list-item.php:176
+msgid "Link Text"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:237
+msgid "Enter the text for your Feature Box link. Leave blank to remove."
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:247
+msgid "Specify a custom color for your Feature Box link."
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:259
+#: includes/modules/elements/feature-list.php:91
+msgid "Horizontal Alignment"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:260
+msgid "Select the horizontal alignment of the Feature Box."
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:274
+#: includes/modules/elements/feature-list.php:105
+msgid "Vertical Alignment"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:275
+msgid "Select the vertical alignment of the Feature Box."
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:280
+#: includes/modules/elements/feature-list.php:111
+msgid "Middle"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:291
+#: includes/modules/elements/feature-list.php:119
+msgid "Graphic Spacing"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:292
+#: includes/modules/elements/feature-list.php:120
+msgid ""
+"Specify an amount of spacing you want between your side graphic and the "
+"content."
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:304
+#: includes/modules/elements/feature-list.php:127
+msgid "Max Width"
+msgstr ""
+
+#: includes/modules/elements/feature-box.php:305
+msgid ""
+"Enter in a max width for your Feature Box if desired. This will keep your "
+"Feature Box from stretching out too far on smaller breakpoints."
 msgstr ""
 
 #: includes/modules/elements/feature-headline.php:8
@@ -2304,6 +2657,131 @@ msgstr ""
 
 #: includes/modules/elements/feature-headline.php:61
 msgid "Icon to be displayed next to the Feature Headline."
+msgstr ""
+
+#: includes/modules/elements/feature-list-item.php:8
+#: includes/modules/elements/feature-list.php:26
+#: includes/modules/elements/feature-list.php:34
+#: includes/modules/elements/feature-list.php:42
+msgid "Feature List Item"
+msgstr ""
+
+#: includes/modules/elements/feature-list-item.php:10
+msgid "Feature List Item description."
+msgstr ""
+
+#: includes/modules/elements/feature-list-item.php:35
+msgid "Specify the content for your Feature List Item."
+msgstr ""
+
+#: includes/modules/elements/feature-list-item.php:36
+msgid ""
+"This is where the text for your Feature List Item should go. It&apos;s best "
+"to keep it short and sweet."
+msgstr ""
+
+#: includes/modules/elements/feature-list-item.php:67
+msgid "Specify the icon you would like to use for your Feature List Item."
+msgstr ""
+
+#: includes/modules/elements/feature-list-item.php:80
+msgid "Specify the image you would like to use for your Feature List Item."
+msgstr ""
+
+#: includes/modules/elements/feature-list-item.php:119
+msgid "Choose a shape for your Feature List Item graphic."
+msgstr ""
+
+#: includes/modules/elements/feature-list-item.php:126
+msgid "Hexagon (Icon and Numbers Only)"
+msgstr ""
+
+#: includes/modules/elements/feature-list-item.php:127
+msgid "Badge (Icon and Numbers Only)"
+msgstr ""
+
+#: includes/modules/elements/feature-list-item.php:177
+msgid "Enter the text for your Feature List Item link. Leave blank to remove."
+msgstr ""
+
+#: includes/modules/elements/feature-list-item.php:187
+msgid "Specify a custom color for your Feature List Item link."
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:8
+msgid "Feature List"
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:10
+msgid "Feature List description."
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:22
+msgid "Feature List Items"
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:23
+msgid "Add your Feature List Items here."
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:27
+#: includes/modules/elements/feature-list.php:35
+#: includes/modules/elements/feature-list.php:43
+msgid ""
+"This is an Feature List Item that is part of an Feature List. Notice the "
+"connector between the three graphics to show that they are related."
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:51
+msgid "Feature List Item %s"
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:64
+msgid ""
+"Choose between an icon, a custom image, or incremental numbers for your "
+"graphic."
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:70
+msgid "Numbers"
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:92
+msgid "Select the horizontal alignment of the Feature List Item."
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:106
+msgid "Select the vertical alignment of the Feature List Item."
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:128
+msgid ""
+"Enter in a max width for your Feature List Item if desired. This will keep "
+"your Feature List Item from stretching out too far on smaller breakpoints."
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:140
+msgid "Connector Style, Color, &amp; Width"
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:141
+msgid "Specify the style of the connector between graphics."
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:187
+msgid "Connector Animation"
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:212
+msgid "Animation Initial Delay (ms)"
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:226
+msgid "Animation Delay Between (ms)"
+msgstr ""
+
+#: includes/modules/elements/feature-list.php:227
+msgid "Specify an amount of time between graphic animations in milliseconds."
 msgstr ""
 
 #: includes/modules/elements/gap.php:8 includes/tools/map.php:211
@@ -2437,6 +2915,41 @@ msgstr ""
 msgid "Select to remove the container around the map."
 msgstr ""
 
+#: includes/modules/elements/gravity-forms.php:10
+msgid "Gravity Forms"
+msgstr ""
+
+#: includes/modules/elements/gravity-forms.php:14
+msgid "Display issues?"
+msgstr ""
+
+#: includes/modules/elements/gravity-forms.php:15
+msgid ""
+"<strong>Gravity Forms</strong> uses it&apos;s own dynamic process to render "
+"forms, which could result in visual differences in the preview area. Be sure "
+"to test by viewing the true front end of this page."
+msgstr ""
+
+#: includes/modules/elements/gravity-forms.php:42
+msgid "Form"
+msgstr ""
+
+#: includes/modules/elements/gravity-forms.php:43
+msgid "Select which form you would like to display."
+msgstr ""
+
+#: includes/modules/elements/gravity-forms.php:53
+msgid "Show Title"
+msgstr ""
+
+#: includes/modules/elements/gravity-forms.php:61
+msgid "Show Description"
+msgstr ""
+
+#: includes/modules/elements/gravity-forms.php:69
+msgid "Enable AJAX"
+msgstr ""
+
 #: includes/modules/elements/icon-list-item.php:8 includes/tools/map.php:1020
 msgid "Icon List Item"
 msgstr ""
@@ -2501,10 +3014,6 @@ msgstr ""
 #: includes/modules/elements/image.php:27
 #: includes/modules/settings/x-settings.php:363
 msgid "Thumbnail"
-msgstr ""
-
-#: includes/modules/elements/image.php:29
-msgid "Circle"
 msgstr ""
 
 #: includes/modules/elements/image.php:37
@@ -2641,6 +3150,22 @@ msgstr ""
 
 #: includes/modules/elements/line.php:10
 msgid "Line description."
+msgstr ""
+
+#: includes/modules/elements/mailchimp.php:8
+msgid "Mailchimp"
+msgstr ""
+
+#: includes/modules/elements/mailchimp.php:10
+msgid "Mailchimp description."
+msgstr ""
+
+#: includes/modules/elements/mailchimp.php:36
+msgid "Select Email Form"
+msgstr ""
+
+#: includes/modules/elements/mailchimp.php:37
+msgid "Select a previously setup email form."
 msgstr ""
 
 #: includes/modules/elements/map-embed.php:8
@@ -2806,10 +3331,6 @@ msgstr ""
 
 #: includes/modules/elements/prompt.php:10
 msgid "Prompt description."
-msgstr ""
-
-#: includes/modules/elements/prompt.php:20
-msgid "Title &amp; Content"
 msgstr ""
 
 #: includes/modules/elements/prompt.php:21
@@ -3382,74 +3903,74 @@ msgstr ""
 msgid "Fade"
 msgstr ""
 
-#: includes/modules/elements/slider.php:51 includes/tools/map.php:1474
-msgid "Slide Time"
+#: includes/modules/elements/slider.php:51
+msgid "Animation Speed"
 msgstr ""
 
 #: includes/modules/elements/slider.php:52
-msgid ""
-"The amount of time in milliseconds each slide should remain visible before "
-"transitioning to the next one."
-msgstr ""
-
-#: includes/modules/elements/slider.php:59 includes/tools/map.php:1482
-msgid "Slide Speed"
-msgstr ""
-
-#: includes/modules/elements/slider.php:60
 msgid ""
 "The amount of time in milliseconds the transition between each slide should "
 "take."
 msgstr ""
 
-#: includes/modules/elements/slider.php:67 includes/tools/map.php:1490
+#: includes/modules/elements/slider.php:59 includes/tools/map.php:1490
 msgid "Slideshow"
 msgstr ""
 
-#: includes/modules/elements/slider.php:68
+#: includes/modules/elements/slider.php:60
 msgid ""
 "Enabling this control will have your slider automatically cycle through like "
 "a slideshow."
 msgstr ""
 
-#: includes/modules/elements/slider.php:75 includes/tools/map.php:1498
+#: includes/modules/elements/slider.php:67
+msgid "Slide Duration"
+msgstr ""
+
+#: includes/modules/elements/slider.php:68
+msgid ""
+"The amount of time in milliseconds each slide should remain visible before "
+"transitioning to the next one."
+msgstr ""
+
+#: includes/modules/elements/slider.php:80 includes/tools/map.php:1498
 msgid "Random"
 msgstr ""
 
-#: includes/modules/elements/slider.php:76
+#: includes/modules/elements/slider.php:81
 msgid ""
 "Select to have your slider appear in a random order each time the page loads."
 msgstr ""
 
-#: includes/modules/elements/slider.php:83 includes/tools/map.php:1506
+#: includes/modules/elements/slider.php:88 includes/tools/map.php:1506
 msgid "Control Navigation"
 msgstr ""
 
-#: includes/modules/elements/slider.php:84
+#: includes/modules/elements/slider.php:89
 msgid ""
 "Select to enable the control navigation, which displays how many slides you "
 "have in your slider."
 msgstr ""
 
-#: includes/modules/elements/slider.php:91
+#: includes/modules/elements/slider.php:96
 msgid "Prev/Next Navigation"
 msgstr ""
 
-#: includes/modules/elements/slider.php:92
+#: includes/modules/elements/slider.php:97
 msgid ""
 "Select to enable the prev/next navigation, which displays two arrows for you "
 "to cycle through the slides in your slider."
 msgstr ""
 
-#: includes/modules/elements/slider.php:100
+#: includes/modules/elements/slider.php:105
 msgid "Select to remove the container around the slider."
 msgstr ""
 
-#: includes/modules/elements/slider.php:107
+#: includes/modules/elements/slider.php:112
 msgid "Touch Navigation"
 msgstr ""
 
-#: includes/modules/elements/slider.php:108
+#: includes/modules/elements/slider.php:113
 msgid "Allow touch devices to navigate with a swipe guesture."
 msgstr ""
 
@@ -3466,7 +3987,7 @@ msgid "Enter in a title for your social links."
 msgstr ""
 
 #: includes/modules/elements/social-sharing.php:22
-#: includes/modules/shortcodes/share.php:33
+#: includes/modules/shortcodes/share.php:36
 msgid "Share this Post"
 msgstr ""
 
@@ -4125,35 +4646,35 @@ msgstr ""
 msgid "Permalink to: \"%s\""
 msgstr ""
 
-#: includes/modules/shortcodes/share.php:34
+#: includes/modules/shortcodes/share.php:37
 msgid "Share on Facebook"
 msgstr ""
 
-#: includes/modules/shortcodes/share.php:35
+#: includes/modules/shortcodes/share.php:38
 msgid "Share on Twitter"
 msgstr ""
 
-#: includes/modules/shortcodes/share.php:36
+#: includes/modules/shortcodes/share.php:39
 msgid "Share on Google+"
 msgstr ""
 
-#: includes/modules/shortcodes/share.php:37
+#: includes/modules/shortcodes/share.php:40
 msgid "Share on LinkedIn"
 msgstr ""
 
-#: includes/modules/shortcodes/share.php:38
+#: includes/modules/shortcodes/share.php:41
 msgid "Share on Pinterest"
 msgstr ""
 
-#: includes/modules/shortcodes/share.php:39
+#: includes/modules/shortcodes/share.php:42
 msgid "Share on Reddit"
 msgstr ""
 
-#: includes/modules/shortcodes/share.php:40
+#: includes/modules/shortcodes/share.php:43
 msgid "Hey, thought you might enjoy this! Check it out when you have a chance:"
 msgstr ""
 
-#: includes/modules/shortcodes/share.php:40
+#: includes/modules/shortcodes/share.php:43
 msgid "Share via Email"
 msgstr ""
 
@@ -4623,8 +5144,16 @@ msgstr ""
 msgid "Select your slider animation."
 msgstr ""
 
+#: includes/tools/map.php:1474
+msgid "Slide Time"
+msgstr ""
+
 #: includes/tools/map.php:1475
 msgid "The amount of time a slide will stay visible in milliseconds."
+msgstr ""
+
+#: includes/tools/map.php:1482
+msgid "Slide Speed"
 msgstr ""
 
 #: includes/tools/map.php:1483

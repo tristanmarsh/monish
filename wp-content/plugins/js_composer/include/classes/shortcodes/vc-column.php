@@ -219,7 +219,7 @@ class WPBakeryShortCode_VC_Column extends WPBakeryShortCode {
 
 	/**
 	 * @param string $font_color
-	 *
+	 * 
 	 * @return string
 	 */
 	public function buildStyle( $font_color = '' ) {

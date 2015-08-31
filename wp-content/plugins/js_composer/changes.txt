@@ -1,3 +1,33 @@
+11.07.2015 - ver 4.6.1
+   - Fixed: Cannot redeclare hex2rgb()
+   - Icons per page set to 200 in message box element
+   - Changed syntax in js_composer_front.js - now W3 Total Cache should not have problems with minifying
+   - Compatibility with PHP 5.2.4 added
+   - Fixed: Woo Rating count in grid
+   - Fixed: Post image element in grid
+   - Fixed: Pinterest button height
+
+02.07.2015 - ver 4.6
+   - New: Full screen row height
+   - New: Chart elements (Pie, Doughnut, Line, Bar)
+   - New: YouTube background for row
+   - New: Tabs element
+   - New: Tour element
+   - New: Accordion element
+   - New: Image overlay filters - enhance your images with awesome color overlays
+   - Improved: New cleaner shortcodes (default values are not stored in the [shortcode])
+   - Improved: UI for param group
+   - Improved: Alt tags for images
+   - Improved: Responsive options added to inner columns
+   - Improved: Custom heading element. Cleaner markup, option to choose font from theme
+   - Improved: Icon element now accepts custom color
+   - Improved: Outline button now accepts custom color for border
+   - Improved: Shortcode mapping process speed improvements
+   - Fixed: Removed taxonomy db call from map.php (speed improvements)
+   - Fixed: WP SEO + VC "Page slug changes if a shortcode with custom WP_Query used"
+   - Fixed: Loading js files in vc-gallery.php
+   - Fixed: Design options work when loaded from Templatera
+
 16.06.2015 - ver 4.5.3
    - prettyPhoto updated to 3.1.6 - latest stable and secure version
    

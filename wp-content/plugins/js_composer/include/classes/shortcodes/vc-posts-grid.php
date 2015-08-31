@@ -102,10 +102,8 @@ class WPBakeryShortCode_VC_Posts_Grid extends WPBakeryShortCode {
 				$teaser_width = 'vc_col-sm-2';
 				break;
 		}
-		//return $teaser_width;
-		$custom = get_custom_column_class( $teaser_width );
 
-		return $custom ? $custom : $teaser_width;
+		return $teaser_width;
 	}
 
 	protected function getMainCssClass( $filter ) {

@@ -21,6 +21,7 @@ class Cornerstone_Control_Mixins {
       'link'       => array( $this, 'link' ),
       'visibility' => array( $this, 'visibility' ),
       'text_align' => array( $this, 'textAlign' ),
+      'animation'  => array( $this, 'animation' ),
     ) );
 
     //
@@ -129,7 +130,7 @@ class Cornerstone_Control_Mixins {
       '',
       array(
         'condition' => array(
-          '!border_style' => 'none',
+          'border_style:not' => 'none',
         )
       )
     );
@@ -142,7 +143,7 @@ class Cornerstone_Control_Mixins {
       array( '1px', '1px', '1px', '1px', 'linked' ),
       array(
         'condition' => array(
-          '!border_style' => 'none',
+          'border_style:not' => 'none',
         )
       )
     );
@@ -222,6 +223,47 @@ class Cornerstone_Control_Mixins {
 
   }
 
+  public function animation() {
+
+    $this->addControl(
+      'animation',
+      'select',
+      __( 'Animation', csl18n() ),
+      __( 'Optionally add animation to your element as users scroll down the page.', csl18n() ),
+      'none',
+      array(
+        'choices' => self::animationChoices()
+      )
+    );
+
+    $this->addControl(
+      'animation_offset',
+      'text',
+      __( 'Animation Offset (%)', csl18n() ),
+      __( 'Specify a percentage value where the element should appear on screen for the animation to take place.', csl18n() ),
+      '50',
+      array(
+        'condition' => array(
+          'animation:not' => 'none'
+        )
+      )
+    );
+
+    $this->addControl(
+      'animation_delay',
+      'text',
+      __( 'Animation Delay (ms)', csl18n() ),
+      __( 'Specify an amount of time before the graphic animation starts in milliseconds.', csl18n() ),
+      '0',
+      array(
+        'condition' => array(
+          'animation:not' => 'none'
+        )
+      )
+    );
+
+  }
+
   /**
    * Detect what attributes are being used during a render and inject
    * classes or inline styles accordingly.
@@ -263,7 +305,6 @@ class Cornerstone_Control_Mixins {
     return $atts;
   }
 
-
   /**
    * Call from inside a mixin. Map controls in order you'd like them in the inspector pane.
    * @param string $name     Required. Control name - will become an attribute name for the element
@@ -275,6 +316,44 @@ class Cornerstone_Control_Mixins {
    */
   public function addControl( $name, $type, $title = null, $tooltip = null, $default = array(), $options = array() ) {
     $this->cache[] = array( 'name' => $name, 'controlType' => $type, 'controlTitle' => $title, 'controlTooltip' => $tooltip, 'defaultValue' => $default, 'options' => $options );
+  }
+
+  /**
+   * Return animation choices.
+   */
+  public static function animationChoices() {
+    return array(
+      array( 'value' => 'none',              'label' => __( 'None', csl18n() ) ),
+      array( 'value' => 'jello',             'label' => __( 'Jello', csl18n() ) ),
+      array( 'value' => 'pulse',             'label' => __( 'Pulse', csl18n() ) ),
+      array( 'value' => 'rubberBand',        'label' => __( 'Rubber Band', csl18n() ) ),
+      array( 'value' => 'swing',             'label' => __( 'Swing', csl18n() ) ),
+      array( 'value' => 'tada',              'label' => __( 'Tada', csl18n() ) ),
+      array( 'value' => 'wobble',            'label' => __( 'Wobble', csl18n() ) ),
+      array( 'value' => 'flip',              'label' => __( 'Flip', csl18n() ) ),
+      array( 'value' => 'flipInX',           'label' => __( 'Flip In X', csl18n() ) ),
+      array( 'value' => 'flipInY',           'label' => __( 'Flip In Y', csl18n() ) ),
+      array( 'value' => 'fadeIn',            'label' => __( 'Fade In', csl18n() ) ),
+      array( 'value' => 'fadeInUp',          'label' => __( 'Fade In Up', csl18n() ) ),
+      array( 'value' => 'fadeInDown',        'label' => __( 'Fade In Down', csl18n() ) ),
+      array( 'value' => 'fadeInLeft',        'label' => __( 'Fade In Left', csl18n() ) ),
+      array( 'value' => 'fadeInRight',       'label' => __( 'Fade In Right', csl18n() ) ),
+      array( 'value' => 'bounceIn',          'label' => __( 'Bounce In', csl18n() ) ),
+      array( 'value' => 'bounceInUp',        'label' => __( 'Bounce In Up', csl18n() ) ),
+      array( 'value' => 'bounceInDown',      'label' => __( 'Bounce In Down', csl18n() ) ),
+      array( 'value' => 'bounceInLeft',      'label' => __( 'Bounce In Left', csl18n() ) ),
+      array( 'value' => 'bounceInRight',     'label' => __( 'Bounce In Right', csl18n() ) ),
+      array( 'value' => 'rotateIn',          'label' => __( 'Rotate In', csl18n() ) ),
+      array( 'value' => 'rotateInUpLeft',    'label' => __( 'Rotate In Up Left', csl18n() ) ),
+      array( 'value' => 'rotateInUpRight',   'label' => __( 'Rotate In Up Right', csl18n() ) ),
+      array( 'value' => 'rotateInDownLeft',  'label' => __( 'Rotate In Down Left', csl18n() ) ),
+      array( 'value' => 'rotateInDownRight', 'label' => __( 'Rotate In Down Right', csl18n() ) ),
+      array( 'value' => 'zoomIn',            'label' => __( 'Zoom In', csl18n() ) ),
+      array( 'value' => 'zoomInUp',          'label' => __( 'Zoom In Up', csl18n() ) ),
+      array( 'value' => 'zoomInDown',        'label' => __( 'Zoom In Down', csl18n() ) ),
+      array( 'value' => 'zoomInLeft',        'label' => __( 'Zoom In Left', csl18n() ) ),
+      array( 'value' => 'zoomInRight',       'label' => __( 'Zoom In Right', csl18n() ) )
+    );
   }
 
 }

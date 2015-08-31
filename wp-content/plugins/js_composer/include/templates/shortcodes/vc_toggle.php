@@ -1,28 +1,24 @@
 <?php
-$output = $title = $el_class = $open = $css_animation = $el_id = '';
+/**
+ * Shortcode attributes
+ * @var $atts
+ * @var $title
+ * @var $el_class
+ * @var $style
+ * @var $color
+ * @var $size
+ * @var $open
+ * @var $css_animation
+ * @var $el_id
+ * @var $content - shortcode content
+ * Shortcode class
+ * @var $this WPBakeryShortCode_VC_Toggle
+ */
+$output = '';
 
 $inverted = false;
-/**
- * @var string $title
- * @var string $el_class
- * @var string $style
- * @var string $color
- * @var string $size
- * @var string $open
- * @var string $css_animation
- *
- * @var array $atts
- */
-extract( shortcode_atts( array(
-	'title' => __( "Click to toggle", "js_composer" ),
-	'el_class' => '',
-	'style' => 'default',
-	'color' => 'default',
-	'size' => '',
-	'open' => 'false',
-	'css_animation' => '',
-	'el_id' => '',
-), $atts ) );
+$atts = vc_map_get_attributes( $this->getShortcode(), $atts );
+extract( $atts );
 
 // checking is color inverted
 $style = str_replace( '_outline', '', $style, $inverted );
@@ -54,4 +50,4 @@ $elementClass = trim( implode( ' ', $elementClass ) );
 		) ); ?><i class="vc_toggle_icon"></i></div>
 	<div
 		class="vc_toggle_content"><?php echo wpb_js_remove_wpautop( apply_filters( 'the_content', $content ), true ); ?></div>
-</div>
+	</div><?php echo $this->endBlockComment( $this->getShortcode() ); ?>

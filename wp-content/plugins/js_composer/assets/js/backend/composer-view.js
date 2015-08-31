@@ -480,7 +480,7 @@
 		},
 		getView: function ( model ) {
 			var view;
-			if ( _.isObject( vc.map[ model.get( 'shortcode' ) ] ) && _.isString( vc.map[ model.get( 'shortcode' ) ].js_view ) && vc.map[ model.get( 'shortcode' ) ].js_view.length ) {
+			if ( _.isObject( vc.map[ model.get( 'shortcode' ) ] ) && _.isString( vc.map[ model.get( 'shortcode' ) ].js_view ) && vc.map[ model.get( 'shortcode' ) ].js_view.length && ! _.isUndefined( window[ window.vc.map[ model.get( 'shortcode' ) ].js_view ] ) ) {
 				view = new window[ window.vc.map[ model.get( 'shortcode' ) ].js_view ]( { model: model } );
 			} else {
 				view = new ShortcodeView( { model: model } );
@@ -517,13 +517,17 @@
 			}
 		},
 		appendShortcode: function ( model ) {
-			var view = this.getView( model ),
-				parentModelView = model.get( 'parent_id' ) !== false ?
-					this.views[ model.get( 'parent_id' ) ] : false;
+			var view, parentModelView, params;
+			view = this.getView( model );
+			params = _.extend( vc.getDefaults( model.get( 'shortcode' ) ), model.get( 'params' ) );
+			model.set( 'params', params, { silent: true } );
+			parentModelView = model.get( 'parent_id' ) !== false ?
+				this.views[ model.get( 'parent_id' ) ] : false;
 			this.views[ model.id ] = view;
 			if ( model.get( 'parent_id' ) ) {
-				var parent_view = this.views[ model.get( 'parent_id' ) ];
-				parent_view.unsetEmpty();
+				var parentView;
+				parentView = this.views[ model.get( 'parent_id' ) ];
+				parentView.unsetEmpty();
 			}
 			if ( parentModelView ) {
 				parentModelView.addShortcode( view, 'append' );
@@ -536,7 +540,9 @@
 			this.setNotEmpty();
 		},
 		addShortcode: function ( model ) {
-			var view, parentModelView;
+			var view, parentModelView, params;
+			params = _.extend( vc.getDefaults( model.get( 'shortcode' ) ), model.get( 'params' ) );
+			model.set( 'params', params, { silent: true } );
 			view = this.getView( model );
 			parentModelView = model.get( 'parent_id' ) !== false ?
 				this.views[ model.get( 'parent_id' ) ] : false;
@@ -545,7 +551,8 @@
 			if ( parentModelView ) {
 				parentModelView.addShortcode( view );
 				parentModelView.checkIsEmpty();
-				var self = this;
+				var self;
+				self = this;
 				_.defer( function () {
 					view.changeShortcodeParams && view.changeShortcodeParams( model );
 					view.ready();

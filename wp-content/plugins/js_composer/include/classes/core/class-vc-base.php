@@ -562,6 +562,9 @@ class Vc_Base {
 		wp_register_script( 'twbs-pagination', vc_asset_url( 'lib/bower/twbs-pagination/jquery.twbsPagination.min.js' ), array( 'jquery' ), WPB_VC_VERSION, true );
 		wp_register_script( 'nivo-slider', vc_asset_url( 'lib/bower/nivoslider/jquery.nivo.slider.pack.js' ), array( 'jquery' ), WPB_VC_VERSION, true );
 		wp_register_script( 'flexslider', vc_asset_url( 'lib/bower/flexslider/jquery.flexslider-min.js' ), array( 'jquery' ), WPB_VC_VERSION, true );
+		wp_register_script( 'vc_accordion_script', vc_asset_url( 'lib/vc_accordion/vc-accordion.js' ), array( 'jquery' ), WPB_VC_VERSION, true );
+		wp_register_script( 'vc_tabs_script', vc_asset_url( 'lib/vc_tabs/vc-tabs.js' ), array( 'jquery' ), WPB_VC_VERSION, true );
+		wp_register_script( 'vc_tta_autoplay_script', vc_asset_url( 'lib/vc-tta-autoplay/vc-tta-autoplay.js' ), array( 'vc_accordion_script' ), WPB_VC_VERSION, true );
 
 		wp_register_script( 'wpb_composer_front_js', vc_asset_url( 'js/js_composer_front.js' ), array( 'jquery' ), WPB_VC_VERSION, true );
 		/**
@@ -599,6 +602,7 @@ class Vc_Base {
 
 		wp_localize_script( 'wpb_js_composer_js_listeners', 'vcData', apply_filters( 'vc_global_js_data', array(
 			'version' => WPB_VC_VERSION,
+			'debug' => wpb_debug(),
 		) ) );
 
 		wp_register_script( 'wpb_js_composer_js_tools', vc_asset_url( 'js/backend/composer-tools.js' ), array(
@@ -678,7 +682,7 @@ class Vc_Base {
 			'guides_off' => __( 'Guides OFF', 'js_composer' ),
 			'template_save' => __( 'New template successfully saved!', 'js_composer' ),
 			'template_added' => __( 'Template added to the page.', 'js_composer' ),
-			'template_added_with_id' => __( 'Template added to the page. Template has ID attributes, make sure that they are not used more then once on the same page.', 'js_composer' ),
+			'template_added_with_id' => __( 'Template added to the page. Template has ID attributes, make sure that they are not used more than once on the same page.', 'js_composer' ),
 			'template_removed' => __( 'Template successfully removed.', 'js_composer' ),
 			'template_is_empty' => __( 'Nothing to save. Template is empty.', 'js_composer' ),
 			'css_updated' => __( 'Page settings updated!', 'js_composer' ),
@@ -692,6 +696,7 @@ class Vc_Base {
 			'gfonts_unable_to_load_google_fonts' => __( 'Unable to load Google Fonts', 'js_composer' ),
 			//'gfonts_font_loaded' => __( 'Google Font loaded successfully', 'js_composer' ),
 			'no_title_parenthesis' => sprintf( '(%s)', __( 'no title', 'js_composer' ) ),
+			'error_while_saving_image_filtered' => __( 'Error while applying filter to the image. Check your server and memory settings.', 'js_composer' ),
 		) ) );
 
 		/**

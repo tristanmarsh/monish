@@ -2,6 +2,7 @@
 require_once vc_path_dir( 'SHORTCODES_DIR', 'vc-gitem-animated-block.php' );
 global $vc_column_width_list;
 global $vc_add_css_animation;
+global $vc_gitem_add_link_param;
 $vc_gitem_add_link_param = apply_filters( 'vc_gitem_add_link_param', array(
 	'type' => 'dropdown',
 	'heading' => __( 'Add link', 'js_composer' ),
@@ -142,6 +143,18 @@ $custom_fonts_params = array(
 		),
 	),
 	array(
+		'type' => 'checkbox',
+		'heading' => __( 'Yes theme default font family?', 'js_composer' ),
+		'param_name' => 'use_theme_fonts',
+		'value' => array( __( 'Yes', 'js_composer' ) => 'yes' ),
+		'description' => __( 'Yes font family from the theme.', 'js_composer' ),
+		'group' => __( 'Custom fonts', 'js_composer' ),
+		'dependency' => array(
+			'element' => 'use_custom_fonts',
+			'value' => array( 'yes' )
+		),
+	),
+	array(
 		'type' => 'google_fonts',
 		'param_name' => 'google_fonts',
 		'value' => '',
@@ -161,8 +174,8 @@ $custom_fonts_params = array(
 		// 'description' => __( '', 'js_composer' ),
 		'group' => __( 'Custom fonts', 'js_composer' ),
 		'dependency' => array(
-			'element' => 'use_custom_fonts',
-			'value' => array( 'yes' )
+			'element' => 'use_theme_fonts',
+			'value_not_equal_to' => 'yes',
 		),
 	),
 );
@@ -209,7 +222,6 @@ $list = array(
 				'heading' => __( 'Animation', 'js_composer' ),
 				'param_name' => 'animation',
 				'value' => WPBakeryShortCode_VC_Gitem_Animated_Block::animations(),
-				'description' => __( '', 'js_composer' ),
 			),
 		),
 		'js_view' => 'VcGitemAnimatedBlockView',
@@ -412,7 +424,6 @@ $list = array(
 				'heading' => __( 'Post data source', 'js_composer' ),
 				'param_name' => 'data_source',
 				'value' => 'ID',
-				'description' => __( '', 'js_composer' ),
 			)
 		), $post_data_params, $custom_fonts_params, array(
 			array(
@@ -703,6 +714,7 @@ $shortcode_vc_custom_heading = WPBMap::getShortCode( 'vc_custom_heading' );
 if ( is_array( $shortcode_vc_custom_heading ) && isset( $shortcode_vc_custom_heading['base'] ) ) {
 	$list['vc_custom_heading'] = $shortcode_vc_custom_heading;
 	$list['vc_custom_heading']['post_type'] = Vc_Grid_Item_Editor::postType();
+	unset( $list['vc_custom_heading']['params'][1] );
 }
 $shortcode_vc_empty_space = WPBMap::getShortCode( 'vc_empty_space' );
 if ( is_array( $shortcode_vc_empty_space ) && isset( $shortcode_vc_empty_space['base'] ) ) {
@@ -711,6 +723,9 @@ if ( is_array( $shortcode_vc_empty_space ) && isset( $shortcode_vc_empty_space['
 }
 foreach ( array( 'vc_icon', 'vc_button2', 'vc_btn', 'vc_custom_heading', 'vc_single_image' ) as $key ) {
 	if ( isset( $list[ $key ] ) ) {
+		if ( ! isset( $list[ $key ]['params'] ) ) {
+			$list[ $key ]['params'] = array();
+		}
 		if ( 'vc_button2' === $key ) {
 			// change settings for vc_link in dropdown. Add dependency.
 			$list[ $key ]['params'][0] = array(

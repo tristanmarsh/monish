@@ -1,3 +1,10 @@
+<?php
+    $this->Html->addCrumb('Mac Address', array('controller' => 'Macaddresses', 'action' => 'index'));
+
+?>
+
+
+
 <!-- File: src/Template/Requests/index.ctp -->
 <?php $user = $this->Session->read('Auth.User'); ?>
 
@@ -16,16 +23,19 @@
         
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active">
+                <?= $this->Html->link('All', ['action' => 'index']) ?>
+            </li>
+            <li role="presentation">
                 <?= $this->Html->link('Update Devices', ['action' => 'edit', $personEntity->macaddress->id]) ?>
             </li>
-            <li role="presentation" class="active">
-                <a class="btn btn-default float-right" href="http://www.wikihow.com/Find-the-MAC-Address-of-Your-Computer">Help me find my MAC Address</a>
+            <li role="presentation">
+                <a class="btn float-right" href="http://www.wikihow.com/Find-the-MAC-Address-of-Your-Computer">Help me find my MAC Address</a>
             </li>
         </ul>
 
     </div>
 
-    <div class="panel-footer">
+<!--     <div class="panel-footer">
 
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><a href="#">Imagine</a></li>
@@ -33,7 +43,7 @@
             <li role="presentation"><a href="#">Buttons</a></li>
         </ul>
 
-    </div>
+    </div> -->
 
 </div>
 

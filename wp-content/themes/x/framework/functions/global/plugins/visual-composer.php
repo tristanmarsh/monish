@@ -1525,8 +1525,7 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'value'       => array(
               'Two'   => 'two-up',
               'Three' => 'three-up',
-              'Four'  => 'four-up',
-              'Five'  => 'five-up'
+              'Four'  => 'four-up'
             )
           ),
           array(
@@ -4484,6 +4483,13 @@ if ( ! function_exists( 'x_visual_composer_update_existing_shortcodes' ) && x_vi
     vc_remove_param( 'vc_row', 'el_class' );
     vc_remove_param( 'vc_row', 'css' );
     vc_remove_param( 'vc_row', 'full_width' );
+    vc_remove_param( 'vc_row', 'full_height' );
+    vc_remove_param( 'vc_row', 'content_placement' );
+    vc_remove_param( 'vc_row', 'video_bg' );
+    vc_remove_param( 'vc_row', 'video_bg_url' );
+    vc_remove_param( 'vc_row', 'video_bg_parallax' );
+    vc_remove_param( 'vc_row', 'parallax' );
+    vc_remove_param( 'vc_row', 'parallax_image' );
     vc_remove_param( 'vc_row', 'el_id' );
 
     vc_add_param( 'vc_row', array(
@@ -4750,6 +4756,17 @@ if ( ! function_exists( 'x_visual_composer_update_existing_shortcodes' ) && x_vi
       'holder'      => 'div'
     ) );
 
+    vc_add_param( 'vc_row_inner', array(
+      'param_name'  => 'marginless_columns',
+      'heading'     => __( 'Marginless Columns', '__x__' ),
+      'description' => __( 'Select to remove the spacing between columns.', '__x__' ),
+      'type'        => 'checkbox',
+      'holder'      => 'div',
+      'value'       => array(
+        '' => 'true'
+      )
+    ) );
+    
     vc_add_param( 'vc_row_inner', array(
       'param_name'  => 'class',
       'heading'     => __( 'Class', '__x__' ),

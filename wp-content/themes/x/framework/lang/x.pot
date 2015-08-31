@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: X 4.0.4\n"
+"Project-Id-Version: X 4.0.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/x\n"
-"POT-Creation-Date: 2015-06-29 18:26:40+00:00\n"
+"POT-Creation-Date: 2015-07-30 16:48:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -122,7 +122,7 @@ msgid "Search for:"
 msgstr ""
 
 #: bbpress/form-search.php:17 framework/functions/global/navbar.php:170
-#: framework/functions/global/plugins/visual-composer.php:4252
+#: framework/functions/global/plugins/visual-composer.php:4251
 #: searchform.php:12 searchform.php:13
 msgid "Search"
 msgstr ""
@@ -361,7 +361,7 @@ msgid "Username"
 msgstr ""
 
 #: bbpress/form-user-edit.php:92 bbpress/form-user-register.php:27
-#: framework/functions/global/plugins/visual-composer.php:3743
+#: framework/functions/global/plugins/visual-composer.php:3742
 #: framework/views/ethos/wp-comments.php:75
 #: woocommerce/order/order-details.php:173
 #: woocommerce/single-product-reviews.php:87
@@ -1437,8 +1437,8 @@ msgstr ""
 
 #: buddypress/members/single/messages/compose.php:20
 #: buddypress/members/single/messages/messages-loop.php:11
-#: framework/functions/global/plugins/visual-composer.php:3264
-#: framework/functions/global/plugins/visual-composer.php:3586
+#: framework/functions/global/plugins/visual-composer.php:3263
+#: framework/functions/global/plugins/visual-composer.php:3585
 msgid "Message"
 msgstr ""
 
@@ -1591,7 +1591,7 @@ msgid "Repeat New Password <span>(confirm above entry)</span>"
 msgstr ""
 
 #: buddypress/members/single/settings/profile.php:15
-#: framework/functions/global/plugins/visual-composer.php:2586
+#: framework/functions/global/plugins/visual-composer.php:2585
 msgid "Visibility"
 msgstr ""
 
@@ -1646,7 +1646,7 @@ msgid "(Edit)"
 msgstr ""
 
 #: framework/functions/ethos.php:351
-#: framework/functions/global/plugins/visual-composer.php:3504
+#: framework/functions/global/plugins/visual-composer.php:3503
 msgid "Author"
 msgstr ""
 
@@ -1998,7 +1998,7 @@ msgstr ""
 #: framework/functions/global/admin/customizer/register.php:56
 #: framework/functions/global/admin/customizer/register.php:197
 #: framework/functions/global/admin/customizer/register.php:214
-#: framework/functions/global/plugins/visual-composer.php:4165
+#: framework/functions/global/plugins/visual-composer.php:4164
 msgid "Icon"
 msgstr ""
 
@@ -2047,12 +2047,12 @@ msgid "Most Commented"
 msgstr ""
 
 #: framework/functions/global/admin/customizer/register.php:88
-#: framework/functions/global/plugins/visual-composer.php:2693
+#: framework/functions/global/plugins/visual-composer.php:2692
 msgid "Random"
 msgstr ""
 
 #: framework/functions/global/admin/customizer/register.php:89
-#: framework/functions/global/plugins/visual-composer.php:3166
+#: framework/functions/global/plugins/visual-composer.php:3165
 msgid "Featured"
 msgstr ""
 
@@ -2202,11 +2202,11 @@ msgstr ""
 #: framework/functions/global/plugins/visual-composer.php:727
 #: framework/functions/global/plugins/visual-composer.php:794
 #: framework/functions/global/plugins/visual-composer.php:1208
-#: framework/functions/global/plugins/visual-composer.php:1800
-#: framework/functions/global/plugins/visual-composer.php:1843
-#: framework/functions/global/plugins/visual-composer.php:3919
-#: framework/functions/global/plugins/visual-composer.php:4110
-#: framework/functions/global/plugins/visual-composer.php:4208
+#: framework/functions/global/plugins/visual-composer.php:1799
+#: framework/functions/global/plugins/visual-composer.php:1842
+#: framework/functions/global/plugins/visual-composer.php:3918
+#: framework/functions/global/plugins/visual-composer.php:4109
+#: framework/functions/global/plugins/visual-composer.php:4207
 msgid "Typography"
 msgstr ""
 
@@ -2224,11 +2224,11 @@ msgstr ""
 
 #: framework/functions/global/admin/customizer/register.php:223
 #: framework/functions/global/plugins/buddypress.php:457
-#: framework/functions/global/plugins/visual-composer.php:2866
-#: framework/functions/global/plugins/visual-composer.php:3508
-#: framework/functions/global/plugins/visual-composer.php:3670
-#: framework/functions/global/plugins/visual-composer.php:4981
-#: framework/functions/global/plugins/visual-composer.php:5007
+#: framework/functions/global/plugins/visual-composer.php:2865
+#: framework/functions/global/plugins/visual-composer.php:3507
+#: framework/functions/global/plugins/visual-composer.php:3669
+#: framework/functions/global/plugins/visual-composer.php:4998
+#: framework/functions/global/plugins/visual-composer.php:5024
 msgid "Social"
 msgstr ""
 
@@ -2582,20 +2582,20 @@ msgstr ""
 
 #: framework/functions/global/admin/customizer/register.php:605
 #: framework/functions/global/admin/customizer/register.php:1247
-#: framework/functions/global/plugins/visual-composer.php:4549
-#: framework/functions/global/plugins/visual-composer.php:4704
+#: framework/functions/global/plugins/visual-composer.php:4555
+#: framework/functions/global/plugins/visual-composer.php:4710
 msgid "Background Color"
 msgstr ""
 
 #: framework/functions/global/admin/customizer/register.php:608
-#: framework/functions/global/plugins/visual-composer.php:4557
-#: framework/functions/global/plugins/visual-composer.php:4712
+#: framework/functions/global/plugins/visual-composer.php:4563
+#: framework/functions/global/plugins/visual-composer.php:4718
 msgid "Background Pattern"
 msgstr ""
 
 #: framework/functions/global/admin/customizer/register.php:611
-#: framework/functions/global/plugins/visual-composer.php:4565
-#: framework/functions/global/plugins/visual-composer.php:4720
+#: framework/functions/global/plugins/visual-composer.php:4571
+#: framework/functions/global/plugins/visual-composer.php:4726
 msgid "Background Image"
 msgstr ""
 
@@ -2738,8 +2738,8 @@ msgstr ""
 
 #: framework/functions/global/admin/customizer/register.php:771
 #: framework/functions/global/admin/customizer/register.php:788
-#: framework/functions/global/plugins/visual-composer.php:3271
-#: framework/functions/global/plugins/visual-composer.php:3593
+#: framework/functions/global/plugins/visual-composer.php:3270
+#: framework/functions/global/plugins/visual-composer.php:3592
 msgid "Button Text"
 msgstr ""
 
@@ -2898,54 +2898,54 @@ msgstr ""
 #: framework/functions/global/plugins/visual-composer.php:1187
 #: framework/functions/global/plugins/visual-composer.php:1235
 #: framework/functions/global/plugins/visual-composer.php:1444
-#: framework/functions/global/plugins/visual-composer.php:1548
-#: framework/functions/global/plugins/visual-composer.php:1598
-#: framework/functions/global/plugins/visual-composer.php:1624
-#: framework/functions/global/plugins/visual-composer.php:1779
-#: framework/functions/global/plugins/visual-composer.php:1822
-#: framework/functions/global/plugins/visual-composer.php:1880
-#: framework/functions/global/plugins/visual-composer.php:2042
-#: framework/functions/global/plugins/visual-composer.php:2157
-#: framework/functions/global/plugins/visual-composer.php:2229
-#: framework/functions/global/plugins/visual-composer.php:2272
-#: framework/functions/global/plugins/visual-composer.php:2346
-#: framework/functions/global/plugins/visual-composer.php:2414
-#: framework/functions/global/plugins/visual-composer.php:2473
-#: framework/functions/global/plugins/visual-composer.php:2516
-#: framework/functions/global/plugins/visual-composer.php:2569
-#: framework/functions/global/plugins/visual-composer.php:2627
-#: framework/functions/global/plugins/visual-composer.php:2747
-#: framework/functions/global/plugins/visual-composer.php:2797
-#: framework/functions/global/plugins/visual-composer.php:2845
-#: framework/functions/global/plugins/visual-composer.php:2954
-#: framework/functions/global/plugins/visual-composer.php:3018
-#: framework/functions/global/plugins/visual-composer.php:3066
-#: framework/functions/global/plugins/visual-composer.php:3123
-#: framework/functions/global/plugins/visual-composer.php:3219
-#: framework/functions/global/plugins/visual-composer.php:3327
-#: framework/functions/global/plugins/visual-composer.php:3389
-#: framework/functions/global/plugins/visual-composer.php:3527
-#: framework/functions/global/plugins/visual-composer.php:3649
-#: framework/functions/global/plugins/visual-composer.php:3767
-#: framework/functions/global/plugins/visual-composer.php:3842
-#: framework/functions/global/plugins/visual-composer.php:3898
-#: framework/functions/global/plugins/visual-composer.php:3998
-#: framework/functions/global/plugins/visual-composer.php:4089
-#: framework/functions/global/plugins/visual-composer.php:4187
-#: framework/functions/global/plugins/visual-composer.php:4275
-#: framework/functions/global/plugins/visual-composer.php:4381
-#: framework/functions/global/plugins/visual-composer.php:4619
-#: framework/functions/global/plugins/visual-composer.php:4763
-#: framework/functions/global/plugins/visual-composer.php:4833
-#: framework/functions/global/plugins/visual-composer.php:4902
+#: framework/functions/global/plugins/visual-composer.php:1547
+#: framework/functions/global/plugins/visual-composer.php:1597
+#: framework/functions/global/plugins/visual-composer.php:1623
+#: framework/functions/global/plugins/visual-composer.php:1778
+#: framework/functions/global/plugins/visual-composer.php:1821
+#: framework/functions/global/plugins/visual-composer.php:1879
+#: framework/functions/global/plugins/visual-composer.php:2041
+#: framework/functions/global/plugins/visual-composer.php:2156
+#: framework/functions/global/plugins/visual-composer.php:2228
+#: framework/functions/global/plugins/visual-composer.php:2271
+#: framework/functions/global/plugins/visual-composer.php:2345
+#: framework/functions/global/plugins/visual-composer.php:2413
+#: framework/functions/global/plugins/visual-composer.php:2472
+#: framework/functions/global/plugins/visual-composer.php:2515
+#: framework/functions/global/plugins/visual-composer.php:2568
+#: framework/functions/global/plugins/visual-composer.php:2626
+#: framework/functions/global/plugins/visual-composer.php:2746
+#: framework/functions/global/plugins/visual-composer.php:2796
+#: framework/functions/global/plugins/visual-composer.php:2844
+#: framework/functions/global/plugins/visual-composer.php:2953
+#: framework/functions/global/plugins/visual-composer.php:3017
+#: framework/functions/global/plugins/visual-composer.php:3065
+#: framework/functions/global/plugins/visual-composer.php:3122
+#: framework/functions/global/plugins/visual-composer.php:3218
+#: framework/functions/global/plugins/visual-composer.php:3326
+#: framework/functions/global/plugins/visual-composer.php:3388
+#: framework/functions/global/plugins/visual-composer.php:3526
+#: framework/functions/global/plugins/visual-composer.php:3648
+#: framework/functions/global/plugins/visual-composer.php:3766
+#: framework/functions/global/plugins/visual-composer.php:3841
+#: framework/functions/global/plugins/visual-composer.php:3897
+#: framework/functions/global/plugins/visual-composer.php:3997
+#: framework/functions/global/plugins/visual-composer.php:4088
+#: framework/functions/global/plugins/visual-composer.php:4186
+#: framework/functions/global/plugins/visual-composer.php:4274
+#: framework/functions/global/plugins/visual-composer.php:4380
+#: framework/functions/global/plugins/visual-composer.php:4625
+#: framework/functions/global/plugins/visual-composer.php:4780
+#: framework/functions/global/plugins/visual-composer.php:4850
+#: framework/functions/global/plugins/visual-composer.php:4919
 msgid "Style"
 msgstr ""
 
 #: framework/functions/global/admin/customizer/register.php:954
 #: framework/functions/global/admin/customizer/register.php:968
 #: framework/functions/global/admin/meta/entries.php:271
-#: framework/functions/global/plugins/visual-composer.php:3095
-#: framework/functions/global/plugins/visual-composer.php:3816
+#: framework/functions/global/plugins/visual-composer.php:3094
+#: framework/functions/global/plugins/visual-composer.php:3815
 msgid "Columns"
 msgstr ""
 
@@ -3505,7 +3505,7 @@ msgstr ""
 
 #: framework/functions/global/admin/meta/entries.php:130
 #: framework/functions/global/admin/meta/entries.php:194
-#: framework/functions/global/plugins/visual-composer.php:2644
+#: framework/functions/global/plugins/visual-composer.php:2643
 msgid "Slider"
 msgstr ""
 
@@ -3704,8 +3704,8 @@ msgid "These settings enable you to embed videos into your posts."
 msgstr ""
 
 #: framework/functions/global/admin/meta/entries.php:442
-#: framework/functions/global/plugins/visual-composer.php:2068
-#: framework/functions/global/plugins/visual-composer.php:2191
+#: framework/functions/global/plugins/visual-composer.php:2067
+#: framework/functions/global/plugins/visual-composer.php:2190
 msgid "Aspect Ratio"
 msgstr ""
 
@@ -3934,7 +3934,7 @@ msgstr ""
 
 #: framework/functions/global/admin/meta/taxonomies.php:42
 #: framework/functions/global/admin/meta/taxonomies.php:86
-#: framework/functions/global/plugins/visual-composer.php:3974
+#: framework/functions/global/plugins/visual-composer.php:3973
 msgid "Accent"
 msgstr ""
 
@@ -4142,7 +4142,7 @@ msgstr ""
 #: framework/functions/global/admin/tmg/activation.php:1300
 #: framework/functions/global/plugins/visual-composer.php:880
 #: framework/functions/global/plugins/visual-composer.php:1521
-#: framework/functions/global/plugins/visual-composer.php:1858
+#: framework/functions/global/plugins/visual-composer.php:1857
 msgid "Type"
 msgstr ""
 
@@ -4354,21 +4354,21 @@ msgstr ""
 
 #: framework/functions/global/plugins/bbpress.php:491
 #: framework/functions/global/plugins/visual-composer.php:1513
-#: framework/functions/global/plugins/visual-composer.php:1569
-#: framework/functions/global/plugins/visual-composer.php:2015
-#: framework/functions/global/plugins/visual-composer.php:2250
-#: framework/functions/global/plugins/visual-composer.php:2293
-#: framework/functions/global/plugins/visual-composer.php:2367
-#: framework/functions/global/plugins/visual-composer.php:2435
-#: framework/functions/global/plugins/visual-composer.php:2494
-#: framework/functions/global/plugins/visual-composer.php:2537
-#: framework/functions/global/plugins/visual-composer.php:2590
-#: framework/functions/global/plugins/visual-composer.php:2818
-#: framework/functions/global/plugins/visual-composer.php:4256
-#: framework/functions/global/plugins/visual-composer.php:4402
-#: framework/functions/global/plugins/visual-composer.php:4917
-#: framework/functions/global/plugins/visual-composer.php:4933
-#: framework/functions/global/plugins/visual-composer.php:4946
+#: framework/functions/global/plugins/visual-composer.php:1568
+#: framework/functions/global/plugins/visual-composer.php:2014
+#: framework/functions/global/plugins/visual-composer.php:2249
+#: framework/functions/global/plugins/visual-composer.php:2292
+#: framework/functions/global/plugins/visual-composer.php:2366
+#: framework/functions/global/plugins/visual-composer.php:2434
+#: framework/functions/global/plugins/visual-composer.php:2493
+#: framework/functions/global/plugins/visual-composer.php:2536
+#: framework/functions/global/plugins/visual-composer.php:2589
+#: framework/functions/global/plugins/visual-composer.php:2817
+#: framework/functions/global/plugins/visual-composer.php:4255
+#: framework/functions/global/plugins/visual-composer.php:4401
+#: framework/functions/global/plugins/visual-composer.php:4934
+#: framework/functions/global/plugins/visual-composer.php:4950
+#: framework/functions/global/plugins/visual-composer.php:4963
 msgid "Content"
 msgstr ""
 
@@ -4512,7 +4512,7 @@ msgid ""
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:496
-#: framework/functions/global/plugins/visual-composer.php:5083
+#: framework/functions/global/plugins/visual-composer.php:5100
 msgid "Add Some Using the Button Below!"
 msgstr ""
 
@@ -4523,9 +4523,9 @@ msgstr ""
 #: framework/functions/global/plugins/visual-composer.php:540
 #: framework/functions/global/plugins/visual-composer.php:580
 #: framework/functions/global/plugins/visual-composer.php:628
-#: framework/functions/global/plugins/visual-composer.php:4067
-#: framework/functions/global/plugins/visual-composer.php:4474
-#: framework/functions/global/plugins/visual-composer.php:4635
+#: framework/functions/global/plugins/visual-composer.php:4066
+#: framework/functions/global/plugins/visual-composer.php:4473
+#: framework/functions/global/plugins/visual-composer.php:4641
 msgid "Structure"
 msgstr ""
 
@@ -4543,6 +4543,55 @@ msgstr ""
 #: framework/functions/global/plugins/visual-composer.php:1173
 #: framework/functions/global/plugins/visual-composer.php:1221
 #: framework/functions/global/plugins/visual-composer.php:1430
+#: framework/functions/global/plugins/visual-composer.php:1533
+#: framework/functions/global/plugins/visual-composer.php:1583
+#: framework/functions/global/plugins/visual-composer.php:1764
+#: framework/functions/global/plugins/visual-composer.php:1807
+#: framework/functions/global/plugins/visual-composer.php:1865
+#: framework/functions/global/plugins/visual-composer.php:2027
+#: framework/functions/global/plugins/visual-composer.php:2142
+#: framework/functions/global/plugins/visual-composer.php:2214
+#: framework/functions/global/plugins/visual-composer.php:2257
+#: framework/functions/global/plugins/visual-composer.php:2331
+#: framework/functions/global/plugins/visual-composer.php:2399
+#: framework/functions/global/plugins/visual-composer.php:2458
+#: framework/functions/global/plugins/visual-composer.php:2501
+#: framework/functions/global/plugins/visual-composer.php:2612
+#: framework/functions/global/plugins/visual-composer.php:2732
+#: framework/functions/global/plugins/visual-composer.php:2782
+#: framework/functions/global/plugins/visual-composer.php:2830
+#: framework/functions/global/plugins/visual-composer.php:2939
+#: framework/functions/global/plugins/visual-composer.php:3003
+#: framework/functions/global/plugins/visual-composer.php:3051
+#: framework/functions/global/plugins/visual-composer.php:3108
+#: framework/functions/global/plugins/visual-composer.php:3204
+#: framework/functions/global/plugins/visual-composer.php:3312
+#: framework/functions/global/plugins/visual-composer.php:3374
+#: framework/functions/global/plugins/visual-composer.php:3512
+#: framework/functions/global/plugins/visual-composer.php:3634
+#: framework/functions/global/plugins/visual-composer.php:3752
+#: framework/functions/global/plugins/visual-composer.php:3827
+#: framework/functions/global/plugins/visual-composer.php:3883
+#: framework/functions/global/plugins/visual-composer.php:3983
+#: framework/functions/global/plugins/visual-composer.php:4074
+#: framework/functions/global/plugins/visual-composer.php:4172
+#: framework/functions/global/plugins/visual-composer.php:4260
+#: framework/functions/global/plugins/visual-composer.php:4366
+#: framework/functions/global/plugins/visual-composer.php:4834
+#: framework/functions/global/plugins/visual-composer.php:4903
+msgid "ID"
+msgstr ""
+
+#: framework/functions/global/plugins/visual-composer.php:546
+#: framework/functions/global/plugins/visual-composer.php:594
+#: framework/functions/global/plugins/visual-composer.php:634
+#: framework/functions/global/plugins/visual-composer.php:760
+#: framework/functions/global/plugins/visual-composer.php:826
+#: framework/functions/global/plugins/visual-composer.php:905
+#: framework/functions/global/plugins/visual-composer.php:963
+#: framework/functions/global/plugins/visual-composer.php:1174
+#: framework/functions/global/plugins/visual-composer.php:1222
+#: framework/functions/global/plugins/visual-composer.php:1431
 #: framework/functions/global/plugins/visual-composer.php:1534
 #: framework/functions/global/plugins/visual-composer.php:1584
 #: framework/functions/global/plugins/visual-composer.php:1765
@@ -4577,57 +4626,8 @@ msgstr ""
 #: framework/functions/global/plugins/visual-composer.php:4173
 #: framework/functions/global/plugins/visual-composer.php:4261
 #: framework/functions/global/plugins/visual-composer.php:4367
-#: framework/functions/global/plugins/visual-composer.php:4817
-#: framework/functions/global/plugins/visual-composer.php:4886
-msgid "ID"
-msgstr ""
-
-#: framework/functions/global/plugins/visual-composer.php:546
-#: framework/functions/global/plugins/visual-composer.php:594
-#: framework/functions/global/plugins/visual-composer.php:634
-#: framework/functions/global/plugins/visual-composer.php:760
-#: framework/functions/global/plugins/visual-composer.php:826
-#: framework/functions/global/plugins/visual-composer.php:905
-#: framework/functions/global/plugins/visual-composer.php:963
-#: framework/functions/global/plugins/visual-composer.php:1174
-#: framework/functions/global/plugins/visual-composer.php:1222
-#: framework/functions/global/plugins/visual-composer.php:1431
-#: framework/functions/global/plugins/visual-composer.php:1535
-#: framework/functions/global/plugins/visual-composer.php:1585
-#: framework/functions/global/plugins/visual-composer.php:1766
-#: framework/functions/global/plugins/visual-composer.php:1809
-#: framework/functions/global/plugins/visual-composer.php:1867
-#: framework/functions/global/plugins/visual-composer.php:2029
-#: framework/functions/global/plugins/visual-composer.php:2144
-#: framework/functions/global/plugins/visual-composer.php:2216
-#: framework/functions/global/plugins/visual-composer.php:2259
-#: framework/functions/global/plugins/visual-composer.php:2333
-#: framework/functions/global/plugins/visual-composer.php:2401
-#: framework/functions/global/plugins/visual-composer.php:2460
-#: framework/functions/global/plugins/visual-composer.php:2503
-#: framework/functions/global/plugins/visual-composer.php:2614
-#: framework/functions/global/plugins/visual-composer.php:2734
-#: framework/functions/global/plugins/visual-composer.php:2784
-#: framework/functions/global/plugins/visual-composer.php:2832
-#: framework/functions/global/plugins/visual-composer.php:2941
-#: framework/functions/global/plugins/visual-composer.php:3005
-#: framework/functions/global/plugins/visual-composer.php:3053
-#: framework/functions/global/plugins/visual-composer.php:3110
-#: framework/functions/global/plugins/visual-composer.php:3206
-#: framework/functions/global/plugins/visual-composer.php:3314
-#: framework/functions/global/plugins/visual-composer.php:3376
-#: framework/functions/global/plugins/visual-composer.php:3514
-#: framework/functions/global/plugins/visual-composer.php:3636
-#: framework/functions/global/plugins/visual-composer.php:3754
-#: framework/functions/global/plugins/visual-composer.php:3829
-#: framework/functions/global/plugins/visual-composer.php:3885
-#: framework/functions/global/plugins/visual-composer.php:3985
-#: framework/functions/global/plugins/visual-composer.php:4076
-#: framework/functions/global/plugins/visual-composer.php:4174
-#: framework/functions/global/plugins/visual-composer.php:4262
-#: framework/functions/global/plugins/visual-composer.php:4368
-#: framework/functions/global/plugins/visual-composer.php:4818
-#: framework/functions/global/plugins/visual-composer.php:4887
+#: framework/functions/global/plugins/visual-composer.php:4835
+#: framework/functions/global/plugins/visual-composer.php:4904
 msgid "(Optional) Enter a unique ID."
 msgstr ""
 
@@ -4642,6 +4642,59 @@ msgstr ""
 #: framework/functions/global/plugins/visual-composer.php:1180
 #: framework/functions/global/plugins/visual-composer.php:1228
 #: framework/functions/global/plugins/visual-composer.php:1437
+#: framework/functions/global/plugins/visual-composer.php:1540
+#: framework/functions/global/plugins/visual-composer.php:1590
+#: framework/functions/global/plugins/visual-composer.php:1771
+#: framework/functions/global/plugins/visual-composer.php:1814
+#: framework/functions/global/plugins/visual-composer.php:1872
+#: framework/functions/global/plugins/visual-composer.php:2034
+#: framework/functions/global/plugins/visual-composer.php:2149
+#: framework/functions/global/plugins/visual-composer.php:2221
+#: framework/functions/global/plugins/visual-composer.php:2264
+#: framework/functions/global/plugins/visual-composer.php:2338
+#: framework/functions/global/plugins/visual-composer.php:2406
+#: framework/functions/global/plugins/visual-composer.php:2465
+#: framework/functions/global/plugins/visual-composer.php:2508
+#: framework/functions/global/plugins/visual-composer.php:2561
+#: framework/functions/global/plugins/visual-composer.php:2619
+#: framework/functions/global/plugins/visual-composer.php:2739
+#: framework/functions/global/plugins/visual-composer.php:2789
+#: framework/functions/global/plugins/visual-composer.php:2837
+#: framework/functions/global/plugins/visual-composer.php:2946
+#: framework/functions/global/plugins/visual-composer.php:3010
+#: framework/functions/global/plugins/visual-composer.php:3058
+#: framework/functions/global/plugins/visual-composer.php:3115
+#: framework/functions/global/plugins/visual-composer.php:3211
+#: framework/functions/global/plugins/visual-composer.php:3319
+#: framework/functions/global/plugins/visual-composer.php:3381
+#: framework/functions/global/plugins/visual-composer.php:3519
+#: framework/functions/global/plugins/visual-composer.php:3641
+#: framework/functions/global/plugins/visual-composer.php:3759
+#: framework/functions/global/plugins/visual-composer.php:3834
+#: framework/functions/global/plugins/visual-composer.php:3890
+#: framework/functions/global/plugins/visual-composer.php:3990
+#: framework/functions/global/plugins/visual-composer.php:4081
+#: framework/functions/global/plugins/visual-composer.php:4179
+#: framework/functions/global/plugins/visual-composer.php:4267
+#: framework/functions/global/plugins/visual-composer.php:4373
+#: framework/functions/global/plugins/visual-composer.php:4617
+#: framework/functions/global/plugins/visual-composer.php:4772
+#: framework/functions/global/plugins/visual-composer.php:4842
+#: framework/functions/global/plugins/visual-composer.php:4911
+msgid "Class"
+msgstr ""
+
+#: framework/functions/global/plugins/visual-composer.php:553
+#: framework/functions/global/plugins/visual-composer.php:601
+#: framework/functions/global/plugins/visual-composer.php:641
+#: framework/functions/global/plugins/visual-composer.php:767
+#: framework/functions/global/plugins/visual-composer.php:833
+#: framework/functions/global/plugins/visual-composer.php:912
+#: framework/functions/global/plugins/visual-composer.php:970
+#: framework/functions/global/plugins/visual-composer.php:1071
+#: framework/functions/global/plugins/visual-composer.php:1181
+#: framework/functions/global/plugins/visual-composer.php:1229
+#: framework/functions/global/plugins/visual-composer.php:1438
 #: framework/functions/global/plugins/visual-composer.php:1541
 #: framework/functions/global/plugins/visual-composer.php:1591
 #: framework/functions/global/plugins/visual-composer.php:1772
@@ -4677,63 +4730,10 @@ msgstr ""
 #: framework/functions/global/plugins/visual-composer.php:4180
 #: framework/functions/global/plugins/visual-composer.php:4268
 #: framework/functions/global/plugins/visual-composer.php:4374
-#: framework/functions/global/plugins/visual-composer.php:4611
-#: framework/functions/global/plugins/visual-composer.php:4755
-#: framework/functions/global/plugins/visual-composer.php:4825
-#: framework/functions/global/plugins/visual-composer.php:4894
-msgid "Class"
-msgstr ""
-
-#: framework/functions/global/plugins/visual-composer.php:553
-#: framework/functions/global/plugins/visual-composer.php:601
-#: framework/functions/global/plugins/visual-composer.php:641
-#: framework/functions/global/plugins/visual-composer.php:767
-#: framework/functions/global/plugins/visual-composer.php:833
-#: framework/functions/global/plugins/visual-composer.php:912
-#: framework/functions/global/plugins/visual-composer.php:970
-#: framework/functions/global/plugins/visual-composer.php:1071
-#: framework/functions/global/plugins/visual-composer.php:1181
-#: framework/functions/global/plugins/visual-composer.php:1229
-#: framework/functions/global/plugins/visual-composer.php:1438
-#: framework/functions/global/plugins/visual-composer.php:1542
-#: framework/functions/global/plugins/visual-composer.php:1592
-#: framework/functions/global/plugins/visual-composer.php:1773
-#: framework/functions/global/plugins/visual-composer.php:1816
-#: framework/functions/global/plugins/visual-composer.php:1874
-#: framework/functions/global/plugins/visual-composer.php:2036
-#: framework/functions/global/plugins/visual-composer.php:2151
-#: framework/functions/global/plugins/visual-composer.php:2223
-#: framework/functions/global/plugins/visual-composer.php:2266
-#: framework/functions/global/plugins/visual-composer.php:2340
-#: framework/functions/global/plugins/visual-composer.php:2408
-#: framework/functions/global/plugins/visual-composer.php:2467
-#: framework/functions/global/plugins/visual-composer.php:2510
-#: framework/functions/global/plugins/visual-composer.php:2563
-#: framework/functions/global/plugins/visual-composer.php:2621
-#: framework/functions/global/plugins/visual-composer.php:2741
-#: framework/functions/global/plugins/visual-composer.php:2791
-#: framework/functions/global/plugins/visual-composer.php:2839
-#: framework/functions/global/plugins/visual-composer.php:2948
-#: framework/functions/global/plugins/visual-composer.php:3012
-#: framework/functions/global/plugins/visual-composer.php:3060
-#: framework/functions/global/plugins/visual-composer.php:3117
-#: framework/functions/global/plugins/visual-composer.php:3213
-#: framework/functions/global/plugins/visual-composer.php:3321
-#: framework/functions/global/plugins/visual-composer.php:3383
-#: framework/functions/global/plugins/visual-composer.php:3521
-#: framework/functions/global/plugins/visual-composer.php:3643
-#: framework/functions/global/plugins/visual-composer.php:3761
-#: framework/functions/global/plugins/visual-composer.php:3836
-#: framework/functions/global/plugins/visual-composer.php:3892
-#: framework/functions/global/plugins/visual-composer.php:3992
-#: framework/functions/global/plugins/visual-composer.php:4083
-#: framework/functions/global/plugins/visual-composer.php:4181
-#: framework/functions/global/plugins/visual-composer.php:4269
-#: framework/functions/global/plugins/visual-composer.php:4375
-#: framework/functions/global/plugins/visual-composer.php:4612
-#: framework/functions/global/plugins/visual-composer.php:4756
-#: framework/functions/global/plugins/visual-composer.php:4826
-#: framework/functions/global/plugins/visual-composer.php:4895
+#: framework/functions/global/plugins/visual-composer.php:4618
+#: framework/functions/global/plugins/visual-composer.php:4773
+#: framework/functions/global/plugins/visual-composer.php:4843
+#: framework/functions/global/plugins/visual-composer.php:4912
 msgid "(Optional) Enter a unique class name."
 msgstr ""
 
@@ -4748,45 +4748,45 @@ msgstr ""
 #: framework/functions/global/plugins/visual-composer.php:1188
 #: framework/functions/global/plugins/visual-composer.php:1236
 #: framework/functions/global/plugins/visual-composer.php:1445
-#: framework/functions/global/plugins/visual-composer.php:1549
-#: framework/functions/global/plugins/visual-composer.php:1599
-#: framework/functions/global/plugins/visual-composer.php:1780
-#: framework/functions/global/plugins/visual-composer.php:1823
-#: framework/functions/global/plugins/visual-composer.php:1881
-#: framework/functions/global/plugins/visual-composer.php:2043
-#: framework/functions/global/plugins/visual-composer.php:2158
-#: framework/functions/global/plugins/visual-composer.php:2230
-#: framework/functions/global/plugins/visual-composer.php:2273
-#: framework/functions/global/plugins/visual-composer.php:2347
-#: framework/functions/global/plugins/visual-composer.php:2415
-#: framework/functions/global/plugins/visual-composer.php:2474
-#: framework/functions/global/plugins/visual-composer.php:2517
-#: framework/functions/global/plugins/visual-composer.php:2570
-#: framework/functions/global/plugins/visual-composer.php:2628
-#: framework/functions/global/plugins/visual-composer.php:2748
-#: framework/functions/global/plugins/visual-composer.php:2798
-#: framework/functions/global/plugins/visual-composer.php:2846
-#: framework/functions/global/plugins/visual-composer.php:2955
-#: framework/functions/global/plugins/visual-composer.php:3019
-#: framework/functions/global/plugins/visual-composer.php:3067
-#: framework/functions/global/plugins/visual-composer.php:3124
-#: framework/functions/global/plugins/visual-composer.php:3220
-#: framework/functions/global/plugins/visual-composer.php:3328
-#: framework/functions/global/plugins/visual-composer.php:3390
-#: framework/functions/global/plugins/visual-composer.php:3528
-#: framework/functions/global/plugins/visual-composer.php:3650
-#: framework/functions/global/plugins/visual-composer.php:3768
-#: framework/functions/global/plugins/visual-composer.php:3843
-#: framework/functions/global/plugins/visual-composer.php:3899
-#: framework/functions/global/plugins/visual-composer.php:3999
-#: framework/functions/global/plugins/visual-composer.php:4090
-#: framework/functions/global/plugins/visual-composer.php:4188
-#: framework/functions/global/plugins/visual-composer.php:4276
-#: framework/functions/global/plugins/visual-composer.php:4382
-#: framework/functions/global/plugins/visual-composer.php:4620
-#: framework/functions/global/plugins/visual-composer.php:4764
-#: framework/functions/global/plugins/visual-composer.php:4834
-#: framework/functions/global/plugins/visual-composer.php:4903
+#: framework/functions/global/plugins/visual-composer.php:1548
+#: framework/functions/global/plugins/visual-composer.php:1598
+#: framework/functions/global/plugins/visual-composer.php:1779
+#: framework/functions/global/plugins/visual-composer.php:1822
+#: framework/functions/global/plugins/visual-composer.php:1880
+#: framework/functions/global/plugins/visual-composer.php:2042
+#: framework/functions/global/plugins/visual-composer.php:2157
+#: framework/functions/global/plugins/visual-composer.php:2229
+#: framework/functions/global/plugins/visual-composer.php:2272
+#: framework/functions/global/plugins/visual-composer.php:2346
+#: framework/functions/global/plugins/visual-composer.php:2414
+#: framework/functions/global/plugins/visual-composer.php:2473
+#: framework/functions/global/plugins/visual-composer.php:2516
+#: framework/functions/global/plugins/visual-composer.php:2569
+#: framework/functions/global/plugins/visual-composer.php:2627
+#: framework/functions/global/plugins/visual-composer.php:2747
+#: framework/functions/global/plugins/visual-composer.php:2797
+#: framework/functions/global/plugins/visual-composer.php:2845
+#: framework/functions/global/plugins/visual-composer.php:2954
+#: framework/functions/global/plugins/visual-composer.php:3018
+#: framework/functions/global/plugins/visual-composer.php:3066
+#: framework/functions/global/plugins/visual-composer.php:3123
+#: framework/functions/global/plugins/visual-composer.php:3219
+#: framework/functions/global/plugins/visual-composer.php:3327
+#: framework/functions/global/plugins/visual-composer.php:3389
+#: framework/functions/global/plugins/visual-composer.php:3527
+#: framework/functions/global/plugins/visual-composer.php:3649
+#: framework/functions/global/plugins/visual-composer.php:3767
+#: framework/functions/global/plugins/visual-composer.php:3842
+#: framework/functions/global/plugins/visual-composer.php:3898
+#: framework/functions/global/plugins/visual-composer.php:3998
+#: framework/functions/global/plugins/visual-composer.php:4089
+#: framework/functions/global/plugins/visual-composer.php:4187
+#: framework/functions/global/plugins/visual-composer.php:4275
+#: framework/functions/global/plugins/visual-composer.php:4381
+#: framework/functions/global/plugins/visual-composer.php:4626
+#: framework/functions/global/plugins/visual-composer.php:4781
+#: framework/functions/global/plugins/visual-composer.php:4851
+#: framework/functions/global/plugins/visual-composer.php:4920
 msgid "(Optional) Enter inline CSS."
 msgstr ""
 
@@ -4830,6 +4830,27 @@ msgstr ""
 #: framework/functions/global/plugins/visual-composer.php:865
 #: framework/functions/global/plugins/visual-composer.php:1213
 #: framework/functions/global/plugins/visual-composer.php:1261
+#: framework/functions/global/plugins/visual-composer.php:1575
+#: framework/functions/global/plugins/visual-composer.php:1849
+#: framework/functions/global/plugins/visual-composer.php:2019
+#: framework/functions/global/plugins/visual-composer.php:2299
+#: framework/functions/global/plugins/visual-composer.php:2543
+#: framework/functions/global/plugins/visual-composer.php:2774
+#: framework/functions/global/plugins/visual-composer.php:2822
+#: framework/functions/global/plugins/visual-composer.php:3150
+#: framework/functions/global/plugins/visual-composer.php:3352
+#: framework/functions/global/plugins/visual-composer.php:3923
+#: framework/functions/global/plugins/visual-composer.php:4114
+#: framework/functions/global/plugins/visual-composer.php:4397
+#: framework/functions/global/plugins/visual-composer.php:4406
+msgid "Text"
+msgstr ""
+
+#: framework/functions/global/plugins/visual-composer.php:733
+#: framework/functions/global/plugins/visual-composer.php:800
+#: framework/functions/global/plugins/visual-composer.php:866
+#: framework/functions/global/plugins/visual-composer.php:1214
+#: framework/functions/global/plugins/visual-composer.php:1262
 #: framework/functions/global/plugins/visual-composer.php:1576
 #: framework/functions/global/plugins/visual-composer.php:1850
 #: framework/functions/global/plugins/visual-composer.php:2020
@@ -4841,28 +4862,7 @@ msgstr ""
 #: framework/functions/global/plugins/visual-composer.php:3353
 #: framework/functions/global/plugins/visual-composer.php:3924
 #: framework/functions/global/plugins/visual-composer.php:4115
-#: framework/functions/global/plugins/visual-composer.php:4398
 #: framework/functions/global/plugins/visual-composer.php:4407
-msgid "Text"
-msgstr ""
-
-#: framework/functions/global/plugins/visual-composer.php:733
-#: framework/functions/global/plugins/visual-composer.php:800
-#: framework/functions/global/plugins/visual-composer.php:866
-#: framework/functions/global/plugins/visual-composer.php:1214
-#: framework/functions/global/plugins/visual-composer.php:1262
-#: framework/functions/global/plugins/visual-composer.php:1577
-#: framework/functions/global/plugins/visual-composer.php:1851
-#: framework/functions/global/plugins/visual-composer.php:2021
-#: framework/functions/global/plugins/visual-composer.php:2301
-#: framework/functions/global/plugins/visual-composer.php:2545
-#: framework/functions/global/plugins/visual-composer.php:2776
-#: framework/functions/global/plugins/visual-composer.php:2824
-#: framework/functions/global/plugins/visual-composer.php:3152
-#: framework/functions/global/plugins/visual-composer.php:3354
-#: framework/functions/global/plugins/visual-composer.php:3925
-#: framework/functions/global/plugins/visual-composer.php:4116
-#: framework/functions/global/plugins/visual-composer.php:4408
 msgid "Enter your text."
 msgstr ""
 
@@ -4878,11 +4878,11 @@ msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:747
 #: framework/functions/global/plugins/visual-composer.php:814
-#: framework/functions/global/plugins/visual-composer.php:3245
-#: framework/functions/global/plugins/visual-composer.php:3568
-#: framework/functions/global/plugins/visual-composer.php:3804
-#: framework/functions/global/plugins/visual-composer.php:3932
-#: framework/functions/global/plugins/visual-composer.php:4123
+#: framework/functions/global/plugins/visual-composer.php:3244
+#: framework/functions/global/plugins/visual-composer.php:3567
+#: framework/functions/global/plugins/visual-composer.php:3803
+#: framework/functions/global/plugins/visual-composer.php:3931
+#: framework/functions/global/plugins/visual-composer.php:4122
 msgid "Alignment"
 msgstr ""
 
@@ -4908,9 +4908,9 @@ msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:860
 #: framework/functions/global/plugins/visual-composer.php:1147
-#: framework/functions/global/plugins/visual-composer.php:3788
-#: framework/functions/global/plugins/visual-composer.php:3863
-#: framework/functions/global/plugins/visual-composer.php:4296
+#: framework/functions/global/plugins/visual-composer.php:3787
+#: framework/functions/global/plugins/visual-composer.php:3862
+#: framework/functions/global/plugins/visual-composer.php:4295
 #: woocommerce/single-product/product-attributes.php:26
 msgid "Information"
 msgstr ""
@@ -4943,15 +4943,15 @@ msgstr ""
 #: framework/functions/global/plugins/visual-composer.php:939
 #: framework/functions/global/plugins/visual-composer.php:997
 #: framework/functions/global/plugins/visual-composer.php:1098
-#: framework/functions/global/plugins/visual-composer.php:1619
-#: framework/functions/global/plugins/visual-composer.php:2063
-#: framework/functions/global/plugins/visual-composer.php:2178
-#: framework/functions/global/plugins/visual-composer.php:2648
-#: framework/functions/global/plugins/visual-composer.php:2768
-#: framework/functions/global/plugins/visual-composer.php:2975
-#: framework/functions/global/plugins/visual-composer.php:3039
-#: framework/functions/global/plugins/visual-composer.php:3410
-#: framework/functions/global/plugins/visual-composer.php:4961
+#: framework/functions/global/plugins/visual-composer.php:1618
+#: framework/functions/global/plugins/visual-composer.php:2062
+#: framework/functions/global/plugins/visual-composer.php:2177
+#: framework/functions/global/plugins/visual-composer.php:2647
+#: framework/functions/global/plugins/visual-composer.php:2767
+#: framework/functions/global/plugins/visual-composer.php:2974
+#: framework/functions/global/plugins/visual-composer.php:3038
+#: framework/functions/global/plugins/visual-composer.php:3409
+#: framework/functions/global/plugins/visual-composer.php:4978
 msgid "Media"
 msgstr ""
 
@@ -4960,14 +4960,14 @@ msgid "Embed a map from a third-party provider"
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:944
-#: framework/functions/global/plugins/visual-composer.php:2183
-#: framework/functions/global/plugins/visual-composer.php:3044
+#: framework/functions/global/plugins/visual-composer.php:2182
+#: framework/functions/global/plugins/visual-composer.php:3043
 msgid "Code (See Notes Below)"
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:945
-#: framework/functions/global/plugins/visual-composer.php:2184
-#: framework/functions/global/plugins/visual-composer.php:3045
+#: framework/functions/global/plugins/visual-composer.php:2183
+#: framework/functions/global/plugins/visual-composer.php:3044
 msgid ""
 "Switch to the \"text\" editor and do not place anything else here other than "
 "your &lsaquo;iframe&rsaquo; or &lsaquo;embed&rsaquo; code."
@@ -4975,9 +4975,9 @@ msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:952
 #: framework/functions/global/plugins/visual-composer.php:1060
-#: framework/functions/global/plugins/visual-composer.php:2133
-#: framework/functions/global/plugins/visual-composer.php:2205
-#: framework/functions/global/plugins/visual-composer.php:2723
+#: framework/functions/global/plugins/visual-composer.php:2132
+#: framework/functions/global/plugins/visual-composer.php:2204
+#: framework/functions/global/plugins/visual-composer.php:2722
 msgid "No Container"
 msgstr ""
 
@@ -5137,11 +5137,11 @@ msgid "Button"
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1256
-#: framework/functions/global/plugins/visual-composer.php:3087
-#: framework/functions/global/plugins/visual-composer.php:3144
-#: framework/functions/global/plugins/visual-composer.php:3240
-#: framework/functions/global/plugins/visual-composer.php:3348
-#: framework/functions/global/plugins/visual-composer.php:3563
+#: framework/functions/global/plugins/visual-composer.php:3086
+#: framework/functions/global/plugins/visual-composer.php:3143
+#: framework/functions/global/plugins/visual-composer.php:3239
+#: framework/functions/global/plugins/visual-composer.php:3347
+#: framework/functions/global/plugins/visual-composer.php:3562
 msgid "Marketing"
 msgstr ""
 
@@ -5162,7 +5162,7 @@ msgid "Select the button size."
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1296
-#: framework/functions/global/plugins/visual-composer.php:1637
+#: framework/functions/global/plugins/visual-composer.php:1636
 msgid "Float"
 msgstr ""
 
@@ -5179,14 +5179,14 @@ msgid "Select to make your button go fullwidth."
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1318
-#: framework/functions/global/plugins/visual-composer.php:3286
-#: framework/functions/global/plugins/visual-composer.php:3608
+#: framework/functions/global/plugins/visual-composer.php:3285
+#: framework/functions/global/plugins/visual-composer.php:3607
 msgid "Marketing Circle"
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1319
-#: framework/functions/global/plugins/visual-composer.php:3287
-#: framework/functions/global/plugins/visual-composer.php:3609
+#: framework/functions/global/plugins/visual-composer.php:3286
+#: framework/functions/global/plugins/visual-composer.php:3608
 msgid "Select to include a marketing circle around your button."
 msgstr ""
 
@@ -5199,9 +5199,9 @@ msgid "Select if you are only using an icon in your button."
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1338
-#: framework/functions/global/plugins/visual-composer.php:1673
-#: framework/functions/global/plugins/visual-composer.php:3296
-#: framework/functions/global/plugins/visual-composer.php:3618
+#: framework/functions/global/plugins/visual-composer.php:1672
+#: framework/functions/global/plugins/visual-composer.php:3295
+#: framework/functions/global/plugins/visual-composer.php:3617
 msgid "Href"
 msgstr ""
 
@@ -5210,16 +5210,16 @@ msgid "Enter in the URL you want your button to link to."
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1345
-#: framework/functions/global/plugins/visual-composer.php:1680
-#: framework/functions/global/plugins/visual-composer.php:2315
-#: framework/functions/global/plugins/visual-composer.php:2442
-#: framework/functions/global/plugins/visual-composer.php:3159
-#: framework/functions/global/plugins/visual-composer.php:3257
-#: framework/functions/global/plugins/visual-composer.php:3534
-#: framework/functions/global/plugins/visual-composer.php:3579
-#: framework/functions/global/plugins/visual-composer.php:3675
-#: framework/functions/global/plugins/visual-composer.php:3796
-#: framework/functions/global/plugins/visual-composer.php:3870
+#: framework/functions/global/plugins/visual-composer.php:1679
+#: framework/functions/global/plugins/visual-composer.php:2314
+#: framework/functions/global/plugins/visual-composer.php:2441
+#: framework/functions/global/plugins/visual-composer.php:3158
+#: framework/functions/global/plugins/visual-composer.php:3256
+#: framework/functions/global/plugins/visual-composer.php:3533
+#: framework/functions/global/plugins/visual-composer.php:3578
+#: framework/functions/global/plugins/visual-composer.php:3674
+#: framework/functions/global/plugins/visual-composer.php:3795
+#: framework/functions/global/plugins/visual-composer.php:3869
 msgid "Title"
 msgstr ""
 
@@ -5230,9 +5230,9 @@ msgid ""
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1352
-#: framework/functions/global/plugins/visual-composer.php:1687
-#: framework/functions/global/plugins/visual-composer.php:3303
-#: framework/functions/global/plugins/visual-composer.php:3625
+#: framework/functions/global/plugins/visual-composer.php:1686
+#: framework/functions/global/plugins/visual-composer.php:3302
+#: framework/functions/global/plugins/visual-composer.php:3624
 msgid "Target"
 msgstr ""
 
@@ -5241,7 +5241,7 @@ msgid "Select to open your button link in a new window."
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1362
-#: framework/functions/global/plugins/visual-composer.php:1697
+#: framework/functions/global/plugins/visual-composer.php:1696
 msgid "Info"
 msgstr ""
 
@@ -5251,37 +5251,37 @@ msgid ""
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1374
-#: framework/functions/global/plugins/visual-composer.php:1709
+#: framework/functions/global/plugins/visual-composer.php:1708
 msgid "Info Placement"
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1375
-#: framework/functions/global/plugins/visual-composer.php:1710
+#: framework/functions/global/plugins/visual-composer.php:1709
 msgid "Select where you want your popover or tooltip to appear."
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1387
-#: framework/functions/global/plugins/visual-composer.php:1722
+#: framework/functions/global/plugins/visual-composer.php:1721
 msgid "Info Trigger"
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1388
-#: framework/functions/global/plugins/visual-composer.php:1723
+#: framework/functions/global/plugins/visual-composer.php:1722
 msgid "Select what actions you want to trigger the popover or tooltip."
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1399
-#: framework/functions/global/plugins/visual-composer.php:1734
+#: framework/functions/global/plugins/visual-composer.php:1733
 msgid "Info Content"
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1400
-#: framework/functions/global/plugins/visual-composer.php:1735
+#: framework/functions/global/plugins/visual-composer.php:1734
 msgid "Extra content for the popover."
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1406
-#: framework/functions/global/plugins/visual-composer.php:1741
+#: framework/functions/global/plugins/visual-composer.php:1740
 msgid "Lightbox Thumbnail"
 msgstr ""
 
@@ -5292,7 +5292,7 @@ msgid ""
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1413
-#: framework/functions/global/plugins/visual-composer.php:1748
+#: framework/functions/global/plugins/visual-composer.php:1747
 msgid "Lightbox Video"
 msgstr ""
 
@@ -5301,12 +5301,12 @@ msgid "Select if you are linking to a video from this button in the lightbox."
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1423
-#: framework/functions/global/plugins/visual-composer.php:1758
+#: framework/functions/global/plugins/visual-composer.php:1757
 msgid "Lightbox Caption"
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:1424
-#: framework/functions/global/plugins/visual-composer.php:1759
+#: framework/functions/global/plugins/visual-composer.php:1758
 msgid "Lightbox caption text."
 msgstr ""
 
@@ -5322,56 +5322,56 @@ msgstr ""
 msgid "Select how many block grid items you want per row."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1565
+#: framework/functions/global/plugins/visual-composer.php:1564
 msgid "Block Grid Item"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1570
+#: framework/functions/global/plugins/visual-composer.php:1569
 msgid "Include a block grid item in your block grid"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1615
+#: framework/functions/global/plugins/visual-composer.php:1614
 msgid "Image"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1620
+#: framework/functions/global/plugins/visual-composer.php:1619
 msgid "Include an image in your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1625
+#: framework/functions/global/plugins/visual-composer.php:1624
 msgid "Select the image style."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1638
+#: framework/functions/global/plugins/visual-composer.php:1637
 msgid "Optionally float the image."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1649
+#: framework/functions/global/plugins/visual-composer.php:1648
 msgid "Src"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1650
+#: framework/functions/global/plugins/visual-composer.php:1649
 msgid "Enter your image."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1656
-#: framework/functions/global/plugins/visual-composer.php:3368
+#: framework/functions/global/plugins/visual-composer.php:1655
+#: framework/functions/global/plugins/visual-composer.php:3367
 msgid "Alt"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1657
+#: framework/functions/global/plugins/visual-composer.php:1656
 msgid "Enter in the alt text for your image."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1663
+#: framework/functions/global/plugins/visual-composer.php:1662
 msgid "Link"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1664
+#: framework/functions/global/plugins/visual-composer.php:1663
 msgid "Select to wrap your image in an anchor tag."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1674
+#: framework/functions/global/plugins/visual-composer.php:1673
 msgid ""
 "Enter in the URL you want your image to link to. If using this image for a "
 "lightbox, enter the URL of your media here (e.g. YouTube embed URL, et "
@@ -5379,1210 +5379,1212 @@ msgid ""
 "the \"Src\" for your lightbox."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1681
+#: framework/functions/global/plugins/visual-composer.php:1680
 msgid ""
 "Enter in the title attribute you want for your image (will also double as "
 "title for popover or tooltip if you have chosen to display one)."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1688
+#: framework/functions/global/plugins/visual-composer.php:1687
 msgid "Select to open your image link in a new window."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1698
+#: framework/functions/global/plugins/visual-composer.php:1697
 msgid ""
 "Select whether or not you want to add a popover or tooltip to your image."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1742
+#: framework/functions/global/plugins/visual-composer.php:1741
 msgid ""
 "Use this option to select a different thumbnail for your lightbox thumbnail "
 "navigation or to set an image if you are linking out to a video. Will "
 "default to the \"Src\" image if nothing is set."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1749
+#: framework/functions/global/plugins/visual-composer.php:1748
 msgid "Select if you are linking to a video from this image in the lightbox."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1796
+#: framework/functions/global/plugins/visual-composer.php:1795
 msgid "Icon List"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1801
+#: framework/functions/global/plugins/visual-composer.php:1800
 msgid "Include an icon list in your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1839
+#: framework/functions/global/plugins/visual-composer.php:1838
 msgid "Icon List Item"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1844
+#: framework/functions/global/plugins/visual-composer.php:1843
 msgid "Include an icon list item in your icon list"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:1859
+#: framework/functions/global/plugins/visual-composer.php:1858
 msgid "Select your icon."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2011
+#: framework/functions/global/plugins/visual-composer.php:2010
 msgid "Columnize"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2016
+#: framework/functions/global/plugins/visual-composer.php:2015
 msgid "Split your text into multiple columns"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2059
+#: framework/functions/global/plugins/visual-composer.php:2058
 msgid "Video (Self Hosted)"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2064
-#: framework/functions/global/plugins/visual-composer.php:2179
+#: framework/functions/global/plugins/visual-composer.php:2063
+#: framework/functions/global/plugins/visual-composer.php:2178
 msgid "Include responsive video into your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2069
-#: framework/functions/global/plugins/visual-composer.php:2192
+#: framework/functions/global/plugins/visual-composer.php:2068
+#: framework/functions/global/plugins/visual-composer.php:2191
 msgid "Select your aspect ratio."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2082
+#: framework/functions/global/plugins/visual-composer.php:2081
 msgid "M4V"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2083
+#: framework/functions/global/plugins/visual-composer.php:2082
 msgid "Include and .m4v version of your video."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2089
+#: framework/functions/global/plugins/visual-composer.php:2088
 msgid "OGV"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2090
+#: framework/functions/global/plugins/visual-composer.php:2089
 msgid ""
 "Include and .ogv version of your video for additional native browser support."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2096
+#: framework/functions/global/plugins/visual-composer.php:2095
 msgid "Poster Image"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2097
+#: framework/functions/global/plugins/visual-composer.php:2096
 msgid "Include a poster image for your self-hosted video."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2103
-#: framework/functions/global/plugins/visual-composer.php:2994
+#: framework/functions/global/plugins/visual-composer.php:2102
+#: framework/functions/global/plugins/visual-composer.php:2993
 msgid "Advanced Controls"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2104
+#: framework/functions/global/plugins/visual-composer.php:2103
 msgid "Select to enable advanced controls on your self-hosted video."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2113
+#: framework/functions/global/plugins/visual-composer.php:2112
 msgid "Hide Controls"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2114
+#: framework/functions/global/plugins/visual-composer.php:2113
 msgid "Select to hide the controls on your self-hosted video."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2123
+#: framework/functions/global/plugins/visual-composer.php:2122
 msgid "Autoplay"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2124
+#: framework/functions/global/plugins/visual-composer.php:2123
 msgid "Select to automatically play your self-hosted video."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2134
-#: framework/functions/global/plugins/visual-composer.php:2206
+#: framework/functions/global/plugins/visual-composer.php:2133
+#: framework/functions/global/plugins/visual-composer.php:2205
 msgid "Select to remove the container around the video."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2174
+#: framework/functions/global/plugins/visual-composer.php:2173
 msgid "Video (Embedded)"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2246
+#: framework/functions/global/plugins/visual-composer.php:2245
 msgid "Accordion"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2251
+#: framework/functions/global/plugins/visual-composer.php:2250
 msgid "Include an accordion into your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2289
+#: framework/functions/global/plugins/visual-composer.php:2288
 msgid "Accordion Item"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2294
+#: framework/functions/global/plugins/visual-composer.php:2293
 msgid "Include an accordion item in your accordion"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2308
+#: framework/functions/global/plugins/visual-composer.php:2307
 msgid "Parent ID"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2309
+#: framework/functions/global/plugins/visual-composer.php:2308
 msgid ""
 "Optionally include an ID given to the parent accordion to only allow one "
 "toggle to be open at a time."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2316
+#: framework/functions/global/plugins/visual-composer.php:2315
 msgid "Include a title for your accordion item."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2322
+#: framework/functions/global/plugins/visual-composer.php:2321
 msgid "Open"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2323
+#: framework/functions/global/plugins/visual-composer.php:2322
 msgid "Select for your accordion item to be open by default."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2363
+#: framework/functions/global/plugins/visual-composer.php:2362
 msgid "Tab Nav"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2368
+#: framework/functions/global/plugins/visual-composer.php:2367
 msgid "Include a tab nav into your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2375
+#: framework/functions/global/plugins/visual-composer.php:2374
 msgid "Tab Nav Items Per Row"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2376
+#: framework/functions/global/plugins/visual-composer.php:2375
 msgid ""
 "If your tab nav is on top, select how many tab nav items you want per row."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2388
+#: framework/functions/global/plugins/visual-composer.php:2387
 msgid "Tab Nav Position"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2389
+#: framework/functions/global/plugins/visual-composer.php:2388
 msgid "Select the position of your tab nav."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2431
+#: framework/functions/global/plugins/visual-composer.php:2430
 msgid "Tab Nav Item"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2436
+#: framework/functions/global/plugins/visual-composer.php:2435
 msgid "Include a tab nav item into your tab nav"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2443
+#: framework/functions/global/plugins/visual-composer.php:2442
 msgid "Include a title for your tab nav item."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2449
-#: framework/functions/global/plugins/visual-composer.php:2552
+#: framework/functions/global/plugins/visual-composer.php:2448
+#: framework/functions/global/plugins/visual-composer.php:2551
 msgid "Active"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2450
+#: framework/functions/global/plugins/visual-composer.php:2449
 msgid "Select to make this tab nav item active."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2490
+#: framework/functions/global/plugins/visual-composer.php:2489
 msgid "Tabs"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2495
+#: framework/functions/global/plugins/visual-composer.php:2494
 msgid "Include a tabs container after your tab nav"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2533
+#: framework/functions/global/plugins/visual-composer.php:2532
 msgid "Tab"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2538
+#: framework/functions/global/plugins/visual-composer.php:2537
 msgid "Include a tab into your tabs container"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2553
+#: framework/functions/global/plugins/visual-composer.php:2552
 msgid "Select to make this tab active."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2591
+#: framework/functions/global/plugins/visual-composer.php:2590
 msgid "Alter content based on screen size"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2598
+#: framework/functions/global/plugins/visual-composer.php:2597
 msgid "Visibility Type"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2599
+#: framework/functions/global/plugins/visual-composer.php:2598
 msgid "Select how you want to hide or show your content."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2649
+#: framework/functions/global/plugins/visual-composer.php:2648
 msgid "Include a slider in your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2656
+#: framework/functions/global/plugins/visual-composer.php:2655
 msgid "Animation"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2657
+#: framework/functions/global/plugins/visual-composer.php:2656
 msgid "Select your slider animation."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2667
+#: framework/functions/global/plugins/visual-composer.php:2666
 msgid "Slide Time"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2668
+#: framework/functions/global/plugins/visual-composer.php:2667
 msgid "The amount of time a slide will stay visible in milliseconds."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2675
+#: framework/functions/global/plugins/visual-composer.php:2674
 msgid "Slide Speed"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2676
+#: framework/functions/global/plugins/visual-composer.php:2675
 msgid "The amount of time to transition between slides in milliseconds."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2683
+#: framework/functions/global/plugins/visual-composer.php:2682
 msgid "Slideshow"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2684
+#: framework/functions/global/plugins/visual-composer.php:2683
 msgid "Select for your slides to advance automatically."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2694
+#: framework/functions/global/plugins/visual-composer.php:2693
 msgid "Select to randomly display your slides each time the page loads."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2703
+#: framework/functions/global/plugins/visual-composer.php:2702
 msgid "Control Navigation"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2704
+#: framework/functions/global/plugins/visual-composer.php:2703
 msgid "Select to display the control navigation."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2713
+#: framework/functions/global/plugins/visual-composer.php:2712
 msgid "Previous/Next Navigation"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2714
+#: framework/functions/global/plugins/visual-composer.php:2713
 msgid "Select to display the previous/next navigation."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2724
+#: framework/functions/global/plugins/visual-composer.php:2723
 msgid "Select to remove the container from your slider."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2764
+#: framework/functions/global/plugins/visual-composer.php:2763
 msgid "Slide"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2769
+#: framework/functions/global/plugins/visual-composer.php:2768
 msgid "Include a slide into your slider"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2814
+#: framework/functions/global/plugins/visual-composer.php:2813
 msgid "Protect"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2819
+#: framework/functions/global/plugins/visual-composer.php:2818
 msgid "Protect content from non logged in users"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2862
+#: framework/functions/global/plugins/visual-composer.php:2861
 msgid "Recent Posts"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2867
+#: framework/functions/global/plugins/visual-composer.php:2866
 msgid "Display your most recent posts"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2871
+#: framework/functions/global/plugins/visual-composer.php:2870
 msgid "Post Type"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2872
+#: framework/functions/global/plugins/visual-composer.php:2871
 msgid "Choose between standard posts or portfolio posts."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2882
+#: framework/functions/global/plugins/visual-composer.php:2881
 msgid "Post Count"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2883
+#: framework/functions/global/plugins/visual-composer.php:2882
 msgid "Select how many posts to display."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2895
+#: framework/functions/global/plugins/visual-composer.php:2894
 msgid "Offset"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2896
+#: framework/functions/global/plugins/visual-composer.php:2895
 msgid "Enter a number to offset initial starting post of your recent posts."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2902
+#: framework/functions/global/plugins/visual-composer.php:2901
 msgid "Category"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2903
+#: framework/functions/global/plugins/visual-composer.php:2902
 msgid ""
 "To filter your posts by category, enter in the slug of your desired "
 "category. To filter by multiple categories, enter in your slugs separated by "
 "a comma."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2909
-#: framework/functions/global/plugins/visual-composer.php:3473
+#: framework/functions/global/plugins/visual-composer.php:2908
+#: framework/functions/global/plugins/visual-composer.php:3472
 msgid "Orientation"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2910
+#: framework/functions/global/plugins/visual-composer.php:2909
 msgid "Select the orientation or your recent posts."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2920
+#: framework/functions/global/plugins/visual-composer.php:2919
 msgid "Remove Featured Image"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2921
+#: framework/functions/global/plugins/visual-composer.php:2920
 msgid "Select to remove the featured image."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2930
-#: framework/functions/global/plugins/visual-composer.php:4782
-#: framework/functions/global/plugins/visual-composer.php:4851
+#: framework/functions/global/plugins/visual-composer.php:2929
+#: framework/functions/global/plugins/visual-composer.php:4799
+#: framework/functions/global/plugins/visual-composer.php:4868
 msgid "Fade Effect"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2931
-#: framework/functions/global/plugins/visual-composer.php:4783
-#: framework/functions/global/plugins/visual-composer.php:4852
+#: framework/functions/global/plugins/visual-composer.php:2930
+#: framework/functions/global/plugins/visual-composer.php:4800
+#: framework/functions/global/plugins/visual-composer.php:4869
 msgid "Select to activate the fade effect."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2971
+#: framework/functions/global/plugins/visual-composer.php:2970
 msgid "Audio (Self Hosted)"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2976
-#: framework/functions/global/plugins/visual-composer.php:3040
+#: framework/functions/global/plugins/visual-composer.php:2975
+#: framework/functions/global/plugins/visual-composer.php:3039
 msgid "Place audio files into your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2980
+#: framework/functions/global/plugins/visual-composer.php:2979
 msgid "MP3"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2981
+#: framework/functions/global/plugins/visual-composer.php:2980
 msgid "Include and .mp3 version of your audio."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2987
+#: framework/functions/global/plugins/visual-composer.php:2986
 msgid "OGA"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2988
+#: framework/functions/global/plugins/visual-composer.php:2987
 msgid ""
 "Include and .oga version of your audio for additional native browser support."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:2995
+#: framework/functions/global/plugins/visual-composer.php:2994
 msgid "Select to enable advanced controls on your self-hosted audio."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3035
+#: framework/functions/global/plugins/visual-composer.php:3034
 msgid "Audio (Embedded)"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3083
+#: framework/functions/global/plugins/visual-composer.php:3082
 msgid "Pricing Table"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3088
+#: framework/functions/global/plugins/visual-composer.php:3087
 msgid "Include a pricing table in your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3096
+#: framework/functions/global/plugins/visual-composer.php:3095
 msgid "Select how many columns you want for your pricing table."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3140
+#: framework/functions/global/plugins/visual-composer.php:3139
 msgid "Pricing Table Column"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3145
+#: framework/functions/global/plugins/visual-composer.php:3144
 msgid "Include a pricing table column"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3160
+#: framework/functions/global/plugins/visual-composer.php:3159
 msgid "Include a title for your pricing column."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3167
+#: framework/functions/global/plugins/visual-composer.php:3166
 msgid "Select to make this your featured offer."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3176
+#: framework/functions/global/plugins/visual-composer.php:3175
 msgid "Featured Sub Heading"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3177
+#: framework/functions/global/plugins/visual-composer.php:3176
 msgid "Include a sub heading for your featured column."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3183
+#: framework/functions/global/plugins/visual-composer.php:3182
 msgid "Currency Symbol"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3184
+#: framework/functions/global/plugins/visual-composer.php:3183
 msgid "Enter in the currency symbol you want to use."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3190
+#: framework/functions/global/plugins/visual-composer.php:3189
 #: woocommerce/cart/cart.php:27
 msgid "Price"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3191
+#: framework/functions/global/plugins/visual-composer.php:3190
 msgid "Enter in the price for this pricing column."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3197
+#: framework/functions/global/plugins/visual-composer.php:3196
 msgid "Interval"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3198
+#: framework/functions/global/plugins/visual-composer.php:3197
 msgid "Enter in the time period that this pricing column is for."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3236
+#: framework/functions/global/plugins/visual-composer.php:3235
 msgid "Callout"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3241
+#: framework/functions/global/plugins/visual-composer.php:3240
 msgid "Include a marketing callout into your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3246
+#: framework/functions/global/plugins/visual-composer.php:3245
 msgid "Select the alignment for your callout."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3258
+#: framework/functions/global/plugins/visual-composer.php:3257
 msgid "Enter the title for your callout."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3265
+#: framework/functions/global/plugins/visual-composer.php:3264
 msgid "Enter the message for your callout."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3272
+#: framework/functions/global/plugins/visual-composer.php:3271
 msgid "Enter the text for your callout button."
+msgstr ""
+
+#: framework/functions/global/plugins/visual-composer.php:3277
+#: framework/functions/global/plugins/visual-composer.php:3599
+msgid "Button Icon"
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:3278
 #: framework/functions/global/plugins/visual-composer.php:3600
-msgid "Button Icon"
-msgstr ""
-
-#: framework/functions/global/plugins/visual-composer.php:3279
-#: framework/functions/global/plugins/visual-composer.php:3601
 msgid "Optionally enter the button icon."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3297
+#: framework/functions/global/plugins/visual-composer.php:3296
 msgid "Enter in the URL you want your callout button to link to."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3304
+#: framework/functions/global/plugins/visual-composer.php:3303
 msgid "Select to open your callout link button in a new window."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3344
+#: framework/functions/global/plugins/visual-composer.php:3343
 msgid "Promo"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3349
+#: framework/functions/global/plugins/visual-composer.php:3348
 msgid "Include a marketing promo in your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3361
+#: framework/functions/global/plugins/visual-composer.php:3360
 msgid "Promo Image"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3362
+#: framework/functions/global/plugins/visual-composer.php:3361
 msgid "Include an image for your promo element."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3369
+#: framework/functions/global/plugins/visual-composer.php:3368
 msgid "Enter in the alt text for your promo image."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3406
+#: framework/functions/global/plugins/visual-composer.php:3405
 msgid "Responsive Lightbox"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3411
+#: framework/functions/global/plugins/visual-composer.php:3410
 msgid "Display images in a responsive lightbox"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3415
-#: framework/functions/global/plugins/visual-composer.php:4213
+#: framework/functions/global/plugins/visual-composer.php:3414
+#: framework/functions/global/plugins/visual-composer.php:4212
 msgid "Selector"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3416
+#: framework/functions/global/plugins/visual-composer.php:3415
 msgid ""
 "Enter in the selector for your images (e.g. if your class is \"lightbox-img"
 "\" enter \".lightbox-img\"). Set to \".x-img-link\" to automatically setup a "
 "lightbox for all linked [image] shortcodes on your page."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3423
+#: framework/functions/global/plugins/visual-composer.php:3422
 msgid "Deeplink"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3424
+#: framework/functions/global/plugins/visual-composer.php:3423
 msgid "Select to activate deeplinking (creates unique link for each image)."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3433
+#: framework/functions/global/plugins/visual-composer.php:3432
 msgid "Backdrop Opacity"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3434
+#: framework/functions/global/plugins/visual-composer.php:3433
 msgid ""
 "Enter in the opacity for the backdrop (valid inputs are numbers 0 to 1)."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3441
+#: framework/functions/global/plugins/visual-composer.php:3440
 msgid "Previous Item Scale"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3442
+#: framework/functions/global/plugins/visual-composer.php:3441
 msgid ""
 "Enter in the scale for the previous item (valid inputs are numbers 0 to 1)."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3449
+#: framework/functions/global/plugins/visual-composer.php:3448
 msgid "Previous Item Opacity"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3450
+#: framework/functions/global/plugins/visual-composer.php:3449
 msgid ""
 "Enter in the opacity for the previous item (valid inputs are numbers 0 to 1)."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3457
+#: framework/functions/global/plugins/visual-composer.php:3456
 msgid "Next Item Scale"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3458
+#: framework/functions/global/plugins/visual-composer.php:3457
 msgid "Enter in the scale for the next item (valid inputs are numbers 0 to 1)."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3465
+#: framework/functions/global/plugins/visual-composer.php:3464
 msgid "Next Item Opacity"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3466
+#: framework/functions/global/plugins/visual-composer.php:3465
 msgid ""
 "Enter in the opacity for the next item (valid inputs are numbers 0 to 1)."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3474
+#: framework/functions/global/plugins/visual-composer.php:3473
 msgid "Select the orientation of your lightbox."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3484
+#: framework/functions/global/plugins/visual-composer.php:3483
 msgid "Thumbnails"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3485
+#: framework/functions/global/plugins/visual-composer.php:3484
 msgid "Select to activate thumbnail navigation."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3509
+#: framework/functions/global/plugins/visual-composer.php:3508
 msgid "Include post author information"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3535
+#: framework/functions/global/plugins/visual-composer.php:3534
 msgid "Enter in a title for your author information."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3542
+#: framework/functions/global/plugins/visual-composer.php:3541
 msgid "Author ID"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3543
+#: framework/functions/global/plugins/visual-composer.php:3542
 msgid ""
 "By default the author of the post or page will be output by leaving this "
 "input blank. If you would like to output the information of another author, "
 "enter in their user ID here."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3559
+#: framework/functions/global/plugins/visual-composer.php:3558
 msgid "Prompt"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3564
+#: framework/functions/global/plugins/visual-composer.php:3563
 msgid "Include a marketing prompt into your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3569
+#: framework/functions/global/plugins/visual-composer.php:3568
 msgid "Select the alignment of your prompt."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3580
+#: framework/functions/global/plugins/visual-composer.php:3579
 msgid "Enter the title for your prompt."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3587
+#: framework/functions/global/plugins/visual-composer.php:3586
 msgid "Enter the message for your prompt."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3594
+#: framework/functions/global/plugins/visual-composer.php:3593
 msgid "Enter the text for your prompt button."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3619
+#: framework/functions/global/plugins/visual-composer.php:3618
 msgid "Enter in the URL you want your prompt button to link to."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3626
+#: framework/functions/global/plugins/visual-composer.php:3625
 msgid "Select to open your prompt button link in a new window."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3666
+#: framework/functions/global/plugins/visual-composer.php:3665
 msgid "Social Sharing"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3671
+#: framework/functions/global/plugins/visual-composer.php:3670
 msgid "Include social sharing into your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3676
+#: framework/functions/global/plugins/visual-composer.php:3675
 msgid "Enter in a title for your social links."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3683
+#: framework/functions/global/plugins/visual-composer.php:3682
 msgid "Facebook"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3684
+#: framework/functions/global/plugins/visual-composer.php:3683
 msgid "Select to activate the Facebook sharing link."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3693
+#: framework/functions/global/plugins/visual-composer.php:3692
 msgid "Twitter"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3694
+#: framework/functions/global/plugins/visual-composer.php:3693
 msgid "Select to activate the Twitter sharing link."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3703
+#: framework/functions/global/plugins/visual-composer.php:3702
 msgid "Google Plus"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3704
+#: framework/functions/global/plugins/visual-composer.php:3703
 msgid "Select to activate the Google Plus sharing link."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3713
+#: framework/functions/global/plugins/visual-composer.php:3712
 msgid "LinkedIn"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3714
+#: framework/functions/global/plugins/visual-composer.php:3713
 msgid "Select to activate the LinkedIn sharing link."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3723
+#: framework/functions/global/plugins/visual-composer.php:3722
 msgid "Pinterest"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3724
+#: framework/functions/global/plugins/visual-composer.php:3723
 msgid "Select to activate the Pinterest sharing link."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3733
+#: framework/functions/global/plugins/visual-composer.php:3732
 msgid "Reddit"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3734
+#: framework/functions/global/plugins/visual-composer.php:3733
 msgid "Select to activate the Reddit sharing link."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3744
+#: framework/functions/global/plugins/visual-composer.php:3743
 msgid "Select to activate the email sharing link."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3784
+#: framework/functions/global/plugins/visual-composer.php:3783
 msgid "Table of Contents"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3789
+#: framework/functions/global/plugins/visual-composer.php:3788
 msgid "Include a table of contents in your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3797
+#: framework/functions/global/plugins/visual-composer.php:3796
 msgid "Set the title of the table of contents."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3805
+#: framework/functions/global/plugins/visual-composer.php:3804
 msgid "Select the alignment of your table of contents."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3817
+#: framework/functions/global/plugins/visual-composer.php:3816
 msgid ""
 "Select a column count for your links if you have chosen \"Fullwidth\" as "
 "your alignment."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3859
+#: framework/functions/global/plugins/visual-composer.php:3858
 msgid "Table of Contents Item"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3864
+#: framework/functions/global/plugins/visual-composer.php:3863
 msgid "Include a table of contents item"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3871
+#: framework/functions/global/plugins/visual-composer.php:3870
 msgid "Set the title of the table of contents item."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3877
+#: framework/functions/global/plugins/visual-composer.php:3876
 msgid "Page"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3878
+#: framework/functions/global/plugins/visual-composer.php:3877
 msgid "Set the page of the table of contents item."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3915
+#: framework/functions/global/plugins/visual-composer.php:3914
 msgid "Custom Headline"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3920
+#: framework/functions/global/plugins/visual-composer.php:3919
 msgid "Include a custom headline in your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3933
+#: framework/functions/global/plugins/visual-composer.php:3932
 msgid "Select which way to align the custom headline."
+msgstr ""
+
+#: framework/functions/global/plugins/visual-composer.php:3943
+#: framework/functions/global/plugins/visual-composer.php:4134
+msgid "Heading Level"
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:3944
 #: framework/functions/global/plugins/visual-composer.php:4135
-msgid "Heading Level"
+msgid "Select which level to use for your heading (e.g. h2)."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3945
-#: framework/functions/global/plugins/visual-composer.php:4136
-msgid "Select which level to use for your heading (e.g. h2)."
+#: framework/functions/global/plugins/visual-composer.php:3958
+#: framework/functions/global/plugins/visual-composer.php:4149
+msgid "Looks Like"
 msgstr ""
 
 #: framework/functions/global/plugins/visual-composer.php:3959
 #: framework/functions/global/plugins/visual-composer.php:4150
-msgid "Looks Like"
-msgstr ""
-
-#: framework/functions/global/plugins/visual-composer.php:3960
-#: framework/functions/global/plugins/visual-composer.php:4151
 msgid "Select which level your heading should look like (e.g. h3)."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:3975
+#: framework/functions/global/plugins/visual-composer.php:3974
 msgid "Select to activate the heading accent."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4063
+#: framework/functions/global/plugins/visual-composer.php:4062
 msgid "Container"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4068
+#: framework/functions/global/plugins/visual-composer.php:4067
 msgid "Include a container in your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4106
+#: framework/functions/global/plugins/visual-composer.php:4105
 msgid "Feature Headline"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4111
+#: framework/functions/global/plugins/visual-composer.php:4110
 msgid "Include a feature headline in your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4124
+#: framework/functions/global/plugins/visual-composer.php:4123
 msgid "Select which way to align the feature headline."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4166
+#: framework/functions/global/plugins/visual-composer.php:4165
 msgid "Select the icon to use with your feature headline."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4204
+#: framework/functions/global/plugins/visual-composer.php:4203
 msgid "Responsive Text"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4209
+#: framework/functions/global/plugins/visual-composer.php:4208
 msgid "Include responsive text in your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4214
+#: framework/functions/global/plugins/visual-composer.php:4213
 msgid ""
 "Enter in the selector for your responsive text (e.g. if your class is \"h-"
 "responsive\" enter \".h-responsive\")."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4220
+#: framework/functions/global/plugins/visual-composer.php:4219
 msgid "Compression"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4221
+#: framework/functions/global/plugins/visual-composer.php:4220
 msgid ""
 "Enter the compression for your responsive text (adjust up and down to "
 "desired level in small increments)."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4228
+#: framework/functions/global/plugins/visual-composer.php:4227
 msgid "Minimum Size"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4229
+#: framework/functions/global/plugins/visual-composer.php:4228
 msgid "Enter the minimum size of your responsive text."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4235
+#: framework/functions/global/plugins/visual-composer.php:4234
 msgid "Maximum Size"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4236
+#: framework/functions/global/plugins/visual-composer.php:4235
 msgid "Enter the maximum size of your responsive text."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4257
+#: framework/functions/global/plugins/visual-composer.php:4256
 msgid "Include a search field in your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4292
+#: framework/functions/global/plugins/visual-composer.php:4291
 msgid "Counter"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4297
+#: framework/functions/global/plugins/visual-composer.php:4296
 msgid "Include an animated number counter in your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4301
+#: framework/functions/global/plugins/visual-composer.php:4300
 msgid "Starting Number"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4302
+#: framework/functions/global/plugins/visual-composer.php:4301
 msgid "Enter in the number that you would like your counter to start from."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4309
+#: framework/functions/global/plugins/visual-composer.php:4308
 msgid "Ending Number"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4310
+#: framework/functions/global/plugins/visual-composer.php:4309
 msgid ""
 "Enter int he number that you would like your counter to end at. This must be "
 "higher than your starting number."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4317
+#: framework/functions/global/plugins/visual-composer.php:4316
 msgid "Counter Speed"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4318
+#: framework/functions/global/plugins/visual-composer.php:4317
 msgid "The amount of time to transition between numbers in milliseconds."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4325
+#: framework/functions/global/plugins/visual-composer.php:4324
 msgid "Number Prefix"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4326
+#: framework/functions/global/plugins/visual-composer.php:4325
 msgid "Prefix your number with a symbol or text."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4332
+#: framework/functions/global/plugins/visual-composer.php:4331
 msgid "Number Suffix"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4333
+#: framework/functions/global/plugins/visual-composer.php:4332
 msgid "Suffix your number with a symbol or text."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4339
+#: framework/functions/global/plugins/visual-composer.php:4338
 msgid "Number Color"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4340
+#: framework/functions/global/plugins/visual-composer.php:4339
 msgid "Select the color of your number."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4346
+#: framework/functions/global/plugins/visual-composer.php:4345
 msgid "Text Above"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4347
+#: framework/functions/global/plugins/visual-composer.php:4346
 msgid "Optionally include text above your number."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4353
+#: framework/functions/global/plugins/visual-composer.php:4352
 msgid "Text Below"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4354
+#: framework/functions/global/plugins/visual-composer.php:4353
 msgid "Optionally include text below your number."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4360
+#: framework/functions/global/plugins/visual-composer.php:4359
 msgid "Text Color"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4361
+#: framework/functions/global/plugins/visual-composer.php:4360
 msgid ""
 "Select the color of your text above and below the number if you have include "
 "any."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4403
+#: framework/functions/global/plugins/visual-composer.php:4402
 msgid "Include a block of text in your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4470
-#: framework/functions/global/plugins/visual-composer.php:4631
+#: framework/functions/global/plugins/visual-composer.php:4469
+#: framework/functions/global/plugins/visual-composer.php:4637
 msgid "Content Band"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4475
-#: framework/functions/global/plugins/visual-composer.php:4636
+#: framework/functions/global/plugins/visual-composer.php:4474
+#: framework/functions/global/plugins/visual-composer.php:4642
 msgid "Place and structure your shortcodes inside of a row"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4491
-#: framework/functions/global/plugins/visual-composer.php:4646
+#: framework/functions/global/plugins/visual-composer.php:4497
+#: framework/functions/global/plugins/visual-composer.php:4652
 msgid "Inner Container"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4492
-#: framework/functions/global/plugins/visual-composer.php:4647
+#: framework/functions/global/plugins/visual-composer.php:4498
+#: framework/functions/global/plugins/visual-composer.php:4653
 msgid ""
 "Select to insert a container inside of the content band. Use this instead of "
 "the [container] shortcode for greater flexibility and to contain multiple "
 "columns."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4502
-#: framework/functions/global/plugins/visual-composer.php:4657
+#: framework/functions/global/plugins/visual-composer.php:4508
+#: framework/functions/global/plugins/visual-composer.php:4663
 msgid "Remove Margin"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4503
-#: framework/functions/global/plugins/visual-composer.php:4658
+#: framework/functions/global/plugins/visual-composer.php:4509
+#: framework/functions/global/plugins/visual-composer.php:4664
 msgid ""
 "Select to remove the margin from the content band and stack them on top of "
 "each other."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4513
-#: framework/functions/global/plugins/visual-composer.php:4668
+#: framework/functions/global/plugins/visual-composer.php:4519
+#: framework/functions/global/plugins/visual-composer.php:4674
 msgid "Padding Top"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4514
-#: framework/functions/global/plugins/visual-composer.php:4669
+#: framework/functions/global/plugins/visual-composer.php:4520
+#: framework/functions/global/plugins/visual-composer.php:4675
 msgid "Set the top padding of the content band (leave blank to keep default)."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4522
-#: framework/functions/global/plugins/visual-composer.php:4677
+#: framework/functions/global/plugins/visual-composer.php:4528
+#: framework/functions/global/plugins/visual-composer.php:4683
 msgid "Padding Bottom"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4523
-#: framework/functions/global/plugins/visual-composer.php:4678
+#: framework/functions/global/plugins/visual-composer.php:4529
+#: framework/functions/global/plugins/visual-composer.php:4684
 msgid ""
 "Set the bottom padding of the content band (leave blank to keep default)."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4531
-#: framework/functions/global/plugins/visual-composer.php:4686
+#: framework/functions/global/plugins/visual-composer.php:4537
+#: framework/functions/global/plugins/visual-composer.php:4692
 msgid "Border"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4532
-#: framework/functions/global/plugins/visual-composer.php:4687
+#: framework/functions/global/plugins/visual-composer.php:4538
+#: framework/functions/global/plugins/visual-composer.php:4693
 msgid "Select whether or not to display a border on your content band."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4550
-#: framework/functions/global/plugins/visual-composer.php:4705
+#: framework/functions/global/plugins/visual-composer.php:4556
+#: framework/functions/global/plugins/visual-composer.php:4711
 msgid ""
 "Select the background color of your content band (leave blank for "
 "\"transparent\")."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4558
-#: framework/functions/global/plugins/visual-composer.php:4713
+#: framework/functions/global/plugins/visual-composer.php:4564
+#: framework/functions/global/plugins/visual-composer.php:4719
 msgid "Upload a background pattern to your content band."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4566
-#: framework/functions/global/plugins/visual-composer.php:4721
+#: framework/functions/global/plugins/visual-composer.php:4572
+#: framework/functions/global/plugins/visual-composer.php:4727
 msgid ""
 "Upload a background image to your content band (this will overwrite your "
 "Background Pattern)."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4573
-#: framework/functions/global/plugins/visual-composer.php:4728
+#: framework/functions/global/plugins/visual-composer.php:4579
+#: framework/functions/global/plugins/visual-composer.php:4734
 msgid "Parallax"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4574
-#: framework/functions/global/plugins/visual-composer.php:4729
+#: framework/functions/global/plugins/visual-composer.php:4580
+#: framework/functions/global/plugins/visual-composer.php:4735
 msgid ""
 "Select to activate the parallax effect with background patterns and images."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4584
-#: framework/functions/global/plugins/visual-composer.php:4739
+#: framework/functions/global/plugins/visual-composer.php:4590
+#: framework/functions/global/plugins/visual-composer.php:4745
 msgid "Background Video"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4585
-#: framework/functions/global/plugins/visual-composer.php:4740
+#: framework/functions/global/plugins/visual-composer.php:4591
+#: framework/functions/global/plugins/visual-composer.php:4746
 msgid ""
 "Include the path to your background video (this will overwrite both your "
 "Background Pattern and Background Image)."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4592
-#: framework/functions/global/plugins/visual-composer.php:4747
+#: framework/functions/global/plugins/visual-composer.php:4598
+#: framework/functions/global/plugins/visual-composer.php:4753
 msgid "Background Video Poster"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4593
-#: framework/functions/global/plugins/visual-composer.php:4748
+#: framework/functions/global/plugins/visual-composer.php:4599
+#: framework/functions/global/plugins/visual-composer.php:4754
 msgid "Include a poster image for your background video on mobile devices."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4600
+#: framework/functions/global/plugins/visual-composer.php:4606
+#: framework/functions/global/plugins/visual-composer.php:4761
 msgid "Marginless Columns"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4601
+#: framework/functions/global/plugins/visual-composer.php:4607
+#: framework/functions/global/plugins/visual-composer.php:4762
 msgid "Select to remove the spacing between columns."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4793
-#: framework/functions/global/plugins/visual-composer.php:4862
+#: framework/functions/global/plugins/visual-composer.php:4810
+#: framework/functions/global/plugins/visual-composer.php:4879
 msgid "Fade Animation"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4794
-#: framework/functions/global/plugins/visual-composer.php:4863
+#: framework/functions/global/plugins/visual-composer.php:4811
+#: framework/functions/global/plugins/visual-composer.php:4880
 msgid "Select the type of fade animation you want to use."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4808
-#: framework/functions/global/plugins/visual-composer.php:4877
+#: framework/functions/global/plugins/visual-composer.php:4825
+#: framework/functions/global/plugins/visual-composer.php:4894
 msgid "Fade Animation Offset"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4809
-#: framework/functions/global/plugins/visual-composer.php:4878
+#: framework/functions/global/plugins/visual-composer.php:4826
+#: framework/functions/global/plugins/visual-composer.php:4895
 msgid "Set how large you want the offset for your fade animation to be."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4914
+#: framework/functions/global/plugins/visual-composer.php:4931
 msgid "Widget Area"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4918
+#: framework/functions/global/plugins/visual-composer.php:4935
 msgid "Place one of your widget areas into your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4930
+#: framework/functions/global/plugins/visual-composer.php:4947
 msgid "Raw HTML"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4934
+#: framework/functions/global/plugins/visual-composer.php:4951
 msgid "Output raw HTML code on your page"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4943
+#: framework/functions/global/plugins/visual-composer.php:4960
 msgid "Raw JavaScript"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4947
+#: framework/functions/global/plugins/visual-composer.php:4964
 msgid "Output raw JavaScript code on your page"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4958
+#: framework/functions/global/plugins/visual-composer.php:4975
 msgid "Revolution Slider"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4962
+#: framework/functions/global/plugins/visual-composer.php:4979
 msgid "Place a Revolution Slider element into your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4978
+#: framework/functions/global/plugins/visual-composer.php:4995
 msgid "Contact Form 7"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:4982
+#: framework/functions/global/plugins/visual-composer.php:4999
 msgid "Place one of your contact forms into your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:5003
+#: framework/functions/global/plugins/visual-composer.php:5020
 msgid "Gravity Form"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:5008
+#: framework/functions/global/plugins/visual-composer.php:5025
 msgid "Place one of your Gravity Forms into your content"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:5013
+#: framework/functions/global/plugins/visual-composer.php:5030
 msgid "Select which form you would like to display."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:5020
+#: framework/functions/global/plugins/visual-composer.php:5037
 msgid "Disable Title"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:5021
+#: framework/functions/global/plugins/visual-composer.php:5038
 msgid "Select to disable the title of your form."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:5030
+#: framework/functions/global/plugins/visual-composer.php:5047
 msgid "Disable Description"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:5031
+#: framework/functions/global/plugins/visual-composer.php:5048
 msgid "Select to disable the description of your form."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:5040
+#: framework/functions/global/plugins/visual-composer.php:5057
 msgid "Enable AJAX"
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:5041
+#: framework/functions/global/plugins/visual-composer.php:5058
 msgid "Select to enable the AJAX functionality of your form."
 msgstr ""
 
-#: framework/functions/global/plugins/visual-composer.php:5101
+#: framework/functions/global/plugins/visual-composer.php:5118
 msgid ""
 "The layout you are trying to use on this page does not conform to Visual "
 "Composer&#39;s layout guidelines. For more information on this situation and "

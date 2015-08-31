@@ -1,4 +1,4 @@
-<div class="vc_modal wpb-elements-list-modal fade" id="vc_add-element-dialog" tabindex="-1" role="dialog"
+<div class="vc_general vc_modal wpb-elements-list-modal fade" id="vc_add-element-dialog" tabindex="-1" role="dialog"
      aria-labelledby="vc_add-element-dialog-title" aria-hidden="true">
 	<div class="vc_modal-dialog modal-dialog">
 		<div class="vc_modal-content">

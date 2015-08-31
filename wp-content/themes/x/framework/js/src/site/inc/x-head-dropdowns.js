@@ -48,8 +48,10 @@ jQuery(function($) {
 
   function hoverOut(e) {
     clearTimeout(timer.id);
-    var $ul  = $(this).closest('ul');
-    timer.id = setTimeout( function() { hideDropdowns($ul); }, 500);
+    var inMenu = $.contains(document.getElementsByClassName('x-nav-wrap desktop')[0], e.toElement);
+    var ms     = ( inMenu ) ? 500 : 1000;
+    var $ul    = $(this).closest('ul');
+    timer.id = setTimeout(function() { hideDropdowns($ul); }, ms);
   }
 
   function touchIn(e) {
@@ -76,8 +78,7 @@ jQuery(function($) {
     $desktopMenu.hoverIntent({
       over     : hoverIn,
       out      : hoverOut,
-      selector : desktopTargets,
-      timeout  : 250
+      selector : desktopTargets
     });
     $desktopMenu.on('focusin', desktopTargets, hoverIn);
     $desktopMenu.on('focusout', desktopTargets, hoverOut);

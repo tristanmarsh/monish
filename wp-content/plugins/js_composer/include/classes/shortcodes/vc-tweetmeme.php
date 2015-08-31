@@ -2,6 +2,9 @@
 
 class WPBakeryShortCode_VC_TweetMeMe extends WPBakeryShortCode {
 	protected function contentInline( $atts, $content = null ) {
+		/**
+		 * @var $type
+		 */
 		extract( shortcode_atts( array(
 			'type' => 'horizontal'//horizontal, vertical, none
 		), $atts ) );

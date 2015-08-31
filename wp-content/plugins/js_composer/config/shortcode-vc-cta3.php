@@ -20,7 +20,8 @@ $h2_custom_heading = vc_map_integrate_shortcode( 'vc_custom_heading', 'h2_', __(
 if ( is_array( $h2_custom_heading ) && ! empty( $h2_custom_heading ) ) {
 	foreach ( $h2_custom_heading as $key => $param ) {
 		if ( is_array( $param ) && isset( $param['type'] ) && $param['type'] == 'font_container' ) {
-			if ( isset( $param['settings'] ) && is_array( $param['settings'] ) && isset( $param['settings']['fields'] ) ) {
+				$h2_custom_heading[ $key ]['value'] = '';
+				if ( isset( $param['settings'] ) && is_array( $param['settings'] ) && isset( $param['settings']['fields'] ) ) {
 				$sub_key = array_search( 'tag', $param['settings']['fields'] );
 				if ( false !== $sub_key ) {
 					unset( $h2_custom_heading[ $key ]['settings']['fields'][ $sub_key ] );
@@ -54,6 +55,7 @@ $h4_custom_heading = vc_map_integrate_shortcode( 'vc_custom_heading', 'h4_', __(
 if ( is_array( $h4_custom_heading ) && ! empty( $h4_custom_heading ) ) {
 	foreach ( $h4_custom_heading as $key => $param ) {
 		if ( is_array( $param ) && isset( $param['type'] ) && $param['type'] == 'font_container' ) {
+			$h4_custom_heading[ $key ]['value'] = '';
 			if ( isset( $param['settings'] ) && is_array( $param['settings'] ) && isset( $param['settings']['fields'] ) ) {
 				$sub_key = array_search( 'tag', $param['settings']['fields'] );
 				if ( false !== $sub_key ) {
@@ -78,7 +80,6 @@ $params = array_merge(
 			'heading' => __( 'Heading', 'js_composer' ),
 			'admin_label' => true,
 			'param_name' => 'h2',
-			'save_always' => true,
 			'value' => __( 'Hey! I am first heading line feel free to change me', 'js_composer' ),
 			'description' => __( 'Enter text for heading line.', 'js_composer' ),
 			'edit_field_class' => 'vc_col-sm-9 vc_column',
@@ -215,7 +216,6 @@ $params = array_merge(
 				__( 'Left', 'js_composer' ) => 'left',
 				__( 'Right', 'js_composer' ) => 'right',
 			),
-			'description' => __( '', 'js_composer' ),
 		),
 	),
 	vc_map_integrate_shortcode( 'vc_btn', 'btn_', __( 'Button', 'js_composer' ),

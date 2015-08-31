@@ -83,7 +83,50 @@ function wp_script_data_function( $handle, $function_name, $data ) {
   return $wp_scripts->add_data( $handle, 'data', $script );
 }
 
+/**
+ * Get a posts excerpt without the_content filters being applied
+ * This is useful if you need to retreive an excerpt from within
+ * a shortcode.
+ * @return string Post excerpt
+ */
+function cs_get_raw_excerpt() {
 
+  add_filter( 'get_the_excerpt', 'cs_trim_raw_excerpt'  );
+  remove_filter( 'get_the_excerpt', 'wp_trim_excerpt'  );
+
+  $excerpt = get_the_excerpt();
+
+  add_filter( 'get_the_excerpt', 'wp_trim_excerpt'  );
+  remove_filter( 'get_the_excerpt', 'cs_trim_raw_excerpt'  );
+
+  return $excerpt;
+}
+
+/**
+ * Themeco customized version of the wp_trim_excerpt function in WordPress formatting.php
+ * Generates an excerpt from the content, if needed.
+ *
+ * @param string $text Optional. The excerpt. If set to empty, an excerpt is generated.
+ * @return string The excerpt.
+ */
+function cs_trim_raw_excerpt( $text = '' ) {
+  $raw_excerpt = $text;
+  if ( '' == $text ) {
+    $text = get_the_content('');
+
+    $text = strip_shortcodes( $text );
+
+    //$text = apply_filters( 'the_content', $text );
+    $text = str_replace(']]>', ']]&gt;', $text);
+
+    $excerpt_length = apply_filters( 'excerpt_length', 55 );
+
+    $excerpt_more = apply_filters( 'excerpt_more', ' ' . '[&hellip;]' );
+    $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+  }
+
+  return apply_filters( 'wp_trim_excerpt', $text, $raw_excerpt );
+}
 
 // Data Attribute Generator
 // =============================================================================
@@ -115,8 +158,8 @@ function cs_generate_data_attributes_extra( $type, $trigger, $placement, $title 
     'type'      => ( $type == 'tooltip' ) ? 'tooltip' : 'popover',
     'trigger'   => $trigger,
     'placement' => $placement,
-    'title'     => $title,
-    'content'   => $content
+    'title'     => htmlspecialchars_decode( $title ), // to avoid double encoding.
+    'content'   => htmlspecialchars_decode( $content )
   );
 
   return cs_generate_data_attributes( 'extra', $js_params );
@@ -133,5 +176,49 @@ function cs_bg_video( $video, $poster ) {
   $output = do_shortcode( '[x_video_player class="bg transparent" src="' . $video . '" poster="' . $poster . '" hide_controls="true" autoplay="true" loop="true" muted="true" no_container="true"]' );
 
   return $output;
+
+}
+
+
+
+// Build Shortcode
+// =============================================================================
+
+function cs_build_shortcode( $name, $attributes, $extra = '', $content = '' ) {
+
+  $output = "[{$name}";
+
+  foreach ($attributes as $attribute => $value) {
+    $output .= " {$attribute}=\"{$value}\"";
+  }
+
+  if ($extra != '') {
+    $output .= " {$extra}";
+  }
+
+  if ( $content == '' ) {
+    $output .= "]";
+  } else {
+    $output .= "]{$content}[/{$name}]";
+  }
+
+  return $output;
+
+}
+
+
+
+// Animation Base Class
+// =============================================================================
+
+function cs_animation_base_class( $animation_string ) {
+
+  if ( strpos( $animation_string, 'In' ) !== false ) {
+    $base_class = ' animated-hide';
+  } else {
+    $base_class = '';
+  }
+
+  return $base_class;
 
 }

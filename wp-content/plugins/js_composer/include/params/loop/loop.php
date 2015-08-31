@@ -11,10 +11,12 @@ function vc_loop_form_field( $settings, $value ) {
 	$query_builder = new VcLoopSettings( $value );
 	$params = $query_builder->getContent();
 	$loop_info = '';
-	foreach ( $params as $key => $param ) {
-		$param_value = vc_loop_get_value( $param );
-		if ( ! empty( $param_value ) ) {
-			$loop_info .= ' <b>' . $query_builder->getLabel( $key ) . '</b>: ' . $param_value . ';';
+	if ( is_array( $params ) ) {
+		foreach ( $params as $key => $param ) {
+			$param_value = vc_loop_get_value( $param );
+			if ( ! empty( $param_value ) ) {
+				$loop_info .= ' <b>' . $query_builder->getLabel( $key ) . '</b>: ' . $param_value . ';';
+			}
 		}
 	}
 

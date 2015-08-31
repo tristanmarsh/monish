@@ -151,18 +151,20 @@ Class Vc_Hooks_Vc_Grid implements Vc_Vendor_Interface {
 		$settings['vc_grid'] = array();
 		if ( is_array( $found ) && ! empty( $found[0] ) ) {
 			$to_save = array();
-			foreach ( $found[3] as $key => $shortcode_atts ) {
-				if ( strpos( $shortcode_atts, 'vc_gid:' ) !== false ) {
-					continue;
+			if ( isset( $found[3] ) && is_array( $found[3] ) ) {
+				foreach ( $found[3] as $key => $shortcode_atts ) {
+					if ( strpos( $shortcode_atts, 'vc_gid:' ) !== false ) {
+						continue;
+					}
+					$atts = shortcode_parse_atts( $shortcode_atts );
+					$data = array(
+						'tag' => $found[2][ $key ],
+						'atts' => $atts,
+						'content' => $found[5][ $key ],
+					);
+					$hash = sha1( serialize( $data ) );
+					$to_save[ $hash ] = $data;
 				}
-				$atts = shortcode_parse_atts( $shortcode_atts );
-				$data = array(
-					'tag' => $found[2][ $key ],
-					'atts' => $atts,
-					'content' => $found[5][ $key ],
-				);
-				$hash = sha1( serialize( $data ) );
-				$to_save[ $hash ] = $data;
 			}
 			if ( ! empty( $to_save ) ) {
 				$settings['vc_grid'] = array( 'shortcodes' => $to_save );
@@ -187,32 +189,33 @@ Class Vc_Hooks_Vc_Grid implements Vc_Vendor_Interface {
 		$settings['vc_grid_id'] = array();
 		if ( is_array( $found ) && ! empty( $found[0] ) ) {
 			$to_save = array();
+			if ( isset( $found[1] ) && is_array( $found[1] ) ) {
+				foreach ( $found[1] as $key => $parse_able ) {
+					if ( empty( $parse_able ) || $parse_able != '[' ) {
+						$id_pattern = '/' . $this->grid_id_unique_name . '\:([\w-_]+)/';
+						$id_value = $found[4][ $key ];
 
-			foreach ( $found[1] as $key => $parse_able ) {
-				if ( empty( $parse_able ) || $parse_able != '[' ) {
-					$id_pattern = '/' . $this->grid_id_unique_name . '\:([\w-_]+)/';
-					$id_value = $found[4][ $key ];
+						preg_match( $id_pattern, $id_value, $id_matches );
 
-					preg_match( $id_pattern, $id_value, $id_matches );
+						if ( ! empty( $id_matches ) ) {
+							$id_to_save = $id_matches[1];
 
-					if ( ! empty( $id_matches ) ) {
-						$id_to_save = $id_matches[1];
+							// why we need to check if shortcode is parse able?
+							// 1: if it is escaped it must not be displayed (parsed)
+							// 2: so if 1 is true it must not be saved in database meta
+							$shortcode_tag = $found[2][ $key ];
+							$shortcode_atts_string = $found[3][ $key ];
+							/** @var $atts array */
+							$atts = shortcode_parse_atts( $shortcode_atts_string );
+							$content = $found[6][ $key ];
+							$data = array(
+								'tag' => $shortcode_tag,
+								'atts' => $atts,
+								'content' => $content,
+							);
 
-						// why we need to check if shortcode is parse able?
-						// 1: if it is escaped it must not be displayed (parsed)
-						// 2: so if 1 is true it must not be saved in database meta
-						$shortcode_tag = $found[2][ $key ];
-						$shortcode_atts_string = $found[3][ $key ];
-						/** @var $atts array */
-						$atts = shortcode_parse_atts( $shortcode_atts_string );
-						$content = $found[6][ $key ];
-						$data = array(
-							'tag' => $shortcode_tag,
-							'atts' => $atts,
-							'content' => $content,
-						);
-
-						$to_save[ $id_to_save ] = $data;
+							$to_save[ $id_to_save ] = $data;
+						}
 					}
 				}
 			}

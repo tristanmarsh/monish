@@ -26,7 +26,7 @@ class Cornerstone_Element_Renderer {
 			wp_send_json_error( array('message' => 'No element data recieved' ) );
 
 
-		$json = stripslashes( html_entity_decode( $_POST['request'] ) );
+		$json = stripslashes( $_POST['request'] );
 		$data = json_decode( $json, true );
 
 		$result = self::$instance->batch( $data );

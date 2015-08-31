@@ -8,8 +8,7 @@ document.documentElement.className += 'ontouchstart' in document.documentElement
 		'-ms-',
 		""
 	];
-	for ( var i in
-		prefix ) {
+	for ( var i = 0; i < prefix.length; i++ ) {
 		if ( prefix[ i ] + 'transform' in document.documentElement.style ) {
 			document.documentElement.className += " vc_transform ";
 		}
@@ -41,6 +40,7 @@ var vc_js = function () {
 	vc_google_fonts();
 	vc_gridBehaviour();
 	vc_rowBehaviour();
+	vc_ttaActivation(); // @since 4.5
 	jQuery( document ).trigger( 'vc_js' );
 	window.setTimeout( vc_waypoints, 1500 );
 };
@@ -626,7 +626,8 @@ if ( typeof window[ 'vc_rowBehaviour' ] !== 'function' ) {
 					skrollrStart,
 					skrollrEnd,
 					$parallaxElement,
-					parallaxImage;
+					parallaxImage,
+					youtubeId;
 				callSkrollInit = true; // Enable skrollinit;
 				if ( $( this ).data( 'vcParallaxOFade' ) == 'on' ) {
 					$( this ).children().attr( 'data-5p-top-bottom', 'opacity:0;' ).attr( 'data-30p-top-bottom',
@@ -639,7 +640,11 @@ if ( typeof window[ 'vc_rowBehaviour' ] !== 'function' ) {
 
 				parallaxImage = $( this ).data( 'vcParallaxImage' );
 
-				if ( parallaxImage !== undefined ) {
+				youtubeId = vcExtractYoutubeId( parallaxImage );
+
+				if ( youtubeId ) {
+					insertYoutubeVideoAsBackground( $parallaxElement, youtubeId );
+				} else if ( parallaxImage !== undefined ) {
 					$parallaxElement.css( 'background-image', 'url(' + parallaxImage + ')' );
 				}
 
@@ -664,8 +669,30 @@ if ( typeof window[ 'vc_rowBehaviour' ] !== 'function' ) {
 			}
 			return false;
 		};
+		/**
+		 * @todo refactor as plugin.
+		 * @returns {*}
+		 */
+		var fullHeightRow = function () {
+			$( '.vc_row-o-full-height:first' ).each( function () {
+				var $window,
+					windowHeight,
+					offsetTop,
+					fullHeight;
+				$window = $( window );
+				windowHeight = $window.height();
+				offsetTop = $( this ).offset().top;
+				if ( offsetTop < windowHeight ) {
+					fullHeight = 100 - offsetTop / (windowHeight / 100);
+					$( this ).css( 'min-height', fullHeight + 'vh' );
+				}
+			} );
+		};
 		$( window ).unbind( 'resize.vcRowBehaviour' ).bind( 'resize.vcRowBehaviour', local_function );
+		$( window ).bind( 'resize.vcRowBehaviour', fullHeightRow );
 		local_function();
+		fullHeightRow();
+		initVideoBackgrounds(); // must be called before parallax
 		parallaxRow();
 	}
 }
@@ -717,7 +744,7 @@ function getSizeName() {
 
 function loadScript( url, $obj, callback ) {
 
-	var script = document.createElement( "script" )
+	var script = document.createElement( "script" );
 	script.type = "text/javascript";
 
 	if ( script.readyState ) {  //IE
@@ -751,6 +778,8 @@ if ( typeof window[ 'wpb_prepare_tab_content' ] !== 'function' ) {
 	window.wpb_prepare_tab_content = function ( event, ui ) {
 		var panel = ui.panel || ui.newPanel,
 			$pie_charts = panel.find( '.vc_pie_chart:not(.vc_ready)' ),
+			$round_charts = panel.find( '.vc_round-chart' ),
+			$line_charts = panel.find( '.vc_line-chart' ),
 			$carousel = panel.find( '[data-ride="vc_carousel"]' ),
 			$ui_panel, $google_maps;
 		vc_carouselBehaviour();
@@ -768,6 +797,8 @@ if ( typeof window[ 'wpb_prepare_tab_content' ] !== 'function' ) {
 			} );
 		}
 		$pie_charts.length && jQuery.fn.vcChat && $pie_charts.vcChat();
+		$round_charts.length && jQuery.fn.vcRoundChart && $round_charts.vcRoundChart( { reload: false } );
+		$line_charts.length && jQuery.fn.vcLineChart && $line_charts.vcLineChart( { reload: false } );
 		$carousel.length && jQuery.fn.carousel && $carousel.carousel( 'resizeAction' );
 		$ui_panel = panel.find( '.isotope, .wpb_image_grid_ul' ); // why var name '$ui_panel'?
 		$google_maps = panel.find( '.wpb_gmaps_widget' );
@@ -786,10 +817,19 @@ if ( typeof window[ 'wpb_prepare_tab_content' ] !== 'function' ) {
 		}
 	}
 }
+var vc_ttaActivation = function () {
+	jQuery( '[data-vc-accordion]' ).on( 'show.vc.accordion', function ( e ) {
+		var $ = window.jQuery, ui = {};
+		ui.newPanel = $( this ).data( 'vc.accordion' ).getTarget();
+		window.wpb_prepare_tab_content( e, ui );
+	} );
+};
 
 var vc_accordionActivate = function ( event, ui ) {
 	if ( ui.newPanel.length && ui.newHeader.length ) {
 		var $pie_charts = ui.newPanel.find( '.vc_pie_chart:not(.vc_ready)' ),
+			$round_charts = ui.newPanel.find( '.vc_round-chart' ),
+			$line_charts = ui.newPanel.find( '.vc_line-chart' ),
 			$carousel = ui.newPanel.find( '[data-ride="vc_carousel"]' );
 		if ( jQuery.fn.isotope != undefined ) {
 			ui.newPanel.find( '.isotope, .wpb_image_grid_ul' ).isotope( "layout" );
@@ -804,6 +844,8 @@ var vc_accordionActivate = function ( event, ui ) {
 		vc_carouselBehaviour( ui.newPanel );
 		vc_plugin_flexslider( ui.newPanel );
 		$pie_charts.length && jQuery.fn.vcChat && $pie_charts.vcChat();
+		$round_charts.length && jQuery.fn.vcRoundChart && $round_charts.vcRoundChart( { reload: false } );
+		$line_charts.length && jQuery.fn.vcLineChart && $line_charts.vcLineChart( { reload: false } );
 		$carousel.length && jQuery.fn.carousel && $carousel.carousel( 'resizeAction' );
 		if ( ui.newPanel.parents( '.isotope' ).length ) {
 			ui.newPanel.parents( '.isotope' ).each( function () {
@@ -812,3 +854,146 @@ var vc_accordionActivate = function ( event, ui ) {
 		}
 	}
 };
+
+/**
+ * Reinitialize all video backgrounds
+ */
+function initVideoBackgrounds() {
+	jQuery( '.vc_row' ).each( function () {
+		var $row = jQuery( this ),
+			youtubeUrl,
+			youtubeId;
+
+		if ( $row.data( 'vcVideoBg' ) ) {
+			youtubeUrl = $row.data( 'vcVideoBg' );
+			youtubeId = vcExtractYoutubeId( youtubeUrl );
+
+			if ( youtubeId ) {
+				$row.find( '.vc_video-bg' ).remove();
+				insertYoutubeVideoAsBackground( $row, youtubeId );
+			}
+
+			jQuery( window ).on( 'grid:items:added', function ( event, $grid ) {
+				if ( ! $row.has( $grid ).length ) {
+					return;
+				}
+
+				vcResizeVideoBackground( $row );
+			} );
+		} else {
+			$row.find( '.vc_video-bg' ).remove();
+		}
+	} );
+}
+
+/**
+ * Insert youtube video into element.
+ *
+ * Video will be w/o controls, muted, autoplaying and looping.
+ */
+function insertYoutubeVideoAsBackground( $element, youtubeId, counter ) {
+	if ( 'undefined' === typeof( YT.Player ) ) {
+		// wait for youtube iframe api to load. try for 10sec, then abort
+		counter = 'undefined' === typeof( counter ) ? 0 : counter;
+		if ( counter > 100 ) {
+			console.warn( 'Too many attempts to load YouTube api' );
+			return;
+		}
+
+		setTimeout( function () {
+			insertYoutubeVideoAsBackground( $element, youtubeId, counter ++ );
+		}, 100 );
+
+		return;
+	}
+
+	var player,
+		$container = $element.prepend( '<div class="vc_video-bg"><div class="inner"></div></div>' ).find( '.inner' );
+
+	player = new YT.Player( $container[ 0 ], {
+		width: '100%',
+		height: '100%',
+		videoId: youtubeId,
+		playerVars: {
+			playlist: youtubeId,
+			iv_load_policy: 3, // hide annotations
+			enablejsapi: 1,
+			disablekb: 1,
+			autoplay: 1,
+			controls: 0,
+			showinfo: 0,
+			rel: 0,
+			loop: 1
+		},
+		events: {
+			onReady: function ( event ) {
+				event.target.mute().setLoop( true );
+			}
+		}
+	} );
+
+	vcResizeVideoBackground( $element );
+
+	jQuery( window ).bind( 'resize', function () {
+		vcResizeVideoBackground( $element );
+	} );
+}
+
+/**
+ * Resize background video iframe so that video content covers whole area
+ */
+function vcResizeVideoBackground( $element ) {
+	var iframeW,
+		iframeH,
+		marginLeft,
+		marginTop,
+		containerW = $element.innerWidth(),
+		containerH = $element.innerHeight(),
+		ratio1 = 16,
+		ratio2 = 9;
+
+	if ( ( containerW / containerH ) < ( ratio1 / ratio2 ) ) {
+		iframeW = containerH * (ratio1 / ratio2);
+		iframeH = containerH;
+
+		marginLeft = - Math.round( ( iframeW - containerW ) / 2 ) + 'px';
+		marginTop = - Math.round( ( iframeH - containerH ) / 2 ) + 'px';
+
+		iframeW += 'px';
+		iframeH += 'px';
+	} else {
+		iframeW = containerW;
+		iframeH = containerW * (ratio2 / ratio1);
+
+		marginTop = - Math.round( ( iframeH - containerH ) / 2 ) + 'px';
+		marginLeft = - Math.round( ( iframeW - containerW ) / 2 ) + 'px';
+
+		iframeW += 'px';
+		iframeH += 'px';
+	}
+
+	$element.find( '.vc_video-bg iframe' ).css( {
+		maxWidth: '1000%',
+		marginLeft: marginLeft,
+		marginTop: marginTop,
+		width: iframeW,
+		height: iframeH
+	} );
+}
+
+/**
+ * Extract video ID from youtube url
+ */
+function vcExtractYoutubeId( url ) {
+	if ( 'undefined' === typeof(url) ) {
+		return false;
+	}
+
+	var id = url.match( /(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/ );
+
+	if ( null != id ) {
+		return id[ 1 ];
+	}
+
+	return false;
+}

@@ -7,6 +7,8 @@ vc.less.options = {
 	relativeUrls: false,
 	rootpath: false
 };
+less.options.env = vcData.debug ? 'development' : 'production';
+less.options.logLevel = vcData.debug ? 4 : 0;
 vc.less.generateLessFormData = function ( formData, variablesData ) {
 	var lessData = {};
 	if ( ! _.isEmpty( variablesData ) ) {

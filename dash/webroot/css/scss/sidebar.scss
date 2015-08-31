@@ -25,97 +25,128 @@ Since:    3/6/15
   overflow-x: hidden;
   padding: 0;
   background-color: #293846;
-  // box-shadow:inset -20px 0 20px rgba(38, 56, 73, 0.2);
-  transition:transform 400ms ease;
+  transition:transform 200ms ease;
   overflow-x:hidden;
 
   .nav-sidebar {
     margin-left:0;
   }
 
-  .panel {
-    background:none;
-    border:0;
-    border-radius:0;
-
-
-  }
-  .panel-group {
-
-    .panel-heading {
-      background:none;
-    }
-
-    &.panel-heading+.panel-collapse>.panel-body,
-    & .panel-heading+.panel-collapse>.list-group {
-      border-top:0;
-    }
-
-  }
-  
   ul {
     padding-left:0;
   }
-
+  
+  // Default Menu Item
   li {
     display:block;
     position:relative;
-    font-size:2.5rem;
-    transition:background-color 200ms ease;
+    font-size:2rem;
+    border-bottom:1px solid #334658;
+    height:6rem;
 
     .menu-item-link {
       display:block;
-      font-size:3rem;
+      color:#5F666C;
+      transition:color 200ms ease;
+      height:100%;
+      padding:10px;
 
-      .menu-item-label {
-        position:absolute;
-        left:60px;
-        top:7px;
+      // Home Link
+
+      #icon-monish-home {
+        font-size:4rem;
+        color:#76AADB!important;
+      }
+
+      .gravatar {
+        opacity:0.8;
+        transition:opacity 200ms ease;
       }
 
       .glyphicon {
         position: static;
+        vertical-align: middle;
+        vertical-align: -webkit-baseline-middle;
+        width:60px;
+        margin:0 auto;
+        margin-left: -10px;
+        text-align: center;
+
+        &:before {
+          text-align: center;
+        }
+
+      }
+
+      .menu-item-label {
+        position: absolute;
+        white-space: nowrap;
+        left: 6rem;
+        margin-left: 10px;
+        top: 1.7rem;
+        font-size: 2rem;
+        color:#fff;
       }
 
     }
 
+    //Home Link
+    &[data-original-title="Home"],
+    &[title="Home"] {
+      
+      &>a.menu-item-link {
+        background: rgba(0,0,0,0.4);
+        transition:none;
 
-    a {
-      display:block;
-      color:#788188;
-      transition:all 200ms ease;
+        #icon-monish-home.icon-monish:before {
+          color:#76AADB!important;
+        }
+
+      }
+
+      &:hover>a.menu-item-link {
+        background: rgba(0,0,0,0.4);
+      }
+
+    }
+
+    // Current Menu Item
+    .menu-item-link.active {
+      background:rgba(0,0,0,0.2);
+
+      .glyphicon,
+      .menu-item-label {
+        color:#fff;
+      }
+
     }
     
-    h4.panel-title,
-    span {
-      color:#788188;
-    }
-
-    a.active span,
-    a.active {
-      color:#D4D9E0;
-    }
-
   }
 
+  // Hover Menu Item
   li:active,
   li:focus,
   li:hover {
 
-    span,
-    a {
-      color:#D4D9E0;
-    }
-
     .menu-item-link {
+      color:#D4D9E0;
+      background:rgba(255,255,255,0.05);
+      color:#fff;
     }
 
     .menu-item-label {
+
+    }
+
+    .gravatar {
+      opacity:1;
     }
 
   }
 
 }
+
+
 
 // Classes to animate
 .sidebar,
@@ -132,17 +163,18 @@ Since:    3/6/15
 // hide tooltips by default
 .tooltip.right {
   display:none!important;
-  font-size:3rem;
-}
-
-.tooltip-inner {
-  background:#222;
+  font-size:2rem;
+  @include fadeInLeft($duration:600ms,$delay:100ms);
+  margin-left:-10px;
 }
 
 .tooltip.right .tooltip-arrow {
-  border-right-color:#222;
+  border-right-color: #374A5D;
 }
 
+.tooltip-inner {
+  background: #374A5D;
+}
 
 // xs
 @media(max-width:480px){
@@ -151,18 +183,31 @@ Since:    3/6/15
   // Inactive
   .sidebar {
     transform:translate3D(-100%,0,0);
-    padding-top:51px;
-    width:60px;
+    padding-top:71px;
+    width:300px;
+    transition:transform 400ms ease;
   }  
+
+  .navigation-active {
+    background-color: #293846;
+  }
 
   // Active
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
-    width:250px;
+    width:300px;
+    transition:width 0s ease;
+    transition-delay: 400ms;
+    transition:transform 400ms ease;
   }
   
-  .navigation-active .content {
+  .navigation-active .content,
+  .navigation-active .footer-container {
     transform:translate3D(20%,0,0);
+  }
+
+  .navigation-active .main-content {
+    opacity:(0.5);
   }
 
 }
@@ -182,22 +227,24 @@ Since:    3/6/15
   }
 
   .navbar-fixed-top,
-  .content {
+  .content,
+  .footer-container {
     margin-left:60px;
   }
 
   // Active
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
-    width:250px;
+    width:300px;
   }
   .navigation-active .content {
     transform:translate3D(0,0,0);
   }
 
   .navigation-active .navbar-fixed-top,
-  .navigation-active .content {
-    margin-left:250px;
+  .navigation-active .content,
+  .navigation-active .footer-container {
+    margin-left:300px;
   }
     // Show tooltips
   .navigation-active .tooltip.right {
@@ -223,22 +270,24 @@ Since:    3/6/15
   }
 
   .navbar-fixed-top,
-  .content {
+  .content,
+  .footer-container {
     margin-left:60px;
   }
 
   // Active
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
-    width:250px;
+    width:300px;
   }
   .navigation-active .content {
     transform:translate3D(0,0,0);
   }
 
   .navigation-active .navbar-fixed-top,
-  .navigation-active .content {
-    margin-left:250px;
+  .navigation-active .content,
+  .navigation-active .footer-container {
+    margin-left:300px;
   }
     // Show tooltips
   .navigation-active .tooltip.right {

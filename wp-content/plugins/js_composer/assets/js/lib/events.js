@@ -18,6 +18,7 @@ if ( ! window.vc ) {
 		this.trigger( 'shortcodes:' + shortcodeTag, shortcodeModel, eventType );
 		this.trigger( 'shortcodes:' + eventType, shortcodeModel );
 		this.trigger( 'shortcodes:' + shortcodeTag + ':' + eventType, shortcodeModel );
+		this.trigger( 'shortcodes:' + shortcodeTag + ':' + eventType + ':parent:' + shortcodeModel.get('parent_id'), shortcodeModel );
 		// Now trigger shortcode params events
 		this.triggerParamsEvents( eventType, shortcodeModel );
 	};
@@ -33,7 +34,7 @@ if ( ! window.vc ) {
 			settings;
 
 		shortcodeTag = shortcodeModel.get( 'shortcode' );
-		params = shortcodeModel.get( 'params' ); // can be received only when main "add" event called!
+		params = _.extend( {}, shortcodeModel.get( 'params' ) ); // can be received only when main "add" event called!
 		settings = vc.map[ shortcodeTag ];
 		if ( _.isArray( settings.params ) ) {
 			_.each( settings.params, function ( paramSettings ) {

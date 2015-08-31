@@ -65,6 +65,7 @@ return array(
 	'templates-error-read'        => __( 'Unable to read file', $td ),
 	'templates-error-upload'      => __( 'Sorry! Your file is not properly formatted.', $td ),
 	'templates-error-save'        => __( 'Unable to save template.', $td ),
+	'templates-error-import'      => __( 'Could not load template.', $td ),
 	'templates-remove-label'      => __( 'Remove Templates', $td ),
 	'templates-remove'            => __( 'Delete', $td ),
 	'templates-remove-block'      => __( '(Block) %s', $td ),
@@ -72,6 +73,9 @@ return array(
 	'templates-remove-message'    => __( 'Are you sure you wish to delete this template? This can not be undone.', $td ),
 	'templates-delete-success'    => __( 'Template removed from library.', $td ),
 	'templates-error-delete'      => __( 'Unable to delete stored template.', $td ),
+	'templates-page-updated'      => __( 'Page updated.', $td ),
+	'templates-block-inserted'      => __( 'Block inserted.', $td ),
+
 
 	// Elements
 	'elements-heading' => __( 'Elements', $td ),
@@ -172,5 +176,8 @@ return array(
 	'moment-weekdays'       => __( 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday', $td ),
 	'moment-weekdays-short' => __( 'Sun_Mon_Tue_Wed_Thu_Fri_Sat', $td ),
 	'moment-weekdays-min'   => __( 'Su_Mo_Tu_We_Th_Fr_Sa', $td ),
+
+	// Errors
+	'browser-no-can' => __( "We're sorry! Your web browser does not support this action.", $td ),
 
 );

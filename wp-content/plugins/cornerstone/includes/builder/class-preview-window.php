@@ -9,19 +9,25 @@ class Cornerstone_Preview_Window {
 	 * Setup hooks
 	 */
 	public function __construct() {
+
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), 999 );
 		add_action( 'template_redirect', array( $this, 'pageLoading' ), 9999999 );
 		add_filter( 'show_admin_bar', '__return_false' );
 
 		add_filter( '_cornerstone_custom_css', '__return_true' );
 		add_action( 'wp_head', array( $this, 'inlineStyles' ), 9998, 0 );
+
 	}
 
 	/**
 	 * Hook in to filter the content as late as possible.
 	 */
 	public function pageLoading() {
+
 		add_filter( 'the_content', array( $this, 'wrapContent' ), -9999999 );
+
+		do_action( 'cornerstone_load_preview' );
+
 	}
 
 	/**

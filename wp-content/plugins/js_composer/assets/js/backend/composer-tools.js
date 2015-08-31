@@ -381,25 +381,42 @@ var vc_grid_exclude_dependency_callback = function () {
 		}
 	} );
 };
-var vcGriFilfterExcludeValuesList = [];
+// var vcGriFilfterExcludeValuesList = [];
 var vcGridFilterExcludeCallBack = function () {
-	var $ = jQuery, $filterBy, $exclude, autocomplete, currentFilterValue;
+	var $ = jQuery, $filterBy, $exclude, autocomplete, defaultValue;
 	$filterBy = $( '.wpb_vc_param_value[name=filter_source]', this.$content );
-	currentFilterValue = $filterBy.val();
+	defaultValue = $filterBy.val();
 	$exclude = $( '.wpb_vc_param_value[name=exclude_filter]', this.$content );
 	autocomplete = $exclude.data( 'object' );
-	vcGriFilfterExcludeValuesList = autocomplete.options && autocomplete.options.values
-		? _.extend( [], autocomplete.options.values ) : [];
 	$filterBy.change( function () {
-		var filterValue = $( this ).val();
-		autocomplete.options.values = _.filter( vcGriFilfterExcludeValuesList, function ( value ) {
-			return value.group_id == filterValue;
-		} );
-		filterValue != currentFilterValue && autocomplete.clearValue();
-		currentFilterValue = filterValue;
-	} ).trigger( 'change' );
-};
+		var $this = $( this );
+		defaultValue !== $this.val() && autocomplete.clearValue();
+		autocomplete.source_data = function () {
+			return { vc_filter_by: $this.val() };
+		};
+	} ).trigger('change');
 
+	/*
+	 var filterValue = $( this ).val();
+	 autocomplete.options.values = _.filter( vcGriFilfterExcludeValuesList, function ( value ) {
+	 return value.group_id == filterValue;
+	 } );
+	 filterValue != currentFilterValue && autocomplete.clearValue();
+	 currentFilterValue = filterValue;
+	 */
+};
+var vcChartCustomColorDependency = function () {
+	var $, $masterEl, $content;
+	$ = jQuery;
+	$masterEl = $( '.wpb_vc_param_value[name=style]', this.$content );
+	$content = this.$content;
+	$masterEl.on( 'change', function () {
+		var masterValue;
+		masterValue = $( this ).val();
+		$content.toggleClass( 'vc_chart-edit-form-custom-color', 'custom' === masterValue );
+	} );
+	$masterEl.trigger( 'change' );
+};
 /*
  var vc_grid_custom_query_dependency = function() {
  var $ = jQuery,
@@ -612,6 +629,90 @@ function vc_globalHashCode( str ) {
 		hash = hash & hash; // Convert to 32bit integer
 	}
 	return hash;
+}
+
+// underscore object memoize can cause overriding problems
+vc.memoizeWrapper = function ( func, resolver ) {
+	var cache = {};
+	return function () {
+		var key = resolver ? resolver.apply( this, arguments ) : arguments[ 0 ];
+		if ( ! _.hasOwnProperty.call( cache, key ) ) {
+			cache[ key ] = func.apply( this, arguments );
+		}
+		return _.isObject( cache[ key ] ) ? jQuery.fn.extend( true, {}, cache[ key ] ) : cache[ key ]; // perform DEEP extend
+	};
+};
+
+/**
+ * Select random color when new param is added.
+ *
+ * @param $elem
+ * @param action
+ */
+function vcChartParamAfterAddCallback( $elem, action ) {
+	if ( 'new' === action || 'clone' === action ) {
+		$elem.find( '.vc_control.column_toggle' ).click();
+	}
+
+	if ( 'new' !== action ) {
+		return;
+	}
+
+	var i, $select, $options, random, exclude, colors;
+
+	exclude = [
+		'white',
+		'black'
+	];
+
+	$select = $elem.find( '[name=values_color]' );
+	$options = $select.find( 'option' );
+
+	i = 0;
+	while ( true ) {
+		if ( i ++ > 100 ) {
+			break;
+		}
+
+		random = Math.floor( (Math.random() * $options.length) );
+
+		if ( jQuery.inArray( $options.eq( random ).val(), exclude ) === - 1 ) {
+			$options.eq( random ).prop( 'selected', true );
+			$select.change();
+			break;
+		}
+	}
+
+	colors = [
+		'#5472d2',
+		'#00c1cf',
+		'#fe6c61',
+		'#8d6dc4',
+		'#4cadc9',
+		'#cec2ab',
+		'#50485b',
+		'#75d69c',
+		'#f7be68',
+		'#5aa1e3',
+		'#6dab3c',
+		'#f4524d',
+		'#f79468',
+		'#b97ebb',
+		'#ebebeb',
+		'#f7f7f7',
+		'#0088cc',
+		'#58b9da',
+		'#6ab165',
+		'#ff9900',
+		'#ff675b',
+		'#555555'
+	];
+
+	random = Math.floor( (Math.random() * colors.length) );
+
+	$elem.find( '[name=values_custom_color]' )
+		.val( colors[ random ] )
+		.change();
 }
 
 /**

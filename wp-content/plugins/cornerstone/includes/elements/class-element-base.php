@@ -128,7 +128,13 @@ abstract class Cornerstone_Element_Base {
 			foreach ($mixin_controls as $mixin) {
 
 				$override = ( $numargs > ++$count ) ? func_get_arg($count) : array();
-				$this->data['controls'][] = wp_parse_args( $override, $mixin );
+				$control = wp_parse_args( $override, $mixin );
+
+				if ( isset( $override['options'] ) && isset( $mixin['options'] ) ) {
+					$control['options'] = wp_parse_args( $override['options'], $mixin['options'] );
+				}
+
+				$this->data['controls'][] = $control;
 
 			}
 		}

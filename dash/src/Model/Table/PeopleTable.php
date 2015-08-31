@@ -37,7 +37,21 @@ class PeopleTable extends Table
             ->notEmpty('last_name', 'A last name is required')
 			->notEmpty('gender', 'A gender is required')
             ->notEmpty('phone', 'A phone number is required')
+            ->add('phone', [
+            'length' => [
+            'rule' => ['minLength', 10],
+            'message' => 'Your phone number need to be at least 10 numbers long',
+            ]
+            ])
             ->notEmpty('email', 'An email is required')
+            ->add('email', 'validFormat', [
+            'rule' => 'email',
+            'message' => 'E-mail must be valid'
+            ])
+            ->add('username', 'validFormat', [
+            'rule' => 'email',
+            'message' => 'E-mail must be valid'
+            ])
             ->notEmpty('internet_plan', 'An internet plan is required')
             ->notEmpty('username', 'A username is required')
             ->notEmpty('password', 'A password is required')

@@ -11,14 +11,16 @@ if ( _.isUndefined( window.vc ) ) {
 	var vc = { atts: {} };
 }
 (function ( $ ) {
-	var preloaderUrl = ajaxurl.replace( /admin\-ajax\.php/, 'images/wpspin_light.gif' ),
+	var media = wp.media,
+		preloaderUrl = ajaxurl.replace( /admin\-ajax\.php/, 'images/wpspin_light.gif' ),
 		template_options = {
 			evaluate: /<#([\s\S]+?)#>/g,
 			interpolate: /\{\{\{([\s\S]+?)\}\}\}/g,
 			escape: /\{\{([^\}]+?)\}\}(?!\})/g
 		},
-		removeOldDesignOptions;
-	wp.media.controller.VcCssSingleImage = wp.media.controller.VcSingleImage.extend( {
+		removeOldDesignOptions
+
+	media.controller.VcCssSingleImage = media.controller.VcSingleImage.extend( {
 		setCssEditor: function ( view ) {
 			if ( view ) {
 				this._css_editor = view;
@@ -27,15 +29,21 @@ if ( _.isUndefined( window.vc ) ) {
 		},
 		updateSelection: function () {
 			var selection = this.get( 'selection' ),
-				id = this._css_editor.getBackgroundImage(),
-				attachment;
-			if ( id ) {
-				attachment = wp.media.model.Attachment.get( id );
-				attachment.fetch();
+				ids = this._css_editor.getBackgroundImage(),
+				attachments;
+
+			if ( 'undefined' !== typeof(ids) && '' !== ids && - 1 !== ids ) {
+				attachments = _.map( ids.toString().split( /,/ ), function ( id ) {
+					var attachment = wp.media.model.Attachment.get( id );
+					attachment.fetch();
+					return attachment;
+				} );
 			}
-			selection.reset( attachment ? [ attachment ] : [] );
+
+			selection.reset( attachments );
 		}
 	} );
+
 	/**
 	 * Css editor view.
 	 * @type {*}
@@ -63,14 +71,14 @@ if ( _.isUndefined( window.vc ) ) {
 			'change .vc_simplify': 'changeSimplify'
 		},
 		initialize: function () {
-			// _.bindAll(wp.media.vc_css_editor, 'open');
+			// _.bindAll(media.vc_css_editor, 'open');
 			_.bindAll( this, 'setSimplify' )
 		},
 		render: function ( value ) {
 			this.attrs = {};
 			this.$simplify = this.$el.find( '.vc_simplify' );
 			_.isString( value ) && this.parse( value );
-			// wp.media.vc_css_editor.init(this);
+			// media.vc_css_editor.init(this);
 			return this;
 		},
 		parse: function ( value ) {
@@ -79,12 +87,15 @@ if ( _.isUndefined( window.vc ) ) {
 		},
 		addBackgroundImage: function ( e ) {
 			e.preventDefault();
+
+			window.vc_selectedFilters = {};
+
 			if ( this.image_media ) {
 				return this.image_media.open( 'vc_editor' );
 			}
-			this.image_media = wp.media( {
+			this.image_media = media( {
 				state: 'vc_single-image',
-				states: [ new wp.media.controller.VcCssSingleImage().setCssEditor( this ) ]
+				states: [ new media.controller.VcCssSingleImage().setCssEditor( this ) ]
 			} );
 			this.image_media.on( 'toolbar:create:vc_single-image', function ( toolbar ) {
 				this.createSelectToolbar( toolbar, {
@@ -95,10 +106,8 @@ if ( _.isUndefined( window.vc ) ) {
 			this.image_media.open( 'vc_editor' );
 		},
 		setBgImage: function () {
-			var selection = this.get( 'selection' ).single();
-			selection && this._css_editor.$el.find( '.vc_background-image .vc_image' ).html( _.template( $( '#vc_css-editor-image-block' ).html(),
-				selection.attributes,
-				_.extend( { variable: 'img' }, template_options ) ) );
+			var selection = this.get( 'selection' );
+			filterSelection( selection, this );
 		},
 		setCurrentBgImage: function ( value ) {
 			var image_regexp = /([^\?]+)(\?id=\d+){0,1}/, url = '', id = '', image_split;
@@ -398,5 +407,92 @@ if ( _.isUndefined( window.vc ) ) {
 	removeOldDesignOptions = function () {
 		this.params = _.omit( this.params, 'bg_color', 'padding', 'margin_bottom', 'bg_image' );
 	};
+
+	function filterSelection( selection, obj ) {
+		var ids;
+
+		ids = [];
+
+		$( '.media-modal' ).addClass( 'processing-media' );
+
+		selection.each( function ( model ) {
+			ids.push( model.get( 'id' ) );
+		} );
+
+		processImages( ids, finishImageProcessing );
+
+		function finishImageProcessing( newAttachments ) {
+			var attachments,
+				objects;
+
+			attachments = _.map( newAttachments, function ( newAttachment ) {
+				return newAttachment.attributes;
+			} );
+
+			selection.reset( attachments );
+
+			objects = _.map( selection.models, function ( model ) {
+				return model.attributes;
+			} );
+
+			obj._css_editor.$el.find( '.vc_background-image .vc_image' ).html( _.template( $( '#vc_css-editor-image-block' ).html(),
+				objects[ 0 ],
+				_.extend( { variable: 'img' }, template_options ) ) );
+
+			$( '.media-modal' ).removeClass( 'processing-media' );
+		}
+	}
+
+	/**
+	 * Process specified images and call callback
+	 *
+	 * @param ids array of int ids
+	 * @param callback Processed attachments are passed as first and only argument
+	 * @return void
+	 */
+	function processImages( ids, callback ) {
+
+		$.ajax( {
+			dataType: "json",
+			type: 'POST',
+			url: window.ajaxurl,
+			data: {
+				action: 'vc_media_editor_add_image',
+				filters: window.vc_selectedFilters,
+				ids: ids,
+				vc_inline: true
+			}
+		} ).done( function ( response ) {
+			var attachments, attachment, promises, i;
+
+			if ( 'function' !== typeof(callback) ) {
+				return;
+			}
+
+			attachments = [];
+			promises = [];
+
+			for ( i = 0;
+				  i < response.data.ids.length;
+				  i ++ ) {
+
+				attachment = wp.media.model.Attachment.get( response.data.ids[ i ] );
+				promises.push( attachment.fetch() );
+				attachments.push( attachment );
+			}
+
+			$.when.apply( $, promises ).done( function () {
+				callback( attachments );
+			} );
+		} ).fail( function ( response ) {
+			$( '.media-modal-close' ).click();
+
+			window.vc && window.vc.active_panel && window.i18nLocale && window.i18nLocale.error_while_saving_image_filtered && vc.active_panel.showMessage( window.i18nLocale.error_while_saving_image_filtered,
+				'error' );
+			window.console && window.console.error && window.console.error( response );
+		} ).always( function () {
+			$( '.media-modal' ).removeClass( 'processing-media' );
+		} );
+	}
 
 })( window.jQuery );

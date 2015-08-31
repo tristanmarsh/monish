@@ -11,5 +11,6 @@
   "ui-vc-pointers.php": "Integrating With WordPress’ UI: Admin Pointers",
   "vc-pages/*": "Vc Special pages.",
   "vc-pointers-backend-editor.php": "Backend editor VC Pointers",
-  "vc-pointers-frontend-editor.php": "Frontend editor VC Pointers"
+  "vc-pointers-frontend-editor.php": "Frontend editor VC Pointers",
+  "vc-image-filters.php": "PHP class for photo effects like Instagram"
 }

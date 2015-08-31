@@ -189,7 +189,6 @@
 //========== VC Settings
 .vc_btn3-container {
   display: block;
-  line-height: 1;
   margin-bottom: @vc_margin_bottom_gold;
   max-width: 100%;
   &.vc_btn3-inline {
@@ -218,7 +217,7 @@
   top: 0;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
-  line-height: 1;
+  line-height: normal;
 
   .make-btn3-size(@vc_btn3-md-font-size, @vc_btn3-md-padding-vertical, @vc_btn3-md-padding-horizontal);
 
@@ -319,6 +318,7 @@
 
   }
   // Outline
+  &.vc_btn3-style-outline-custom,
   &.vc_btn3-style-outline {
     &,
     &:hover,
@@ -495,7 +495,7 @@
       &.vc_btn3-icon-right {
         .vc_btn3-icon {
           display: inline-block;
-          position: initial;
+          position: static;
         }
         .vc_btn3-icon {
           -webkit-transform: translate(0, 0);
@@ -554,6 +554,7 @@
     padding-left: @padding-horizontal;
     padding-right: @padding-horizontal;
   }
+  &.vc_btn3-style-outline-custom,
   &.vc_btn3-style-outline {
     & when not (@padding-vertical = false) {
       padding-top: @padding-vertical - @vc_btn3-border-outline + @vc_btn3-border-base;

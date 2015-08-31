@@ -1,6 +1,6 @@
 <div class="vc_controls<?php echo ! empty( $extended_css ) ? ' ' . $extended_css : '' ?>">
 	<div class="vc_controls-<?php echo $position ?>">
-		<a class="vc_control-btn vc_element-name vc_element-move">
+		<a class="<?php echo esc_attr( $name_css_class ) ?>">
 				<span class="vc_btn-content"
 				      title="<?php printf( __( 'Drag to move %s', 'js_composer' ), $name ) ?>"><?php echo __( $name, 'js_composer' ); ?></span>
 		</a>

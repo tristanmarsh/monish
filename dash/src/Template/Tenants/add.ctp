@@ -121,7 +121,7 @@
            
            </fieldset>
 
-           <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']); ?>
+           <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']); ?>
            <?= $this->Form->end() ?>
            <?php
            echo $this->Form->create(null, [

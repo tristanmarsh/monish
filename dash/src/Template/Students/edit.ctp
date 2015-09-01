@@ -38,7 +38,7 @@
             echo $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'], 'class' => 'form-control']);
             ?>
             <br>
-        <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']) ?>
+        <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']) ?>
         <?= $this->Form->end() ?>
         <?= $this->Form->create(null, [
             'url' => ['controller' => 'Students', 'action' => 'index']

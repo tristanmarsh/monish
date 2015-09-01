@@ -22,7 +22,7 @@
             <br>
             <?php
             //echo $this->Form->input('role', ['options' => ['admin' => 'Admin', 'tenant' => 'Tenant']]);
-            echo $this->Form->button(__('Update User'), ['class' => 'form-control btn btn-info']);
+            echo $this->Form->button(__('Update User'), ['class' => 'form-control btn btn-primary']);
             echo $this->Form->end();
             echo $this->Form->create(null, [
                 'url' => ['controller' => 'Users', 'action' => 'index']

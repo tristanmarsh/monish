@@ -34,7 +34,11 @@
 								<?= $this->Form->create() ?>
 								<fieldset>
 									<!-- <legend>Please enter your username and password</legend> -->
+									<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
 									<?= $this->Form->input('username', array('class' => 'form-control', 'placeholder' => 'Enter email address')) ?>
+
+
+
 									<?= $this->Form->input('password', array('class' => 'form-control', 'placeholder' => 'Enter password')) ?>
 
 									 <!-- Set cookies later -->

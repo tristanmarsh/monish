@@ -71,7 +71,7 @@
 					        <?= $this->Form->input('username', array('class' => 'form-control')) ?>
 					    </fieldset>
 					    <br>
-					    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']); ?>
+					    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']); ?>
 
 					</div>
 	

@@ -95,6 +95,9 @@ class RequestsController extends AppController
 
         $this->loadModel('Properties');
         $addresses = $this->Properties->find('list', ['keyField' => 'address', 'valueField' => 'address']);
+
+        $addresses = $this->Properties->find('list', ['keyField' => 'address', 'valueField' => 'address']);
+        
         $this->set('addresses', $addresses);
     }
 

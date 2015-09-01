@@ -227,7 +227,24 @@ class UsersController extends AppController
         return $this->redirect($this->Auth->logout());
     }
 
-    public function edit($id = null)
+    public function editpassword($id = null)
+    {
+        $user = $this->Users->get($id);
+        if ($this->request->is(['post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $this->request->data);
+            if ($this->Users->save($user)){
+                $this->Flash->success(__('This user has been updated.'));
+                return $this->redirect(['controller'=>'people', 'action' => 'index']);
+            }
+            $this->Flash->error(__('Unable to update this user.'));
+        }
+        $this->set('user', $user);
+
+        //finds the list of people in the people's table
+        $people = $this->Users->People->find('list', ['limit' => 200]);
+        $this->set(compact('people'));
+    }
+        public function editusername($id = null)
     {
         $user = $this->Users->get($id);
         if ($this->request->is(['post', 'put'])) {
@@ -248,7 +265,24 @@ class UsersController extends AppController
     public function isAuthorized($user)
     {
 
-        if (in_array($this->request->action, ['edit'])) {
+        if (in_array($this->request->action, ['editpassword'])) {
+            $requestId = (int)$this->request->params['pass'][0];
+
+            $this->loadModel('People');
+            $this->loadModel('Users');
+
+            $authid = $this->Auth->user('id');
+            $this->set(compact('authid'));
+            $userEntity = $this->Users->get($authid);
+            $this->set(compact('userEntity'));
+            $personEntity = $this->People->get($userEntity->person_id);
+            $this->set(compact('personEntity'));
+
+            if ($authid === $requestId) {
+                return true;
+            }
+        }
+                if (in_array($this->request->action, ['editusername'])) {
             $requestId = (int)$this->request->params['pass'][0];
 
             $this->loadModel('People');

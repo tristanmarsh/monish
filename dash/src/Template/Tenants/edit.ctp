@@ -42,7 +42,7 @@
     echo $this->Form->input('phone', array('default' => $defaultPerson->phone,'class' => 'form-control'));
     echo $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'], 'default' => $defaultStudent->internet_plan, 'class' => 'form-control']);
 	echo $this->Form->input('username', array('class' => 'form-control'));
-	echo $this->Form->input('password', array('class' => 'form-control'));
+	// echo $this->Form->input('password', array('class' => 'form-control'));
 	//echo $this->Form->input('confirm_password', array('class' => 'form-control', 'type'=>'password'));
 	echo $this->Form->input('role', ['options' => ['admin' => 'Admin', 'tenant' => 'Tenant'], 'class' => 'form-control']);
     ?>

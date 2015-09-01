@@ -39,6 +39,9 @@ class RequestsController extends AppController
 
         $requests = $this->Requests->find('all')->contain('People');
         $this->set(compact('requests'));
+
+        $allUsers = $this->Users;
+        $this->set(compact('allUsers'));
     }
 
     public function view($id = null)

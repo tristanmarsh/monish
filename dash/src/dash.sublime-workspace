@@ -51,6 +51,70 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "Template/Element/login.ctp",
+			"settings":
+			{
+				"buffer_size": 2718,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Template/Layout/default.ctp",
+			"settings":
+			{
+				"buffer_size": 3926,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Controller/RecoveriesController.php",
+			"settings":
+			{
+				"buffer_size": 1317,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Template/Element/recovery.ctp",
+			"settings":
+			{
+				"buffer_size": 2496,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Template/Users/forgot_password.ctp",
+			"settings":
+			{
+				"buffer_size": 2213,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Template/Users/reset_password.ctp",
+			"settings":
+			{
+				"buffer_size": 2391,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Template/Element/changepassword.ctp",
+			"settings":
+			{
+				"buffer_size": 1585,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Controller/TenantsController.php",
+			"settings":
+			{
+				"buffer_size": 10734,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -192,7 +256,11 @@
 	},
 	"file_history":
 	[
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tests/tenants.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/change_password",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/add.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/recovery.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/panel.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
@@ -208,6 +276,7 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/dash.sublime-workspace",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Students/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Students/edit.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
 		"/Users/dev/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/footer.scss",
@@ -314,12 +383,7 @@
 		"/Volumes/Data/Documents/Uni/FIT3020/Week 12/InfoVis Week 12 Vis.txt",
 		"/Volumes/Data/Documents/Uni/Archive/Monash/2014/Semester 2/Emergent Technologies/Week 2/Lecture/FIT3138 Lecture 2",
 		"/Applications/MAMP/htdocs/diacos/wp-content/themes/diacos-salient-child/header.php",
-		"/Applications/MAMP/htdocs/diacos/wp-content/themes/diacos-salient-child/css/dynamic-combined.css",
-		"/Applications/MAMP/htdocs/diacos/wp-content/themes/salient/js/init.js",
-		"/Applications/MAMP/htdocs/diacos/wp-content/themes/salient/header.php",
-		"/Applications/MAMP/htdocs/diacos/wp-content/themes/salient/functions.php",
-		"/Applications/MAMP/htdocs/diacos/wp-content/themes/salient/css/dynamic-combined.css",
-		"/Applications/MAMP/htdocs/diacos/wp-content/themes/salient/css/custom.php"
+		"/Applications/MAMP/htdocs/diacos/wp-content/themes/diacos-salient-child/css/dynamic-combined.css"
 	],
 	"find":
 	{
@@ -327,7 +391,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 			"",
@@ -349,9 +413,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"img",
-			"action",
-			"glyphion",
+			"flash",
+			"$this->element('login')",
+			"$this->element('recovery')",
+			"element('sidebar')",
+			"element ('sidebar')",
+			"recovery",
 			"log-in-window",
 			"transition",
 			"main-content",
@@ -473,10 +540,7 @@
 			"meta",
 			"table",
 			"favicon",
-			"panel",
-			"login",
-			"table",
-			"th"
+			"panel"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -516,6 +580,223 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Template/Element/login.ctp",
+					"settings":
+					{
+						"buffer_size": 2718,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								489,
+								489
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 155.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Template/Layout/default.ctp",
+					"settings":
+					{
+						"buffer_size": 3926,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3283,
+								3283
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1175.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Controller/RecoveriesController.php",
+					"settings":
+					{
+						"buffer_size": 1317,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								419,
+								419
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 176.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Template/Element/recovery.ctp",
+					"settings":
+					{
+						"buffer_size": 2496,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								745,
+								745
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 251.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Template/Users/forgot_password.ctp",
+					"settings":
+					{
+						"buffer_size": 2213,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2021,
+								2021
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 146.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Template/Users/reset_password.ctp",
+					"settings":
+					{
+						"buffer_size": 2391,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2368,
+								2368
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 161.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Template/Element/changepassword.ctp",
+					"settings":
+					{
+						"buffer_size": 1585,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1436,
+								1436
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 206.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "Controller/TenantsController.php",
+					"settings":
+					{
+						"buffer_size": 10734,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								185,
+								185
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -569,8 +850,20 @@
 		"selected_items":
 		[
 			[
-				"tables.scss",
-				"scss/tables.scss"
+				"tenants",
+				"dash/src/Template/Tests/tenants.ctp"
+			],
+			[
+				"reset",
+				"dash/src/Template/Users/reset_password.ctp"
+			],
+			[
+				"request/",
+				"dash/src/Template/Requests/add.ctp"
+			],
+			[
+				"forgot",
+				"dash/src/Template/Users/forgot_password.ctp"
 			],
 			[
 				"requests/index",
@@ -763,6 +1056,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 216.0,
 	"status_bar_visible": true
 }

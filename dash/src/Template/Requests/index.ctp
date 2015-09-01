@@ -8,12 +8,6 @@
 <!-- Tristan's Gravatar Script  - should be replaced with offical PHP API -->
 <!-- Also this is bad because it does not specify the size of the source image! Should be 2x the displayed image height for retina displays -->
 
-<?php
-    $emailHash = md5( strtolower( trim( 'tristanmarsh@live.com' ) ) );
-    // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
-    $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
-    $gravatarImage = '<img height="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
-?>
 
 <h1>Requests</h1>
 
@@ -83,7 +77,8 @@
                 <th>Category</th>
                 <th>Property</th>
                 <th>Requested</th>
-                <th>Status</th>
+<!--                 <th>Status</th> -->
+                <th>Property Access</th>
                 <th>Edit</th>
                 <th>Close</th>
             </tr>
@@ -91,11 +86,25 @@
             <tbody>
             <?php foreach ($requests as $request): ?>
     			<?php if ($request->person_id === $userEntity->person_id OR $user['role'] === 'admin') : ?>
-                    <tr>
+                    
+                    <?php if ($request->status=='Unread'): ?>
+                    <tr class="unread">
+                        <?php else: ?>
+                        <tr>
+                    <?php endif ?>
 
                         <td>
                             <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+
+                            <?php
+                                $emailHash = md5( strtolower( trim( $request->person->email ) ) );
+                                // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
+                                $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
+                                $gravatarImage = '<img height="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+                            ?>
+
                             <?= $gravatarImage; ?>
+
                             <span>
                                 <?= $request->person->first_name; ?>
                                 <?= " ".$request->person->last_name; ?>
@@ -126,10 +135,16 @@
                                 <?= $request->created->format('d/m/Y') ?>
                             </span>
                         </td>
-                        <td>
+<!--                         <td>
                                 <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
                             <span>
                                 <?= $request->status ?>
+                            </span>
+                        </td> -->
+                        <td>
+                                <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+                            <span>
+                                <?= $request->entry_time ?>
                             </span>
                         </td>
                         <td class="action action-edit">

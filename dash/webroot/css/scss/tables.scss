@@ -143,6 +143,14 @@ table {
 
   }
 
+  & tr.unread {
+    
+    &>td {
+      font-weight:bold;
+    }
+
+  }
+
   // No need to apply border radius when table footer has same effect
   // & tr:last-child td:first-child {
   //   border-bottom-left-radius:5px;

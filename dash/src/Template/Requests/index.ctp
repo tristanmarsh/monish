@@ -77,8 +77,8 @@
                 <th>Category</th>
                 <th>Property</th>
                 <th>Requested</th>
-                <th>Status</th>
-                <th>Entry Time</th>
+<!--                 <th>Status</th> -->
+                <th>Property Access</th>
                 <th>Edit</th>
                 <th>Close</th>
             </tr>
@@ -135,12 +135,12 @@
                                 <?= $request->created->format('d/m/Y') ?>
                             </span>
                         </td>
-                        <td>
+<!--                         <td>
                                 <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
                             <span>
                                 <?= $request->status ?>
                             </span>
-                        </td>
+                        </td> -->
                         <td>
                                 <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
                             <span>

@@ -114,7 +114,8 @@ class UsersController extends AppController
                         {
                             $this->Flash->success('Password Has been updated');
 
-                            $this->redirect(['controller' => 'users', 'action' => 'login']);
+                            //Redirects home rather than to a controller to prevent error access message
+                            $this->redirect('/');
                         }
                         
                     }

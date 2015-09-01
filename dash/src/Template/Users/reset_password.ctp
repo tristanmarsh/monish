@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-<!-- <!-- src/Template/Users/reset_password.ctp -->
+
+<!-- <! src/Template/Users/reset_password.ctp -->
 <head>
     <?= $this->Html->charset() ?>
     
@@ -53,9 +53,6 @@
     <?php echo $this->element('changepassword'); ?>
 
 </body>
-=======
-<!-- src/Template/Users/reset_password.ctp -->
-
 
 <h1>Reset Password</h1>
 

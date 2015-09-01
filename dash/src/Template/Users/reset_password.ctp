@@ -2,9 +2,7 @@
 <!-- <! src/Template/Users/reset_password.ctp -->
 <head>
     <?= $this->Html->charset() ?>
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
@@ -29,7 +27,6 @@
     </title>
 
     <!-- <?= $this->Html->meta('icon') ?> -->
-
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('custom.css') ?>
     <?= $this->Html->css('animate.min.css') ?>
@@ -46,7 +43,6 @@
     </script>
 
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
-
 
 </head>
 <body>
@@ -65,13 +61,13 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        <input type="password" name="password" class="form-control" placeholder="Enter password">
+                        <input type="password" name="password" class="form-control" placeholder="Enter new password">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        <input type="password" name="confirm_password" class="form-control" placeholder="Enter password">
+                        <input type="password" name="confirm_password" class="form-control" placeholder="Confirm new password">
                     </div>
                 </div>
                 <div class="form-group">
@@ -82,4 +78,3 @@
         </div>
     </div>
 </div>
->>>>>>> origin/develop

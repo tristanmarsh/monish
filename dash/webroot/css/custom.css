@@ -12,6 +12,21 @@ Since:    29/4/15
     opacity: 0; }
   100% {
     opacity: 1; } }
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 @keyframes fadeIn {
   0% {
     opacity: 0; }
@@ -24,15 +39,34 @@ Since:    29/4/15
   100% {
     opacity: 1;
     -webkit-transform: translateY(0); } }
+@-moz-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-20px); }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0); } }
+@-ms-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -ms-transform: translateY(-20px); }
+  100% {
+    opacity: 1;
+    -ms-transform: translateY(0); } }
+@-o-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -ms-transform: translateY(-20px); }
+  100% {
+    opacity: 1;
+    -ms-transform: translateY(0); } }
 @keyframes fadeInDown {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(-20px);
-            transform: translateY(-20px); }
+    transform: translateY(-20px); }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0); } }
+    transform: translateY(0); } }
 @-webkit-keyframes fadeInDownBig {
   0% {
     opacity: 0;
@@ -40,15 +74,34 @@ Since:    29/4/15
   100% {
     opacity: 1;
     -webkit-transform: translateY(0); } }
+@-moz-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-2000px); }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0); } }
+@-ms-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -ms-transform: translateY(-2000px); }
+  100% {
+    opacity: 1;
+    -ms-transform: translateY(0); } }
+@-o-keyframes fadeInDownBig {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(-2000px); }
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0); } }
 @keyframes fadeInDownBig {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(-2000px);
-            transform: translateY(-2000px); }
+    transform: translateY(-2000px); }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0); } }
+    transform: translateY(0); } }
 @-webkit-keyframes fadeInLeft {
   0% {
     opacity: 0;
@@ -56,15 +109,34 @@ Since:    29/4/15
   100% {
     opacity: 1;
     -webkit-transform: translateX(0); } }
+@-moz-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-20px); }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0); } }
+@-ms-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -ms-transform: translateX(-20px); }
+  100% {
+    opacity: 1;
+    -ms-transform: translateX(0); } }
+@-o-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-20px); }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0); } }
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-20px);
-            transform: translateX(-20px); }
+    transform: translateX(-20px); }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0); } }
+    transform: translateX(0); } }
 @-webkit-keyframes fadeInLeftBig {
   0% {
     opacity: 0;
@@ -72,15 +144,34 @@ Since:    29/4/15
   100% {
     opacity: 1;
     -webkit-transform: translateX(0); } }
+@-moz-keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-2000px); }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0); } }
+@-ms-keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    -ms-transform: translateX(-2000px); }
+  100% {
+    opacity: 1;
+    -ms-transform: translateX(0); } }
+@-o-keyframes fadeInLeftBig {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-2000px); }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0); } }
 @keyframes fadeInLeftBig {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-2000px);
-            transform: translateX(-2000px); }
+    transform: translateX(-2000px); }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0); } }
+    transform: translateX(0); } }
 @-webkit-keyframes fadeInRight {
   0% {
     opacity: 0;
@@ -88,15 +179,34 @@ Since:    29/4/15
   100% {
     opacity: 1;
     -webkit-transform: translateX(0); } }
+@-moz-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(20px); }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0); } }
+@-ms-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -ms-transform: translateX(20px); }
+  100% {
+    opacity: 1;
+    -ms-transform: translateX(0); } }
+@-o-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(20px); }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0); } }
 @keyframes fadeInRight {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(20px);
-            transform: translateX(20px); }
+    transform: translateX(20px); }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0); } }
+    transform: translateX(0); } }
 @-webkit-keyframes fadeInRightBig {
   0% {
     opacity: 0;
@@ -104,15 +214,34 @@ Since:    29/4/15
   100% {
     opacity: 1;
     -webkit-transform: translateX(0); } }
+@-moz-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(2000px); }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0); } }
+@-ms-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -ms-transform: translateX(2000px); }
+  100% {
+    opacity: 1;
+    -ms-transform: translateX(0); } }
+@-o-keyframes fadeInRightBig {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(2000px); }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0); } }
 @keyframes fadeInRightBig {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(2000px);
-            transform: translateX(2000px); }
+    transform: translateX(2000px); }
   100% {
     opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0); } }
+    transform: translateX(0); } }
 @-webkit-keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -120,15 +249,34 @@ Since:    29/4/15
   100% {
     opacity: 1;
     -webkit-transform: translateY(0); } }
+@-moz-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(20px); }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0); } }
+@-ms-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -ms-transform: translateY(20px); }
+  100% {
+    opacity: 1;
+    -ms-transform: translateY(0); } }
+@-o-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(20px); }
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0); } }
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(20px);
-            transform: translateY(20px); }
+    transform: translateY(20px); }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0); } }
+    transform: translateY(0); } }
 @-webkit-keyframes fadeInUpBig {
   0% {
     opacity: 0;
@@ -136,21 +284,38 @@ Since:    29/4/15
   100% {
     opacity: 1;
     -webkit-transform: translateY(0); } }
+@-moz-keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(2000px); }
+  100% {
+    opacity: 1;
+    -moz-transform: translateY(0); } }
+@-ms-keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -ms-transform: translateY(2000px); }
+  100% {
+    opacity: 1;
+    -ms-transform: translateY(0); } }
+@-o-keyframes fadeInUpBig {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(2000px); }
+  100% {
+    opacity: 1;
+    -o-transform: translateY(0); } }
 @keyframes fadeInUpBig {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(2000px);
-            transform: translateY(2000px); }
+    transform: translateY(2000px); }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0); } }
+    transform: translateY(0); } }
 /* Make clicks pass-through */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/nprogress\.scss}line{font-family:\000032}}
 #nprogress {
   pointer-events: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/nprogress\.scss}line{font-family:\000036}}
 #nprogress .bar {
   background: #29d;
   position: fixed;
@@ -161,7 +326,6 @@ Since:    29/4/15
   height: 2px; }
 
 /* Fancy blur effect */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/nprogress\.scss}line{font-family:\0000319}}
 #nprogress .peg {
   display: block;
   position: absolute;
@@ -175,7 +339,6 @@ Since:    29/4/15
   transform: rotate(3deg) translate(0px, -4px); }
 
 /* Remove these to get rid of the spinner */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/nprogress\.scss}line{font-family:\0000334}}
 #nprogress .spinner {
   display: block;
   position: fixed;
@@ -183,7 +346,6 @@ Since:    29/4/15
   top: 15px;
   right: 15px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/nprogress\.scss}line{font-family:\0000342}}
 #nprogress .spinner-icon {
   width: 18px;
   height: 18px;
@@ -195,12 +357,10 @@ Since:    29/4/15
   -webkit-animation: nprogress-spinner 400ms linear infinite;
   animation: nprogress-spinner 400ms linear infinite; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/nprogress\.scss}line{font-family:\0000356}}
 .nprogress-custom-parent {
   overflow: hidden;
   position: relative; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/nprogress\.scss}line{font-family:\0000361}}
 .nprogress-custom-parent #nprogress .spinner,
 .nprogress-custom-parent #nprogress .bar {
   position: absolute; }
@@ -212,18 +372,15 @@ Since:    29/4/15
     -webkit-transform: rotate(360deg); } }
 @keyframes nprogress-spinner {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
+    transform: rotate(0deg); }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }
+    transform: rotate(360deg); } }
 @font-face {
   font-family: 'icomoon';
   src: url("../fonts/icomoon.eot?hi5vxy");
   src: url("../fonts/icomoon.eot?#iefixhi5vxy") format("embedded-opentype"), url("../fonts/icomoon.ttf?hi5vxy") format("truetype"), url("../fonts/icomoon.woff?hi5vxy") format("woff"), url("../fonts/icomoon.svg?hi5vxy#icomoon") format("svg");
   font-weight: normal;
   font-style: normal; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/font-icomoon-monish\.scss}line{font-family:\0000312}}
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
   speak: none;
@@ -236,7 +393,6 @@ Since:    29/4/15
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/font-icomoon-monish\.scss}line{font-family:\0000326}}
 .icon-monish:before {
   content: "\e600"; }
 
@@ -260,31 +416,24 @@ Purpose:  Style for small devices
 Since:    3/6/15
 */
 @media (max-width: 767px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sm\.scss}line{font-family:\0000312}}
   .clearing.col-sm-6:nth-of-type(2n+1) {
     clear: left; } }
 @media (min-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sm\.scss}line{font-family:\0000320}}
   .clearing.col-sm-6:nth-of-type(2n+1) {
     clear: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sm\.scss}line{font-family:\0000324}}
   .clearing.col-md-4:nth-of-type(2n+1) {
     clear: left; } }
 @media (min-width: 992px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sm\.scss}line{font-family:\0000333}}
   .clearing.col-md-4:nth-of-type(2n+1) {
     clear: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sm\.scss}line{font-family:\0000337}}
   .clearing.col-lg-3:nth-of-type(3n+1) {
     clear: left; } }
 @media (min-width: 1200px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sm\.scss}line{font-family:\0000346}}
   .clearing.col-lg-3:nth-of-type(3n+1) {
     clear: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sm\.scss}line{font-family:\0000350}}
   .clearing.col-lg-3:nth-of-type(4n+1) {
     clear: left; } }
 /*
@@ -302,11 +451,8 @@ Purpose:  All custom styling for the Monish Dashboard Footer
 Since:    28/5/15
 
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/footer\.scss}line{font-family:\0000310}}
 .footer-container {
-  -webkit-transition: all 400ms ease;
-          transition: all 400ms ease; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/footer\.scss}line{font-family:\0000313}}
+  transition: all 400ms ease; }
   .footer-container footer {
     max-width: 100%;
     position: static;
@@ -317,36 +463,26 @@ Since:    28/5/15
     padding: 40px 0;
     color: #fff;
     font-size: 1.4rem;
-    -webkit-transition: all 400ms ease;
-            transition: all 400ms ease;
+    transition: all 400ms ease;
     overflow-x: hidden; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/footer\.scss}line{font-family:\0000327}}
     .footer-container footer h3 {
       margin-top: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/footer\.scss}line{font-family:\0000331}}
     .footer-container footer a {
       color: #fff;
-      -webkit-transition: all 400ms ease;
-              transition: all 400ms ease; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/footer\.scss}line{font-family:\0000336}}
+      transition: all 400ms ease; }
     .footer-container footer .col-md-3 {
       padding: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/footer\.scss}line{font-family:\0000340}}
     .footer-container footer .credits {
       font-size: 1.2rem; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/footer\.scss}line{font-family:\0000343}}
       .footer-container footer .credits, .footer-container footer .credits a {
         color: #ECEDFA; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/footer\.scss}line{font-family:\0000350}}
     .footer-container footer:hover > .credits, .footer-container footer:hover > .credits a {
       color: #fff; }
 
 @media (max-width: 991px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/footer\.scss}line{font-family:\0000374}}
   .footer-container footer .col-md-4:nth-of-type(1n) {
     text-align: center; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/footer\.scss}line{font-family:\0000378}}
   .credits,
   .credits .col-sm-6.text-right {
     text-align: center !important; } }
@@ -356,12 +492,10 @@ Author:   Team Dash
 Author URI: http://wiki.tristanmarsh.net/dash/
 Since:    3/6/15
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\0000313}}
 .nav > li > a:hover, .nav > li > a:focus {
   text-decoration: none;
   background: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\0000318}}
 .sidebar {
   width: 60px;
   position: fixed;
@@ -372,40 +506,30 @@ Since:    3/6/15
   overflow-x: hidden;
   padding: 0;
   background-color: #293846;
-  -webkit-transition: -webkit-transform 200ms ease;
-          transition: transform 200ms ease;
+  transition: transform 200ms ease;
   overflow-x: hidden; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\0000331}}
   .sidebar .nav-sidebar {
     margin-left: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\0000335}}
   .sidebar ul {
     padding-left: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\0000340}}
   .sidebar li {
     display: block;
     position: relative;
     font-size: 2rem;
     border-bottom: 1px solid #334658;
     height: 6rem; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\0000347}}
     .sidebar li .menu-item-link {
       display: block;
       color: #5F666C;
-      -webkit-transition: color 200ms ease;
-              transition: color 200ms ease;
+      transition: color 200ms ease;
       height: 100%;
       padding: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\0000356}}
       .sidebar li .menu-item-link #icon-monish-home {
         font-size: 4rem;
         color: #76AADB !important; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\0000361}}
       .sidebar li .menu-item-link .gravatar {
         opacity: 0.8;
-        -webkit-transition: opacity 200ms ease;
-                transition: opacity 200ms ease; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\0000366}}
+        transition: opacity 200ms ease; }
       .sidebar li .menu-item-link .glyphicon {
         position: static;
         vertical-align: middle;
@@ -414,10 +538,8 @@ Since:    3/6/15
         margin: 0 auto;
         margin-left: -10px;
         text-align: center; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\0000375}}
         .sidebar li .menu-item-link .glyphicon:before {
           text-align: center; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\0000381}}
       .sidebar li .menu-item-link .menu-item-label {
         position: absolute;
         white-space: nowrap;
@@ -426,193 +548,154 @@ Since:    3/6/15
         top: 1.7rem;
         font-size: 2rem;
         color: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\0000397}}
     .sidebar li[data-original-title="Home"] > a.menu-item-link, .sidebar li[title="Home"] > a.menu-item-link {
       background: rgba(0, 0, 0, 0.4);
-      -webkit-transition: none;
-              transition: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003101}}
+      transition: none; }
       .sidebar li[data-original-title="Home"] > a.menu-item-link #icon-monish-home.icon-monish:before, .sidebar li[title="Home"] > a.menu-item-link #icon-monish-home.icon-monish:before {
         color: #76AADB !important; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003107}}
     .sidebar li[data-original-title="Home"]:hover > a.menu-item-link, .sidebar li[title="Home"]:hover > a.menu-item-link {
       background: rgba(0, 0, 0, 0.4); }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003114}}
     .sidebar li .menu-item-link.active {
       background: rgba(0, 0, 0, 0.2); }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003117}}
       .sidebar li .menu-item-link.active .glyphicon,
       .sidebar li .menu-item-link.active .menu-item-label {
         color: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003131}}
   .sidebar li:active .menu-item-link,
   .sidebar li:focus .menu-item-link,
   .sidebar li:hover .menu-item-link {
     color: #D4D9E0;
     background: rgba(255, 255, 255, 0.05);
     color: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003141}}
   .sidebar li:active .gravatar,
   .sidebar li:focus .gravatar,
   .sidebar li:hover .gravatar {
     opacity: 1; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003152}}
 .sidebar,
 .navbar-fixed-top,
 .content {
-  -webkit-transition: all 400ms ease;
-          transition: all 400ms ease; }
+  transition: all 400ms ease; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003158}}
 .navigation-active .navbar-fixed-top,
 .navigation-active .content {
   margin-left: 0px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003164}}
 .tooltip.right {
   display: none !important;
   font-size: 2rem;
   -webkit-animation-name: fadeInLeft;
+  -moz-animation-name: fadeInLeft;
+  -ms-animation-name: fadeInLeft;
+  -o-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
   -webkit-animation-duration: 600ms;
+  -moz-animation-duration: 600ms;
+  -ms-animation-duration: 600ms;
+  -o-animation-duration: 600ms;
   animation-duration: 600ms;
   -webkit-animation-delay: 100ms;
+  -moz-animation-delay: 100ms;
+  -ms-animation-delay: 100ms;
+  -o-animation-delay: 100ms;
   animation-delay: 100ms;
   -webkit-animation-timing-function: ease;
+  -moz-animation-timing-function: ease;
+  -ms-animation-timing-function: ease;
+  -o-animation-timing-function: ease;
   animation-timing-function: ease;
   -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
   margin-left: -10px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003171}}
 .tooltip.right .tooltip-arrow {
   border-right-color: #374A5D; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003175}}
 .tooltip-inner {
   background: #374A5D; }
 
 @media (max-width: 480px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003184}}
   .sidebar {
-    -webkit-transform: translate3D(-100%, 0, 0);
-        -ms-transform: translate3D(-100%, 0, 0);
-            transform: translate3D(-100%, 0, 0);
+    transform: translate3D(-100%, 0, 0);
     padding-top: 71px;
     width: 300px;
-    -webkit-transition: -webkit-transform 400ms ease;
-            transition: transform 400ms ease; }
+    transition: transform 400ms ease; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003191}}
   .navigation-active {
     background-color: #293846; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003196}}
   .navigation-active .sidebar {
-    -webkit-transform: translate3D(0, 0, 0);
-        -ms-transform: translate3D(0, 0, 0);
-            transform: translate3D(0, 0, 0);
+    transform: translate3D(0, 0, 0);
     width: 300px;
-    -webkit-transition: width 0s ease;
-            transition: width 0s ease;
-    -webkit-transition-delay: 400ms;
-            transition-delay: 400ms;
-    -webkit-transition: -webkit-transform 400ms ease;
-            transition: transform 400ms ease; }
+    transition: width 0s ease;
+    transition-delay: 400ms;
+    transition: transform 400ms ease; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003204}}
   .navigation-active .content,
   .navigation-active .footer-container {
-    -webkit-transform: translate3D(20%, 0, 0);
-        -ms-transform: translate3D(20%, 0, 0);
-            transform: translate3D(20%, 0, 0); }
+    transform: translate3D(20%, 0, 0); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003209}}
   .navigation-active .main-content {
     opacity: 0.5; } }
 @media (min-width: 481px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003220}}
   .tooltip.right {
     display: block !important; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003224}}
   .sidebar {
-    -webkit-transform: translate3D(0, 0, 0);
-        -ms-transform: translate3D(0, 0, 0);
-            transform: translate3D(0, 0, 0);
+    transform: translate3D(0, 0, 0);
     width: 60px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003229}}
   .navbar-fixed-top,
   .content,
   .footer-container {
     margin-left: 60px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003236}}
   .navigation-active .sidebar {
-    -webkit-transform: translate3D(0, 0, 0);
-        -ms-transform: translate3D(0, 0, 0);
-            transform: translate3D(0, 0, 0);
+    transform: translate3D(0, 0, 0);
     width: 300px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003240}}
   .navigation-active .content {
-    -webkit-transform: translate3D(0, 0, 0);
-        -ms-transform: translate3D(0, 0, 0);
-            transform: translate3D(0, 0, 0); }
+    transform: translate3D(0, 0, 0); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003244}}
   .navigation-active .navbar-fixed-top,
   .navigation-active .content,
   .navigation-active .footer-container {
     margin-left: 300px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003250}}
   .navigation-active .tooltip.right {
     display: none !important; } }
 @media (min-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003263}}
   .tooltip.right {
     display: block !important; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003267}}
   .sidebar {
-    -webkit-transform: translate3D(0, 0, 0);
-        -ms-transform: translate3D(0, 0, 0);
-            transform: translate3D(0, 0, 0);
+    transform: translate3D(0, 0, 0);
     width: 60px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003272}}
   .navbar-fixed-top,
   .content,
   .footer-container {
     margin-left: 60px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003279}}
   .navigation-active .sidebar {
-    -webkit-transform: translate3D(0, 0, 0);
-        -ms-transform: translate3D(0, 0, 0);
-            transform: translate3D(0, 0, 0);
+    transform: translate3D(0, 0, 0);
     width: 300px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003283}}
   .navigation-active .content {
-    -webkit-transform: translate3D(0, 0, 0);
-        -ms-transform: translate3D(0, 0, 0);
-            transform: translate3D(0, 0, 0); }
+    transform: translate3D(0, 0, 0); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003287}}
   .navigation-active .navbar-fixed-top,
   .navigation-active .content,
   .navigation-active .footer-container {
     margin-left: 300px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/sidebar\.scss}line{font-family:\00003293}}
   .navigation-active .tooltip.right {
     display: none !important; } }
 /*
@@ -623,24 +706,21 @@ Purpose:  All custom styling for tables
 Since:    30/7/15
 
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\0000319}}
 body {
   color: #70808e; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\0000333}}
+.table-responsive {
+  border-radius: 0 0 5px 5px; }
+
 table {
   display: table;
   width: 100%;
   font-family: "Open Sans", sans-serif; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\0000341}}
   table * {
-    -webkit-transition: all 200ms ease;
-            transition: all 200ms ease; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\0000346}}
+    transition: all 200ms ease; }
   table a {
     color: #3C73C3;
     text-decoration: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\0000353}}
   table thead th {
     background: #2980b9;
     background: rgba(41, 128, 185, 0.5);
@@ -652,12 +732,10 @@ table {
     color: #fff;
     padding: 6px 12px;
     color: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\0000365}}
     table thead th:focus, table thead th:hover {
       background: #2e8ece;
       color: #fff;
       text-decoration: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\0000373}}
     table thead th:after {
       content: '\25B2';
       position: absolute;
@@ -665,209 +743,178 @@ table {
       right: 1em;
       font-size: 0.8em;
       opacity: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\0000383}}
     table thead th[class^='sorting_'] {
       background: #2472a4; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\0000388}}
     table thead th:focus:after, table thead th:hover:after {
       opacity: 1; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\0000394}}
     table thead th[class^='sorting_']:after {
       opacity: 1; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\0000399}}
     table thead th.asc:after {
       content: inherit; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003104}}
     table thead th.sorting_desc:after {
       content: '\25BC'; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003112}}
   table tr {
     background: #fcfcfc;
     border-bottom: 1px solid #D5E4F1; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003117}}
   table tr:nth-of-type(odd) {
     background: whitesmoke; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003121}}
   table tr:last-child {
     border-bottom: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003125}}
   table tr:focus td, table tr:hover td {
     background: white;
     cursor: pointer; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003141}}
+  table tr.unread > td {
+    font-weight: bold; }
   table td a {
     display: block;
     text-align: center; }
   @media screen and (max-width: 580px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\0000333}}
     table {
       padding: 8px 0; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003151}}
   table td {
     padding: 0 10px 0 10px;
     position: relative;
     height: 100%;
     overflow: hidden; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003159}}
   table td > * {
     color: #555; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003164}}
   table td > span,
   table td > img {
     padding: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003171}}
   table td:first-child > img.gravatar {
     margin-left: -10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003176}}
   table td:first-child > img.gravatar + span {
     margin-left: 10px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003180}}
   table td.action > a {
     display: block;
     margin: -10em;
     padding: 10em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003187}}
   table td.action > a span:before,
   table td.action > a span:before {
     color: #409ad5; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003193}}
   table td.action > a:focus,
   table td.action > a:hover {
     background: #409ad5; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003200}}
   table td.action-close > a span:before,
   table td.action-close > a span:before {
     color: #86db9f; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003206}}
   table td.action-close > a:focus,
   table td.action-close > a:hover {
     background: #86db9f; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003212}}
   table td > a:focus > span.glyphicon:before,
   table td > a:hover > span.glyphicon:before {
     color: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003218}}
   table td > [href*="view"] {
     padding: 0; }
     @media screen and (max-width: 580px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003218}}
       table td > [href*="view"] {
         padding: 0; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/tables\.scss}line{font-family:\00003225}}
   table .checkbox {
     margin: 0; }
 
 /*
-Name:   tables.SCSS
+Name:   datatables.SCSS
 Author:   Team Dash
 Author URI: http://wiki.tristanmarsh.net/dash/
-Purpose:  All custom styling for tables
+Purpose:  Style applying specifically to our datatables components
 Since:    15/8/15
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/datatables\.scss}line{font-family:\000039}}
-#requests_filter {
-  display: none; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/datatables\.scss}line{font-family:\0000313}}
-#requests_length {
-  display: none; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/datatables\.scss}line{font-family:\0000317}}
-.dataTables_length {
-  display: none; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/datatables\.scss}line{font-family:\0000321}}
-#requests_info {
-  position: fixed;
-  padding-top: 10px;
-  padding-left: 10px; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/datatables\.scss}line{font-family:\0000327}}
-#requests > thead > tr > th {
-  padding-left: 10px; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/datatables\.scss}line{font-family:\0000331}}
-.dataTables_wrapper .dataTables_paginate {
-  float: right;
-  text-align: center;
-  padding-bottom: 0.25em;
-  padding-right: 16px; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/datatables\.scss}line{font-family:\0000337}}
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-  box-sizing: border-box;
-  display: inline-block;
-  min-width: 1.5em;
-  padding: 0.5em 1em;
-  margin-left: 2px;
-  text-align: center;
-  text-decoration: none !important;
-  cursor: pointer;
-  *cursor: hand;
-  color: #333 !important;
-  border: 1px solid transparent;
-  border-radius: 2px; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/datatables\.scss}line{font-family:\0000352}}
-.dataTables_wrapper .dataTables_paginate .ellipsis {
-  padding: 0 1em; }
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/datatables\.scss}line{font-family:\0000357}}
-table.dataTable thead .sorting,
-table.dataTable thead .sorting_asc,
-table.dataTable thead .sorting_desc {
-  cursor: pointer;
-  *cursor: hand; }
+.dataTables_wrapper {
+  /* #### Pagination #### */
+  /* #### Sorting Table Heads #### */ }
+  .dataTables_wrapper #requests_filter {
+    display: none; }
+  .dataTables_wrapper #requests_length {
+    display: none; }
+  .dataTables_wrapper .dataTables_length {
+    display: none; }
+  .dataTables_wrapper #requests > thead > tr > th {
+    padding-left: 10px; }
+  .dataTables_wrapper .dataTables_info {
+    display: block;
+    position: static;
+    float: left;
+    line-height: 32px;
+    padding-left: 10px;
+    vertical-align: middle; }
+  .dataTables_wrapper .dataTables_paginate {
+    position: relative;
+    display: block;
+    float: right;
+    padding-top: 7px; }
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+      box-sizing: border-box;
+      padding: 6px 12px;
+      line-height: 1.42857143;
+      text-decoration: none;
+      color: #70808e;
+      background: #fff;
+      margin-left: -1px;
+      border: 1px solid #D5E4F1;
+      border-right: 0;
+      border-bottom: 0;
+      cursor: pointer;
+      transition: all 200ms ease; }
+      .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+        cursor: not-allowed; }
+      .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        background-color: #D5E4F1;
+        color: #555; }
+      .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current > span, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.current > span:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.current:focus, .dataTables_wrapper .dataTables_paginate .paginate_button.current > span:focus {
+        z-index: 2;
+        color: #fff;
+        background-color: #B2CFE9;
+        border-color: #B2CFE9;
+        cursor: default; }
+      .dataTables_wrapper .dataTables_paginate .paginate_button:last-child {
+        border-bottom-right-radius: 4px; }
+    .dataTables_wrapper .dataTables_paginate > span > .paginate_button:first-child, .dataTables_wrapper .dataTables_paginate > span > .paginate_button:last-child {
+      border-radius: 0; }
+  .dataTables_wrapper table.dataTable thead .sorting,
+  .dataTables_wrapper table.dataTable thead .sorting_asc,
+  .dataTables_wrapper table.dataTable thead .sorting_desc {
+    cursor: pointer;
+    *cursor: hand; }
 
 /*
-Name:   Blobal.SCSS
+Name:   Global.SCSS
 Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  Global styling for the Monish Dashboard
 Since:    31/7/15
 
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\000039}}
 body {
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   background: #b2cfe9; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\0000333}}
 .logo {
   margin-top: 2vw; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\0000338}}
 .log-in-window {
   margin-top: 20px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\0000342}}
 .img-center {
   margin: 0 auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\0000367}}
 a {
   color: #618DB6; }
 
 /* #### NAVBAR #### */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\0000373}}
 .navbar {
   background: #fff;
   border-bottom: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\0000377}}
   .navbar .nav > li > a {
     position: relative;
     display: block;
     padding: 5px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\0000387}}
 header {
   height: auto;
   padding: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\0000391}}
   header .page-header {
     margin-top: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\0000395}}
   header .breadcrumb {
     margin-left: 0;
     margin-bottom: 0;
@@ -878,41 +925,32 @@ header {
     background: rgba(118, 170, 219, 0.8);
     background: #337ab7;
     color: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003106}}
     header .breadcrumb a {
       display: inline-block;
       font-size: 1.4rem;
       font-weight: lighter;
       color: #fff;
-      -webkit-transition: all 400ms ease;
-              transition: all 400ms ease;
+      transition: all 400ms ease;
       background: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003116}}
     header .breadcrumb a.active:hover,
     header .breadcrumb a:hover {
       text-decoration: none;
       background: #b2cfe9;
       color: #337ab7; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003123}}
     header .breadcrumb a.active {
       color: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003128}}
     header .breadcrumb ul {
       display: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003136}}
 .navbar-image img {
   max-width: 100%;
   height: 40px !important; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003143}}
 .navbar {
   margin-bottom: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003147}}
   .navbar .navbar-brand {
     padding: 5px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003155}}
 h1,
 h2,
 h3,
@@ -922,96 +960,94 @@ h6 {
   font-family: "Roboto Slab", serif;
   color: #5986AD; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003167}}
 .alert {
   margin-top: 20px;
   border-width: 0;
   color: #fff; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003172}}
   .alert .close {
     top: -4px;
     font-size: 3rem;
     color: #fff;
     opacity: 0.5; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003181}}
 .alert-success {
   background-color: #5fcf80; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003186}}
 .alert-danger {
   background-color: #ED5A5A; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003190}}
 .panel {
   box-shadow: 0 3px rgba(118, 170, 219, 0.2);
   box-shadow: 0 3px #D5E4F1;
   border-radius: 5px;
   margin-bottom: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003196}}
   .panel .panel-footer {
     padding: 0 15px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003200}}
   .panel .nav {
     padding: 10px 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003202}}
   .panel .nav-pills > li > a {
     border-radius: 100px;
     padding: 5px 15px;
     font-weight: 900;
     font-size: 1.6rem; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003212}}
 .panel-primary {
   -webkit-animation-name: fadeInUp;
+  -moz-animation-name: fadeInUp;
+  -ms-animation-name: fadeInUp;
+  -o-animation-name: fadeInUp;
   animation-name: fadeInUp;
   -webkit-animation-duration: 400ms;
+  -moz-animation-duration: 400ms;
+  -ms-animation-duration: 400ms;
+  -o-animation-duration: 400ms;
   animation-duration: 400ms;
   -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -ms-animation-delay: 0s;
+  -o-animation-delay: 0s;
   animation-delay: 0s;
   -webkit-animation-timing-function: ease;
+  -moz-animation-timing-function: ease;
+  -ms-animation-timing-function: ease;
+  -o-animation-timing-function: ease;
   animation-timing-function: ease;
   -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
   animation-fill-mode: both;
   -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
   -o-backface-visibility: hidden;
   backface-visibility: hidden; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003219}}
 .main-content {
   position: relative;
   overflow-x: hidden;
   overflow-y: scrollable;
   background: #ecf2f6;
-  -webkit-transition: all 400ms ease;
-          transition: all 400ms ease; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003239}}
+  transition: all 400ms ease; }
   .main-content .content {
     margin-top: 70px;
     min-height: 70vh;
     margin-bottom: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003248}}
   .main-content .panel-default,
   .main-content .panel-primary {
     border-color: #D5E4F1; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003254}}
   .main-content .paginator {
     margin-bottom: 60px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003257}}
     .main-content .paginator .pagination {
       box-shadow: 0 3px #D5E4F1;
       border-radius: 5px;
       border: 1px solid #D5E4F1; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003264}}
       .main-content .paginator .pagination li a {
         border-right: 1px solid #D5E4F1;
         border: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003269}}
       .main-content .paginator .pagination li a:last-child {
         border-right: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003283}}
 .navbar-toggle {
   display: block;
   position: relative;
@@ -1027,7 +1063,6 @@ h6 {
   left: 10px; }
 
 @media (min-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003299}}
   .navbar-toggle {
     display: block;
     position: relative;
@@ -1042,19 +1077,13 @@ h6 {
     border-radius: 4px;
     left: 10px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003314}}
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
     margin-left: 10px; } }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003325}}
 #navigation-toggle {
   background: #337ab7; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003327}}
   #navigation-toggle span {
     background: #eff5fa; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Applications\/MAMP\/htdocs\/monish\/dash\/webroot\/css\/scss\/global\.scss}line{font-family:\00003336}}
 .footer-container {
   overflow: hidden; }
-
-/*# sourceMappingURL=custom.css.map */

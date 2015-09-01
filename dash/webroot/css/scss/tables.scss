@@ -30,6 +30,12 @@ body {
 // }
 
 
+// Effective Table Footer
+.table-responsive {
+  border-radius: 0 0 5px 5px;
+  // background-color: #B2CFE9;
+}
+
 table {
   display: table;
   width: 100%;
@@ -126,6 +132,14 @@ table {
   & tr:hover td, {
     background: darken(#fff, 0%);
     cursor:pointer;
+  }
+
+  & tr.unread {
+    
+    &>td {
+      font-weight:bold;
+    }
+
   }
 
   // No need to apply border radius when table footer has same effect

@@ -34,8 +34,8 @@
 								<?= $this->Form->create() ?>
 								<fieldset>
 									<!-- <legend>Please enter your username and password</legend> -->
-									<?= $this->Form->input('username', array('class' => 'form-control', 'placeholder' => 'username')) ?>
-									<?= $this->Form->input('password', array('class' => 'form-control', 'placeholder' => 'password')) ?>
+									<?= $this->Form->input('username', array('class' => 'form-control', 'placeholder' => 'Enter email address')) ?>
+									<?= $this->Form->input('password', array('class' => 'form-control', 'placeholder' => 'Enter password')) ?>
 
 									 <!-- Set cookies later -->
 									<div class="checkbox">

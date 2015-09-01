@@ -1,6 +1,6 @@
 <?php
     $this->Html->addCrumb('Personal details', array('controller' => 'people', 'action' => 'index'));
-    $this->Html->addCrumb('Login Details');
+    $this->Html->addCrumb('Password');
 
 ?>
 

@@ -4,16 +4,16 @@
 
 	<div class="row">
 
-		<div class="logo">
-			<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House','class' => 'img-responsive img-center','width'=>'200px'])  ?>
-		   		<h1 class="text-center">Monash ISH Dashboard</h1>
-		</div>
 
 			<!-- <div class="col-sm-6 col-sm-offset-3 panel wow fadeInDown"> -->
 			<div class="panel log-in-window col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 
 				<div class="panel-body">
 
+					<div class="logo">
+						<?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House','class' => 'img-responsive img-center','width'=>'200px'])  ?>
+					   		<h1 class="text-center">Monash ISH Dashboard</h1>
+					</div>
 
 					<?= $this->Flash->render() ?>
 

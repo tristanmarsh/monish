@@ -9,11 +9,7 @@ Since:    15/8/15
 .dataTables_wrapper {
 
 
-  #requests_filter {
-    display: none;
-  }
-
-  #requests_length {
+  .dataTables_filter {
     display: none;
   }
 
@@ -21,7 +17,7 @@ Since:    15/8/15
     display: none;
   }
 
-  #requests > thead > tr > th {
+  .dataTables > thead > tr > th {
     padding-left:10px;
   }
 

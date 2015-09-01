@@ -766,6 +766,8 @@ table {
     *cursor: hand; }
   table tr.unread > td {
     font-weight: bold; }
+  table tr.unread > td {
+    font-weight: bold; }
   table td a {
     display: block;
     text-align: center; }
@@ -823,13 +825,11 @@ Since:    15/8/15
 .dataTables_wrapper {
   /* #### Sorting Table Heads #### */
   /* #### Pagination #### */ }
-  .dataTables_wrapper #requests_filter {
-    display: none; }
-  .dataTables_wrapper #requests_length {
+  .dataTables_wrapper .dataTables_filter {
     display: none; }
   .dataTables_wrapper .dataTables_length {
     display: none; }
-  .dataTables_wrapper #requests > thead > tr > th {
+  .dataTables_wrapper .dataTables > thead > tr > th {
     padding-left: 10px; }
   .dataTables_wrapper table.dataTable thead .sorting,
   .dataTables_wrapper table.dataTable thead .sorting_asc,

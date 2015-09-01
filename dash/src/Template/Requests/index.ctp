@@ -92,7 +92,12 @@
             <tbody>
             <?php foreach ($requests as $request): ?>
     			<?php if ($request->person_id === $userEntity->person_id OR $user['role'] === 'admin') : ?>
-                    <tr>
+                    
+                    <?php if ($request->status=='Unread'): ?>
+                    <tr class="unread">
+                        <?php else: ?>
+                        <tr>
+                    <?php endif ?>
 
                         <td>
                             <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>

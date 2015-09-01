@@ -8,6 +8,12 @@
 	$gravatarImage = '<img height="40px" class="img img-circle gravatar" src="' . $gravatarQuery . '"/>';
 ?>
 
+<?php
+	$currentauthid = $authid->user('id');
+	$currentuserEntity = $userEntity->get($currentauthid);
+	$currentpersonEntity = $personEntity->get($currentuserEntity->person_id);
+?>
+
 <ul class="nav nav-sidebar">
 
 	<?php if ($user['role'] === "admin") : ?>
@@ -116,7 +122,9 @@
 	<li data-toggle="tooltip" data-placement="right" title="Profile">
 		<?= $this->Html->link(
 		'<span>'. $gravatarImage .'</span>
-		<span class="menu-item-label">Profile</span>',
+		<span class="menu-item-label">'.
+			 $currentpersonEntity->first_name.' '.$currentpersonEntity->last_name
+		.'</span>',
 		array('controller' => 'people', 'action' => 'index'),
 		array('class' => 'menu-item-link', 'escape' => false)
 		); ?>
@@ -191,7 +199,9 @@
 	<li data-toggle="tooltip" data-placement="right" title="Profile">
 		<?= $this->Html->link(
 		'<span>'. $gravatarImage .'</span>
-		<span class="menu-item-label">Profile</span>',
+		<span class="menu-item-label">'.
+			 $currentpersonEntity->first_name.' '.$currentpersonEntity->last_name
+		.'</span>',
 		array('controller' => 'people', 'action' => 'index'),
 		array('class' => 'menu-item-link', 'escape' => false)
 		); ?>

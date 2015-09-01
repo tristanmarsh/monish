@@ -55,12 +55,10 @@ class AppController extends Controller
 		$this->loadModel('People');
         $this->loadModel('Users');
 
-        $authid = $this->Auth;
-        $this->set(compact('authid'));
-        $userEntity = $this->Users;
-        $this->set(compact('userEntity'));
-        $personEntity = $this->People;
-        $this->set(compact('personEntity'));
+        $userEntityy = $this->Users;
+        $this->set(compact('userEntityy'));
+        $personEntityy = $this->People;
+        $this->set(compact('personEntityy'));
     }
 
     public function beforeFilter(Event $event)

@@ -9,9 +9,9 @@
 ?>
 
 <?php
-	$currentauthid = $authid->user('id');
-	$currentuserEntity = $userEntity->get($currentauthid);
-	$currentpersonEntity = $personEntity->get($currentuserEntity->person_id);
+	$currentauthid = $user['id'];
+	$currentuserEntity = $userEntityy->get($currentauthid);
+	$currentpersonEntity = $personEntityy->get($currentuserEntity->person_id);
 ?>
 
 <ul class="nav nav-sidebar">
@@ -119,7 +119,7 @@
 		); ?>
 	</li>
 
-	<li data-toggle="tooltip" data-placement="right" title="Profile">
+	<li data-toggle="tooltip" data-placement="right" title="<?php echo ($currentpersonEntity->first_name.' '.$currentpersonEntity->last_name); ?>">
 		<?= $this->Html->link(
 		'<span>'. $gravatarImage .'</span>
 		<span class="menu-item-label">'.
@@ -196,7 +196,7 @@
 		); ?>
 	</li>
 
-	<li data-toggle="tooltip" data-placement="right" title="Profile">
+	<li data-toggle="tooltip" data-placement="right" title="<?php echo ($currentpersonEntity->first_name.' '.$currentpersonEntity->last_name); ?>">
 		<?= $this->Html->link(
 		'<span>'. $gravatarImage .'</span>
 		<span class="menu-item-label">'.

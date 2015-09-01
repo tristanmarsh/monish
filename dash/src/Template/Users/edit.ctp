@@ -17,7 +17,7 @@
             //echo $this->Form->input('person_id', ['options' => $people]);
             echo $this->Form->input('username', array('class' => 'form-control'));
             echo $this->Form->input('password', array('class' => 'form-control'));
-            //echo $this->Form->input('confirm_password', array('class' => 'form-control', 'type'  =>  'password'));
+            echo $this->Form->input('confirm_password', array('class' => 'form-control', 'type'  =>  'password'));
             ?>
             <br>
             <?php

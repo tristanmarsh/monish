@@ -84,6 +84,7 @@
                 <th>Property</th>
                 <th>Requested</th>
                 <th>Status</th>
+                <th>Entry Time</th>
                 <th>Edit</th>
                 <th>Close</th>
             </tr>
@@ -130,6 +131,12 @@
                                 <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
                             <span>
                                 <?= $request->status ?>
+                            </span>
+                        </td>
+                        <td>
+                                <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+                            <span>
+                                <?= $request->entry_time ?>
                             </span>
                         </td>
                         <td class="action action-edit">

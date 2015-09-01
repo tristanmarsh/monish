@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <?= $this->Form->button('Submit', ['type' => 'submit', 'class' => 'btn btn-lg btn-success btn-block']) ?>
+                    <?= $this->Form->button('Submit', ['type' => 'submit', 'class' => 'btn btn-lg btn-info btn-block']) ?>
                     <?= $this->Form->end() ?>
                 </div>
             </fieldset>

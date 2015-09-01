@@ -33,8 +33,8 @@
                                     <?php echo $this->Form->create('User', ['action' => 'forgot_password', 'novalidate' => true]); ?>
                                     <fieldset>
                                         <?php echo $this->Form->input('username',['class' => 'form-control',
-                                                                    'placeholder' => 'Enter username',
-                                                                    'label' => 'Email']);?>
+                                                                    'placeholder' => 'Enter email address',
+                                                                    'label' => 'Username']);?>
                                     </fieldset>
                                     <br>
 

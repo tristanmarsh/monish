@@ -78,6 +78,7 @@
                 <th>Property</th>
                 <th>Requested</th>
                 <th>Status</th>
+                <th>Entry Time</th>
                 <th>Edit</th>
                 <th>Close</th>
             </tr>
@@ -85,7 +86,12 @@
             <tbody>
             <?php foreach ($requests as $request): ?>
     			<?php if ($request->person_id === $userEntity->person_id OR $user['role'] === 'admin') : ?>
-                    <tr>
+                    
+                    <?php if ($request->status=='Unread'): ?>
+                    <tr class="unread">
+                        <?php else: ?>
+                        <tr>
+                    <?php endif ?>
 
                         <td>
                             <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
@@ -133,6 +139,12 @@
                                 <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
                             <span>
                                 <?= $request->status ?>
+                            </span>
+                        </td>
+                        <td>
+                                <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+                            <span>
+                                <?= $request->entry_time ?>
                             </span>
                         </td>
                         <td class="action action-edit">

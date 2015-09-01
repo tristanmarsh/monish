@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2015 at 09:56 AM
+-- Generation Time: Sep 01, 2015 at 10:30 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `leases` (
   KEY `student_id` (`student_id`),
   KEY `property_id` (`property_id`),
   KEY `property_id_2` (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `leases`
@@ -102,7 +102,8 @@ INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`
 (12, 13, 3, 11, '2015-07-15', '2016-11-23', 230),
 (13, 1, 1, 13, '2015-07-15', '2016-01-21', 500),
 (14, 17, 4, 14, '0000-00-00', '2015-07-09', 450),
-(15, 15, 4, 15, '2015-08-20', '2015-08-21', 200);
+(15, 15, 4, 15, '2015-08-20', '2015-08-21', 200),
+(16, 26, 6, 16, '2015-09-09', '2016-03-17', 500);
 
 -- --------------------------------------------------------
 
@@ -135,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `macaddresses` (
   `mac_address_ten` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `person_id` (`person_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `macaddresses`
@@ -147,7 +148,8 @@ INSERT INTO `macaddresses` (`id`, `person_id`, `device_name_one`, `device_name_t
 (3, 10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (4, 12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (5, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(6, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -164,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `people` (
   `phone` varchar(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `people`
@@ -177,7 +179,8 @@ INSERT INTO `people` (`id`, `first_name`, `last_name`, `common_name`, `gender`, 
 (12, 'Constance', 'Petrovski', 'Con', 'F', '0404040404', 'constance@constance.com'),
 (13, 'Darren', 'Man', 'Darraman', 'M', '0404040404', 'darren@darren.com'),
 (14, 'Esther', 'Dear', 'Esther', 'F', '0404040404', 'esther@esther.com'),
-(15, 'Fiona', 'Lee', 'Feefee', 'F', '04940303030', 'fiona@fiona.com');
+(15, 'Fiona', 'Lee', 'Feefee', 'F', '04940303030', 'fiona@fiona.com'),
+(16, 'Emma', 'Emma', 'Emma', 'M', '05146464146', 'ethanchen01@163.com');
 
 -- --------------------------------------------------------
 
@@ -235,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `category` enum('General','Maintenance','Internet','Lease') NOT NULL,
   `property_address` varchar(100) NOT NULL,
   `status` enum('Unread','Viewed') NOT NULL,
-  `entry_time` enum('Yes, Any Time','Yes, Between 10:am and 5:pm','No, please arrange a time with me','Not applicable') NOT NULL,
+  `entry_time` enum('Anytime','10am to 5pm','Arrange a time','N/A') NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`person_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
@@ -245,17 +248,17 @@ CREATE TABLE IF NOT EXISTS `requests` (
 --
 
 INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `person_id`, `category`, `property_address`, `status`, `entry_time`) VALUES
-(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-08-20 08:36:57', 10, 'Maintenance', '200 two street', 'Viewed', 'Yes, Any Time'),
-(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-04-13 14:52:26', 10, 'Maintenance', '200 two street', 'Unread', 'Yes, Any Time'),
-(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-08-20 06:56:00', 9, 'Maintenance', '200 two street', 'Viewed', 'Yes, Any Time'),
-(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-04-13 15:18:31', 12, 'Maintenance', '100 one street', 'Unread', 'Yes, Any Time'),
-(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 10, 'Maintenance', '100 one street', 'Unread', 'Yes, Any Time'),
-(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-04-16 05:25:43', 9, 'Maintenance', '100 one street', 'Unread', 'Yes, Any Time'),
-(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-04-25 09:33:29', 9, 'Maintenance', '300 three street', 'Unread', 'Yes, Any Time'),
-(17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-05-14 04:50:05', 9, 'General', '300 three street', 'Unread', 'Yes, Any Time'),
-(18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-14 04:49:49', 9, 'Internet', '300 three street', 'Unread', 'Yes, Any Time'),
-(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-14 04:49:37', 9, 'Lease', '300 three street', 'Unread', 'Yes, Any Time'),
-(20, 'Test001', 'this is the first test', '2015-09-01 07:52:29', '2015-09-01 07:52:29', 1, 'General', '100 one street', 'Unread', 'Yes, Between 10:am and 5:pm');
+(9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-09-01 08:18:59', 10, 'Maintenance', '200 two street', 'Viewed', 'Anytime'),
+(10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-04-13 14:52:26', 10, 'Maintenance', '200 two street', 'Unread', 'Anytime'),
+(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-09-01 08:28:21', 9, 'Maintenance', '200 two street', 'Viewed', 'Arrange a time'),
+(12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-04-13 15:18:31', 12, 'Maintenance', '100 one street', 'Unread', ''),
+(13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 10, 'Maintenance', '100 one street', 'Unread', ''),
+(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-09-01 08:28:34', 9, 'Maintenance', '100 one street', 'Unread', 'N/A'),
+(16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-09-01 08:28:44', 9, 'Maintenance', '300 three street', 'Unread', 'Anytime'),
+(17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-09-01 08:28:57', 9, 'General', '300 three street', 'Unread', '10am to 5pm'),
+(18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-14 04:49:49', 9, 'Internet', '300 three street', 'Unread', ''),
+(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-14 04:49:37', 9, 'Lease', '300 three street', 'Unread', ''),
+(20, 'Test001', 'this is the first test', '2015-09-01 07:52:29', '2015-09-01 07:52:29', 1, 'General', '100 one street', 'Unread', '');
 
 -- --------------------------------------------------------
 
@@ -302,7 +305,7 @@ INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
 (23, 5, 'room 4', 'TRUE'),
 (24, 5, 'room 5', 'FALSE'),
 (25, 6, 'room 1', 'TRUE'),
-(26, 6, 'room 2', 'TRUE'),
+(26, 6, 'room 2', 'FALSE'),
 (27, 6, 'room 3', 'TRUE');
 
 -- --------------------------------------------------------
@@ -319,7 +322,7 @@ CREATE TABLE IF NOT EXISTS `students` (
   PRIMARY KEY (`id`),
   KEY `person_id` (`person_id`),
   KEY `emergency_id` (`emergency_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `students`
@@ -331,7 +334,8 @@ INSERT INTO `students` (`id`, `person_id`, `emergency_id`, `internet_plan`) VALU
 (12, 12, NULL, 'Free'),
 (13, 13, NULL, 'Free'),
 (14, 14, NULL, 'Premium'),
-(15, 15, NULL, 'Free');
+(15, 15, NULL, 'Free'),
+(16, 16, NULL, 'Free');
 
 -- --------------------------------------------------------
 
@@ -351,7 +355,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   KEY `person_id` (`person_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48 ;
 
 --
 -- Dumping data for table `users`
@@ -364,7 +368,8 @@ INSERT INTO `users` (`id`, `person_id`, `username`, `password`, `role`, `created
 (43, 12, 'constance@constance.com', '$2y$10$HSGV/kNZOdGcA6S6T8b8e.UiYzvelCpocBFOWHtCcUQ5S6wiW.HrG', 'tenant', '2015-07-04 13:20:44', '2015-07-04 13:26:51', ''),
 (44, 13, 'darren@darren.com', '$2y$10$.Z7/9q8Bw3RfhZ0Q3Qo58Ou64ZtD32J/JKdKC1aRNKZPuFdNd88eq', 'tenant', '2015-07-09 16:12:08', '2015-07-09 16:12:08', ''),
 (45, 14, 'esther@esther.com', '$2y$10$QRZYZSxPClT1HF0HgO8PnOW4zO5.eDkEnBljNiEETG8HmtHdCY0l6', 'tenant', '2015-07-09 16:57:20', '2015-07-09 16:57:20', ''),
-(46, 15, 'fiona@fiona.com', '$2y$10$OEVNCpzk9TvOHqlHGdCzr.tw3rLfrXchAVuVZDW83lYBIfV9KTwma', 'tenant', '2015-08-19 09:36:36', '2015-08-19 09:52:22', '');
+(46, 15, 'fiona@fiona.com', '$2y$10$OEVNCpzk9TvOHqlHGdCzr.tw3rLfrXchAVuVZDW83lYBIfV9KTwma', 'tenant', '2015-08-19 09:36:36', '2015-08-19 09:52:22', ''),
+(47, 16, 'ethanchen01@163.com', '$2y$10$bjWqMkp3BZ0HET.ZtHgW3OnbzGj6CxtUGtkwMVil9A7VXV1rH8X1C', 'tenant', '2015-09-01 08:05:47', '2015-09-01 08:09:44', 'cf71c0d77ddce3d601067d3b24c8980746c07078');
 
 --
 -- Triggers `users`

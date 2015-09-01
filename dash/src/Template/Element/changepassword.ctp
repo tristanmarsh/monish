@@ -25,13 +25,13 @@
 							<div class="form-group">
 								<div class="input-group">
 									<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-									<input type="password" name="password" class="form-control" placeholder="Enter password">
+									<input type="password" name="password" class="form-control" placeholder="Enter new password">
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="input-group">
 									<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-									<input type="password" name="confirm_password" class="form-control" placeholder="Enter password">
+									<input type="password" name="confirm_password" class="form-control" placeholder="Confirm new password">
 								</div>
 							</div>
 							<div class="form-group">

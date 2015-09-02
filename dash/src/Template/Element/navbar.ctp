@@ -47,16 +47,17 @@
 
 				<?php
 				$emailHash = md5( strtolower( trim( $user['username'] ) ) );
+				$imageSize = "40px";
 				// $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
 				$gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
-				$gravatarImage = '<img height="40px" class="img-circle" src="' . $gravatarQuery . '"/>';
+				$gravatarImage = '<img height=' . $imageSize . ' width=' . $imageSize . ' class="img img-circle gravatar" src="' . $gravatarQuery . '"/>';
 				?>
 
 				<!-- User logged in -->
 				<li class="dropdown">
 
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-						<?= $gravatarImage; ?>
+						<span><?= $gravatarImage; ?></span>
 						<span class="caret"></span>
 					</a>
 

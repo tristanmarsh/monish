@@ -5,7 +5,7 @@
 	$emailHash = md5( strtolower( trim( $user['username'] ) ) );
 	// $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
 	$gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
-	$gravatarImage = '<img height="40px" class="img img-circle gravatar" src="' . $gravatarQuery . '"/>';
+	$gravatarImage = '<img height="40px" width="40px" class="img img-circle gravatar" src="' . $gravatarQuery . '"/>';
 ?>
 
 <?php

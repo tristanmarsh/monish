@@ -52,7 +52,6 @@ Since:    3/6/15
       padding:10px;
 
       // Home Link
-
       #icon-monish-home {
         font-size:4rem;
         color:#76AADB!important;
@@ -61,6 +60,7 @@ Since:    3/6/15
       .gravatar {
         opacity:0.8;
         transition:opacity 200ms ease;
+        background:#212D38;
       }
 
       .glyphicon {

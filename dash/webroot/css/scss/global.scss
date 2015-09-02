@@ -68,20 +68,26 @@ a {color:#618DB6;}
 
 
 /* #### NAVBAR #### */
-
-
 .navbar {
   background:#fff;
   border-bottom:0;
+  margin-bottom:0;
+
+  .navbar-brand {
+    padding:5px;
+  }
 
   .nav>li>a {
-      position: relative;
-      display: block;
-      padding: 5px;
+    position: relative;
+    display: block;
+    padding: 5px;
   }
 
 }
 
+.gravatar {
+  background-color:#212D38;
+}
 
 // #### HEADER ####
 header {
@@ -138,16 +144,7 @@ header {
   height: 40px!important;
 }
 
-// #### NAVBAR ####
 
-.navbar {
-  // position:static;
-  margin-bottom:0;
-
-  .navbar-brand {
-    padding:5px;
-  }
-}
 
 
 // #### HEADER ####

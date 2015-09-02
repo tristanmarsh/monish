@@ -39,6 +39,8 @@
     echo $this->Form->input('first_name', array('default' => $defaultPerson->first_name,'class' => 'form-control'));
     echo $this->Form->input('last_name', array('default' => $defaultPerson->last_name,'class' => 'form-control'));
     echo $this->Form->input('common_name', array('default' => $defaultPerson->common_name,'class' => 'form-control'));
+    echo $this->Form->input('visa', array('default' => $defaultPerson->visa,'class' => 'form-control'));
+    echo $this->Form->input('parent_address', array('default' => $defaultPerson->parent_address,'class' => 'form-control'));
     echo $this->Form->input('phone', array('default' => $defaultPerson->phone,'class' => 'form-control'));
     echo $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'], 'default' => $defaultStudent->internet_plan, 'class' => 'form-control']);
 	echo $this->Form->input('username', array('class' => 'form-control'));

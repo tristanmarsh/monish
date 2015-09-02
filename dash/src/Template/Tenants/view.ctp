@@ -33,6 +33,8 @@
                 <th>&nbsp;&nbsp;&nbsp;&nbsp;Phone</th>
                 <th>&nbsp;&nbsp;&nbsp;&nbsp;Email</th>
                 <th>&nbsp;&nbsp;&nbsp;&nbsp;Internet Plan</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;Visa</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;Parent Address</th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             </thead>
@@ -45,6 +47,8 @@
                     <td><?= $person->phone ?></td>
                     <td><?= $person->email ?></td>
                     <td><?= $person->student->internet_plan ?></td>
+                    <td><?= $person->visa ?></td>
+                    <td><?= $person->parent_address ?></td>
                     <td class="actions"> 
                         <?= $this->Html->link(__('Edit'), ['controller' => 'tenants', 'action' => 'edit', $person->user->id]) ?>
                     </td>

@@ -51,13 +51,18 @@ class RequestsController extends AppController
 
         $this->loadModel('People');
 
+
         //my take on how to do this (like the index())
         $this->set('giraffe', $this->Requests->get($id));
 
             $request = TableRegistry::get('Requests');
+             if ($user['role'] === 'admin'):
             $wolf = $this->Requests->get($id); 
+           
             $wolf->status = 'Viewed';
+
             $request->save($wolf);
+             endif;
 
         $lion = $this->Requests->get($id, [
             'contain' => ['People']

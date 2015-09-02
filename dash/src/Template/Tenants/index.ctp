@@ -37,7 +37,7 @@
 
   <!-- Table -->
     <div class="table-responsive">
-        <table id="tenants" cellpadding="0" cellspacing="0" class="">
+        <table id="requests" class="">
             <thead>
                 <tr>
                     <th>First Name</th>
@@ -82,15 +82,15 @@
                         <?= $person->student->internet_plan ?>
                         <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
                     </td>
-                    <td class="actions">
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['controller' => 'tenants', 'action' => 'edit', $person->user->id]) ?>
+                    <td class="action action-edit" style="padding-top:20px;padding-bottom:20px;">
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'tenants', 'action' => 'edit', $person->user->id], ['escape' => false]); ?>
                     </td>
                 <?php endif; ?>
             </tr>
         <?php endforeach; ?>
     </tbody>
     </table>
+    <div class="panel-footer"><!-- Panel Footer Doesn't actually do anything here apart from  adding a border --></div>
     </div>
 
 </div>
@@ -119,12 +119,12 @@
 
 <script>
     $(document).ready( function () {
-        $('#tenants').DataTable();
+        $('#requests').DataTable();
     } );
 </script>
 
 <script>
-    oTable = $('#tenants').dataTable();
+    oTable = $('#requests').dataTable();
     $('#myInputTextField').keyup(function(){
         oTable.fnFilter($(this).val());
     })

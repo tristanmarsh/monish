@@ -31,6 +31,7 @@
     <h1>Internet Plan</h1>
     <div class="panel panel-primary">
     <div class="students form large-10 medium-9 columns">
+        <div class="panel-body">
         <?= $this->Form->create($student, array('class' => 'form-group')); ?>
         <fieldset>
             <legend><?= __('Select Plan', array('class' => 'form-control')) ?></legend>
@@ -45,6 +46,9 @@
         ])?>
         </fieldset>
             </div>
+        </div>
+    </div>
+            <div class="panel panel-primary">
     <div class="panel-heading">
         <h2 class="panel-title">Available Internet Plans</h2>
     </div>  

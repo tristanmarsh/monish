@@ -90,9 +90,14 @@
               <?= $this->Form->input('first_name', array('class' => 'form-control')) ?>
               <?= $this->Form->input('last_name', array('class' => 'form-control')) ?>
               <?= $this->Form->input('common_name', array('class' => 'form-control')) ?>
+              <?= $this->Form->input('visa', array('class' => 'form-control')) ?>
+
+
+
 
               
             </div>
+
 
             <div class="col-md-6">
              
@@ -101,14 +106,16 @@
               <?= $this->Form->input('phone', array('class' => 'form-control')) ?>
              
               <?= $this->Form->input('email', array('class' => 'form-control')) ?>
+
+              <?= $this->Form->input('parent_address', array('class' => 'form-control')) ?>
             
             </div>
 
-            
+            <div class="col-md-6">
              <?= $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'], 'class' => 'form-control']) ?>
              
              <?= $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']); ?>
-            
+            </div>
             <div class="col-md-6">
               <?= $this->form->input('date_start',['id'=>'dateStartPicker','class' => 'form-control']); ?>
             </div>
@@ -117,8 +124,10 @@
               <?= $this->form->input('date_end',['id'=>'dateEndPicker','class' => 'form-control']); ?>
             </div>
 
+            <div class="col-md-12">
+
              <?= $this->Form->input('weekly_price', ['class' => 'form-control']); ?>
-           
+           </div>
            </fieldset>
 
            <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']); ?>

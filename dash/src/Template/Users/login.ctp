@@ -6,7 +6,11 @@
 
 	<h1>Dashboard</h1>
 
-	<h3>Notifications</h3>
+	<h2>Notifications</h3>
+	    <div class="panel panel-primary">
+
+        <div class="panel-body">
+
 
 		<?php $count = 0; ?>
 
@@ -26,9 +30,13 @@
 				echo "You have ".$count." unread requests."; 
 			}
 		?>
+	</div>
+
+	</div>
+        <div class="panel panel-primary">
 
 		<!-- Start of 30 days table -->
-		<br><br>
+<!-- 		<br><br> -->
 		<?php $countthirty = 0; ?>
 		<?php foreach ($leases as $lease): ?>	
 			<?php
@@ -40,6 +48,7 @@
 				<?php $countthirty = $countthirty + 1 ?>
 			<?php endif ?>	
 		<?php endforeach; ?>
+		<div class="panel-body">
 		<?php 
 			if ($countthirty == 0) {
 				echo "You have no leases that expire in less than 30 days.";
@@ -48,7 +57,9 @@
 				echo "You have ".$countthirty." lease(s) that expires in less than 30 days.";
 			}
 		?>
+	</div>
 		<?php if ($countthirty > 0) : ?>
+
 			<table>
 				<thead>
 					<th>Property</th>
@@ -91,9 +102,10 @@
 				<?php endforeach; ?>
 			</table>
 		<?php endif ?>	
+	</div>
 
 		<!-- Start of 90 days table -->
-		<br><br>
+        <div class="panel panel-primary">
 		<?php $countninety = 0; ?>
 		<?php foreach ($leases as $lease): ?>	
 			<?php
@@ -105,6 +117,7 @@
 				<?php $countninety = $countninety + 1 ?>
 			<?php endif ?>	
 		<?php endforeach; ?>
+		<div class="panel-body">
 		<?php 
 			if ($countninety == 0) {
 				echo "You have no leases that expire in less than 90 days.";
@@ -113,6 +126,7 @@
 				echo "You have ".$countninety." lease(s) that expires in less than 90 days.";
 			}
 		?>
+	</div>
 		<?php if ($countninety > 0) : ?>
 			<table>
 				<thead>
@@ -156,9 +170,11 @@
 				<?php endforeach; ?>
 			</table>
 		<?php endif ?>	
+	</div>
 
 		<!-- Start of 180 days table -->
-		<br><br>
+<!-- 		<br><br> -->
+        <div class="panel panel-primary">
 		<?php $countoneeighty = 0; ?>
 		<?php foreach ($leases as $lease): ?>	
 			<?php
@@ -170,6 +186,7 @@
 				<?php $countoneeighty = $countoneeighty + 1 ?>
 			<?php endif ?>	
 		<?php endforeach; ?>
+				<div class="panel-body">
 		<?php 
 			if ($countoneeighty == 0) {
 				echo "You have no leases that expire in less than 180 days.";
@@ -178,6 +195,7 @@
 				echo "You have ".$countoneeighty." lease(s) that expires in less than 180 days.";
 			}
 		?>
+	</div>
 		<?php if ($countoneeighty > 0) : ?>
 			<table>
 				<thead>
@@ -221,6 +239,7 @@
 				<?php endforeach; ?>
 			</table>
 		<?php endif ?>	
+	</div>
 
 
 

@@ -34,7 +34,23 @@
 								<?= $this->Form->create() ?>
 								<fieldset>
 									<!-- <legend>Please enter your username and password</legend> -->
+									
+
+							<div class="form-group">
+								<div class="input-group">
 									<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+									<input type="password" name="confirm_password" class="form-control" placeholder="Confirm new password">
+								</div>
+							</div>
+
+
+							<div class="input-group">
+  				<span class="input-group-addon" id="basic-addon1">@</span>
+ 			 	<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+							</div>
+
+
+
 									<?= $this->Form->input('username', array('class' => 'form-control', 'placeholder' => 'Enter email address')) ?>
 
 

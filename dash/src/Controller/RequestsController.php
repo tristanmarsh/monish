@@ -56,13 +56,18 @@ class RequestsController extends AppController
         $this->set('giraffe', $this->Requests->get($id));
 
             $request = TableRegistry::get('Requests');
-             if ($user['role'] === 'admin'):
+        $authid = $this->Auth->user('id');
+        $this->set(compact('authid'));
+        $userEntity = $this->Users->get($authid);
+        $this->set(compact('userEntity'));
+             if ($userEntity->role === 'admin'){
             $wolf = $this->Requests->get($id); 
            
             $wolf->status = 'Viewed';
 
             $request->save($wolf);
-             endif;
+            }
+            
 
         $lion = $this->Requests->get($id, [
             'contain' => ['People']

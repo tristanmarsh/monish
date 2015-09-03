@@ -1,12 +1,3 @@
-<?php $user = $this->Session->read('Auth.User'); ?>
-
-<?php
-    $emailHash = md5( strtolower( trim( $user['username'] ) ) );
-    // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
-    $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
-    $gravatarImage = '<img height="150px" width="150px" class="img gravatar" src="' . $gravatarQuery . '"/>';
-?>
-
 <?php
     // $this->Html->addCrumb('Requests', '/requests');
     $this->Html->addCrumb('Personal Details', array('controller' => 'People', 'action' => 'index'));
@@ -19,17 +10,50 @@
 <?php if ($currentlogged['role'] === "admin") : ?>
 
 
-    <h1>
-        <?php 
-            $personEntity = $peopleTable->get($user['person_id']);
-            echo $personEntity->first_name." ".$personEntity->last_name;
-        ?>
-    </h1>
-    
-    <?php 
-        echo $gravatarImage;
-        echo '<br>'."That's all we know about you.";
-    ?>    
+    <h1>Manage People</h1>
+    <?= $this->Html->link('Add Person', ['action' => 'add']) ?>
+    <div class="table-responsive">
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Common Name</th>
+                <th>Gender</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+
+            <!-- Here is where we iterate through our $articles query object, printing out article info -->
+
+            <?php foreach ($users as $user): ?>
+            <tr>
+                <td><?= $user->first_name ?></td>
+                <td><?= $user->last_name ?></td>
+                <td><?= $user->common_name ?></td>
+                <td><?= $user->gender ?></td>
+                <td><?= $user->phone ?></td>
+                <td><?= $user->email ?></td>
+                <td>
+                    <?php if ($user['id'] == '1') // Admin cannot delete themselves (well they can, but they have to type the url in.)
+                    {echo $this->Html->link('Edit', ['action' => 'edit', $user->id]);}
+                    else
+                    {
+                        echo $this->Form->postLink(
+                            'Delete',
+                            ['action' => 'delete', $user->id],
+                            ['confirm' => 'Are you sure?']);
+                        echo " "; // this puts a space between Delete and Edit button
+                        echo $this->Html->link('Edit', ['action' => 'edit', $user->id]);
+                    };
+                    ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</div>
+
+</div class="content">
 
 <?php endif; ?>
 

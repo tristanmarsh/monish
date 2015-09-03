@@ -29,6 +29,9 @@ class PeopleController extends AppController
     public function index()
     {
         $this->set('users', $this->People->find('all'));
+
+        $peopleTable = $this->People;
+        $this->set(compact('peopleTable'));
     }
 
     public function view($id)

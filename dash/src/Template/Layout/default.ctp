@@ -63,8 +63,10 @@ $cakeDescription = 'Monish Dashboard';
 	<?= $this->fetch('css') ?>
 	<?= $this->fetch('script') ?>
 
-
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
+
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
 
 	<script>
 		new WOW().init();
@@ -136,4 +138,41 @@ $cakeDescription = 'Monish Dashboard';
 
 <?php endif; ?>
 </body>
+
+<footer>
+
+	    <!-- Clickable Row to View Record -->
+    <script>
+        $("table").on("click", "td", function(e) {
+            window.console.log("click");
+            window.console.log(e.target);
+            if ($(e.target).is("a"))
+                return;
+            if ($(e.target).is("input")) {
+                window.console.log(e.target);
+            }
+            else {
+                location.href = $(this).find("a").attr("href");
+            }
+        });
+    </script>
+
+
+
+    <script>
+        $(document).ready( function () {
+            $('.datatable').DataTable();
+        } );
+    </script>
+	
+	<!-- updating search bar -->
+    <script>
+        oTable = $('.datatable').dataTable();
+        $('#myInputTextField').keyup(function(){
+            oTable.fnFilter($(this).val());
+        })
+    </script>
+</footer>
 </html>
+
+

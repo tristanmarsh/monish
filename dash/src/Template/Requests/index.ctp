@@ -5,10 +5,6 @@
 <!-- File: src/Template/Requests/index.ctp -->
 <?php $user = $this->Session->read('Auth.User'); ?>
 
-<!-- Tristan's Gravatar Script  - should be replaced with offical PHP API -->
-<!-- Also this is bad because it does not specify the size of the source image! Should be 2x the displayed image height for retina displays -->
-
-
 <h1>Requests</h1>
 
 <div class="panel panel-default clearfix">
@@ -69,7 +65,7 @@
     </div>
         
     <div class="table-responsive">
-        <table id="requests" class="">
+        <table class="datatable">
             <thead>
             <tr class=>
                 <th>Tenant</th>
@@ -95,6 +91,10 @@
 
                         <td>
                             <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+
+
+                            <!-- Tristan's Gravatar Script  - should be replaced with offical PHP API -->
+                            <!-- Also this is bad because it does not specify the size of the source image! Should be 2x the displayed image height for retina displays -->
 
                             <?php
                                 $emailHash = md5( strtolower( trim( $request->person->email ) ) );
@@ -175,34 +175,3 @@
 
 </div>
 
-    <!-- Clickable Row to View Record -->
-    <script>
-        $("table").on("click", "td", function(e) {
-            window.console.log("click");
-            window.console.log(e.target);
-            if ($(e.target).is("a"))
-                return;
-            if ($(e.target).is("input")) {
-                window.console.log(e.target);
-            }
-            else {
-                location.href = $(this).find("a").attr("href");
-            }
-        });
-    </script>
-
-    <!-- DataTables -->
-    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
-
-    <script>
-        $(document).ready( function () {
-            $('#requests').DataTable();
-        } );
-    </script>
-
-    <script>
-        oTable = $('#requests').dataTable();
-        $('#myInputTextField').keyup(function(){
-            oTable.fnFilter($(this).val());
-        })
-    </script>

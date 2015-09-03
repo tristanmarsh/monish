@@ -35,6 +35,9 @@
 	</div>
         <div class="panel panel-primary">
 
+
+
+
 		<!-- Start of 30 days table -->
 <!-- 		<br><br> -->
 		<?php $countthirty = 0; ?>
@@ -103,6 +106,9 @@
 			</table>
 		<?php endif ?>	
 	</div>
+
+
+
 
 		<!-- Start of 90 days table -->
         <div class="panel panel-primary">

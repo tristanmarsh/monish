@@ -202,9 +202,19 @@ class UsersController extends AppController
 
         $this->loadModel('People');
         $this->loadModel('Requests');
+        $this->loadModel('Leases');
+        $this->loadModel('Properties');
+        $this->loadModel('Rooms');
+
 
         $requests = $this->Requests->find('all')->contain('People');
         $this->set(compact('requests'));
+
+        $leases = $this->Leases->find('all')->contain(['Students', 'Properties', 'Rooms']);
+        $this->set(compact('leases'));
+
+        $walrus = $this->People;
+        $this->set('walrus', $walrus);
 
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();

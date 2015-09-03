@@ -42,7 +42,7 @@
       <tr>
         <th>Property</th>
         <th>Room</th>
-        <th>Student</th>
+        <th>Tenant</th>
         <th>Date Start</th>
         <th>Date End</th>
         <th>Weekly Price</th>

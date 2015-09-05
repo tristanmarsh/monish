@@ -143,7 +143,7 @@ class BelongsTo extends Association
 
         $properties = array_combine(
             (array)$this->foreignKey(),
-            $targetEntity->extract((array)$this->bindingKey())
+            $targetEntity->extract((array)$table->primaryKey())
         );
         $entity->set($properties, ['guard' => false]);
         return $entity;
@@ -164,20 +164,20 @@ class BelongsTo extends Association
         $tAlias = $this->target()->alias();
         $sAlias = $this->_sourceTable->alias();
         $foreignKey = (array)$options['foreignKey'];
-        $bindingKey = (array)$this->bindingKey();
+        $primaryKey = (array)$this->_targetTable->primaryKey();
 
-        if (count($foreignKey) !== count($bindingKey)) {
+        if (count($foreignKey) !== count($primaryKey)) {
             $msg = 'Cannot match provided foreignKey for "%s", got "(%s)" but expected foreign key for "(%s)"';
             throw new RuntimeException(sprintf(
                 $msg,
                 $this->_name,
                 implode(', ', $foreignKey),
-                implode(', ', $bindingKey)
+                implode(', ', $primaryKey)
             ));
         }
 
         foreach ($foreignKey as $k => $f) {
-            $field = sprintf('%s.%s', $tAlias, $bindingKey[$k]);
+            $field = sprintf('%s.%s', $tAlias, $primaryKey[$k]);
             $value = new IdentifierExpression(sprintf('%s.%s', $sAlias, $f));
             $conditions[$field] = $value;
         }
@@ -193,7 +193,7 @@ class BelongsTo extends Association
         $links = [];
         $name = $this->alias();
 
-        foreach ((array)$this->bindingKey() as $key) {
+        foreach ((array)$this->target()->primaryKey() as $key) {
             $links[] = sprintf('%s.%s', $name, $key);
         }
 
@@ -210,7 +210,7 @@ class BelongsTo extends Association
     protected function _buildResultMap($fetchQuery, $options)
     {
         $resultMap = [];
-        $key = (array)$this->bindingKey();
+        $key = (array)$this->target()->primaryKey();
 
         foreach ($fetchQuery->all() as $result) {
             $values = [];

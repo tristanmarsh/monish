@@ -16,7 +16,6 @@ namespace Cake\Core;
 
 use Cake\Core\ClassLoader;
 use Cake\Core\Configure;
-use Cake\Core\Exception\MissingPluginException;
 use DirectoryIterator;
 
 /**
@@ -147,7 +146,7 @@ class Plugin
         }
 
         if (empty($config['path'])) {
-            throw new MissingPluginException(['plugin' => $plugin]);
+            throw new Exception\MissingPluginException(['plugin' => $plugin]);
         }
 
         $config['classPath'] = $config['path'] . $config['classBase'] . DS;
@@ -261,7 +260,7 @@ class Plugin
     public static function path($plugin)
     {
         if (empty(static::$_plugins[$plugin])) {
-            throw new MissingPluginException(['plugin' => $plugin]);
+            throw new Exception\MissingPluginException(['plugin' => $plugin]);
         }
         return static::$_plugins[$plugin]['path'];
     }
@@ -276,7 +275,7 @@ class Plugin
     public static function classPath($plugin)
     {
         if (empty(static::$_plugins[$plugin])) {
-            throw new MissingPluginException(['plugin' => $plugin]);
+            throw new Exception\MissingPluginException(['plugin' => $plugin]);
         }
         return static::$_plugins[$plugin]['classPath'];
     }
@@ -291,7 +290,7 @@ class Plugin
     public static function configPath($plugin)
     {
         if (empty(static::$_plugins[$plugin])) {
-            throw new MissingPluginException(['plugin' => $plugin]);
+            throw new Exception\MissingPluginException(['plugin' => $plugin]);
         }
         return static::$_plugins[$plugin]['configPath'];
     }

@@ -15,7 +15,7 @@
 %>
 <?php
 
-namespace <%= $namespace %>\Controller;
+namespace <%= $plugin %>\Controller;
 
 use App\Controller\AppController as BaseController;
 

@@ -16,14 +16,13 @@ namespace Cake\Collection\Iterator;
 
 use Cake\Collection\Collection;
 use Countable;
-use Serializable;
 use SplDoublyLinkedList;
 
 /**
  * Creates an iterator from another iterator that will keep the results of the inner
  * iterator in memory, so that results don't have to be re-calculated.
  */
-class BufferedIterator extends Collection implements Countable, Serializable
+class BufferedIterator extends Collection implements Countable
 {
 
     /**
@@ -176,34 +175,5 @@ class BufferedIterator extends Collection implements Countable, Serializable
         }
 
         return $this->_buffer->count();
-    }
-
-    /**
-     * Returns a string representation of this object that can be used
-     * to reconstruct it
-     *
-     * @return string
-     */
-    public function serialize()
-    {
-        if (!$this->_finished) {
-            $this->count();
-        }
-
-        return serialize($this->_buffer);
-    }
-
-    /**
-     * Unserializes the passed string and rebuilds the BufferedIterator instance
-     *
-     * @param string $buffer The serialized buffer iterator
-     * @return void
-     */
-    public function unserialize($buffer)
-    {
-        $this->__construct([]);
-        $this->_buffer = unserialize($buffer);
-        $this->_started = true;
-        $this->_finished = true;
     }
 }

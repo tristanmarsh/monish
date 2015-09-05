@@ -33,9 +33,7 @@ namespace Cake\Console;
  *
  * You can format console output using tags with the name of the style to apply. From inside a shell object
  *
- * ```
- * $this->out('<warning>Overwrite:</warning> foo.php was overwritten.');
- * ```
+ * `$this->out('<warning>Overwrite:</warning> foo.php was overwritten.');`
  *
  * This would create orange 'Overwrite:' text, while the rest of the text would remain the normal color.
  * See ConsoleOutput::styles() to learn more about defining your own styles. Nested styles are not supported
@@ -154,8 +152,8 @@ class ConsoleOutput
     /**
      * Construct the output object.
      *
-     * Checks for a pretty console environment. Ansicon and ConEmu allows
-     *  pretty consoles on windows, and is supported.
+     * Checks for a pretty console environment. Ansicon allows pretty consoles
+     * on windows, and is supported.
      *
      * @param string $stream The identifier of the stream to write output to.
      */
@@ -163,7 +161,7 @@ class ConsoleOutput
     {
         $this->_output = fopen($stream, 'w');
 
-        if ((DS === '\\' && !(bool)env('ANSICON') && env('ConEmuANSI') !== 'ON') ||
+        if ((DS === '\\' && !(bool)env('ANSICON')) ||
             (function_exists('posix_isatty') && !posix_isatty($this->_output))
         ) {
             $this->_outputAs = self::PLAIN;
@@ -253,27 +251,19 @@ class ConsoleOutput
      *
      * ### Get a style definition
      *
-     * ```
-     * $output->styles('error');
-     * ```
+     * `$output->styles('error');`
      *
      * ### Get all the style definitions
      *
-     * ```
-     * $output->styles();
-     * ```
+     * `$output->styles();`
      *
      * ### Create or modify an existing style
      *
-     * ```
-     * $output->styles('annoy', ['text' => 'purple', 'background' => 'yellow', 'blink' => true]);
-     * ```
+     * `$output->styles('annoy', ['text' => 'purple', 'background' => 'yellow', 'blink' => true]);`
      *
      * ### Remove a style
      *
-     * ```
-     * $this->output->styles('annoy', false);
-     * ```
+     * `$this->output->styles('annoy', false);`
      *
      * @param string|null $style The style to get or create.
      * @param array|bool|null $definition The array definition of the style to change or create a style
@@ -301,7 +291,7 @@ class ConsoleOutput
      * Get/Set the output type to use. The output type how formatting tags are treated.
      *
      * @param int|null $type The output type to use. Should be one of the class constants.
-     * @return int|void  Either null or the value if getting.
+     * @return mixed Either null or the value if getting.
      */
     public function outputAs($type = null)
     {

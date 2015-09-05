@@ -33,31 +33,19 @@ class Xml
      *
      * Building XML from a string:
      *
-     * ```
-     * $xml = Xml::build('<example>text</example>');
-     * ```
+     * `$xml = Xml::build('<example>text</example>');`
      *
      * Building XML from string (output DOMDocument):
      *
-     * ```
-     * $xml = Xml::build('<example>text</example>', ['return' => 'domdocument']);
-     * ```
+     * `$xml = Xml::build('<example>text</example>', ['return' => 'domdocument']);`
      *
      * Building XML from a file path:
      *
-     * ```
-     * $xml = Xml::build('/path/to/an/xml/file.xml');
-     * ```
+     * `$xml = Xml::build('/path/to/an/xml/file.xml');`
      *
-     * Building XML from a remote URL:
+     * Building from a remote URL:
      *
-     * ```
-     * use Cake\Network\Http\Client;
-     *
-     * $http = new Client();
-     * $response = $http->get('http://example.com/example.xml');
-     * $xml = Xml::build($response->body());
-     * ```
+     * `$xml = Xml::build('http://example.com/example.xml');`
      *
      * Building from an array:
      *
@@ -86,9 +74,6 @@ class Xml
      * - `return` Can be 'simplexml' to return object of SimpleXMLElement or 'domdocument' to return DOMDocument.
      * - `loadEntities` Defaults to false. Set to true to enable loading of `<!ENTITY` definitions. This
      *   is disabled by default for security reasons.
-     * - `readFile` Set to false to disable file reading. This is important to disable when
-     *   putting user data into Xml::build(). If enabled local files will be read if they exist.
-     *   Defaults to true for backwards compatibility reasons.
      * - If using array as input, you can pass `options` from Xml::fromArray.
      *
      * @param string|array $input XML string, a path to a file, a URL or an array
@@ -101,7 +86,6 @@ class Xml
         $defaults = [
             'return' => 'simplexml',
             'loadEntities' => false,
-            'readFile' => true
         ];
         $options += $defaults;
 
@@ -113,7 +97,7 @@ class Xml
             return static::_loadXml($input, $options);
         }
 
-        if ($options['readFile'] && file_exists($input)) {
+        if (file_exists($input)) {
             return static::_loadXml(file_get_contents($input), $options);
         }
 
@@ -164,7 +148,7 @@ class Xml
      *
      * ### Options
      *
-     * - `format` If create childs ('tags') or attributes ('attributes').
+     * - `format` If create childs ('tags') or attributes ('attribute').
      * - `pretty` Returns formatted Xml when set to `true`. Defaults to `false`
      * - `version` Version of XML document. Default is 1.0.
      * - `encoding` Encoding of XML document. If null remove from XML header. Default is the some of application.
@@ -188,7 +172,7 @@ class Xml
      *
      * `<root><tag><id>1</id><value>defect</value>description</tag></root>`
      *
-     * And calling `Xml::fromArray($value, 'attributes');` Will generate:
+     * And calling `Xml::fromArray($value, 'attribute');` Will generate:
      *
      * `<root><tag id="1" value="defect">description</tag></root>`
      *
@@ -241,7 +225,7 @@ class Xml
      * @param \DOMDocument $dom Handler to DOMDocument
      * @param \DOMElement $node Handler to DOMElement (child)
      * @param array $data Array of data to append to the $node.
-     * @param string $format Either 'attributes' or 'tags'. This determines where nested keys go.
+     * @param string $format Either 'attribute' or 'tags'. This determines where nested keys go.
      * @return void
      * @throws \Cake\Utility\Exception\XmlException
      */

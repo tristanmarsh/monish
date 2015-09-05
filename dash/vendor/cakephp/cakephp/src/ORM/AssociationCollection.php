@@ -14,13 +14,11 @@
  */
 namespace Cake\ORM;
 
-use ArrayIterator;
 use Cake\ORM\Association;
 use Cake\ORM\AssociationsNormalizerTrait;
 use Cake\ORM\Entity;
 use Cake\ORM\Table;
 use InvalidArgumentException;
-use IteratorAggregate;
 
 /**
  * A container/collection for association classes.
@@ -28,7 +26,7 @@ use IteratorAggregate;
  * Contains methods for managing associations, and
  * ordering operations around saving and deleting.
  */
-class AssociationCollection implements IteratorAggregate
+class AssociationCollection
 {
 
     use AssociationsNormalizerTrait;
@@ -111,17 +109,14 @@ class AssociationCollection implements IteratorAggregate
     /**
      * Get an array of associations matching a specific type.
      *
-     * @param string|array $class The type of associations you want.
-     *   For example 'BelongsTo' or array like ['BelongsTo', 'HasOne']
+     * @param string $class The type of associations you want. For example 'BelongsTo'
      * @return array An array of Association objects.
      */
     public function type($class)
     {
-        $class = (array)$class;
-
         $out = array_filter($this->_items, function ($assoc) use ($class) {
             list(, $name) = namespaceSplit(get_class($assoc));
-            return in_array($name, $class, true);
+            return $class === $name;
         });
         return array_values($out);
     }
@@ -256,7 +251,6 @@ class AssociationCollection implements IteratorAggregate
 
     /**
      * Cascade a delete across the various associations.
-     * Cascade first across associations for which cascadeCallbacks is true.
      *
      * @param \Cake\ORM\Entity $entity The entity to delete associations for.
      * @param array $options The options used in the delete operation.
@@ -264,15 +258,7 @@ class AssociationCollection implements IteratorAggregate
      */
     public function cascadeDelete(Entity $entity, array $options)
     {
-        $noCascade = [];
         foreach ($this->_items as $assoc) {
-            if (!$assoc->cascadeCallbacks()) {
-                $noCascade[] = $assoc;
-                continue;
-            }
-            $assoc->cascadeDelete($entity, $options);
-        }
-        foreach ($noCascade as $assoc) {
             $assoc->cascadeDelete($entity, $options);
         }
     }
@@ -296,15 +282,5 @@ class AssociationCollection implements IteratorAggregate
         }
 
         return $this->_normalizeAssociations($keys);
-    }
-
-    /**
-     * Allow looping through the associations
-     *
-     * @return ArrayIterator
-     */
-    public function getIterator()
-    {
-        return new ArrayIterator($this->_items);
     }
 }

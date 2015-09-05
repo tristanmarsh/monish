@@ -78,7 +78,7 @@ class QueryCompiler
     /**
      * Indicate whether or not this query dialect supports ordered unions.
      *
-     * Overridden in subclasses.
+     * Overidden in subclasses.
      *
      * @var bool
      */

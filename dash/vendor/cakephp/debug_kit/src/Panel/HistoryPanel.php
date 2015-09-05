@@ -37,14 +37,4 @@ class HistoryPanel extends DebugPanel
             'requests' => $recent->toArray(),
         ];
     }
-
-    /**
-     * Gets the initial text for the history summary
-     *
-     * @return string
-     */
-    public function summary()
-    {
-        return '0 xhr';
-    }
 }

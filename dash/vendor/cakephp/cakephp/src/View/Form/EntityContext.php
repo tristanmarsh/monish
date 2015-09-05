@@ -15,8 +15,8 @@
 namespace Cake\View\Form;
 
 use Cake\Collection\Collection;
-use Cake\Datasource\EntityInterface;
 use Cake\Network\Request;
+use Cake\ORM\Entity;
 use Cake\ORM\TableRegistry;
 use Cake\Utility\Inflector;
 use Cake\View\Form\ContextInterface;
@@ -123,7 +123,7 @@ class EntityContext implements ContextInterface
             if (is_array($entity) || $entity instanceof Traversable) {
                 $entity = (new Collection($entity))->first();
             }
-            $isEntity = $entity instanceof EntityInterface;
+            $isEntity = $entity instanceof Entity;
 
             if ($isEntity) {
                 $table = $entity->source();
@@ -190,7 +190,7 @@ class EntityContext implements ContextInterface
         if (is_array($entity) || $entity instanceof Traversable) {
             $entity = (new Collection($entity))->first();
         }
-        if ($entity instanceof EntityInterface) {
+        if ($entity instanceof Entity) {
             return $entity->isNew() !== false;
         }
         return true;
@@ -220,11 +220,8 @@ class EntityContext implements ContextInterface
             return $this->_extractMultiple($entity, $parts);
         }
 
-        if ($entity instanceof EntityInterface) {
+        if ($entity instanceof Entity) {
             return $entity->get(array_pop($parts));
-        } elseif (is_array($entity)) {
-            $key = array_pop($parts);
-            return isset($entity[$key]) ? $entity[$key] : null;
         }
         return null;
     }
@@ -256,7 +253,7 @@ class EntityContext implements ContextInterface
      *
      * @param array|null $path Each one of the parts in a path for a field name
      *  or null to get the entity passed in contructor context.
-     * @return \Cake\Datasource\EntityInterface|\Traversable|array|bool
+     * @return \Cake\DataSource\EntityInterface|\Traversable|array|bool
      * @throws \RuntimeException When properties cannot be read.
      */
     public function entity($path = null)
@@ -293,7 +290,7 @@ class EntityContext implements ContextInterface
             $isTraversable = (
                 is_array($next) ||
                 $next instanceof Traversable ||
-                $next instanceof EntityInterface
+                $next instanceof Entity
             );
             if ($isLast || !$isTraversable) {
                 return $entity;
@@ -318,7 +315,7 @@ class EntityContext implements ContextInterface
         if (is_array($target) && isset($target[$field])) {
             return $target[$field];
         }
-        if ($target instanceof EntityInterface) {
+        if ($target instanceof Entity) {
             return $target->get($field);
         }
         if ($target instanceof Traversable) {
@@ -343,7 +340,7 @@ class EntityContext implements ContextInterface
         $entity = $this->entity($parts);
 
         $isNew = true;
-        if ($entity instanceof EntityInterface) {
+        if ($entity instanceof Entity) {
             $isNew = $entity->isNew();
         }
 
@@ -459,7 +456,7 @@ class EntityContext implements ContextInterface
     {
         $parts = explode('.', $field);
         $table = $this->_getTable($parts);
-        return $table->schema()->baseColumnType(array_pop($parts));
+        return $table->schema()->columnType(array_pop($parts));
     }
 
     /**
@@ -499,7 +496,7 @@ class EntityContext implements ContextInterface
         $parts = explode('.', $field);
         $entity = $this->entity($parts);
 
-        if ($entity instanceof EntityInterface) {
+        if ($entity instanceof Entity) {
             return $entity->errors(array_pop($parts));
         }
         return [];

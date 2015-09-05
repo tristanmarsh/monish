@@ -107,6 +107,13 @@ class CookieComponent extends Component
     protected $_response = null;
 
     /**
+     * The request from the controller.
+     *
+     * @var \Cake\Network\Request
+     */
+    protected $_request;
+
+    /**
      * Valid cipher names for encrypted cookies.
      *
      * @var array
@@ -126,18 +133,20 @@ class CookieComponent extends Component
         }
 
         $controller = $this->_registry->getController();
-
-        if ($controller !== null) {
-            $this->_response =& $controller->response;
-        }
-
-        if ($controller === null) {
-            $this->request = Request::createFromGlobals();
-            $this->_response = new Response();
+        if ($controller && isset($controller->request)) {
+            $this->_request = $controller->request;
+        } else {
+            $this->_request = Request::createFromGlobals();
         }
 
         if (empty($this->_config['path'])) {
-            $this->config('path', $this->request->webroot);
+            $this->config('path', $this->_request->webroot);
+        }
+
+        if ($controller && isset($controller->response)) {
+            $this->_response = $controller->response;
+        } else {
+            $this->_response = new Response();
         }
     }
 
@@ -252,10 +261,10 @@ class CookieComponent extends Component
         if (isset($this->_loaded[$first])) {
             return;
         }
-        if (!isset($this->request->cookies[$first])) {
+        if (!isset($this->_request->cookies[$first])) {
             return;
         }
-        $cookie = $this->request->cookies[$first];
+        $cookie = $this->_request->cookies[$first];
         $config = $this->configKey($first);
         $this->_loaded[$first] = true;
         $this->_values[$first] = $this->_decrypt($cookie, $config['encryption']);

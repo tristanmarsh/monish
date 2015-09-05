@@ -95,7 +95,6 @@ class FunctionExpression extends QueryExpression
     public function add($params, $types = [], $prepend = false)
     {
         $put = $prepend ? 'array_unshift' : 'array_push';
-        $typeMap = $this->typeMap()->types($types);
         foreach ($params as $k => $p) {
             if ($p === 'literal') {
                 $put($this->_conditions, $k);
@@ -106,7 +105,9 @@ class FunctionExpression extends QueryExpression
                 $put($this->_conditions, $p);
                 continue;
             }
-            $put($this->_conditions, ['value' => $p, 'type' => $typeMap->type($k)]);
+
+            $type = isset($types[$k]) ? $types[$k] : null;
+            $put($this->_conditions, ['value' => $p, 'type' => $type]);
         }
 
         return $this;
@@ -126,7 +127,7 @@ class FunctionExpression extends QueryExpression
         $parts = [];
         foreach ($this->_conditions as $condition) {
             if ($condition instanceof ExpressionInterface) {
-                $condition = sprintf('(%s)', $condition->sql($generator));
+                $condition = $condition->sql($generator);
             } elseif (is_array($condition)) {
                 $p = $generator->placeholder('param');
                 $generator->bind($p, $condition['value'], $condition['type']);

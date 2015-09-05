@@ -30,11 +30,9 @@ interface StatementInterface
      *
      * ### Examples:
      *
-     * ```
-     * $statement->bindValue(1, 'a title');
-     * $statement->bindValue('active', true, 'boolean');
-     * $statement->bindValue(5, new \DateTime(), 'date');
-     * ```
+     *  `$statement->bindValue(1, 'a title');`
+     *  `$statement->bindValue('active', true, 'boolean');`
+     *  `$statement->bindValue(5, new \DateTime(), 'date');`
      *
      * @param string|int $column name or param position to be bound
      * @param mixed $value The value to bind to variable in query

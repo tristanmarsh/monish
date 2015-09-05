@@ -49,7 +49,7 @@ class <%= $className %>Test extends TestCase
      *
      * @var array
      */
-    public $fixtures = [<%= $this->Bake->stringifyList(array_values($fixtures)) %>];
+    public $fixtures = [<%= $this->Bake->stringifyList($fixtures) %>];
 <% endif; %>
 <% if (!empty($construction)): %>
 

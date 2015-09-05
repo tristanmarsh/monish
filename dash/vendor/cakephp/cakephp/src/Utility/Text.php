@@ -75,15 +75,15 @@ class Text
         $offset = 0;
         $buffer = '';
         $results = [];
-        $length = mb_strlen($data);
+        $length = strlen($data);
         $open = false;
 
         while ($offset <= $length) {
             $tmpOffset = -1;
             $offsets = [
-                mb_strpos($data, $separator, $offset),
-                mb_strpos($data, $leftBound, $offset),
-                mb_strpos($data, $rightBound, $offset)
+                strpos($data, $separator, $offset),
+                strpos($data, $leftBound, $offset),
+                strpos($data, $rightBound, $offset)
             ];
             for ($i = 0; $i < 3; $i++) {
                 if ($offsets[$i] !== false && ($offsets[$i] < $tmpOffset || $tmpOffset == -1)) {
@@ -91,23 +91,22 @@ class Text
                 }
             }
             if ($tmpOffset !== -1) {
-                $buffer .= mb_substr($data, $offset, ($tmpOffset - $offset));
-                $char = mb_substr($data, $tmpOffset, 1);
-                if (!$depth && $char === $separator) {
+                $buffer .= substr($data, $offset, ($tmpOffset - $offset));
+                if (!$depth && $data{$tmpOffset} === $separator) {
                     $results[] = $buffer;
                     $buffer = '';
                 } else {
-                    $buffer .= $char;
+                    $buffer .= $data{$tmpOffset};
                 }
                 if ($leftBound !== $rightBound) {
-                    if ($char === $leftBound) {
+                    if ($data{$tmpOffset} === $leftBound) {
                         $depth++;
                     }
-                    if ($char === $rightBound) {
+                    if ($data{$tmpOffset} === $rightBound) {
                         $depth--;
                     }
                 } else {
-                    if ($char === $leftBound) {
+                    if ($data{$tmpOffset} === $leftBound) {
                         if (!$open) {
                             $depth++;
                             $open = true;
@@ -118,7 +117,7 @@ class Text
                 }
                 $offset = ++$tmpOffset;
             } else {
-                $results[] = $buffer . mb_substr($data, $offset);
+                $results[] = $buffer . substr($data, $offset);
                 $offset = $length + 1;
             }
         }
@@ -136,10 +135,7 @@ class Text
     /**
      * Replaces variable placeholders inside a $str with any given $data. Each key in the $data array
      * corresponds to a variable placeholder name in $str.
-     * Example:
-     * ```
-     * Text::insert(':name is :age years old.', ['name' => 'Bob', '65']);
-     * ```
+     * Example: `Text::insert(':name is :age years old.', ['name' => 'Bob', '65']);`
      * Returns: Bob is 65 years old.
      *
      * Available $options are:
@@ -307,59 +303,6 @@ class Text
             for ($i = $options['indentAt'], $len = count($chunks); $i < $len; $i++) {
                 $chunks[$i] = $options['indent'] . $chunks[$i];
             }
-            $wrapped = implode("\n", $chunks);
-        }
-        return $wrapped;
-    }
-
-    /**
-     * Wraps a complete block of text to a specific width, can optionally wrap
-     * at word breaks.
-     *
-     * ### Options
-     *
-     * - `width` The width to wrap to. Defaults to 72.
-     * - `wordWrap` Only wrap on words breaks (spaces) Defaults to true.
-     * - `indent` String to indent with. Defaults to null.
-     * - `indentAt` 0 based index to start indenting at. Defaults to 0.
-     *
-     * @param string $text The text to format.
-     * @param array|int $options Array of options to use, or an integer to wrap the text to.
-     * @return string Formatted text.
-     */
-    public static function wrapBlock($text, $options = [])
-    {
-        if (is_numeric($options)) {
-            $options = ['width' => $options];
-        }
-        $options += ['width' => 72, 'wordWrap' => true, 'indent' => null, 'indentAt' => 0];
-
-        if (!empty($options['indentAt']) && $options['indentAt'] === 0) {
-            $indentLength = !empty($options['indent']) ? strlen($options['indent']) : 0;
-            $options['width'] = $options['width'] - $indentLength;
-            return self::wrap($text, $options);
-        }
-
-        $wrapped = self::wrap($text, $options);
-
-        if (!empty($options['indent'])) {
-            $indentationLength = mb_strlen($options['indent']);
-            $chunks = explode("\n", $wrapped);
-            $count = count($chunks);
-            if ($count < 2) {
-                return $wrapped;
-            }
-            $toRewrap = '';
-            for ($i = $options['indentAt']; $i < $count; $i++) {
-                $toRewrap .= mb_substr($chunks[$i], $indentationLength) . ' ';
-                unset($chunks[$i]);
-            }
-            $options['width'] -= $indentationLength;
-            $options['indentAt'] = 0;
-            $rewrapped = self::wrap($toRewrap, $options);
-            $newChunks = explode("\n", $rewrapped);
-
-            $chunks = array_merge($chunks, $newChunks);
             $wrapped = implode("\n", $chunks);
         }
         return $wrapped;
@@ -646,13 +589,7 @@ class Text
                 }
             }
             $truncate = mb_substr($truncate, 0, $spacepos);
-
-            // If truncate still empty, then we don't need to count ellipsis in the cut.
-            if (mb_strlen($truncate) === 0) {
-                $truncate = mb_substr($text, 0, $length);
-            }
         }
-
         $truncate .= $ellipsis;
 
         if ($html) {

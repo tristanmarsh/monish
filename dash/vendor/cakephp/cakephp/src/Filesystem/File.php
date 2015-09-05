@@ -14,8 +14,6 @@
  */
 namespace Cake\Filesystem;
 
-use finfo;
-
 /**
  * Convenience class for reading, writing and appending to files.
  *
@@ -208,7 +206,7 @@ class File
     public static function prepare($data, $forceWindows = false)
     {
         $lineBreak = "\n";
-        if (DIRECTORY_SEPARATOR === '\\' || $forceWindows === true) {
+        if (DS === '\\' || $forceWindows === true) {
             $lineBreak = "\r\n";
         }
         return strtr($data, ["\r\n" => $lineBreak, "\n" => $lineBreak, "\r" => $lineBreak]);
@@ -316,7 +314,7 @@ class File
     /**
      * Returns the file extension.
      *
-     * @return string|false The file extension, false if extension cannot be extracted.
+     * @return string The file extension
      */
     public function ext()
     {
@@ -332,7 +330,7 @@ class File
     /**
      * Returns the file name without extension.
      *
-     * @return string|false The file name without extension, false if name cannot be extracted.
+     * @return string The file name without extension.
      */
     public function name()
     {
@@ -556,13 +554,13 @@ class File
         if (!$this->exists()) {
             return false;
         }
-        if (class_exists('finfo')) {
-            $finfo = new finfo(FILEINFO_MIME);
-            $type = $finfo->file($this->pwd());
-            if (!$type) {
+        if (function_exists('finfo_open')) {
+            $finfo = finfo_open(FILEINFO_MIME);
+            $finfo = finfo_file($finfo, $this->pwd());
+            if (!$finfo) {
                 return false;
             }
-            list($type) = explode(';', $type);
+            list($type) = explode(';', $finfo);
             return $type;
         }
         if (function_exists('mime_content_type')) {

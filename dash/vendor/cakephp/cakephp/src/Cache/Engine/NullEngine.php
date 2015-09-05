@@ -67,7 +67,7 @@ class NullEngine extends CacheEngine
      */
     public function readMany($keys)
     {
-        return [];
+        return false;
     }
 
     /**
@@ -96,7 +96,7 @@ class NullEngine extends CacheEngine
      */
     public function deleteMany($keys)
     {
-        return [];
+        return false;
     }
 
     /**

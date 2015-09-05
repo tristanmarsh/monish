@@ -29,8 +29,9 @@ use Cake\Utility\Inflector;
  * ### Connecting routes
  *
  * Connecting routes is done using Router::connect(). When parsing incoming requests or reverse matching
- * parameters, routes are enumerated in the order they were connected. For more information on routes and
- * how to connect them see Router::connect().
+ * parameters, routes are enumerated in the order they were connected. You can modify the order of connected
+ * routes using Router::promote(). For more information on routes and how to connect them see Router::connect().
+ *
  */
 class Router
 {
@@ -568,9 +569,9 @@ class Router
         }
 
         if (empty($url)) {
-            $output = isset($here) ? $here : $base . '/';
+            $output = isset($here) ? $here : '/';
             if ($full) {
-                $output = static::fullBaseUrl() . $output;
+                $output = static::fullBaseUrl() . $base . $output;
             }
             return $output;
         } elseif (is_array($url)) {
@@ -699,15 +700,8 @@ class Router
         $pass = isset($params['pass']) ? $params['pass'] : [];
 
         unset(
-            $params['pass'],
-            $params['paging'],
-            $params['models'],
-            $params['url'],
-            $url['url'],
-            $params['autoRender'],
-            $params['bare'],
-            $params['requested'],
-            $params['return'],
+            $params['pass'], $params['paging'], $params['models'], $params['url'], $url['url'],
+            $params['autoRender'], $params['bare'], $params['requested'], $params['return'],
             $params['_Token']
         );
         $params = array_merge($params, $pass);

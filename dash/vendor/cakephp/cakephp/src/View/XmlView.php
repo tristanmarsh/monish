@@ -31,9 +31,7 @@ use Cake\Utility\Xml;
  *
  * In your controller, you could do the following:
  *
- * ```
- * $this->set(['posts' => $posts, '_serialize' => 'posts']);
- * ```
+ * `$this->set(['posts' => $posts, '_serialize' => 'posts']);`
  *
  * When the view is rendered, the `$posts` view variable will be serialized
  * into XML.
@@ -131,10 +129,6 @@ class XmlView extends View
     /**
      * Serialize view vars.
      *
-     * ### Special parameters
-     * `_xmlOptions` You can set an array of custom options for Xml::fromArray() this way, e.g.
-     *   'format' as 'attributes' instead of 'tags'.
-     *
      * @param array|string $serialize The name(s) of the view variable(s) that need(s) to be serialized
      * @return string The serialized data
      */
@@ -148,9 +142,7 @@ class XmlView extends View
                 if (is_numeric($alias)) {
                     $alias = $key;
                 }
-                if (array_key_exists($key, $this->viewVars)) {
-                    $data[$rootNode][$alias] = $this->viewVars[$key];
-                }
+                $data[$rootNode][$alias] = $this->viewVars[$key];
             }
         } else {
             $data = isset($this->viewVars[$serialize]) ? $this->viewVars[$serialize] : null;
@@ -160,9 +152,6 @@ class XmlView extends View
         }
 
         $options = [];
-        if (isset($this->viewVars['_xmlOptions'])) {
-            $options = $this->viewVars['_xmlOptions'];
-        }
         if (Configure::read('debug')) {
             $options['pretty'] = true;
         }

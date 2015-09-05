@@ -35,18 +35,11 @@ class Stream
     protected $_context;
 
     /**
-     * Array of options/content for the HTTP stream context.
+     * Array of options/content for the stream context.
      *
      * @var array
      */
     protected $_contextOptions;
-
-    /**
-     * Array of options/content for the SSL stream context.
-     *
-     * @var array
-     */
-    protected $_sslContextOptions;
 
     /**
      * The stream resource.
@@ -73,8 +66,6 @@ class Stream
     {
         $this->_stream = null;
         $this->_context = [];
-        $this->_contextOptions = [];
-        $this->_sslContextOptions = [];
         $this->_connectionErrors = [];
 
         $this->_buildContext($request, $options);
@@ -128,8 +119,7 @@ class Stream
             $this->_buildSslContext($request, $options);
         }
         $this->_context = stream_context_create([
-            'http' => $this->_contextOptions,
-            'ssl' => $this->_sslContextOptions,
+            'http' => $this->_contextOptions
         ]);
     }
 
@@ -229,17 +219,17 @@ class Stream
             'ssl_passphrase',
         ];
         if (empty($options['ssl_cafile'])) {
-            $options['ssl_cafile'] = CORE_PATH . 'config' . DS . 'cacert.pem';
+            $options['ssl_cafile'] = CAKE . 'Config' . DS . 'cacert.pem';
         }
         if (!empty($options['ssl_verify_host'])) {
             $url = $request->url();
             $host = parse_url($url, PHP_URL_HOST);
-            $this->_sslContextOptions['peer_name'] = $host;
+            $this->_contextOptions['CN_match'] = $host;
         }
         foreach ($sslOptions as $key) {
             if (isset($options[$key])) {
                 $name = substr($key, 4);
-                $this->_sslContextOptions[$name] = $options[$key];
+                $this->_contextOptions[$name] = $options[$key];
             }
         }
     }
@@ -266,8 +256,8 @@ class Stream
             throw new Exception('Connection timed out ' . $url);
         }
         $headers = $meta['wrapper_data'];
-        if (isset($headers['headers']) && is_array($headers['headers'])) {
-            $headers = $headers['headers'];
+        if (isset($meta['wrapper_type']) && $meta['wrapper_type'] === 'curl') {
+            $headers = $meta['wrapper_data']['headers'];
         }
         return $this->createResponses($headers, $content);
     }
@@ -312,6 +302,6 @@ class Stream
      */
     public function contextOptions()
     {
-        return array_merge($this->_contextOptions, $this->_sslContextOptions);
+        return $this->_contextOptions;
     }
 }

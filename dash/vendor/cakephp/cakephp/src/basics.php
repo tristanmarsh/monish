@@ -108,6 +108,7 @@ if (!function_exists('stackTrace')) {
      *
      * @param array $options Format for outputting stack trace
      * @return mixed Formatted stack trace
+     * @see Debugger::trace()
      */
     function stackTrace(array $options = [])
     {

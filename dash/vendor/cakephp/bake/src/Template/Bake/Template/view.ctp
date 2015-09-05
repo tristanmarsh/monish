@@ -62,7 +62,7 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
     $done = [];
     foreach ($associations as $type => $data) {
         foreach ($data as $alias => $details) {
-            if ($details['controller'] !== $this->name && !in_array($details['controller'], $done)) {
+            if ($details['controller'] != $this->name && !in_array($details['controller'], $done)) {
 %>
         <li><?= $this->Html->link(__('List <%= $this->_pluralHumanName($alias) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New <%= Inflector::humanize(Inflector::singularize(Inflector::underscore($alias))) %>'), ['controller' => '<%= $details['controller'] %>', 'action' => 'add']) ?> </li>
@@ -122,7 +122,8 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
     <div class="row texts">
         <div class="columns large-9">
             <h6 class="subheader"><?= __('<%= Inflector::humanize($field) %>') ?></h6>
-            <?= $this->Text->autoParagraph(h($<%= $singularVar %>-><%= $field %>)) ?>
+            <?= $this->Text->autoParagraph(h($<%= $singularVar %>-><%= $field %>)); ?>
+
         </div>
     </div>
 <% endforeach; %>
@@ -132,7 +133,7 @@ $pk = "\$$singularVar->{$primaryKey[0]}";
 $relations = $associations['HasMany'] + $associations['BelongsToMany'];
 foreach ($relations as $alias => $details):
     $otherSingularVar = Inflector::variable($alias);
-    $otherPluralHumanName = Inflector::humanize(Inflector::underscore($details['controller']));
+    $otherPluralHumanName = Inflector::humanize($details['controller']);
     %>
 <div class="related row">
     <div class="column large-12">

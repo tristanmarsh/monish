@@ -257,7 +257,6 @@ EOC;
             new Stmt\Const_(array(
                 new Node\Const_('D', new Node\Scalar\String_('E'))
             )),
-            new Expr\New_(new Stmt\Class_(null)),
         ));
 
         $traverser = new PhpParser\NodeTraverser;
@@ -269,12 +268,10 @@ EOC;
         $this->assertSame('NS\\B', (string) $stmts[0]->stmts[1]->namespacedName);
         $this->assertSame('NS\\C', (string) $stmts[0]->stmts[2]->namespacedName);
         $this->assertSame('NS\\D', (string) $stmts[0]->stmts[3]->consts[0]->namespacedName);
-        $this->assertObjectNotHasAttribute('namespacedName', $stmts[0]->stmts[4]->class);
         $this->assertSame('A',     (string) $stmts[1]->stmts[0]->namespacedName);
         $this->assertSame('B',     (string) $stmts[1]->stmts[1]->namespacedName);
         $this->assertSame('C',     (string) $stmts[1]->stmts[2]->namespacedName);
         $this->assertSame('D',     (string) $stmts[1]->stmts[3]->consts[0]->namespacedName);
-        $this->assertObjectNotHasAttribute('namespacedName', $stmts[1]->stmts[4]->class);
     }
 
     public function testAddTraitNamespacedName() {

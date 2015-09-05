@@ -34,7 +34,7 @@ class UnloadTask extends Shell
      * Execution method always used for tasks.
      *
      * @param string $plugin The plugin name.
-     * @return bool if action passed.
+     * @return boolean if action passed.
      */
     public function main($plugin = null)
     {

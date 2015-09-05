@@ -42,8 +42,7 @@ use Traversable;
  *
  * Automatic generation of HTML FORMs from given data.
  *
- * @property HtmlHelper $Html
- * @property UrlHelper $Url
+ * @property      HtmlHelper $Html
  * @link http://book.cakephp.org/3.0/en/views/helpers/form.html
  */
 class FormHelper extends Helper
@@ -368,16 +367,11 @@ class FormHelper extends Helper
         }
         unset($options['templates']);
 
-        if ($options['action'] === false || $options['url'] === false) {
-            $url = $this->request->here(false);
-            $action = null;
-        } else {
-            $url = $this->_formUrl($context, $options);
-            $action = $this->Url->build($url);
-        }
+        $url = $this->_formUrl($context, $options);
+        $action = $this->Url->build($url);
+        unset($options['url'], $options['action'], $options['idPrefix']);
 
         $this->_lastAction($url);
-        unset($options['url'], $options['action'], $options['idPrefix']);
 
         $htmlAttributes = [];
         switch (strtolower($options['type'])) {
@@ -551,16 +545,13 @@ class FormHelper extends Helper
      */
     public function secure(array $fields = [], array $secureAttributes = [])
     {
-        if (empty($this->request['_Token'])) {
+        if (!isset($this->request['_Token']) || empty($this->request['_Token'])) {
             return;
         }
         $locked = [];
         $unlockedFields = $this->_unlockedFields;
 
         foreach ($fields as $key => $value) {
-            if (is_numeric($value)) {
-                $value = (string)$value;
-            }
             if (!is_int($key)) {
                 $locked[$key] = $value;
                 unset($fields[$key]);
@@ -982,9 +973,6 @@ class FormHelper extends Helper
      * - `nestedInput` - Used with checkbox and radio inputs. Set to false to render inputs outside of label
      *   elements. Can be set to true on any input to force the input inside the label. If you
      *   enable this option for radio buttons you will also need to modify the default `radioWrapper` template.
-     * - `templates` - The templates you want to use for this input. Any templates will be merged on top of
-     *   the already loaded templates. This option can either be a filename in /config that contains
-     *   the templates you want to load, or an array of templates to use.
      *
      * @param string $fieldName This should be "modelname.fieldname"
      * @param array $options Each type of input takes different options.
@@ -1024,7 +1012,6 @@ class FormHelper extends Helper
 
         $label = $options['label'];
         unset($options['label']);
-
         $nestedInput = false;
         if ($options['type'] === 'checkbox') {
             $nestedInput = true;
@@ -1036,7 +1023,7 @@ class FormHelper extends Helper
         }
 
         $input = $this->_getInput($fieldName, $options);
-        if ($options['type'] === 'hidden' || $options['type'] === 'submit') {
+        if ($options['type'] === 'hidden') {
             if ($newTemplates) {
                 $templater->pop();
             }
@@ -1437,7 +1424,7 @@ class FormHelper extends Helper
      *
      * @param string $fieldName Name of a field, like this "modelname.fieldname"
      * @param array|\Traversable $options Radio button options array.
-     * @param array $attributes Array of attributes.
+     * @param array $attributes Array of HTML attributes, and special attributes above.
      * @return string Completed radio widget set.
      * @link http://book.cakephp.org/3.0/en/views/helpers/form.html#creating-radio-buttons
      */
@@ -1454,7 +1441,7 @@ class FormHelper extends Helper
         $radio = $this->widget('radio', $attributes);
 
         $hidden = '';
-        if ($hiddenField) {
+        if ($hiddenField && (!isset($value) || $value === '')) {
             $hidden = $this->hidden($fieldName, [
                 'value' => '',
                 'form' => isset($attributes['form']) ? $attributes['form'] : null,
@@ -1472,9 +1459,7 @@ class FormHelper extends Helper
      *
      * ### Usage
      *
-     * ```
-     * $this->Form->search('User.query', ['value' => 'test']);
-     * ```
+     * `$this->Form->search('User.query', ['value' => 'test']);`
      *
      * Will make an input like:
      *
@@ -1661,6 +1646,7 @@ class FormHelper extends Helper
 
         $formName = str_replace('.', '', uniqid('post_', true));
         $formOptions = [
+            'action' => $this->Url->build($url),
             'name' => $formName,
             'style' => 'display:none;',
             'method' => 'post',
@@ -1669,16 +1655,11 @@ class FormHelper extends Helper
             $formOptions['target'] = $options['target'];
             unset($options['target']);
         }
-        $templater = $this->templater();
 
         $this->_lastAction($url);
-        $action = $templater->formatAttributes([
-            'action' => $this->Url->build($url),
-            'escape' => false
-        ]);
 
-        $out = $templater->format('formStart', [
-            'attrs' => $templater->formatAttributes($formOptions) . $action
+        $out = $this->formatTemplate('formStart', [
+            'attrs' => $this->templater()->formatAttributes($formOptions)
         ]);
         $out .= $this->hidden('_method', ['value' => $requestMethod]);
         $out .= $this->_csrfField();
@@ -1692,7 +1673,7 @@ class FormHelper extends Helper
             unset($options['data']);
         }
         $out .= $this->secure($fields);
-        $out .= $templater->format('formEnd', []);
+        $out .= $this->formatTemplate('formEnd', []);
 
         if ($options['block']) {
             if ($options['block'] === true) {
@@ -2207,10 +2188,7 @@ class FormHelper extends Helper
     protected function _datetimeOptions($options)
     {
         foreach ($this->_datetimeParts as $type) {
-            if (!array_key_exists($type, $options)) {
-                $options[$type] = [];
-            }
-            if ($options[$type] === true) {
+            if (!isset($options[$type])) {
                 $options[$type] = [];
             }
 
@@ -2226,6 +2204,7 @@ class FormHelper extends Helper
                 $options[$type]['empty'] = $options['empty'][$type];
             }
         }
+        unset($options['empty']);
 
         $hasYear = is_array($options['year']);
         if ($hasYear && isset($options['minYear'])) {
@@ -2255,7 +2234,7 @@ class FormHelper extends Helper
         }
         unset($options['interval'], $options['round']);
 
-        if ($options['val'] === true || $options['val'] === null && isset($options['empty']) && $options['empty'] === false) {
+        if (!isset($options['val'])) {
             $val = new DateTime();
             $currentYear = $val->format('Y');
             if (isset($options['year']['end']) && $options['year']['end'] < $currentYear) {
@@ -2263,8 +2242,6 @@ class FormHelper extends Helper
             }
             $options['val'] = $val;
         }
-
-        unset($options['empty']);
 
         return $options;
     }
@@ -2540,19 +2517,17 @@ class FormHelper extends Helper
      */
     public function widget($name, array $data = [])
     {
-        $secure = null;
-        if (isset($data['secure'])) {
-            $secure = $data['secure'];
-            unset($data['secure']);
-        }
         $widget = $this->_registry->get($name);
-        $out = $widget->render($data, $this->context());
-        if (isset($data['name']) && $secure !== null && $secure !== self::SECURE_SKIP) {
+        if (isset($data['secure'], $data['name']) &&
+            $data['secure'] !== self::SECURE_SKIP
+        ) {
             foreach ($widget->secureFields($data) as $field) {
-                $this->_secure($secure, $this->_secureFieldName($field));
+                $this->_secure($data['secure'], $this->_secureFieldName($field));
             }
         }
-        return $out;
+        unset($data['secure']);
+
+        return $widget->render($data, $this->context());
     }
 
     /**

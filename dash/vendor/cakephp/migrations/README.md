@@ -1,9 +1,4 @@
-# cakephp/migrations
-
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.txt)
-[![Build Status](https://img.shields.io/travis/cakephp/migrations/master.svg?style=flat-square)](https://travis-ci.org/cakephp/migrations)
-[![Coverage Status](https://img.shields.io/coveralls/cakephp/migrations/master.svg?style=flat-square)](https://coveralls.io/r/cakephp/migrations?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/migrations.svg?style=flat-square)](https://packagist.org/packages/cakephp/migrations)
+# cakephp/migrations [![Build Status](https://travis-ci.org/cakephp/migrations.svg?branch=master)](https://travis-ci.org/cakephp/migrations) [![License](https://poser.pugx.org/cakephp/migrations/license.svg)](https://packagist.org/packages/cakephp/migrations)
 
 This is a Database Migrations system for CakePHP 3.0.
 
@@ -17,7 +12,7 @@ following to your `composer.json` file:
 
 ```javascript
 "require": {
-	"cakephp/migrations": "~1.0"
+	"cakephp/migrations": "dev-master"
 }
 ```
 
@@ -53,10 +48,6 @@ bin/cake migrations status -p PluginName
 
 # You can also scope a command to a connection via the `--connection` or `-c` option
 bin/cake migrations status -c my_datasource
-
-# The following will mark targeted migration as marked without actually running it.
-# The expected argument is the migration version number
-bin/cake migrations mark_migrated 20150417223600
 ```
 
 ### Creating Migrations
@@ -130,29 +121,6 @@ $table->addColumn('id', 'char', ['limit' => 36])
 ```
 
 > Phinx automatically creates an auto-increment `id` field for *every* table. This will hopefully be fixed in the future.
-
-#### Collations
-
-If you need to create a table with a different collation than the database default one, you can define it
-with the ``table`` method, as an option : 
-
-```php
-$table = $this
-    ->table('categories', [
-        'collation' => 'latin1_german1_ci'
-    ])
-    ->addColumn('title', 'string', [
-        'default' => null,
-        'limit' => 255,
-        'null' => false,
-    ])
-    ->create();
-```
-
-Note however this can only be done on table creation : there is currently
-no way of adding a column to an existing table with a different collation than the table or
-the database.
-Only MySQL and SqlServer supports this configuration key for the time being.
 
 #### Generating Migrations from the CLI
 

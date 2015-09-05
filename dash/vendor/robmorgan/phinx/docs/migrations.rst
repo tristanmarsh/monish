@@ -15,9 +15,9 @@ Let's start by creating a new Phinx migration. Run Phinx using the
 ``create`` command:
 
 .. code-block:: bash
-
-        $ php vendor/bin/phinx create MyNewMigration
-
+    
+        $ phinx create MyNewMigration
+        
 This will create a new migration in the format
 ``YYYYMMDDHHMMSS_my_new_migration.php`` where the first 14 characters are
 replaced with the current timestamp down to the second.
@@ -26,7 +26,7 @@ Phinx automatically creates a skeleton migration file with two empty methods
 and a commented out one:
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -95,7 +95,7 @@ migration you must uncomment the ``change`` method in your migration file. For
 example:
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -118,13 +118,13 @@ example:
                       ->addColumn('created', 'datetime')
                       ->create();
             }
-
+    
             /**
              * Migrate Up.
              */
             public function up()
             {
-
+    
             }
 
             /**
@@ -158,7 +158,7 @@ Phinx can only reverse the following commands:
 -  addIndex
 -  addForeignKey
 
-If a command cannot be reversed then Phinx will throw a
+If a command cannot be reversed then Phinx will throw a 
 ``IrreversibleMigrationException`` exception when it's migrating down.
 
 Executing Queries
@@ -169,7 +169,7 @@ Queries can be executed with the ``execute()`` and ``query()`` methods. The
 ``query()`` method returns the result as an array.
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -205,7 +205,7 @@ Queries can be executed with the ``execute()`` and ``query()`` methods. The
     the ``execute()`` command. This is especially important when using
     DELIMITERs during insertion of stored procedures or triggers which
     don't support DELIMITERs.
-
+        
 Fetching Rows
 -------------
 
@@ -214,7 +214,7 @@ fetch a single row, whilst the ``fetchAll()`` method will return multiple rows.
 Both methods accept raw SQL as their only parameter.
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -254,7 +254,7 @@ instance of the Table object by calling the ``table()`` method from within
 your database migration.
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -277,7 +277,7 @@ your database migration.
 
             }
         }
-
+        
 You can then manipulate this table using the methods provided by the Table
 object.
 
@@ -288,7 +288,7 @@ Creating a table is really easy using the Table object. Let's create a table to
 store a collection of users.
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -321,7 +321,7 @@ store a collection of users.
 
             }
         }
-
+        
 Columns are added using the ``addColumn()`` method. We create a unique index
 for both the username and email columns using the ``addIndex()`` method.
 Finally calling ``save()`` commits the changes to the database.
@@ -336,7 +336,7 @@ when accessing the Table object. Let's disable the automatic ``id`` column and
 create a primary key using two columns instead:
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -368,7 +368,7 @@ Setting a single ``primary_key`` doesn't enable the ``AUTO_INCREMENT`` option.
 To do this, we need to override the default ``id`` field name:
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -395,29 +395,28 @@ To do this, we need to override the default ``id`` field name:
 
             }
         }
-
+        
 Valid Column Types
 ~~~~~~~~~~~~~~~~~~
 
-Column types are specified as strings and can be one of:
+Column types are specified as strings and can be one of: 
 
--  biginteger
--  binary
--  boolean
--  date
--  datetime
--  decimal
--  float
--  integer
 -  string
 -  text
--  time
+-  integer
+-  biginteger
+-  float
+-  decimal
+-  datetime
 -  timestamp
--  uuid
+-  time
+-  date
+-  binary
+-  boolean
 
 In addition, the MySQL adapter supports ``enum`` and ``set`` column types.
 
-In addition, the Postgres adapter supports ``json`` and ``jsonb`` column types
+In addition, the Postgres adapter supports ``json`` and ``uuid`` column types
 (PostgreSQL 9.3 and above).
 
 For valid options, see the `Valid Column Options`_ below.
@@ -429,7 +428,7 @@ You can determine whether or not a table exists by using the ``hasTable()``
 method.
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -463,7 +462,7 @@ Tables can be dropped quite easily using the ``dropTable()`` method. It is a
 good idea to recreate the table again in the ``down()`` method.
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -496,7 +495,7 @@ good idea to recreate the table again in the ``down()`` method.
                       ->save();
             }
         }
-
+        
 Renaming a Table
 ~~~~~~~~~~~~~~~~
 
@@ -504,7 +503,7 @@ To rename a table access an instance of the Table object then call the
 ``rename()`` method.
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -533,66 +532,6 @@ To rename a table access an instance of the Table object then call the
 Working With Columns
 ~~~~~~~~~~~~~~~~~~~~
 
-Get a column list
-~~~~~~~~~~~~~~~~~
-
-To retrieve all table columns, simply create a `table` object and call `getColumns()` method. This method will return an array of Column classes with basic info. Example below:
-
-.. code-block:: php
-
-        <?php
-
-        use Phinx\Migration\AbstractMigration;
-
-        class ColumnListMigration extends AbstractMigration
-        {
-            /**
-             * Migrate Up.
-             */
-            public function up()
-            {
-                $columns = $this->table('users')->getColumns();
-                ...
-            }
-
-            /**
-             * Migrate Down.
-             */
-            public function down()
-            {
-                ...
-            }
-        }
-
-Checking whether a column exists
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You can check if a table already has a certain column by using the
-``hasColumn()`` method.
-
-.. code-block:: php
-
-        <?php
-
-        use Phinx\Migration\AbstractMigration;
-
-        class MyNewMigration extends AbstractMigration
-        {
-            /**
-             * Change Method.
-             */
-            public function change()
-            {
-                $table = $this->table('user');
-                $column = $table->hasColumn('username');
-
-                if ($column) {
-                    // do something
-                }
-
-            }
-        }
-
 Renaming a Column
 ~~~~~~~~~~~~~~~~~
 
@@ -600,7 +539,7 @@ To rename a column access an instance of the Table object then call the
 ``renameColumn()`` method.
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -629,7 +568,7 @@ To rename a column access an instance of the Table object then call the
 Adding a Column After Another Column
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When adding a column you can dictate its position using the ``after`` option.
+When adding a column you can dictate it's position using the ``after`` option.
 
 .. code-block:: php
 
@@ -649,31 +588,6 @@ When adding a column you can dictate its position using the ``after`` option.
                       ->update();
             }
         }
-
-Dropping a Column
-~~~~~~~~~~~~~~~~~
-
-To drop a column, use the ``removeColumn()`` method.
-
-.. code-block:: php
-
-        <?php
-
-        use Phinx\Migration\AbstractMigration;
-
-        class MyNewMigration extends AbstractMigration
-        {
-            /**
-             * Change Method.
-             */
-            public function change()
-            {
-                $table = $this->table('users');
-                $table->removeColumn('short_name')
-                      ->update();
-            }
-        }
-
 
 Specifying a Column Limit
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -764,7 +678,7 @@ unique index.
 
             }
         }
-
+        
 Removing indexes is as easy as calling the ``removeIndex()`` method. You must
 call this method for each index.
 
@@ -796,7 +710,7 @@ call this method for each index.
 
 .. note::
 
-    There is no need to call the ``save()`` method when using
+    There is no need to call the ``save()`` method when using 
     ``removeIndex()``. The index will be removed immediately.
 
 Working With Foreign Keys
@@ -806,7 +720,7 @@ Phinx has support for creating foreign key constraints on your database tables.
 Let's add a foreign key to an example table:
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -821,12 +735,12 @@ Let's add a foreign key to an example table:
                 $table = $this->table('tags');
                 $table->addColumn('tag_name', 'string')
                       ->save();
-
+        
                 $refTable = $this->table('tag_relationships');
                 $refTable->addColumn('tag_id', 'integer')
                          ->addForeignKey('tag_id', 'tags', 'id', array('delete'=> 'SET_NULL', 'update'=> 'NO_ACTION'))
                          ->save();
-
+                
             }
 
             /**
@@ -843,7 +757,7 @@ Let's add a foreign key to an example table:
 We can also easily check if a foreign key exists:
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -874,7 +788,7 @@ We can also easily check if a foreign key exists:
 Finally to delete a foreign key use the ``dropForeignKey`` method.
 
 .. code-block:: php
-
+        
         <?php
 
         use Phinx\Migration\AbstractMigration;
@@ -969,16 +883,12 @@ Limit Option and MySQL
 ~~~~~~~~~~~~~~~~~~~~~~
 
 When using the MySQL adapter, additional hinting of database column type can be
-made for ``integer``, ``text`` and ``binary`` columns. Using ``limit`` with 
-one the following options will modify the column type accordingly:
+made for ``integer`` and ``text`` columns. Using ``limit`` with one the following
+options will modify the column type accordingly:
 
 ============ ==============
 Limit        Column Type
 ============ ==============
-BLOB_TINY    TINYBLOB
-BLOB_REGULAR BLOB
-BLOB_MEDIUM  MEDIUMBLOB
-BLOB_LONG    LONGBLOB
 TEXT_TINY    TINYTEXT
 TEXT_REGULAR TEXT
 TEXT_MEDIUM  MEDIUMTEXT
@@ -993,9 +903,9 @@ INT_BIG      BIGINT
 .. code-block:: php
 
          use Phinx\Db\Adapter\MysqlAdapter;
-
+   
          //...
-
+   
          $table = $this->table('cart_items');
          $table->addColumn('user_id', 'integer')
                ->addColumn('product_id', 'integer', array('limit' => MysqlAdapter::INT_BIG))

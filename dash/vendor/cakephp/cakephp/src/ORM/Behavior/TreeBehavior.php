@@ -64,8 +64,7 @@ class TreeBehavior extends Behavior
             'moveDown' => 'moveDown',
             'recover' => 'recover',
             'removeFromTree' => 'removeFromTree',
-            'getLevel' => 'getLevel',
-            'formatTreeList' => 'formatTreeList'
+            'getLevel' => 'getLevel'
         ],
         'parent' => 'parent_id',
         'left' => 'lft',
@@ -126,7 +125,7 @@ class TreeBehavior extends Behavior
 
             if ($level) {
                 $parentNode = $this->_getNode($parent);
-                $entity->set($level, $parentNode[$level] + 1);
+                $entity->set($config[$level], $parentNode[$level] + 1);
             }
             return;
         }
@@ -362,8 +361,7 @@ class TreeBehavior extends Behavior
             ->where([
                 "$left <=" => $node->get($config['left']),
                 "$right >=" => $node->get($config['right'])
-            ])
-            ->order([$left => 'ASC']);
+            ]);
     }
 
     /**
@@ -443,57 +441,35 @@ class TreeBehavior extends Behavior
      * the primary key for the table and the values are the display field for the table.
      * Values are prefixed to visually indicate relative depth in the tree.
      *
-     * ### Options
+     * Available options are:
      *
      * - keyPath: A dot separated path to fetch the field to use for the array key, or a closure to
-     *   return the key out of the provided row.
+     *  return the key out of the provided row.
      * - valuePath: A dot separated path to fetch the field to use for the array value, or a closure to
-     *   return the value out of the provided row.
+     *  return the value out of the provided row.
      * - spacer: A string to be used as prefix for denoting the depth in the tree for each item
      *
      * @param \Cake\ORM\Query $query Query.
-     * @param array $options Array of options as described above.
+     * @param array $options Array of options as described above
      * @return \Cake\ORM\Query
      */
     public function findTreeList(Query $query, array $options)
     {
-        $results = $this->_scope($query)
+        return $this->_scope($query)
             ->find('threaded', [
                 'parentField' => $this->config('parent'),
                 'order' => [$this->config('left') => 'ASC']
-            ]);
-        return $this->formatTreeList($results, $options);
-    }
-
-    /**
-     * Formats query as a flat list where the keys are the primary key for the table
-     * and the values are the display field for the table. Values are prefixed to visually
-     * indicate relative depth in the tree.
-     *
-     * ### Options
-     *
-     * - keyPath: A dot separated path to the field that will be the result array key, or a closure to
-     *   return the key from the provided row.
-     * - valuePath: A dot separated path to the field that is the array's value, or a closure to
-     *   return the value from the provided row.
-     * - spacer: A string to be used as prefix for denoting the depth in the tree for each item.
-     *
-     * @param \Cake\ORM\Query $query The query object to format.
-     * @param array $options Array of options as described above.
-     * @return \Cake\ORM\Query Augmented query.
-     */
-    public function formatTreeList(Query $query, array $options = [])
-    {
-        return $query->formatResults(function ($results) use ($options) {
-            $options += [
-                'keyPath' => $this->_getPrimaryKey(),
-                'valuePath' => $this->_table->displayField(),
-                'spacer' => '_'
-            ];
-            return $results
-                ->listNested()
-                ->printer($options['valuePath'], $options['keyPath'], $options['spacer']);
-        });
+            ])
+            ->formatResults(function ($results) use ($options) {
+                $options += [
+                    'keyPath' => $this->_getPrimaryKey(),
+                    'valuePath' => $this->_table->displayField(),
+                    'spacer' => '_'
+                ];
+                return $results
+                    ->listNested()
+                    ->printer($options['valuePath'], $options['keyPath'], $options['spacer']);
+            });
     }
 
     /**
@@ -737,7 +713,7 @@ class TreeBehavior extends Behavior
 
         $node = $this->_scope($this->_table->find())
             ->select($fields)
-            ->where([$this->_table->aliasField($primaryKey) => $id])
+            ->where([$this->_table->alias() . '.' . $primaryKey => $id])
             ->first();
 
         if (!$node) {
@@ -765,41 +741,33 @@ class TreeBehavior extends Behavior
      *
      * @param int $counter The Last left column value that was assigned
      * @param mixed $parentId the parent id of the level to be recovered
-     * @param int $level Node level
      * @return int The next value to use for the left column
      */
-    protected function _recoverTree($counter = 0, $parentId = null, $level = -1)
+    protected function _recoverTree($counter = 0, $parentId = null)
     {
         $config = $this->config();
         list($parent, $left, $right) = [$config['parent'], $config['left'], $config['right']];
-        $primaryKey = $this->_getPrimaryKey();
-        $aliasedPrimaryKey = $this->_table->aliasField($primaryKey);
+        $pk = (array)$this->_table->primaryKey();
 
         $query = $this->_scope($this->_table->query())
-            ->select([$aliasedPrimaryKey])
-            ->where([$this->_table->aliasField($parent) . ' IS' => $parentId])
-            ->order([$aliasedPrimaryKey])
+            ->select($pk)
+            ->where([$parent . ' IS' => $parentId])
+            ->order($pk)
             ->hydrate(false);
 
         $leftCounter = $counter;
-        $nextLevel = $level + 1;
         foreach ($query as $row) {
             $counter++;
-            $counter = $this->_recoverTree($counter, $row[$primaryKey], $nextLevel);
+            $counter = $this->_recoverTree($counter, $row[$pk[0]]);
         }
 
         if ($parentId === null) {
             return $counter;
         }
 
-        $fields = [$left => $leftCounter, $right => $counter + 1];
-        if ($config['level']) {
-            $fields[$config['level']] = $level;
-        }
-
         $this->_table->updateAll(
-            $fields,
-            [$primaryKey => $parentId]
+            [$left => $leftCounter, $right => $counter + 1],
+            [$pk[0] => $parentId]
         );
 
         return $counter + 1;

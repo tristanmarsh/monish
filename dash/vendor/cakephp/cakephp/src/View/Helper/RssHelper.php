@@ -20,7 +20,6 @@ use Cake\View\Helper;
 /**
  * RSS Helper class for easy output RSS structures.
  *
- * @property UrlHelper $Url
  * @property TimeHelper $Time
  * @link http://book.cakephp.org/3.0/en/views/helpers/rss.html
  */

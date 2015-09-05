@@ -39,8 +39,7 @@ class Sqlserver extends \Cake\Database\Driver
         'username' => '',
         'password' => '',
         'database' => 'cake',
-        // PDO::SQLSRV_ENCODING_UTF8
-        'encoding' => 65001,
+        'encoding' => PDO::SQLSRV_ENCODING_UTF8,
         'flags' => [],
         'init' => [],
         'settings' => [],

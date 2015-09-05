@@ -122,8 +122,8 @@ class TimerPanel extends DebugPanel
      */
     public function summary()
     {
-        $time = Number::precision(DebugTimer::requestTime(), 2) . ' s';
+        $time = Number::precision(DebugTimer::requestTime(), 2);
         $memory = Number::toReadableSize(DebugMemory::getPeak());
-        return "$time / $memory";
+        return "$time s - $memory";
     }
 }

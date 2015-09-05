@@ -31,7 +31,7 @@ use Cake\Utility\Xml;
  * Request object for handling alternative HTTP requests
  *
  * Alternative HTTP requests can come from wireless units like mobile phones, palmtop computers,
- * and the like. These units have no use for AJAX requests, and this Component can tell how Cake
+ * and the like. These units have no use for Ajax requests, and this Component can tell how Cake
  * should respond to the different needs of a handheld computer and a desktop machine.
  *
  * @link http://book.cakephp.org/3.0/en/controllers/components/request-handling.html
@@ -45,6 +45,13 @@ class RequestHandlerComponent extends Component
      * @var bool
      */
     public $enabled = true;
+
+    /**
+     * Holds the reference to Controller::$request
+     *
+     * @var \Cake\Network\Request
+     */
+    public $request;
 
     /**
      * Holds the reference to Controller::$response
@@ -73,7 +80,7 @@ class RequestHandlerComponent extends Component
      *
      * These are merged with user-provided config when the component is used.
      *
-     * - `checkHttpCache` - Whether to check for HTTP cache.
+     * - `checkHttpCache` - Whether to check for http cache.
      * - `viewClassMap` - Mapping between type and view class.
      *
      * @var array
@@ -135,7 +142,7 @@ class RequestHandlerComponent extends Component
      * Checks to see if a specific content type has been requested and sets RequestHandler::$ext
      * accordingly. Checks the following in order: 1. The '_ext' value parsed by the Router. 2. A specific
      * AJAX type request indicated by the presence of a header. 3. The Accept header. With the exception
-     * of an AJAX request indicated using the second header based method above, the type must have
+     * of an ajax request indicated using the second header based method above, the type must have
      * been configured in {@link Cake\Routing\Router}.
      *
      * @param array $config The config data.
@@ -145,7 +152,18 @@ class RequestHandlerComponent extends Component
     public function initialize(array $config)
     {
         $controller = $this->_registry->getController();
-        $this->response =& $controller->response;
+        $request = $this->request = $controller->request;
+        $this->response = $controller->response;
+
+        if (isset($request->params['_ext'])) {
+            $this->ext = $request->params['_ext'];
+        }
+        if (empty($this->ext) || in_array($this->ext, ['html', 'htm'])) {
+            $this->_setExtension($request, $this->response);
+        }
+        if (empty($this->ext) && $request->is('ajax')) {
+            $this->ext = 'ajax';
+        }
 
         if ($this->_config['viewClassMap']) {
             $this->viewClassMap($this->_config['viewClassMap']);
@@ -183,7 +201,7 @@ class RequestHandlerComponent extends Component
         $extensions = Router::extensions();
         foreach ($accepts as $types) {
             $ext = array_intersect($extensions, $types);
-            if (!empty($ext)) {
+            if ($ext) {
                 $this->ext = current($ext);
                 break;
             }
@@ -214,19 +232,7 @@ class RequestHandlerComponent extends Component
     public function startup(Event $event)
     {
         $controller = $event->subject();
-        $request = $controller->request;
-
-        if (isset($request->params['_ext'])) {
-            $this->ext = $request->params['_ext'];
-        }
-        if (empty($this->ext) || in_array($this->ext, ['html', 'htm'])) {
-            $this->_setExtension($request, $this->response);
-        }
-        if (empty($this->ext) && $request->is('ajax')) {
-            $this->ext = 'ajax';
-        }
-
-        $request->params['isAjax'] = $this->request->is('ajax');
+        $controller->request->params['isAjax'] = $this->request->is('ajax');
         $isRecognized = (
             !in_array($this->ext, ['html', 'htm']) &&
             $this->response->getMimeType($this->ext)
@@ -240,8 +246,8 @@ class RequestHandlerComponent extends Component
 
         foreach ($this->_inputTypeMap as $type => $handler) {
             if ($this->requestedWith($type)) {
-                $input = call_user_func_array([$request, 'input'], $handler);
-                $request->data = (array)$input;
+                $input = call_user_func_array([$controller->request, 'input'], $handler);
+                $controller->request->data = $input;
             }
         }
     }
@@ -256,7 +262,7 @@ class RequestHandlerComponent extends Component
     public function convertXml($xml)
     {
         try {
-            $xml = Xml::build($xml, ['readFile' => false]);
+            $xml = Xml::build($xml);
             if (isset($xml->data)) {
                 return Xml::toArray($xml->data);
             }
@@ -267,12 +273,12 @@ class RequestHandlerComponent extends Component
     }
 
     /**
-     * Handles (fakes) redirects for AJAX requests using requestAction()
+     * Handles (fakes) redirects for Ajax requests using requestAction()
      *
      * @param Event $event The Controller.beforeRedirect event.
      * @param string|array $url A string or array containing the redirect location
      * @param \Cake\Network\Response $response The response object.
-     * @return void|\Cake\Network\Response The response object if the redirect is caught.
+     * @return void
      */
     public function beforeRedirect(Event $event, $url, Response $response)
     {
@@ -294,8 +300,8 @@ class RequestHandlerComponent extends Component
                 'REQUEST_METHOD' => 'GET'
             ]
         ]));
-        $response->statusCode(200);
-        return $response;
+        $response->send();
+        $response->stop();
     }
 
     /**
@@ -375,15 +381,11 @@ class RequestHandlerComponent extends Component
      *
      * Usage:
      *
-     * ```
-     * $this->RequestHandler->accepts(['xml', 'html', 'json']);
-     * ```
+     * `$this->RequestHandler->accepts(['xml', 'html', 'json']);`
      *
      * Returns true if the client accepts any of the supplied types.
      *
-     * ```
-     * $this->RequestHandler->accepts('xml');
-     * ```
+     * `$this->RequestHandler->accepts('xml');`
      *
      * Returns true if the client accepts xml.
      *
@@ -516,15 +518,11 @@ class RequestHandlerComponent extends Component
      *
      * Render the response as an 'ajax' response.
      *
-     * ```
-     * $this->RequestHandler->renderAs($this, 'ajax');
-     * ```
+     * `$this->RequestHandler->renderAs($this, 'ajax');`
      *
      * Render the response as an xml file and force the result as a file download.
      *
-     * ```
-     * $this->RequestHandler->renderAs($this, 'xml', ['attachment' => 'myfile.xml'];
-     * ```
+     * `$this->RequestHandler->renderAs($this, 'xml', ['attachment' => 'myfile.xml'];`
      *
      * @param Controller $controller A reference to a controller object
      * @param string $type Type of response to send (e.g: 'ajax')
@@ -535,6 +533,7 @@ class RequestHandlerComponent extends Component
     public function renderAs(Controller $controller, $type, array $options = [])
     {
         $defaults = ['charset' => 'UTF-8'];
+        $view = null;
         $viewClassMap = $this->viewClassMap();
 
         if (Configure::read('App.encoding') !== null) {
@@ -646,9 +645,8 @@ class RequestHandlerComponent extends Component
      * Maps a content type alias back to its mime-type(s)
      *
      * @param string|array $alias String alias to convert back into a content type. Or an array of aliases to map.
-     * @return string|null|array Null on an undefined alias. String value of the mapped alias type. If an
-     *   alias maps to more than one content type, the first one will be returned. If an array is provided
-     *   for $alias, an array of mapped types will be returned.
+     * @return string|null Null on an undefined alias. String value of the mapped alias type. If an
+     *   alias maps to more than one content type, the first one will be returned.
      */
     public function mapAlias($alias)
     {

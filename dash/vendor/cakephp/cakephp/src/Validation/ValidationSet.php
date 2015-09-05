@@ -109,7 +109,7 @@ class ValidationSet implements ArrayAccess, IteratorAggregate, Countable
      *
      * ```
      *      $set
-     *          ->add('notBlank', ['rule' => 'notBlank'])
+     *          ->add('notEmpty', ['rule' => 'notEmpty'])
      *          ->add('inRange', ['rule' => ['between', 4, 10])
      * ```
      *
@@ -133,7 +133,7 @@ class ValidationSet implements ArrayAccess, IteratorAggregate, Countable
      *
      * ```
      *      $set
-     *          ->remove('notBlank')
+     *          ->remove('notEmpty')
      *          ->remove('inRange')
      * ```
      *

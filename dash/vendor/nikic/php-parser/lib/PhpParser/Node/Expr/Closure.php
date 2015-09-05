@@ -4,9 +4,8 @@ namespace PhpParser\Node\Expr;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr;
-use PhpParser\Node\FunctionLike;
 
-class Closure extends Expr implements FunctionLike
+class Closure extends Expr
 {
     /** @var bool Whether the closure is static */
     public $static;
@@ -16,7 +15,7 @@ class Closure extends Expr implements FunctionLike
     public $params;
     /** @var ClosureUse[] use()s */
     public $uses;
-    /** @var null|string|Node\Name Return type */
+    /** @var null|string|Node\Name[] Return type */
     public $returnType;
     /** @var Node[] Statements */
     public $stmts;
@@ -45,21 +44,5 @@ class Closure extends Expr implements FunctionLike
 
     public function getSubNodeNames() {
         return array('static', 'byRef', 'params', 'uses', 'returnType', 'stmts');
-    }
-
-    public function returnsByRef() {
-        return $this->byRef;
-    }
-
-    public function getParams() {
-        return $this->params;
-    }
-
-    public function getReturnType() {
-        return $this->returnType;
-    }
-
-    public function getStmts() {
-        return $this->stmts;
     }
 }

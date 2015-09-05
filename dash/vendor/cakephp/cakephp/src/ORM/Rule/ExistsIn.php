@@ -65,14 +65,13 @@ class ExistsIn
             $this->_repository = $options['repository']->association($this->_repository);
         }
 
-        $source = !empty($options['repository']) ? $options['repository'] : $this->_repository;
-        $source = $source instanceof Association ? $source->source() : $source;
-        $target = $this->_repository instanceof Association ?
-            $this->_repository->target() :
-            $this->_repository;
-
-        if (!empty($options['_sourceTable']) && $target === $options['_sourceTable']) {
-            return true;
+        if (!empty($options['_sourceTable'])) {
+            $source = $this->_repository instanceof Association ?
+                $this->_repository->target() :
+                $this->_repository;
+            if ($source === $options['_sourceTable']) {
+                return true;
+            }
         }
 
         if (!$entity->extract($this->_fields, true)) {
@@ -80,9 +79,9 @@ class ExistsIn
         }
 
         $nulls = 0;
-        $schema = $source->schema();
+        $schema = $this->_repository->schema();
         foreach ($this->_fields as $field) {
-            if ($schema->column($field) && $schema->isNullable($field) && $entity->get($field) === null) {
+            if ($schema->isNullable($field) && $entity->get($field) === null) {
                 $nulls++;
             }
         }
@@ -90,8 +89,11 @@ class ExistsIn
             return true;
         }
 
+        $alias = $this->_repository->alias();
         $primary = array_map(
-            [$this->_repository, 'aliasField'],
+            function ($key) use ($alias) {
+                return "$alias.$key";
+            },
             (array)$this->_repository->primaryKey()
         );
         $conditions = array_combine(

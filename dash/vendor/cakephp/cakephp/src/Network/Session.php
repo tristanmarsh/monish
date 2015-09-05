@@ -273,9 +273,7 @@ class Session
      *
      * ### Example:
      *
-     * ```
-     * $session->options(['session.use_cookies' => 1]);
-     * ```
+     * `$session->options(['session.use_cookies' => 1]);`
      *
      * @param array $options Ini options to set.
      * @return void

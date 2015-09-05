@@ -57,7 +57,7 @@ class ConsoleLog extends BaseLog
      */
     public function __construct(array $config = [])
     {
-        if ((DS === '\\' && !(bool)env('ANSICON') && env('ConEmuANSI') !== 'ON') ||
+        if ((DS === '\\' && !(bool)env('ANSICON')) ||
             (function_exists('posix_isatty') && !posix_isatty($this->_output))
         ) {
             $this->_defaultConfig['outputAs'] = ConsoleOutput::PLAIN;
@@ -89,7 +89,7 @@ class ConsoleLog extends BaseLog
     public function log($level, $message, array $context = [])
     {
         $message = $this->_format($message, $context);
-        $output = date('Y-m-d H:i:s') . ' ' . ucfirst($level) . ': ' . $message;
-        return $this->_output->write(sprintf('<%s>%s</%s>', $level, $output, $level));
+        $output = date('Y-m-d H:i:s') . ' ' . ucfirst($level) . ': ' . $message . "\n";
+        return $this->_output->write(sprintf('<%s>%s</%s>', $level, $output, $level), false);
     }
 }

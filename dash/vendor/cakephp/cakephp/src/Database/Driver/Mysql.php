@@ -62,9 +62,6 @@ class Mysql extends \Cake\Database\Driver
         if (!empty($config['timezone'])) {
             $config['init'][] = sprintf("SET time_zone = '%s'", $config['timezone']);
         }
-        if (!empty($config['encoding'])) {
-            $config['init'][] = sprintf("SET NAMES %s", $config['encoding']);
-        }
 
         $config['flags'] += [
             PDO::ATTR_PERSISTENT => $config['persistent'],
@@ -89,9 +86,8 @@ class Mysql extends \Cake\Database\Driver
         $this->_connect($dsn, $config);
 
         if (!empty($config['init'])) {
-            $connection = $this->connection();
             foreach ((array)$config['init'] as $command) {
-                $connection->exec($command);
+                $this->connection()->exec($command);
             }
         }
         return true;

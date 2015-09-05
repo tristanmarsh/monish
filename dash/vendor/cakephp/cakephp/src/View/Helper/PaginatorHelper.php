@@ -24,9 +24,6 @@ use Cake\View\View;
  *
  * PaginationHelper encloses all methods needed when working with pagination.
  *
- * @property UrlHelper $Url
- * @property NumberHelper $Number
- * @property HtmlHelper $Html
  * @link http://book.cakephp.org/3.0/en/views/helpers/paginator.html
  */
 class PaginatorHelper extends Helper
@@ -63,9 +60,9 @@ class PaginatorHelper extends Helper
         'options' => [],
         'templates' => [
             'nextActive' => '<li class="next"><a rel="next" href="{{url}}">{{text}}</a></li>',
-            'nextDisabled' => '<li class="next disabled"><a href="" onclick="return false;">{{text}}</a></li>',
+            'nextDisabled' => '<li class="next disabled"><a href="">{{text}}</a></li>',
             'prevActive' => '<li class="prev"><a rel="prev" href="{{url}}">{{text}}</a></li>',
-            'prevDisabled' => '<li class="prev disabled"><a href="" onclick="return false;">{{text}}</a></li>',
+            'prevDisabled' => '<li class="prev disabled"><a href="">{{text}}</a></li>',
             'counterRange' => '{{start}} - {{end}} of {{count}}',
             'counterPages' => '{{page}} of {{pages}}',
             'first' => '<li class="first"><a href="{{url}}">{{text}}</a></li>',
@@ -244,24 +241,10 @@ class PaginatorHelper extends Helper
         }
         $text = $options['escape'] ? h($text) : $text;
 
-        $templater = $this->templater();
-        $newTemplates = !empty($options['templates']) ? $options['templates'] : false;
-        if ($newTemplates) {
-            $templater->push();
-            $templateMethod = is_string($options['templates']) ? 'load' : 'add';
-            $templater->{$templateMethod}($options['templates']);
-        }
-
         if (!$enabled) {
-            $out = $templater->format($template, [
+            return $this->templater()->format($template, [
                 'text' => $text,
             ]);
-
-            if ($newTemplates) {
-                $templater->pop();
-            }
-
-            return $out;
         }
         $paging = $this->params($options['model']);
 
@@ -270,17 +253,10 @@ class PaginatorHelper extends Helper
             ['page' => $paging['page'] + $options['step']]
         );
         $url = $this->generateUrl($url, $options['model']);
-
-        $out = $templater->format($template, [
+        return $this->templater()->format($template, [
             'url' => $url,
             'text' => $text,
         ]);
-
-        if ($newTemplates) {
-            $templater->pop();
-        }
-
-        return $out;
     }
 
     /**
@@ -293,10 +269,7 @@ class PaginatorHelper extends Helper
      *   this method to return ''.
      * - `escape` Whether you want the contents html entity encoded, defaults to true
      * - `model` The model to use, defaults to PaginatorHelper::defaultModel()
-     * - `url` An array of additional URL options to use for link generation.
-     * - `templates` An array of templates, or template file name containing the
-     *   templates you'd like to use when generating the link for previous page.
-     *   The helper's original templates will be restored once prev() is done.
+     * - `url` Additional URL parameters to use in the generated URL.
      *
      * @param string $title Title for the link. Defaults to '<< Previous'.
      * @param array $options Options for pagination link. See above for list of keys.
@@ -332,10 +305,7 @@ class PaginatorHelper extends Helper
      *   this method to return ''.
      * - `escape` Whether you want the contents html entity encoded, defaults to true
      * - `model` The model to use, defaults to PaginatorHelper::defaultModel()
-     * - `url` An array of additional URL options to use for link generation.
-     * - `templates` An array of templates, or template file name containing the
-     *   templates you'd like to use when generating the link for next page.
-     *   The helper's original templates will be restored once next() is done.
+     * - `url` Additional URL parameters to use in the generated URL.
      *
      * @param string $title Title for the link. Defaults to 'Next >>'.
      * @param array $options Options for pagination link. See above for list of keys.
@@ -458,14 +428,10 @@ class PaginatorHelper extends Helper
         if (!empty($this->_config['options']['url'])) {
             $url = array_merge($url, $this->_config['options']['url']);
         }
-
-        $url = array_filter($url, function ($value) {
-            return ($value || is_numeric($value));
-        });
-        $url = array_merge($url, $options);
+        $url = array_merge(array_filter($url), $options);
 
         if (!empty($url['page']) && $url['page'] == 1) {
-            $url['page'] = false;
+            $url['page'] = null;
         }
         if (isset($paging['sortDefault'], $paging['directionDefault'], $url['sort'], $url['direction']) &&
             $url['sort'] === $paging['sortDefault'] &&
@@ -619,9 +585,7 @@ class PaginatorHelper extends Helper
      * Returns a set of numbers for the paged result set
      * uses a modulus to decide how many numbers to show on each side of the current page (default: 8).
      *
-     * ```
-     * $this->Paginator->numbers(['first' => 2, 'last' => 2]);
-     * ```
+     * `$this->Paginator->numbers(['first' => 2, 'last' => 2]);`
      *
      * Using the first and last options you can create links to the beginning and end of the page set.
      *
@@ -630,8 +594,7 @@ class PaginatorHelper extends Helper
      * - `before` Content to be inserted before the numbers, but after the first links.
      * - `after` Content to be inserted after the numbers, but before the last links.
      * - `model` Model to create numbers for, defaults to PaginatorHelper::defaultModel()
-     * - `modulus` How many numbers to include on either side of the current page, defaults to 8.
-     *    Set to `false` to disable and to show all numbers.
+     * - `modulus` how many numbers to include on either side of the current page, defaults to 8.
      * - `first` Whether you want first links generated, set to an integer to define the number of 'first'
      *    links to generate.
      * - `last` Whether you want last links generated, set to an integer to define the number of 'last'
@@ -639,7 +602,6 @@ class PaginatorHelper extends Helper
      * - `templates` An array of templates, or template file name containing the templates you'd like to
      *    use when generating the numbers. The helper's original templates will be restored once
      *    numbers() is done.
-     * - `url` An array of additional URL options to use for link generation.
      *
      * The generated number links will include the 'ellipsis' template when the `first` and `last` options
      * and the number of pages exceed the modulus. For example if you have 25 pages, and use the first/last
@@ -653,7 +615,7 @@ class PaginatorHelper extends Helper
     {
         $defaults = [
             'before' => null, 'after' => null, 'model' => $this->defaultModel(),
-            'modulus' => 8, 'first' => null, 'last' => null, 'url' => []
+            'modulus' => 8, 'first' => null, 'last' => null,
         ];
         $options += $defaults;
 
@@ -669,7 +631,7 @@ class PaginatorHelper extends Helper
             $templater->{$method}($options['templates']);
         }
 
-        if ($options['modulus'] !== false && $params['pageCount'] > $options['modulus']) {
+        if ($options['modulus'] && $params['pageCount'] > $options['modulus']) {
             $out = $this->_modulusNumbers($templater, $params, $options);
         } else {
             $out = $this->_numbers($templater, $params, $options);
@@ -714,10 +676,9 @@ class PaginatorHelper extends Helper
      */
     protected function _formatNumber($templater, $options)
     {
-        $url = array_merge($options['url'], ['page' => $options['page']]);
         $vars = [
             'text' => $options['text'],
-            'url' => $this->generateUrl($url, $options['model']),
+            'url' => $this->generateUrl(['page' => $options['page']], $options['model']),
         ];
         return $templater->format('number', $vars);
     }
@@ -738,21 +699,20 @@ class PaginatorHelper extends Helper
         list($start, $end) = $this->_getNumbersStartAndEnd($params, $options);
 
         $out .= $this->_firstNumber($ellipsis, $params, $start, $options);
+
         $out .= $options['before'];
 
         for ($i = $start; $i < $params['page']; $i++) {
             $out .= $this->_formatNumber($templater, [
                 'text' => $i,
                 'page' => $i,
-                'model' => $options['model'],
-                'url' => $options['url'],
+                'model' => $options['model']
             ]);
         }
 
-        $url = array_merge($options['url'], ['page' => $params['page']]);
         $out .= $templater->format('current', [
             'text' => $params['page'],
-            'url' => $this->generateUrl($url, $options['model']),
+            'url' => $this->generateUrl(['page' => $params['page']], $options['model']),
         ]);
 
         $start = $params['page'] + 1;
@@ -760,8 +720,7 @@ class PaginatorHelper extends Helper
             $out .= $this->_formatNumber($templater, [
                 'text' => $i,
                 'page' => $i,
-                'model' => $options['model'],
-                'url' => $options['url'],
+                'model' => $options['model']
             ]);
         }
 
@@ -769,8 +728,7 @@ class PaginatorHelper extends Helper
             $out .= $this->_formatNumber($templater, [
                 'text' => $i,
                 'page' => $end,
-                'model' => $options['model'],
-                'url' => $options['url'],
+                'model' => $options['model']
             ]);
         }
 
@@ -793,7 +751,7 @@ class PaginatorHelper extends Helper
         $out = '';
         if ($options['first'] && $start > 1) {
             $offset = ($start <= (int)$options['first']) ? $start - 1 : $options['first'];
-            $out .= $this->first($offset, $options);
+            $out .= $this->first($offset);
             if ($offset < $start - 1) {
                 $out .= $ellipsis;
             }
@@ -818,7 +776,7 @@ class PaginatorHelper extends Helper
             if ($offset <= $options['last'] && $params['pageCount'] - $end > $offset) {
                 $out .= $ellipsis;
             }
-            $out .= $this->last($offset, $options);
+            $out .= $this->last($offset);
         }
         return $out;
     }
@@ -836,16 +794,15 @@ class PaginatorHelper extends Helper
         $out = '';
         $out .= $options['before'];
         for ($i = 1; $i <= $params['pageCount']; $i++) {
-            $url = array_merge($options['url'], ['page' => $i]);
             if ($i == $params['page']) {
                 $out .= $templater->format('current', [
                     'text' => $params['page'],
-                    'url' => $this->generateUrl($url, $options['model']),
+                    'url' => $this->generateUrl(['page' => $params['page']], $options['model']),
                 ]);
             } else {
                 $vars = [
                     'text' => $i,
-                    'url' => $this->generateUrl($url, $options['model']),
+                    'url' => $this->generateUrl(['page' => $i], $options['model']),
                 ];
                 $out .= $templater->format('number', $vars);
             }
@@ -857,15 +814,11 @@ class PaginatorHelper extends Helper
     /**
      * Returns a first or set of numbers for the first pages.
      *
-     * ```
-     * echo $this->Paginator->first('< first');
-     * ```
+     * `echo $this->Paginator->first('< first');`
      *
      * Creates a single link for the first page. Will output nothing if you are on the first page.
      *
-     * ```
-     * echo $this->Paginator->first(3);
-     * ```
+     * `echo $this->Paginator->first(3);`
      *
      * Will create links for the first 3 pages, once you get to the third or greater page. Prior to that
      * nothing will be output.
@@ -874,7 +827,6 @@ class PaginatorHelper extends Helper
      *
      * - `model` The model to use defaults to PaginatorHelper::defaultModel()
      * - `escape` Whether or not to HTML escape the text.
-     * - `url` An array of additional URL options to use for link generation.
      *
      * @param string|int $first if string use as label for the link. If numeric, the number of page links
      *   you want at the beginning of the range.
@@ -884,11 +836,7 @@ class PaginatorHelper extends Helper
      */
     public function first($first = '<< first', array $options = [])
     {
-        $options += [
-            'url' => [],
-            'model' => $this->defaultModel(),
-            'escape' => true
-        ];
+        $options += ['model' => $this->defaultModel(), 'escape' => true];
 
         $params = $this->params($options['model']);
 
@@ -900,9 +848,8 @@ class PaginatorHelper extends Helper
 
         if (is_int($first) && $params['page'] >= $first) {
             for ($i = 1; $i <= $first; $i++) {
-                $url = array_merge($options['url'], ['page' => $i]);
                 $out .= $this->templater()->format('number', [
-                    'url' => $this->generateUrl($url, $options['model']),
+                    'url' => $this->generateUrl(['page' => $i], $options['model']),
                     'text' => $i
                 ]);
             }
@@ -919,15 +866,11 @@ class PaginatorHelper extends Helper
     /**
      * Returns a last or set of numbers for the last pages.
      *
-     * ```
-     * echo $this->Paginator->last('last >');
-     * ```
+     * `echo $this->Paginator->last('last >');`
      *
      * Creates a single link for the last page. Will output nothing if you are on the last page.
      *
-     * ```
-     * echo $this->Paginator->last(3);
-     * ```
+     * `echo $this->Paginator->last(3);`
      *
      * Will create links for the last 3 pages. Once you enter the page range, no output will be created.
      *
@@ -935,7 +878,6 @@ class PaginatorHelper extends Helper
      *
      * - `model` The model to use defaults to PaginatorHelper::defaultModel()
      * - `escape` Whether or not to HTML escape the text.
-     * - `url` An array of additional URL options to use for link generation.
      *
      * @param string|int $last if string use as label for the link, if numeric print page numbers
      * @param array $options Array of options
@@ -944,11 +886,7 @@ class PaginatorHelper extends Helper
      */
     public function last($last = 'last >>', array $options = [])
     {
-        $options += [
-            'model' => $this->defaultModel(),
-            'escape' => true,
-            'url' => []
-        ];
+        $options += ['model' => $this->defaultModel(), 'escape' => true];
         $params = $this->params($options['model']);
 
         if ($params['pageCount'] <= 1) {
@@ -960,9 +898,8 @@ class PaginatorHelper extends Helper
 
         if (is_int($last) && $params['page'] <= $lower) {
             for ($i = $lower; $i <= $params['pageCount']; $i++) {
-                $url = array_merge($options['url'], ['page' => $i]);
                 $out .= $this->templater()->format('number', [
-                    'url' => $this->generateUrl($url, $options['model']),
+                    'url' => $this->generateUrl(['page' => $i], $options['model']),
                     'text' => $i
                 ]);
             }
@@ -979,15 +916,11 @@ class PaginatorHelper extends Helper
     /**
      * Returns the meta-links for a paginated result set.
      *
-     * ```
-     * echo $this->Paginator->meta();
-     * ```
+     * `echo $this->Paginator->meta();`
      *
      * Echos the links directly, will output nothing if there is neither a previous nor next page.
      *
-     * ```
-     * $this->Paginator->meta(['block' => true]);
-     * ```
+     * `$this->Paginator->meta(['block' => true]);`
      *
      * Will append the output of the meta function to the named block - if true is passed the "meta"
      * block is used.

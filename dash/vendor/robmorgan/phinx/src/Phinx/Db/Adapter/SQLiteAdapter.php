@@ -109,7 +109,7 @@ class SQLiteAdapter extends PdoAdapter implements AdapterInterface
      */
     public function beginTransaction()
     {
-        $this->execute('BEGIN TRANSACTION');
+        $this->execute('START TRANSACTION');
     }
 
     /**
@@ -217,6 +217,8 @@ class SQLiteAdapter extends PdoAdapter implements AdapterInterface
             $sql = substr(rtrim($sql), 0, -1);              // no primary keys
         }
 
+        $sql .= ') ';
+
         // set the foreign keys
         $foreignKeys = $table->getForeignKeys();
         if (!empty($foreignKeys)) {
@@ -225,7 +227,7 @@ class SQLiteAdapter extends PdoAdapter implements AdapterInterface
             }
         }
 
-        $sql = rtrim($sql) . ');';
+        $sql = rtrim($sql) . ';';
         // execute the sql
         $this->writeCommand('createTable', array($table->getName()));
         $this->execute($sql);
@@ -702,9 +704,9 @@ class SQLiteAdapter extends PdoAdapter implements AdapterInterface
             }
         }
 
-        $rows = $this->fetchAll(sprintf('pragma table_info(%s)', $this->quoteTableName($table->getName())));
+        $this->fetchAll(sprintf('pragma table_info(%s)', $this->quoteTableName($table->getName())));
         $columns = array();
-        foreach ($rows as $column) {
+        foreach ($columns as $column) {
             $columns[] = $this->quoteColumnName($column['name']);
         }
 
@@ -715,10 +717,10 @@ class SQLiteAdapter extends PdoAdapter implements AdapterInterface
 
         $sql = sprintf(
             'INSERT INTO %s(%s) SELECT %s FROM %s',
-            $this->quoteTableName($table->getName()),
+            $table->getName(),
             implode(', ', $columns),
             implode(', ', $columns),
-            $this->quoteTableName($tmpTableName)
+            $tmpTableName
         );
 
         $this->execute($sql);
@@ -791,35 +793,6 @@ class SQLiteAdapter extends PdoAdapter implements AdapterInterface
     /**
      * {@inheritdoc}
      */
-    public function insert(Table $table, $columns, $data)
-    {
-        $this->startCommandTimer();
-
-        foreach($data as $row) {
-            $sql = sprintf(
-                "INSERT INTO %s ",
-                $this->quoteTableName($table->getName())
-            );
-
-            $sql .= "(". implode(', ', array_map(array($this, 'quoteColumnName'), $columns)) . ")";
-            $sql .= " VALUES ";
-
-            $sql .= "(" . implode(', ', array_map(function ($value) {
-                    if (is_numeric($value)) {
-                        return $value;
-                    }
-                    return "'{$value}'";
-                }, $row)) . ")";
-
-            $this->execute($sql);
-        }
-
-        $this->endCommandTimer();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getSqlType($type, $limit = null)
     {
         switch ($type) {
@@ -884,7 +857,7 @@ class SQLiteAdapter extends PdoAdapter implements AdapterInterface
     /**
      * Returns Phinx type by SQL type
      *
-     * @param string $sqlTypeDef SQL type
+     * @param string $sqlType SQL type
      * @returns string Phinx type
      */
     public function getPhinxType($sqlTypeDef)
@@ -983,7 +956,7 @@ class SQLiteAdapter extends PdoAdapter implements AdapterInterface
     }
 
     /**
-     * Get the definition for a `DEFAULT` statement.
+     * Get the defintion for a `DEFAULT` statement.
      *
      * @param  mixed $default
      * @return string

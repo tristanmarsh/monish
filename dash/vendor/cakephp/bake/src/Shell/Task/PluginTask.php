@@ -97,6 +97,8 @@ class PluginTask extends BakeTask
         $this->out(sprintf("<info>Plugin Directory:</info> %s", $this->path . $plugin));
         $this->hr();
 
+        $classBase = 'src';
+
         $looksGood = $this->in('Look okay?', ['y', 'n', 'q'], 'y');
 
         if (strtolower($looksGood) !== 'y') {
@@ -152,21 +154,10 @@ class PluginTask extends BakeTask
      */
     protected function _generateFiles($pluginName, $path)
     {
-        $namespace = str_replace('/', '\\', $pluginName);
-
-        $name = $pluginName;
-        $vendor = 'your-name-here';
-        if (strpos($pluginName, '/') !== false) {
-            list($vendor, $name) = explode('/', $pluginName);
-        }
-        $package = $vendor . '/' . $name;
-
         $this->BakeTemplate->set([
-            'package' => $package,
-            'namespace' => $namespace,
             'plugin' => $pluginName,
             'path' => $path,
-            'root' => ROOT,
+            'root' => ROOT
         ]);
 
         $root = $path . $pluginName . DS;
@@ -225,11 +216,10 @@ class PluginTask extends BakeTask
 
         $autoloadPath = str_replace(ROOT, '.', $this->path);
         $autoloadPath = str_replace('\\', '/', $autoloadPath);
-        $namespace = str_replace('/', '\\', $plugin);
 
         $config = json_decode(file_get_contents($file), true);
-        $config['autoload']['psr-4'][$namespace . '\\'] = $autoloadPath . $plugin . "/src";
-        $config['autoload-dev']['psr-4'][$namespace . '\\Test\\'] = $autoloadPath . $plugin . "/tests";
+        $config['autoload']['psr-4'][$plugin . '\\'] = $autoloadPath . $plugin . "/src";
+        $config['autoload-dev']['psr-4'][$plugin . '\\Test\\'] = $autoloadPath . $plugin . "/tests";
 
         $this->out('<info>Modifying composer autoloader</info>');
 
@@ -239,7 +229,7 @@ class PluginTask extends BakeTask
         $composer = $this->findComposer();
 
         if (!$composer) {
-            $this->error('Could not locate composer. Add composer to your PATH, or use the --composer option.');
+            $this->error('Could not locate composer, Add composer to your PATH, or use the -composer option.');
             return false;
         }
 
@@ -290,7 +280,7 @@ class PluginTask extends BakeTask
         $pathOptions = array_values($pathOptions);
         $max = count($pathOptions);
 
-        if ($max === 0) {
+        if ($max == 0) {
             $this->err('No valid plugin paths found! Please configure a plugin path that exists.');
             throw new \RuntimeException();
         }

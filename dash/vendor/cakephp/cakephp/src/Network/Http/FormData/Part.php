@@ -112,7 +112,7 @@ class Part
     public function contentId($id = null)
     {
         if ($id === null) {
-            return $this->_contentId;
+            return $this->_contentId = $id;
         }
         $this->_contentId = $id;
     }

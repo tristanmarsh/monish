@@ -1,7 +1,5 @@
 <?php
 use Cake\Routing\Router;
-use Cake\Core\Configure;
-
 ?>
 <div id="panel-content-container">
     <span id="panel-close" class="button-close">&times;</span>
@@ -24,8 +22,7 @@ use Cake\Core\Configure;
     </li>
     <?php endforeach; ?>
     <li id="panel-button">
-        <?= $this->Html->image('DebugKit.cake.icon.png',
-			['alt' => 'Debug Kit', 'title' => 'CakePHP ' . Configure::version() . ' Debug Kit']) ?>
+        <?= $this->Html->image('DebugKit.cake.icon.png', ['alt' => 'Debug Kit']) ?>
     </li>
 </ul>
 <?php $this->start('scripts') ?>
@@ -41,8 +38,7 @@ $(document).ready(function() {
         panelClose: $('#panel-close'),
         keyboardScope : $(document),
         currentRequest: '<?= $toolbar->id ?>',
-        originalRequest: '<?= $toolbar->id ?>',
-        baseUrl: <?= json_encode($this->Url->build('/')) ?>
+        originalRequest: '<?= $toolbar->id ?>'
     });
 
     toolbar.initialize();

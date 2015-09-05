@@ -29,9 +29,7 @@ use Cake\Network\Response;
  *
  * In your controller, you could do the following:
  *
- * ```
- * $this->set(['posts' => $posts, '_serialize' => 'posts']);
- * ```
+ * `$this->set(['posts' => $posts, '_serialize' => 'posts']);`
  *
  * When the view is rendered, the `$posts` view variable will be serialized
  * into JSON.
@@ -147,10 +145,6 @@ class JsonView extends View
     /**
      * Serialize view vars
      *
-     * ### Special parameters
-     * `_jsonOptions` You can set custom options for json_encode() this way,
-     *   e.g. `JSON_HEX_TAG | JSON_HEX_APOS`.
-     *
      * @param array|string $serialize The name(s) of the view variable(s) that need(s) to be serialized
      * @return string The serialized data
      */
@@ -181,8 +175,9 @@ class JsonView extends View
         }
 
         if (Configure::read('debug')) {
-            $jsonOptions = $jsonOptions | JSON_PRETTY_PRINT;
+            return json_encode($data, $jsonOptions | JSON_PRETTY_PRINT);
         }
+
         return json_encode($data, $jsonOptions);
     }
 }

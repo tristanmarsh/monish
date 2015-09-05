@@ -70,11 +70,6 @@ class Table
     protected $foreignKeys = array();
 
     /**
-     * @var array
-     */
-    protected $data = array();
-
-    /**
      * Class Constuctor.
      *
      * @param string $name Table Name
@@ -280,25 +275,6 @@ class Table
     }
 
     /**
-     * @param $data array of data to be inserted
-     * @return Table
-     */
-    public function setData($data)
-    {
-        $this->data = $data;
-        return $this;
-    }
-
-    /**
-     * Gets the data waiting to be inserted
-     * @return array
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
      * Resets all of the pending table changes.
      *
      * @return void
@@ -308,7 +284,6 @@ class Table
         $this->setPendingColumns(array());
         $this->setIndexes(array());
         $this->setForeignKeys(array());
-        $this->setData(array());
     }
 
     /**
@@ -556,31 +531,12 @@ class Table
      */
     public function addTimestamps()
     {
-        $this->addColumn('created_at', 'timestamp', array(
-                'default' => 'CURRENT_TIMESTAMP',
-                'update' => ''
-            ))
+        $this->addColumn('created_at', 'timestamp')
              ->addColumn('updated_at', 'timestamp', array(
-                'null'    => true,
-                'default' => null
+                 'null'    => true,
+                 'default' => null
              ));
 
-        return $this;
-    }
-
-    /**
-     * @param array $columns column names
-     * @param $data array of data in the form :
-     *              array(
-     *                  array("value1", "anotherValue1"),
-     *                  array("value2", "anotherValue2"),
-     *              )
-     *
-     * @return Table
-     */
-    public function insert($columns, $data)
-    {
-        $this->data[] = array("columns" => $columns, "data" => $data);
         return $this;
     }
 
@@ -592,7 +548,6 @@ class Table
     public function create()
     {
         $this->getAdapter()->createTable($this);
-        $this->saveData();
         $this->reset(); // reset pending changes
     }
 
@@ -621,19 +576,7 @@ class Table
             $this->getAdapter()->addForeignKey($this, $foreignKey);
         }
 
-        $this->saveData();
-
         $this->reset(); // reset pending changes
-    }
-
-    /**
-     * Does the actual insertion of pending data
-     */
-    public function saveData()
-    {
-        foreach ($this->getData() as $data) {
-            $this->getAdapter()->insert($this, $data["columns"], $data["data"]);
-        }
     }
 
     /**

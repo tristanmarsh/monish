@@ -70,13 +70,6 @@ class Component implements EventListenerInterface
     public $request;
 
     /**
-     * Response object
-     *
-     * @var \Cake\Network\Response
-     */
-    public $response;
-
-    /**
      * Component registry class used to lazy load components.
      *
      * @var \Cake\Controller\ComponentRegistry
@@ -117,8 +110,7 @@ class Component implements EventListenerInterface
         $this->_registry = $registry;
         $controller = $registry->getController();
         if ($controller) {
-            $this->request =& $controller->request;
-            $this->response =& $controller->response;
+            $this->request = $controller->request;
         }
 
         $this->config($config);
@@ -187,20 +179,5 @@ class Component implements EventListenerInterface
             }
         }
         return $events;
-    }
-
-    /**
-     * Returns an array that can be used to describe the internal state of this
-     * object.
-     *
-     * @return array
-     */
-    public function __debugInfo()
-    {
-        return [
-            'components' => $this->components,
-            'implementedEvents' => $this->implementedEvents(),
-            '_config' => $this->config(),
-        ];
     }
 }

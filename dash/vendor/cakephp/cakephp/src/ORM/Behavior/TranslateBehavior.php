@@ -16,7 +16,6 @@ namespace Cake\ORM\Behavior;
 
 use ArrayObject;
 use Cake\Collection\Collection;
-use Cake\Datasource\EntityInterface;
 use Cake\Event\Event;
 use Cake\I18n\I18n;
 use Cake\ORM\Behavior;
@@ -248,11 +247,11 @@ class TranslateBehavior extends Behavior
      * in the database too.
      *
      * @param \Cake\Event\Event $event The beforeSave event that was fired
-     * @param \Cake\Datasource\EntityInterface $entity The entity that is going to be saved
+     * @param \Cake\ORM\Entity $entity The entity that is going to be saved
      * @param \ArrayObject $options the options passed to the save method
      * @return void
      */
-    public function beforeSave(Event $event, EntityInterface $entity, ArrayObject $options)
+    public function beforeSave(Event $event, Entity $entity, ArrayObject $options)
     {
         $locale = $entity->get('_locale') ?: $this->locale();
         $newOptions = [$this->_translationTable->alias() => ['validate' => false]];
@@ -304,10 +303,10 @@ class TranslateBehavior extends Behavior
      * Unsets the temporary `_i18n` property after the entity has been saved
      *
      * @param \Cake\Event\Event $event The beforeSave event that was fired
-     * @param \Cake\Datasource\EntityInterface $entity The entity that is going to be saved
+     * @param \Cake\ORM\Entity $entity The entity that is going to be saved
      * @return void
      */
-    public function afterSave(Event $event, EntityInterface $entity)
+    public function afterSave(Event $event, Entity $entity)
     {
         $entity->unsetProperty('_i18n');
     }
@@ -439,16 +438,12 @@ class TranslateBehavior extends Behavior
     public function groupTranslations($results)
     {
         return $results->map(function ($row) {
-            if (!$row instanceof EntityInterface) {
-                return $row;
-            }
             $translations = (array)$row->get('_i18n');
             $grouped = new Collection($translations);
 
             $result = [];
             foreach ($grouped->combine('field', 'content', 'locale') as $locale => $keys) {
-                $entityClass = $this->_table->entityClass();
-                $translation = new $entityClass($keys + ['locale' => $locale], [
+                $translation = new Entity($keys + ['locale' => $locale], [
                     'markNew' => false,
                     'useSetters' => false,
                     'markClean' => true
@@ -469,7 +464,7 @@ class TranslateBehavior extends Behavior
      * out of the data found in the `_translations` property in the passed
      * entity. The result will be put into its `_i18n` property
      *
-     * @param \Cake\Datasource\EntityInterface $entity Entity
+     * @param \Cake\ORM\Entity $entity Entity
      * @return void
      */
     protected function _bundleTranslatedFields($entity)

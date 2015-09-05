@@ -14,8 +14,6 @@
  */
 namespace Cake\Core;
 
-use Cake\Event\EventDispatcherInterface;
-use Cake\Event\EventListenerInterface;
 use RuntimeException;
 
 /**
@@ -28,7 +26,7 @@ use RuntimeException;
  * the template method load().
  *
  * The ObjectRegistry is EventManager aware, but each extending class will need to use
- * \Cake\Event\EventDispatcherTrait to attach and detach on set and bind
+ * \Cake\Event\EventManagerTrait to attach and detach on set and bind
  *
  * @see \Cake\Controller\ComponentRegistry
  * @see \Cake\View\HelperRegistry
@@ -70,13 +68,7 @@ abstract class ObjectRegistry
      */
     public function load($objectName, $config = [])
     {
-        if (is_array($config) && isset($config['className'])) {
-            $name = $objectName;
-            $objectName = $config['className'];
-        } else {
-            list(, $name) = pluginSplit($objectName);
-        }
-
+        list(, $name) = pluginSplit($objectName);
         $loaded = isset($this->_loaded[$name]);
         if ($loaded && !empty($config)) {
             $this->_checkDuplicate($name, $config);
@@ -85,6 +77,9 @@ abstract class ObjectRegistry
             return $this->_loaded[$name];
         }
 
+        if (is_array($config) && isset($config['className'])) {
+            $objectName = $config['className'];
+        }
         $className = $this->_resolveClassName($objectName);
         if (!$className || (is_string($className) && !class_exists($className))) {
             list($plugin, $objectName) = pluginSplit($objectName);
@@ -282,8 +277,8 @@ abstract class ObjectRegistry
     {
         list(, $name) = pluginSplit($objectName);
         $this->unload($objectName);
-        if ($this instanceof EventDispatcherInterface && $object instanceof EventListenerInterface) {
-            $this->eventManager()->on($object);
+        if (isset($this->_eventManager)) {
+            $this->eventManager()->attach($object);
         }
         $this->_loaded[$name] = $object;
     }
@@ -302,7 +297,7 @@ abstract class ObjectRegistry
             return;
         }
         $object = $this->_loaded[$objectName];
-        if ($this instanceof EventDispatcherInterface && $object instanceof EventListenerInterface) {
+        if (isset($this->_eventManager)) {
             $this->eventManager()->off($object);
         }
         unset($this->_loaded[$objectName]);

@@ -19,7 +19,7 @@ use Cake\Controller\Controller;
 use Cake\Core\App;
 use Cake\Core\Exception\Exception;
 use Cake\Event\Event;
-use Cake\Event\EventDispatcherTrait;
+use Cake\Event\EventManagerTrait;
 use Cake\Network\Exception\ForbiddenException;
 use Cake\Network\Request;
 use Cake\Network\Response;
@@ -36,7 +36,7 @@ use Cake\Utility\Hash;
 class AuthComponent extends Component
 {
 
-    use EventDispatcherTrait;
+    use EventManagerTrait;
 
     /**
      * Constant for 'all'
@@ -211,7 +211,7 @@ class AuthComponent extends Component
     /**
      * Instance of the Session object
      *
-     * @var \Cake\Network\Session
+     * @return void
      */
     public $session;
 
@@ -242,7 +242,8 @@ class AuthComponent extends Component
     {
         $controller = $this->_registry->getController();
         $this->eventManager($controller->eventManager());
-        $this->response =& $controller->response;
+        $this->request = $controller->request;
+        $this->response = $controller->response;
         $this->session = $controller->request->session();
     }
 
@@ -320,8 +321,8 @@ class AuthComponent extends Component
      * of the last authenticator in the chain will be called. The authenticator can
      * handle sending response or redirection as appropriate and return `true` to
      * indicate no further action is necessary. If authenticator returns null this
-     * method redirects user to login action. If it's an AJAX request and config
-     * `ajaxLogin` is specified that element is rendered else a 403 HTTP status code
+     * method redirects user to login action. If it's an ajax request and config
+     * `ajaxLogin` is specified that element is rendered else a 403 http status code
      * is returned.
      *
      * @param \Cake\Controller\Controller $controller A reference to the controller object.
@@ -364,8 +365,7 @@ class AuthComponent extends Component
             $response->statusCode(403);
             return $response;
         }
-        $this->response->statusCode(403);
-        return $this->response;
+        return $controller->redirect(null, 403);
     }
 
     /**
@@ -405,7 +405,6 @@ class AuthComponent extends Component
             if (!empty($this->_config['loginRedirect'])) {
                 $default = $this->_config['loginRedirect'];
             }
-            $default['_base'] = false;
             $url = $controller->referer($default, true);
         } else {
             $url = $this->_config['unauthorizedRedirect'];
@@ -538,14 +537,9 @@ class AuthComponent extends Component
      *
      * You can use allow with either an array or a simple string.
      *
-     * ```
-     * $this->Auth->allow('view');
-     * $this->Auth->allow(['edit', 'add']);
-     * ```
-     * or to allow all actions
-     * ```
-     * $this->Auth->allow();
-     * ```
+     * `$this->Auth->allow('view');`
+     * `$this->Auth->allow(['edit', 'add']);`
+     * `$this->Auth->allow();` to allow all actions
      *
      * @param string|array $actions Controller action name or array of actions
      * @return void
@@ -566,15 +560,9 @@ class AuthComponent extends Component
      *
      * You can use deny with either an array or a simple string.
      *
-     * ```
-     * $this->Auth->deny('view');
-     * $this->Auth->deny(['edit', 'add']);
-     * ```
-     * or
-     * ```
-     * $this->Auth->deny();
-     * ```
-     * to remove all items from the allowed list
+     * `$this->Auth->deny('view');`
+     * `$this->Auth->deny(['edit', 'add']);`
+     * `$this->Auth->deny();` to remove all items from the allowed list
      *
      * @param string|array $actions Controller action name or array of actions
      * @return void

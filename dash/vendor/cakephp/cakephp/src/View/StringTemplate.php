@@ -37,48 +37,26 @@ class StringTemplate
      * @var array
      */
     protected $_compactAttributes = [
-        'allowfullscreen' => true,
-        'async' => true,
-        'autofocus' => true,
-        'autoplay' => true,
-        'checked' => true,
         'compact' => true,
-        'controls' => true,
+        'checked' => true,
         'declare' => true,
-        'default' => true,
-        'defaultchecked' => true,
-        'defaultmuted' => true,
-        'defaultselected' => true,
-        'defer' => true,
-        'disabled' => true,
-        'enabled' => true,
-        'formnovalidate' => true,
-        'hidden' => true,
-        'indeterminate' => true,
-        'inert' => true,
-        'ismap' => true,
-        'itemscope' => true,
-        'loop' => true,
-        'multiple' => true,
-        'muted' => true,
-        'nohref' => true,
-        'noresize' => true,
-        'noshade' => true,
-        'novalidate' => true,
-        'nowrap' => true,
-        'open' => true,
-        'pauseonexit' => true,
         'readonly' => true,
-        'required' => true,
-        'reversed' => true,
-        'scoped' => true,
-        'seamless' => true,
+        'disabled' => true,
         'selected' => true,
-        'sortable' => true,
-        'spellcheck' => true,
-        'truespeed' => true,
-        'typemustmatch' => true,
-        'visible' => true,
+        'defer' => true,
+        'ismap' => true,
+        'nohref' => true,
+        'noshade' => true,
+        'nowrap' => true,
+        'multiple' => true,
+        'noresize' => true,
+        'autoplay' => true,
+        'controls' => true,
+        'loop' => true,
+        'muted' => true,
+        'required' => true,
+        'novalidate' => true,
+        'formnovalidate' => true,
     ];
 
     /**
@@ -178,7 +156,7 @@ class StringTemplate
                 $this->_compiled[$name] = [null, null];
             }
 
-            preg_match_all('#\{\{([\w\d\._]+)\}\}#', $template, $matches);
+            preg_match_all('#\{\{(\w+)\}\}#', $template, $matches);
             $this->_compiled[$name] = [
                 str_replace($matches[0], '%s', $template),
                 $matches[1]

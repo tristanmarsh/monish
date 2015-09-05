@@ -15,7 +15,6 @@
 namespace Cake\Routing\Filter;
 
 use Cake\Event\Event;
-use Cake\I18n\I18n;
 use Cake\Routing\DispatcherFilter;
 use Locale;
 
@@ -49,7 +48,7 @@ class LocaleSelectorFilter extends DispatcherFilter
     }
 
     /**
-     * Inspects the request for the Accept-Language header and sets the
+     * Inspects the request for the Accept-Language header and sets the default
      * Locale for the current runtime if it matches the list of valid locales
      * as passed in the configuration.
      *
@@ -65,6 +64,6 @@ class LocaleSelectorFilter extends DispatcherFilter
             return;
         }
 
-        I18n::locale($locale);
+        Locale::setDefault($locale);
     }
 }

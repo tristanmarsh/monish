@@ -45,7 +45,7 @@ class Hash
      */
     public static function get(array $data, $path, $default = null)
     {
-        if (empty($data) || $path === null || $path === '') {
+        if (empty($data)) {
             return $default;
         }
 
@@ -89,7 +89,6 @@ class Hash
      *
      * - `{n}` Matches any numeric key, or integer.
      * - `{s}` Matches any string key.
-     * - `{*}` Matches any value.
      * - `Foo` Matches any key with the exact same value.
      *
      * There are a number of attribute operators:
@@ -192,16 +191,16 @@ class Hash
      */
     protected static function _matchToken($key, $token)
     {
-        switch ($token) {
-            case '{n}':
-                return is_numeric($key);
-            case '{s}':
-                return is_string($key);
-            case '{*}':
-                return true;
-            default:
-                return is_numeric($token) ? ($key == $token) : $key === $token;
+        if ($token === '{n}') {
+            return is_numeric($key);
         }
+        if ($token === '{s}') {
+            return is_string($key);
+        }
+        if (is_numeric($token)) {
+            return ($key == $token);
+        }
+        return ($key === $token);
     }
 
     /**
@@ -300,10 +299,12 @@ class Hash
 
         foreach ($data as $k => $v) {
             if (static::_matchToken($k, $token)) {
-                if (!$conditions || static::_matches($v, $conditions)) {
-                    $data[$k] = $nextPath
-                        ? static::insert($v, $nextPath, $values)
-                        : array_merge($v, (array)$values);
+                if ($conditions && static::_matches($v, $conditions)) {
+                    $data[$k] = array_merge($v, $values);
+                    continue;
+                }
+                if (!$conditions) {
+                    $data[$k] = static::insert($v, $nextPath, $values);
                 }
             }
         }
@@ -390,17 +391,11 @@ class Hash
         foreach ($data as $k => $v) {
             $match = static::_matchToken($k, $token);
             if ($match && is_array($v)) {
-                if ($conditions) {
-                    if (static::_matches($v, $conditions)) {
-                        if ($nextPath) {
-                            $data[$k] = static::remove($v, $nextPath);
-                        } else {
-                            unset($data[$k]);
-                        }
-                    }
-                } else {
-                    $data[$k] = static::remove($v, $nextPath);
+                if ($conditions && static::_matches($v, $conditions)) {
+                    unset($data[$k]);
+                    continue;
                 }
+                $data[$k] = static::remove($v, $nextPath);
                 if (empty($data[$k])) {
                     unset($data[$k]);
                 }
@@ -785,7 +780,7 @@ class Hash
         while ($elem = array_shift($data)) {
             if (is_array($elem)) {
                 $depth += 1;
-                $data = $elem;
+                $data =& $elem;
             } else {
                 break;
             }
@@ -807,7 +802,7 @@ class Hash
         if (is_array($data) && reset($data) !== false) {
             foreach ($data as $value) {
                 if (is_array($value)) {
-                    $depth[] = static::maxDimensions($value) + 1;
+                    $depth[] = static::dimensions($value) + 1;
                 } else {
                     $depth[] = 1;
                 }
@@ -856,15 +851,11 @@ class Hash
      * You can easily count the results of an extract using apply().
      * For example to count the comments on an Article:
      *
-     * ```
-     * $count = Hash::apply($data, 'Article.Comment.{n}', 'count');
-     * ```
+     * `$count = Hash::apply($data, 'Article.Comment.{n}', 'count');`
      *
      * You could also use a function like `array_sum` to sum the results.
      *
-     * ```
-     * $total = Hash::apply($data, '{n}.Item.price', 'array_sum');
-     * ```
+     * `$total = Hash::apply($data, '{n}.Item.price', 'array_sum');`
      *
      * @param array $data The data to reduce.
      * @param string $path The path to extract from $data.

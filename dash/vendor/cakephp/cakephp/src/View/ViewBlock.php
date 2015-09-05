@@ -27,13 +27,6 @@ class ViewBlock
 {
 
     /**
-     * Override content
-     *
-     * @var string
-     */
-    const OVERRIDE = 'override';
-
-    /**
      * Append content
      *
      * @var string
@@ -64,8 +57,9 @@ class ViewBlock
     /**
      * Should the currently captured content be discarded on ViewBlock::end()
      *
-     * @see ViewBlock::end()
      * @var bool
+     * @see ViewBlock::end()
+     * @see ViewBlock::startIfEmpty()
      */
     protected $_discardActiveBufferOnEnd = false;
 
@@ -79,18 +73,15 @@ class ViewBlock
      * using View::get();
      *
      * @param string $name The name of the block to capture for.
-     * @param string $mode If ViewBlock::OVERRIDE existing content will be overridden by new content.
-     *   If ViewBlock::APPEND content will be appended to existing content.
-     *   If ViewBlock::PREPEND it will be prepended.
      * @throws \Cake\Core\Exception\Exception When starting a block twice
      * @return void
      */
-    public function start($name, $mode = ViewBlock::OVERRIDE)
+    public function start($name)
     {
-        if (in_array($name, array_keys($this->_active))) {
+        if (in_array($name, $this->_active)) {
             throw new Exception(sprintf("A view block with the name '%s' is already/still open.", $name));
         }
-        $this->_active[$name] = $mode;
+        $this->_active[] = $name;
         ob_start();
     }
 
@@ -108,14 +99,9 @@ class ViewBlock
             return;
         }
         if (!empty($this->_active)) {
-            $mode = end($this->_active);
-            $active = key($this->_active);
+            $active = end($this->_active);
             $content = ob_get_clean();
-            if ($mode === ViewBlock::OVERRIDE) {
-                $this->_blocks[$active] = $content;
-            } else {
-                $this->concat($active, $content, $mode);
-            }
+            $this->_blocks[$active] = $content;
             array_pop($this->_active);
         }
     }
@@ -134,13 +120,8 @@ class ViewBlock
      *   If ViewBlock::PREPEND it will be prepended.
      * @return void
      */
-    public function concat($name, $value = null, $mode = ViewBlock::APPEND)
+    public function concat($name, $value, $mode = ViewBlock::APPEND)
     {
-        if ($value === null) {
-            $this->start($name, $mode);
-            return;
-        }
-
         if (!isset($this->_blocks[$name])) {
             $this->_blocks[$name] = '';
         }
@@ -207,8 +188,7 @@ class ViewBlock
      */
     public function active()
     {
-        end($this->_active);
-        return key($this->_active);
+        return end($this->_active);
     }
 
     /**

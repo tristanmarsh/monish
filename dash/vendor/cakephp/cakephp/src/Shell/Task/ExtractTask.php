@@ -243,26 +243,31 @@ class ExtractTask extends Shell
      *
      * @param string $domain The domain
      * @param string $msgid The message string
-     * @param array $details Context and plural form if any, file and line references
+     * @param array $details The file and line references
      * @return void
      */
     protected function _addTranslation($domain, $msgid, $details = [])
     {
-        $context = isset($details['msgctxt']) ? $details['msgctxt'] : "";
-
-        if (empty($this->_translations[$domain][$msgid][$context])) {
-            $this->_translations[$domain][$msgid][$context] = [
-                'msgid_plural' => false
+        if (empty($this->_translations[$domain][$msgid])) {
+            $this->_translations[$domain][$msgid] = [
+                'msgid_plural' => false,
+                'msgctxt' => ''
             ];
         }
 
         if (isset($details['msgid_plural'])) {
-            $this->_translations[$domain][$msgid][$context]['msgid_plural'] = $details['msgid_plural'];
+            $this->_translations[$domain][$msgid]['msgid_plural'] = $details['msgid_plural'];
+        }
+        if (isset($details['msgctxt'])) {
+            $this->_translations[$domain][$msgid]['msgctxt'] = $details['msgctxt'];
         }
 
         if (isset($details['file'])) {
-            $line = isset($details['line']) ? $details['line'] : 0;
-            $this->_translations[$domain][$msgid][$context]['references'][$details['file']][] = $line;
+            $line = 0;
+            if (isset($details['line'])) {
+                $line = $details['line'];
+            }
+            $this->_translations[$domain][$msgid]['references'][$details['file']][] = $line;
         }
     }
 
@@ -337,10 +342,6 @@ class ExtractTask extends Shell
         ])->addOption('extract-core', [
             'help' => 'Extract messages from the CakePHP core libs.',
             'choices' => ['yes', 'no']
-        ])->addOption('no-location', [
-            'boolean' => true,
-            'default' => false,
-            'help' => 'Do not write file locations for each extracted message.',
         ]);
 
         return $parser;
@@ -430,7 +431,7 @@ class ExtractTask extends Shell
                         $details['msgctxt'] = $context;
                     }
                     $this->_addTranslation($domain, $singular, $details);
-                } elseif (strpos($this->_file, CAKE_CORE_INCLUDE_PATH) === false) {
+                } else {
                     $this->_markerError($this->_file, $line, $functionName, $count);
                 }
             }
@@ -448,39 +449,35 @@ class ExtractTask extends Shell
         $paths = $this->_paths;
         $paths[] = realpath(APP) . DS;
         foreach ($this->_translations as $domain => $translations) {
-            foreach ($translations as $msgid => $contexts) {
-                foreach ($contexts as $context => $details) {
-                    $plural = $details['msgid_plural'];
-                    $files = $details['references'];
-                    $occurrences = [];
-                    foreach ($files as $file => $lines) {
-                        $lines = array_unique($lines);
-                        $occurrences[] = $file . ':' . implode(';', $lines);
-                    }
-                    $occurrences = implode("\n#: ", $occurrences);
-                    $header = "";
-                    if (!$this->param('no-location')) {
-                        $header = '#: ' . str_replace(DS, '/', str_replace($paths, '', $occurrences)) . "\n";
-                    }
+            foreach ($translations as $msgid => $details) {
+                $plural = $details['msgid_plural'];
+                $context = $details['msgctxt'];
+                $files = $details['references'];
+                $occurrences = [];
+                foreach ($files as $file => $lines) {
+                    $lines = array_unique($lines);
+                    $occurrences[] = $file . ':' . implode(';', $lines);
+                }
+                $occurrences = implode("\n#: ", $occurrences);
+                $header = '#: ' . str_replace(DS, '/', str_replace($paths, '', $occurrences)) . "\n";
 
-                    $sentence = '';
-                    if ($context !== "") {
-                        $sentence .= "msgctxt \"{$context}\"\n";
-                    }
-                    if ($plural === false) {
-                        $sentence .= "msgid \"{$msgid}\"\n";
-                        $sentence .= "msgstr \"\"\n\n";
-                    } else {
-                        $sentence .= "msgid \"{$msgid}\"\n";
-                        $sentence .= "msgid_plural \"{$plural}\"\n";
-                        $sentence .= "msgstr[0] \"\"\n";
-                        $sentence .= "msgstr[1] \"\"\n\n";
-                    }
+                $sentence = '';
+                if ($context) {
+                    $sentence .= "msgctxt \"{$context}\"\n";
+                }
+                if ($plural === false) {
+                    $sentence .= "msgid \"{$msgid}\"\n";
+                    $sentence .= "msgstr \"\"\n\n";
+                } else {
+                    $sentence .= "msgid \"{$msgid}\"\n";
+                    $sentence .= "msgid_plural \"{$plural}\"\n";
+                    $sentence .= "msgstr[0] \"\"\n";
+                    $sentence .= "msgstr[1] \"\"\n\n";
+                }
 
-                    $this->_store($domain, $header, $sentence);
-                    if ($domain !== 'default' && $this->_merge) {
-                        $this->_store('default', $header, $sentence);
-                    }
+                $this->_store($domain, $header, $sentence);
+                if ($domain !== 'default' && $this->_merge) {
+                    $this->_store('default', $header, $sentence);
                 }
             }
         }
@@ -711,9 +708,6 @@ class ExtractTask extends Shell
      */
     protected function _isPathUsable($path)
     {
-        if (!is_dir($path)) {
-            mkdir($path, 0770, true);
-        }
         return is_dir($path) && is_writable($path);
     }
 }

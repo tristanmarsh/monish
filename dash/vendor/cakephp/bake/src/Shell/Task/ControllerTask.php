@@ -72,8 +72,7 @@ class ControllerTask extends BakeTask
      */
     public function all()
     {
-        $tables = $this->listAll();
-        foreach ($tables as $table) {
+        foreach ($this->listAll() as $table) {
             TableRegistry::clear();
             $this->main($table);
         }
@@ -113,7 +112,7 @@ class ControllerTask extends BakeTask
             $plugin .= '.';
         }
 
-        $modelObj = TableRegistry::get($plugin . $currentModelName);
+        $modelObj = TableRegistry::get($currentModelName);
 
         $pluralName = $this->_variableName($currentModelName);
         $singularName = $this->_singularName($currentModelName);
@@ -244,7 +243,7 @@ class ControllerTask extends BakeTask
     public function listAll()
     {
         $this->Model->connection = $this->connection;
-        return $this->Model->listUnskipped();
+        return $this->Model->listAll();
     }
 
     /**

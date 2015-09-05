@@ -18,7 +18,6 @@ use Cake\Collection\Collection;
 use Cake\Collection\CollectionTrait;
 use Cake\Database\Exception;
 use Cake\Database\Type;
-use Cake\Datasource\EntityInterface;
 use Cake\Datasource\ResultSetInterface;
 use SplFixedArray;
 
@@ -508,7 +507,7 @@ class ResultSet implements ResultSetInterface
                 )
             );
             if ($this->_hydrate) {
-                $options['source'] = $matching['instance']->registryAlias();
+                $options['source'] = $alias;
                 $entity = new $matching['entityClass']($results['_matchingData'][$alias], $options);
                 $entity->clean();
                 $results['_matchingData'][$alias] = $entity;
@@ -547,7 +546,7 @@ class ResultSet implements ResultSetInterface
             }
 
             $target = $instance->target();
-            $options['source'] = $target->registryAlias();
+            $options['source'] = $target->alias();
             unset($presentAliases[$alias]);
 
             if ($assoc['canBeJoined']) {
@@ -587,10 +586,8 @@ class ResultSet implements ResultSetInterface
         }
 
         $options['source'] = $this->_defaultTable->registryAlias();
-        if (isset($results[$defaultAlias])) {
-            $results = $results[$defaultAlias];
-        }
-        if ($this->_hydrate && !($results instanceof EntityInterface)) {
+        $results = $results[$defaultAlias];
+        if ($this->_hydrate && !($results instanceof Entity)) {
             $results = new $this->_entityClass($results, $options);
         }
 

@@ -28,7 +28,7 @@ class PanelsController extends Controller
      *
      * @var array
      */
-    public $components = ['RequestHandler', 'Cookie'];
+    public $components = ['RequestHandler'];
 
     /**
      * Layout property.
@@ -80,8 +80,6 @@ class PanelsController extends Controller
      */
     public function view($id = null)
     {
-        $this->Cookie->configKey('debugKit_sort', 'encryption', false);
-        $this->set('sort', $this->Cookie->read('debugKit_sort'));
         $panel = $this->Panels->get($id);
         $this->set('panel', $panel);
         $this->set(unserialize($panel->content));

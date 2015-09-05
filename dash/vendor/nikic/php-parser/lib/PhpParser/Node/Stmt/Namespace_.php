@@ -30,17 +30,14 @@ class Namespace_ extends Node\Stmt
         $this->name = $name;
         $this->stmts = $stmts;
 
-        if (isset(self::$specialNames[strtolower($this->name)])) {
-            throw new Error(
-                sprintf('Cannot use \'%s\' as namespace name', $this->name),
-                $this->name->getAttributes()
-            );
+        if (isset(self::$specialNames[(string) $this->name])) {
+            throw new Error(sprintf('Cannot use \'%s\' as namespace name', $this->name));
         }
 
         if (null !== $this->stmts) {
             foreach ($this->stmts as $stmt) {
                 if ($stmt instanceof self) {
-                    throw new Error('Namespace declarations cannot be nested', $stmt->getAttributes());
+                    throw new Error('Namespace declarations cannot be nested', $stmt->getLine());
                 }
             }
         }

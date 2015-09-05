@@ -102,11 +102,7 @@ class DatabaseSession implements SessionHandlerInterface
             return false;
         }
 
-        if (is_string($result['data'])) {
-            return $result['data'];
-        }
-
-        return stream_get_contents($result['data']);
+        return $result['data'];
     }
 
     /**

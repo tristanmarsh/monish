@@ -15,7 +15,6 @@
 namespace Cake\Controller\Component;
 
 use Cake\Controller\Component;
-use Cake\Datasource\RepositoryInterface;
 use Cake\Network\Exception\NotFoundException;
 use Cake\ORM\Query;
 use Cake\ORM\Table;
@@ -115,8 +114,6 @@ class PaginatorComponent extends Component
      *   ]
      * ];
      * ```
-     *
-     * Passing an empty array as whitelist disallows sorting altogether.
      *
      * ### Paginating with custom finders
      *
@@ -296,11 +293,11 @@ class PaginatorComponent extends Component
      * Any columns listed in the sort whitelist will be implicitly trusted. You can use this to sort
      * on synthetic columns, or columns added in custom find operations that may not exist in the schema.
      *
-     * @param \Cake\Datasource\RepositoryInterface $object Repository object.
+     * @param Table $object The model being paginated.
      * @param array $options The pagination options being used for this request.
      * @return array An array of options with sort + direction removed and replaced with order if possible.
      */
-    public function validateSort(RepositoryInterface $object, array $options)
+    public function validateSort(Table $object, array $options)
     {
         if (isset($options['sort'])) {
             $direction = null;
@@ -321,58 +318,37 @@ class PaginatorComponent extends Component
             return $options;
         }
 
-        $inWhitelist = false;
-        if (isset($options['sortWhitelist'])) {
+        if (!empty($options['sortWhitelist'])) {
             $field = key($options['order']);
             $inWhitelist = in_array($field, $options['sortWhitelist'], true);
             if (!$inWhitelist) {
                 $options['order'] = [];
-                return $options;
             }
+            return $options;
         }
 
-        $options['order'] = $this->_prefix($object, $options['order'], $inWhitelist);
-        return $options;
-    }
-
-    /**
-     * Prefixes the field with the table alias if possible.
-     *
-     * @param \Cake\Datasource\RepositoryInterface $object Repository object.
-     * @param array $order Order array.
-     * @param bool $whitelisted Whether or not the field was whitelisted
-     * @return array Final order array.
-     */
-    protected function _prefix(RepositoryInterface $object, $order, $whitelisted = false)
-    {
         $tableAlias = $object->alias();
-        $tableOrder = [];
-        foreach ($order as $key => $value) {
-            if (is_numeric($key)) {
-                $tableOrder[] = $value;
-                continue;
-            }
+        $order = [];
+
+        foreach ($options['order'] as $key => $value) {
             $field = $key;
             $alias = $tableAlias;
-
-            if (strpos($key, '.') !== false) {
-                list($alias, $field) = explode('.', $key);
-            }
-            $correctAlias = ($tableAlias === $alias);
-
-            if ($correctAlias && $whitelisted) {
-                // Disambiguate fields in schema. As id is quite common.
-                if ($object->hasField($field)) {
-                    $field = $alias . '.' . $field;
+            if (is_numeric($key)) {
+                $order[] = $value;
+            } else {
+                if (strpos($key, '.') !== false) {
+                    list($alias, $field) = explode('.', $key);
                 }
-                $tableOrder[$field] = $value;
-            } elseif ($correctAlias && $object->hasField($field)) {
-                $tableOrder[$tableAlias . '.' . $field] = $value;
-            } elseif (!$correctAlias && $whitelisted) {
-                $tableOrder[$alias . '.' . $field] = $value;
+                $correctAlias = ($tableAlias === $alias);
+
+                if ($correctAlias && $object->hasField($field)) {
+                    $order[$tableAlias . '.' . $field] = $value;
+                }
             }
         }
-        return $tableOrder;
+        $options['order'] = $order;
+
+        return $options;
     }
 
     /**

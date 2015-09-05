@@ -87,12 +87,6 @@ class EmulativeTest extends LexerTest
 
     public function provideTestLexNewFeatures() {
         return array(
-            array('yield from', array(
-                array(Parser::T_YIELD_FROM, 'yield from'),
-            )),
-            array("yield\r\nfrom", array(
-                array(Parser::T_YIELD_FROM, "yield\r\nfrom"),
-            )),
             array('...', array(
                 array(Parser::T_ELLIPSIS, '...'),
             )),

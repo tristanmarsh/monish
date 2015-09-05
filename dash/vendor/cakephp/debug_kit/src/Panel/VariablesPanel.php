@@ -17,7 +17,6 @@ use Cake\Database\Query;
 use Cake\Datasource\EntityInterface;
 use Cake\Event\Event;
 use Cake\Form\Form;
-use Cake\ORM\ResultSet;
 use Cake\Utility\Hash;
 use Closure;
 use DebugKit\DebugPanel;
@@ -69,21 +68,18 @@ class VariablesPanel extends DebugPanel
     {
         $controller = $event->subject();
         $errors = [];
-
-        $walker = function (&$item) use (&$walker) {
-            if ($item instanceof Query || $item instanceof ResultSet) {
-                try {
-                    $item = $item->toArray();
-                } catch (\Cake\Database\Exception $e) {
-                    //Likely issue is unbuffered query; fall back to __debugInfo
-                    $item = array_map($walker, $item->__debugInfo());
-                }
-            } elseif ($item instanceof Closure ||
+        array_walk_recursive($controller->viewVars, function (&$item) {
+            // Execute queries so we can show the results in the toolbar.
+            if ($item instanceof Query) {
+                $item = $item->all();
+            }
+            if ($item instanceof Closure ||
                 $item instanceof PDO ||
                 $item instanceof SimpleXmlElement
             ) {
                 $item = 'Unserializable object - ' . get_class($item);
-            } elseif ($item instanceof Exception) {
+            }
+            if ($item instanceof Exception) {
                 $item = sprintf(
                     'Unserializable object - %s. Error: %s in %s, line %s',
                     get_class($item),
@@ -91,17 +87,11 @@ class VariablesPanel extends DebugPanel
                     $item->getFile(),
                     $item->getLine()
                 );
-            } elseif (is_object($item) && method_exists($item, '__debugInfo')) {
-                // Convert objects into using __debugInfo.
-                $item = array_map($walker, $item->__debugInfo());
             }
             return $item;
-        };
-        // Copy so viewVars is not mutated.
-        $vars = $controller->viewVars;
-        array_walk_recursive($vars, $walker);
+        });
 
-        foreach ($vars as $k => $v) {
+        foreach ($controller->viewVars as $k => $v) {
             // Get the validation errors for Entity
             if ($v instanceof EntityInterface) {
                 $errors[$k] = $this->_getErrors($v);
@@ -114,21 +104,8 @@ class VariablesPanel extends DebugPanel
         }
 
         $this->_data = [
-            'content' => $vars,
+            'content' => $controller->viewVars,
             'errors' => $errors
         ];
-    }
-
-    /**
-     * Get summary data for the variables panel.
-     *
-     * @return int
-     */
-    public function summary()
-    {
-        if (!isset($this->_data['content'])) {
-            return 0;
-        }
-        return count($this->_data['content']);
     }
 }

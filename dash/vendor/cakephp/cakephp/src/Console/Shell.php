@@ -287,7 +287,9 @@ class Shell
      *
      * With a string command:
      *
-     *  `return $this->dispatchShell('schema create DbAcl');`
+     * ```
+     * return $this->dispatchShell('schema create DbAcl');
+     * ```
      *
      * Avoid using this form if you have string arguments, with spaces in them.
      * The dispatched will be invoked incorrectly. Only use this form for simple
@@ -295,7 +297,9 @@ class Shell
      *
      * With an array command:
      *
-     * `return $this->dispatchShell('schema', 'create', 'i18n', '--dry');`
+     * ```
+     * return $this->dispatchShell('schema', 'create', 'i18n', '--dry');
+     * ```
      *
      * @return mixed The return of the other shell.
      * @link http://book.cakephp.org/3.0/en/console-and-shells.html#invoking-other-shells-from-your-shell
@@ -610,11 +614,15 @@ class Shell
 
         if (is_file($path) && empty($this->params['force']) && $this->interactive) {
             $this->_io->out(sprintf('<warning>File `%s` exists</warning>', $path));
-            $key = $this->_io->askChoice('Do you want to overwrite?', ['y', 'n', 'q'], 'n');
+            $key = $this->_io->askChoice('Do you want to overwrite?', ['y', 'n', 'a', 'q'], 'n');
 
             if (strtolower($key) === 'q') {
                 $this->_io->out('<error>Quitting</error>.', 2);
                 return $this->_stop();
+            }
+            if (strtolower($key) === 'a') {
+                $this->params['force'] = true;
+                $key = 'y';
             }
             if (strtolower($key) !== 'y') {
                 $this->_io->out(sprintf('Skip `%s`', $path), 2);
@@ -661,5 +669,24 @@ class Shell
     protected function _stop($status = 0)
     {
         exit($status);
+    }
+
+    /**
+     * Returns an array that can be used to describe the internal state of this
+     * object.
+     *
+     * @return array
+     */
+    public function __debugInfo()
+    {
+        return [
+            'name' => $this->name,
+            'plugin' => $this->plugin,
+            'command' => $this->command,
+            'tasks' => $this->tasks,
+            'params' => $this->params,
+            'args' => $this->args,
+            'interactive' => $this->interactive,
+        ];
     }
 }

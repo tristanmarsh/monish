@@ -19,12 +19,13 @@ use Cake\Collection\CollectionInterface;
 use Cake\Collection\CollectionTrait;
 use InvalidArgumentException;
 use IteratorIterator;
+use Serializable;
 
 /**
  * A collection is an immutable list of elements with a handful of functions to
  * iterate, group, transform and extract information from it.
  */
-class Collection extends IteratorIterator implements CollectionInterface
+class Collection extends IteratorIterator implements CollectionInterface, Serializable
 {
 
     use CollectionTrait;
@@ -47,5 +48,40 @@ class Collection extends IteratorIterator implements CollectionInterface
         }
 
         parent::__construct($items);
+    }
+
+    /**
+     * Returns a string representation of this object that can be used
+     * to reconstruct it
+     *
+     * @return string
+     */
+    public function serialize()
+    {
+        return serialize($this->buffered());
+    }
+
+    /**
+     * Unserializes the passed string and rebuilds the Collection instance
+     *
+     * @param string $collection The serialized collection
+     * @return void
+     */
+    public function unserialize($collection)
+    {
+        $this->__construct(unserialize($collection));
+    }
+
+    /**
+     * Returns an array that can be used to describe the internal state of this
+     * object.
+     *
+     * @return array
+     */
+    public function __debugInfo()
+    {
+        return [
+            'count' => iterator_count($this),
+        ];
     }
 }

@@ -16,6 +16,7 @@ namespace Cake\Database;
 
 use Cake\Database\Exception;
 use Cake\Database\Expression\OrderByExpression;
+use Cake\Database\Expression\OrderClauseExpression;
 use Cake\Database\Expression\QueryExpression;
 use Cake\Database\Expression\ValuesExpression;
 use Cake\Database\Statement\CallbackStatement;
@@ -926,6 +927,9 @@ class Query implements ExpressionInterface, IteratorAggregate
      *
      * ``ORDER BY (id %2 = 0), title ASC``
      *
+     * If you need to set complex expressions as order conditions, you
+     * should use `orderAsc()` or `orderDesc()`.
+     *
      * @param array|\Cake\Database\ExpressionInterface|string $fields fields to be added to the list
      * @param bool $overwrite whether to reset order with field list or not
      * @return $this
@@ -941,9 +945,61 @@ class Query implements ExpressionInterface, IteratorAggregate
         }
 
         if (!$this->_parts['order']) {
-            $this->_parts['order'] = new OrderByExpression;
+            $this->_parts['order'] = new OrderByExpression();
         }
         $this->_conjugate('order', $fields, '', []);
+        return $this;
+    }
+
+    /**
+     * Add an ORDER BY clause with an ASC direction.
+     *
+     * This method allows you to set complex expressions
+     * as order conditions unlike order()
+     *
+     * @param string|\Cake\Database\QueryExpression $field The field to order on.
+     * @param bool $overwrite Whether or not to reset the order clauses.
+     * @return $this
+     */
+    public function orderAsc($field, $overwrite = false)
+    {
+        if ($overwrite) {
+            $this->_parts['order'] = null;
+        }
+        if (!$field) {
+            return $this;
+        }
+
+        if (!$this->_parts['order']) {
+            $this->_parts['order'] = new OrderByExpression();
+        }
+        $this->_parts['order']->add(new OrderClauseExpression($field, 'ASC'));
+        return $this;
+    }
+
+    /**
+     * Add an ORDER BY clause with an ASC direction.
+     *
+     * This method allows you to set complex expressions
+     * as order conditions unlike order()
+     *
+     * @param string|\Cake\Database\QueryExpression $field The field to order on.
+     * @param bool $overwrite Whether or not to reset the order clauses.
+     * @return $this
+     */
+    public function orderDesc($field, $overwrite = false)
+    {
+        if ($overwrite) {
+            $this->_parts['order'] = null;
+        }
+        if (!$field) {
+            return $this;
+        }
+
+        if (!$this->_parts['order']) {
+            $this->_parts['order'] = new OrderByExpression();
+        }
+        $this->_parts['order']->add(new OrderClauseExpression($field, 'DESC'));
         return $this;
     }
 
@@ -1380,8 +1436,8 @@ class Query implements ExpressionInterface, IteratorAggregate
      *
      * ```
      *
-     * $expression = $query->newExpression(); // Returns an empty expression object
-     * $expression = $query->newExpression('Table.column = Table2.column'); // Return a raw SQL expression
+     * $expression = $query->newExpr(); // Returns an empty expression object
+     * $expression = $query->newExpr('Table.column = Table2.column'); // Return a raw SQL expression
      * ```
      *
      * @param mixed $rawExpression A string, array or anything you want wrapped in an expression object
@@ -1644,8 +1700,12 @@ class Query implements ExpressionInterface, IteratorAggregate
     protected function _conjugate($part, $append, $conjunction, $types)
     {
         $expression = $this->_parts[$part] ?: $this->newExpr();
+        if (empty($append)) {
+            $this->_parts[$part] = $expression;
+            return;
+        }
 
-        if (!is_string($append) && is_callable($append)) {
+        if ($expression->isCallable($append)) {
             $append = $append($this->newExpr(), $this);
         }
 
@@ -1696,6 +1756,7 @@ class Query implements ExpressionInterface, IteratorAggregate
     public function __debugInfo()
     {
         return [
+            '(help)' => 'This is a Query object, to get the results execute or iterate it.',
             'sql' => $this->sql(),
             'params' => $this->valueBinder()->bindings(),
             'defaultTypes' => $this->defaultTypes(),

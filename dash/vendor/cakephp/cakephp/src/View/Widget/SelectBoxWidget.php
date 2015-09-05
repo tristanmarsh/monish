@@ -15,7 +15,7 @@
 namespace Cake\View\Widget;
 
 use Cake\View\Form\ContextInterface;
-use Cake\View\Widget\WidgetInterface;
+use Cake\View\Widget\BasicWidget;
 use Traversable;
 
 /**
@@ -24,25 +24,8 @@ use Traversable;
  * This class is intended as an internal implementation detail
  * of Cake\View\Helper\FormHelper and is not intended for direct use.
  */
-class SelectBoxWidget implements WidgetInterface
+class SelectBoxWidget extends BasicWidget
 {
-
-    /**
-     * Template instance.
-     *
-     * @var \Cake\View\StringTemplate
-     */
-    protected $_templates;
-
-    /**
-     * Constructor
-     *
-     * @param \Cake\View\StringTemplate $templates Templates list.
-     */
-    public function __construct($templates)
-    {
-        $this->_templates = $templates;
-    }
 
     /**
      * Render a select box form input.
@@ -56,8 +39,9 @@ class SelectBoxWidget implements WidgetInterface
      *    When true, the select element will be disabled.
      * - `val` - Either a string or an array of options to mark as selected.
      * - `empty` - Set to true to add an empty option at the top of the
-     *   option elements. Set to a string to define the display value of the
-     *   empty option.
+     *   option elements. Set to a string to define the display text of the
+     *   empty option. If an array is used the key will set the value of the empty
+     *   option while, the value will set the display text.
      * - `escape` - Set to false to disable HTML escaping.
      *
      * ### Options format
@@ -164,8 +148,7 @@ class SelectBoxWidget implements WidgetInterface
         }
 
         if (!empty($data['empty'])) {
-            $value = $data['empty'] === true ? '' : $data['empty'];
-            $options = ['' => $value] + (array)$options;
+            $options = $this->_emptyValue($data['empty']) + (array)$options;
         }
         if (empty($options)) {
             return [];
@@ -177,6 +160,26 @@ class SelectBoxWidget implements WidgetInterface
             $disabled = $data['disabled'];
         }
         return $this->_renderOptions($options, $disabled, $selected, $data['escape']);
+    }
+
+    /**
+     * Generate the empty value based on the input.
+     *
+     * @param string|bool|array $value The provided empty value.
+     * @return array The generated option key/value.
+     */
+    protected function _emptyValue($value)
+    {
+        if ($value === true) {
+            return ['' => ''];
+        }
+        if (is_scalar($value)) {
+            return ['' => $value];
+        }
+        if (is_array($value)) {
+            return $value;
+        }
+        return [];
     }
 
     /**
@@ -291,13 +294,5 @@ class SelectBoxWidget implements WidgetInterface
         }
         $strict = !is_numeric($key);
         return in_array((string)$key, $disabled, $strict);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function secureFields(array $data)
-    {
-        return [$data['name']];
     }
 }

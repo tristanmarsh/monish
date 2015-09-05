@@ -12,26 +12,27 @@
  * @since         0.1.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+$namespace = str_replace('\\', '\\\\', $namespace);
 %>
 {
-    "name": "your-name-here/<%= $plugin %>",
+    "name": "<%= $package %>",
     "description": "<%= $plugin %> plugin for CakePHP",
     "type": "cakephp-plugin",
     "require": {
-        "php": ">=5.4",
-        "cakephp/cakephp": "3.0.x-dev"
+        "php": ">=5.4.16",
+        "cakephp/cakephp": "~3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "*"
     },
     "autoload": {
         "psr-4": {
-            "<%= $plugin %>\\": "src"
+            "<%= $namespace %>\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "<%= $plugin %>\\Test\\": "tests",
+            "<%= $namespace %>\\Test\\": "tests",
             "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
         }
     }

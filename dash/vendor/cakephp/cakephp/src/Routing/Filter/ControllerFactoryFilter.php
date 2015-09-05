@@ -73,6 +73,9 @@ class ControllerFactoryFilter extends DispatcherFilter
             );
             $namespace .= '/' . implode('/', $prefixes);
         }
+        if (strpos($controller, '\\') !== false || strpos($controller, '.') !== false) {
+            return false;
+        }
         $className = false;
         if ($pluginPath . $controller) {
             $className = App::classname($pluginPath . $controller, $namespace, 'Controller');
@@ -84,6 +87,6 @@ class ControllerFactoryFilter extends DispatcherFilter
         if ($reflection->isAbstract() || $reflection->isInterface()) {
             return false;
         }
-        return $reflection->newInstance($request, $response);
+        return $reflection->newInstance($request, $response, $controller);
     }
 }

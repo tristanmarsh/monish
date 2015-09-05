@@ -6,6 +6,7 @@ function Toolbar(options) {
 	this.keyboardScope = options.keyboardScope;
 	this.currentRequest = options.currentRequest;
 	this.originalRequest = options.originalRequest;
+	this.baseUrl = options.baseUrl;
 }
 
 Toolbar.prototype = {
@@ -14,6 +15,7 @@ Toolbar.prototype = {
 	_state: 0,
 	currentRequest: null,
 	originalRequest: null,
+	ajaxRequests: [],
 
 	states: [
 		'collapse',
@@ -129,6 +131,17 @@ Toolbar.prototype = {
 	},
 
 	bindNeatArray: function() {
+		var sortButton = this.content.find('.neat-array-sort');
+		var _this = this;
+		sortButton.click(function() {
+			if ($(this).attr('checked')) {
+				document.cookie = 'debugKit_sort=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=' + _this.baseUrl;
+			} else {
+				document.cookie = 'debugKit_sort=1; path=' + _this.baseUrl;
+			}
+			_this.loadPanel(_this.currentPanel());
+		});
+
 		var lists = this.content.find('.depth-0');
 		lists.find('ul').hide()
 			.parent().addClass('expandable collapsed');
@@ -158,7 +171,7 @@ Toolbar.prototype = {
 				// Close active panel
 				if (_this.isExpanded()) {
 					return _this.hideContent();
-				} 
+				}
 				// Collapse the toolbar
 				if (_this.state() === "toolbar") {
 					return _this.toggle();
@@ -180,7 +193,7 @@ Toolbar.prototype = {
 				if (nextPanel.hasClass('panel')) {
 					nextPanel.addClass('panel-active');
 					return _this.loadPanel(nextPanel.data('id'));
-				}	
+				}
 			}
 		});
 	},
@@ -221,10 +234,26 @@ Toolbar.prototype = {
 		}
 	},
 
+	onMessage: function(event) {
+		if (event.data.indexOf('ajax-completed$$') === 0) {
+			this.onRequest(JSON.parse(event.data.split('$$')[1]))
+		}
+	},
+
+	onRequest: function(request) {
+		this.ajaxRequests.push(request);
+		$(".panel-summary:contains(xhr)").text("" + this.ajaxRequests.length + ' xhr');
+	},
+
 	initialize: function() {
 		this.windowOrigin();
 		this.mouseListener();
 		this.keyboardListener();
 		this.loadState();
+
+		var self = this;
+		window.addEventListener('message', function (event) {
+			self.onMessage(event);
+		}, false);
 	}
 };

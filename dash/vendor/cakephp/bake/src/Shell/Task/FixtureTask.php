@@ -16,11 +16,13 @@ namespace Bake\Shell\Task;
 
 use Cake\Console\Shell;
 use Cake\Core\Configure;
+use Cake\Database\Exception;
 use Cake\Database\Schema\Table;
 use Cake\Datasource\ConnectionManager;
 use Cake\ORM\TableRegistry;
 use Cake\Utility\Inflector;
 use Cake\Utility\Text;
+use DateTime;
 
 /**
  * Task class for creating and updating fixtures files.
@@ -70,7 +72,7 @@ class FixtureTask extends BakeTask
         ])->addOption('count', [
             'help' => 'When using generated data, the number of records to include in the fixture(s).',
             'short' => 'n',
-            'default' => 10
+            'default' => 1
         ])->addOption('schema', [
             'help' => 'Create a fixture that imports schema, instead of dumping a schema snapshot into the fixture.',
             'short' => 's',
@@ -107,7 +109,7 @@ class FixtureTask extends BakeTask
 
         if (empty($name)) {
             $this->out('Choose a fixture to bake from the following:');
-            foreach ($this->Model->listAll() as $table) {
+            foreach ($this->Model->listUnskipped() as $table) {
                 $this->out('- ' . $this->_camelize($table));
             }
             return true;
@@ -128,7 +130,7 @@ class FixtureTask extends BakeTask
      */
     public function all()
     {
-        $tables = $this->Model->listAll($this->connection, false);
+        $tables = $this->Model->listUnskipped($this->connection, false);
 
         foreach ($tables as $table) {
             $this->main($table);
@@ -149,7 +151,7 @@ class FixtureTask extends BakeTask
 
         if (!$useTable) {
             $useTable = Inflector::tableize($model);
-        } elseif ($useTable != Inflector::tableize($model)) {
+        } elseif ($useTable !== Inflector::tableize($model)) {
             $table = $useTable;
         }
 
@@ -175,7 +177,13 @@ class FixtureTask extends BakeTask
             );
         }
         $schemaCollection = $connection->schemaCollection();
-        $data = $schemaCollection->describe($useTable);
+        try {
+            $data = $schemaCollection->describe($useTable);
+        } catch (Exception $e) {
+            $useTable = Inflector::underscore($model);
+            $table = $useTable;
+            $data = $schemaCollection->describe($useTable);
+        }
 
         if ($modelImport === null) {
             $schema = $this->_generateSchema($data);
@@ -265,7 +273,10 @@ class FixtureTask extends BakeTask
             $content .= "        '_constraints' => [\n" . implode("\n", $constraints) . "\n        ],\n";
         }
         if (!empty($options)) {
-            $content .= "        '_options' => [\n" . implode(', ', $options) . "\n        ],\n";
+            foreach ($options as &$option) {
+                $option = '            ' . $option;
+            }
+            $content .= "        '_options' => [\n" . implode(",\n", $options) . "\n        ],\n";
         }
         return "[\n$content    ]";
     }
@@ -356,6 +367,9 @@ class FixtureTask extends BakeTask
                         $insert .= " feugiat in taciti enim proin nibh, tempor dignissim, rhoncus";
                         $insert .= " duis vestibulum nunc mattis convallis.";
                         break;
+                    case 'uuid':
+                        $insert = Text::uuid();
+                        break;
                 }
                 $record[$field] = $insert;
             }
@@ -376,6 +390,9 @@ class FixtureTask extends BakeTask
         foreach ($records as $record) {
             $values = [];
             foreach ($record as $field => $value) {
+                if ($value instanceof DateTime) {
+                    $value = $value->format('Y-m-d H:i:s');
+                }
                 $val = var_export($value, true);
                 if ($val === 'NULL') {
                     $val = 'null';
@@ -410,15 +427,11 @@ class FixtureTask extends BakeTask
                 'connection' => ConnectionManager::get($this->connection)
             ]);
         }
-        $records = $model->find('all', [
-            'conditions' => $conditions,
-            'limit' => $recordCount
-        ]);
+        $records = $model->find('all')
+            ->where($conditions)
+            ->limit($recordCount)
+            ->hydrate(false);
 
-        $out = [];
-        foreach ($records as $record) {
-            $out[] = $record->toArray();
-        }
-        return $out;
+        return $records;
     }
 }

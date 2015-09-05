@@ -25,6 +25,7 @@ use Cake\View\View;
  *
  * HtmlHelper encloses all methods needed while working with HTML pages.
  *
+ * @property UrlHelper $Url
  * @link http://book.cakephp.org/3.0/en/views/helpers/html.html
  */
 class HtmlHelper extends Helper
@@ -194,15 +195,21 @@ class HtmlHelper extends Helper
      *
      * Append the meta tag to custom view block "meta":
      *
-     * `$this->Html->meta('description', 'A great page', ['block' => true]);`
+     * ```
+     * $this->Html->meta('description', 'A great page', ['block' => true]);
+     * ```
      *
      * Append the meta tag to custom view block:
      *
-     * `$this->Html->meta('description', 'A great page', ['block' => 'metaTags']);`
+     * ```
+     * $this->Html->meta('description', 'A great page', ['block' => 'metaTags']);
+     * ```
      *
      * Create a custom meta tag:
      *
-     * `$this->Html->meta(['property' => 'og:site_name', 'content' => 'CakePHP']);`
+     * ```
+     * $this->Html->meta(['property' => 'og:site_name', 'content' => 'CakePHP']);
+     * ```
      *
      * ### Options
      *
@@ -372,19 +379,27 @@ class HtmlHelper extends Helper
      *
      * Include one CSS file:
      *
-     * `echo $this->Html->css('styles.css');`
+     * ```
+     * echo $this->Html->css('styles.css');
+     * ```
      *
      * Include multiple CSS files:
      *
-     * `echo $this->Html->css(['one.css', 'two.css']);`
+     * ```
+     * echo $this->Html->css(['one.css', 'two.css']);
+     * ```
      *
      * Add the stylesheet to view block "css":
      *
-     * `$this->Html->css('styles.css', ['block' => true]);`
+     * ```
+     * $this->Html->css('styles.css', ['block' => true]);
+     * ```
      *
      * Add the stylesheet to a custom block:
      *
-     * `$this->Html->css('styles.css', ['block' => 'layoutCss']);`
+     * ```
+     * $this->Html->css('styles.css', ['block' => 'layoutCss']);
+     * ```
      *
      * ### Options
      *
@@ -465,15 +480,21 @@ class HtmlHelper extends Helper
      *
      * Include one script file:
      *
-     * `echo $this->Html->script('styles.js');`
+     * ```
+     * echo $this->Html->script('styles.js');
+     * ```
      *
      * Include multiple script files:
      *
-     * `echo $this->Html->script(['one.js', 'two.js']);`
+     * ```
+     * echo $this->Html->script(['one.js', 'two.js']);
+     * ```
      *
      * Add the script file to a custom block:
      *
-     * `$this->Html->script('styles.js', ['block' => 'bodyScript']);`
+     * ```
+     * $this->Html->script('styles.js', ['block' => 'bodyScript']);
+     * ```
      *
      * ### Options
      *
@@ -763,11 +784,15 @@ class HtmlHelper extends Helper
      *
      * Create a regular image:
      *
-     * `echo $this->Html->image('cake_icon.png', ['alt' => 'CakePHP']);`
+     * ```
+     * echo $this->Html->image('cake_icon.png', ['alt' => 'CakePHP']);
+     * ```
      *
      * Create an image link:
      *
-     * `echo $this->Html->image('cake_icon.png', ['alt' => 'CakePHP', 'url' => 'http://cakephp.org']);`
+     * ```
+     * echo $this->Html->image('cake_icon.png', ['alt' => 'CakePHP', 'url' => 'http://cakephp.org']);
+     * ```
      *
      * ### Options:
      *
@@ -847,9 +872,9 @@ class HtmlHelper extends Helper
     /**
      * Returns a formatted string of table rows (TR's with TD's in them).
      *
-     * @param array $data Array of table data
-     * @param array $oddTrOptions HTML options for odd TR elements if true useCount is used
-     * @param array $evenTrOptions HTML options for even TR elements
+     * @param array|string $data Array of table data
+     * @param array|bool|null $oddTrOptions HTML options for odd TR elements if true useCount is used
+     * @param array|bool|null $evenTrOptions HTML options for even TR elements
      * @param bool $useCount adds class "column-$i"
      * @param bool $continueOddEven If false, will use a non-static $count variable,
      *    so that the odd/even count is reset to zero just for that call.
@@ -888,9 +913,16 @@ class HtmlHelper extends Helper
                 if (is_array($cell)) {
                     $cellOptions = $cell[1];
                     $cell = $cell[0];
-                } elseif ($useCount) {
-                    $cellOptions['class'] = 'column-' . ++$i;
                 }
+
+                if ($useCount) {
+                    if (isset($cellOptions['class'])) {
+                        $cellOptions['class'] .= ' column-' . ++$i;
+                    } else {
+                        $cellOptions['class'] = 'column-' . ++$i;
+                    }
+                }
+
                 $cellsOut[] = $this->formatTemplate('tablecell', [
                     'attrs' => $this->templater()->formatAttributes($cellOptions),
                     'content' => $cell
@@ -997,7 +1029,9 @@ class HtmlHelper extends Helper
      *
      * Using an audio file:
      *
-     * `echo $this->Html->media('audio.mp3', ['fullBase' => true]);`
+     * ```
+     * echo $this->Html->media('audio.mp3', ['fullBase' => true]);
+     * ```
      *
      * Outputs:
      *
@@ -1005,7 +1039,9 @@ class HtmlHelper extends Helper
      *
      * Using a video file:
      *
-     * `echo $this->Html->media('video.mp4', ['text' => 'Fallback text']);`
+     * ```
+     * echo $this->Html->media('video.mp4', ['text' => 'Fallback text']);
+     * ```
      *
      * Outputs:
      *

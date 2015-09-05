@@ -16,6 +16,7 @@ namespace Bake\Shell\Task;
 
 use Cake\Console\Shell;
 use Cake\Core\Configure;
+use Cake\Database\Schema\Table as SchemaTable;
 use Cake\Datasource\ConnectionManager;
 use Cake\ORM\Table;
 use Cake\ORM\TableRegistry;
@@ -50,7 +51,7 @@ class ModelTask extends BakeTask
      *
      * @var array
      */
-    public $skipTables = ['i18n'];
+    public $skipTables = ['i18n', 'cake_sessions', 'phinxlog', 'users_phinxlog'];
 
     /**
      * Holds tables found on connection.
@@ -86,7 +87,7 @@ class ModelTask extends BakeTask
 
         if (empty($name)) {
             $this->out('Choose a model to bake from the following:');
-            foreach ($this->listAll() as $table) {
+            foreach ($this->listUnskipped() as $table) {
                 $this->out('- ' . $this->_camelize($table));
             }
             return true;
@@ -115,6 +116,7 @@ class ModelTask extends BakeTask
         $validation = $this->getValidation($model, $associations);
         $rulesChecker = $this->getRules($model, $associations);
         $behaviors = $this->getBehaviors($model);
+        $connection = $this->connection;
 
         $data = compact(
             'associations',
@@ -124,11 +126,12 @@ class ModelTask extends BakeTask
             'fields',
             'validation',
             'rulesChecker',
-            'behaviors'
+            'behaviors',
+            'connection'
         );
         $this->bakeTable($model, $data);
         $this->bakeEntity($model, $data);
-        $this->bakeFixture($model->alias(), $table);
+        $this->bakeFixture($model->alias(), $model->table());
         $this->bakeTest($model->alias());
     }
 
@@ -139,11 +142,8 @@ class ModelTask extends BakeTask
      */
     public function all()
     {
-        $this->listAll($this->connection, false);
-        foreach ($this->_tables as $table) {
-            if (in_array($table, $this->skipTables)) {
-                continue;
-            }
+        $tables = $this->listUnskipped();
+        foreach ($tables as $table) {
             TableRegistry::clear();
             $this->main($table);
         }
@@ -253,10 +253,20 @@ class ModelTask extends BakeTask
                 ];
             } else {
                 $tmpModelName = $this->_modelNameFromKey($fieldName);
+                if (!in_array(Inflector::tableize($tmpModelName), $this->_tables)) {
+                    $found = $this->findTableReferencedBy($schema, $fieldName);
+                    if ($found) {
+                        $tmpModelName = Inflector::camelize($found);
+                    }
+                }
                 $assoc = [
                     'alias' => $tmpModelName,
                     'foreignKey' => $fieldName
                 ];
+                if ($schema->column($fieldName)['null'] === false) {
+                    $assoc['joinType'] = 'INNER';
+                }
+
             }
 
             if ($this->plugin && empty($assoc['className'])) {
@@ -265,6 +275,32 @@ class ModelTask extends BakeTask
             $associations['belongsTo'][] = $assoc;
         }
         return $associations;
+    }
+
+    /**
+     * find the table, if any, actually referenced by the passed key field.
+     * Search tables in db for keyField; if found search key constraints
+     * for the table to which it refers.
+     *
+     * @param \Cake\Database\Schema\Table $schema The table schema to find a constraint for.
+     * @param string $keyField The field to check for a constraint.
+     * @return string|null Either the referenced table or null if the field has no constraints.
+     */
+    public function findTableReferencedBy($schema, $keyField)
+    {
+        if (!$schema->column($keyField)) {
+            return null;
+        }
+        foreach ($schema->constraints() as $constraint) {
+            $constraintInfo = $schema->constraint($constraint);
+            if (in_array($keyField, $constraintInfo['columns'])) {
+                if (!isset($constraintInfo['references'])) {
+                    continue;
+                }
+                return $constraintInfo['references'][0];
+            }
+        }
+        return null;
     }
 
     /**
@@ -294,12 +330,12 @@ class ModelTask extends BakeTask
 
             foreach ($otherSchema->columns() as $fieldName) {
                 $assoc = false;
-                if (!in_array($fieldName, $primaryKey) && $fieldName == $foreignKey) {
+                if (!in_array($fieldName, $primaryKey) && $fieldName === $foreignKey) {
                     $assoc = [
                         'alias' => $otherModel->alias(),
                         'foreignKey' => $fieldName
                     ];
-                } elseif ($otherTable == $tableName && $fieldName === 'parent_id') {
+                } elseif ($otherTable === $tableName && $fieldName === 'parent_id') {
                     $className = ($this->plugin) ? $this->plugin . '.' . $model->alias() : $model->alias();
                     $assoc = [
                         'alias' => 'Child' . $model->alias(),
@@ -471,7 +507,7 @@ class ModelTask extends BakeTask
                 continue;
             }
             $field = $schema->column($fieldName);
-            $validation = $this->fieldValidation($fieldName, $field, $primaryKey);
+            $validation = $this->fieldValidation($schema, $fieldName, $field, $primaryKey);
             if (!empty($validation)) {
                 $validate[$fieldName] = $validation;
             }
@@ -482,12 +518,13 @@ class ModelTask extends BakeTask
     /**
      * Does individual field validation handling.
      *
+     * @param \Cake\Database\Schema\Table $schema The table schema for the current field.
      * @param string $fieldName Name of field to be validated.
      * @param array $metaData metadata for field
      * @param string $primaryKey The primary key field
      * @return array Array of validation for the field.
      */
-    public function fieldValidation($fieldName, array $metaData, $primaryKey)
+    public function fieldValidation($schema, $fieldName, array $metaData, $primaryKey)
     {
         $ignoreFields = ['created', 'modified', 'updated'];
         if (in_array($fieldName, $ignoreFields)) {
@@ -530,6 +567,17 @@ class ModelTask extends BakeTask
                 'allowEmpty' => $allowEmpty,
             ]
         ];
+
+        foreach ($schema->constraints() as $constraint) {
+            $constraint = $schema->constraint($constraint);
+            if (!in_array($fieldName, $constraint['columns']) || count($constraint['columns']) > 1) {
+                continue;
+            }
+
+            if ($constraint['type'] === SchemaTable::CONSTRAINT_UNIQUE) {
+                $validation['unique'] = ['rule' => 'validateUnique', 'provider' => 'table'];
+            }
+        }
 
         return $validation;
     }
@@ -657,7 +705,7 @@ class ModelTask extends BakeTask
             'namespace' => $namespace,
             'plugin' => $this->plugin,
             'pluginPath' => $pluginPath,
-            'fields' => [],
+            'primaryKey' => [],
         ];
 
         $this->BakeTemplate->set($data);
@@ -706,6 +754,7 @@ class ModelTask extends BakeTask
             'validation' => [],
             'rulesChecker' => [],
             'behaviors' => [],
+            'connection' => $this->connection,
         ];
 
         $this->BakeTemplate->set($data);
@@ -745,6 +794,17 @@ class ModelTask extends BakeTask
             $this->_modelNames[] = $this->_camelize($table);
         }
         return $this->_tables;
+    }
+
+    /**
+     * Outputs the a list of unskipped models or controllers from database
+     *
+     * @return array
+     */
+    public function listUnskipped()
+    {
+        $this->listAll();
+        return array_diff($this->_tables, $this->skipTables);
     }
 
     /**

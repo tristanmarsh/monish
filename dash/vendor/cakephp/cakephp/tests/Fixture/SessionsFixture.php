@@ -1,6 +1,6 @@
 <?php
 /**
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
@@ -8,7 +8,7 @@
  * Redistributions of files must retain the above copyright notice
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @since         1.2.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
@@ -30,7 +30,7 @@ class SessionsFixture extends TestFixture
      */
     public $fields = [
         'id' => ['type' => 'string', 'length' => 128],
-        'data' => ['type' => 'text', 'null' => true],
+        'data' => ['type' => 'binary', 'null' => true],
         'expires' => ['type' => 'integer', 'length' => 11, 'null' => true],
         '_constraints' => ['primary' => ['type' => 'primary', 'columns' => ['id']]]
     ];

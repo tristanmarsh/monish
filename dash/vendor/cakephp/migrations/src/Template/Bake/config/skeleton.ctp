@@ -13,7 +13,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$wantedOptions = array_flip(['length', 'limit', 'default', 'unsigned', 'null']);
+$wantedOptions = array_flip(['length', 'limit', 'default', 'unsigned', 'null', 'comment']);
 $tableMethod = $this->Migration->tableMethod($action);
 $columnMethod = $this->Migration->columnMethod($action);
 $indexMethod = $this->Migration->indexMethod($action);
@@ -47,11 +47,16 @@ class <%= $name %> extends AbstractMigration
         $table-><%= $columnMethod %>('<%= $column %>', '<%= $config['columnType'] %>', [<%
                 $columnOptions = $config['options'];
                 $columnOptions = array_intersect_key($columnOptions, $wantedOptions);
+                if (empty($columnOptions['comment'])) {
+                    unset($columnOptions['comment']);
+                }
                 echo $this->Migration->stringifyList($columnOptions, ['indent' => 3]);
             %>]);
 <% endforeach; %>
 <% foreach ($columns['indexes'] as $column => $config): %>
-        $table-><%= $indexMethod %>(["<%= $this->Migration->stringifyList($config['columns']) %>"], [<%
+        $table-><%= $indexMethod %>([<%=
+                $this->Migration->stringifyList($config['columns'], ['indent' => 3])
+                %>], [<%
                 $options = [];
                 echo $this->Migration->stringifyList($config['options'], ['indent' => 3]);
             %>]);

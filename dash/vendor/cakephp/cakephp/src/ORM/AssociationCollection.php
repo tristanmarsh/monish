@@ -14,11 +14,13 @@
  */
 namespace Cake\ORM;
 
+use ArrayIterator;
 use Cake\ORM\Association;
 use Cake\ORM\AssociationsNormalizerTrait;
 use Cake\ORM\Entity;
 use Cake\ORM\Table;
 use InvalidArgumentException;
+use IteratorAggregate;
 
 /**
  * A container/collection for association classes.
@@ -26,7 +28,7 @@ use InvalidArgumentException;
  * Contains methods for managing associations, and
  * ordering operations around saving and deleting.
  */
-class AssociationCollection
+class AssociationCollection implements IteratorAggregate
 {
 
     use AssociationsNormalizerTrait;
@@ -109,14 +111,17 @@ class AssociationCollection
     /**
      * Get an array of associations matching a specific type.
      *
-     * @param string $class The type of associations you want. For example 'BelongsTo'
+     * @param string|array $class The type of associations you want.
+     *   For example 'BelongsTo' or array like ['BelongsTo', 'HasOne']
      * @return array An array of Association objects.
      */
     public function type($class)
     {
+        $class = (array)$class;
+
         $out = array_filter($this->_items, function ($assoc) use ($class) {
             list(, $name) = namespaceSplit(get_class($assoc));
-            return $class === $name;
+            return in_array($name, $class, true);
         });
         return array_values($out);
     }
@@ -251,6 +256,7 @@ class AssociationCollection
 
     /**
      * Cascade a delete across the various associations.
+     * Cascade first across associations for which cascadeCallbacks is true.
      *
      * @param \Cake\ORM\Entity $entity The entity to delete associations for.
      * @param array $options The options used in the delete operation.
@@ -258,7 +264,15 @@ class AssociationCollection
      */
     public function cascadeDelete(Entity $entity, array $options)
     {
+        $noCascade = [];
         foreach ($this->_items as $assoc) {
+            if (!$assoc->cascadeCallbacks()) {
+                $noCascade[] = $assoc;
+                continue;
+            }
+            $assoc->cascadeDelete($entity, $options);
+        }
+        foreach ($noCascade as $assoc) {
             $assoc->cascadeDelete($entity, $options);
         }
     }
@@ -282,5 +296,15 @@ class AssociationCollection
         }
 
         return $this->_normalizeAssociations($keys);
+    }
+
+    /**
+     * Allow looping through the associations
+     *
+     * @return ArrayIterator
+     */
+    public function getIterator()
+    {
+        return new ArrayIterator($this->_items);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
@@ -28,5 +28,9 @@ class Response extends Base
      */
     public function send()
     {
+        if (isset($this->_headers['Location']) && $this->_status === 200) {
+            $this->statusCode(302);
+        }
+        $this->_setContentType();
     }
 }

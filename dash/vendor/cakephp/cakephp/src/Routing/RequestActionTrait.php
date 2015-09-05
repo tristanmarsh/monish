@@ -118,14 +118,20 @@ trait RequestActionTrait
                 'url' => $url
             ];
         } elseif (is_array($url)) {
+            $defaultParams = ['plugin' => null, 'controller' => null, 'action' => null];
             $params = [
-                'params' => $url,
+                'params' => $url + $defaultParams,
                 'base' => false,
                 'url' => Router::reverse($url)
             ];
             if (empty($params['params']['pass'])) {
                 $params['params']['pass'] = [];
             }
+        }
+        $current = Router::getRequest();
+        if ($current) {
+            $params['base'] = $current->base;
+            $params['webroot'] = $current->webroot;
         }
 
         $params['post'] = $params['query'] = [];

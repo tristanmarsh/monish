@@ -41,7 +41,7 @@ use Cake\Utility\Inflector;
  *
  * `cake myshell command --connection default --name=something`
  *
- * Short options can be defined signally or in groups.
+ * Short options can be defined singly or in groups.
  *
  * `cake myshell command -cn`
  *
@@ -60,7 +60,9 @@ use Cake\Utility\Inflector;
  * arguments any arguments greater than those defined will cause exceptions. Additionally you can
  * declare arguments as optional, by setting the required param to false.
  *
- * `$parser->addArgument('model', ['required' => false]);`
+ * ```
+ * $parser->addArgument('model', ['required' => false]);
+ * ```
  *
  * ### Providing Help text
  *

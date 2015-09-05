@@ -17,8 +17,9 @@ namespace Cake\Controller;
 use Cake\Controller\Exception\MissingActionException;
 use Cake\Datasource\ModelAwareTrait;
 use Cake\Event\Event;
+use Cake\Event\EventDispatcherInterface;
+use Cake\Event\EventDispatcherTrait;
 use Cake\Event\EventListenerInterface;
-use Cake\Event\EventManagerTrait;
 use Cake\Log\LogTrait;
 use Cake\Network\Request;
 use Cake\Network\Response;
@@ -27,6 +28,7 @@ use Cake\Routing\Router;
 use Cake\Utility\MergeVariablesTrait;
 use Cake\View\ViewVarsTrait;
 use LogicException;
+use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
 use RuntimeException;
@@ -80,10 +82,10 @@ use RuntimeException;
  * @property      \Cake\Controller\Component\SecurityComponent $Security
  * @link          http://book.cakephp.org/3.0/en/controllers.html
  */
-class Controller implements EventListenerInterface
+class Controller implements EventListenerInterface, EventDispatcherInterface
 {
 
-    use EventManagerTrait;
+    use EventDispatcherTrait;
     use LogTrait;
     use MergeVariablesTrait;
     use ModelAwareTrait;
@@ -103,7 +105,10 @@ class Controller implements EventListenerInterface
      * An array containing the names of helpers this controller uses. The array elements should
      * not contain the "Helper" part of the class name.
      *
-     * Example: `public $helpers = ['Form', 'Html', 'Time'];`
+     * Example:
+     * ```
+     * public $helpers = ['Form', 'Html', 'Time'];
+     * ```
      *
      * @var mixed
      * @link http://book.cakephp.org/3.0/en/controllers.html#configuring-helpers-to-load
@@ -165,7 +170,10 @@ class Controller implements EventListenerInterface
      * Array containing the names of components this controller uses. Component names
      * should not contain the "Component" portion of the class name.
      *
-     * Example: `public $components = ['Session', 'RequestHandler', 'Acl'];`
+     * Example:
+     * ```
+     * public $components = ['RequestHandler', 'Acl'];
+     * ```
      *
      * @var array
      * @link http://book.cakephp.org/3.0/en/controllers/components.html
@@ -244,37 +252,23 @@ class Controller implements EventListenerInterface
      */
     public function __construct(Request $request = null, Response $response = null, $name = null, $eventManager = null)
     {
-        if ($this->name === null && $name === null) {
-            list(, $name) = namespaceSplit(get_class($this));
-            $name = substr($name, 0, -10);
-        }
         if ($name !== null) {
             $this->name = $name;
         }
 
-        if (!$this->viewPath) {
-            $viewPath = $this->name;
-            if (isset($request->params['prefix'])) {
-                $prefixes = array_map(
-                    'Cake\Utility\Inflector::camelize',
-                    explode('/', $request->params['prefix'])
-                );
-                $viewPath = implode(DS, $prefixes) . DS . $viewPath;
-            }
-            $this->viewPath = $viewPath;
+        if ($this->name === null && isset($request->params['controller'])) {
+            $this->name = $request->params['controller'];
         }
 
-        if (!($request instanceof Request)) {
-            $request = new Request();
+        if ($this->name === null) {
+            list(, $name) = namespaceSplit(get_class($this));
+            $this->name = substr($name, 0, -10);
         }
-        $this->setRequest($request);
 
-        if (!($response instanceof Response)) {
-            $response = new Response();
-        }
-        $this->response = $response;
+        $this->setRequest($request !== null ? $request : new Request);
+        $this->response = $response !== null ? $response : new Response;
 
-        if ($eventManager) {
+        if ($eventManager !== null) {
             $this->eventManager($eventManager);
         }
 
@@ -320,7 +314,9 @@ class Controller implements EventListenerInterface
      * This method will also set the component to a property.
      * For example:
      *
-     * `$this->loadComponent('Acl.Acl');`
+     * ```
+     * $this->loadComponent('Acl.Acl');
+     * ```
      *
      * Will result in a `Toolbar` property being set.
      *
@@ -375,6 +371,18 @@ class Controller implements EventListenerInterface
 
         if (isset($request->params['pass'])) {
             $this->passedArgs = $request->params['pass'];
+        }
+
+        if (!$this->viewPath) {
+            $viewPath = $this->name;
+            if (!empty($request->params['prefix'])) {
+                $prefixes = array_map(
+                    'Cake\Utility\Inflector::camelize',
+                    explode('/', $request->params['prefix'])
+                );
+                $viewPath = implode(DS, $prefixes) . DS . $viewPath;
+            }
+            $this->viewPath = $viewPath;
         }
     }
 
@@ -517,7 +525,7 @@ class Controller implements EventListenerInterface
             return;
         }
 
-        if ($url !== null && !$response->location()) {
+        if (!$response->location()) {
             $response->location(Router::url($url, true));
         }
 
@@ -646,15 +654,16 @@ class Controller implements EventListenerInterface
      */
     public function isAction($action)
     {
+        $baseClass = new ReflectionClass('Cake\Controller\Controller');
+        if ($baseClass->hasMethod($action)) {
+            return false;
+        }
         try {
             $method = new ReflectionMethod($this, $action);
         } catch (ReflectionException $e) {
             return false;
         }
         if (!$method->isPublic()) {
-            return false;
-        }
-        if ($method->getDeclaringClass()->name === 'Cake\Controller\Controller') {
             return false;
         }
         return true;

@@ -32,6 +32,14 @@ echo implode("\n", $uses);
 
 /**
  * <%= $name %> Model
+<% if ($associations): %>
+ *
+<% foreach ($associations as $type => $assocs): %>
+<% foreach ($assocs as $assoc): %>
+ * @property \Cake\ORM\Association\<%= Inflector::camelize($type) %> $<%= $assoc['alias'] %>
+<% endforeach %>
+<% endforeach; %>
+<% endif; %>
  */
 class <%= $name %>Table extends Table
 {
@@ -44,6 +52,8 @@ class <%= $name %>Table extends Table
      */
     public function initialize(array $config)
     {
+        parent::initialize($config);
+
 <% if (!empty($table)): %>
         $this->table('<%= $table %>');
 <% endif %>
@@ -57,9 +67,15 @@ class <%= $name %>Table extends Table
         $this->primaryKey('<%= current((array)$primaryKey) %>');
 <% endif %>
 <% endif %>
+<% if (!empty($behaviors)): %>
+
+<% endif; %>
 <% foreach ($behaviors as $behavior => $behaviorData): %>
         $this->addBehavior('<%= $behavior %>'<%= $behaviorData ? ", [" . implode(', ', $behaviorData) . ']' : '' %>);
 <% endforeach %>
+<% if (!empty($associations)): %>
+
+<% endif; %>
 <% foreach ($associations as $type => $assocs): %>
 <% foreach ($assocs as $assoc):
 	$alias = $assoc['alias'];
@@ -79,10 +95,9 @@ class <%= $name %>Table extends Table
      */
     public function validationDefault(Validator $validator)
     {
-        $validator
-<% $validationMethods = []; %>
 <%
 foreach ($validation as $field => $rules):
+    $validationMethods = [];
     foreach ($rules as $ruleName => $rule):
         if ($rule['rule'] && !isset($rule['provider'])):
             $validationMethods[] = sprintf(
@@ -125,11 +140,20 @@ foreach ($validation as $field => $rules):
             endif;
         endif;
     endforeach;
+
+    if (!empty($validationMethods)):
+        $lastIndex = count($validationMethods) - 1;
+        $validationMethods[$lastIndex] .= ';';
+        %>
+        $validator
+        <%- foreach ($validationMethods as $validationMethod): %>
+            <%= $validationMethod %>
+        <%- endforeach; %>
+
+<%
+    endif;
 endforeach;
 %>
-<%= "            " . implode("\n            ", $validationMethods) . ";" %>
-
-
         return $validator;
     }
 <% endif %>
@@ -148,6 +172,18 @@ endforeach;
         $rules->add($rules-><%= $rule['name'] %>(['<%= $field %>']<%= !empty($rule['extra']) ? ", '$rule[extra]'" : '' %>));
     <%- endforeach; %>
         return $rules;
+    }
+<% endif; %>
+<% if ($connection !== 'default'): %>
+
+    /**
+     * Returns the database connection name to use by default.
+     *
+     * @return string
+     */
+    public static function defaultConnectionName()
+    {
+        return '<%= $connection %>';
     }
 <% endif; %>
 }

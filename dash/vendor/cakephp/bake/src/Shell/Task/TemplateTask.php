@@ -120,7 +120,7 @@ class TemplateTask extends BakeTask
         if (empty($name)) {
             $this->out('Possible tables to bake views for based on your current database:');
             $this->Model->connection = $this->connection;
-            foreach ($this->Model->listAll() as $table) {
+            foreach ($this->Model->listUnskipped() as $table) {
                 $this->out('- ' . $this->_camelize($table));
             }
             return true;
@@ -246,7 +246,7 @@ class TemplateTask extends BakeTask
     public function all()
     {
         $this->Model->connection = $this->connection;
-        $tables = $this->Model->listAll();
+        $tables = $this->Model->listUnskipped();
 
         foreach ($tables as $table) {
             $this->main($table);
@@ -257,6 +257,7 @@ class TemplateTask extends BakeTask
      * Loads Controller and sets variables for the template
      * Available template variables:
      *
+     * - 'modelObject'
      * - 'modelClass'
      * - 'primaryKey'
      * - 'displayField'
@@ -272,16 +273,16 @@ class TemplateTask extends BakeTask
      */
     protected function _loadController()
     {
-        $modelObj = TableRegistry::get($this->modelName);
+        $modelObject = TableRegistry::get($this->modelName);
 
-        $primaryKey = (array)$modelObj->primaryKey();
-        $displayField = $modelObj->displayField();
+        $primaryKey = (array)$modelObject->primaryKey();
+        $displayField = $modelObject->displayField();
         $singularVar = $this->_singularName($this->controllerName);
         $singularHumanName = $this->_singularHumanName($this->controllerName);
-        $schema = $modelObj->schema();
+        $schema = $modelObject->schema();
         $fields = $schema->columns();
         $modelClass = $this->modelName;
-        $associations = $this->_filteredAssociations($modelObj);
+        $associations = $this->_filteredAssociations($modelObject);
         $keyFields = [];
         if (!empty($associations['BelongsTo'])) {
             foreach ($associations['BelongsTo'] as $assoc) {
@@ -293,6 +294,7 @@ class TemplateTask extends BakeTask
         $pluralHumanName = $this->_pluralHumanName($this->controllerName);
 
         return compact(
+            'modelObject',
             'modelClass',
             'schema',
             'primaryKey',
@@ -368,6 +370,7 @@ class TemplateTask extends BakeTask
             $content = $this->getContent($action);
         }
         if (empty($content)) {
+            $this->err("<warning>No generated content for '{$action}.ctp', not generating template.</warning>");
             return false;
         }
         $this->out("\n" . sprintf('Baking `%s` view file...', $action), 1, Shell::QUIET);
@@ -423,7 +426,7 @@ class TemplateTask extends BakeTask
         ])->addOption('prefix', [
             'help' => 'The routing prefix to generate views for.',
         ])->addSubcommand('all', [
-            'help' => 'Bake all CRUD action views for all controllers. Requires models and controllers to exist.'
+            'help' => '[optional] Bake all CRUD action views for all controllers. Requires models and controllers to exist.'
         ]);
 
         return $parser;

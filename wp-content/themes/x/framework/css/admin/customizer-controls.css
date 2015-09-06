@@ -131,16 +131,16 @@
 */
 
 .x-customize-control-subtitle {
-  margin: 40px 0 8px;
+  margin: 28px 0 8px;
 }
 
 .x-customize-subtitle {
   display: block;
-  margin: 0 -20px;
+  margin: 0 -12px;
   border: 1px solid #eee;
   border-left: 0;
   border-right: 0;
-  padding: 9px 20px;
+  padding: 9px 12px;
   font-size: 10px;
   font-weight: 400;
   letter-spacing: 2px;

@@ -177,7 +177,7 @@
 <?php endif; ?>
 
 .x-btn-navbar {
-  margin-top: <?php echo $x_navbar_adjust_button . 'px'; ?>;;
+  margin-top: <?php echo $x_navbar_adjust_button . 'px'; ?>;
 }
 
 .x-btn-navbar,

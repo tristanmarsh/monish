@@ -20,9 +20,9 @@ $stack         = x_get_stack();
 $stack_comment = 'x_' . $stack . '_comment';
 
 if ( $stack == 'ethos' ) {
-  $placeholder_name    = ' placeholder="Your Name *"';
-  $placeholder_email   = ' placeholder="Your Email *"';
-  $placeholder_comment = ' placeholder="Your Comment *"';
+  $placeholder_name    = ' placeholder="' . __( 'Your Name *', '__x__' ) . '"';
+  $placeholder_email   = ' placeholder="' . __( 'Your Email *', '__x__' ) . '"';
+  $placeholder_comment = ' placeholder="' . __( 'Your Comment *', '__x__' ) . '"';
 } else {
   $placeholder_name    = '';
   $placeholder_email   = '';

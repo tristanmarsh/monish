@@ -240,6 +240,14 @@ button.close {
     line-height: 1;
     color: $warningText;
   }
+
+  > p {
+    margin-bottom: 0;
+
+    + p {
+      margin-top: 6px;
+    }
+  }
 }
 
 .x-alert-muted {
@@ -291,15 +299,6 @@ button.close {
 
 .x-alert-block {
   padding: $alertBlockPadding;
-}
-
-.x-alert-block > p,
-.x-alert-block > ul {
-  margin-bottom: 0;
-}
-
-.x-alert-block p + p {
-  margin-top: 6px;
 }
 
 .wpcf7-response-output {

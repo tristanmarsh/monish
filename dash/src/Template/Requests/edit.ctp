@@ -44,7 +44,7 @@
     <br>
     <?php
 
-    echo $this->Form->button(__('Update Request'), ['class' => 'form-control btn btn-primary']);
+    echo $this->Form->button(__('Update Request'), ['class' => 'form-control btn btn-info']);
     echo $this->Form->end();
 	echo $this->Form->create(null, [
 		'url' => ['controller' => 'Requests', 'action' => 'index']

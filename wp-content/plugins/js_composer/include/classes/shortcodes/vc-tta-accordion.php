@@ -94,6 +94,13 @@ class WPBakeryShortCode_VC_Tta_Accordion extends WPBakeryShortCodesContainer {
 			$classes[] = 'vc_tta-has-pagination';
 		}
 
+		/**
+		 * @since 4.6.2
+		 */
+		if ( isset( $this->atts['el_class'] ) ) {
+			$classes[] = $this->atts['el_class'];
+		}
+
 		return implode( ' ', apply_filters( 'vc_tta_accordion_general_classes', array_filter( $classes ), $this->getAtts() ) );
 	}
 

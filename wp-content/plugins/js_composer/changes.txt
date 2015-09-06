@@ -1,3 +1,9 @@
+23.07.2015 - ver 4.6.2
+   - Custom CSS class added for Tour, Tabs, Accordions
+   - Syntax in js file changed for better minifying support
+   - ACF limit in grid removed
+   - Single image target initialization in edit screen fixed
+
 11.07.2015 - ver 4.6.1
    - Fixed: Cannot redeclare hex2rgb()
    - Icons per page set to 200 in message box element

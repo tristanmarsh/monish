@@ -62,7 +62,7 @@
 				//echo $this->Form->create($entity, ['type' => 'file']);
 
 				// add the avatar-input
-				echo $this->Form->input('avatar', ['type' => 'file']);
+				echo $this->Form->input('avatar', ['type' => 'file', 'label' => 'Picture (Optional)']);
 			?>
            
            </fieldset>

@@ -79,7 +79,10 @@
     echo $this->Form->input('mac_address_nine', array('class' => 'form-control'));
     echo $this->Form->input('device_name_ten', array('class' => 'form-control'));
     echo $this->Form->input('mac_address_ten', array('class' => 'form-control'));
-    echo "\n<br />\n<br />";
+    ?>
+    <br>    <br>    <br>    <br>    <br>
+<!--     echo "\n<br />\n<br />"; -->
+    <?php
     echo $this->Form->button(__('Update Request'), ['class' => 'form-control btn btn-primary']);
     echo $this->Form->end();
 	echo $this->Form->create(null, [

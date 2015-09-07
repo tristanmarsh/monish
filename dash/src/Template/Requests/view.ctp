@@ -16,7 +16,6 @@
         <ul class="nav nav-pills pull-left">
             <li role="presentation"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
             <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
-            <li><input type="text" class="form-control" placeholder="Search" id="myInputTextField"></li>
         </ul>
 
     </div>

@@ -78,9 +78,9 @@
 
             <table>
                 <tr>
-                    <th>&nbsp;&nbsp;&nbsp;&nbsp;Name</th>
-                    <th>&nbsp;&nbsp;&nbsp;&nbsp;Internet Plan</th>
-                    <th>&nbsp;&nbsp;&nbsp;&nbsp;Action</th>
+                    <th>Name</th>
+                    <th>Internet Plan</th>
+                    <th>Action</th>
                 </tr>
 
             <?php foreach ($students as $student): ?>
@@ -94,8 +94,13 @@
                         <td>
                             <?= $student->internet_plan ?>
                         </td>
-                        <td>
-                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $student->id]) ?>
+                        <td class="action action-edit">
+                            <?php
+                                echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', [ 'action' => 'edit', $student->id], ['escape' => false]);
+
+                                ?>
+
+
                         </td>
                     </tr>
                 <?php endif; ?>

@@ -1110,5 +1110,47 @@
             "bake",
             "cakephp"
         ]
+    },
+    {
+        "name": "cakemanager/cakephp-utils",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cakemanager/cakephp-utils.git",
+            "reference": "dbb234eb0a519177fb7a455fd4f213a35ce6b1b6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cakemanager/cakephp-utils/zipball/dbb234eb0a519177fb7a455fd4f213a35ce6b1b6",
+            "reference": "dbb234eb0a519177fb7a455fd4f213a35ce6b1b6",
+            "shasum": ""
+        },
+        "require": {
+            "cakephp/cakephp": "~3.0",
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "*"
+        },
+        "time": "2015-09-04 23:26:55",
+        "type": "cakephp-plugin",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Utils\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bob Mulder",
+                "email": "bobmulder@outlook.com"
+            }
+        ],
+        "description": "Plugin for CakePHP 3.x with useful components and behaviors"
     }
 ]

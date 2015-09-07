@@ -77,7 +77,7 @@ class RequestsController extends AppController
 
     public function add()
     {
-        $zebra = $this->Requests->newEntity();
+        $entity = $this->Requests->newEntity();
 
         $this->loadModel('Users');
         $this->loadModel('People');
@@ -90,18 +90,18 @@ class RequestsController extends AppController
         $this->set(compact('personEntity'));
 
         if ($this->request->is('post')) {
-            $zebra = $this->Requests->patchEntity($zebra, $this->request->data);
-            $zebra->person_id = $personEntity->id;
+            $entity = $this->Requests->patchEntity($entity, $this->request->data);
+            $entity->person_id = $personEntity->id;
             // You could also do the following
             //$newData = ['user_id' => $this->Auth->user('id')];
-            //$zebra = $this->Articles->patchEntity($zebra, $newData);
-            if ($this->Requests->save($zebra)) {
+            //$entity = $this->Articles->patchEntity($entity, $newData);
+            if ($this->Requests->save($entity)) {
                 $this->Flash->success(__('Your request has been submitted.'));
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Unable submit your request.'));
         }
-        $this->set('zebra', $zebra);
+        $this->set('entity', $entity);
 
         $this->loadModel('Properties');
         $addresses = $this->Properties->find('list', ['keyField' => 'address', 'valueField' => 'address']);
@@ -113,16 +113,16 @@ class RequestsController extends AppController
 
     public function edit($id = null)
     {
-        $lion = $this->Requests->get($id);
+        $entity = $this->Requests->get($id);
         if ($this->request->is(['post', 'put'])) {
-            $lion = $this->Requests->patchEntity($lion, $this->request->data);
-            if ($this->Requests->save($lion)){
+            $entity = $this->Requests->patchEntity($entity, $this->request->data);
+            if ($this->Requests->save($entity)){
                 $this->Flash->success(__('Your request has been updated.'));
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Unable to update your request.'));
         }
-        $this->set('lion', $lion);
+        $this->set('entity', $entity);
 
         $this->loadModel('Properties');
         $addresses = $this->Properties->find('list', ['keyField' => 'address', 'valueField' => 'address']);

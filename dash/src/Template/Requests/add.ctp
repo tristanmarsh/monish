@@ -40,7 +40,7 @@
         <div class="requests form large-10 medium-9 columns">
 
 
-        <?= $this->Form->create($zebra, array('class' => 'form-group')) ?>
+        <?= $this->Form->create($entity, array('type' => 'file', 'class' => 'form-group')) ?>
         <fieldset>
 
 
@@ -58,8 +58,12 @@
 
               <?= $this->Form->input('description', ['rows' => '3', 'class' => 'form-control']) ?>
 
+			<?php	// add the type to the create-method
+				//echo $this->Form->create($entity, ['type' => 'file']);
 
-
+				// add the avatar-input
+				echo $this->Form->input('avatar', ['type' => 'file']);
+			?>
            
            </fieldset>
            <br>

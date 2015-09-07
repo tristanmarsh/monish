@@ -38,6 +38,12 @@
         <h2 class="panel-title">Request Detail</h2>
     </div>
 
+	<?php
+		if (!($giraffe->avatar_directory === NULL)) {
+			$directory = substr($giraffe->avatar_url, 5);
+			echo $this->Html->image($directory, ['alt' => 'CakePHP']);
+		}
+	?>
 
 <table>
 

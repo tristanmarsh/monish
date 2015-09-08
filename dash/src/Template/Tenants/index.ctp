@@ -82,36 +82,46 @@
                 <?php if (!($person->user->role === "admin")) : ?>
                 <tr>
                     <td>
+
+                                                    <?php
+                                $emailHash = md5( strtolower( trim( $person->email ) ) );
+                                // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
+                                $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
+                                $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+                            ?>
+
+                            <?= $gravatarImage; ?>
+                        <span>
                         <?= $person->first_name ?>
                         <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </td>
-                    <td>
+                    </span></td>
+                    <td><span>
                         <?= $person->last_name ?>
                         <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </td>
-                    <td>
+                    </span></td>
+                    <td><span>
                         <?= $person->common_name ?>
                         <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </td>
-                    <td>
+                    </span></td>
+                    <td><span>
                         <?= $person->gender ?>
                         <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </td>
-                    <td>
+                    </span></td>
+                    <td><span>
                         <?= $person->phone ?>
                         <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </td>
-                    <td>
+                    </span></td>
+                    <td><span>
                         <?= $person->email ?>
                         <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </td>
-                    <td>
+                    </span></td>
+                    <td><span>
                         <?= $person->student->internet_plan ?>
                         <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </td>
+                    </span></td>
                     <td class="action action-edit" style="padding-top:20px;padding-bottom:20px;">
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'tenants', 'action' => 'edit', $person->user->id], ['escape' => false]); ?>
-                    </td>
+                    </span></td>
                 <?php endif; ?>
             </tr>
         <?php endforeach; ?>

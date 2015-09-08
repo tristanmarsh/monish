@@ -82,6 +82,15 @@
         <tr>
             <td> 
 <!--                 <?= $this->Html->link("", ['controller'=>'emergencies', 'action' => 'view', $emergency->id]) ?> -->
+
+                            <?php
+                                $emailHash = md5( strtolower( trim( $emergency->email ) ) );
+                                // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
+                                $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
+                                $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+                            ?>
+
+                            <?= $gravatarImage; ?>
                 <span>
                 <?= h($emergency->first_name) ?>
             </span>

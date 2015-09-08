@@ -3,7 +3,7 @@
     $this->Html->addCrumb('View Request');
 
 ?>
-<h1>Requests</h1>
+<h1><?= $giraffe->title; ?></h1>
 
 <div class="panel panel-default clearfix">
 

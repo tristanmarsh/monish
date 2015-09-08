@@ -79,14 +79,12 @@
         <!-- Default panel contents -->
         <div class="panel-heading"style='height:300px; background:url(
         <?php
-        echo "/monish/dash/img/" . $directory . ")"; ?>;background-size:cover' >
-            <h2 class="panel-title text-center">
+        echo "/monish/dash/img/" . $directory . ") center center"; ?>;background-size:cover' >
                 <?php
                 //echo $property->address;
-                    echo $this->Html->link($property->address, ['controller'=>'properties', 'action' => 'view', $property->id])
+                    echo $this->Html->link('<h3 class="panel-title text-center">' . $property->address . '</h3>', ['controller'=>'properties', 'action' => 'view', $property->id], ['escape'=>false] );
+                    // echo $this->Html->url(['controller'=>'properties','action'=>'view'], true);
                 ?>
-	
-            </h2>
         </div>
 
         <!-- Table -->

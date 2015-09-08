@@ -46,7 +46,10 @@
 
 </head>
 <body>
+
     <?php echo $this->element('changepassword'); ?>
+
+</body>
 
 <!-- src/Template/Users/reset_password.ctp -->
 

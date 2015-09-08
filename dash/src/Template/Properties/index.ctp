@@ -66,25 +66,26 @@
 
     <?php $variable ="hello" ?>
 
-<div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-3">
+<div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-4">
+
+        <!-- Retrieve Property Image -->
+        <?php if (!($property->avatar_directory === NULL)) {
+            $directory = substr($property->avatar_url, 5);
+            // echo '<img style="max-width:100%" src="/monish/dash/img/' . $directory . '" />';
+        } ?>
 
     <div class="panel panel-primary">
+       
         <!-- Default panel contents -->
-        <div class="panel-heading">
+        <div class="panel-heading"style='height:300px; background:url(
+        <?php
+        echo "/monish/dash/img/" . $directory . ")"; ?>;background-size:cover' >
             <h2 class="panel-title text-center">
-
-                    <?php
-                    //echo $property->address;
-					echo $this->Html->link($property->address, ['controller'=>'properties', 'action' => 'view', $property->id])
-                    ?>
-					<br>
-					<?php
-						if (!($property->avatar_directory === NULL)) {
-							$directory = substr($property->avatar_url, 5);
-							echo $this->Html->image($directory, ['alt' => 'CakePHP', 'width'=>'200px']);
-						}
-					?>
-
+                <?php
+                //echo $property->address;
+                    echo $this->Html->link($property->address, ['controller'=>'properties', 'action' => 'view', $property->id])
+                ?>
+	
             </h2>
         </div>
 
@@ -94,7 +95,7 @@
             <tr>
                 <th>Room</th>
                 <th>Status</th>
-                <th>Current Tenant</th>
+                <th>Tenant</th>
             </tr>
             </thead>
             <tbody>

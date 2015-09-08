@@ -67,7 +67,7 @@
     <div class="table-responsive">
         <table class="datatable">
             <thead>
-            <tr class=>
+            <tr >
                 <th>Tenant</th>
                 <th>Title</th>
                 <th>Category</th>

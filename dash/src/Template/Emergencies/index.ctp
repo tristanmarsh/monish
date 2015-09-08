@@ -70,14 +70,14 @@
         <table class="datatable">
     <thead>
         <tr>
-            <th><?= $this->Paginator->sort('first_name') ?></th>
-            <th><?= $this->Paginator->sort('last_name') ?></th>
-            <th><?= $this->Paginator->sort('phone') ?></th>
-            <th><?= $this->Paginator->sort('email') ?></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Email</th>
 <!--             <th class="actions"><?= __('Actions') ?></th> -->
         </tr>
     </thead>
-    <tbody>
+  
     <?php foreach ($query as $emergency): ?>
         <tr>
             <td> 

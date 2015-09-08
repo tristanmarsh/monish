@@ -38,7 +38,7 @@
     echo $this->Form->input('property_address', ['options' => $addresses,'class' => 'form-control']);
     echo $this->Form->input('entry_time', ['options' => ['Anytime' => 'Yes, Any Time', '10am to 5pm' => 'Yes, Between 10:am and 5:pm', 'Arrange a time' => 'No, please arrange a time with me', 'N/A' => 'Not applicable'],'class' => 'form-control']);
     echo $this->Form->input('description', ['rows' => '3', 'class' => 'form-control']);
-	echo $this->Form->input('avatar', ['type' => 'file', 'label' => 'Picture (Optional)]);
+	echo $this->Form->input('avatar', ['type' => 'file', 'label' => 'Picture (Optional)']);
 	
     ?>
     <br>

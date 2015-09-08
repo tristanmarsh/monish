@@ -14,15 +14,5 @@ class Property extends Entity
      *
      * @var array
      */
-    protected $_accessible = [
-        'address' => true,
-        'number_rooms' => true,
-        'bathrooms' => true,
-        'kitchens' => true,
-        'storeys' => true,
-        'garage' => true,
-        'rooms' => true,
-        'leases' => true,
-        'property_id' => true,
-    ];
+
 }

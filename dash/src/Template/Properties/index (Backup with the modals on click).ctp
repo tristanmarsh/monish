@@ -73,17 +73,13 @@
         <div class="panel-heading">
             <h2 class="panel-title text-center">
 
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-remote="<?= $variable?>">
                     <?php
-                    //echo $property->address;
-					echo $this->Html->link($property->address, ['controller'=>'properties', 'action' => 'view', $property->id])
+                    echo $property->address;
                     ?>
-					<br>
-					<?php
-						if (!($property->avatar_directory === NULL)) {
-							$directory = substr($property->avatar_url, 5);
-							echo $this->Html->image($directory, ['alt' => 'CakePHP', 'width'=>'200px']);
-						}
-					?>
+                </button>
 
             </h2>
         </div>

@@ -30,6 +30,20 @@ class PropertiesTable extends Table
         $this->hasMany('Leases', [
             'foreignKey' => 'property_id'
         ]);
+		$this->addBehavior('Utils.Uploadable', [
+		  'avatar' => [
+			'path' => '{ROOT}{DS}{WEBROOT}{DS}img{DS}{model}{DS}{field}{DS}',
+			'removeFileOnUpdate' => true,
+			'removeFileOnDelete' => true, 
+			'fields' => [
+				'directory' => 'avatar_directory',
+				'url' => 'avatar_url',
+				'type' => 'avatar_type',
+				'size' => 'avatar_size',
+				'fileName' => 'avatar_name'
+			  ]
+			],
+		  ]);
     }
 
     /**

@@ -76,12 +76,14 @@
 
 
 
-            <table class="datatable">
+            <table>
+                <thead>
                 <tr>
                     <th>Name</th>
                     <th>Internet Plan</th>
                     <th>Action</th>
                 </tr>
+            </thead>
 
             <?php foreach ($students as $student): ?>
 
@@ -114,7 +116,7 @@
         <h2 class="panel-title">Available Internet Plans</h2>
     </div>	
 		
-		<table class="datatable">
+		<table >
             <thead>
 			<tr>
 				<th>Type</th>

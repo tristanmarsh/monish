@@ -63,8 +63,8 @@ $cakeDescription = 'Monish Dashboard';
 	<?= $this->fetch('css') ?>
 	<?= $this->fetch('script') ?>
 
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
-
+	<link href='http://fonts.googleapis.com/css?family=Raleway|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
+	
     <!-- DataTables -->
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
 

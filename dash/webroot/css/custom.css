@@ -756,8 +756,7 @@ table {
       content: '\25BC'; }
   table tr {
     background: #fcfcfc;
-    border-bottom: 1px solid #D5E4F1;
-    min-height: 60px; }
+    border-bottom: 1px solid #D5E4F1; }
   table tr:nth-of-type(odd) {
     background: whitesmoke; }
   table tr:last-child {
@@ -779,8 +778,8 @@ table {
   table td {
     padding: 0 10px 0 10px;
     position: relative;
-    height: 100%;
-    overflow: hidden; }
+    overflow: hidden;
+    height: 60px; }
   table td > * {
     color: #555; }
   table td > span,

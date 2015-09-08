@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2015 at 01:34 PM
+-- Generation Time: Sep 08, 2015 at 03:32 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -205,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `properties` (
   `avatar_size` varchar(255) DEFAULT NULL,
   `avatar_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `properties`
@@ -244,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   `person_id` int(11) DEFAULT NULL,
-  `category` enum('General','Maintenance','Internet','Lease') NOT NULL,
+  `category` varchar(255) NOT NULL,
   `property_address` varchar(100) NOT NULL,
   `status` enum('Unread','Viewed') NOT NULL,
   `entry_time` enum('Anytime','10am to 5pm','Arrange a time','N/A') NOT NULL,
@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `avatar_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`person_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
 
 --
 -- Dumping data for table `requests`
@@ -265,16 +265,16 @@ CREATE TABLE IF NOT EXISTS `requests` (
 INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `person_id`, `category`, `property_address`, `status`, `entry_time`, `avatar`, `avatar_directory`, `avatar_url`, `avatar_type`, `avatar_size`, `avatar_name`) VALUES
 (9, 'Broken Tap', 'Please fix my broken tap I can''t get water!', '2015-04-13 14:40:10', '2015-09-01 08:18:59', 10, 'Maintenance', '200 two street', 'Viewed', 'Anytime', '', NULL, NULL, NULL, NULL, NULL),
 (10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-09-01 08:47:05', 10, 'Maintenance', '200 two street', 'Viewed', 'Anytime', '', NULL, NULL, NULL, NULL, NULL),
-(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-09-08 10:49:24', 9, 'Maintenance', '200 two street', 'Viewed', 'Arrange a time', 'img\\requests\\11\\GetAttachment.jpg', 'img\\requests\\11\\', '/img/requests/11/GetAttachment.jpg', 'image/jpeg', '51899', 'GetAttachment.jpg'),
+(11, 'Broken TV', 'I can''t watch me soap dramas', '2015-04-13 14:53:32', '2015-09-08 13:19:42', 9, 'Maintenance', '200 two street', 'Viewed', 'Arrange a time', 'img\\requests\\11\\GetAttachment.jpg', 'img\\requests\\11\\', '/img/requests/11/GetAttachment.jpg', 'image/jpeg', '51899', 'GetAttachment.jpg'),
 (12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-09-02 14:06:30', 12, 'Maintenance', '100 one street', 'Viewed', '', '', NULL, NULL, NULL, NULL, NULL),
 (13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-04-14 03:50:50', 10, 'Maintenance', '100 one street', 'Unread', '', '', NULL, NULL, NULL, NULL, NULL),
-(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-09-01 08:28:34', 9, 'Maintenance', '100 one street', 'Unread', 'N/A', '', NULL, NULL, NULL, NULL, NULL),
+(14, 'Broken Face', 'got bashed', '2015-04-16 05:25:43', '2015-09-08 13:30:59', 9, 'Main Room Lights Not Working (Please state in description', '200 two street', 'Viewed', '10am to 5pm', 'img\\requests\\14\\wowscrnshot010310103202.jpg', 'img\\requests\\14\\', '/img/requests/14/wowscrnshot010310103202.jpg', 'image/jpeg', '552281', 'wowscrnshot010310103202.jpg'),
 (16, 'Broken Borken', 'Borken', '2015-04-25 09:33:29', '2015-09-01 08:28:44', 9, 'Maintenance', '300 three street', 'Unread', 'Anytime', '', NULL, NULL, NULL, NULL, NULL),
 (17, 'Can I have a new TV', 'Please I want to watch the footy', '2015-05-14 04:37:55', '2015-09-01 08:28:57', 9, 'General', '300 three street', 'Unread', '10am to 5pm', '', NULL, NULL, NULL, NULL, NULL),
 (18, 'I want better internet', 'pleeease', '2015-05-14 04:47:40', '2015-05-14 04:49:49', 9, 'Internet', '300 three street', 'Unread', '', '', NULL, NULL, NULL, NULL, NULL),
 (19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-05-14 04:49:37', 9, 'Lease', '300 three street', 'Unread', '', '', NULL, NULL, NULL, NULL, NULL),
 (20, 'Test001', 'this is the first test', '2015-09-01 07:52:29', '2015-09-01 07:52:29', 1, 'General', '100 one street', 'Unread', '', '', NULL, NULL, NULL, NULL, NULL),
-(21, 'test', 'test1', '2015-09-02 13:56:52', '2015-09-02 13:56:52', 16, 'General', '', 'Unread', 'Anytime', '', NULL, NULL, NULL, NULL, NULL),
+(21, 'test', 'test1', '2015-09-02 13:56:52', '2015-09-08 13:07:47', 16, 'General', '', 'Viewed', 'Anytime', '', NULL, NULL, NULL, NULL, NULL),
 (37, 'image1', 'image1', '2015-09-07 13:02:31', '2015-09-08 09:40:02', 1, 'General', '100 one street', 'Viewed', 'Anytime', 'img\\requests\\37\\Off Into The Sunset.jpg', 'img\\requests\\37\\', '/img/requests/37/Off Into The Sunset.jpg', 'image/jpeg', '56956', 'Off Into The Sunset.jpg');
 
 -- --------------------------------------------------------

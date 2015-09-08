@@ -74,9 +74,9 @@
     <!-- Default panel contents -->
 
 
-        <table cellpadding="0" cellspacing="0">
 
-            <table>
+
+            <table class="datatable">
                 <tr>
                     <th>Name</th>
                     <th>Internet Plan</th>
@@ -108,36 +108,42 @@
             <?php endforeach; ?>
 
 		</table>
+    </div>
+        <div class="panel panel-primary">
 	    <div class="panel-heading">
         <h2 class="panel-title">Available Internet Plans</h2>
     </div>	
 		
-		<table>
+		<table class="datatable">
+            <thead>
 			<tr>
-				<th>&nbsp;&nbsp;&nbsp;&nbsp;Type</th>
-				<th>&nbsp;&nbsp;&nbsp;&nbsp;Data</th>
-				<th>&nbsp;&nbsp;&nbsp;&nbsp;Price</th>
+				<th>Type</th>
+				<th>Data</th>
+				<th>Price</th>
+			</tr>
+        </thead>
+        <tbody>
+			<tr>				
+				<td> <span>Free</span> </td>
+				<td> <span>1 Gigabyte / Month/</span> </td>
+				<td> <span>Free (Speed is limited)</span> </td>
 			</tr>
 			<tr>				
-				<td>Free</td>
-				<td>1 Gigabyte / Month</td>
-				<td>Free (Speed is limited)</td>
+				<td> <span>Basic</span> </td>
+				<td> <span>50 Gigabyte / Month</span> </td>
+				<td> <span>$30 / Month</span> </td>
 			</tr>
 			<tr>				
-				<td>Basic</td>
-				<td>50 Gigabyte / Month</td>
-				<td>$30 / Month</td>
+				<td> <span>Standard</span> </td>
+				<td> <span>80 Gigabyte / Month</span> </td>
+				<td> <span> $55 / Month</span></td>
 			</tr>
 			<tr>				
-				<td>Standard</td>
-				<td>80 Gigabyte / Month</td>
-				<td>$55 / Month</td>
+				<td> <span>Premium</span> </td>
+				<td> <span> 120 Gigabyte / Month</span></td>
+				<td> <span>$120 / Month</span> </td>
 			</tr>
-			<tr>				
-				<td>Premium</td>
-				<td>120 Gigabyte / Month</td>
-				<td>$120 / Month</td>
-			</tr>
+        </tbody>    
 		</table>
 
 

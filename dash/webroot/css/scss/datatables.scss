@@ -29,6 +29,68 @@ Since:    15/8/15
     *cursor: hand;
   }
 
+
+// Table Header
+  & thead th {
+    
+  
+    &:focus,
+    &:hover {
+      background: lighten(#2980b9,5%);
+      color:#fff;
+      text-decoration: none;
+    }
+
+    // Preview Hidden
+    &:after {
+     content:'\25B2';
+      position:absolute;
+      float:right;
+      right:1em;
+      font-size: 0.8em;
+      opacity:0;
+    }
+    
+    // Actively Sorting State
+    &[class^='sorting_'] {
+      background: darken(#2980b9,5%);
+    }
+
+    // Hover Direction Preview
+    &:focus:after,
+    &:hover:after {
+      opacity:1;
+    }
+    
+    //Make preview Hidden for active state
+    &[class^='sorting_']:after {
+      opacity:1;
+    }
+
+    //inherited from hover preview
+    &.asc:after {
+      content:inherit;
+    }
+    
+    //modify from inherited hover preview
+    &.sorting_desc:after {
+      content:'\25BC';
+    }
+
+  }
+
+  
+  /* #### DataTable Rows #### */
+  tr {
+    cursor: pointer;
+    *cursor: hand;
+  }
+
+
+
+
+
+
   // Showing x to y of z results
   .dataTables_info {
     display: block;

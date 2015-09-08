@@ -144,16 +144,9 @@ $cakeDescription = 'Monish Dashboard';
 	    <!-- Clickable Row to View Record -->
     <script>
         $("table").on("click", "td", function(e) {
-            window.console.log("click");
-            window.console.log(e.target);
-            if ($(e.target).is("a"))
-                return;
-            if ($(e.target).is("input")) {
-                window.console.log(e.target);
-            }
-            else {
+			if ( $(this).find("a").length ) {
                 location.href = $(this).find("a").attr("href");
-            }
+			}            
         });
     </script>
 

@@ -62,18 +62,17 @@ class PropertiesController extends AppController
      */
     public function add()
     {
-        $property = $this->Properties->newEntity();
+        $entity = $this->Properties->newEntity();
         if ($this->request->is('post')) {
-            $property = $this->Properties->patchEntity($property, $this->request->data);
-            if ($this->Properties->save($property)) {
+            $entity = $this->Properties->patchEntity($entity, $this->request->data);
+            if ($this->Properties->save($entity)) {
                 $this->Flash->success('The property has been saved.');
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error('The property could not be saved. Please, try again.');
             }
         }
-        $this->set(compact('property'));
-        $this->set('_serialize', ['property']);
+        $this->set('entity', $entity);
     }
 
     /**
@@ -85,20 +84,19 @@ class PropertiesController extends AppController
      */
     public function edit($id = null)
     {
-        $property = $this->Properties->get($id, [
+        $entity = $this->Properties->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $property = $this->Properties->patchEntity($property, $this->request->data);
-            if ($this->Properties->save($property)) {
+            $entity = $this->Properties->patchEntity($entity, $this->request->data);
+            if ($this->Properties->save($entity)) {
                 $this->Flash->success('The property has been saved.');
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error('The property could not be saved. Please, try again.');
             }
         }
-        $this->set(compact('property'));
-        $this->set('_serialize', ['property']);
+        $this->set('entity', $entity);
     }
 
     /**

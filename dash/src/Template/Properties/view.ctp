@@ -10,7 +10,9 @@
             
             <ul class="nav nav-pills pull-left">
                 <li role="presentation" class="active"><a href="#">Do Something With this Property</a></li>
-                <li role="presentation"><a href="#">Do Something Else</a></li>
+                <li role="presentation"><?= $this->Form->postLink('Delete This Property',
+                                    ['controller'=>'properties', 'action' => 'delete', $property->id],
+                                    ['confirm' => 'Are you sure?', "escape" => false]); ?></li>
             </ul>
 
         </div>

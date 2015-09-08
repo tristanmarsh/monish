@@ -26,7 +26,7 @@ $this->Html->addCrumb('Leases', '/leases');
                 Action <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
+                <li><a href="#">Search</a></li>
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
                 <li role="separator" class="divider"></li>
@@ -75,7 +75,7 @@ $this->Html->addCrumb('Leases', '/leases');
               <th>Date Start</th>
               <th>Date End</th>
               <th>Weekly Price</th>
-              <th>Actions</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -83,31 +83,31 @@ $this->Html->addCrumb('Leases', '/leases');
             <?php foreach ($leases as $lease): ?>
 
             <tr>
-              <td>
+              <td><span>
                 <?= $lease->property->address ?>
-              </td>
-              <td>
+              </span></td>
+              <td><span>  
                 <?= $lease->room->room_name ?>
-              </td>
-              <td>
+              </span></td>
+              <td><span>
                 <?php
                 $person = $walrus->get($lease->student->person_id);
                 ?>
                 <?= $person->first_name ?>
                 <?= $person->last_name ?>
-              </td>
-              <td>
+              </span></td>
+              <td><span>
                 <?= h($lease->date_start->format('d/m/Y')) ?>
-              </td>
-              <td>
+              </span></td>
+              <td><span>
                 <?= h($lease->date_end->format('d/m/Y')) ?>
-              </td>
-              <td>
+              </span></td>
+              <td><span>
                 <?= $this->Number->currency($lease->weekly_price) ?>
-              </td>
-              <td class="actions">
+              </span></td>
+              <td class="actions"><span>
                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $lease->id], ['confirm' => __('Are you sure you want to delete # {0}?', $lease->id)]) ?>
-              </td>
+              </span></td>
             </tr>
 
           <?php endforeach; ?>

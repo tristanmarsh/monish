@@ -6,12 +6,40 @@
 <div class="panel panel-default clearfix">
     
     <div class="panel-body">
-        
-        <ul class="nav nav-pills pull-left">
+
+        <div class="col-sm-6">
+            <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
             <li role="presentation"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>
             <li role="presentation"><?= $this->Html->link('New Room', ['controller' => 'rooms', 'action' => 'add']) ?></li>
         </ul>
+            
+        </div>
+
+        <div class="col-sm-6">
+
+            <div class="input-group input-lg pull-right">
+                <input type="text" class="form-control" placeholder="Search" id="myInputTextField">
+                <div class="input-group-btn">
+                    
+                    <!-- Single button -->
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
 
     </div>
 

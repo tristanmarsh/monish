@@ -80,10 +80,12 @@
             <tbody>
                 <?php foreach ($people as $person): ?>
                 <?php if (!($person->user->role === "admin")) : ?>
-                <tr>
+                <tr >
                     <td>
 
-                                                    <?php
+
+                        <span>
+                                                                                <?php
                                 $emailHash = md5( strtolower( trim( $person->email ) ) );
                                 // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
                                 $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
@@ -91,7 +93,6 @@
                             ?>
 
                             <?= $gravatarImage; ?>
-                        <span>
                         <?= $person->first_name ?>
                         <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
                     </span></td>

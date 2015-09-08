@@ -756,7 +756,8 @@ table {
       content: '\25BC'; }
   table tr {
     background: #fcfcfc;
-    border-bottom: 1px solid #D5E4F1; }
+    border-bottom: 1px solid #D5E4F1;
+    min-height: 60px; }
   table tr:nth-of-type(odd) {
     background: whitesmoke; }
   table tr:last-child {

@@ -118,6 +118,7 @@ table {
   & tr {
     background: darken(#fff, 1%);
     border-bottom:1px solid #D5E4F1;
+    min-height:60px;
   }
 
   & tr:nth-of-type(odd) {

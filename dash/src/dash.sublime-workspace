@@ -212,6 +212,8 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sidebar.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Controller/RequestsController.php",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/psy/psysh/src/Psy/Command/ListCommand/GlobalVariableEnumerator.php",
@@ -223,10 +225,8 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/variables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sidebar.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/custom.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/custom.js",
 		"/Users/dev/Desktop/dataTables.min.js",
@@ -590,6 +590,14 @@
 		"selected_items":
 		[
 			[
+				"sidebar.ctp",
+				"dash/src/Template/Element/sidebar.ctp"
+			],
+			[
+				"sidebar.scss",
+				"scss/sidebar.scss"
+			],
+			[
 				"controller/req",
 				"dash/src/Controller/RequestsController.php"
 			],
@@ -654,10 +662,6 @@
 				"dash/webroot/js/custom.js"
 			],
 			[
-				"sidebar.scss",
-				"scss/sidebar.scss"
-			],
-			[
 				"global.scss",
 				"scss/global.scss"
 			],
@@ -700,10 +704,6 @@
 			[
 				"requests/index",
 				"dash/src/Template/Requests/index.ctp"
-			],
-			[
-				"sidebar.ctp",
-				"dash/src/Template/Element/sidebar.ctp"
 			],
 			[
 				"siebdar",

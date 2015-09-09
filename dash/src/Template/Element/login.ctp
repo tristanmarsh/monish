@@ -86,8 +86,10 @@
 							<?= $this->Form->create() ?>
 							<fieldset>
 								<!-- <legend>Do that other thing here, Michael</legend> -->
-								<?= $this->Form->input('email', array('class' => 'form-control')) ?>
+								<?= $this->Form->input('email', array('class' => 'form-control','label' => 'Username')) ?>
 							</fieldset>
+
+							
 							<br>
 
 							<?= $this->Form->button(__('Send Recovery Email'), ['class' => 'form-control btn btn-primary']); ?>

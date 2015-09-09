@@ -63,6 +63,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "Template/Users/reset_password.ctp",
+			"settings":
+			{
+				"buffer_size": 2433,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -212,6 +220,11 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/recovery.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/view.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/forgot_password.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Recoveries/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sidebar.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/add.ctp",
@@ -223,7 +236,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sm.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/variables.scss",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
@@ -247,7 +259,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/edit.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Recoveries/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Macaddresses/edit.ctp",
@@ -280,7 +291,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/Flash/default.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Homepages/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/Flash/error.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Messages/index.ctp",
@@ -337,9 +347,7 @@
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/sass/style.scss",
 		"/Users/dev/Desktop/to do",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sidebar.php",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/topbar.twig",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/header.twig",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/header.php"
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/topbar.twig"
 	],
 	"find":
 	{
@@ -535,8 +543,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Template/Users/reset_password.ctp",
+					"settings":
+					{
+						"buffer_size": 2433,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								856,
+								856
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -589,6 +626,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"recovery",
+				"dash/src/Template/Element/recovery.ctp"
+			],
 			[
 				"sidebar.ctp",
 				"dash/src/Template/Element/sidebar.ctp"
@@ -860,6 +901,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 230.0,
 	"status_bar_visible": true
 }

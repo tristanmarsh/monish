@@ -3,7 +3,7 @@
     $this->Html->addCrumb('Edit Property', array('controller' => 'properties', 'action' => 'edit'));
 ?>
 <div class="properties form large-10 medium-9 columns">
-    <?= $this->Form->create($property); ?>
+    <?= $this->Form->create($entity, array('type' => 'file')); ?>
     <fieldset>
         <legend><?= __('Edit Property') ?></legend>
         <?php
@@ -13,6 +13,7 @@
             echo $this->Form->input('kitchens');
             echo $this->Form->input('storeys');
             echo $this->Form->input('garage');
+			echo $this->Form->input('avatar', ['type' => 'file', 'label' => 'Picture (Optional)']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

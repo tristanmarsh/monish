@@ -37,9 +37,9 @@
     <div class="panel panel-default">
       <div class="panel-body">
 <div class="properties form large-10 medium-9 columns">
-    <?= $this->Form->create($property, array('class' => 'form-group')); ?>
+    <?= $this->Form->create($entity, array('type'=>'file', 'class' => 'form-group')); ?>
     <fieldset>
-        <legend><?= __('New Property', array('class' => 'form-control')) ?></legend>
+        <legend><?= __('New Property', array('type'=>'file', 'class' => 'form-control')) ?></legend>
         <?php
             echo $this->Form->input('address', array('class' => 'form-control'));
             echo $this->Form->input('number_rooms', array('class' => 'form-control'));
@@ -54,6 +54,7 @@
             echo $this->Form->input('garage', [
                 'options' => ['TRUE' => 'Yes', 'FALSE' => 'No'], 'class' => 'form-control'
             ]);
+			echo $this->Form->input('avatar', ['type' => 'file', 'label' => 'Picture (Optional)']);
         ?>
     </fieldset>
     <br>

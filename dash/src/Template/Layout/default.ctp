@@ -56,6 +56,8 @@ $cakeDescription = 'Monish Dashboard';
 	<?= $this->Html->script('wow.min.js') ?>
 	<?= $this->Html->script('min/nprogress-min.js') ?>
 	<?= $this->Html->script('min/custom-min.js') ?>
+	<?= $this->Html->script('mespeak/mespeak.js') ?>
+	
 <!-- 	<?= $this->Html->script('min/angular.min.js') ?>
 	<?= $this->Html->script('app.js') ?>
  -->
@@ -63,8 +65,8 @@ $cakeDescription = 'Monish Dashboard';
 	<?= $this->fetch('css') ?>
 	<?= $this->fetch('script') ?>
 
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
-
+	<link href='http://fonts.googleapis.com/css?family=Raleway|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
+	
     <!-- DataTables -->
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
 
@@ -144,16 +146,9 @@ $cakeDescription = 'Monish Dashboard';
 	    <!-- Clickable Row to View Record -->
     <script>
         $("table").on("click", "td", function(e) {
-            window.console.log("click");
-            window.console.log(e.target);
-            if ($(e.target).is("a"))
-                return;
-            if ($(e.target).is("input")) {
-                window.console.log(e.target);
-            }
-            else {
+			if ( $(this).find("a").length ) {
                 location.href = $(this).find("a").attr("href");
-            }
+			}            
         });
     </script>
 

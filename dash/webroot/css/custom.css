@@ -428,13 +428,13 @@ Since:    3/6/15
   .clearing.col-md-4:nth-of-type(2n+1) {
     clear: none; }
 
-  .clearing.col-lg-3:nth-of-type(3n+1) {
+  .clearing.col-lg-4:nth-of-type(4n+1) {
     clear: left; } }
 @media (min-width: 1200px) {
-  .clearing.col-lg-3:nth-of-type(3n+1) {
+  .clearing.col-lg-4:nth-of-type(4n+1) {
     clear: none; }
 
-  .clearing.col-lg-3:nth-of-type(4n+1) {
+  .clearing.col-lg-4:nth-of-type(3n+1) {
     clear: left; } }
 /*
 Name:   override.scss
@@ -727,33 +727,12 @@ table {
     background: rgba(41, 128, 185, 0.5);
     font-size: 1.4rem;
     line-height: 2.4em;
-    font-family: "Roboto Slab", serif;
+    font-family: "Raleway", serif;
     position: relative;
     overflow: hidden;
     color: #fff;
     padding: 6px 12px;
     color: #fff; }
-    table thead th:focus, table thead th:hover {
-      background: #2e8ece;
-      color: #fff;
-      text-decoration: none; }
-    table thead th:after {
-      content: '\25B2';
-      position: absolute;
-      float: right;
-      right: 1em;
-      font-size: 0.8em;
-      opacity: 0; }
-    table thead th[class^='sorting_'] {
-      background: #2472a4; }
-    table thead th:focus:after, table thead th:hover:after {
-      opacity: 1; }
-    table thead th[class^='sorting_']:after {
-      opacity: 1; }
-    table thead th.asc:after {
-      content: inherit; }
-    table thead th.sorting_desc:after {
-      content: '\25BC'; }
   table tr {
     background: #fcfcfc;
     border-bottom: 1px solid #D5E4F1; }
@@ -762,9 +741,7 @@ table {
   table tr:last-child {
     border-bottom: 0; }
   table tr:focus td, table tr:hover td {
-    background: white;
-    cursor: pointer;
-    *cursor: hand; }
+    background: white; }
   table tr.unread > td {
     font-weight: bold; }
   table tr.unread > td {
@@ -826,6 +803,7 @@ Since:    15/8/15
 */
 .dataTables_wrapper {
   /* #### Sorting Table Heads #### */
+  /* #### DataTable Rows #### */
   /* #### Pagination #### */ }
   .dataTables_wrapper .dataTables_filter {
     display: none; }
@@ -836,6 +814,30 @@ Since:    15/8/15
   .dataTables_wrapper table.dataTable thead .sorting,
   .dataTables_wrapper table.dataTable thead .sorting_asc,
   .dataTables_wrapper table.dataTable thead .sorting_desc {
+    cursor: pointer;
+    *cursor: hand; }
+  .dataTables_wrapper thead th:focus, .dataTables_wrapper thead th:hover {
+    background: #2e8ece;
+    color: #fff;
+    text-decoration: none; }
+  .dataTables_wrapper thead th:after {
+    content: '\25B2';
+    position: absolute;
+    float: right;
+    right: 1em;
+    font-size: 0.8em;
+    opacity: 0; }
+  .dataTables_wrapper thead th[class^='sorting_'] {
+    background: #2472a4; }
+  .dataTables_wrapper thead th:focus:after, .dataTables_wrapper thead th:hover:after {
+    opacity: 1; }
+  .dataTables_wrapper thead th[class^='sorting_']:after {
+    opacity: 1; }
+  .dataTables_wrapper thead th.asc:after {
+    content: inherit; }
+  .dataTables_wrapper thead th.sorting_desc:after {
+    content: '\25BC'; }
+  .dataTables_wrapper tr {
     cursor: pointer;
     *cursor: hand; }
   .dataTables_wrapper .dataTables_info {
@@ -963,7 +965,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Roboto Slab", serif;
+  font-family: "Raleway", serif;
   color: #5986AD; }
 
 .alert {

@@ -4,6 +4,10 @@
 
 <?php if ($user['role'] === "admin") : ?>
 
+
+
+
+
 	<h1>Dashboard</h1>
 
 	<h2>Notifications</h3>
@@ -247,6 +251,26 @@
 		<?php endif ?>	
 	</div>
 
+	<script>
+
+		$(document).ready(function(){
+
+			meSpeak.loadConfig("webroot/js/mespeak/mespeak_config.json");
+			meSpeak.loadVoice("webroot/js/mespeak/voices/en/en-us.json");
+
+			var parts = [
+			{ text: "Authorisation Accepted. Welcome Back Tony Wise. In the 487 Days since your last check in, 34 maintenance requests have been lodged. 12 Email enquiries have been sent. And 83 Tenants have finished their studies and moved out of Monash International Student House. Would you like to hear a summary of the Maintenance Requests? Say Okay Slarty bartfast, then speak after the prompt... Beep Bop Beep.",      voice: "en/en-us", variant: "m5" }
+			];
+
+			function speakIt() {
+				meSpeak.speakMultipart(parts);
+			}
+
+			speakIt();
+
+		});
+
+	</script>
 
 
 <?php endif; ?>

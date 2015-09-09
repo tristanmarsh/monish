@@ -69,9 +69,10 @@ $this->Html->addCrumb('Leases', '/leases');
         <table id="leases" cellpadding="0" cellspacing="0" class="">
           <thead>
             <tr>
+             <th>Tenant</th>
               <th>Property</th>
               <th>Room</th>
-              <th>Tenant</th>
+ 
               <th>Date Start</th>
               <th>Date End</th>
               <th>Weekly Price</th>
@@ -83,19 +84,31 @@ $this->Html->addCrumb('Leases', '/leases');
             <?php foreach ($leases as $lease): ?>
 
             <tr>
+                            <td>   
+                                            <?php
+                $person = $walrus->get($lease->student->person_id);
+                ?>                         
+                              <?php
+                                $emailHash = md5( strtolower( trim( $person->email ) ) );
+                                // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
+                                $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
+                                $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+                            ?>
+
+                            <?= $gravatarImage; ?>
+
+                              <span>
+
+                <?= $person->first_name ?>
+                <?= $person->last_name ?>
+              </span></td>
               <td><span>
                 <?= $lease->property->address ?>
               </span></td>
               <td><span>  
                 <?= $lease->room->room_name ?>
               </span></td>
-              <td><span>
-                <?php
-                $person = $walrus->get($lease->student->person_id);
-                ?>
-                <?= $person->first_name ?>
-                <?= $person->last_name ?>
-              </span></td>
+
               <td><span>
                 <?= h($lease->date_start->format('d/m/Y')) ?>
               </span></td>
@@ -114,6 +127,7 @@ $this->Html->addCrumb('Leases', '/leases');
 
         </tbody>
       </table>
+              <div class="panel-footer"><!-- Panel Footer Doesn't actually do anything here apart from  adding a border --></div>
     </div>
 
   </div>

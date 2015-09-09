@@ -82,8 +82,9 @@
                 <?php if (!($person->user->role === "admin")) : ?>
                 <tr>
                     <td>
+                        <?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?>
 
-                                                    <?php
+                            <?php
                                 $emailHash = md5( strtolower( trim( $person->email ) ) );
                                 // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
                                 $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
@@ -91,33 +92,33 @@
                             ?>
 
                             <?= $gravatarImage; ?>
+
+
+
                         <span>
                         <?= $person->first_name ?>
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </span></td>
-                    <td><span>
+                    </span>
+                </td>
+                    <td>
+                        <?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?>
+                        <span>
                         <?= $person->last_name ?>
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </span></td>
-                    <td><span>
+                    </span>
+                </td>
+                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
                         <?= $person->common_name ?>
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
                     </span></td>
-                    <td><span>
+                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
                         <?= $person->gender ?>
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
                     </span></td>
-                    <td><span>
+                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
                         <?= $person->phone ?>
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
                     </span></td>
-                    <td><span>
+                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
                         <?= $person->email ?>
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
                     </span></td>
-                    <td><span>
+                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
                         <?= $person->student->internet_plan ?>
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
                     </span></td>
                     <td class="action action-edit" style="padding-top:20px;padding-bottom:20px;">
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'tenants', 'action' => 'edit', $person->user->id], ['escape' => false]); ?>

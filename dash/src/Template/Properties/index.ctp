@@ -66,22 +66,25 @@
 
     <?php $variable ="hello" ?>
 
-<div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-3">
+<div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-4">
+
+        <!-- Retrieve Property Image -->
+        <?php if (!($property->avatar_directory === NULL)) {
+            $directory = substr($property->avatar_url, 5);
+            // echo '<img style="max-width:100%" src="/monish/dash/img/' . $directory . '" />';
+        } ?>
 
     <div class="panel panel-primary">
+       
         <!-- Default panel contents -->
-        <div class="panel-heading">
-            <h2 class="panel-title text-center">
-
-
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-remote="<?= $variable?>">
-                    <?php
-                    echo $property->address;
-                    ?>
-                </button>
-
-            </h2>
+        <div class="panel-heading"style='height:300px; background:url(
+        <?php
+        echo "/monish/dash/img/" . $directory . ") center center"; ?>;background-size:cover' >
+                <?php
+                //echo $property->address;
+                    echo $this->Html->link('<h3 class="panel-title text-center">' . $property->address . '</h3>', ['controller'=>'properties', 'action' => 'view', $property->id], ['escape'=>false] );
+                    // echo $this->Html->url(['controller'=>'properties','action'=>'view'], true);
+                ?>
         </div>
 
         <!-- Table -->
@@ -90,7 +93,7 @@
             <tr>
                 <th>Room</th>
                 <th>Status</th>
-                <th>Current Tenant</th>
+                <th>Tenant</th>
             </tr>
             </thead>
             <tbody>

@@ -84,7 +84,8 @@ $this->Html->addCrumb('Leases', '/leases');
             <?php foreach ($leases as $lease): ?>
 
             <tr>
-                            <td>   
+                            <td> 
+                            <?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $lease->id]) ?>  
                                             <?php
                 $person = $walrus->get($lease->student->person_id);
                 ?>                         
@@ -102,20 +103,20 @@ $this->Html->addCrumb('Leases', '/leases');
                 <?= $person->first_name ?>
                 <?= $person->last_name ?>
               </span></td>
-              <td><span>
+              <td><?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $lease->id]) ?> <span>
                 <?= $lease->property->address ?>
               </span></td>
-              <td><span>  
+              <td><?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $lease->id]) ?> <span>  
                 <?= $lease->room->room_name ?>
               </span></td>
 
-              <td><span>
+              <td><?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $lease->id]) ?> <span>
                 <?= h($lease->date_start->format('d/m/Y')) ?>
               </span></td>
-              <td><span>
+              <td><?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $lease->id]) ?> <span>
                 <?= h($lease->date_end->format('d/m/Y')) ?>
               </span></td>
-              <td><span>
+              <td><?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $lease->id]) ?> <span>
                 <?= $this->Number->currency($lease->weekly_price) ?>
               </span></td>
               <td class="actions"><span>

@@ -90,11 +90,17 @@
                 <?php if ($student->person_id === $currentlogged['person_id']) : ?>
                     <tr>
                         <td>
+                            <?= $this->Html->link("", ['controller'=>'students', 'action' => 'edit', $student->id]) ?>
+                            <span>
                             <?= $student->person->first_name ?>
 							<?= $student->person->last_name ?>
+                        </span>
                         </td>
                         <td>
+                            <?= $this->Html->link("", ['controller'=>'students', 'action' => 'edit', $student->id]) ?>
+                            <span>
                             <?= $student->internet_plan ?>
+                        </span>
                         </td>
                         <td class="action action-edit">
                             <?php

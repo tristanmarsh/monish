@@ -53,7 +53,7 @@
                 <th>Gender</th>
                 <th>Phone</th>
                 <th>Email</th>
-                <th>Edit</th>
+                <th>Action</th>
             </tr>
 
             <!-- Here is where we iterate through our $articles query object, printing out article info -->

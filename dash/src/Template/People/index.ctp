@@ -47,13 +47,13 @@
         <table>
             <tr>
 
-                <th><?= $this->Paginator->sort('First Name') ?></th>
-                <th><?= $this->Paginator->sort('Last Name') ?></th>
-                <th><?= $this->Paginator->sort('Common Name') ?></th>
-                <th><?= $this->Paginator->sort('Gender') ?></th>
-                <th><?= $this->Paginator->sort('Phone') ?></th>
-                <th><?= $this->Paginator->sort('Email') ?></th>
-                <th>Action</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Contact Number</th>
+                <th>Gender</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Edit</th>
             </tr>
 
             <!-- Here is where we iterate through our $articles query object, printing out article info -->

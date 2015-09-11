@@ -151,7 +151,12 @@ Since:    3/6/15
 .sidebar,
 .navbar-fixed-top,
 .content {
-  transition:all 400ms ease;
+  transition:all 400ms ease-out;
+}
+
+// Prevent sidebar from having to fill on page resize
+.sidebar {
+  transition:height 0ms, width 400ms ease-out;
 }
 
 .navigation-active .navbar-fixed-top,

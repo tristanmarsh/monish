@@ -452,7 +452,7 @@ Since:    28/5/15
 
 */
 .footer-container {
-  transition: all 400ms ease; }
+  transition: all 400ms ease-out; }
   .footer-container footer {
     max-width: 100%;
     position: static;
@@ -463,13 +463,12 @@ Since:    28/5/15
     padding: 40px 0;
     color: #fff;
     font-size: 1.4rem;
-    transition: all 400ms ease;
     overflow-x: hidden; }
     .footer-container footer h3 {
       margin-top: 0; }
     .footer-container footer a {
       color: #fff;
-      transition: all 400ms ease; }
+      transition: all 400ms ease-out; }
     .footer-container footer .col-md-3 {
       padding: 20px; }
     .footer-container footer .credits {
@@ -506,7 +505,6 @@ Since:    3/6/15
   overflow-x: hidden;
   padding: 0;
   background-color: #293846;
-  transition: transform 200ms ease;
   overflow-x: hidden; }
   .sidebar .nav-sidebar {
     margin-left: 0; }
@@ -521,7 +519,7 @@ Since:    3/6/15
     .sidebar li .menu-item-link {
       display: block;
       color: #5F666C;
-      transition: color 200ms ease;
+      transition: color 200ms ease-out;
       height: 100%;
       padding: 10px; }
       .sidebar li .menu-item-link #icon-monish-home {
@@ -529,7 +527,7 @@ Since:    3/6/15
         color: #76AADB !important; }
       .sidebar li .menu-item-link .gravatar {
         opacity: 0.8;
-        transition: opacity 200ms ease;
+        transition: opacity 200ms ease-out;
         background: #212D38; }
       .sidebar li .menu-item-link .glyphicon {
         position: static;
@@ -575,7 +573,10 @@ Since:    3/6/15
 .sidebar,
 .navbar-fixed-top,
 .content {
-  transition: all 400ms ease; }
+  transition: all 400ms ease-out; }
+
+.sidebar {
+  transition: height 0ms, width 400ms ease-out; }
 
 .navigation-active .navbar-fixed-top,
 .navigation-active .content {
@@ -627,7 +628,7 @@ Since:    3/6/15
     transform: translate3D(-100%, 0, 0);
     padding-top: 71px;
     width: 300px;
-    transition: transform 400ms ease; }
+    transition: transform 400ms ease-out; }
 
   .navigation-active {
     background-color: #293846; }
@@ -635,9 +636,9 @@ Since:    3/6/15
   .navigation-active .sidebar {
     transform: translate3D(0, 0, 0);
     width: 300px;
-    transition: width 0s ease;
+    transition: width 0s;
     transition-delay: 400ms;
-    transition: transform 400ms ease; }
+    transition: transform 400ms ease-out; }
 
   .navigation-active .content,
   .navigation-active .footer-container {
@@ -718,7 +719,7 @@ table {
   width: 100%;
   font-family: "Open Sans", sans-serif; }
   table * {
-    transition: all 200ms ease; }
+    transition: all 200ms ease-out; }
   table a {
     color: #3C73C3;
     text-decoration: none; }
@@ -864,7 +865,7 @@ Since:    15/8/15
       border-right: 0;
       border-bottom: 0;
       cursor: pointer;
-      transition: all 200ms ease; }
+      transition: all 200ms ease-out; }
       .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
         cursor: not-allowed; }
       .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
@@ -1036,7 +1037,7 @@ h6 {
   overflow-x: hidden;
   overflow-y: scrollable;
   background: #ecf2f6;
-  transition: all 400ms ease; }
+  transition: all 400ms ease-out; }
   .main-content .content {
     margin-top: 70px;
     min-height: 70vh;

@@ -123,15 +123,13 @@ Since:    3/6/15
   }
 
   // Hover Menu Item
-  li:active,
-  li:focus,
-  li:hover {
-
-    .menu-item-link {
-      color:#D4D9E0;
-      background:rgba(255,255,255,0.05);
-      color:#fff;
-    }
+  .menu-item-link:active,
+  .menu-item-link:focus,
+  .menu-item-link:hover {
+    
+    color:#D4D9E0;
+    background:rgba(255,255,255,0.05);
+    color:#fff;
 
     .menu-item-label {
 

@@ -519,7 +519,7 @@ Since:    3/6/15
     .sidebar li .menu-item-link {
       display: block;
       color: #5F666C;
-      transition: color 200ms ease-out;
+      transition: color 200ms ease-out, background 200ms ease-out;
       height: 100%;
       padding: 10px; }
       .sidebar li .menu-item-link #icon-monish-home {
@@ -548,8 +548,7 @@ Since:    3/6/15
         font-size: 2rem;
         color: #fff; }
     .sidebar li[data-original-title="Home"] > a.menu-item-link, .sidebar li[title="Home"] > a.menu-item-link {
-      background: rgba(0, 0, 0, 0.4);
-      transition: none; }
+      background: rgba(0, 0, 0, 0.4); }
       .sidebar li[data-original-title="Home"] > a.menu-item-link #icon-monish-home.icon-monish:before, .sidebar li[title="Home"] > a.menu-item-link #icon-monish-home.icon-monish:before {
         color: #76AADB !important; }
     .sidebar li[data-original-title="Home"]:hover > a.menu-item-link, .sidebar li[title="Home"]:hover > a.menu-item-link {
@@ -585,21 +584,21 @@ Since:    3/6/15
 .tooltip.right {
   display: none !important;
   font-size: 2rem;
-  -webkit-animation-name: fadeInLeft;
-  -moz-animation-name: fadeInLeft;
-  -ms-animation-name: fadeInLeft;
-  -o-animation-name: fadeInLeft;
-  animation-name: fadeInLeft;
-  -webkit-animation-duration: 600ms;
-  -moz-animation-duration: 600ms;
-  -ms-animation-duration: 600ms;
-  -o-animation-duration: 600ms;
-  animation-duration: 600ms;
-  -webkit-animation-delay: 100ms;
-  -moz-animation-delay: 100ms;
-  -ms-animation-delay: 100ms;
-  -o-animation-delay: 100ms;
-  animation-delay: 100ms;
+  -webkit-animation-name: fadeInRight;
+  -moz-animation-name: fadeInRight;
+  -ms-animation-name: fadeInRight;
+  -o-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  -webkit-animation-duration: 400ms;
+  -moz-animation-duration: 400ms;
+  -ms-animation-duration: 400ms;
+  -o-animation-duration: 400ms;
+  animation-duration: 400ms;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -ms-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
   -webkit-animation-timing-function: ease;
   -moz-animation-timing-function: ease;
   -ms-animation-timing-function: ease;
@@ -615,7 +614,7 @@ Since:    3/6/15
   -ms-backface-visibility: hidden;
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
-  margin-left: -10px; }
+  margin-left: 30px; }
 
 .tooltip.right .tooltip-arrow {
   border-right-color: #374A5D; }

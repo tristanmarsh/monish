@@ -19,12 +19,12 @@
 
         <div class="col-sm-6">
 
-            <div class="input-group input-lg pull-right">
-                <input type="text" class="form-control" placeholder="Search" id="myInputTextField">
-                <div class="input-group-btn">
+        <div class="input-group input-lg pull-right search">
+          <input type="text" class="form-control" placeholder="Filter Results" id="myInputTextField">
+          <div class="input-group-btn">
                     
                     <!-- Single button -->
-                    <div class="btn-group">
+<!--                     <div class="btn-group">
                       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Action <span class="caret"></span>
                       </button>
@@ -35,7 +35,7 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="#">Separated link</a></li>
                       </ul>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>

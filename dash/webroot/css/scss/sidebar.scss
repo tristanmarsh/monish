@@ -43,10 +43,11 @@ Since:    3/6/15
     border-bottom:1px solid #334658;
     height:6rem;
 
+
     .menu-item-link {
       display:block;
       color:#5F666C;
-      transition:color 200ms ease-out;
+      transition:color 200ms ease-out, background 200ms ease-out;
       height:100%;
       padding:10px;
 
@@ -95,7 +96,6 @@ Since:    3/6/15
       
       &>a.menu-item-link {
         background: rgba(0,0,0,0.4);
-        transition:none;
 
         #icon-monish-home.icon-monish:before {
           color:#76AADB!important;
@@ -168,8 +168,8 @@ Since:    3/6/15
 .tooltip.right {
   display:none!important;
   font-size:2rem;
-  @include fadeInLeft($duration:600ms,$delay:100ms);
-  margin-left:-10px;
+  @include fadeInRight($duration:400ms);
+  margin-left:30px;
 }
 
 .tooltip.right .tooltip-arrow {

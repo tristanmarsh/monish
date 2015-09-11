@@ -165,6 +165,15 @@
 		array('class' => 'menu-item-link', 'escape' => false)
 		); ?>
 	</li>
+
+	<li data-toggle="tooltip" data-placement="right" title="Log Out">
+		<?= $this->Html->link(
+		'<span class="glyphicon glyphicon-log-out"></span>
+		<div class="menu-item-label">Log Out</div>',
+		array('controller' => 'users', 'action' => 'logout'),
+		array('class' => 'menu-item-link', 'escape' => false)
+		); ?>
+	</li>
 	
 <!-- 	<li data-toggle="tooltip" data-placement="right" title="Rooms">
 		<?= $this->Html->link(
@@ -242,6 +251,16 @@
 		array('class' => 'menu-item-link', 'escape' => false)
 		); ?>
 	</li>
+
+	<li data-toggle="tooltip" data-placement="right" title="Log Out">
+		<?= $this->Html->link(
+		'<span class="glyphicon glyphicon-log-out"></span>
+		<div class="menu-item-label">Log Out</div>',
+		array('controller' => 'users', 'action' => 'logout'),
+		array('class' => 'menu-item-link', 'escape' => false)
+		); ?>
+	</li>
+
 
 	<?php endif; ?>
 

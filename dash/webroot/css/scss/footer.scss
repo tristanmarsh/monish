@@ -8,7 +8,7 @@ Since:    28/5/15
 */
 
 .footer-container {
-  transition: all 400ms ease;
+  transition: all 400ms ease-out;
 
   footer {
     max-width:100%;
@@ -20,7 +20,6 @@ Since:    28/5/15
     padding:40px 0;
     color:#fff;
     font-size:1.4rem;
-    transition:all 400ms ease;
     overflow-x: hidden;
 
 
@@ -30,7 +29,7 @@ Since:    28/5/15
 
     a {
       color:#fff;
-      transition:all 400ms ease;
+      transition:all 400ms ease-out;
     }
 
     .col-md-3 {

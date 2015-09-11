@@ -218,7 +218,7 @@ h6 {
   overflow-x: hidden; //prevents scrollable panels when mobile nav visible
   overflow-y: scrollable; 
   background: rgb(236,242,246);
-  transition: all 400ms ease;
+  transition: all 400ms ease-out;
 
 
   &:before {

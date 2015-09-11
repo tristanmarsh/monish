@@ -63,14 +63,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "Template/Users/reset_password.ctp",
-			"settings":
-			{
-				"buffer_size": 2433,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -220,22 +212,15 @@
 	},
 	"file_history":
 	[
-<<<<<<< HEAD
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/recovery.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/view.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/forgot_password.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Recoveries/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sidebar.scss",
-=======
+		"/Users/dev/Desktop/Property Locations",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/datatables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
->>>>>>> origin/develop
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index.ctp",
 		"/Users/dev/Desktop/home_temp1__medium.jpg",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/variables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/custom.scss",
@@ -247,20 +232,11 @@
 		"/Applications/MAMP/htdocs/monish/dash/vendor/psy/psysh/src/Psy/Command/ListCommand/GlobalVariableEnumerator.php",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/footer.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/override.scss",
-<<<<<<< HEAD
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sm.scss",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/variables.scss",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
-=======
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
->>>>>>> origin/develop
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/custom.js",
 		"/Users/dev/Desktop/dataTables.min.js",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/app.js",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Collection/Iterator/BufferedIterator.php",
 		"/Volumes/Data/Documents/Uni/Archive/Monash/2014/Semester 1/FIT1008/Python/Projects/character_generator/character_generator.py",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/edit.ctp",
@@ -275,6 +251,7 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/edit.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Recoveries/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Macaddresses/edit.ctp",
@@ -305,6 +282,7 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/Flash/default.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Homepages/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/Flash/error.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Messages/index.ctp",
@@ -361,12 +339,7 @@
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/sass/style.scss",
 		"/Users/dev/Desktop/to do",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sidebar.php",
-<<<<<<< HEAD
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/topbar.twig"
-=======
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/topbar.twig",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/helpers/header.twig"
->>>>>>> origin/develop
 	],
 	"find":
 	{
@@ -562,37 +535,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "Template/Users/reset_password.ctp",
-					"settings":
-					{
-						"buffer_size": 2433,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								856,
-								856
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -646,10 +590,14 @@
 		"selected_items":
 		[
 			[
-<<<<<<< HEAD
-				"recovery",
-				"dash/src/Template/Element/recovery.ctp"
-=======
+				"users",
+				"dash/src/Template/Users/login.ctp"
+			],
+			[
+				"layout",
+				"dash/src/Template/Layout/default.ctp"
+			],
+			[
 				"sidebar",
 				"dash/src/Template/Element/sidebar.ctp"
 			],
@@ -664,10 +612,6 @@
 			[
 				"var",
 				"scss/variables.scss"
-			],
-			[
-				"layout",
-				"dash/src/Template/Layout/default.ctp"
 			],
 			[
 				"varia",
@@ -708,7 +652,6 @@
 			[
 				"requests/index",
 				"dash/src/Template/Requests/index.ctp"
->>>>>>> origin/develop
 			],
 			[
 				"sidebar.ctp",
@@ -949,6 +892,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 230.0,
+	"side_bar_width": 150.0,
 	"status_bar_visible": true
 }

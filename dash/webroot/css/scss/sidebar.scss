@@ -25,7 +25,6 @@ Since:    3/6/15
   overflow-x: hidden;
   padding: 0;
   background-color: #293846;
-  transition:transform 200ms ease;
   overflow-x:hidden;
 
   .nav-sidebar {
@@ -47,7 +46,7 @@ Since:    3/6/15
     .menu-item-link {
       display:block;
       color:#5F666C;
-      transition:color 200ms ease;
+      transition:color 200ms ease-out;
       height:100%;
       padding:10px;
 
@@ -59,7 +58,7 @@ Since:    3/6/15
 
       .gravatar {
         opacity:0.8;
-        transition:opacity 200ms ease;
+        transition:opacity 200ms ease-out;
         background:#212D38;
       }
 
@@ -185,7 +184,7 @@ Since:    3/6/15
     transform:translate3D(-100%,0,0);
     padding-top:71px;
     width:300px;
-    transition:transform 400ms ease;
+    transition:transform 400ms ease-out;
   }  
 
   .navigation-active {
@@ -196,10 +195,9 @@ Since:    3/6/15
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
     width:300px;
-    transition:width 0s ease;
+    transition:width 0s;
     transition-delay: 400ms;
-    transition:transform 400ms ease;
-  }
+    transition:transform 400ms ease-out;  }
   
   .navigation-active .content,
   .navigation-active .footer-container {

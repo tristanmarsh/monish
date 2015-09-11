@@ -121,7 +121,7 @@ Since:    15/8/15
       border-right:0;
       border-bottom:0;
       cursor:pointer;
-      transition:all 200ms ease;
+      transition:all 200ms ease-out;
 
       &.disabled {
         cursor:not-allowed;

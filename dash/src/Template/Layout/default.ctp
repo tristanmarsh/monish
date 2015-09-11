@@ -112,17 +112,12 @@ $cakeDescription = 'Monish Dashboard';
 			</div>
 
 			<div class="main-content">
-				
 
 				<div class="content">
-
-
 
 					<div class="container-fluid">
 
 						<?= $this->Flash->render() ?>
-
-						<?= $this->fetch('h1') ?>
 
 						<?= $this->fetch('content') ?>
 

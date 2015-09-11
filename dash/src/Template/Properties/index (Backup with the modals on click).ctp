@@ -18,9 +18,9 @@
 
         <div class="col-sm-6">
 
-            <div class="input-group input-lg pull-right">
-                <input type="text" class="form-control" placeholder="Search" id="myInputTextField">
-                <div class="input-group-btn">
+        <div class="input-group input-lg pull-right search">
+          <input type="text" class="form-control" placeholder="Filter Results" id="myInputTextField">
+          <div class="input-group-btn">
                     
                     <!-- Single button -->
                     <div class="btn-group">

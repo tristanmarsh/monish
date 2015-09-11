@@ -558,16 +558,16 @@ Since:    3/6/15
       .sidebar li .menu-item-link.active .glyphicon,
       .sidebar li .menu-item-link.active .menu-item-label {
         color: #fff; }
-  .sidebar li:active .menu-item-link,
-  .sidebar li:focus .menu-item-link,
-  .sidebar li:hover .menu-item-link {
+  .sidebar .menu-item-link:active,
+  .sidebar .menu-item-link:focus,
+  .sidebar .menu-item-link:hover {
     color: #D4D9E0;
     background: rgba(255, 255, 255, 0.05);
     color: #fff; }
-  .sidebar li:active .gravatar,
-  .sidebar li:focus .gravatar,
-  .sidebar li:hover .gravatar {
-    opacity: 1; }
+    .sidebar .menu-item-link:active .gravatar,
+    .sidebar .menu-item-link:focus .gravatar,
+    .sidebar .menu-item-link:hover .gravatar {
+      opacity: 1; }
 
 .sidebar,
 .navbar-fixed-top,
@@ -709,6 +709,17 @@ Since:    30/7/15
 */
 body {
   color: #70808e; }
+
+.search input[type="text"].form-control {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  font-size: 2rem;
+  border-radius: 5px; }
+.search .input-group-btn {
+  opacity: 0;
+  visibility: none; }
 
 .table-responsive {
   border-radius: 0 0 5px 5px; }

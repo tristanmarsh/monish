@@ -15,7 +15,6 @@
 
         <ul class="nav nav-pills pull-left">
           <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-          <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
           <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $room->id]) ?></li>
           <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $room->id]) ?></li>
         </ul>
@@ -101,6 +100,7 @@
     </div>
     <?php if (!empty($room->leases)): ?>
     <table cellpadding="0" cellspacing="0">
+	<thead>
         <tr>
             <th><?= __('Tenant') ?></th>
             <th><?= __('Date Start') ?></th>
@@ -108,6 +108,7 @@
             <th><?= __('Weekly Price') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
+	</thead>	
         <?php foreach ($room->leases as $leases): ?>
         <tr>
             <td>

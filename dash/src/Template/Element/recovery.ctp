@@ -63,7 +63,7 @@
                             
                             <br>
 
-                            <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']); ?>
+                            <?= $this->Form->button(__('Send Recovery Email'), ['class' => 'form-control btn btn-primary']); ?>
 
                             <?= $this->Form->end() ?>
 

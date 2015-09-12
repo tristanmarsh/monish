@@ -1109,5 +1109,26 @@ h6 {
   #navigation-toggle span {
     background: #eff5fa; }
 
+.panel-property .panel-heading {
+  padding: 0;
+  overflow: hidden; }
+  .panel-property .panel-heading .property-image {
+    transition: transform 2s ease-out;
+    height: 50vh; }
+    .panel-property .panel-heading .property-image a {
+      display: block;
+      height: 100%; }
+      .panel-property .panel-heading .property-image a:hover, .panel-property .panel-heading .property-image a:focus {
+        text-decoration: none; }
+      .panel-property .panel-heading .property-image a .panel-title {
+        display: block;
+        padding: 2rem;
+        transition: transform 2s ease;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        font-size: 2rem;
+        color: #fff; }
+
 .footer-container {
   overflow: hidden; }

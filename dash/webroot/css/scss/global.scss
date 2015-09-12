@@ -350,6 +350,66 @@ h6 {
 
 // #### CONTENT ####
 
+
+
+
+.panel-property {
+  
+
+  .panel-heading {
+    padding:0;
+    overflow:hidden;
+
+    .property-image {
+      transition:transform 2s ease-out;
+      height:50vh;
+
+      & a {
+        display: block;
+        height:100%;
+
+        &:hover,
+        &:focus {
+          text-decoration: none;
+        }
+
+        & .panel-title {
+          display: block;
+          padding:2rem;
+          transition:transform 2s ease;
+          background-color: rgba(0,0,0,0.5);
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          font-size:2rem;
+          color: #fff;
+        }
+
+      }
+
+      &:hover {
+      }
+
+    }
+
+    // &:hover {
+    //   transform:scale(1.05);
+    // }
+
+    // &:hover a {
+    //   transform:scale(0.95);
+    // }
+
+
+
+
+    // }
+  }
+
+
+
+
+}
+
 // #### FOOTER ####
 .footer-container {
   overflow:hidden;

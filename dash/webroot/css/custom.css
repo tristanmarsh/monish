@@ -875,7 +875,7 @@ Since:    15/8/15
       border-right: 0;
       border-bottom: 0;
       cursor: pointer;
-      transition: all 200ms ease-out; }
+      transition: all 100ms ease; }
       .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
         cursor: not-allowed; }
       .dataTables_wrapper .dataTables_paginate .paginate_button:hover {

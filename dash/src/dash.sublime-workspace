@@ -224,8 +224,14 @@
 	},
 	"file_history":
 	[
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/datatables.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Email/html/reset_password.ctp",
+		"/Users/dev/Downloads/all-templates/hero.html",
+		"/Applications/MAMP/htdocs/monish/dash/src/Controller/UsersController.php",
+		"/Applications/MAMP/htdocs/monish/.tools/contact-form-email-template.html",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/recovery.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/changepassword.ctp",
@@ -233,10 +239,8 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/forgot_password.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sidebar.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/index.ctp",
@@ -347,11 +351,7 @@
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/small.scss",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/header.php",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/plugins/ajaxify-wordpress-site/js/ajaxify.js",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/plugins/ajaxify-wordpress-site/css/aws-style.css",
-		"/Users/dev/Desktop/Franchise Site",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/assets/js/custom.js",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/sass/global.scss",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/sass/sidebar.scss"
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/plugins/ajaxify-wordpress-site/css/aws-style.css"
 	],
 	"find":
 	{
@@ -359,7 +359,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 			"",
@@ -381,6 +381,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"user",
+			"gravatar",
+			"script",
+			"ease",
+			"reset pass",
+			"pre",
+			"ick it!",
+			"click it",
+			"email",
+			"$ms",
+			"or visit this link",
 			"Username",
 			"h1",
 			"70808e",
@@ -497,18 +508,7 @@
 			"pag",
 			"pagination",
 			"\n  ",
-			"requests",
-			"left",
-			"table",
-			"btn-info",
-			"add",
-			"]);\n",
-			"get",
-			"us",
-			"user",
-			"grava",
-			"name",
-			"img"
+			"requests"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -607,6 +607,18 @@
 		"selected_items":
 		[
 			[
+				"properties/index",
+				"dash/src/Template/Properties/index.ctp"
+			],
+			[
+				"datatables",
+				"scss/datatables.scss"
+			],
+			[
+				"reset",
+				"dash/src/Template/Email/html/reset_password.ctp"
+			],
+			[
 				"changepassword",
 				"dash/src/Template/Element/changepassword.ctp"
 			],
@@ -675,10 +687,6 @@
 				"dash/src/Template/Users/login.ctp"
 			],
 			[
-				"properties/index",
-				"dash/src/Template/Properties/index.ctp"
-			],
-			[
 				"sm.scss",
 				"scss/sm.scss"
 			],
@@ -701,10 +709,6 @@
 			[
 				"students/index",
 				"dash/src/Template/Students/index.ctp"
-			],
-			[
-				"datatables",
-				"scss/datatables.scss"
 			],
 			[
 				"tables.",

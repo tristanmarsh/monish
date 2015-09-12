@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2015 at 05:17 AM
+-- Generation Time: Sep 12, 2015 at 08:04 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -167,8 +167,8 @@ CREATE TABLE IF NOT EXISTS `people` (
   `gender` enum('M','F') NOT NULL,
   `phone` varchar(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `visa` varchar(20) NOT NULL,
-  `parent_address` varchar(50) NOT NULL,
+  `visa` varchar(20) DEFAULT NULL,
+  `parent_address` varchar(50) DEFAULT NULL,
   `account_name` varchar(255) DEFAULT NULL,
   `bsb_number` varchar(255) DEFAULT NULL,
   `account_number` varchar(255) DEFAULT NULL,
@@ -180,15 +180,15 @@ CREATE TABLE IF NOT EXISTS `people` (
 --
 
 INSERT INTO `people` (`id`, `first_name`, `last_name`, `common_name`, `gender`, `phone`, `email`, `visa`, `parent_address`, `account_name`, `bsb_number`, `account_number`) VALUES
-(1, 'Tony', 'Wise', '', 'M', '404040404', 'tonywise@monish.com', '', '', NULL, NULL, NULL),
-(9, 'Amy', 'Insurance', 'Amy', 'F', '0404000404', 'tmar41@student.monash.edu', '', '', NULL, NULL, NULL),
-(10, 'Ben', 'Hudson', 'Benny', 'M', '0404040404', 'ben@ben.com', '', '', NULL, NULL, NULL),
-(12, 'Constance', 'Petrovski', 'Con', 'F', '0404040404', 'constance@constance.com', '', '', NULL, NULL, NULL),
-(13, 'Darren', 'Man', 'Darraman', 'M', '0404040404', 'darren@darren.com', '', '', NULL, NULL, NULL),
-(14, 'Esther', 'Dear', 'Esther', 'F', '0404040404', 'esther@esther.com', '', '', NULL, NULL, NULL),
-(15, 'Fiona', 'Lee', 'Feefee', 'F', '04940303030', 'fiona@fiona.com', '', '', NULL, NULL, NULL),
-(16, 'Emma', 'Emma', 'Emma', 'M', '05146464146', 'ethanchen01@163.com', 'G12421615', '254 something street 21552', NULL, NULL, NULL),
-(17, 'zoe', 'zoe', 'zoe', 'M', '1231512341', 'zoe@zoe.com', '798123', 'asd', '123789', '123897', '123879');
+(1, 'Tony', 'Wise', '', 'M', '404040404', 'tonywise@monish.com', '123', 'China', 'Mr Mang', '123', '123'),
+(9, 'Amy', 'Insurance', 'Amy', 'F', '0404000404', 'tmar41@student.monash.edu', '123', 'China', 'Mr Mang', '123', '123'),
+(10, 'Ben', 'Hudson', 'Benny', 'M', '0404040404', 'ben@ben.com', '123', 'China', 'Mr Mang', '123', '123'),
+(12, 'Constance', 'Petrovski', 'Con', 'F', '0404040404', 'constance@constance.com', '123', 'China', 'Mr Mang', '123', '123'),
+(13, 'Darren', 'Man', 'Darraman', 'M', '0404040404', 'darren@darren.com', '123', 'China', 'Mr Mang', '123', '123'),
+(14, 'Esther', 'Dear', 'Esther', 'F', '0404040404', 'esther@esther.com', '123', 'China', 'Mr Mang', '123', '123'),
+(15, 'Fiona', 'Lee', 'Feefee', 'F', '04940303030', 'fiona@fiona.com', '123', 'China', 'Mr Mang', '123', '123'),
+(16, 'Emma', 'Emma', 'Emma', 'M', '05146464146', 'ethanchen01@163.com', 'G12421615', '254 something street 21552', 'Mr Mang', '123', '123'),
+(17, 'zoe', 'zoe', 'zoe', 'M', '1231512341', 'zoe@zoe.com', '798123', 'asd', 'Mr Mang', '123897', '123879');
 
 -- --------------------------------------------------------
 

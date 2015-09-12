@@ -26,15 +26,15 @@
         <table cellpadding="0" cellspacing="0">
             <thead>
             <tr>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;First Name</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Last Name</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Common Name</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Gender</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Phone</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Email</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Internet Plan</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Visa</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Parent Address</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Common Name</th>
+                <th>Gender</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Internet Plan</th>
+                <th>Visa</th>
+                <th>Parent Address</th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
             </thead>
@@ -61,6 +61,41 @@
 <div class="panel panel-primary">
   <!-- Default panel contents -->
     <div class="panel-heading">
+        <h2 class="panel-title">Personal Details</h2>
+    </div>
+
+  <!-- Table -->
+    <div >
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+            <tr>
+                <th>Visa</th>
+                <th>Parent's Address</th>
+                <th>Account Name</th>
+                <th>Account Number</th>
+                <th>BSB</th>
+                <th class="actions"><?= __('Actions') ?></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><?= $person->visa ?></td>
+                    <td><?= $person->parent_address ?></td>
+                    <td><?= $person->account_name ?></td>
+                    <td><?= $person->account_number ?></td>
+                    <td><?= $person->bsb_number ?></td>
+                    <td class="actions"> 
+                        <?= $this->Html->link(__('Edit'), ['controller' => 'tenants', 'action' => 'edit', $person->user->id]) ?>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+    <div class="panel-heading">
         <h2 class="panel-title">Related Leases</h2>
     </div>
 
@@ -69,14 +104,16 @@
 
         <?php if (!empty($student->leases)): ?>
         <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Property') ?></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Room') ?></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Date Start') ?></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Date End') ?></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Weekly Price') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
-            </tr>
+            <thead>
+                <tr>
+                    <th><?= __('Property') ?></th>
+                    <th><?= __('Room') ?></th>
+                    <th><?= __('Date Start') ?></th>
+                    <th><?= __('Date End') ?></th>
+                    <th><?= __('Weekly Price') ?></th>
+                    <th class="actions"><?= __('Actions') ?></th>
+                </tr>
+            </thead>
             <?php foreach ($query as $leases): ?>
             <tr>
                 <td><?= $leases->property->address ?></td>
@@ -105,13 +142,15 @@
   <!-- Table -->
     <div class="table-responsive">
         <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('First Name') ?></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Last Name') ?></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Phone') ?></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Email') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
-            </tr>
+            <thead>
+                <tr>
+                    <th><?= __('First Name') ?></th>
+                    <th><?= __('Last Name') ?></th>
+                    <th><?= __('Phone') ?></th>
+                    <th><?= __('Email') ?></th>
+                    <th class="actions"><?= __('Actions') ?></th>
+                </tr>
+            </thead>    
             <?php foreach ($emergencyQuery as $emergency): ?>
                 <tr>
                     <td><?= $emergency->first_name ?></td>
@@ -138,11 +177,13 @@
   <!-- Table -->
     <div class="table-responsive">
         <table>
-            <tr>
-                <th>#</th>
-                <th>Device Name</th>
-                <th>Mac Address</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Device Name</th>
+                    <th>Mac Address</th>
+                </tr>
+            </thead>
             <!-- ONE -->
             <tr>
                 <td><strong>1</strong></td>

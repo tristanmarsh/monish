@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"border-col",
+				"border-color"
+			],
+			[
 				"margin",
 				"margin-right"
 			],
@@ -220,6 +224,14 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/datatables.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/recovery.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/changepassword.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/reset_password.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/forgot_password.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/index.ctp",
@@ -227,9 +239,7 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sidebar.scss",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index (Backup with the modals on click).ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/index.ctp",
@@ -240,7 +250,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/bootstrap.min.css",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/custom.css",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/css/custom.css",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/datatables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/footer.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/nprogress.js",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/login.ctp",
@@ -253,7 +262,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Controller/RequestsController.php",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/psy/psysh/src/Psy/Command/ListCommand/GlobalVariableEnumerator.php",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/override.scss",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/custom.js",
 		"/Users/dev/Desktop/dataTables.min.js",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/app.js",
@@ -261,7 +269,6 @@
 		"/Volumes/Data/Documents/Uni/Archive/Monash/2014/Semester 1/FIT1008/Python/Projects/character_generator/character_generator.py",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/edit.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/reset_password.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/bootstrap/config.json",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/bootstrap/css/bootstrap-theme.css",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/bootstrap/css/bootstrap-theme.min.css",
@@ -344,10 +351,7 @@
 		"/Users/dev/Desktop/Franchise Site",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/assets/js/custom.js",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/sass/global.scss",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/sass/sidebar.scss",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/sass/icons.scss",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/extra-large.scss",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/large.scss"
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchises/sass/sidebar.scss"
 	],
 	"find":
 	{
@@ -377,6 +381,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Username",
+			"h1",
+			"70808e",
+			"log",
+			"username",
+			"Username",
+			"username",
+			"a",
+			"style",
+			"stylee",
+			"style",
+			"row",
+			"addn",
+			"extra",
 			"            <div class=\"btn-group\">\n              <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                Action <span class=\"caret\"></span>\n              </button>\n              <ul class=\"dropdown-menu\">\n                <li><a href=\"#\">Search</a></li>\n                <li><a href=\"#\">Another action</a></li>\n                <li><a href=\"#\">Something else here</a></li>\n                <li role=\"separator\" class=\"divider\"></li>\n                <li><a href=\"#\">Separated link</a></li>\n              </ul>\n            </div>",
 			"radius",
 			"            <div class=\"input-group input-lg pull-right search\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search\" id=\"myInputTextField\">\n                <div class=\"input-group-btn\">",
@@ -490,21 +508,7 @@
 			"user",
 			"grava",
 			"name",
-			"img",
-			"action",
-			"glyphion",
-			"log-in-window",
-			"transition",
-			"main-content",
-			"opacity",
-			"footer",
-			"footer-container",
-			"footer",
-			"transition",
-			"footer",
-			"transition",
-			"footer",
-			"all"
+			"img"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -603,6 +607,34 @@
 		"selected_items":
 		[
 			[
+				"changepassword",
+				"dash/src/Template/Element/changepassword.ctp"
+			],
+			[
+				"password",
+				"dash/src/Template/Users/reset_password.ctp"
+			],
+			[
+				"datatab",
+				"scss/datatables.scss"
+			],
+			[
+				"tables.scss",
+				"scss/tables.scss"
+			],
+			[
+				"recovery",
+				"dash/src/Template/Element/recovery.ctp"
+			],
+			[
+				"forgot",
+				"dash/src/Template/Users/forgot_password.ctp"
+			],
+			[
+				"login",
+				"dash/src/Template/Element/login.ctp"
+			],
+			[
 				"leases/index",
 				"dash/src/Template/Leases/index.ctp"
 			],
@@ -685,10 +717,6 @@
 			[
 				"default",
 				"dash/src/Template/Layout/default.ctp"
-			],
-			[
-				"tables.scss",
-				"scss/tables.scss"
 			],
 			[
 				"requests/index",
@@ -789,10 +817,6 @@
 			[
 				"layout.ctp",
 				"dash/src/Template/Layout/default.ctp"
-			],
-			[
-				"login",
-				"dash/src/Template/Element/login.ctp"
 			],
 			[
 				"navbar.ctp",

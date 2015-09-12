@@ -28,8 +28,6 @@ body {
 
 // #### UTILITY ####
 
-
-
 .logo{
   margin-top:2vw;
 }
@@ -37,6 +35,29 @@ body {
 
 .log-in-window {
   margin-top:20px;
+}
+
+
+.log-in-window {
+
+  label {
+    color:#70808e;
+  }
+
+  input {
+    // border-color:#eee;
+  }
+
+
+  .input-group-addon {
+    // background:#B2CFE9;
+
+    .glyphicon {
+      color:#70808e;
+    }
+
+  }
+
 }
 
 .img-center {

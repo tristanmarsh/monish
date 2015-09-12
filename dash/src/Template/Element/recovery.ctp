@@ -1,4 +1,4 @@
-<!-- File: src/Template/Element/login.ctp -->
+<!-- File: src/Template/Element/recovery.ctp -->
 
 <div class="container">
 
@@ -11,42 +11,66 @@
                 
                 <div class="logo">
                     <?= $this->Html->image('logo-monish.png', ['alt' => 'Monash International Student House','class' => 'img-responsive img-center','width'=>'200px'])  ?>
+                    <h1 class="text-center">Monash ISH Dashboard</h1>
                 </div>
 
-                <h1 class="text-center">Monash ISH Dashboard</h1>
-				
 				<?= $this->Flash->render() ?>
 				
                 <div>
 
                     <!-- Nav tabs -->
                     <ul class="nav nav-pills" role="tablist">
-                        <li role="presentation" ><a href="#log-in" aria-controls="log-in" role="tab" data-toggle="tab" style="padding-top:0;padding-bottom:0;"><?= $this->Html->link('Login', ['action' => 'login']) ?></a></li>
-                        <li role="presentation"class="active"><a href="#account-recovery" aria-controls="account-recovery" role="tab" data-toggle="tab">Account Recovery</a></li>
+                       
+                        <li role="presentation">
+                            <a href="#log-in" style="height:0;margin:0;padding:0;" aria-controls="log-in" role="tab" data-toggle="tab">
+                                <?= $this->Html->link('Login', ['action' => 'login']) ?>
+                            </a>
+                        </li>
+                        
+                        <li role="presentation"class="active">
+                            <a href="#account-recovery" style=""aria-controls="account-recovery" role="tab" data-toggle="tab">Account Recovery</a>
+                        </li>
+
                     </ul>
 
-                        <div role="tabpanel" class="tab-pane fade in" id="account-recovery">
+                    <div role="tabpanel" class="tab-pane fade in" id="account-recovery">
 
-                            <?php if (!$this->Session->read('Auth.User')) : ?>
-                                <div class="users form">
-                                    
-                                    <?php echo $this->Form->create('User', ['action' => 'forgot_password', 'novalidate' => true]); ?>
-                                    <fieldset>
-                                        <?php echo $this->Form->input('username',['class' => 'form-control',
-                                                                    'placeholder' => 'Enter email address',
-                                                                    'label' => 'Username']);?>
-                                    </fieldset>
-                                    <br>
+                        <?php if (!$this->Session->read('Auth.User')) : ?>
+                            
+                            <?php echo $this->Form->create('User', ['action' => 'forgot_password', 'novalidate' => true]); ?>
 
-                                    <?= $this->Form->button(__('Send Recovery Email'), ['class' => 'form-control btn btn-primary']); ?>
-                                    <?= $this->Form->end() ?>
+                            <?= $this->Flash->render('auth') ?>
 
-                                </div>
-                            <?php endif; ?>
+                            <?= $this->Form->create() ?>
 
-                        </div>
+                            <hr>
+
+                            <fieldset>
+
+                                <!-- <legend></legend> -->
+
+                                <!-- email address -->   
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                                        <input type="username" name="username" id="username" class="form-control" placeholder="Username">
+                                    </div>
+                                </div>          
+
+
+                            </fieldset>
+                            
+                            <br>
+
+                            <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']); ?>
+
+                            <?= $this->Form->end() ?>
+
+                        <?php endif; ?>
 
                     </div>
+
                 </div>
             </div>
         </div>

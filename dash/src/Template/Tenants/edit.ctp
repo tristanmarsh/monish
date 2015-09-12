@@ -41,10 +41,13 @@
     echo $this->Form->input('common_name', array('default' => $defaultPerson->common_name,'class' => 'form-control'));
     echo $this->Form->input('visa', array('default' => $defaultPerson->visa,'class' => 'form-control'));
     echo $this->Form->input('parent_address', array('default' => $defaultPerson->parent_address,'class' => 'form-control'));
+    echo $this->Form->input('account_name', array('default' => $defaultPerson->account_name,'class' => 'form-control'));
+    echo $this->Form->input('bsb_number', array('default' => $defaultPerson->bsb_number,'class' => 'form-control'));
+    echo $this->Form->input('account_number', array('default' => $defaultPerson->account_number,'class' => 'form-control'));
     echo $this->Form->input('phone', array('default' => $defaultPerson->phone,'class' => 'form-control'));
     echo $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'], 'default' => $defaultStudent->internet_plan, 'class' => 'form-control']);
-	echo $this->Form->input('username', array('class' => 'form-control'));
-	// echo $this->Form->input('password', array('class' => 'form-control'));
+	echo $this->Form->input('username', array('label'=>'Username/Email', 'class' => 'form-control'));
+	//echo $this->Form->input('password', array('class' => 'form-control'));
 	//echo $this->Form->input('confirm_password', array('class' => 'form-control', 'type'=>'password'));
 	echo $this->Form->input('role', ['options' => ['admin' => 'Admin', 'tenant' => 'Tenant'], 'class' => 'form-control']);
     ?>

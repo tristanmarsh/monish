@@ -91,9 +91,9 @@
               <?= $this->Form->input('last_name', array('class' => 'form-control')) ?>
               <?= $this->Form->input('common_name', array('class' => 'form-control')) ?>
               <?= $this->Form->input('visa', array('class' => 'form-control')) ?>
-
-
-
+              <?= $this->Form->input('account_name', array('class' => 'form-control')) ?>
+              <?= $this->Form->input('bsb_number', array('class' => 'form-control')) ?>
+              <?= $this->Form->input('account_number', array('class' => 'form-control')) ?>
 
               
             </div>
@@ -124,10 +124,10 @@
               <?= $this->form->input('date_end',['id'=>'dateEndPicker','class' => 'form-control']); ?>
             </div>
 
-            <div class="col-md-12">
-
-             <?= $this->Form->input('weekly_price', ['class' => 'form-control']); ?>
-           </div>
+            <div class="col-md-6">
+              <?= $this->Form->input('weekly_price', ['class' => 'form-control']); ?>
+            </div>
+            
            </fieldset>
 
            <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']); ?>

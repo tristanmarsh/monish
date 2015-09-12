@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.1.1
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:3306
--- Generation Time: Sep 08, 2015 at 05:00 PM
--- Server version: 5.5.42
--- PHP Version: 5.6.7
+-- Host: 127.0.0.1
+-- Generation Time: Sep 12, 2015 at 05:17 AM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,14 +26,16 @@ SET time_zone = "+00:00";
 -- Table structure for table `emergencies`
 --
 
-CREATE TABLE `emergencies` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `emergencies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` int(11) DEFAULT NULL,
   `first_name` varchar(25) NOT NULL,
   `last_name` varchar(25) NOT NULL,
   `phone` varchar(11) NOT NULL,
-  `email` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `person_id` (`person_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `emergencies`
@@ -53,17 +55,18 @@ INSERT INTO `emergencies` (`id`, `person_id`, `first_name`, `last_name`, `phone`
 -- Table structure for table `lastroomupdate`
 --
 
-CREATE TABLE `lastroomupdate` (
-  `id` int(11) NOT NULL,
-  `date` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `lastroomupdate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `lastroomupdate`
 --
 
 INSERT INTO `lastroomupdate` (`id`, `date`) VALUES
-(1, '2015-09-08');
+(1, '2015-09-12');
 
 -- --------------------------------------------------------
 
@@ -71,15 +74,20 @@ INSERT INTO `lastroomupdate` (`id`, `date`) VALUES
 -- Table structure for table `leases`
 --
 
-CREATE TABLE `leases` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `leases` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `room_id` int(11) NOT NULL,
   `property_id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL,
   `date_start` date NOT NULL,
   `date_end` date NOT NULL,
-  `weekly_price` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+  `weekly_price` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `room_id` (`room_id`),
+  KEY `student_id` (`student_id`),
+  KEY `property_id` (`property_id`),
+  KEY `property_id_2` (`property_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `leases`
@@ -95,7 +103,8 @@ INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`
 (13, 1, 1, 13, '2015-07-15', '2016-01-21', 500),
 (14, 17, 4, 14, '0000-00-00', '2015-07-09', 450),
 (15, 15, 4, 15, '2015-08-20', '2015-08-21', 200),
-(16, 26, 6, 16, '2015-09-09', '2016-03-17', 500);
+(16, 26, 6, 16, '2015-09-09', '2016-03-17', 500),
+(17, 25, 6, 17, '2015-09-10', '2015-09-30', 123123);
 
 -- --------------------------------------------------------
 
@@ -103,8 +112,8 @@ INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`
 -- Table structure for table `macaddresses`
 --
 
-CREATE TABLE `macaddresses` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `macaddresses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` int(11) NOT NULL,
   `device_name_one` varchar(25) DEFAULT NULL,
   `device_name_two` varchar(25) DEFAULT NULL,
@@ -125,8 +134,10 @@ CREATE TABLE `macaddresses` (
   `mac_address_seven` varchar(25) DEFAULT NULL,
   `mac_address_eight` varchar(25) DEFAULT NULL,
   `mac_address_nine` varchar(25) DEFAULT NULL,
-  `mac_address_ten` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `mac_address_ten` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `person_id` (`person_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `macaddresses`
@@ -139,7 +150,8 @@ INSERT INTO `macaddresses` (`id`, `person_id`, `device_name_one`, `device_name_t
 (4, 12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (5, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (6, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(7, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -147,8 +159,8 @@ INSERT INTO `macaddresses` (`id`, `person_id`, `device_name_one`, `device_name_t
 -- Table structure for table `people`
 --
 
-CREATE TABLE `people` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `people` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(25) NOT NULL,
   `last_name` varchar(25) NOT NULL,
   `common_name` varchar(25) NOT NULL,
@@ -156,22 +168,27 @@ CREATE TABLE `people` (
   `phone` varchar(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `visa` varchar(20) NOT NULL,
-  `parent_address` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+  `parent_address` varchar(50) NOT NULL,
+  `account_name` varchar(255) DEFAULT NULL,
+  `bsb_number` varchar(255) DEFAULT NULL,
+  `account_number` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `people`
 --
 
-INSERT INTO `people` (`id`, `first_name`, `last_name`, `common_name`, `gender`, `phone`, `email`, `visa`, `parent_address`) VALUES
-(1, 'Tony', 'Wise', '', 'M', '404040404', 'tonywise@monish.com', '', ''),
-(9, 'Amy', 'Insurance', 'Amy', 'F', '0404000404', 'tmar41@student.monash.edu', '', ''),
-(10, 'Ben', 'Hudson', 'Benny', 'M', '0404040404', 'ben@ben.com', '', ''),
-(12, 'Constance', 'Petrovski', 'Con', 'F', '0404040404', 'constance@constance.com', '', ''),
-(13, 'Darren', 'Man', 'Darraman', 'M', '0404040404', 'darren@darren.com', '', ''),
-(14, 'Esther', 'Dear', 'Esther', 'F', '0404040404', 'esther@esther.com', '', ''),
-(15, 'Fiona', 'Lee', 'Feefee', 'F', '04940303030', 'fiona@fiona.com', '', ''),
-(16, 'Emma', 'Emma', 'Emma', 'M', '05146464146', 'ethanchen01@163.com', 'G12421615', '254 something street 21552');
+INSERT INTO `people` (`id`, `first_name`, `last_name`, `common_name`, `gender`, `phone`, `email`, `visa`, `parent_address`, `account_name`, `bsb_number`, `account_number`) VALUES
+(1, 'Tony', 'Wise', '', 'M', '404040404', 'tonywise@monish.com', '', '', NULL, NULL, NULL),
+(9, 'Amy', 'Insurance', 'Amy', 'F', '0404000404', 'tmar41@student.monash.edu', '', '', NULL, NULL, NULL),
+(10, 'Ben', 'Hudson', 'Benny', 'M', '0404040404', 'ben@ben.com', '', '', NULL, NULL, NULL),
+(12, 'Constance', 'Petrovski', 'Con', 'F', '0404040404', 'constance@constance.com', '', '', NULL, NULL, NULL),
+(13, 'Darren', 'Man', 'Darraman', 'M', '0404040404', 'darren@darren.com', '', '', NULL, NULL, NULL),
+(14, 'Esther', 'Dear', 'Esther', 'F', '0404040404', 'esther@esther.com', '', '', NULL, NULL, NULL),
+(15, 'Fiona', 'Lee', 'Feefee', 'F', '04940303030', 'fiona@fiona.com', '', '', NULL, NULL, NULL),
+(16, 'Emma', 'Emma', 'Emma', 'M', '05146464146', 'ethanchen01@163.com', 'G12421615', '254 something street 21552', NULL, NULL, NULL),
+(17, 'zoe', 'zoe', 'zoe', 'M', '1231512341', 'zoe@zoe.com', '798123', 'asd', '123789', '123897', '123879');
 
 -- --------------------------------------------------------
 
@@ -179,8 +196,8 @@ INSERT INTO `people` (`id`, `first_name`, `last_name`, `common_name`, `gender`, 
 -- Table structure for table `properties`
 --
 
-CREATE TABLE `properties` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `properties` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `address` varchar(50) NOT NULL,
   `number_rooms` int(11) NOT NULL,
   `bathrooms` int(11) NOT NULL,
@@ -192,8 +209,9 @@ CREATE TABLE `properties` (
   `avatar_url` varchar(255) DEFAULT NULL,
   `avatar_type` varchar(255) DEFAULT NULL,
   `avatar_size` varchar(255) DEFAULT NULL,
-  `avatar_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  `avatar_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `properties`
@@ -216,9 +234,10 @@ INSERT INTO `properties` (`id`, `address`, `number_rooms`, `bathrooms`, `kitchen
 -- Table structure for table `recoveries`
 --
 
-CREATE TABLE `recoveries` (
-  `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `recoveries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -226,8 +245,8 @@ CREATE TABLE `recoveries` (
 -- Table structure for table `requests`
 --
 
-CREATE TABLE `requests` (
-  `id` int(10) unsigned NOT NULL,
+CREATE TABLE IF NOT EXISTS `requests` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(50) DEFAULT NULL,
   `description` text,
   `created` datetime DEFAULT NULL,
@@ -242,8 +261,10 @@ CREATE TABLE `requests` (
   `avatar_url` varchar(255) DEFAULT NULL,
   `avatar_type` varchar(255) DEFAULT NULL,
   `avatar_size` varchar(255) DEFAULT NULL,
-  `avatar_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
+  `avatar_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`person_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
 
 --
 -- Dumping data for table `requests`
@@ -270,12 +291,14 @@ INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `pe
 -- Table structure for table `rooms`
 --
 
-CREATE TABLE `rooms` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `rooms` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `property_id` int(11) NOT NULL,
   `room_name` varchar(50) NOT NULL,
-  `vacant` enum('TRUE','FALSE') NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+  `vacant` enum('TRUE','FALSE') NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `property_id` (`property_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
 
 --
 -- Dumping data for table `rooms`
@@ -306,7 +329,7 @@ INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
 (22, 5, 'room 3', 'TRUE'),
 (23, 5, 'room 4', 'TRUE'),
 (24, 5, 'room 5', 'FALSE'),
-(25, 6, 'room 1', 'TRUE'),
+(25, 6, 'room 1', 'FALSE'),
 (26, 6, 'room 2', 'FALSE'),
 (27, 6, 'room 3', 'TRUE'),
 (28, 7, '1', 'TRUE');
@@ -317,12 +340,15 @@ INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
 -- Table structure for table `students`
 --
 
-CREATE TABLE `students` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `students` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `person_id` int(11) NOT NULL,
   `emergency_id` int(11) DEFAULT NULL,
-  `internet_plan` enum('Free','Basic','Standard','Premium') DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+  `internet_plan` enum('Free','Basic','Standard','Premium') DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `person_id` (`person_id`),
+  KEY `emergency_id` (`emergency_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `students`
@@ -335,7 +361,8 @@ INSERT INTO `students` (`id`, `person_id`, `emergency_id`, `internet_plan`) VALU
 (13, 13, NULL, 'Free'),
 (14, 14, NULL, 'Premium'),
 (15, 15, NULL, 'Free'),
-(16, 16, NULL, 'Free');
+(16, 16, NULL, 'Free'),
+(17, 17, NULL, 'Standard');
 
 -- --------------------------------------------------------
 
@@ -343,16 +370,19 @@ INSERT INTO `students` (`id`, `person_id`, `emergency_id`, `internet_plan`) VALU
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `person_id` int(11) NOT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `role` varchar(20) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
-  `tokenhash` varchar(512) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
+  `tokenhash` varchar(512) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`),
+  KEY `person_id` (`person_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=49 ;
 
 --
 -- Dumping data for table `users`
@@ -366,158 +396,19 @@ INSERT INTO `users` (`id`, `person_id`, `username`, `password`, `role`, `created
 (44, 13, 'darren@darren.com', '$2y$10$.Z7/9q8Bw3RfhZ0Q3Qo58Ou64ZtD32J/JKdKC1aRNKZPuFdNd88eq', 'tenant', '2015-07-09 16:12:08', '2015-07-09 16:12:08', ''),
 (45, 14, 'esther@esther.com', '$2y$10$QRZYZSxPClT1HF0HgO8PnOW4zO5.eDkEnBljNiEETG8HmtHdCY0l6', 'tenant', '2015-07-09 16:57:20', '2015-07-09 16:57:20', ''),
 (46, 15, 'fiona@fiona.com', '$2y$10$OEVNCpzk9TvOHqlHGdCzr.tw3rLfrXchAVuVZDW83lYBIfV9KTwma', 'tenant', '2015-08-19 09:36:36', '2015-08-19 09:52:22', ''),
-(47, 16, 'ethanchen01@163.com', '$2y$10$62uQ2gFX2BTo2nMCASRoB.Y0Jhgn9ZrI/0QPDA0ijKHgMSVbxzHri', 'tenant', '2015-09-01 08:05:47', '2015-09-01 10:03:23', 'cf71c0d77ddce3d601067d3b24c8980746c07078');
+(47, 16, 'ethanchen01@163.com', '$2y$10$62uQ2gFX2BTo2nMCASRoB.Y0Jhgn9ZrI/0QPDA0ijKHgMSVbxzHri', 'tenant', '2015-09-01 08:05:47', '2015-09-01 10:03:23', 'cf71c0d77ddce3d601067d3b24c8980746c07078'),
+(48, 17, 'zoe@zoe.com', '$2y$10$VYJq4UyAEr8kkbXiadjNKevmiEdYtG4AU1HDJdzUR0HL7LztXYZS6', 'tenant', '2015-09-12 03:16:49', '2015-09-12 03:16:49', '');
 
 --
 -- Triggers `users`
 --
-DELIMITER $$
+DROP TRIGGER IF EXISTS `updateEmail`;
+DELIMITER //
 CREATE TRIGGER `updateEmail` AFTER UPDATE ON `users`
  FOR EACH ROW UPDATE people SET email = NEW.username WHERE people.id = NEW.person_id
-$$
+//
 DELIMITER ;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `emergencies`
---
-ALTER TABLE `emergencies`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `person_id` (`person_id`);
-
---
--- Indexes for table `lastroomupdate`
---
-ALTER TABLE `lastroomupdate`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `leases`
---
-ALTER TABLE `leases`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `room_id` (`room_id`),
-  ADD KEY `student_id` (`student_id`),
-  ADD KEY `property_id` (`property_id`),
-  ADD KEY `property_id_2` (`property_id`);
-
---
--- Indexes for table `macaddresses`
---
-ALTER TABLE `macaddresses`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `person_id` (`person_id`);
-
---
--- Indexes for table `people`
---
-ALTER TABLE `people`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `properties`
---
-ALTER TABLE `properties`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `recoveries`
---
-ALTER TABLE `recoveries`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `requests`
---
-ALTER TABLE `requests`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`person_id`);
-
---
--- Indexes for table `rooms`
---
-ALTER TABLE `rooms`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `property_id` (`property_id`);
-
---
--- Indexes for table `students`
---
-ALTER TABLE `students`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `person_id` (`person_id`),
-  ADD KEY `emergency_id` (`emergency_id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`),
-  ADD KEY `person_id` (`person_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `emergencies`
---
-ALTER TABLE `emergencies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `lastroomupdate`
---
-ALTER TABLE `lastroomupdate`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `leases`
---
-ALTER TABLE `leases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
---
--- AUTO_INCREMENT for table `macaddresses`
---
-ALTER TABLE `macaddresses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `people`
---
-ALTER TABLE `people`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
---
--- AUTO_INCREMENT for table `properties`
---
-ALTER TABLE `properties`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT for table `recoveries`
---
-ALTER TABLE `recoveries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `requests`
---
-ALTER TABLE `requests`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
---
--- AUTO_INCREMENT for table `rooms`
---
-ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
---
--- AUTO_INCREMENT for table `students`
---
-ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=48;
 --
 -- Constraints for dumped tables
 --

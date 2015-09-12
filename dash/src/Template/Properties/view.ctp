@@ -39,7 +39,7 @@
         
     <div class="table-responsive">
         <?php if (!empty($property->rooms)): ?>
-        <table cellpadding="0" cellspacing="0">
+        <table class="datatable">
             <thead>
                 <tr>
                     <th>Room Name</th>
@@ -50,8 +50,12 @@
             </thead>
             <?php foreach ($property->rooms as $rooms): ?>
             <tr>
-                <td><?= h($rooms->room_name) ?></td>
                 <td>
+                    <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>        
+                    <?= h($rooms->room_name) ?>
+                </td>
+                <td>
+                    <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
                     <?php 
                         if ($rooms->vacant === 'FALSE') {
                             echo "Occupied";

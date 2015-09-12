@@ -383,29 +383,17 @@ h6 {
           font-size:2rem;
           color: #fff;
         }
-
       }
-
       &:hover {
+
       }
-
     }
-
-    // &:hover {
-    //   transform:scale(1.05);
-    // }
-
-    // &:hover a {
-    //   transform:scale(0.95);
-    // }
-
-
-
-
-    // }
   }
 
-
+  .gravatar {
+    display:inline-block;
+    z-index:0;
+  }
 
 
 }

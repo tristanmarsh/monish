@@ -70,8 +70,8 @@
             <thead>
             <tr>
                 <th>Room</th>
+                <th colspan="2">Tenant</th>
                 <th>Status</th>
-                <th>Tenant</th>
             </tr>
             </thead>
             <tbody>
@@ -81,6 +81,7 @@
                     <td><?= $rooms->room_name ?>
                         <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
                     </td>
+
                     <td>
                         <?php
                         $room = $roomlease->get($rooms->id, ['contain'=>'Leases']);
@@ -118,6 +119,7 @@
                         }
                         ?>
                     </td>
+
                     <td>
                         <?php
                         $emailHash = md5( strtolower( trim( $personEntity->email ) ) );
@@ -126,6 +128,37 @@
                         $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
                         ?>
 
+                        <?php
+                        if (!empty($room->leases)) {
+                            foreach ($room->leases as $leastenddate) {
+                                $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                            }
+                        }
+                        else {
+                            $sentinel = false;
+                        }
+                        if ($sentinel) { //THIS CHECK MAKES THE TABLE ALIGNMENT WEIRD I HAVE NO IDEA WHY, But it is the only way for the code to correctly check room status
+                            $toArray = explode("||", $test);
+
+                            foreach ($room->leases as $leastenddate) {
+                                if ($leastenddate->date_end->format('Y-m-d') === max($toArray)) {
+                                    $studentid = $leastenddate->student_id;
+                                    $studentEntity = $studentTable->get($studentid, ['contain'=>'People']);
+                                    $personEntity = $peopleTable->get($studentEntity->person_id);
+                                };
+                            }
+
+                            if (max($toArray) > date("Y-m-d")) {
+                                echo $gravatarImage;
+                            } else if (max($toArray) === date("Y-m-d")) {
+                                echo $gravatarImage;
+                            } else if (max($toArray) < date("Y-m-d")) {
+                            }
+                        }
+                        ?>
+                    </td>
+
+                    <td>
                         <?php
                         if (!empty($room->leases)) {
                             foreach ($room->leases as $leastenddate) {
@@ -148,10 +181,8 @@
                             }
 
                             if (max($toArray) > date("Y-m-d")) {
-                                echo $gravatarImage;
                                 echo $personEntity->first_name." ".$personEntity->last_name;
                             } else if (max($toArray) === date("Y-m-d")) {
-                                echo $gravatarImage;
                                 echo $personEntity->first_name." ".$personEntity->last_name;
                             } else if (max($toArray) < date("Y-m-d")) {
                                 echo "No Tenant ";
@@ -159,6 +190,7 @@
                         }
                         ?>
                     </td>
+
                 </tr>
             <?php endforeach; ?>
             </tbody>

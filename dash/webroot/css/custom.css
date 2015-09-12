@@ -1129,6 +1129,9 @@ h6 {
         border-top-right-radius: 5px;
         font-size: 2rem;
         color: #fff; }
+.panel-property .gravatar {
+  display: inline-block;
+  z-index: 0; }
 
 .footer-container {
   overflow: hidden; }

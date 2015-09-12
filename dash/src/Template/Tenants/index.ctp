@@ -93,8 +93,6 @@
 
                             <?= $gravatarImage; ?>
 
-
-
                         <span>
                         <?= $person->first_name ?>
                     </span>

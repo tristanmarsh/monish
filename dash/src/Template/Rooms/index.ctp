@@ -71,10 +71,10 @@
         <table cellpadding="0" cellspacing="0" class="">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('room_name') ?></th>
-                    <th><?= $this->Paginator->sort('property_id') ?></th>
-                    <th><?= $this->Paginator->sort('Vacant') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th>Room Name</th>
+                    <th>Property ID</th>
+                    <th>Vacant</th>
+                    <th> Actions</th>
                 </tr>
             </thead>
             <tbody>

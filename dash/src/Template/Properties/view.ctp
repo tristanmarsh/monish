@@ -2,68 +2,64 @@
     $this->Html->addCrumb('Properties', '/properties');
     $this->Html->addCrumb('View Property');
 ?>
-<h2>Property Details</h2>
+<h2><?= $property->address ?></h2>
 
     <div class="panel panel-default clearfix">
         
         <div class="panel-body">
             
             <ul class="nav nav-pills pull-left">
-                <li role="presentation" class="active"><a href="#">Do Something With this Property</a></li>
-                <li role="presentation"><?= $this->Form->postLink('Delete This Property',
+                <li role="presentation"><a href="/monish/dash/properties">All</a></li>
+                <li role="presentation"><?= $this->Html->link('Edit', ['action'=>'edit', $property->id]) ?>
+                </li>
+                <li role="presentation"><?= $this->Form->postLink('Delete',
                                     ['controller'=>'properties', 'action' => 'delete', $property->id],
-                                    ['confirm' => 'Are you sure?', "escape" => false]); ?></li>
-            </ul>
-
-        </div>
-
-        <div class="panel-footer">
-
-            <ul class="nav nav-pills pull-left">
-                <li role="presentation" class="active"><a href="#">Imagine</a></li>
-                <li role="presentation"><a href="#">Secondary</a></li>
-                <li role="presentation"><a href="#">Buttons</a></li>
+                                    ['confirm' => 'Are you sure?', "escape" => false]); ?>
+                </li>
             </ul>
 
         </div>
 
     </div>
 
+    <div style="margin: 10px auto;width: 402px;border:1px solid;">
+        <?php
+            if (!($property->avatar_directory === NULL)) {
+                $directory = substr($property->avatar_url, 5);
+                echo $this->Html->image($directory, ['alt' => 'CakePHP', 'width'=>'400px']);
+            }
+        ?>
+    </div>
 
-<div class="panel panel-main">
-
-    <table>
-
-            <h6 class="subheader"><?= __('Address') ?></h6>
-            <p><?= h($property->address) ?></p>
-            <h6 class="subheader"><?= __('Garage') ?></h6>
-            <p><?= h($property->garage) ?></p>
-
-            <h6 class="subheader"><?= __('Id') ?></h6>
-            <p><?= $this->Number->format($property->id) ?></p>
-            <h6 class="subheader"><?= __('Number Rooms') ?></h6>
-            <p><?= $this->Number->format($property->number_rooms) ?></p>  
-            <h6 class="subheader"><?= __('Bathrooms') ?></h6>
-            <p><?= $this->Number->format($property->bathrooms) ?></p>
-            <h6 class="subheader"><?= __('Kitchens') ?></h6>
-            <p><?= $this->Number->format($property->kitchens) ?></p>
-            <h6 class="subheader"><?= __('Storeys') ?></h6>
-            <p><?= $this->Number->format($property->storeys) ?></p>
-
-    </table>
-
-        <h4>Related Rooms</h4>
+    <div class="panel panel-primary">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+        <h2 class="panel-title">Related Rooms</h2>
+    </div>
+        
+    <div class="table-responsive">
         <?php if (!empty($property->rooms)): ?>
         <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th><?= __('Room Name') ?></th>
-                <th><?= __('Vacant') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
-            </tr>
+            <thead>
+                <tr>
+                    <th><?= __('Room Name') ?></th>
+                    <th><?= __('Status') ?></th>
+                    <th><?= __('Actions') ?></th>
+                </tr>
+            </thead>
             <?php foreach ($property->rooms as $rooms): ?>
             <tr>
                 <td><?= h($rooms->room_name) ?></td>
-                <td><?= h($rooms->vacant) ?></td>
+                <td>
+                    <?php 
+                        if ($rooms->vacant === 'FALSE') {
+                            echo "Occupied";
+                        }
+                        if ($rooms->vacant === 'TRUE') {
+                            echo "Vacant";
+                        }
+                    ?>
+                </td>
 
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Rooms', 'action' => 'view', $rooms->id]) ?>
@@ -75,9 +71,8 @@
             <?php endforeach; ?>
         </table>
         <?php endif; ?>
-        <?= $this->Form->create(null, [
-            'url' => ['controller' => 'Properties', 'action' => 'index']
-        ])?>
-        <?= $this->Form->button(__('Cancel')) ?>
+            <div class="panel-footer"><!-- Panel Footer Doesn't actually do anything here apart from  adding a border --></div>
 
-</div>
+    </div>
+
+</div>    

@@ -74,7 +74,7 @@
                 <th>Property</th>
                 <th>Requested</th>
 <!--                 <th>Status</th> -->
-                <th>Property Access</th>
+                <th>Access Permission</th>
                 <th>Edit</th>
                 <th>Close</th>
             </tr>

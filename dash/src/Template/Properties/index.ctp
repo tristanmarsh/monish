@@ -142,6 +142,13 @@
                     </td>
                     <td>
                         <?php
+                        $emailHash = md5( strtolower( trim( $personEntity->email ) ) );
+                        // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
+                        $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
+                        $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+                        ?>
+
+                        <?php
                         if (!empty($room->leases)) {
                             foreach ($room->leases as $leastenddate) {
                                 $test = $test."||".$leastenddate->date_end->format('Y-m-d');
@@ -163,8 +170,10 @@
                             }
 
                             if (max($toArray) > date("Y-m-d")) {
+                                echo $gravatarImage;
                                 echo $personEntity->first_name." ".$personEntity->last_name;
                             } else if (max($toArray) === date("Y-m-d")) {
+                                echo $gravatarImage;
                                 echo $personEntity->first_name." ".$personEntity->last_name;
                             } else if (max($toArray) < date("Y-m-d")) {
                                 echo "No Tenant ";

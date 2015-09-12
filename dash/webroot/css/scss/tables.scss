@@ -176,16 +176,29 @@ table {
   }
 
 
-  // Action Icon Color
+  // Close Icon Color
   td.action-close>a span:before,
   td.action-close>a span:before{
     color: lighten(#5fcf80,10%);
   }  
 
-  // Action hover background
+  // Close hover background
   td.action-close>a:focus,
   td.action-close>a:hover {
     background: lighten(#5fcf80,10%);
+  }
+
+
+  // Remove Icon Color
+  td.action-remove>a span:before,
+  td.action-remove>a span:before{
+    color: lighten(#CF6370,10%);
+  }  
+
+  // Remove hover background
+  td.action-remove>a:focus,
+  td.action-remove>a:hover {
+    background: lighten(#CF6370,10%);
   }
 
   // Action hover icon color

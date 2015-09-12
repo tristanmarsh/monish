@@ -9,13 +9,13 @@
     <div class="panel-body">
 
         <div class="col-sm-6">
-            <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
-
-        </ul>
-
             
+            <ul class="nav nav-pills pull-left">
+                <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
+                <li role="presentation"><?= $this->Html->link('New Room', ['action' => 'add']) ?></li>
+
+            </ul>
+
         </div>
 
         <div class="col-sm-6">

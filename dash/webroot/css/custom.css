@@ -794,6 +794,12 @@ table {
   table td.action-close > a:focus,
   table td.action-close > a:hover {
     background: #86db9f; }
+  table td.action-remove > a span:before,
+  table td.action-remove > a span:before {
+    color: #db8a94; }
+  table td.action-remove > a:focus,
+  table td.action-remove > a:hover {
+    background: #db8a94; }
   table td > a:focus > span.glyphicon:before,
   table td > a:hover > span.glyphicon:before {
     color: #fff; }
@@ -919,6 +925,7 @@ body {
   color: #70808e; }
 
 .img-center {
+  display: block;
   margin: 0 auto; }
 
 a {

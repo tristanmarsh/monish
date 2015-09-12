@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2015 at 08:04 AM
+-- Generation Time: Sep 12, 2015 at 10:42 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -199,11 +199,6 @@ INSERT INTO `people` (`id`, `first_name`, `last_name`, `common_name`, `gender`, 
 CREATE TABLE IF NOT EXISTS `properties` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `address` varchar(50) NOT NULL,
-  `number_rooms` int(11) NOT NULL,
-  `bathrooms` int(11) NOT NULL,
-  `kitchens` int(11) NOT NULL,
-  `storeys` int(11) NOT NULL,
-  `garage` enum('TRUE','FALSE') NOT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `avatar_directory` varchar(255) DEFAULT NULL,
   `avatar_url` varchar(255) DEFAULT NULL,
@@ -211,22 +206,22 @@ CREATE TABLE IF NOT EXISTS `properties` (
   `avatar_size` varchar(255) DEFAULT NULL,
   `avatar_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `properties`
 --
 
-INSERT INTO `properties` (`id`, `address`, `number_rooms`, `bathrooms`, `kitchens`, `storeys`, `garage`, `avatar`, `avatar_directory`, `avatar_url`, `avatar_type`, `avatar_size`, `avatar_name`) VALUES
-(1, '100 one street', 5, 1, 1, 1, 'TRUE', 'img/properties/1/eiffel-tower.jpg', 'img/properties/1/', '/img/properties/1/eiffel-tower.jpg', 'image/jpeg', '299947', 'eiffel-tower.jpg'),
-(2, '200 two street', 5, 1, 1, 1, 'TRUE', 'img/properties/2/home_temp1__medium.jpg', 'img/properties/2/', '/img/properties/2/home_temp1__medium.jpg', 'image/jpeg', '321651', 'home_temp1__medium.jpg'),
-(3, '300 three street', 4, 2, 2, 1, 'FALSE', 'img/properties/3/macalister-mansion-3.jpg', 'img/properties/3/', '/img/properties/3/macalister-mansion-3.jpg', 'image/jpeg', '124712', 'macalister-mansion-3.jpg'),
-(4, '400 four street', 5, 2, 2, 1, 'FALSE', 'img/properties/4/Gelbensande3.jpg', 'img/properties/4/', '/img/properties/4/Gelbensande3.jpg', 'image/jpeg', '1294712', 'Gelbensande3.jpg'),
-(5, '500 five street', 5, 2, 2, 1, 'FALSE', 'img/properties/5/Morey_Mansion_in_Winter.jpg', 'img/properties/5/', '/img/properties/5/Morey_Mansion_in_Winter.jpg', 'image/jpeg', '3469696', 'Morey_Mansion_in_Winter.jpg'),
-(6, '600 six street', 3, 2, 2, 1, 'FALSE', 'img/properties/6/100987825-121017_EJ_stone_mansion_0014r.1910x1000.jpg', 'img/properties/6/', '/img/properties/6/100987825-121017_EJ_stone_mansion_0014r.1910x1000.jpg', 'image/jpeg', '364184', '100987825-121017_EJ_stone_mansion_0014r.1910x1000.jpg'),
-(7, '700 test avenue', 5, 4, 2, 1, 'TRUE', 'img/properties/7/21mgqjl.jpg', 'img/properties/7/', '/img/properties/7/21mgqjl.jpg', 'image/jpeg', '86227', '21mgqjl.jpg'),
-(10, '800 Rad Drive', 800, 1, 2, 2, 'TRUE', 'img/properties/10/Great_Gatsby-TP-0000.jpg', 'img/properties/10/', '/img/properties/10/Great_Gatsby-TP-0000.jpg', 'image/jpeg', '1221441', 'Great_Gatsby-TP-0000.jpg'),
-(11, '900 Frat House', 3, 4, 2, 2, 'FALSE', 'img/properties/11/product899-001.jpg', 'img/properties/11/', '/img/properties/11/product899-001.jpg', 'image/jpeg', '78240', 'product899-001.jpg');
+INSERT INTO `properties` (`id`, `address`, `avatar`, `avatar_directory`, `avatar_url`, `avatar_type`, `avatar_size`, `avatar_name`) VALUES
+(1, '100 one street', 'img/properties/1/eiffel-tower.jpg', 'img/properties/1/', '/img/properties/1/eiffel-tower.jpg', 'image/jpeg', '299947', 'eiffel-tower.jpg'),
+(2, '200 two street', 'img/properties/2/home_temp1__medium.jpg', 'img/properties/2/', '/img/properties/2/home_temp1__medium.jpg', 'image/jpeg', '321651', 'home_temp1__medium.jpg'),
+(3, '300 three street', 'img/properties/3/macalister-mansion-3.jpg', 'img/properties/3/', '/img/properties/3/macalister-mansion-3.jpg', 'image/jpeg', '124712', 'macalister-mansion-3.jpg'),
+(4, '400 four street', 'img/properties/4/Gelbensande3.jpg', 'img/properties/4/', '/img/properties/4/Gelbensande3.jpg', 'image/jpeg', '1294712', 'Gelbensande3.jpg'),
+(5, '500 five street', 'img/properties/5/Morey_Mansion_in_Winter.jpg', 'img/properties/5/', '/img/properties/5/Morey_Mansion_in_Winter.jpg', 'image/jpeg', '3469696', 'Morey_Mansion_in_Winter.jpg'),
+(6, '600 six street', 'img/properties/6/100987825-121017_EJ_stone_mansion_0014r.1910x1000.jpg', 'img/properties/6/', '/img/properties/6/100987825-121017_EJ_stone_mansion_0014r.1910x1000.jpg', 'image/jpeg', '364184', '100987825-121017_EJ_stone_mansion_0014r.1910x1000.jpg'),
+(7, '700 test avenue', 'img/properties/7/21mgqjl.jpg', 'img/properties/7/', '/img/properties/7/21mgqjl.jpg', 'image/jpeg', '86227', '21mgqjl.jpg'),
+(10, '800 Rad Drive', 'img/properties/10/Great_Gatsby-TP-0000.jpg', 'img/properties/10/', '/img/properties/10/Great_Gatsby-TP-0000.jpg', 'image/jpeg', '1221441', 'Great_Gatsby-TP-0000.jpg'),
+(11, '900 Frat House', 'img/properties/11/product899-001.jpg', 'img/properties/11/', '/img/properties/11/product899-001.jpg', 'image/jpeg', '78240', 'product899-001.jpg');
 
 -- --------------------------------------------------------
 

@@ -58,21 +58,7 @@ class PropertiesTable extends Table
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
             ->requirePresence('address', 'create')
-            ->notEmpty('address')
-            ->add('number_rooms', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('number_rooms', 'create')
-            ->notEmpty('number_rooms')
-            ->add('bathrooms', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('bathrooms', 'create')
-            ->notEmpty('bathrooms')
-            ->add('kitchens', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('kitchens', 'create')
-            ->notEmpty('kitchens')
-            ->add('storeys', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('storeys', 'create')
-            ->notEmpty('storeys')
-            ->requirePresence('garage', 'create')
-            ->notEmpty('garage');
+            ->notEmpty('address');
 
         return $validator;
     }

@@ -89,13 +89,15 @@
                         $test = "";
                         $testtwo = "";
                         $sentinel = true; //true if Never Been Leased
+                        ?>
+                        <?php
                         if (!empty($room->leases)) {
                             foreach ($room->leases as $leastenddate) {
                                 $test = $test."||".$leastenddate->date_end->format('Y-m-d');
                             }
                         }
                         else {
-                            echo "Never Been Leased";
+                            echo "No Tenant";
                             $sentinel = false;
                         }
                         if ($sentinel) { //THIS CHECK MAKES THE TABLE ALIGNMENT WEIRD I HAVE NO IDEA WHY, But it is the only way for the code to correctly check room status
@@ -103,18 +105,18 @@
 
                             foreach ($room->leases as $leastenddate) {
                                 if ($leastenddate->date_end->format('Y-m-d') === max($toArray)) {
-                                        $studentid = $leastenddate->student_id;
-                                        $studentEntity = $studentTable->get($studentid, ['contain'=>'People']);
-                                        $personEntity = $peopleTable->get($studentEntity->person_id);
-                                    };
+                                    $studentid = $leastenddate->student_id;
+                                    $studentEntity = $studentTable->get($studentid, ['contain'=>'People']);
+                                    $personEntity = $peopleTable->get($studentEntity->person_id);
+                                };
                             }
 
                             if (max($toArray) > date("Y-m-d")) {
-                                echo "Leased Until " . max($toArray);
+                                echo $personEntity->first_name." ".$personEntity->last_name;
                             } else if (max($toArray) === date("Y-m-d")) {
-                                echo "Lease Expires Today";
+                                echo $personEntity->first_name." ".$personEntity->last_name;
                             } else if (max($toArray) < date("Y-m-d")) {
-                                echo "Lease Expired Since ".max($toArray);
+                                echo "No Tenant ";
                             }
                         }
                         ?>
@@ -166,7 +168,7 @@
                             }
                         }
                         else {
-                            echo "No Tenant";
+                            echo "Never Been Leased";
                             $sentinel = false;
                         }
                         if ($sentinel) { //THIS CHECK MAKES THE TABLE ALIGNMENT WEIRD I HAVE NO IDEA WHY, But it is the only way for the code to correctly check room status
@@ -181,11 +183,11 @@
                             }
 
                             if (max($toArray) > date("Y-m-d")) {
-                                echo $personEntity->first_name." ".$personEntity->last_name;
+                                echo "Leased Until " . max($toArray);
                             } else if (max($toArray) === date("Y-m-d")) {
-                                echo $personEntity->first_name." ".$personEntity->last_name;
+                                echo "Lease Expires Today";
                             } else if (max($toArray) < date("Y-m-d")) {
-                                echo "No Tenant ";
+                                echo "Lease Expired Since ".max($toArray);
                             }
                         }
                         ?>

@@ -16,32 +16,13 @@
         <ul class="nav nav-pills pull-left">
           <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
           <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
-
+          <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $room->id]) ?></li>
+          <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $room->id]) ?></li>
         </ul>
 
 
       </div>
 
-              <div class="panel-footer">
-
-        
-        <ul class="nav nav-pills pull-left">
-          <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $room->id]) ?></li>
-          <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $room->id]) ?></li>
-        </ul>
-
-    </div>
-
-<!--       <div class="panel-footer">
-
-        <ul class="nav nav-pills pull-left">
-          <li role="presentation" class="active"><a href="#">Imagine</a></li>
-          <li role="presentation"><a href="#">Alternative</a></li>
-          <li role="presentation"><a href="#">Secondary</a></li>
-          <li role="presentation"><a href="#">Buttons</a></li>
-        </ul>
-
-      </div> -->
     </div>
 
 <div class="panel panel-primary"> 
@@ -50,9 +31,11 @@
     </div>
 
     <table>
-        <tr>
-            <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= h($room->room_name) ?></th>
-        </tr>
+        <thead>
+            <tr>
+                <th><?= h($room->room_name) ?></th>
+            </tr>
+        </thead>
         <tr>
             <td>
                 Current Tenant: 
@@ -109,18 +92,6 @@
 
         </table>        
 
-<!--     <h1><?= h($room->property['address']) ?></h1>
-    <h2><?= h($room->room_name) ?></h2>
-    <h2>
-    <?php
-    if ($room->vacant === "FALSE"){
-        echo "Not Vacant";
-    }
-    else {echo "Vacant";}
-    ?>
-    </h2>
-    <h3><?= $this->Html->link('Edit Room', ['action' => 'edit', $room->id]) ?></h3>
-</div> -->
 </div>
 
     <!-- Default panel contents -->
@@ -131,10 +102,10 @@
     <?php if (!empty($room->leases)): ?>
     <table cellpadding="0" cellspacing="0">
         <tr>
-            <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Tenant') ?></th>
-            <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Date Start') ?></th>
-            <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Date End') ?></th>
-            <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Weekly Price') ?></th>
+            <th><?= __('Tenant') ?></th>
+            <th><?= __('Date Start') ?></th>
+            <th><?= __('Date End') ?></th>
+            <th><?= __('Weekly Price') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         <?php foreach ($room->leases as $leases): ?>

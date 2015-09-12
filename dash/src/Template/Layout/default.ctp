@@ -55,7 +55,6 @@ $cakeDescription = 'Monish Dashboard';
 
 	<?= $this->Html->script('wow.min.js') ?>
 	<?= $this->Html->script('min/nprogress-min.js') ?>
-	<?= $this->Html->script('min/bootbox.min.js') ?>
 	<?= $this->Html->script('min/custom-min.js') ?>
 	
 <!-- 	<?= $this->Html->script('min/angular.min.js') ?>

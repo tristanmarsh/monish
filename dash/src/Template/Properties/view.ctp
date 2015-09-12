@@ -42,9 +42,10 @@
         <table cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
-                    <th><?= __('Room Name') ?></th>
-                    <th><?= __('Status') ?></th>
-                    <th><?= __('Actions') ?></th>
+                    <th>Room Name</th>
+                    <th>Status</th>
+                    <th style="text-align:center" width="68x">Edit</th>
+                    <th style="text-align:center" width="68px">Delete</th>
                 </tr>
             </thead>
             <?php foreach ($property->rooms as $rooms): ?>
@@ -60,14 +61,17 @@
                         }
                     ?>
                 </td>
-
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Rooms', 'action' => 'view', $rooms->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Rooms', 'action' => 'edit', $rooms->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Rooms', 'action' => 'delete', $rooms->id], ['confirm' => __('Are you sure you want to delete # {0}?', $rooms->id)]) ?>
+                <td class="action action-edit">
+                    <?php
+                        echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'Rooms', 'action' => 'edit', $rooms->id], ['escape' => false]);
+                    ?>
+                </td>
+                <td class="action action-close">
+                    <?php
+                        echo $this->Form->postLink('<span class="glyphicon glyphicon-ok"></span>', ['controller' => 'Rooms', 'action' => 'delete', $rooms->id], ['confirm' => 'Are you sure?', "escape" => false]);
+                    ?>
                 </td>
             </tr>
-
             <?php endforeach; ?>
         </table>
         <?php endif; ?>

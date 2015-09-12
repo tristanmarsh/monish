@@ -33,6 +33,7 @@ class PropertiesTable extends Table
 		$this->addBehavior('Utils.Uploadable', [
 		  'avatar' => [
 			'path' => '{ROOT}{DS}{WEBROOT}{DS}img{DS}{model}{DS}{field}{DS}',
+            'fileName' => '{field}.{extension}',
 			'removeFileOnUpdate' => true,
 			'removeFileOnDelete' => true, 
 			'fields' => [

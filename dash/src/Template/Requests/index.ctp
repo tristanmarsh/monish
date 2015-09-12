@@ -158,7 +158,7 @@
                                 echo $this->Form->postLink(
                                     '<span class="glyphicon glyphicon-ok"></span>',
                                     ['controller'=>'requests', 'action' => 'delete', $request->id],
-                                    ['confirm' => 'Are you sure?', "escape" => false]);
+                                    ['confirm' => 'Close ' . $request->title .' Request from '. $request->person->first_name . " " . $request->person->last_name . '?' , "escape" => false]);
                             ?>
                         </td>
                     </tr>

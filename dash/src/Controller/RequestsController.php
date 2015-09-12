@@ -96,10 +96,10 @@ class RequestsController extends AppController
             //$newData = ['user_id' => $this->Auth->user('id')];
             //$entity = $this->Articles->patchEntity($entity, $newData);
             if ($this->Requests->save($entity)) {
-                $this->Flash->success(__('Your request has been submitted.'));
+                $this->Flash->success(__('Your request has been submitted'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('Unable submit your request.'));
+            $this->Flash->error(__('Unable submit your request'));
         }
         $this->set('entity', $entity);
 
@@ -117,10 +117,10 @@ class RequestsController extends AppController
         if ($this->request->is(['post', 'put'])) {
             $entity = $this->Requests->patchEntity($entity, $this->request->data);
             if ($this->Requests->save($entity)){
-                $this->Flash->success(__('Your request has been updated.'));
+                $this->Flash->success(__('Your request has been updated'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('Unable to update your request.'));
+            $this->Flash->error(__('Unable to update your request'));
         }
         $this->set('entity', $entity);
 
@@ -132,10 +132,13 @@ class RequestsController extends AppController
     public function delete($id)
     {
         $this->request->allowMethod(['post', 'delete']);
+        $this->loadModel('People');
 
-        $tiger = $this->Requests->get($id);
-        if ($this->Requests->delete($tiger)) {
-            $this->Flash->success(__('The request with id: {0} has been deleted.', h($id)));
+        $requestEntity = $this->Requests->get($id);
+        $requestPersonId = $requestEntity->person_id;
+        $personEntity = $this->People->get($requestPersonId);
+        if ($this->Requests->delete($requestEntity)) {
+            $this->Flash->success(__('The request ' . $requestEntity->title . ' from ' . $personEntity->first_name . ' has been completed', h($id)));
             return $this->redirect(['action' => 'index']);
         }
     }

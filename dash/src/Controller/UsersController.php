@@ -25,7 +25,7 @@ class UsersController extends AppController
 			
             if(empty($this->request->data['username']))
             {
-                $this->Flash->error('Please enter your username address.');
+                $this->Flash->error('Please enter your username (email address)');
 
             }
             else
@@ -57,23 +57,23 @@ class UsersController extends AppController
                             $email->template('reset_password')
                                 ->emailFormat('html')
                                 ->to($toemail)
-                                ->subject('Reset your Better Windows password')
+                                ->subject('Request To Recover Monash International Student House Account')
                                 ->from('mafak1@student.monash.edu')
                                 ->viewVars(['ms' => $ms])
                                 ->send();
 
-                            $this->Flash->success('A link has been generated. Please check your email.');
+                            $this->Flash->success('Recovery email generated! Please check your email');
 
                             //============EndEmail=============//
                         }
                         else{
 
-                            $this->Flash->error('Error generating reset link.');
+                            $this->Flash->error('Unable to generate recovery email');
                         }
                 }
                 else
                 {
-                    $this->Flash->error('Email does not exist.');
+                    $this->Flash->error('Email not associated with a current system user');
                 }
             }
         }
@@ -112,7 +112,7 @@ class UsersController extends AppController
 
                         if($this->Users->save($u))
                         {
-                            $this->Flash->success('Password Has been updated');
+                            $this->Flash->success('Password Successfully Updated!');
 
                             //Redirects home rather than to a controller to prevent error access message
                             $this->redirect('/');

@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"person",
+				"person_id"
+			],
+			[
+				"first",
+				"first_name"
+			],
+			[
 				"border-col",
 				"border-color"
 			],
@@ -224,29 +232,41 @@
 	},
 	"file_history":
 	[
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/datatables.scss",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Controller/RequestsController.php",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/add.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/add.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/view.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/edit.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/footer.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/footer.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Controller/LeasesController.php",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/datatables.scss",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sm.scss",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/animate.css-scss/_properties.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Email/html/reset_password.ctp",
 		"/Users/dev/Downloads/all-templates/hero.html",
 		"/Applications/MAMP/htdocs/monish/dash/src/Controller/UsersController.php",
 		"/Applications/MAMP/htdocs/monish/.tools/contact-form-email-template.html",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/recovery.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/changepassword.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/reset_password.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/forgot_password.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sidebar.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index (Backup with the modals on click).ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/custom.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Model/Table/LeasesTable.php",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/bootstrap/css/bootstrap.css",
@@ -254,16 +274,13 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/bootstrap.min.css",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/custom.css",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/css/custom.css",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/footer.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/nprogress.js",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/login.ctp",
 		"/Users/dev/Desktop/Property Locations",
 		"/Users/dev/Desktop/home_temp1__medium.jpg",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/variables.scss",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sm.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Students/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/add.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Controller/RequestsController.php",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/psy/psysh/src/Psy/Command/ListCommand/GlobalVariableEnumerator.php",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/override.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/custom.js",
@@ -278,11 +295,8 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/bootstrap/css/bootstrap-theme.min.css",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Students/edit.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/edit.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Recoveries/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Macaddresses/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/add.ctp",
@@ -291,7 +305,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/debug_kit/src/Template/Requests/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/symfony/config/Symfony/Component/Config/Definition/Builder/ArrayNodeDefinition.php",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/debug_kit/tests/test_app/View/DebugKitTest/request_action_render.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/footer.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/dash.sublime-workspace",
 		"/Users/dev/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/wow.min.js",
@@ -300,7 +313,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/animate.min.css",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/error.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tests/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Macaddresses/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Controller/Component/FlashComponent.php",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/Flash/default.ctp",
@@ -347,11 +359,7 @@
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/medium.scss",
 		"/Users/dev/Desktop/notes",
 		"/Users/dev/Desktop/to do .js",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/sidebar.scss",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/small.scss",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/header.php",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/plugins/ajaxify-wordpress-site/js/ajaxify.js",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/plugins/ajaxify-wordpress-site/css/aws-style.css"
+		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/sidebar.scss"
 	],
 	"find":
 	{
@@ -381,6 +389,44 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"$room",
+			"panel-default",
+			"edit room",
+			"new",
+			"edit",
+			"heading",
+			"md",
+			"close",
+			"action",
+			"ok",
+			"title",
+			"panel",
+			"active",
+			"footer",
+			"delete",
+			"new room",
+			"max",
+			"model",
+			"requestEntity",
+			"people",
+			"tiger",
+			"People",
+			"{0}",
+			"{",
+			"echo",
+			"edit",
+			"prompt",
+			"no",
+			"gravatar",
+			"filter",
+			"hover",
+			"none",
+			"content",
+			"propert",
+			"property",
+			"cursor",
+			"properties",
+			"left",
 			"user",
 			"gravatar",
 			"script",
@@ -470,45 +516,7 @@
 			"height",
 			"width",
 			"img",
-			"gravatar",
-			"img",
-			"20px",
-			"gravatar",
-			"decision",
-			"throw",
-			"try",
-			"request",
-			"pointer",
-			"rgba(36, 114, 164,0.5)",
-			"rgba",
-			"active",
-			"bottom",
-			"border",
-			"dataTables_info",
-			"dataTables_paginate",
-			"dataTables_wrapper",
-			".pa",
-			", .",
-			"dataTables_paginate",
-			"paginate_button",
-			"pagination",
-			"current",
-			"active",
-			"border",
-			"float",
-			"absolute",
-			"absolute'",
-			"absolute",
-			"first",
-			"border",
-			"ate:",
-			"te:f",
-			"left",
-			"first",
-			"pag",
-			"pagination",
-			"\n  ",
-			"requests"
+			"gravatar"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -607,8 +615,92 @@
 		"selected_items":
 		[
 			[
+				"room/edit",
+				"dash/src/Template/Rooms/edit.ctp"
+			],
+			[
+				"rooms/view",
+				"dash/src/Template/Rooms/view.ctp"
+			],
+			[
+				"rooms/add",
+				"dash/src/Template/Rooms/add.ctp"
+			],
+			[
+				"room/index",
+				"dash/src/Template/Rooms/index.ctp"
+			],
+			[
+				"rooms/edit",
+				"dash/src/Template/Rooms/edit.ctp"
+			],
+			[
+				"properties/add",
+				"dash/src/Template/Properties/add.ctp"
+			],
+			[
+				"tables",
+				"scss/tables.scss"
+			],
+			[
 				"properties/index",
 				"dash/src/Template/Properties/index.ctp"
+			],
+			[
+				"properties/view",
+				"dash/src/Template/Properties/view.ctp"
+			],
+			[
+				"prop/index",
+				"dash/src/Template/Properties/index.ctp"
+			],
+			[
+				"footer.ctp",
+				"dash/src/Template/Element/footer.ctp"
+			],
+			[
+				"footer",
+				"scss/footer.scss"
+			],
+			[
+				"global",
+				"scss/global.scss"
+			],
+			[
+				"requests/index",
+				"dash/src/Template/Requests/index.ctp"
+			],
+			[
+				"requestscontroller",
+				"dash/src/Controller/RequestsController.php"
+			],
+			[
+				"controller",
+				"dash/src/Controller/LeasesController.php"
+			],
+			[
+				"requests",
+				"dash/src/Template/Requests/index.ctp"
+			],
+			[
+				"index",
+				"dash/src/Template/People/index.ctp"
+			],
+			[
+				"default",
+				"dash/src/Template/Layout/default.ctp"
+			],
+			[
+				"datata",
+				"scss/datatables.scss"
+			],
+			[
+				"global.scss",
+				"scss/global.scss"
+			],
+			[
+				"properties.scss",
+				"scss/animate.css-scss/_properties.scss"
 			],
 			[
 				"datatables",
@@ -653,14 +745,6 @@
 			[
 				"tenants/index",
 				"dash/src/Template/Tenants/index.ctp"
-			],
-			[
-				"tables",
-				"scss/tables.scss"
-			],
-			[
-				"global",
-				"scss/global.scss"
 			],
 			[
 				"layout",
@@ -719,14 +803,6 @@
 				"scss/global.scss"
 			],
 			[
-				"default",
-				"dash/src/Template/Layout/default.ctp"
-			],
-			[
-				"requests/index",
-				"dash/src/Template/Requests/index.ctp"
-			],
-			[
 				"sidebar.scss",
 				"scss/sidebar.scss"
 			],
@@ -763,10 +839,6 @@
 				"dash/src/Template/Requests/index.ctp"
 			],
 			[
-				"requests",
-				"dash/src/Template/Requests/index.ctp"
-			],
-			[
 				"requests/inde",
 				"dash/src/Template/Requests/index.ctp"
 			],
@@ -781,10 +853,6 @@
 			[
 				"custom.js",
 				"dash/webroot/js/custom.js"
-			],
-			[
-				"global.scss",
-				"scss/global.scss"
 			],
 			[
 				"globabl",
@@ -847,10 +915,6 @@
 				"webroot/css/scss/custom.scss"
 			],
 			[
-				"footer",
-				"webroot/css/scss/footer.scss"
-			],
-			[
 				"footer.scs",
 				"webroot/css/scss/footer.scss"
 			],
@@ -905,10 +969,6 @@
 			[
 				"people/index",
 				"src/Template/People/index.ctp"
-			],
-			[
-				"index",
-				"src/Template/Leases/index.ctp"
 			],
 			[
 				"properties/inde",

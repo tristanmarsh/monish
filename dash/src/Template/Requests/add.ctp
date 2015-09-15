@@ -16,35 +16,29 @@
 
         <ul class="nav nav-pills pull-left">
           <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-          <li role="presentation" class="active"><?= $this->Html->link('New Requests', ['action' => 'add']) ?></li>
+          <li role="presentation" class="active"><?= $this->Html->link('New Request', ['action' => 'add']) ?></li>
         </ul>
 
 
       </div>
 
-<!--       <div class="panel-footer">
-
-        <ul class="nav nav-pills pull-left">
-          <li role="presentation" class="active"><a href="#">Imagine</a></li>
-          <li role="presentation"><a href="#">Alternative</a></li>
-          <li role="presentation"><a href="#">Secondary</a></li>
-          <li role="presentation"><a href="#">Buttons</a></li>
-        </ul>
-
-      </div> -->
     </div>
 
-<div class="panel panel-default">
-      <div class="panel-body">
 
 
 
-        <?= $this->Form->create($entity, array('type' => 'file', 'class' => 'form-group')) ?>
-        <fieldset>
+
+
+
+              <div class="panel panel-primary">
 
           <div class="panel-heading">
-            <legend><?= __('New Request', array('class' => 'form-control')) ?></legend>
+            <h2 class="panel-title">Edit Request</h2>
+
                       </div>
+            <div class="panel-body">
+                      <?= $this->Form->create($entity, array('type' => 'file', 'class' => 'form-group')) ?>
+              <fieldset>
 
             <div class="col-md-6">
 
@@ -83,6 +77,8 @@
                         <div class="col-md-12">
            <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']); ?>
            <?= $this->Form->end() ?>
+            <br>
+            <br>
            <?php
            echo $this->Form->create(null, [
             'url' => ['controller' => 'Requests', 'action' => 'index']

@@ -26,26 +26,19 @@
 
     </div>
 
-<!--     <div class="panel-footer">
-
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><a href="#">Imagine</a></li>
-            <li role="presentation"><a href="#">Secondary</a></li>
-            <li role="presentation"><a href="#">Buttons</a></li>
-        </ul>
-
-    </div> -->
 
 </div>
 
-    <div class="panel panel-default">
-      <div class="panel-body">   
-        <?= $this->Form->create($entity, array('type' => 'file', 'class' => 'form-group')) ?>
-        <fieldset>
+
+              <div class="panel panel-primary">
 
           <div class="panel-heading">
-            <legend><?= __('New Request', array('class' => 'form-control')) ?></legend>
+            <h2 class="panel-title">New Request</h2>
+
                       </div>
+            <div class="panel-body">
+                      <?= $this->Form->create($entity, array('type' => 'file', 'class' => 'form-group')) ?>
+              <fieldset>
 
             <div class="col-md-6">
 
@@ -54,7 +47,7 @@
               <?= $this->Form->input('title', array('class' => 'form-control')) ?>
 
 
-              <?= $this->Form->input('property_address', ['options' => $addresses,'class' => 'form-control']) ?>
+        <?= $this->Form->input('property_address', ['options' => $addresses,'class' => 'form-control']) ?>
                        </div>
 
                                    <div class="col-md-6">   
@@ -71,12 +64,12 @@
 
               <?= $this->Form->input('description', ['rows' => '3', 'class' => 'form-control']) ?>
 
-            <?php   // add the type to the create-method
-                //echo $this->Form->create($entity, ['type' => 'file']);
+      <?php // add the type to the create-method
+        //echo $this->Form->create($entity, ['type' => 'file']);
 
-                // add the avatar-input
-                echo $this->Form->input('avatar', ['type' => 'file', 'label' => 'Picture (Optional)']);
-            ?>
+        // add the avatar-input
+        echo $this->Form->input('avatar', ['type' => 'file', 'label' => 'Picture (Optional)']);
+      ?>
     </div>
            
            </fieldset>
@@ -84,6 +77,9 @@
                         <div class="col-md-12">
            <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']); ?>
            <?= $this->Form->end() ?>
+           <br>
+           <br>
+           
            <?php
            echo $this->Form->create(null, [
             'url' => ['controller' => 'Requests', 'action' => 'index']

@@ -33,7 +33,7 @@
     <div class="panel panel-primary">
 
       <div class="panel-heading">
-                    <h2 class="panel-title">New Tenant & Lease</h2>
+                    <h2 class="panel-title">Edit Tenant</h2>
       </div>
       <div class="panel-body">
 
@@ -86,8 +86,9 @@
            <br>
             <div class="col-md-12">
 
-           <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']); ?>
+           <?= $this->Form->button(__('Edit Tenant'), ['class' => 'form-control btn btn-primary']); ?>
            <?= $this->Form->end() ?>
+           <br><br>
            <?php
            echo $this->Form->create(null, [
             'url' => ['controller' => 'People', 'action' => 'index']

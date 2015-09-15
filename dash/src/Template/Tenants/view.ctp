@@ -43,7 +43,7 @@
                 <th>Internet Plan</th>
                 <th>Visa</th>
                 <th>Parent Address</th>
-                <th class="actions"><?= __('Actions') ?></th>
+                <th>Edit</th>
             </tr>
             </thead>
             <tbody>
@@ -57,9 +57,9 @@
                     <td><?= $person->student->internet_plan ?></td>
                     <td><?= $person->visa ?></td>
                     <td><?= $person->parent_address ?></td>
-                    <td class="actions"> 
-                        <?= $this->Html->link(__('Edit'), ['controller' => 'tenants', 'action' => 'edit', $person->user->id]) ?>
-                    </td>
+                    <td class="action action-edit" >
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'tenants', 'action' => 'edit', $person->user->id], ['escape' => false]); ?>
+                    </span></td>
                 </tr>
             </tbody>
         </table>
@@ -82,7 +82,7 @@
                 <th>Account Name</th>
                 <th>Account Number</th>
                 <th>BSB</th>
-                <th class="actions"><?= __('Actions') ?></th>
+                <th>Edit</th>
             </tr>
             </thead>
             <tbody>
@@ -92,9 +92,9 @@
                     <td><?= $person->account_name ?></td>
                     <td><?= $person->account_number ?></td>
                     <td><?= $person->bsb_number ?></td>
-                    <td class="actions"> 
-                        <?= $this->Html->link(__('Edit'), ['controller' => 'tenants', 'action' => 'edit', $person->user->id]) ?>
-                    </td>
+                    <td class="action action-edit" >
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'tenants', 'action' => 'edit', $person->user->id], ['escape' => false]); ?>
+                    </span></td>
                 </tr>
             </tbody>
         </table>
@@ -119,7 +119,7 @@
                     <th><?= __('Date Start') ?></th>
                     <th><?= __('Date End') ?></th>
                     <th><?= __('Weekly Price') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <?php foreach ($query as $leases): ?>
@@ -129,10 +129,10 @@
                 <td><?= h($leases->date_start->format('Y M d')) ?></td>
                 <td><?= h($leases->date_end->format('Y M d')) ?></td>
                 <td><?= h($this->Number->currency($leases->weekly_price)) ?></td>
-                <td class="actions">
-                 <!--    <?= $this->Html->link(__('Edit'), ['controller' => 'Leases', 'action' => 'edit', $leases->id]) ?> -->
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Leases', 'action' => 'delete', $leases->id], ['confirm' => __('Are you sure you want to delete # {0}?', $leases->id)]) ?>
-                </td>
+                <td class="action action-remove" >
+                        <?php echo $this->form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'Leases', 'action' => 'delete', $leases->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>
+                    </span></td>
+
             </tr>
 
             <?php endforeach; ?>
@@ -156,7 +156,8 @@
                     <th><?= __('Last Name') ?></th>
                     <th><?= __('Phone') ?></th>
                     <th><?= __('Email') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>    
             <?php foreach ($emergencyQuery as $emergency): ?>
@@ -165,10 +166,12 @@
                     <td><?= $emergency->last_name ?></td>
                     <td><?= $emergency->phone ?></td>
                     <td><?= $emergency->email ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('Edit'), ['controller' => 'Emergencies', 'action' => 'edit', $emergency->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Emergencies', 'action' => 'delete', $emergency->id], ['confirm' => __('Are you sure you want to delete # {0}?', $leases->id)]) ?>
-                    </td>
+                    <td class="action action-edit" >
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'tenants', 'action' => 'edit', $emergency->id], ['escape' => false]); ?>
+                    </span></td>
+                    <td class="action action-remove" >
+                        <?php echo $this->form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'Leases', 'action' => 'delete', $emergency->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>
+                    </span></td>
                 </tr>
 
             <?php endforeach; ?>

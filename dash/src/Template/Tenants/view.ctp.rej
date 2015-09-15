@@ -1,0 +1,9 @@
+diff a/dash/src/Template/Tenants/view.ctp b/dash/src/Template/Tenants/view.ctp	(rejected hunks)
+@@ -167,7 +167,6 @@
+                     <td><?= $emergency->email ?></td>
+                     <td class="actions">
+                         <?= $this->Html->link(__('Edit'), ['controller' => 'Emergencies', 'action' => 'edit', $emergency->id]) ?>
+-                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Emergencies', 'action' => 'delete', $emergency->id], ['confirm' => __('Are you sure you want to delete # {0}?', $leases->id)]) ?>
+                         <?= $this->Form->postLink(__('Delete'), ['controller' => 'Emergencies', 'action' => 'delete', $emergency->id], ['confirm' => __('Are you sure you want to delete # {0}?', $emergency->id)]) ?>
+                     </td>
+                 </tr>

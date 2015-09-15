@@ -74,7 +74,7 @@
                     <th>Phone</th>
                     <th>Email</th>
                     <th>Internet Plan</th>
-                    <th>Actions</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -118,7 +118,7 @@
                     <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
                         <?= $person->student->internet_plan ?>
                     </span></td>
-                    <td class="action action-edit" style="padding-top:20px;padding-bottom:20px;">
+                    <td class="action action-edit">
                         <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'tenants', 'action' => 'edit', $person->user->id], ['escape' => false]); ?>
                     </span></td>
                 <?php endif; ?>

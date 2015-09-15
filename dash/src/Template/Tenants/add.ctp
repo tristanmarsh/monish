@@ -104,8 +104,9 @@
            <br>
             <div class="col-md-12">
 
-           <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']); ?>
+           <?= $this->Form->button(__('Create Tenant'), ['class' => 'form-control btn btn-primary']); ?>
            <?= $this->Form->end() ?>
+           <br><br>
            <?php
            echo $this->Form->create(null, [
             'url' => ['controller' => 'People', 'action' => 'index']

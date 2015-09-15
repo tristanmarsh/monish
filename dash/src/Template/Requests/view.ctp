@@ -65,11 +65,11 @@
 
 
 <table>
-  <thead>
+
     <tr>
       <th>Title: <?= h($giraffe->title) ?></th>
     </tr>
-</thead>
+
     <tr>
       <td>Category: <?= h($giraffe->category) ?></td>
     </tr>

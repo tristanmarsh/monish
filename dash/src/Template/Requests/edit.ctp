@@ -75,7 +75,7 @@
            </fieldset>
            <br>
                         <div class="col-md-12">
-           <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']); ?>
+           <?= $this->Form->button(__('Edit Request'), ['class' => 'form-control btn btn-primary']); ?>
            <?= $this->Form->end() ?>
            <br>
            <br>

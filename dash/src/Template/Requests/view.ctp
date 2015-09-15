@@ -15,7 +15,16 @@
         
         <ul class="nav nav-pills pull-left">
             <li role="presentation"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+            <li role="presentation"><?= $this->Html->link('New Request', ['action' => 'add']) ?></li>
+        </ul>
+
+    </div>
+
+    <div class="panel-footer">
+
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $giraffe->id]) ?></li>
+            <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $giraffe->id]) ?></li>
         </ul>
 
     </div>
@@ -47,7 +56,7 @@
             </h2>
           </div>
           <div class="panel-body">
-            <?= $this->Html->image($directory, ['alt' => 'CakePHP', 'class' => 'img img-responsive']); ?>
+            <?= $this->Html->image($directory, ['alt' => 'CakePHP', 'class' => 'img img-responsive img-center']); ?>
           </div>
         </div>
       </div>

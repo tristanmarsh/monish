@@ -11,7 +11,7 @@
         <div class="col-sm-6">
             <ul class="nav nav-pills pull-left">
                 <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
-                <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+                <li role="presentation"><?= $this->Html->link('New Tenant', ['action' => 'add']) ?></li>
             </ul>
             
         </div>

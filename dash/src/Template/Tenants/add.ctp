@@ -83,7 +83,6 @@
             <legend><?= __('New Tenant & Lease', array('class' => 'form-control')) ?></legend>
           </div>
 
-          <div class="panel-body">
             
             <div class="col-md-6">
             
@@ -129,6 +128,8 @@
             </div>
             
            </fieldset>
+           <br>
+            <div class="col-md-12">
 
            <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']); ?>
            <?= $this->Form->end() ?>
@@ -137,6 +138,7 @@
             'url' => ['controller' => 'People', 'action' => 'index']
             ]);
            ?>
+         </div>
 
            </div>
 
@@ -175,7 +177,6 @@
 
 
       </div>
-    </div>
 
 
 

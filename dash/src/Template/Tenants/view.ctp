@@ -167,7 +167,7 @@
                     <td><?= $emergency->phone ?></td>
                     <td><?= $emergency->email ?></td>
                     <td class="action action-edit" >
-                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'tenants', 'action' => 'edit', $emergency->id], ['escape' => false]); ?>
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'emergencies', 'action' => 'edit', $emergency->id], ['escape' => false]); ?>
                     </span></td>
                     <td class="action action-remove" >
                         <?php echo $this->form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'emergencies', 'action' => 'delete', $emergency->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>

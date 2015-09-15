@@ -167,7 +167,7 @@
                     <td><?= $emergency->email ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('Edit'), ['controller' => 'Emergencies', 'action' => 'edit', $emergency->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Emergencies', 'action' => 'delete', $emergency->id], ['confirm' => __('Are you sure you want to delete # {0}?', $emergency->id)]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Emergencies', 'action' => 'delete', $emergency->id], ['confirm' => __('Are you sure you want to delete # {0}?', $leases->id)]) ?>
                     </td>
                 </tr>
 

@@ -87,9 +87,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 347.0,
 		"selected_items":
 		[
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
 			[
 				"package",
 				"Package Control: List Packages"
@@ -117,10 +121,6 @@
 			[
 				"indent",
 				"Indentation: Reindent Lines"
-			],
-			[
-				"html",
-				"Set Syntax: HTML"
 			],
 			[
 				"python",
@@ -232,14 +232,15 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/add.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/add.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Controller/RequestsController.php",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
@@ -358,8 +359,7 @@
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/assets/js/scripts.js",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/medium.scss",
 		"/Users/dev/Desktop/notes",
-		"/Users/dev/Desktop/to do .js",
-		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/dcstrategy/sass/sidebar.scss"
+		"/Users/dev/Desktop/to do .js"
 	],
 	"find":
 	{
@@ -389,6 +389,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"/tr>",
+			"<tr>",
+			"th",
+			"><",
+			"<tr>",
+			"title",
+			"panel-default",
+			"echo",
 			"$room",
 			"panel-default",
 			"edit room",
@@ -508,15 +516,7 @@
 			"grava",
 			"navbar",
 			"NAVBAR",
-			"navbar",
-			"imageSize",
-			"circle",
-			"grava",
-			"span",
-			"height",
-			"width",
-			"img",
-			"gravatar"
+			"navbar"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -524,6 +524,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"panel-primary",
 			"<!--             <div class=\"btn-group\">\n              <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                Action <span class=\"caret\"></span>\n              </button>\n              <ul class=\"dropdown-menu\">\n                <li><a href=\"#\">Search</a></li>\n                <li><a href=\"#\">Another action</a></li>\n                <li><a href=\"#\">Something else here</a></li>\n                <li role=\"separator\" class=\"divider\"></li>\n                <li><a href=\"#\">Separated link</a></li>\n              </ul>\n            </div> -->",
 			"        <div class=\"input-group input-lg pull-right search\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Filter Results\" id=\"myInputTextField\">\n          <div class=\"input-group-btn\">",
 			"<!--                     <div class=\"btn-group\">\n                      <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        Action <span class=\"caret\"></span>\n                      </button>\n                      <ul class=\"dropdown-menu\">\n                        <li><a href=\"#\">Action</a></li>\n                        <li><a href=\"#\">Another action</a></li>\n                        <li><a href=\"#\">Something else here</a></li>\n                        <li role=\"separator\" class=\"divider\"></li>\n                        <li><a href=\"#\">Separated link</a></li>\n                      </ul>\n                    </div> -->",
@@ -615,6 +616,18 @@
 		"selected_items":
 		[
 			[
+				"requests/view",
+				"dash/src/Template/Requests/view.ctp"
+			],
+			[
+				"rooms/add",
+				"dash/src/Template/Rooms/add.ctp"
+			],
+			[
+				"properties/add",
+				"dash/src/Template/Properties/add.ctp"
+			],
+			[
 				"room/edit",
 				"dash/src/Template/Rooms/edit.ctp"
 			],
@@ -623,20 +636,12 @@
 				"dash/src/Template/Rooms/view.ctp"
 			],
 			[
-				"rooms/add",
-				"dash/src/Template/Rooms/add.ctp"
-			],
-			[
 				"room/index",
 				"dash/src/Template/Rooms/index.ctp"
 			],
 			[
 				"rooms/edit",
 				"dash/src/Template/Rooms/edit.ctp"
-			],
-			[
-				"properties/add",
-				"dash/src/Template/Properties/add.ctp"
 			],
 			[
 				"tables",

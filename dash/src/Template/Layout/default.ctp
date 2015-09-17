@@ -56,6 +56,7 @@ $cakeDescription = 'Monish Dashboard';
 	<?= $this->Html->script('wow.min.js') ?>
 	<?= $this->Html->script('min/nprogress-min.js') ?>
 	<?= $this->Html->script('min/custom-min.js') ?>
+	<?= $this->Html->script('date.js') ?>
 	
 <!-- 	<?= $this->Html->script('min/angular.min.js') ?>
 	<?= $this->Html->script('app.js') ?>
@@ -68,6 +69,8 @@ $cakeDescription = 'Monish Dashboard';
 	
     <!-- DataTables -->
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/plug-ins/1.10.9/sorting/datetime-moment.js"></script>
 
 	<script>
 		new WOW().init();
@@ -138,19 +141,39 @@ $cakeDescription = 'Monish Dashboard';
 <footer>
 
 	    <!-- Clickable Row to View Record -->
-    <script>
-        $("table").on("click", "td", function(e) {
-			if ( $(this).find("a").length ) {
-                location.href = $(this).find("a").attr("href");
-			}            
-        });
-    </script>
+	<script>
+	    $("table").on("click", "tbody>tr", function(e) {
+	        if ($(e.target).is("a,input,th")) // anything else you don't want to trigger the click
+	            return;
+	        location.href = $(this).find("a").attr("href");
+	    });
 
 
+	</script>
 
+
+	<!-- Initialize Data Tables -->
     <script>
         $(document).ready( function () {
+        	$.fn.dataTable.moment( 'DD, MM, YYYY', 'en-AU' );
             $('.datatable').DataTable();
+
+            $.fn.dataTable.moment = function ( format, locale ) {
+			    var types = $.fn.dataTable.ext.type;
+			 
+			    // Add type detection
+			    types.detect.unshift( function ( d ) {
+			        return moment( d, format, locale, true ).isValid() ?
+			            'moment-'+format :
+			            null;
+			    } );
+			 
+			    // Add sorting method - use an integer for the sorting
+			    types.order[ 'moment-'+format+'-pre' ] = function ( d ) {
+			        return moment( d, format, locale, true ).unix();
+			    };
+			};
+
         } );
     </script>
 	
@@ -161,7 +184,9 @@ $cakeDescription = 'Monish Dashboard';
             oTable.fnFilter($(this).val());
         })
     </script>
+
 </footer>
+
 </html>
 
 

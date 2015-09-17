@@ -73,7 +73,7 @@
       <br>
 
       <div class="col-md-12">
-      <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']); ?>
+      <?= $this->Form->button(__('Create Lease'), ['class' => 'form-control btn btn-primary']); ?>
       <?= $this->Form->end() ?>
       <?= $this->Form->create(null, [
       'url' => ['controller' => 'Leases', 'action' => 'index']

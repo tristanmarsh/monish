@@ -30,11 +30,14 @@
 <?php if ($currentlogged['role'] === "tenant") : ?>
     <h1>Internet Plan</h1>
     <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">Select Internet Plan</h2>
+
+                      </div>
     <div class="students form large-10 medium-9 columns">
         <div class="panel-body">
         <?= $this->Form->create($student, array('class' => 'form-group')); ?>
         <fieldset>
-            <legend><?= __('Select Plan', array('class' => 'form-control')) ?></legend>
             <?php
             echo $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'], 'class' => 'form-control']);
             ?>
@@ -54,11 +57,13 @@
     </div>  
         
         <table>
+            <thead>
             <tr>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Type</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Data</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Price</th>
+                <th>Type</th>
+                <th>Data</th>
+                <th>Price</th>
             </tr>
+        </thead>
             <tr>                
                 <td>Free</td>
                 <td>1 Gigabyte / Month</td>

@@ -4,7 +4,7 @@
     $emailHash = md5( strtolower( trim( $user['username'] ) ) );
     // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
     $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
-    $gravatarImage = '<img height="150px" width="150px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+    $gravatarImage = '<img height="150px" width="150px" class="img gravatar" style="border-radius:10px;" src="' . $gravatarQuery . '"/>';
 ?>
 
 <?php
@@ -28,7 +28,7 @@
     
     <?php 
         echo $gravatarImage;
-        echo '<br>'."That's all we know about you.";
+        echo '<br><br>'."You are an Administrator. That's all we know about you.";
     ?>    
 
 <?php endif; ?>

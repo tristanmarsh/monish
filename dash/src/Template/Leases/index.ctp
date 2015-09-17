@@ -75,7 +75,7 @@ $this->Html->addCrumb('Leases', '/leases');
               <th>Date Start</th>
               <th>Date End</th>
               <th>Weekly Price</th>
-              <th>Delete</th>
+              <th style="text-align:center;">Delete</th>
             </tr>
           </thead>
           <tbody>

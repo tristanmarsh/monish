@@ -2,7 +2,7 @@
     $this->Html->addCrumb('Leases', '/leases');
     $this->Html->addCrumb('View Lease');
 ?>
-    <h1>Leases</h1>
+    <h1>Lease</h1>
 
     <div class="panel panel-default clearfix">
     
@@ -29,16 +29,15 @@
     <div class="panel panel-primary">
     <!-- Default panel contents -->
     <div class="panel-heading">
-        <h2 class="panel-title">Lease Detail</h2>
+        <h2 class="panel-title">Lease Details</h2>
     </div>
 
 <table>
-<tr><td>ID: <?= $this->Number->format($lease->id) ?></td></tr>
 
-<tr><td>Room: <?= h($lease->room->room_name)?></td></tr>
+<tr><td>Location: <?= h($lease->room->room_name." in ".$lease->property->address)?></td></tr>
 <!--<?= $lease->has('room') ? $this->Html->link($lease->room->room_name, ['controller' => 'Rooms', 'action' => 'view', $lease->room->id]) : '' ?> -->
 
-<tr><td>Student: <?php
+<tr><td>Tenant: <?php
           $person = $walrus->get($lease->student->person_id);
           ?>
           <?= $person->first_name ?>
@@ -46,12 +45,11 @@
 
 <tr><td>Weekly Price: <?= $this->Number->currency($lease->weekly_price, 'USD') ?></td></tr>
 
-<tr><td>Date Start: <?= h($lease->date_start->format('Y M d')) ?></td></tr>
+<tr><td>Lease Started On: <?= h($lease->date_start->format('d/m/Y')) ?></td></tr>
 
-<tr><td>Date End: <?= h($lease->date_end->format('Y M d')) ?></td></tr>
+<tr><td>Lease Expires On: <?= h($lease->date_end->format('d/m/Y')) ?></td></tr>
 
-<tr><td>Lease Status: <?= $this->Text->autoParagraph(h($lease->lease_status)); ?></td></tr>
-
+<!-- <tr><td>Lease Status: <?= $this->Text->autoParagraph(h($lease->lease_status)); ?></td></tr> -->
 
 
 

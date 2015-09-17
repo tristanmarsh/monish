@@ -91,7 +91,7 @@ class LeasesController extends AppController
         $walrus = $this->People;
         $this->set('walrus', $walrus);
         $lease = $this->Leases->get($id, [
-            'contain' => ['Rooms', 'Students']
+            'contain' => ['Rooms', 'Students', 'Properties']
         ]);
         $this->set('lease', $lease);
         //$lion = $this->User;

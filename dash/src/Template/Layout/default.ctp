@@ -141,15 +141,18 @@ $cakeDescription = 'Monish Dashboard';
 <footer>
 
 	    <!-- Clickable Row to View Record -->
-	<script>
-	    $("table").on("click", "tbody>tr", function(e) {
-	        if ($(e.target).is("a,input,th")) // anything else you don't want to trigger the click
-	            return;
-	        location.href = $(this).find("a").attr("href");
-	    });
+    <script>
+        
+        $("table").on("click", "td", function(e) {
+			if ( $(this).find("a").length ) {
+                location.href = $(this).find("a").attr("href");
+			}            
+        });
 
+        //This puts a cursor pointer in all table rows with a link
+        $('td>a').parent().css("cursor","pointer")
 
-	</script>
+    </script>
 
 
 	<!-- Initialize Data Tables -->

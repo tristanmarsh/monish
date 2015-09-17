@@ -25,7 +25,10 @@
 				}
 			?>
 		<?php endforeach; ?>
-
+		<table>
+			<tbody>
+		<tr><td style="background-color : white;cursor: pointer;">
+			<?= $this->Html->link("", ['controller'=>'Requests', 'action' => 'index']) ?>
 		<?php
 			if ($count == 0){
 				echo "You have no unread requests.";
@@ -34,6 +37,11 @@
 				echo "You have ".$count." unread requests."; 
 			}
 		?>
+	</td>
+		</tr>
+	</tbody>
+		</table>
+
 	</div>
 
 	</div>
@@ -73,7 +81,6 @@
 			        <th>Room</th>
 			        <th>Tenant</th>	
 					<th>Days Remaining</th>
-					<th>View</th>
 				</thead>
 				<?php foreach ($leases as $lease): ?>	
 					<?php
@@ -84,25 +91,26 @@
 					<?php if (floor($datediff/(60*60*24)) < 30 && floor($datediff/(60*60*24)) >= 0) : ?>
 						<tr>
 							<td>
-					          <?= $lease->property->address ?>
+								<?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>	
+						        <?= $lease->property->address ?>
 					        </td>
 					        <td>
-					          <?= $lease->room->room_name ?>
+						        <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
+						        <?= $lease->room->room_name ?>
 					        </td>
 					        <td>
-					          <?php
-					          $person = $walrus->get($lease->student->person_id);
-					          ?>
-					          <?= $person->first_name ?>
-					          <?= $person->last_name ?>
+						        <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
+						        <?php
+						        	$person = $walrus->get($lease->student->person_id);
+						        ?>
+						        <?= $person->first_name ?>
+						        <?= $person->last_name ?>
 					        </td>
 							<td>
+								<?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
 								<?php
 								    echo floor($datediff/(60*60*24));
 								?>
-							</td>
-							<td>
-								<?= $this->Html->link('View', ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
 							</td>
 						</tr>	
 					<?php endif ?>	
@@ -144,7 +152,6 @@
 			        <th>Room</th>
 			        <th>Tenant</th>	
 					<th>Days Remaining</th>
-					<th>View</th>
 				</thead>
 				<?php foreach ($leases as $lease): ?>	
 					<?php
@@ -155,25 +162,26 @@
 					<?php if (floor($datediff/(60*60*24)) < 90 && floor($datediff/(60*60*24)) >= 30) : ?>
 						<tr>
 							<td>
-					          <?= $lease->property->address ?>
+								<?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>	
+						        <?= $lease->property->address ?>
 					        </td>
 					        <td>
-					          <?= $lease->room->room_name ?>
+						        <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
+						        <?= $lease->room->room_name ?>
 					        </td>
 					        <td>
-					          <?php
-					          $person = $walrus->get($lease->student->person_id);
-					          ?>
-					          <?= $person->first_name ?>
-					          <?= $person->last_name ?>
+						        <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
+						        <?php
+						        	$person = $walrus->get($lease->student->person_id);
+						        ?>
+						        <?= $person->first_name ?>
+						        <?= $person->last_name ?>
 					        </td>
 							<td>
+								<?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
 								<?php
 								    echo floor($datediff/(60*60*24));
 								?>
-							</td>
-							<td>
-								<?= $this->Html->link('View', ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
 							</td>
 						</tr>	
 					<?php endif ?>	
@@ -213,7 +221,6 @@
 			        <th>Room</th>
 			        <th>Tenant</th>	
 					<th>Days Remaining</th>
-					<th>View</th>
 				</thead>
 				<?php foreach ($leases as $lease): ?>	
 					<?php
@@ -224,25 +231,26 @@
 					<?php if (floor($datediff/(60*60*24)) < 180 && floor($datediff/(60*60*24)) >= 90) : ?>
 						<tr>
 							<td>
-					          <?= $lease->property->address ?>
+								<?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>	
+						        <?= $lease->property->address ?>
 					        </td>
 					        <td>
-					          <?= $lease->room->room_name ?>
+						        <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
+						        <?= $lease->room->room_name ?>
 					        </td>
 					        <td>
-					          <?php
-					          $person = $walrus->get($lease->student->person_id);
-					          ?>
-					          <?= $person->first_name ?>
-					          <?= $person->last_name ?>
+						        <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
+						        <?php
+						        	$person = $walrus->get($lease->student->person_id);
+						        ?>
+						        <?= $person->first_name ?>
+						        <?= $person->last_name ?>
 					        </td>
 							<td>
+								<?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
 								<?php
 								    echo floor($datediff/(60*60*24));
 								?>
-							</td>
-							<td>
-								<?= $this->Html->link('View', ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
 							</td>
 						</tr>	
 					<?php endif ?>	

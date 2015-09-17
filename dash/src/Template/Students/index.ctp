@@ -81,7 +81,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Internet Plan</th>
-                    <th>Action</th>
+                    <th style="text-align:center;">Action</th>
                 </tr>
             </thead>
 

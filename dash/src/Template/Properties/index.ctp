@@ -78,11 +78,15 @@
             <?php foreach ($property->rooms as $rooms): ?>
                 <tr>
 
-                    <td><?= $rooms->room_name ?>
+                    <!-- Room Name -->    
+                    <td>
                         <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
+                        <?= $rooms->room_name ?>
                     </td>
 
+                    <!-- Tenant Avatar -->    
                     <td>
+                        <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
                         <?php
                         $room = $roomlease->get($rooms->id, ['contain'=>'Leases']);
 
@@ -155,7 +159,9 @@
                         ?>
                     </td>
 
+                    <!-- Tenant Name -->
                     <td>
+                        <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
                         <?php
                         if (!empty($room->leases)) {
                             foreach ($room->leases as $leastenddate) {
@@ -188,7 +194,9 @@
                         ?>
                     </td>
 
+                    <!-- Status -->
                     <td>
+                        <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
                         <?php
                         if (!empty($room->leases)) {
                             foreach ($room->leases as $leastenddate) {

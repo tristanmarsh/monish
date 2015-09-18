@@ -4,7 +4,6 @@
 ?>
 
 <!--Loads the jQuery scripts used in this view-->
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 <head>
@@ -25,22 +24,70 @@
     </script>
 </head>
 
-<div class="leases form large-10 medium-9 columns">
-    <?= $this->Form->create($lease); ?>
-    <fieldset>
-        <legend><?= __('Edit Lease') ?></legend>
-        <?php
-            echo $this->Form->input('room_id', ['options' => $rooms]);
-            echo $this->Form->input('student_id', ['options' => $students]);
-            echo $this->Form->input('date_start',['id'=>'dateStartPicker', 'type'=>'text']);
-            echo $this->Form->input('date_end',['id'=>'dateEndPicker', 'type'=>'text']);
-            echo $this->Form->input('weekly_price');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-    <?= $this->Form->create(null, [
-        'url' => ['controller' => 'Leases', 'action' => 'index']
-    ])?>
-    <?= $this->Form->button(__('Cancel')) ?>
+   <h1>Leases</h1>
+
+    <div class="panel panel-default clearfix">
+    
+    <div class="panel-body">
+        
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+        </ul>
+
+    </div>
+    <div class="panel-footer">
+
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $lease->id]) ?></li>
+            <!-- <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $lease->id]) ?></li> -->
+        </ul>
+
+    </div>
+
+
 </div>
+
+<div class="panel panel-primary">
+
+  <div class="panel-heading">
+        <h2 class="panel-title">New Lease</h2>
+  </div>
+  <div class="panel-body">
+
+      <?= $this->Form->create($lease, array('class' => 'form-group')); ?>
+      <fieldset>
+
+        <div class="col-md-6">
+        <?php
+        echo $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']);
+        
+        echo $this->Form->input('date_start',['id'=>'dateStartPicker', 'type'=>'text','class' => 'form-control']);
+        
+        echo $this->Form->input('weekly_price', array('class' => 'form-control'));
+        ?>
+      </div>
+
+      <div class="col-md-6">
+        <?php
+        echo $this->Form->input('student_id', ['options' => $students,'class' => 'form-control']);
+
+        echo $this->Form->input('date_end',['id'=>'dateEndPicker', 'type'=>'text', 'class' => 'form-control']);
+
+        ?>
+
+      </div>
+      </fieldset>
+      <br>
+
+      <div class="col-md-12">
+      <?= $this->Form->button(__('Edit Lease'), ['class' => 'form-control btn btn-primary']); ?>
+      <?= $this->Form->end() ?>
+      <?= $this->Form->create(null, [
+      'url' => ['controller' => 'Leases', 'action' => 'index']
+      ])?>
+      <br>
+      <!--     <?= $this->Form->button(__('Cancel')) ?> -->
+      </div>
+    </div>
+  </div>

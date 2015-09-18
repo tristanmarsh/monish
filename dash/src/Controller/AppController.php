@@ -51,6 +51,14 @@ class AppController extends Controller
                 'action' => 'login'
             ]
         ]);
+		
+		$this->loadModel('People');
+        $this->loadModel('Users');
+
+        $userEntityy = $this->Users;
+        $this->set(compact('userEntityy'));
+        $personEntityy = $this->People;
+        $this->set(compact('personEntityy'));
     }
 
     public function beforeFilter(Event $event)

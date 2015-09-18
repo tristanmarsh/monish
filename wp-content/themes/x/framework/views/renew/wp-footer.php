@@ -27,7 +27,7 @@
 
         <?php if ( x_get_option( 'x_footer_content_display', '1' ) == '1' ) : ?>
           <div class="x-colophon-content">
-            <?php echo x_get_option( 'x_footer_content' ); ?>
+            <?php echo do_shortcode( x_get_option( 'x_footer_content' ) ); ?>
           </div>
         <?php endif; ?>
 

@@ -49,15 +49,18 @@
 
     
 
-
+<div class="panel panel-primary">
     <div class="table-responsive">
-        <table>
+        <table >
+            <thead>
             <tr>
                 <th>#</th>
                 <th>Device Name</th>
                 <th>Mac Address</th>
             </tr>
+        </head>
             <!-- ONE -->
+            <tbody>
             <tr>
                 <td><strong>1</strong></td>
                 <td>
@@ -197,8 +200,9 @@
                     <?= $personEntity->macaddress->mac_address_ten ?>
                 </td>
             </tr>
-
+        </tbody>
         </table>
     </div>
+</div>
 
 <?php endif; ?>

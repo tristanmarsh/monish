@@ -13,6 +13,14 @@
         </ul>
 
     </div>
+                <div class="panel-footer">
+
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $person->id]) ?></li>
+            <li role="presentation" ><?= $this->Html->link('Edit', ['action' => 'edit', $person->user->id]) ?></li>
+        </ul>
+
+    </div>
 </div>
 
 <div class="panel panel-primary">
@@ -22,18 +30,20 @@
     </div>
 
   <!-- Table -->
-    <div class="table-responsive">
+    <div >
         <table cellpadding="0" cellspacing="0">
             <thead>
             <tr>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;First Name</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Last Name</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Common Name</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Gender</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Phone</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Email</th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;Internet Plan</th>
-                <th class="actions"><?= __('Actions') ?></th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Common Name</th>
+                <th>Gender</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Internet Plan</th>
+                <th>Visa</th>
+                <th>Parent Address</th>
+                <th>Edit</th>
             </tr>
             </thead>
             <tbody>
@@ -45,9 +55,50 @@
                     <td><?= $person->phone ?></td>
                     <td><?= $person->email ?></td>
                     <td><?= $person->student->internet_plan ?></td>
-                    <td class="actions"> 
-                        <?= $this->Html->link(__('Edit'), ['controller' => 'tenants', 'action' => 'edit', $person->user->id]) ?>
-                    </td>
+                    <td><?= $person->visa ?></td>
+                    <td><?= $person->parent_address ?></td>
+                    <td class="action action-edit">
+                        <?php echo $this->Html->link(
+                            '<span class="glyphicon glyphicon-pencil"></span>',
+                            ['controller' => 'tenants', 'action' => 'edit', $person->user->id],
+                            ['escape' => false]);
+                        ?>
+                    </span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+    <div class="panel-heading">
+        <h2 class="panel-title">Personal Details</h2>
+    </div>
+
+  <!-- Table -->
+    <div >
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+            <tr>
+                <th>Visa</th>
+                <th>Parent's Address</th>
+                <th>Account Name</th>
+                <th>Account Number</th>
+                <th>BSB</th>
+                <th>Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><?= $person->visa ?></td>
+                    <td><?= $person->parent_address ?></td>
+                    <td><?= $person->account_name ?></td>
+                    <td><?= $person->account_number ?></td>
+                    <td><?= $person->bsb_number ?></td>
+                    <td class="action action-edit" >
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'tenants', 'action' => 'edit', $person->user->id], ['escape' => false]); ?>
+                    </span></td>
                 </tr>
             </tbody>
         </table>
@@ -65,14 +116,16 @@
 
         <?php if (!empty($student->leases)): ?>
         <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Property') ?></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Room') ?></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Date Start') ?></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Date End') ?></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Weekly Price') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
-            </tr>
+            <thead>
+                <tr>
+                    <th><?= __('Property') ?></th>
+                    <th><?= __('Room') ?></th>
+                    <th><?= __('Date Start') ?></th>
+                    <th><?= __('Date End') ?></th>
+                    <th><?= __('Weekly Price') ?></th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
             <?php foreach ($query as $leases): ?>
             <tr>
                 <td><?= $leases->property->address ?></td>
@@ -80,10 +133,10 @@
                 <td><?= h($leases->date_start->format('Y M d')) ?></td>
                 <td><?= h($leases->date_end->format('Y M d')) ?></td>
                 <td><?= h($this->Number->currency($leases->weekly_price)) ?></td>
-                <td class="actions">
-                 <!--    <?= $this->Html->link(__('Edit'), ['controller' => 'Leases', 'action' => 'edit', $leases->id]) ?> -->
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Leases', 'action' => 'delete', $leases->id], ['confirm' => __('Are you sure you want to delete # {0}?', $leases->id)]) ?>
-                </td>
+                <td class="action action-remove" >
+                        <?php echo $this->form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'Leases', 'action' => 'delete', $leases->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>
+                    </span></td>
+
             </tr>
 
             <?php endforeach; ?>
@@ -101,23 +154,28 @@
   <!-- Table -->
     <div class="table-responsive">
         <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('First Name') ?></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Last Name') ?></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Phone') ?></th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;<?= __('Email') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
-            </tr>
+            <thead>
+                <tr>
+                    <th><?= __('First Name') ?></th>
+                    <th><?= __('Last Name') ?></th>
+                    <th><?= __('Phone') ?></th>
+                    <th><?= __('Email') ?></th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>    
             <?php foreach ($emergencyQuery as $emergency): ?>
                 <tr>
                     <td><?= $emergency->first_name ?></td>
                     <td><?= $emergency->last_name ?></td>
                     <td><?= $emergency->phone ?></td>
                     <td><?= $emergency->email ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('Edit'), ['controller' => 'Emergencies', 'action' => 'edit', $emergency->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['controller' => 'Emergencies', 'action' => 'delete', $emergency->id], ['confirm' => __('Are you sure you want to delete # {0}?', $leases->id)]) ?>
-                    </td>
+                    <td class="action action-edit" >
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'emergencies', 'action' => 'edit', $emergency->id], ['escape' => false]); ?>
+                    </span></td>
+                    <td class="action action-remove" >
+                        <?php echo $this->form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'emergencies', 'action' => 'delete', $emergency->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>
+                    </span></td>
                 </tr>
 
             <?php endforeach; ?>
@@ -134,11 +192,13 @@
   <!-- Table -->
     <div class="table-responsive">
         <table>
-            <tr>
-                <th>#</th>
-                <th>Device Name</th>
-                <th>Mac Address</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Device Name</th>
+                    <th>Mac Address</th>
+                </tr>
+            </thead>
             <!-- ONE -->
             <tr>
                 <td><strong>1</strong></td>

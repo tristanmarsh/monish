@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'XdgBaseDir\\' => array($vendorDir . '/dnoegel/php-xdg-base-dir/src'),
+    'Utils\\' => array($vendorDir . '/cakemanager/cakephp-utils/src'),
     'Phinx\\' => array($vendorDir . '/robmorgan/phinx/src/Phinx'),
     'Migrations\\' => array($vendorDir . '/cakephp/migrations/src'),
     'DebugKit\\Test\\Fixture\\' => array($vendorDir . '/cakephp/debug_kit/tests/Fixture'),

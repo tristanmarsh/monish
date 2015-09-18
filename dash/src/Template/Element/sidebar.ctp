@@ -1,10 +1,17 @@
 <?php $user = $this->Session->read('Auth.User'); ?>
 
+<!-- Tristan's Gravatar Script  - should be replaced with offical PHP API -->
 <?php
 	$emailHash = md5( strtolower( trim( $user['username'] ) ) );
 	// $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
 	$gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
-	$gravatarImage = '<img height="40px" class="img img-circle gravatar" src="' . $gravatarQuery . '"/>';
+	$gravatarImage = '<img height="40px" width="40px" class="img img-circle gravatar" src="' . $gravatarQuery . '"/>';
+?>
+
+<?php
+	$currentauthid = $user['id'];
+	$currentuserEntity = $userEntityy->get($currentauthid);
+	$currentpersonEntity = $personEntityy->get($currentuserEntity->person_id);
 ?>
 
 <ul class="nav nav-sidebar">
@@ -112,10 +119,12 @@
 		); ?>
 	</li>
 
-	<li data-toggle="tooltip" data-placement="right" title="Profile">
+	<li data-toggle="tooltip" data-placement="right" title="<?php echo ($currentpersonEntity->first_name.' '.$currentpersonEntity->last_name); ?>">
 		<?= $this->Html->link(
 		'<span>'. $gravatarImage .'</span>
-		<span class="menu-item-label">Profile</span>',
+		<span class="menu-item-label">'.
+			 $currentpersonEntity->first_name.' '.$currentpersonEntity->last_name
+		.'</span>',
 		array('controller' => 'people', 'action' => 'index'),
 		array('class' => 'menu-item-link', 'escape' => false)
 		); ?>
@@ -156,6 +165,15 @@
 		array('class' => 'menu-item-link', 'escape' => false)
 		); ?>
 	</li>
+
+	<li data-toggle="tooltip" data-placement="right" title="Log Out">
+		<?= $this->Html->link(
+		'<span class="glyphicon glyphicon-log-out"></span>
+		<div class="menu-item-label">Log Out</div>',
+		array('controller' => 'users', 'action' => 'logout'),
+		array('class' => 'menu-item-link', 'escape' => false)
+		); ?>
+	</li>
 	
 <!-- 	<li data-toggle="tooltip" data-placement="right" title="Rooms">
 		<?= $this->Html->link(
@@ -187,10 +205,12 @@
 		); ?>
 	</li>
 
-	<li data-toggle="tooltip" data-placement="right" title="Profile">
+	<li data-toggle="tooltip" data-placement="right" title="<?php echo ($currentpersonEntity->first_name.' '.$currentpersonEntity->last_name); ?>">
 		<?= $this->Html->link(
 		'<span>'. $gravatarImage .'</span>
-		<span class="menu-item-label">Profile</span>',
+		<span class="menu-item-label">'.
+			 $currentpersonEntity->first_name.' '.$currentpersonEntity->last_name
+		.'</span>',
 		array('controller' => 'people', 'action' => 'index'),
 		array('class' => 'menu-item-link', 'escape' => false)
 		); ?>
@@ -232,6 +252,16 @@
 		); ?>
 	</li>
 
+	<li data-toggle="tooltip" data-placement="right" title="Log Out">
+		<?= $this->Html->link(
+		'<span class="glyphicon glyphicon-log-out"></span>
+		<div class="menu-item-label">Log Out</div>',
+		array('controller' => 'users', 'action' => 'logout'),
+		array('class' => 'menu-item-link', 'escape' => false)
+		); ?>
+	</li>
+
+
 	<?php endif; ?>
 
 </ul>
@@ -257,7 +287,6 @@
 	
 		$('#navigation-toggle').on("click", function(e) {
 			$('body').toggleClass('navigation-active');
-
 		});
 	});
 

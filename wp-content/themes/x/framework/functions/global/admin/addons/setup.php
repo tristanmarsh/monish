@@ -45,6 +45,10 @@ function x_addons_get_link_customizer_manager() {
   return admin_url( 'admin.php?page=x-addons-customizer-manager' );
 }
 
+function x_addons_get_link_demo_content() {
+  return admin_url( 'admin.php?page=x-addons-demo-content' );
+}
+
 function x_addons_get_link_product_validation() {
   return admin_url( 'admin.php?page=x-addons-product-validation' );
 }

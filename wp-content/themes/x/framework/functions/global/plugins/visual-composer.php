@@ -519,8 +519,8 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
     // Variables.
     //
 
-    $param_icon_value        = array( 'glass', 'music', 'search', 'envelope-o', 'heart', 'star', 'star-o', 'user', 'film', 'th-large', 'th', 'th-list', 'check', 'times', 'search-plus', 'search-minus', 'power-off', 'signal', 'gear', 'cog', 'trash-o', 'home', 'file-o', 'clock-o', 'road', 'download', 'arrow-circle-o-down', 'arrow-circle-o-up', 'inbox', 'play-circle-o', 'rotate-right', 'repeat', 'refresh', 'list-alt', 'lock', 'flag', 'headphones', 'volume-off', 'volume-down', 'volume-up', 'qrcode', 'barcode', 'tag', 'tags', 'book', 'bookmark', 'print', 'camera', 'font', 'bold', 'italic', 'text-height', 'text-width', 'align-left', 'align-center', 'align-right', 'align-justify', 'list', 'dedent', 'outdent', 'indent', 'video-camera', 'photo', 'image', 'picture-o', 'pencil', 'map-marker', 'adjust', 'tint', 'edit', 'pencil-square-o', 'share-square-o', 'check-square-o', 'arrows', 'step-backward', 'fast-backward', 'backward', 'play', 'pause', 'stop', 'forward', 'fast-forward', 'step-forward', 'eject', 'chevron-left', 'chevron-right', 'plus-circle', 'minus-circle', 'times-circle', 'check-circle', 'question-circle', 'info-circle', 'crosshairs', 'times-circle-o', 'check-circle-o', 'ban', 'arrow-left', 'arrow-right', 'arrow-up', 'arrow-down', 'mail-forward', 'share', 'expand', 'compress', 'plus', 'minus', 'asterisk', 'exclamation-circle', 'gift', 'leaf', 'fire', 'eye', 'eye-slash', 'warning', 'exclamation-triangle', 'plane', 'calendar', 'random', 'comment', 'magnet', 'chevron-up', 'chevron-down', 'retweet', 'shopping-cart', 'folder', 'folder-open', 'arrows-v', 'arrows-h', 'bar-chart-o', 'twitter-square', 'facebook-square', 'camera-retro', 'key', 'gears', 'cogs', 'comments', 'thumbs-o-up', 'thumbs-o-down', 'star-half', 'heart-o', 'sign-out', 'linkedin-square', 'thumb-tack', 'external-link', 'sign-in', 'trophy', 'github-square', 'upload', 'lemon-o', 'phone', 'square-o', 'bookmark-o', 'phone-square', 'twitter', 'facebook', 'github', 'unlock', 'credit-card', 'rss', 'hdd-o', 'bullhorn', 'bell', 'certificate', 'hand-o-right', 'hand-o-left', 'hand-o-up', 'hand-o-down', 'arrow-circle-left', 'arrow-circle-right', 'arrow-circle-up', 'arrow-circle-down', 'globe', 'wrench', 'tasks', 'filter', 'briefcase', 'arrows-alt', 'group', 'users', 'chain', 'link', 'cloud', 'flask', 'cut', 'scissors', 'copy', 'files-o', 'paperclip', 'save', 'floppy-o', 'square', 'navicon', 'reorder', 'bars', 'list-ul', 'list-ol', 'strikethrough', 'underline', 'table', 'magic', 'truck', 'pinterest', 'pinterest-square', 'google-plus-square', 'google-plus', 'money', 'caret-down', 'caret-up', 'caret-left', 'caret-right', 'columns', 'unsorted', 'sort', 'sort-down', 'sort-desc', 'sort-up', 'sort-asc', 'envelope', 'linkedin', 'rotate-left', 'undo', 'legal', 'gavel', 'dashboard', 'tachometer', 'comment-o', 'comments-o', 'flash', 'bolt', 'sitemap', 'umbrella', 'paste', 'clipboard', 'lightbulb-o', 'exchange', 'cloud-download', 'cloud-upload', 'user-md', 'stethoscope', 'suitcase', 'bell-o', 'coffee', 'cutlery', 'file-text-o', 'building-o', 'hospital-o', 'ambulance', 'medkit', 'fighter-jet', 'beer', 'h-square', 'plus-square', 'angle-double-left', 'angle-double-right', 'angle-double-up', 'angle-double-down', 'angle-left', 'angle-right', 'angle-up', 'angle-down', 'desktop', 'laptop', 'tablet', 'mobile-phone', 'mobile', 'circle-o', 'quote-left', 'quote-right', 'spinner', 'circle', 'mail-reply', 'reply', 'github-alt', 'folder-o', 'folder-open-o', 'smile-o', 'frown-o', 'meh-o', 'gamepad', 'keyboard-o', 'flag-o', 'flag-checkered', 'terminal', 'code', 'mail-reply-all', 'reply-all', 'star-half-empty', 'star-half-full', 'star-half-o', 'location-arrow', 'crop', 'code-fork', 'unlink', 'chain-broken', 'question', 'info', 'exclamation', 'superscript', 'subscript', 'eraser', 'puzzle-piece', 'microphone', 'microphone-slash', 'shield', 'calendar-o', 'fire-extinguisher', 'rocket', 'maxcdn', 'chevron-circle-left', 'chevron-circle-right', 'chevron-circle-up', 'chevron-circle-down', 'html5', 'css3', 'anchor', 'unlock-alt', 'bullseye', 'ellipsis-h', 'ellipsis-v', 'rss-square', 'play-circle', 'ticket', 'minus-square', 'minus-square-o', 'level-up', 'level-down', 'check-square', 'pencil-square', 'external-link-square', 'share-square', 'compass', 'toggle-down', 'caret-square-o-down', 'toggle-up', 'caret-square-o-up', 'toggle-right', 'caret-square-o-right', 'euro', 'eur', 'gbp', 'dollar', 'usd', 'rupee', 'inr', 'cny', 'rmb', 'yen', 'jpy', 'ruble', 'rouble', 'rub', 'won', 'krw', 'bitcoin', 'btc', 'file', 'file-text', 'sort-alpha-asc', 'sort-alpha-desc', 'sort-amount-asc', 'sort-amount-desc', 'sort-numeric-asc', 'sort-numeric-desc', 'thumbs-up', 'thumbs-down', 'youtube-square', 'youtube', 'xing', 'xing-square', 'youtube-play', 'dropbox', 'stack-overflow', 'instagram', 'flickr', 'adn', 'bitbucket', 'bitbucket-square', 'tumblr', 'tumblr-square', 'long-arrow-down', 'long-arrow-up', 'long-arrow-left', 'long-arrow-right', 'apple', 'windows', 'android', 'linux', 'dribbble', 'skype', 'foursquare', 'trello', 'female', 'male', 'gittip', 'sun-o', 'moon-o', 'archive', 'bug', 'vk', 'weibo', 'renren', 'pagelines', 'stack-exchange', 'arrow-circle-o-right', 'arrow-circle-o-left', 'toggle-left', 'caret-square-o-left', 'dot-circle-o', 'wheelchair', 'vimeo-square', 'turkish-lira', 'try', 'plus-square-o', 'space-shuttle', 'slack', 'envelope-square', 'wordpress', 'openid', 'institution', 'bank', 'university', 'mortar-board', 'graduation-cap', 'yahoo', 'google', 'reddit', 'reddit-square', 'stumbleupon-circle', 'stumbleupon', 'delicious', 'digg', 'pied-piper-square', 'pied-piper', 'pied-piper-alt', 'drupal', 'joomla', 'language', 'fax', 'building', 'child', 'paw', 'spoon', 'cube', 'cubes', 'behance', 'behance-square', 'steam', 'steam-square', 'recycle', 'automobile', 'car', 'cab', 'taxi', 'tree', 'spotify', 'deviantart', 'soundcloud', 'database', 'file-pdf-o', 'file-word-o', 'file-excel-o', 'file-powerpoint-o', 'file-photo-o', 'file-picture-o', 'file-image-o', 'file-zip-o', 'file-archive-o', 'file-sound-o', 'file-audio-o', 'file-movie-o', 'file-video-o', 'file-code-o', 'vine', 'codepen', 'jsfiddle', 'life-bouy', 'life-saver', 'support', 'life-ring', 'circle-o-notch', 'ra', 'rebel', 'ge', 'empire', 'git-square', 'git', 'hacker-news', 'tencent-weibo', 'qq', 'wechat', 'weixin', 'send', 'paper-plane', 'send-o', 'paper-plane-o', 'history', 'circle-thin', 'header', 'paragraph', 'sliders', 'share-alt', 'share-alt-square', 'bomb' );
-    $param_social_icon_value = array( 'thumb-up', 'thumb-down', 'rss', 'facebook', 'twitter', 'pinterest', 'github', 'path', 'linkedin', 'dribbble', 'stumble-upon', 'behance', 'reddit', 'google-plus', 'youtube', 'vimeo', 'flickr', 'slideshare', 'picassa', 'skype', 'steam', 'instagram', 'foursquare', 'delicious', 'chat', 'torso', 'tumblr', 'video-chat', 'digg', 'wordpress' );
+    $param_icon_value        = array( '- Select Option -', 'glass', 'music', 'search', 'envelope-o', 'heart', 'star', 'star-o', 'user', 'film', 'th-large', 'th', 'th-list', 'check', 'times', 'search-plus', 'search-minus', 'power-off', 'signal', 'gear', 'cog', 'trash-o', 'home', 'file-o', 'clock-o', 'road', 'download', 'arrow-circle-o-down', 'arrow-circle-o-up', 'inbox', 'play-circle-o', 'rotate-right', 'repeat', 'refresh', 'list-alt', 'lock', 'flag', 'headphones', 'volume-off', 'volume-down', 'volume-up', 'qrcode', 'barcode', 'tag', 'tags', 'book', 'bookmark', 'print', 'camera', 'font', 'bold', 'italic', 'text-height', 'text-width', 'align-left', 'align-center', 'align-right', 'align-justify', 'list', 'dedent', 'outdent', 'indent', 'video-camera', 'photo', 'image', 'picture-o', 'pencil', 'map-marker', 'adjust', 'tint', 'edit', 'pencil-square-o', 'share-square-o', 'check-square-o', 'arrows', 'step-backward', 'fast-backward', 'backward', 'play', 'pause', 'stop', 'forward', 'fast-forward', 'step-forward', 'eject', 'chevron-left', 'chevron-right', 'plus-circle', 'minus-circle', 'times-circle', 'check-circle', 'question-circle', 'info-circle', 'crosshairs', 'times-circle-o', 'check-circle-o', 'ban', 'arrow-left', 'arrow-right', 'arrow-up', 'arrow-down', 'mail-forward', 'share', 'expand', 'compress', 'plus', 'minus', 'asterisk', 'exclamation-circle', 'gift', 'leaf', 'fire', 'eye', 'eye-slash', 'warning', 'exclamation-triangle', 'plane', 'calendar', 'random', 'comment', 'magnet', 'chevron-up', 'chevron-down', 'retweet', 'shopping-cart', 'folder', 'folder-open', 'arrows-v', 'arrows-h', 'bar-chart-o', 'twitter-square', 'facebook-square', 'camera-retro', 'key', 'gears', 'cogs', 'comments', 'thumbs-o-up', 'thumbs-o-down', 'star-half', 'heart-o', 'sign-out', 'linkedin-square', 'thumb-tack', 'external-link', 'sign-in', 'trophy', 'github-square', 'upload', 'lemon-o', 'phone', 'square-o', 'bookmark-o', 'phone-square', 'twitter', 'facebook', 'github', 'unlock', 'credit-card', 'rss', 'hdd-o', 'bullhorn', 'bell', 'certificate', 'hand-o-right', 'hand-o-left', 'hand-o-up', 'hand-o-down', 'arrow-circle-left', 'arrow-circle-right', 'arrow-circle-up', 'arrow-circle-down', 'globe', 'wrench', 'tasks', 'filter', 'briefcase', 'arrows-alt', 'group', 'users', 'chain', 'link', 'cloud', 'flask', 'cut', 'scissors', 'copy', 'files-o', 'paperclip', 'save', 'floppy-o', 'square', 'navicon', 'reorder', 'bars', 'list-ul', 'list-ol', 'strikethrough', 'underline', 'table', 'magic', 'truck', 'pinterest', 'pinterest-square', 'google-plus-square', 'google-plus', 'money', 'caret-down', 'caret-up', 'caret-left', 'caret-right', 'columns', 'unsorted', 'sort', 'sort-down', 'sort-desc', 'sort-up', 'sort-asc', 'envelope', 'linkedin', 'rotate-left', 'undo', 'legal', 'gavel', 'dashboard', 'tachometer', 'comment-o', 'comments-o', 'flash', 'bolt', 'sitemap', 'umbrella', 'paste', 'clipboard', 'lightbulb-o', 'exchange', 'cloud-download', 'cloud-upload', 'user-md', 'stethoscope', 'suitcase', 'bell-o', 'coffee', 'cutlery', 'file-text-o', 'building-o', 'hospital-o', 'ambulance', 'medkit', 'fighter-jet', 'beer', 'h-square', 'plus-square', 'angle-double-left', 'angle-double-right', 'angle-double-up', 'angle-double-down', 'angle-left', 'angle-right', 'angle-up', 'angle-down', 'desktop', 'laptop', 'tablet', 'mobile-phone', 'mobile', 'circle-o', 'quote-left', 'quote-right', 'spinner', 'circle', 'mail-reply', 'reply', 'github-alt', 'folder-o', 'folder-open-o', 'smile-o', 'frown-o', 'meh-o', 'gamepad', 'keyboard-o', 'flag-o', 'flag-checkered', 'terminal', 'code', 'mail-reply-all', 'reply-all', 'star-half-empty', 'star-half-full', 'star-half-o', 'location-arrow', 'crop', 'code-fork', 'unlink', 'chain-broken', 'question', 'info', 'exclamation', 'superscript', 'subscript', 'eraser', 'puzzle-piece', 'microphone', 'microphone-slash', 'shield', 'calendar-o', 'fire-extinguisher', 'rocket', 'maxcdn', 'chevron-circle-left', 'chevron-circle-right', 'chevron-circle-up', 'chevron-circle-down', 'html5', 'css3', 'anchor', 'unlock-alt', 'bullseye', 'ellipsis-h', 'ellipsis-v', 'rss-square', 'play-circle', 'ticket', 'minus-square', 'minus-square-o', 'level-up', 'level-down', 'check-square', 'pencil-square', 'external-link-square', 'share-square', 'compass', 'toggle-down', 'caret-square-o-down', 'toggle-up', 'caret-square-o-up', 'toggle-right', 'caret-square-o-right', 'euro', 'eur', 'gbp', 'dollar', 'usd', 'rupee', 'inr', 'cny', 'rmb', 'yen', 'jpy', 'ruble', 'rouble', 'rub', 'won', 'krw', 'bitcoin', 'btc', 'file', 'file-text', 'sort-alpha-asc', 'sort-alpha-desc', 'sort-amount-asc', 'sort-amount-desc', 'sort-numeric-asc', 'sort-numeric-desc', 'thumbs-up', 'thumbs-down', 'youtube-square', 'youtube', 'xing', 'xing-square', 'youtube-play', 'dropbox', 'stack-overflow', 'instagram', 'flickr', 'adn', 'bitbucket', 'bitbucket-square', 'tumblr', 'tumblr-square', 'long-arrow-down', 'long-arrow-up', 'long-arrow-left', 'long-arrow-right', 'apple', 'windows', 'android', 'linux', 'dribbble', 'skype', 'foursquare', 'trello', 'female', 'male', 'gittip', 'sun-o', 'moon-o', 'archive', 'bug', 'vk', 'weibo', 'renren', 'pagelines', 'stack-exchange', 'arrow-circle-o-right', 'arrow-circle-o-left', 'toggle-left', 'caret-square-o-left', 'dot-circle-o', 'wheelchair', 'vimeo-square', 'turkish-lira', 'try', 'plus-square-o', 'space-shuttle', 'slack', 'envelope-square', 'wordpress', 'openid', 'institution', 'bank', 'university', 'mortar-board', 'graduation-cap', 'yahoo', 'google', 'reddit', 'reddit-square', 'stumbleupon-circle', 'stumbleupon', 'delicious', 'digg', 'pied-piper-square', 'pied-piper', 'pied-piper-alt', 'drupal', 'joomla', 'language', 'fax', 'building', 'child', 'paw', 'spoon', 'cube', 'cubes', 'behance', 'behance-square', 'steam', 'steam-square', 'recycle', 'automobile', 'car', 'cab', 'taxi', 'tree', 'spotify', 'deviantart', 'soundcloud', 'database', 'file-pdf-o', 'file-word-o', 'file-excel-o', 'file-powerpoint-o', 'file-photo-o', 'file-picture-o', 'file-image-o', 'file-zip-o', 'file-archive-o', 'file-sound-o', 'file-audio-o', 'file-movie-o', 'file-video-o', 'file-code-o', 'vine', 'codepen', 'jsfiddle', 'life-bouy', 'life-saver', 'support', 'life-ring', 'circle-o-notch', 'ra', 'rebel', 'ge', 'empire', 'git-square', 'git', 'hacker-news', 'tencent-weibo', 'qq', 'wechat', 'weixin', 'send', 'paper-plane', 'send-o', 'paper-plane-o', 'history', 'circle-thin', 'header', 'paragraph', 'sliders', 'share-alt', 'share-alt-square', 'bomb' );
+    $param_social_icon_value = array( '- Select Option -', 'thumb-up', 'thumb-down', 'rss', 'facebook', 'twitter', 'pinterest', 'github', 'path', 'linkedin', 'dribbble', 'stumble-upon', 'behance', 'reddit', 'google-plus', 'youtube', 'vimeo', 'flickr', 'slideshare', 'picassa', 'skype', 'steam', 'instagram', 'foursquare', 'delicious', 'chat', 'torso', 'tumblr', 'video-chat', 'digg', 'wordpress' );
 
     sort( $param_icon_value );
     sort( $param_social_icon_value );
@@ -683,8 +683,9 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
     //         'type'        => 'dropdown',
     //         'holder'      => 'div',
     //         'value'       => array(
-    //           'Standard' => 'standard',
-    //           'Dark'     => 'dark'
+    //           '- Select Option -' => '',
+    //           'Standard'          => 'standard',
+    //           'Dark'              => 'dark'
     //         )
     //       ),
     //       array(
@@ -749,9 +750,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Left'   => 'left',
-              'Center' => 'center',
-              'Right'  => 'right'
+              '- Select Option -' => '',
+              'Left'              => 'left',
+              'Center'            => 'center',
+              'Right'             => 'right'
             )
           ),
           array(
@@ -816,8 +818,9 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Left'   => 'left',
-              'Right'  => 'right'
+              '- Select Option -' => '',
+              'Left'              => 'left',
+              'Right'             => 'right'
             )
           ),
           array(
@@ -882,11 +885,12 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Success' => 'success',
-              'Info'    => 'info',
-              'Warning' => 'warning',
-              'Danger'  => 'danger',
-              'Muted'   => 'muted'
+              '- Select Option -' => '',
+              'Success'           => 'success',
+              'Info'              => 'info',
+              'Warning'           => 'warning',
+              'Danger'            => 'danger',
+              'Muted'             => 'muted'
             )
           ),
           array(
@@ -1271,9 +1275,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Square'  => 'square',
-              'Rounded' => 'rounded',
-              'Pill'    => 'pill'
+              '- Select Option -' => '',
+              'Square'            => 'square',
+              'Rounded'           => 'rounded',
+              'Pill'              => 'pill'
             )
           ),
           array(
@@ -1283,12 +1288,13 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Mini'        => 'mini',
-              'Small'       => 'small',
-              'Standard'    => 'regular',
-              'Large'       => 'large',
-              'Extra Large' => 'x-large',
-              'Jumbo'       => 'jumbo'
+              '- Select Option -' => '',
+              'Mini'              => 'mini',
+              'Small'             => 'small',
+              'Standard'          => 'regular',
+              'Large'             => 'large',
+              'Extra Large'       => 'x-large',
+              'Jumbo'             => 'jumbo'
             )
           ),
           array(
@@ -1298,9 +1304,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'None'  => 'none',
-              'Left'  => 'left',
-              'Right' => 'right'
+              '- Select Option -' => '',
+              'None'              => 'none',
+              'Left'              => 'left',
+              'Right'             => 'right'
             )
           ),
           array(
@@ -1364,9 +1371,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'None'    => 'none',
-              'Popover' => 'popover',
-              'Tooltip' => 'tooltip'
+              '- Select Option -' => '',
+              'None'              => 'none',
+              'Popover'           => 'popover',
+              'Tooltip'           => 'tooltip'
             )
           ),
           array(
@@ -1376,10 +1384,11 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Top'    => 'top',
-              'Left'   => 'left',
-              'Right'  => 'right',
-              'Bottom' => 'bottom'
+              '- Select Option -' => '',
+              'Top'               => 'top',
+              'Left'              => 'left',
+              'Right'             => 'right',
+              'Bottom'            => 'bottom'
             )
           ),
           array(
@@ -1389,9 +1398,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Hover' => 'hover',
-              'Click' => 'click',
-              'Focus' => 'focus'
+              '- Select Option -' => '',
+              'Hover'             => 'hover',
+              'Click'             => 'click',
+              'Focus'             => 'focus'
             )
           ),
           array(
@@ -1523,9 +1533,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Two'   => 'two-up',
-              'Three' => 'three-up',
-              'Four'  => 'four-up'
+              '- Select Option -' => '',
+              'Two'               => 'two-up',
+              'Three'             => 'three-up',
+              'Four'              => 'four-up'
             )
           ),
           array(
@@ -1625,10 +1636,11 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'None'      => 'none',
-              'Thumbnail' => 'thumbnail',
-              'Rounded'   => 'rounded',
-              'Circle'    => 'circle'
+              '- Select Option -' => '',
+              'None'              => 'none',
+              'Thumbnail'         => 'thumbnail',
+              'Rounded'           => 'rounded',
+              'Circle'            => 'circle'
             )
           ),
           array(
@@ -1638,9 +1650,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'None'  => 'none',
-              'Left'  => 'left',
-              'Right' => 'right'
+              '- Select Option -' => '',
+              'None'              => 'none',
+              'Left'              => 'left',
+              'Right'             => 'right'
             )
           ),
           array(
@@ -1698,9 +1711,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'None'    => 'none',
-              'Popover' => 'popover',
-              'Tooltip' => 'tooltip'
+              '- Select Option -' => '',
+              'None'              => 'none',
+              'Popover'           => 'popover',
+              'Tooltip'           => 'tooltip'
             )
           ),
           array(
@@ -1710,10 +1724,11 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Top'    => 'top',
-              'Left'   => 'left',
-              'Right'  => 'right',
-              'Bottom' => 'bottom'
+              '- Select Option -' => '',
+              'Top'               => 'top',
+              'Left'              => 'left',
+              'Right'             => 'right',
+              'Bottom'            => 'bottom'
             )
           ),
           array(
@@ -1723,9 +1738,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Hover' => 'hover',
-              'Click' => 'click',
-              'Focus' => 'focus'
+              '- Select Option -' => '',
+              'Hover'             => 'hover',
+              'Click'             => 'click',
+              'Focus'             => 'focus'
             )
           ),
           array(
@@ -1939,8 +1955,9 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
     //         'type'        => 'dropdown',
     //         'holder'      => 'div',
     //         'value'       => array(
-    //           'Popover' => 'popover',
-    //           'Tooltip' => 'tooltip'
+    //           '- Select Option -' => '',
+    //           'Popover'           => 'popover',
+    //           'Tooltip'           => 'tooltip'
     //         )
     //       ),
     //       array(
@@ -1950,9 +1967,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
     //         'type'        => 'dropdown',
     //         'holder'      => 'div',
     //         'value'       => array(
-    //           'Hover' => 'hover',
-    //           'Click' => 'click',
-    //           'Focus' => 'focus'
+    //           '- Select Option -' => '',
+    //           'Hover'             => 'hover',
+    //           'Click'             => 'click',
+    //           'Focus'             => 'focus'
     //         )
     //       ),
     //       array(
@@ -1962,9 +1980,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
     //         'type'        => 'dropdown',
     //         'holder'      => 'div',
     //         'value'       => array(
-    //           'Hover' => 'hover',
-    //           'Click' => 'click',
-    //           'Focus' => 'focus'
+    //           '- Select Option -' => '',
+    //           'Hover'             => 'hover',
+    //           'Click'             => 'click',
+    //           'Focus'             => 'focus'
     //         )
     //       ),
     //       array(
@@ -2069,11 +2088,12 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              '16:9' => '16:9',
-              '5:3'  => '5:3',
-              '5:4'  => '5:4',
-              '4:3'  => '4:3',
-              '3:2'  => '3:2'
+              '- Select Option -' => '',
+              '16:9'              => '16:9',
+              '5:3'               => '5:3',
+              '5:4'               => '5:4',
+              '4:3'               => '4:3',
+              '3:2'               => '3:2'
             )
           ),
           array(
@@ -2192,11 +2212,12 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              '16:9' => '16:9',
-              '5:3'  => '5:3',
-              '5:4'  => '5:4',
-              '4:3'  => '4:3',
-              '3:2'  => '3:2'
+              '- Select Option -' => '',
+              '16:9'              => '16:9',
+              '5:3'               => '5:3',
+              '5:4'               => '5:4',
+              '4:3'               => '4:3',
+              '3:2'               => '3:2'
             )
           ),
           array(
@@ -2376,10 +2397,11 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Two'   => 'two-up',
-              'Three' => 'three-up',
-              'Four'  => 'four-up',
-              'Five'  => 'five-up'
+              '- Select Option -' => '',
+              'Two'               => 'two-up',
+              'Three'             => 'three-up',
+              'Four'              => 'four-up',
+              'Five'              => 'five-up'
             )
           ),
           array(
@@ -2389,9 +2411,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'None'  => 'none',
-              'Left'  => 'left',
-              'Right' => 'right'
+              '- Select Option -' => '',
+              'None'              => 'none',
+              'Left'              => 'left',
+              'Right'             => 'right'
             )
           ),
           array(
@@ -2599,12 +2622,13 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Hidden Phone'    => 'hidden-phone',
-              'Hidden Tablet'   => 'hidden-tablet',
-              'Hidden Desktop'  => 'hidden-desktop',
-              'Visible Phone'   => 'visible-phone',
-              'Visible Tablet'  => 'visible-tablet',
-              'Visible Desktop' => 'visible-desktop'
+              '- Select Option -' => '',
+              'Hidden Phone'      => 'hidden-phone',
+              'Hidden Tablet'     => 'hidden-tablet',
+              'Hidden Desktop'    => 'hidden-desktop',
+              'Visible Phone'     => 'visible-phone',
+              'Visible Tablet'    => 'visible-tablet',
+              'Visible Desktop'   => 'visible-desktop'
             )
           ),
           array(
@@ -2657,8 +2681,9 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Slide' => 'slide',
-              'Fade'  => 'fade'
+              '- Select Option -' => '',
+              'Slide'             => 'slide',
+              'Fade'              => 'fade'
             )
           ),
           array(
@@ -2872,8 +2897,9 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Posts'     => 'post',
-              'Portfolio' => 'portfolio'
+              '- Select Option -' => '',
+              'Posts'             => 'post',
+              'Portfolio'         => 'portfolio'
             )
           ),
           array(
@@ -2883,10 +2909,11 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              '1' => '1',
-              '2' => '2',
-              '3' => '3',
-              '4' => '4'
+              '- Select Option -' => '',
+              '1'                 => '1',
+              '2'                 => '2',
+              '3'                 => '3',
+              '4'                 => '4'
             )
           ),
           array(
@@ -2910,8 +2937,9 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Horizontal' => 'horizontal',
-              'Vertical'   => 'vertical'
+              '- Select Option -' => '',
+              'Horizontal'        => 'horizontal',
+              'Vertical'          => 'vertical'
             )
           ),
           array(
@@ -3096,11 +3124,12 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              '1' => '1',
-              '2' => '2',
-              '3' => '3',
-              '4' => '4',
-              '5' => '5'
+              '- Select Option -' => '',
+              '1'                 => '1',
+              '2'                 => '2',
+              '3'                 => '3',
+              '4'                 => '4',
+              '5'                 => '5'
             )
           ),
           array(
@@ -3246,9 +3275,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Left'   => 'left',
-              'Center' => 'center',
-              'Right'  => 'right'
+              '- Select Option -' => '',
+              'Left'              => 'left',
+              'Center'            => 'center',
+              'Right'             => 'right'
             )
           ),
           array(
@@ -3474,8 +3504,9 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Horizontal' => 'horizontal',
-              'Vertical'   => 'vertical'
+              '- Select Option -' => '',
+              'Horizontal'        => 'horizontal',
+              'Vertical'          => 'vertical'
             )
           ),
           array(
@@ -3569,8 +3600,9 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Left'  => 'left',
-              'Right' => 'right'
+              '- Select Option -' => '',
+              'Left'              => 'left',
+              'Right'             => 'right'
             )
           ),
           array(
@@ -3805,9 +3837,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Left'      => 'left',
-              'Right'     => 'right',
-              'Fullwidth' => 'block'
+              '- Select Option -' => '',
+              'Left'              => 'left',
+              'Right'             => 'right',
+              'Fullwidth'         => 'block'
             )
           ),
           array(
@@ -3817,9 +3850,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              '1' => '1',
-              '2' => '2',
-              '3' => '3'
+              '- Select Option -' => '',
+              '1'                 => '1',
+              '2'                 => '2',
+              '3'                 => '3'
             )
           ),
           array(
@@ -3933,9 +3967,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Left'   => 'left',
-              'Center' => 'center',
-              'Right'  => 'right'
+              '- Select Option -' => '',
+              'Left'              => 'left',
+              'Center'            => 'center',
+              'Right'             => 'right'
             )
           ),
           array(
@@ -3945,12 +3980,13 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'h1' => 'h1',
-              'h2' => 'h2',
-              'h3' => 'h3',
-              'h4' => 'h4',
-              'h5' => 'h5',
-              'h6' => 'h6'
+              '- Select Option -' => '',
+              'h1'                => 'h1',
+              'h2'                => 'h2',
+              'h3'                => 'h3',
+              'h4'                => 'h4',
+              'h5'                => 'h5',
+              'h6'                => 'h6'
             )
           ),
           array(
@@ -3960,12 +3996,13 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'h1' => 'h1',
-              'h2' => 'h2',
-              'h3' => 'h3',
-              'h4' => 'h4',
-              'h5' => 'h5',
-              'h6' => 'h6'
+              '- Select Option -' => '',
+              'h1'                => 'h1',
+              'h2'                => 'h2',
+              'h3'                => 'h3',
+              'h4'                => 'h4',
+              'h5'                => 'h5',
+              'h6'                => 'h6'
             )
           ),
           array(
@@ -4124,9 +4161,10 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'Left'   => 'left',
-              'Center' => 'center',
-              'Right'  => 'right'
+              '- Select Option -' => '',
+              'Left'              => 'left',
+              'Center'            => 'center',
+              'Right'             => 'right'
             )
           ),
           array(
@@ -4136,12 +4174,13 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'h1' => 'h1',
-              'h2' => 'h2',
-              'h3' => 'h3',
-              'h4' => 'h4',
-              'h5' => 'h5',
-              'h6' => 'h6'
+              '- Select Option -' => '',
+              'h1'                => 'h1',
+              'h2'                => 'h2',
+              'h3'                => 'h3',
+              'h4'                => 'h4',
+              'h5'                => 'h5',
+              'h6'                => 'h6'
             )
           ),
           array(
@@ -4151,12 +4190,13 @@ if ( ! function_exists( 'x_visual_composer_map_shortcodes' ) && x_visual_compose
             'type'        => 'dropdown',
             'holder'      => 'div',
             'value'       => array(
-              'h1' => 'h1',
-              'h2' => 'h2',
-              'h3' => 'h3',
-              'h4' => 'h4',
-              'h5' => 'h5',
-              'h6' => 'h6'
+              '- Select Option -' => '',
+              'h1'                => 'h1',
+              'h2'                => 'h2',
+              'h3'                => 'h3',
+              'h4'                => 'h4',
+              'h5'                => 'h5',
+              'h6'                => 'h6'
             )
           ),
           array(
@@ -4539,14 +4579,15 @@ if ( ! function_exists( 'x_visual_composer_update_existing_shortcodes' ) && x_vi
       'type'        => 'dropdown',
       'holder'      => 'div',
       'value'       => array(
-        'None'       => 'none',
-        'Top'        => 'top',
-        'Left'       => 'left',
-        'Right'      => 'right',
-        'Bottom'     => 'bottom',
-        'Horizontal' => 'horizontal',
-        'Vertical'   => 'vertical',
-        'All'        => 'all'
+        '- Select Option -' => '',
+        'None'              => 'none',
+        'Top'               => 'top',
+        'Left'              => 'left',
+        'Right'             => 'right',
+        'Bottom'            => 'bottom',
+        'Horizontal'        => 'horizontal',
+        'Vertical'          => 'vertical',
+        'All'               => 'all'
       )
     ) );
 
@@ -4694,14 +4735,15 @@ if ( ! function_exists( 'x_visual_composer_update_existing_shortcodes' ) && x_vi
       'type'        => 'dropdown',
       'holder'      => 'div',
       'value'       => array(
-        'None'       => 'none',
-        'Top'        => 'top',
-        'Left'       => 'left',
-        'Right'      => 'right',
-        'Bottom'     => 'bottom',
-        'Horizontal' => 'horizontal',
-        'Vertical'   => 'vertical',
-        'All'        => 'all'
+        '- Select Option -' => '',
+        'None'              => 'none',
+        'Top'               => 'top',
+        'Left'              => 'left',
+        'Right'             => 'right',
+        'Bottom'            => 'bottom',
+        'Horizontal'        => 'horizontal',
+        'Vertical'          => 'vertical',
+        'All'               => 'all'
       )
     ) );
 
@@ -4812,11 +4854,12 @@ if ( ! function_exists( 'x_visual_composer_update_existing_shortcodes' ) && x_vi
       'type'        => 'dropdown',
       'holder'      => 'div',
       'value'       => array(
-        'In'             => 'in',
-        'In From Top'    => 'in-from-top',
-        'In From Left'   => 'in-from-left',
-        'In From Right'  => 'in-from-right',
-        'In From Bottom' => 'in-from-bottom'
+        '- Select Option -' => '',
+        'In'                => 'in',
+        'In From Top'       => 'in-from-top',
+        'In From Left'      => 'in-from-left',
+        'In From Right'     => 'in-from-right',
+        'In From Bottom'    => 'in-from-bottom'
       )
     ) );
 
@@ -4881,11 +4924,12 @@ if ( ! function_exists( 'x_visual_composer_update_existing_shortcodes' ) && x_vi
       'type'        => 'dropdown',
       'holder'      => 'div',
       'value'       => array(
-        'In'             => 'in',
-        'In From Top'    => 'in-from-top',
-        'In From Left'   => 'in-from-left',
-        'In From Right'  => 'in-from-right',
-        'In From Bottom' => 'in-from-bottom'
+        '- Select Option -' => '',
+        'In'                => 'in',
+        'In From Top'       => 'in-from-top',
+        'In From Left'      => 'in-from-left',
+        'In From Right'     => 'in-from-right',
+        'In From Bottom'    => 'in-from-bottom'
       )
     ) );
 
@@ -5008,7 +5052,7 @@ if ( ! function_exists( 'x_visual_composer_update_existing_shortcodes' ) && x_vi
 
     if ( X_GRAVITY_FORMS_IS_ACTIVE ) :
 
-      $param_gf_forms_value = array();
+      $param_gf_forms_value = array( '- Select Option -' => '' );
       $forms = RGFormsModel::get_forms( null, 'title' );
       foreach( $forms as $form ) {
         $param_gf_forms_value[$form->title] = $form->id;

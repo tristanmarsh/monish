@@ -18,7 +18,7 @@
 
         <ul class="nav nav-pills pull-left">
           <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-          <li role="presentation" class="active"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+          <li role="presentation" class="active"><?= $this->Html->link('New Room', ['action' => 'add']) ?></li>
         </ul>
 
 
@@ -36,6 +36,7 @@
       </div> -->
     </div>
 
+
     <div class="panel panel-default">
       <div class="panel-body">
 <div class="rooms form large-10 medium-9 columns">
@@ -44,14 +45,22 @@
         <legend><?= __('New Room', array('class' => 'form-control')) ?></legend>
         <?php
             echo $this->Form->input('room_name', array('class' => 'form-control'));
-            echo $this->Form->input('property_id', ['options' => $properties,'class' => 'form-control']);
+            ?>
+
+            <div class="dropdown">
+              <?=  $this->Form->input('property_id', ['options' => $properties, 'empty' => true, 'required' => true, 'class' => 'combobox form-control']); ?>
+          </div>
+
+
+    <?php
+
             //echo $this->Form->input('vacant', [
             //    'options' => ['TRUE' => 'Yes', 'FALSE' => 'No'], 'class' => 'form-control'
             //]);
         ?>
         <br>
     </fieldset>
-    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']) ?>
+    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']) ?>
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Rooms', 'action' => 'index']

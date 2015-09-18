@@ -39,6 +39,9 @@ class RequestsController extends AppController
 
         $requests = $this->Requests->find('all')->contain('People');
         $this->set(compact('requests'));
+
+        $allUsers = $this->Users;
+        $this->set(compact('allUsers'));
     }
 
     public function view($id = null)
@@ -48,13 +51,23 @@ class RequestsController extends AppController
 
         $this->loadModel('People');
 
+
         //my take on how to do this (like the index())
         $this->set('giraffe', $this->Requests->get($id));
 
             $request = TableRegistry::get('Requests');
+        $authid = $this->Auth->user('id');
+        $this->set(compact('authid'));
+        $userEntity = $this->Users->get($authid);
+        $this->set(compact('userEntity'));
+             if ($userEntity->role === 'admin'){
             $wolf = $this->Requests->get($id); 
+           
             $wolf->status = 'Viewed';
+
             $request->save($wolf);
+            }
+            
 
         $lion = $this->Requests->get($id, [
             'contain' => ['People']
@@ -64,7 +77,7 @@ class RequestsController extends AppController
 
     public function add()
     {
-        $zebra = $this->Requests->newEntity();
+        $entity = $this->Requests->newEntity();
 
         $this->loadModel('Users');
         $this->loadModel('People');
@@ -77,36 +90,39 @@ class RequestsController extends AppController
         $this->set(compact('personEntity'));
 
         if ($this->request->is('post')) {
-            $zebra = $this->Requests->patchEntity($zebra, $this->request->data);
-            $zebra->person_id = $personEntity->id;
+            $entity = $this->Requests->patchEntity($entity, $this->request->data);
+            $entity->person_id = $personEntity->id;
             // You could also do the following
             //$newData = ['user_id' => $this->Auth->user('id')];
-            //$zebra = $this->Articles->patchEntity($zebra, $newData);
-            if ($this->Requests->save($zebra)) {
-                $this->Flash->success(__('Your request has been submitted.'));
+            //$entity = $this->Articles->patchEntity($entity, $newData);
+            if ($this->Requests->save($entity)) {
+                $this->Flash->success(__('Your request has been submitted'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('Unable submit your request.'));
+            $this->Flash->error(__('Unable submit your request'));
         }
-        $this->set('zebra', $zebra);
+        $this->set('entity', $entity);
 
         $this->loadModel('Properties');
         $addresses = $this->Properties->find('list', ['keyField' => 'address', 'valueField' => 'address']);
+
+        $addresses = $this->Properties->find('list', ['keyField' => 'address', 'valueField' => 'address']);
+        
         $this->set('addresses', $addresses);
     }
 
     public function edit($id = null)
     {
-        $lion = $this->Requests->get($id);
+        $entity = $this->Requests->get($id);
         if ($this->request->is(['post', 'put'])) {
-            $lion = $this->Requests->patchEntity($lion, $this->request->data);
-            if ($this->Requests->save($lion)){
-                $this->Flash->success(__('Your request has been updated.'));
+            $entity = $this->Requests->patchEntity($entity, $this->request->data);
+            if ($this->Requests->save($entity)){
+                $this->Flash->success(__('Your request has been updated'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('Unable to update your request.'));
+            $this->Flash->error(__('Unable to update your request'));
         }
-        $this->set('lion', $lion);
+        $this->set('entity', $entity);
 
         $this->loadModel('Properties');
         $addresses = $this->Properties->find('list', ['keyField' => 'address', 'valueField' => 'address']);
@@ -116,10 +132,13 @@ class RequestsController extends AppController
     public function delete($id)
     {
         $this->request->allowMethod(['post', 'delete']);
+        $this->loadModel('People');
 
-        $tiger = $this->Requests->get($id);
-        if ($this->Requests->delete($tiger)) {
-            $this->Flash->success(__('The request with id: {0} has been deleted.', h($id)));
+        $requestEntity = $this->Requests->get($id);
+        $requestPersonId = $requestEntity->person_id;
+        $personEntity = $this->People->get($requestPersonId);
+        if ($this->Requests->delete($requestEntity)) {
+            $this->Flash->success(__('The request ' . $requestEntity->title . ' from ' . $personEntity->first_name . ' has been completed', h($id)));
             return $this->redirect(['action' => 'index']);
         }
     }

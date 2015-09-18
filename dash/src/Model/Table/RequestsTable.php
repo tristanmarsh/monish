@@ -13,6 +13,21 @@ class RequestsTable extends Table
         $this->belongsTo('People', [
             'foreignKey' => 'person_id'
         ]);
+		$this->addBehavior('Utils.Uploadable', [
+		  'avatar' => [
+			'path' => '{ROOT}{DS}{WEBROOT}{DS}img{DS}{model}{DS}{field}{DS}',
+            'fileName' => '{field}.{extension}',
+			'removeFileOnUpdate' => true,
+			'removeFileOnDelete' => true, 
+			'fields' => [
+				'directory' => 'avatar_directory',
+				'url' => 'avatar_url',
+				'type' => 'avatar_type',
+				'size' => 'avatar_size',
+				'fileName' => 'avatar_name'
+			  ]
+			],
+		  ]);
     }
 
     public function validationDefault(Validator $validator)

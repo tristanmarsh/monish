@@ -1188,7 +1188,7 @@ vc_map( array(
 			'param_name' => 'img_link_target',
 			'value' => $target_arr,
 			'dependency' => array(
-				'element' => 'img_link',
+				'element' => 'link',
 				'not_empty' => true
 			)
 		),

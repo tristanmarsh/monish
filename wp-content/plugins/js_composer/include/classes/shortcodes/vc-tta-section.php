@@ -31,6 +31,12 @@ class WPBakeryShortCode_VC_Tta_Section extends WPBakeryShortCode_VC_Tta_Accordio
 			$classes[] = $this->activeClass;
 		}
 
+		/**
+		 * @since 4.6.2
+		 */
+		if ( isset( $this->atts['el_class'] ) ) {
+			$classes[] = $this->atts['el_class'];
+		}
 
 		return implode( ' ', array_filter( $classes ) );
 	}

@@ -61,12 +61,37 @@ if ( ! function_exists( 'x_enqueue_post_meta_scripts' ) ) :
       return;
     }
 
-    wp_enqueue_script( 'wp-color-picker');
+    wp_enqueue_script( 'wp-color-picker' );
     wp_enqueue_script( 'x-confirm-js', X_TEMPLATE_URL . '/framework/js/dist/admin/x-confirm.min.js', array( 'jquery' ), X_VERSION, true );
+
 
     if ( strpos( $hook, 'x-addons-customizer-manager' ) != false ) {
       wp_enqueue_script( 'x-customizer-admin-js', X_TEMPLATE_URL . '/framework/js/dist/admin/x-customizer-admin.min.js', array( 'jquery' ), X_VERSION, true );
     }
+
+    // if ( strpos( $hook, 'x-addons-demo-content' ) != false ) {
+
+    //   wp_register_script( 'x-demo-content-admin-js', X_TEMPLATE_URL . '/framework/js/dist/admin/x-demo-content-admin.min.js', array( 'jquery' ), X_VERSION, true );
+
+    //   wp_localize_script( 'x-demo-content-admin-js', 'xDemoContent', array(
+    //     'start'     => __( 'Let&apos;s get started!', '__x__' ),
+    //     'complete'  => __( 'Have fun!', '__x__' ),
+    //     'simulated' => __( 'Working on it...', '__x__' ),
+    //     'confirm'   => __( 'Installing demo content will not alter any of your pages or posts, but it will overwrite your Customizer settings. This is not reversible unless you have previously made a backup of your settings. Are you sure you want to proceed?', '__x__' ),
+    //     'standard'  => array(
+    //       'button'  => __( 'Setup Standard Demo: %s', '__x__' ),
+    //       'timeout' => __( 'Hang in there, we&apos;re almost done...', '__x__' ),
+    //     ),
+    //     'expanded' => array(
+    //       'button'  => __( 'Setup Expanded Demo: %s', '__x__' ),
+    //       'timeout' => __( 'Connection timeout. Retrying... (%s attempts)', '__x__' ),
+    //       'failure' => __( 'We&apos;re sorry, the demo failed to finish importing.', '__x__' ),
+    //     )
+    //   ) );
+
+    //   wp_enqueue_script( 'x-demo-content-admin-js' );
+
+    // }
 
     if ( $hook == 'widgets.php' ) {
       wp_enqueue_script( 'x-widgets-js', X_TEMPLATE_URL . '/framework/js/dist/admin/x-widgets.min.js', array( 'jquery' ), X_VERSION, true );

@@ -3,7 +3,7 @@
 // =============================================================================
 // WOOCOMMERCE/SINGLE-PRODUCT/TABS/TABS.PHP
 // -----------------------------------------------------------------------------
-// @version 2.0.0
+// @version 2.4.0
 // =============================================================================
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -42,8 +42,8 @@ if ( ! empty( $tabs ) ) :
       <ul class="tabs x-nav x-nav-tabs <?php echo $tab_num_class; ?> top">
 
         <?php foreach ( $tabs as $key => $tab ) : ?>
-          <li class="<?php echo $key ?>_tab x-nav-tabs-item">
-            <a href="#tab-<?php echo $key ?>"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', $tab['title'], $key ) ?></a>
+          <li class="<?php echo esc_attr( $key ); ?>_tab x-nav-tabs-item">
+            <a href="#tab-<?php echo esc_attr( $key ); ?>"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', esc_html( $tab['title'] ), $key ); ?></a>
           </li>
         <?php endforeach; ?>
 
@@ -51,8 +51,8 @@ if ( ! empty( $tabs ) ) :
       <div class="x-tab-content">
 
         <?php foreach ( $tabs as $key => $tab ) : ?>
-          <div class="panel x-tab-pane" id="tab-<?php echo $key ?>">
-            <?php call_user_func( $tab['callback'], $key, $tab ) ?>
+          <div class="panel x-tab-pane" id="tab-<?php echo esc_attr( $key ); ?>">
+            <?php call_user_func( $tab['callback'], $key, $tab ); ?>
           </div>
         <?php endforeach; ?>
 

@@ -136,9 +136,11 @@ endif;
 
 			<p><?php _e("Upload an image to use as an avatar for this group. The image will be shown on the main group page, and in search results.", 'buddypress' ); ?></p>
 
-			<input type="file" name="file" id="file" />
-			<input type="submit" name="upload" id="upload" value="<?php esc_attr_e( 'Upload', '__x__' ); ?>" />
-			<input type="hidden" name="action" id="action" value="bp_avatar_upload" />
+      <p>
+			  <input type="file" name="file" id="file" />
+			  <input type="submit" name="upload" id="upload" value="<?php esc_attr_e( 'Upload', '__x__' ); ?>" />
+			  <input type="hidden" name="action" id="action" value="bp_avatar_upload" />
+			</p>
 
 			<?php if ( bp_get_group_has_avatar() ) : ?>
 

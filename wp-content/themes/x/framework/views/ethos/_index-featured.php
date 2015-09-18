@@ -17,8 +17,8 @@ $categories             = x_ethos_post_categories();
   <?php if ( $index_layout == 'on' && ! is_single() ) : ?>  
     <span class="featured-meta"><?php echo $categories; ?> / <?php echo get_the_date( 'F j, Y' ); ?></span>
     <h2 class="h-featured"><span><?php the_title(); ?></span></h2>
-    <span class="featured-view">View Post</span>
+    <span class="featured-view"><?php _e( 'View Post', '__x__' ); ?></span>
   <?php else : ?>
-    <span class="view">View Post</span>
+    <span class="view"><?php _e( 'View Post', '__x__' ); ?></span>
   <?php endif; ?>
 </a>

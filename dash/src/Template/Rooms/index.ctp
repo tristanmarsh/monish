@@ -7,12 +7,41 @@
 <div class="panel panel-default clearfix">
     
     <div class="panel-body">
-        
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
 
-        </ul>
+        <div class="col-sm-6">
+            
+            <ul class="nav nav-pills pull-left">
+                <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
+                <li role="presentation"><?= $this->Html->link('New Room', ['action' => 'add']) ?></li>
+
+            </ul>
+
+        </div>
+
+        <div class="col-sm-6">
+
+        <div class="input-group input-lg pull-right search">
+          <input type="text" class="form-control" placeholder="Filter Results" id="myInputTextField">
+          <div class="input-group-btn">
+                    
+                    <!-- Single button -->
+                     <div class="btn-group">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
 
     </div>
 
@@ -28,6 +57,7 @@
 
 </div>
 
+
 <!-- Panel -->
 <div class="panel panel-primary">
     <!-- Default panel contents -->
@@ -41,10 +71,10 @@
         <table cellpadding="0" cellspacing="0" class="">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('room_name') ?></th>
-                    <th><?= $this->Paginator->sort('property_id') ?></th>
-                    <th><?= $this->Paginator->sort('Vacant') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th>Room Name</th>
+                    <th>Property ID</th>
+                    <th>Vacant</th>
+                    <th> Actions</th>
                 </tr>
             </thead>
             <tbody>

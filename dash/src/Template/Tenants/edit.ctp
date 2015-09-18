@@ -5,7 +5,7 @@
 
 <!-- File: src/Template/Users/edit.ctp -->
 
-<h1>Update Tenant</h1>
+<h1>Tenants</h1>
 <div class="panel panel-default clearfix">
     
 
@@ -18,43 +18,87 @@
         </ul>
 
     </div>
-
-<!--     <div class="panel-footer">
+            <div class="panel-footer">
 
         <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><a href="#">Imagine</a></li>
-            <li role="presentation"><a href="#">Secondary</a></li>
-            <li role="presentation"><a href="#">Buttons</a></li>
+            <li role="presentation" ><?= $this->Html->link('View', ['action' => 'view', $defaultPerson->id]) ?></li>
+            <li role="presentation" class="active"><?= $this->Html->link('Edit', ['action' => 'edit', $user->id]) ?></li>
         </ul>
 
-    </div> -->
+    </div>
+
 
 </div>
 
-    <div class="panel panel-default">
-      <div class="panel-body">   
-<?php
+    <div class="panel panel-primary">
 
-	echo $this->Form->create($user, array('class' => 'form-group'));
-    echo $this->Form->input('first_name', array('default' => $defaultPerson->first_name,'class' => 'form-control'));
-    echo $this->Form->input('last_name', array('default' => $defaultPerson->last_name,'class' => 'form-control'));
-    echo $this->Form->input('common_name', array('default' => $defaultPerson->common_name,'class' => 'form-control'));
-    echo $this->Form->input('phone', array('default' => $defaultPerson->phone,'class' => 'form-control'));
-    echo $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'], 'default' => $defaultStudent->internet_plan, 'class' => 'form-control']);
-	echo $this->Form->input('username', array('class' => 'form-control'));
-	echo $this->Form->input('password', array('class' => 'form-control'));
-	//echo $this->Form->input('confirm_password', array('class' => 'form-control', 'type'=>'password'));
-	echo $this->Form->input('role', ['options' => ['admin' => 'Admin', 'tenant' => 'Tenant'], 'class' => 'form-control']);
-    ?>
-    <br>
-    <?php 
-	echo $this->Form->button(__('Update User') ,['class' => 'form-control btn btn-info']);
-	echo $this->Form->end();
-	echo $this->Form->create(null, [
-		'url' => ['controller' => 'Users', 'action' => 'index']
-		]);
-	// echo $this->Form->button(__('Cancel'));
+      <div class="panel-heading">
+                    <h2 class="panel-title">Edit Tenant</h2>
+      </div>
+      <div class="panel-body">
 
-?>
-</div>
-</div>
+        <?= $this->Form->create($user, array('type' => 'file', 'class' => 'form-group')) ?>
+
+        <fieldset class="input-group">
+
+
+            
+            <div class="col-md-6">
+            
+              <?= $this->Form->input('first_name', array('default' => $defaultPerson->first_name,'class' => 'form-control')) ?>
+              <?= $this->Form->input('last_name', array('default' => $defaultPerson->last_name,'class' => 'form-control')) ?>
+              <?= $this->Form->input('common_name', array('default' => $defaultPerson->common_name,'class' => 'form-control')) ?>
+              <?= $this->Form->input('visa', array('default' => $defaultPerson->visa,'class' => 'form-control')) ?>
+              <?= $this->Form->input('account_name', array('default' => $defaultPerson->account_name,'class' => 'form-control')) ?>
+              <?= $this->Form->input('bsb_number', array('default' => $defaultPerson->bsb_number,'class' => 'form-control')) ?>
+<!--              <?= $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']); ?>
+                 <?= $this->form->input('date_start',['id'=>'dateStartPicker','class' => 'form-control']); ?> -->
+
+
+              
+            </div>
+
+
+            <div class="col-md-6">
+             
+              <?= $this->Form->input('role', ['options' => ['admin' => 'Admin', 'tenant' => 'Tenant'], 'class' => 'form-control']) ?>
+             
+              <?= $this->Form->input('phone', array('default' => $defaultPerson->phone,'class' => 'form-control')) ?>
+             
+              <?= $this->Form->input('username', array('label'=>'Username/Email', 'class' => 'form-control')) ?>
+
+              <?= $this->Form->input('parent_address', array('default' => $defaultPerson->parent_address,'class' => 'form-control')) ?>
+
+              <?= $this->Form->input('account_number', array('default' => $defaultPerson->account_number,'class' => 'form-control')) ?>
+
+              <?= $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'],'default' => $defaultStudent->internet_plan, 'class' => 'form-control']) ?>
+<!-- 
+              <?= $this->Form->input('weekly_price', ['class' => 'form-control']); ?>
+
+              <?= $this->form->input('date_end',['id'=>'dateEndPicker','class' => 'form-control']); ?> -->
+
+
+            
+            </div>
+
+            
+           </fieldset>
+           <br>
+            <div class="col-md-12">
+
+           <?= $this->Form->button(__('Edit Tenant'), ['class' => 'form-control btn btn-primary']); ?>
+           <?= $this->Form->end() ?>
+           <br><br>
+           <?php
+           echo $this->Form->create(null, [
+            'url' => ['controller' => 'People', 'action' => 'index']
+            ]);
+           ?>
+         </div>
+
+           </div>
+
+
+
+      </div>
+

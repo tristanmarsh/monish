@@ -15,14 +15,14 @@
 
             echo $this->Form->create($user, array('class' => 'form-group'));
             //echo $this->Form->input('person_id', ['options' => $people]);
-            echo $this->Form->input('username', array('class' => 'form-control'));
+            // echo $this->Form->input('username', array('class' => 'form-control'));
             echo $this->Form->input('password', array('class' => 'form-control'));
-            //echo $this->Form->input('confirm_password', array('class' => 'form-control', 'type'  =>  'password'));
+            echo $this->Form->input('confirm_password', array('class' => 'form-control', 'type'  =>  'password'));
             ?>
             <br>
             <?php
             //echo $this->Form->input('role', ['options' => ['admin' => 'Admin', 'tenant' => 'Tenant']]);
-            echo $this->Form->button(__('Update User'), ['class' => 'form-control btn btn-info']);
+            echo $this->Form->button(__('Update User'), ['class' => 'form-control btn btn-primary']);
             echo $this->Form->end();
             echo $this->Form->create(null, [
                 'url' => ['controller' => 'Users', 'action' => 'index']

@@ -10,40 +10,42 @@ Since:    30/7/15
 // Taken from forked codepen http://codepen.io/tristanmarsh/pen/VLVQqo
 
 
-// /* Universal Transition */
-// * {
-//   transition:all 100ms ease;
-// }
-
-// html {
-//   font-size:1em;
-//   font-size:16px;
-// }
 
 body {
-  // font-family: $open-sans-font-stack;
-  // line-height: 20px;
-  // font-weight: 400;
   color: #70808e;
 }
 
-// .wrapper {
-//   margin: 0 auto;
-//   padding: 40px;
-//   max-width: 800px;
-// }
 
+.search {
+
+  input[type="text"].form-control {
+    position: absolute;
+    right:-15px;
+    top:0;
+    height: 100%;
+    font-size:2rem;
+    border-radius: 5px;
+  }
+
+  .input-group-btn {
+    opacity: 0;
+    visibility:none;
+  }
+}
+
+
+// Effective Table Footer
+.table-responsive {
+  border-radius: 0 0 5px 5px;
+}
 
 table {
   display: table;
   width: 100%;
   font-family: $open-sans-font-stack;
-  // box-shadow: 0 3px rgba(118, 170, 219,0.2);
-  // border-radius:5px;
-
 
   * {
-    transition:all 100ms ease;
+    transition:all 200ms ease-out
   }
   
   // Link Style
@@ -52,17 +54,9 @@ table {
     text-decoration: none;
   }
 
-  //not a th
-  & th>* {
-    display:block;
-    padding: 6px 12px;
-    color:#fff;
-    text-decoration: none;
-  }
-
+  
   // Table Header
-  & th {
-    color: #fff;
+  & thead th {
     background: #2980b9;
     background: rgba(41, 128, 185,0.5);
     font-size:1.4rem;
@@ -71,59 +65,9 @@ table {
     position:relative;
     overflow:hidden;
     color:#fff;
+    padding: 6px 12px;
+    color:#fff;
   
-    &>a {
-      display:block;
-      padding: 6px 12px;
-      color:#fff;
-      text-decoration: none;
-    }    
-
-    &>a:focus,
-    &>a:hover {
-      background: lighten(#2980b9,5%);
-      color:#fff;
-      text-decoration: none;
-    }
-
-    // Preview Hidden
-    &>a:after {
-     content:'\25B2';
-      position:absolute;
-      float:right;
-      right:1em;
-      font-size: 0.8em;
-      opacity:0;
-    }
-
-    &>a.asc,
-    &>a.desc {
-      background: darken(#2980b9,10%);
-    }
-
-    // Hover ASC Preview
-    &>a:focus:after,
-    &>a:hover:after {
-      opacity:1;
-    }
-    
-    //Make preview Hidden for active state
-    &>a.asc:after,
-    &>a.desc:after {
-      opacity:1;
-    }
-
-    //inherited from hover preview
-    &>a.asc:after {
-      content:inherit;
-    }
-    
-    //modify from inherited hover preview
-    &>a.desc:after {
-      content:'\25BC';
-    }
-
-
   }
 
   // Table Row
@@ -144,19 +88,39 @@ table {
   & tr:focus td,
   & tr:hover td, {
     background: darken(#fff, 0%);
-    cursor:pointer;
+
   }
 
-  & tr:last-child td:first-child {
-    border-bottom-left-radius:5px;
+  & tr.unread {
+    
+    &>td {
+      font-weight:bold;
+    }
+
   }
 
-  & tr:last-child td:last-child {
-    border-bottom-right-radius:5px;
+  & tr.unread {
+    
+    &>td {
+      font-weight:bold;
+    }
+
   }
+
+  // No need to apply border radius when table footer has same effect
+  // & tr:last-child td:first-child {
+  //   border-bottom-left-radius:5px;
+  // }
+
+  // & tr:last-child td:last-child {
+  //   border-bottom-right-radius:5px;
+  // }
 
   // Table Action Buttons
-  & td.actions a {}
+  & td a {
+    display:block;
+    text-align: center;
+  }
 
   @media screen and (max-width: 580px) {
     padding: 8px 0;
@@ -164,18 +128,96 @@ table {
   }
 
   td {
-    color:#555;
-    padding: 12px 12px;
-    @media screen and (max-width: 580px) {
-      padding: 2px 12px;
-    }
-    
-    & .checkbox {
-      margin:0;
-    }
-
+    padding:0 10px 0 10px;
+    position: relative;
+    overflow: hidden;
+    height:60px;
   }
 
+  // td>span:not([class="glyphicon"]) {
+  td>* {
+    // display: block;
+    color:#555;
+  }
+
+  td>span,
+  td>img {
+    // display: block;
+    padding: 0;
+  }
+  
+  // Gravatar flush
+  td:first-child>img.gravatar {
+    margin-left:-10px;
+    background:#fff;
+  }
+  
+  // Profile Name after gravatar offset
+  td:first-child>img.gravatar + span {
+    margin-left:10px;
+  }
+
+  td.action>a {
+    display: block;
+    margin: -10em;
+    padding: 10em;
+  }
+  
+  // General Icon Color
+  td.action>a span:before,
+  td.action>a span:before{
+    color: lighten(#2980b9,10%);
+  }  
+
+  // General Action hover background
+  td.action>a:focus,
+  td.action>a:hover {
+    background: lighten(#2980b9,10%);
+  }
+
+
+  // Close Icon Color
+  td.action-close>a span:before,
+  td.action-close>a span:before{
+    color: lighten(#5fcf80,10%);
+  }  
+
+  // Close hover background
+  td.action-close>a:focus,
+  td.action-close>a:hover {
+    background: lighten(#5fcf80,10%);
+  }
+
+
+  // Remove Icon Color
+  td.action-remove>a span:before,
+  td.action-remove>a span:before{
+    color: lighten(#CF6370,10%);
+  }  
+
+  // Remove hover background
+  td.action-remove>a:focus,
+  td.action-remove>a:hover {
+    background: lighten(#CF6370,10%);
+  }
+
+  // Action hover icon color
+  td>a:focus>span.glyphicon:before,
+  td>a:hover>span.glyphicon:before {
+    color:#fff;
+  }
+
+  // Used for hiding the 1px * 0px view links
+  td>[href*="view"] {
+    padding: 0;
+    @media screen and (max-width: 580px) {
+      padding: 0;
+    }
+  }
+
+  & .checkbox {
+    margin:0;
+  }
 
 
 }

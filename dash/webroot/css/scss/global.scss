@@ -1,5 +1,5 @@
 /*
-Name:   Blobal.SCSS
+Name:   Global.SCSS
 Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  Global styling for the Monish Dashboard
 Since:    31/7/15
@@ -28,10 +28,8 @@ body {
 
 // #### UTILITY ####
 
-
-
 .logo{
-  margin-top:8vw;
+  margin-top:2vw;
 }
 
 
@@ -39,7 +37,31 @@ body {
   margin-top:20px;
 }
 
+
+.log-in-window {
+
+  label {
+    color:#70808e;
+  }
+
+  input {
+    // border-color:#eee;
+  }
+
+
+  .input-group-addon {
+    // background:#B2CFE9;
+
+    .glyphicon {
+      color:#70808e;
+    }
+
+  }
+
+}
+
 .img-center {
+  display: block;
   margin:0 auto;
 }
 
@@ -68,20 +90,26 @@ a {color:#618DB6;}
 
 
 /* #### NAVBAR #### */
-
-
 .navbar {
   background:#fff;
   border-bottom:0;
+  margin-bottom:0;
+
+  .navbar-brand {
+    padding:5px;
+  }
 
   .nav>li>a {
-      position: relative;
-      display: block;
-      padding: 5px;
+    position: relative;
+    display: block;
+    padding: 5px;
   }
 
 }
 
+.gravatar {
+  background-color:#212D38;
+}
 
 // #### HEADER ####
 header {
@@ -138,16 +166,7 @@ header {
   height: 40px!important;
 }
 
-// #### NAVBAR ####
 
-.navbar {
-  // position:static;
-  margin-bottom:0;
-
-  .navbar-brand {
-    padding:5px;
-  }
-}
 
 
 // #### HEADER ####
@@ -221,7 +240,7 @@ h6 {
   overflow-x: hidden; //prevents scrollable panels when mobile nav visible
   overflow-y: scrollable; 
   background: rgb(236,242,246);
-  transition: all 400ms ease;
+  transition: all 400ms ease-out;
 
 
   &:before {
@@ -331,6 +350,51 @@ h6 {
 
 
 // #### CONTENT ####
+
+.panel-property {
+  
+
+  .panel-heading {
+    padding:0;
+    overflow:hidden;
+
+    .property-image {
+      transition:transform 2s ease-out;
+      height:50vh;
+
+      & a {
+        display: block;
+        height:100%;
+
+        &:hover,
+        &:focus {
+          text-decoration: none;
+        }
+
+        & .panel-title {
+          display: block;
+          padding:2rem;
+          transition:transform 2s ease;
+          background-color: rgba(0,0,0,0.5);
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          font-size:2rem;
+          color: #fff;
+        }
+      }
+      &:hover {
+
+      }
+    }
+  }
+
+  .gravatar {
+    display:inline-block;
+    z-index:0;
+  }
+
+
+}
 
 // #### FOOTER ####
 .footer-container {

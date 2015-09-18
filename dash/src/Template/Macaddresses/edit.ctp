@@ -52,42 +52,74 @@
 
 
 
-   <div class="panel panel-default">
+   <div class="panel panel-primary">
+
+    <div class="panel-heading">
+            <h2 class="panel-title">Device Detail</h2>
+
+                      </div>
       <div class="panel-body">   
 
 
-<div class="form input-50">
+<div class="col-md-6">
 <?php
     echo $this->Form->create($lion, array('class' => 'form-group'));
     echo $this->Form->input('device_name_one', array('class' => 'form-control'));
-	echo $this->Form->input('mac_address_one', array('class' => 'form-control'));
+	
     echo $this->Form->input('device_name_two', array('class' => 'form-control'));
-    echo $this->Form->input('mac_address_two', array('class' => 'form-control'));
+    
     echo $this->Form->input('device_name_three', array('class' => 'form-control'));
-    echo $this->Form->input('mac_address_three', array('class' => 'form-control'));
+    
     echo $this->Form->input('device_name_four', array('class' => 'form-control'));
-    echo $this->Form->input('mac_address_four', array('class' => 'form-control'));
+    
     echo $this->Form->input('device_name_five', array('class' => 'form-control'));
-    echo $this->Form->input('mac_address_five', array('class' => 'form-control'));
+    
     echo $this->Form->input('device_name_six', array('class' => 'form-control'));
-    echo $this->Form->input('mac_address_six', array('class' => 'form-control'));
+    
     echo $this->Form->input('device_name_seven', array('class' => 'form-control'));
-    echo $this->Form->input('mac_address_seven', array('class' => 'form-control'));
+   
     echo $this->Form->input('device_name_eight', array('class' => 'form-control'));
-    echo $this->Form->input('mac_address_eight', array('class' => 'form-control'));
+    
     echo $this->Form->input('device_name_nine', array('class' => 'form-control'));
-    echo $this->Form->input('mac_address_nine', array('class' => 'form-control'));
+    
     echo $this->Form->input('device_name_ten', array('class' => 'form-control'));
-    echo $this->Form->input('mac_address_ten', array('class' => 'form-control'));
-    echo "\n<br />\n<br />";
-    echo $this->Form->button(__('Update Request'), ['class' => 'form-control btn btn-info']);
-    echo $this->Form->end();
-	echo $this->Form->create(null, [
-		'url' => ['controller' => 'Macaddresses', 'action' => 'index']
-		]);
-	// echo $this->Form->button(__('Cancel'));
+    
+    ?>
+
+</div>
+
+<div class="col-md-6">
+    <?php
+    echo $this->Form->input('mac_address_one', array('class' => 'form-control'));
+echo $this->Form->input('mac_address_two', array('class' => 'form-control'));
+echo $this->Form->input('mac_address_three', array('class' => 'form-control'));
+echo $this->Form->input('mac_address_four', array('class' => 'form-control'));
+echo $this->Form->input('mac_address_five', array('class' => 'form-control'));
+echo $this->Form->input('mac_address_six', array('class' => 'form-control'));
+ echo $this->Form->input('mac_address_seven', array('class' => 'form-control'));
+echo $this->Form->input('mac_address_eight', array('class' => 'form-control'));
+echo $this->Form->input('mac_address_nine', array('class' => 'form-control'));
+echo $this->Form->input('mac_address_ten', array('class' => 'form-control'));
 ?>
 </div>
 
+<br>
+<div class="col-md-12">
+    <?php
+    echo $this->Form->button(__('Update Devices'), ['class' => 'form-control btn btn-primary']);
+    echo $this->Form->end();
+    ?>
+
+    <br>
+            <br>
+            <?php
+	echo $this->Form->create(null, [
+		'url' => ['controller' => 'Macaddresses', 'action' => 'index']
+		]);
+
+?>
 </div>
 </div>
+
+</div>
+

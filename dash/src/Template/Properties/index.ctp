@@ -6,12 +6,15 @@
 <div class="panel panel-default clearfix">
     
     <div class="panel-body">
-        
-        <ul class="nav nav-pills pull-left">
+
+        <div class="col-sm-6">
+            <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
             <li role="presentation"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>
-            <li role="presentation"><?= $this->Html->link('New Room', ['controller' => 'rooms', 'action' => 'add']) ?></li>
+            <!-- <li role="presentation"><?= $this->Html->link('New Room', ['controller' => 'rooms', 'action' => 'add']) ?></li> -->
         </ul>
+            
+        </div>
 
     </div>
 
@@ -38,22 +41,28 @@
 
     <?php $variable ="hello" ?>
 
-<div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-3">
+<div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-4">
 
-    <div class="panel panel-primary">
+        <!-- Retrieve Property Image -->
+        <?php if (!($property->avatar_directory === NULL)) {
+            $directory = substr($property->avatar_url, 5);
+            // echo '<img style="max-width:100%" src="/monish/dash/img/' . $directory . '" />';
+        } ?>
+
+    <div class="panel panel-primary panel-property">
+       
         <!-- Default panel contents -->
         <div class="panel-heading">
-            <h2 class="panel-title text-center">
-
-
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" data-remote="<?= $variable?>">
-                    <?php
-                    echo $property->address;
-                    ?>
-                </button>
-
-            </h2>
+            <div class="property-image" style='background:url(
+                <?php
+                echo "/monish/dash/img/" . $directory . ") center center"; ?>;background-size:cover'; >
+                <?php
+                //echo $property->address;
+                    echo $this->Html->link('<h3 class="panel-title text-center">' . $property->address . '</h3>', ['controller'=>'properties', 'action' => 'view', $property->id], ['escape'=>false] );
+                    // echo $this->Html->url(['controller'=>'properties','action'=>'view'], true);
+                ?>
+            </div>
+                
         </div>
 
         <!-- Table -->
@@ -61,31 +70,37 @@
             <thead>
             <tr>
                 <th>Room</th>
+                <th colspan="2">Tenant</th>
                 <th>Status</th>
-                <th>Current Tenant</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($property->rooms as $rooms): ?>
                 <tr>
 
-                    <td><?= $rooms->room_name ?>
-                        <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
-                    </td>
+                    <!-- Room Name -->    
                     <td>
+                        <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
+                        <?= $rooms->room_name ?>
+                    </td>
+
+                    <!-- Tenant Avatar -->    
+                    <td>
+                        <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
                         <?php
                         $room = $roomlease->get($rooms->id, ['contain'=>'Leases']);
 
                         $test = "";
                         $testtwo = "";
                         $sentinel = true; //true if Never Been Leased
+                        ?>
+                        <?php
                         if (!empty($room->leases)) {
                             foreach ($room->leases as $leastenddate) {
                                 $test = $test."||".$leastenddate->date_end->format('Y-m-d');
                             }
                         }
                         else {
-                            echo "Never Been Leased";
                             $sentinel = false;
                         }
                         if ($sentinel) { //THIS CHECK MAKES THE TABLE ALIGNMENT WEIRD I HAVE NO IDEA WHY, But it is the only way for the code to correctly check room status
@@ -93,23 +108,60 @@
 
                             foreach ($room->leases as $leastenddate) {
                                 if ($leastenddate->date_end->format('Y-m-d') === max($toArray)) {
-                                        $studentid = $leastenddate->student_id;
-                                        $studentEntity = $studentTable->get($studentid, ['contain'=>'People']);
-                                        $personEntity = $peopleTable->get($studentEntity->person_id);
-                                    };
+                                    $studentid = $leastenddate->student_id;
+                                    $studentEntity = $studentTable->get($studentid, ['contain'=>'People']);
+                                    $personEntity = $peopleTable->get($studentEntity->person_id);
+                                };
                             }
 
                             if (max($toArray) > date("Y-m-d")) {
-                                echo "Leased Until " . max($toArray);
+
                             } else if (max($toArray) === date("Y-m-d")) {
-                                echo "Lease Expires Today";
+
                             } else if (max($toArray) < date("Y-m-d")) {
-                                echo "Lease Expired Since ".max($toArray);
+                            }
+                        }
+                        ?>
+                        <?php
+                        $emailHash = md5( strtolower( trim( $personEntity->email ) ) );
+                        // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
+                        $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
+                        $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+                        ?>
+
+                        <?php
+                        if (!empty($room->leases)) {
+                            foreach ($room->leases as $leastenddate) {
+                                $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                            }
+                        }
+                        else {
+                            $sentinel = false;
+                        }
+                        if ($sentinel) { //THIS CHECK MAKES THE TABLE ALIGNMENT WEIRD I HAVE NO IDEA WHY, But it is the only way for the code to correctly check room status
+                            $toArray = explode("||", $test);
+
+                            foreach ($room->leases as $leastenddate) {
+                                if ($leastenddate->date_end->format('Y-m-d') === max($toArray)) {
+                                    $studentid = $leastenddate->student_id;
+                                    $studentEntity = $studentTable->get($studentid, ['contain'=>'People']);
+                                    $personEntity = $peopleTable->get($studentEntity->person_id);
+                                };
+                            }
+
+                            if (max($toArray) > date("Y-m-d")) {
+                                echo $gravatarImage;
+                            } else if (max($toArray) === date("Y-m-d")) {
+                                echo $gravatarImage;
+                            } else if (max($toArray) < date("Y-m-d")) {
                             }
                         }
                         ?>
                     </td>
+
+                    <!-- Tenant Name -->
                     <td>
+                        <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
                         <?php
                         if (!empty($room->leases)) {
                             foreach ($room->leases as $leastenddate) {
@@ -141,6 +193,42 @@
                         }
                         ?>
                     </td>
+
+                    <!-- Status -->
+                    <td>
+                        <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
+                        <?php
+                        if (!empty($room->leases)) {
+                            foreach ($room->leases as $leastenddate) {
+                                $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                            }
+                        }
+                        else {
+                            echo "Never Been Leased";
+                            $sentinel = false;
+                        }
+                        if ($sentinel) { //THIS CHECK MAKES THE TABLE ALIGNMENT WEIRD I HAVE NO IDEA WHY, But it is the only way for the code to correctly check room status
+                            $toArray = explode("||", $test);
+
+                            foreach ($room->leases as $leastenddate) {
+                                if ($leastenddate->date_end->format('Y-m-d') === max($toArray)) {
+                                    $studentid = $leastenddate->student_id;
+                                    $studentEntity = $studentTable->get($studentid, ['contain'=>'People']);
+                                    $personEntity = $peopleTable->get($studentEntity->person_id);
+                                };
+                            }
+
+                            if (max($toArray) > date("Y-m-d")) {
+                                echo "Leased Until " . max($toArray);
+                            } else if (max($toArray) === date("Y-m-d")) {
+                                echo "Lease Expires Today";
+                            } else if (max($toArray) < date("Y-m-d")) {
+                                echo "Lease Expired Since ".max($toArray);
+                            }
+                        }
+                        ?>
+                    </td>
+
                 </tr>
             <?php endforeach; ?>
             </tbody>
@@ -173,12 +261,3 @@
     </div>
   </div>
 </div>
-
-  <script>
-    $("table").on("click", "tr", function(e) {
-        if ($(e.target).is("a,input,th")) // anything else you don't want to trigger the click
-            return;
-        location.href = $(this).find("a").attr("href");
-    });
-</script>
-

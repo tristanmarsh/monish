@@ -7,12 +7,39 @@
 <div class="panel panel-default clearfix">
     
     <div class="panel-body">
-        
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
-            <li><input type="text" class="form-control" placeholder="Search" id="myInputTextField"></li>
-        </ul>
+
+        <div class="col-sm-6">
+            <ul class="nav nav-pills pull-left">
+                <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+                <li role="presentation"><?= $this->Html->link('New Tenant', ['action' => 'add']) ?></li>
+            </ul>
+            
+        </div>
+
+        <div class="col-sm-6">
+
+        <div class="input-group input-lg pull-right search">
+          <input type="text" class="form-control" placeholder="Filter Results" id="myInputTextField">
+          <div class="input-group-btn">
+                    
+                    <!-- Single button -->
+                     <div class="btn-group">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
 
     </div>
 
@@ -37,7 +64,7 @@
 
   <!-- Table -->
     <div class="table-responsive">
-        <table id="tenants" cellpadding="0" cellspacing="0" class="">
+        <table  class="datatable">
             <thead>
                 <tr>
                     <th>First Name</th>
@@ -47,7 +74,7 @@
                     <th>Phone</th>
                     <th>Email</th>
                     <th>Internet Plan</th>
-                    <th>Actions</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,42 +82,51 @@
                 <?php if (!($person->user->role === "admin")) : ?>
                 <tr>
                     <td>
+                        <?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?>
+
+                            <?php
+                                $emailHash = md5( strtolower( trim( $person->email ) ) );
+                                // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
+                                $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
+                                $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+                            ?>
+
+                            <?= $gravatarImage; ?>
+
+                        <span>
                         <?= $person->first_name ?>
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </td>
+                    </span>
+                </td>
                     <td>
+                        <?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?>
+                        <span>
                         <?= $person->last_name ?>
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </td>
-                    <td>
+                    </span>
+                </td>
+                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
                         <?= $person->common_name ?>
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </td>
-                    <td>
+                    </span></td>
+                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
                         <?= $person->gender ?>
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </td>
-                    <td>
+                    </span></td>
+                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
                         <?= $person->phone ?>
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </td>
-                    <td>
+                    </span></td>
+                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
                         <?= $person->email ?>
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </td>
-                    <td>
+                    </span></td>
+                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
                         <?= $person->student->internet_plan ?>
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                    </td>
-                    <td class="actions">
-                        <?= $this->Html->link("", ['action' => 'view', $person->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['controller' => 'tenants', 'action' => 'edit', $person->user->id]) ?>
-                    </td>
+                    </span></td>
+                    <td class="action action-edit">
+                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'tenants', 'action' => 'edit', $person->user->id], ['escape' => false]); ?>
+                    </span></td>
                 <?php endif; ?>
             </tr>
         <?php endforeach; ?>
     </tbody>
     </table>
+    <div class="panel-footer"><!-- Panel Footer Doesn't actually do anything here apart from  adding a border --></div>
     </div>
 
 </div>
@@ -119,12 +155,12 @@
 
 <script>
     $(document).ready( function () {
-        $('#tenants').DataTable();
+        $('#requests').DataTable();
     } );
 </script>
 
 <script>
-    oTable = $('#tenants').dataTable();
+    oTable = $('#requests').dataTable();
     $('#myInputTextField').keyup(function(){
         oTable.fnFilter($(this).val());
     })

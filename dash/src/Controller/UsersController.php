@@ -25,7 +25,7 @@ class UsersController extends AppController
 			
             if(empty($this->request->data['username']))
             {
-                $this->Flash->error('Please enter your username address.');
+                $this->Flash->error('Please enter your username (email address)');
 
             }
             else
@@ -57,23 +57,23 @@ class UsersController extends AppController
                             $email->template('reset_password')
                                 ->emailFormat('html')
                                 ->to($toemail)
-                                ->subject('Reset your Better Windows password')
+                                ->subject('Request To Recover Monash International Student House Account')
                                 ->from('mafak1@student.monash.edu')
                                 ->viewVars(['ms' => $ms])
                                 ->send();
 
-                            $this->Flash->success('A link has been generated. Please check your email.');
+                            $this->Flash->success('Recovery email generated! Please check your email');
 
                             //============EndEmail=============//
                         }
                         else{
 
-                            $this->Flash->error('Error generating reset link.');
+                            $this->Flash->error('Unable to generate recovery email');
                         }
                 }
                 else
                 {
-                    $this->Flash->error('Email does not exist.');
+                    $this->Flash->error('Email not associated with a current system user');
                 }
             }
         }
@@ -112,9 +112,10 @@ class UsersController extends AppController
 
                         if($this->Users->save($u))
                         {
-                            $this->Flash->success('Password Has been updated');
+                            $this->Flash->success('Password Successfully Updated!');
 
-                            $this->redirect(['controller' => 'users', 'action' => 'login']);
+                            //Redirects home rather than to a controller to prevent error access message
+                            $this->redirect('/');
                         }
                         
                     }
@@ -201,9 +202,19 @@ class UsersController extends AppController
 
         $this->loadModel('People');
         $this->loadModel('Requests');
+        $this->loadModel('Leases');
+        $this->loadModel('Properties');
+        $this->loadModel('Rooms');
+
 
         $requests = $this->Requests->find('all')->contain('People');
         $this->set(compact('requests'));
+
+        $leases = $this->Leases->find('all')->contain(['Students', 'Properties', 'Rooms']);
+        $this->set(compact('leases'));
+
+        $walrus = $this->People;
+        $this->set('walrus', $walrus);
 
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
@@ -226,7 +237,24 @@ class UsersController extends AppController
         return $this->redirect($this->Auth->logout());
     }
 
-    public function edit($id = null)
+    public function editpassword($id = null)
+    {
+        $user = $this->Users->get($id);
+        if ($this->request->is(['post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $this->request->data);
+            if ($this->Users->save($user)){
+                $this->Flash->success(__('This user has been updated.'));
+                return $this->redirect(['controller'=>'people', 'action' => 'index']);
+            }
+            $this->Flash->error(__('Unable to update this user.'));
+        }
+        $this->set('user', $user);
+
+        //finds the list of people in the people's table
+        $people = $this->Users->People->find('list', ['limit' => 200]);
+        $this->set(compact('people'));
+    }
+        public function editusername($id = null)
     {
         $user = $this->Users->get($id);
         if ($this->request->is(['post', 'put'])) {
@@ -247,7 +275,24 @@ class UsersController extends AppController
     public function isAuthorized($user)
     {
 
-        if (in_array($this->request->action, ['edit'])) {
+        if (in_array($this->request->action, ['editpassword'])) {
+            $requestId = (int)$this->request->params['pass'][0];
+
+            $this->loadModel('People');
+            $this->loadModel('Users');
+
+            $authid = $this->Auth->user('id');
+            $this->set(compact('authid'));
+            $userEntity = $this->Users->get($authid);
+            $this->set(compact('userEntity'));
+            $personEntity = $this->People->get($userEntity->person_id);
+            $this->set(compact('personEntity'));
+
+            if ($authid === $requestId) {
+                return true;
+            }
+        }
+                if (in_array($this->request->action, ['editusername'])) {
             $requestId = (int)$this->request->params['pass'][0];
 
             $this->loadModel('People');

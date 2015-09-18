@@ -4,7 +4,7 @@
 ?>
 
 <!--Loads the jQuery scripts used in this view-->
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<!-- <script src="//code.jquery.com/jquery-1.10.2.js"></script> -->
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 <head>
@@ -40,29 +40,47 @@
 
 </div>
 
-<div class="panel panel-default">
+<div class="panel panel-primary">
+
+  <div class="panel-heading">
+        <h2 class="panel-title">New Lease</h2>
+  </div>
   <div class="panel-body">
-    <div class="leases form large-10 medium-9 columns">
 
       <?= $this->Form->create($lease, array('class' => 'form-group')); ?>
       <fieldset>
-        <legend><?= __('New Lease', array('class' => 'form-control')) ?></legend>
+
+        <div class="col-md-6">
         <?php
         echo $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']);
-        echo $this->Form->input('student_id', ['options' => $students,'class' => 'form-control']);
+        
         echo $this->Form->input('date_start',['id'=>'dateStartPicker', 'type'=>'text','class' => 'form-control']);
-        echo $this->Form->input('date_end',['id'=>'dateEndPicker', 'type'=>'text', 'class' => 'form-control']);
+        
         echo $this->Form->input('weekly_price', array('class' => 'form-control'));
         ?>
+      </div>
+
+      <div class="col-md-6">
+        <?php
+        echo $this->Form->input('student_id', ['options' => $students,'class' => 'form-control']);
+
+        echo $this->Form->input('date_end',['id'=>'dateEndPicker', 'type'=>'text', 'class' => 'form-control']);
+
+        ?>
+
+      </div>
       </fieldset>
       <br>
-      <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-info']); ?>
+
+      <div class="col-md-12">
+      <?= $this->Form->button(__('Create Lease'), ['class' => 'form-control btn btn-primary']); ?>
       <?= $this->Form->end() ?>
       <?= $this->Form->create(null, [
       'url' => ['controller' => 'Leases', 'action' => 'index']
       ])?>
+      <br>
       <!--     <?= $this->Form->button(__('Cancel')) ?> -->
-
+      </div>
     </div>
   </div>
-</div>
+

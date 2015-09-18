@@ -57,8 +57,12 @@
                     <td><?= $person->student->internet_plan ?></td>
                     <td><?= $person->visa ?></td>
                     <td><?= $person->parent_address ?></td>
-                    <td class="action action-edit" >
-                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'tenants', 'action' => 'edit', $person->user->id], ['escape' => false]); ?>
+                    <td class="action action-edit">
+                        <?php echo $this->Html->link(
+                            '<span class="glyphicon glyphicon-pencil"></span>',
+                            ['controller' => 'tenants', 'action' => 'edit', $person->user->id],
+                            ['escape' => false]);
+                        ?>
                     </span></td>
                 </tr>
             </tbody>

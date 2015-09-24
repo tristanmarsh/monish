@@ -16,8 +16,10 @@ class RoomsController extends AppController
      *
      * @return void
      */
-    public function index()
-    {
+    public function index() {
+
+        $this->redirect($this->referer());
+
         $this->paginate = [
             'contain' => ['Properties']
         ];

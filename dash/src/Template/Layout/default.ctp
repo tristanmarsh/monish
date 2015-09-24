@@ -68,9 +68,7 @@ $cakeDescription = 'Monish Dashboard';
 	<link href='http://fonts.googleapis.com/css?family=Raleway|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
 	
     <!-- DataTables -->
-    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
     <script type="text/javascript" charset="utf8" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/plug-ins/1.10.9/sorting/datetime-moment.js"></script>
 
 	<script>
 		new WOW().init();

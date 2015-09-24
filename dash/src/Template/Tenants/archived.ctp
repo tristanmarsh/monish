@@ -10,8 +10,8 @@
 
         <div class="col-sm-6">
             <ul class="nav nav-pills pull-left">
-                <li role="presentation" class="active"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
-                <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
+                <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
+                <li role="presentation" class="active"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
                 <li role="presentation"><?= $this->Html->link('New Tenant', ['action' => 'add']) ?></li>
             </ul>
             
@@ -81,7 +81,7 @@
             <tbody>
                 <?php foreach ($people as $person): ?>
                     <?php if (!($person->user->role === "admin")) : ?>
-                        <?php if ($person->student->archived === "NO") : ?>
+                        <?php if ($person->student->archived === "YES") : ?>
                         
                             <tr>
                                 <td>

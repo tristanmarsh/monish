@@ -918,11 +918,10 @@ body {
 
 .log-in-window {
   margin-top: 20px; }
-
-.log-in-window label {
-  color: #70808e; }
-.log-in-window .input-group-addon .glyphicon {
-  color: #70808e; }
+  .log-in-window label {
+    color: #70808e; }
+  .log-in-window .input-group-addon .glyphicon {
+    color: #70808e; }
 
 .img-center {
   display: block;
@@ -1006,6 +1005,9 @@ h6 {
 
 .alert-danger {
   background-color: #ED5A5A; }
+
+.alert-info {
+  background-color: #76B5ED; }
 
 .panel {
   box-shadow: 0 3px rgba(118, 170, 219, 0.2);

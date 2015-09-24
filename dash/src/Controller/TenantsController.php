@@ -8,8 +8,66 @@ use Cake\ORM\TableRegistry;
 
 class TenantsController extends AppController
 {
-
     public function index()
+    {
+        $this->loadModel('Users');
+        $this->loadModel('People');
+        $this->loadModel('Students');
+        $this->loadModel('Leases');
+        $this->loadModel('Properties');
+
+        $students = $this->paginate($this->Students->find('all')->contain('People'));
+        $this->set(compact('students'));
+
+        $people = $this->paginate($this->People->find('all')->contain(['Students', 'Users']));
+        $this->set(compact('people'));
+
+        $this->loadModel('Rooms');
+
+        $roomlease = $this->Rooms;
+        $this->set(compact('roomlease'));
+
+        $allrooms = $this->Rooms->find('all', ['contain' => ['Properties', 'Leases']]);
+        $this->set(compact('allrooms'));
+
+        foreach ($allrooms as $room){
+            $roomsTable = TableRegistry::get('Rooms');
+            $currentroom = $roomsTable->get($room->id, ['contain'=>'Leases']); 
+            
+            $test = "";
+            $sentinel = true; //true if Never Been Leased
+            if (!empty($currentroom->leases)) {
+                foreach ($currentroom->leases as $leastenddate) {
+                    $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                }
+            }
+            else {
+                $currentroom->vacant = 'TRUE';
+                $sentinel = false;
+            }
+            if ($sentinel) { 
+                $toArray = explode("||", $test);
+                if (max($toArray) > date("Y-m-d")) {
+                    $currentroom->vacant = 'FALSE';
+                } else if (max($toArray) === date("Y-m-d")) {
+                    $currentroom->vacant = 'FALSE';
+                } else if (max($toArray) < date("Y-m-d")) {
+                    $currentroom->vacant = 'TRUE';
+                }
+            }
+
+            $roomsTable->save($currentroom);
+        }
+
+        $lastroomupdateTable = TableRegistry::get('Lastroomupdate');
+        $lastroomupdate = $lastroomupdateTable->get(1); 
+
+        $lastroomupdate->date = date("Y-m-d");
+        $lastroomupdateTable->save($lastroomupdate);
+
+    }
+
+    public function archived()
     {
         $this->loadModel('Users');
         $this->loadModel('People');
@@ -260,7 +318,46 @@ class TenantsController extends AppController
 
         $this->Flash->success('Rooms have been updated!');    
         return $this->redirect($this->referer());
+    }
+
+    public function archivetenant($id) {
+
+        $this->loadModel('Students');
+
+        $studentsTable = TableRegistry::get('Students');
+
+        $student = $studentsTable->get($id);
+        $this->set(compact('student'));
+
+        $student->archived = 'YES';
+
+        $studentsTable->save($student);
+
+        $this->Flash->success('Tenant Archived');
+
+        return $this->redirect($this->referer());
 
     }
+
+    public function unarchivetenant($id) {
+
+        $this->loadModel('Students');
+
+        $studentsTable = TableRegistry::get('Students');
+
+        $student = $studentsTable->get($id);
+        $this->set(compact('student'));
+
+        $student->archived = 'NO';
+
+        $studentsTable->save($student);
+
+        $this->Flash->success('Tenant Unarchived');
+
+        return $this->redirect($this->referer());
+
+    }
+
+
 
 }

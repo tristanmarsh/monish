@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Sep 18, 2015 at 03:58 PM
+-- Generation Time: Sep 24, 2015 at 09:48 AM
 -- Server version: 5.5.42
 -- PHP Version: 5.6.7
 
@@ -63,7 +63,7 @@ CREATE TABLE `lastroomupdate` (
 --
 
 INSERT INTO `lastroomupdate` (`id`, `date`) VALUES
-(1, '2015-09-18');
+(1, '2015-09-24');
 
 -- --------------------------------------------------------
 
@@ -79,21 +79,20 @@ CREATE TABLE `leases` (
   `date_start` date NOT NULL,
   `date_end` date NOT NULL,
   `weekly_price` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `leases`
 --
 
 INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`, `date_end`, `weekly_price`) VALUES
-(8, 2, 1, 11, '2015-07-01', '2015-11-20', 250),
 (9, 11, 3, 12, '2015-07-15', '2016-05-13', 260),
 (11, 1, 1, 12, '2015-07-16', '2015-12-11', 300),
-(12, 13, 3, 11, '2015-07-15', '2016-11-23', 230),
 (13, 1, 1, 13, '2015-07-15', '2016-01-21', 500),
 (15, 15, 4, 15, '2015-08-20', '2015-08-21', 200),
 (16, 26, 6, 16, '2015-09-09', '2016-03-17', 500),
-(17, 25, 6, 17, '2015-09-10', '2015-09-30', 123123);
+(17, 25, 6, 17, '2015-09-10', '2015-09-30', 123123),
+(18, 5, 1, 18, '2015-09-23', '2015-09-30', 224);
 
 -- --------------------------------------------------------
 
@@ -124,7 +123,7 @@ CREATE TABLE `macaddresses` (
   `mac_address_eight` varchar(25) DEFAULT NULL,
   `mac_address_nine` varchar(25) DEFAULT NULL,
   `mac_address_ten` varchar(25) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `macaddresses`
@@ -138,7 +137,8 @@ INSERT INTO `macaddresses` (`id`, `person_id`, `device_name_one`, `device_name_t
 (5, 14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (6, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (7, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(8, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -159,7 +159,7 @@ CREATE TABLE `people` (
   `account_name` varchar(255) DEFAULT NULL,
   `bsb_number` varchar(255) DEFAULT NULL,
   `account_number` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `people`
@@ -174,7 +174,8 @@ INSERT INTO `people` (`id`, `first_name`, `last_name`, `common_name`, `gender`, 
 (14, 'Esther', 'Dear', 'Esther', 'F', '0404040404', 'esther@esther.com', '123', 'China', 'Mr Mang', '123', '123'),
 (15, 'Fiona', 'Lee', 'Feefee', 'F', '04940303030', 'fiona@fiona.com', '123', 'China', 'Mr Mang', '123', '123'),
 (16, 'Emma', 'Emma', 'Emma', 'M', '05146464146', 'ethanchen01@163.com', 'G12421615', '254 something street 21552', 'Mr Mang', '123', '123'),
-(17, 'zoe', 'zoe', 'zoe', 'M', '1231512341', 'zoe@zoe.com', '798123', 'asd', 'Mr Mang', '123897', '123879');
+(17, 'zoe', 'zoe', 'zoe', 'M', '1231512341', 'zoe@zoe.com', '798123', 'asd', 'Mr Mang', '123897', '123879'),
+(18, 'Michael', 'Lai', 'mjlai3', 'F', '02345678236', 'mjlai3@student.monash.edu', '2345678654321', '1mjlai3@student.monash.edu', 'hello', 'vjdbj', '1236');
 
 -- --------------------------------------------------------
 
@@ -191,7 +192,7 @@ CREATE TABLE `properties` (
   `avatar_type` varchar(255) DEFAULT NULL,
   `avatar_size` varchar(255) DEFAULT NULL,
   `avatar_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `properties`
@@ -252,7 +253,7 @@ INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `pe
 (10, 'Broken Fridge', 'My food is getting rotten', '2015-04-13 14:52:26', '2015-09-01 08:47:05', 10, 'Maintenance', '200 two street', 'Viewed', 'Anytime', '', NULL, NULL, NULL, NULL, NULL),
 (12, 'Broken Window', 'Got broken into and robbed ', '2015-04-13 15:18:31', '2015-09-02 14:06:30', 12, 'Maintenance', '100 one street', 'Viewed', '', '', NULL, NULL, NULL, NULL, NULL),
 (13, 'Broken Airconditioner', 'Aircon does not turn on', '2015-04-14 03:50:50', '2015-09-15 07:48:49', 10, 'Maintenance', '100 one street', 'Viewed', '', '', NULL, NULL, NULL, NULL, NULL),
-(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-09-17 05:34:54', 9, 'Lease', '300 three street', 'Viewed', '', '', NULL, NULL, NULL, NULL, NULL),
+(19, 'I want to extend my lease', 'Can you make it cheaper', '2015-05-14 04:49:37', '2015-09-24 05:22:37', 9, 'Lease', '300 three street', 'Viewed', '', '', NULL, NULL, NULL, NULL, NULL),
 (21, 'test', 'test1', '2015-09-02 13:56:52', '2015-09-02 13:56:52', 16, 'General', '', 'Unread', 'Anytime', '', NULL, NULL, NULL, NULL, NULL),
 (39, 'delete me bruh', 'ewdwdwd', '2015-09-12 11:30:08', '2015-09-15 06:50:58', 1, 'General', '100 one street', 'Viewed', 'Anytime', NULL, NULL, NULL, NULL, NULL, NULL),
 (40, 'Image Test', 'wefef', '2015-09-15 06:51:13', '2015-09-15 07:48:52', 1, 'General', '100 one street', 'Viewed', 'Anytime', 'img/requests/40/40.png', 'img/requests/40/', '/img/requests/40/40.png', 'image/png', '175871', '40.png');
@@ -276,10 +277,10 @@ CREATE TABLE `rooms` (
 
 INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
 (1, 1, 'room 1', 'FALSE'),
-(2, 1, 'room 2', 'FALSE'),
+(2, 1, 'room 2', 'TRUE'),
 (3, 1, 'room 3', 'TRUE'),
 (4, 1, 'room 4', 'TRUE'),
-(5, 1, 'room 5', 'TRUE'),
+(5, 1, 'room 5', 'FALSE'),
 (6, 2, 'room 1', 'TRUE'),
 (7, 2, 'room 2', 'TRUE'),
 (8, 2, 'room 3', 'TRUE'),
@@ -287,7 +288,7 @@ INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
 (10, 2, 'room 5', 'TRUE'),
 (11, 3, 'room 1', 'FALSE'),
 (12, 3, 'room 2', 'TRUE'),
-(13, 3, 'room 3', 'FALSE'),
+(13, 3, 'room 3', 'TRUE'),
 (14, 3, 'room 4', 'TRUE'),
 (15, 4, 'room 1', 'TRUE'),
 (16, 4, 'room 2', 'TRUE'),
@@ -314,22 +315,24 @@ CREATE TABLE `students` (
   `id` int(11) NOT NULL,
   `person_id` int(11) NOT NULL,
   `emergency_id` int(11) DEFAULT NULL,
-  `internet_plan` enum('Free','Basic','Standard','Premium') DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+  `internet_plan` enum('Free','Basic','Standard','Premium') DEFAULT NULL,
+  `archived` enum('NO','YES') DEFAULT 'NO'
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `person_id`, `emergency_id`, `internet_plan`) VALUES
-(10, 9, NULL, 'Standard'),
-(11, 10, NULL, 'Premium'),
-(12, 12, NULL, 'Free'),
-(13, 13, NULL, 'Free'),
-(14, 14, NULL, 'Premium'),
-(15, 15, NULL, 'Free'),
-(16, 16, NULL, 'Free'),
-(17, 17, NULL, 'Standard');
+INSERT INTO `students` (`id`, `person_id`, `emergency_id`, `internet_plan`, `archived`) VALUES
+(10, 9, NULL, 'Standard', 'NO'),
+(11, 10, NULL, 'Premium', 'NO'),
+(12, 12, NULL, 'Free', 'NO'),
+(13, 13, NULL, 'Free', 'NO'),
+(14, 14, NULL, 'Premium', 'NO'),
+(15, 15, NULL, 'Free', 'NO'),
+(16, 16, NULL, 'Free', 'NO'),
+(17, 17, NULL, 'Standard', 'NO'),
+(18, 18, NULL, 'Free', 'NO');
 
 -- --------------------------------------------------------
 
@@ -346,7 +349,7 @@ CREATE TABLE `users` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   `tokenhash` varchar(512) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -354,14 +357,15 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `person_id`, `username`, `password`, `role`, `created`, `modified`, `tokenhash`) VALUES
 (35, 1, 'admin', '$2y$10$W4EJplARM6UTAznYCvS50O37iSU.eyc1IUDFPuyxu0kju27md8G6e', 'admin', '2015-05-16 08:08:00', '2015-05-16 08:08:00', ''),
-(41, 9, 'tmar41@student.monash.edu', '$2y$10$ZB0GwBpdl7QNcKJ8aIxoCuDIZ0lbQKzBAaMtzg7Rdq2/5FXp1Uf2O', 'tenant', '2015-07-03 05:24:37', '2015-08-20 08:36:31', '099c2f8f6ad3aff0b631acedb82e57c6f16d795c'),
+(41, 9, 'tmar41@student.monash.edu', '$2y$10$dlHRsVD/LJOWg9aCHbt.K.iJGMHqv9RGZvnrM3xR/ioLA5c3XD1Xq', 'tenant', '2015-07-03 05:24:37', '2015-09-24 05:12:07', '099c2f8f6ad3aff0b631acedb82e57c6f16d795c'),
 (42, 10, 'ben@ben.com', '$2y$10$o7oyds3JEEys60lguHMA4.Z0vFqA2ss70by.iSH7VL4Ga3Nq8ZnUi', 'tenant', '2015-07-03 10:18:53', '2015-09-01 07:13:27', ''),
 (43, 12, 'constance@constance.com', '$2y$10$HSGV/kNZOdGcA6S6T8b8e.UiYzvelCpocBFOWHtCcUQ5S6wiW.HrG', 'tenant', '2015-07-04 13:20:44', '2015-07-04 13:26:51', ''),
 (44, 13, 'darren@darren.com', '$2y$10$.Z7/9q8Bw3RfhZ0Q3Qo58Ou64ZtD32J/JKdKC1aRNKZPuFdNd88eq', 'tenant', '2015-07-09 16:12:08', '2015-07-09 16:12:08', ''),
 (45, 14, 'esther@esther.com', '$2y$10$QRZYZSxPClT1HF0HgO8PnOW4zO5.eDkEnBljNiEETG8HmtHdCY0l6', 'tenant', '2015-07-09 16:57:20', '2015-07-09 16:57:20', ''),
 (46, 15, 'fiona@fiona.com', '$2y$10$OEVNCpzk9TvOHqlHGdCzr.tw3rLfrXchAVuVZDW83lYBIfV9KTwma', 'tenant', '2015-08-19 09:36:36', '2015-08-19 09:52:22', ''),
 (47, 16, 'ethanchen01@163.com', '$2y$10$62uQ2gFX2BTo2nMCASRoB.Y0Jhgn9ZrI/0QPDA0ijKHgMSVbxzHri', 'tenant', '2015-09-01 08:05:47', '2015-09-01 10:03:23', 'cf71c0d77ddce3d601067d3b24c8980746c07078'),
-(48, 17, 'zoe@zoe.com', '$2y$10$VYJq4UyAEr8kkbXiadjNKevmiEdYtG4AU1HDJdzUR0HL7LztXYZS6', 'tenant', '2015-09-12 03:16:49', '2015-09-12 03:16:49', '');
+(48, 17, 'zoe@zoe.com', '$2y$10$VYJq4UyAEr8kkbXiadjNKevmiEdYtG4AU1HDJdzUR0HL7LztXYZS6', 'tenant', '2015-09-12 03:16:49', '2015-09-12 03:16:49', ''),
+(49, 18, 'mjlai3@student.monash.edu', '$2y$10$IOfLLIiKHdsi1MU7iCvVj.0vLVRWnlSIB7GBVHEUyI8wo4Ld.p/qG', 'tenant', '2015-09-24 05:55:53', '2015-09-24 05:55:53', '');
 
 --
 -- Triggers `users`
@@ -472,22 +476,22 @@ ALTER TABLE `lastroomupdate`
 -- AUTO_INCREMENT for table `leases`
 --
 ALTER TABLE `leases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `macaddresses`
 --
 ALTER TABLE `macaddresses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `people`
 --
 ALTER TABLE `people`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `properties`
 --
 ALTER TABLE `properties`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `recoveries`
 --
@@ -507,12 +511,12 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=49;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50;
 --
 -- Constraints for dumped tables
 --

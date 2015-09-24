@@ -53,23 +53,20 @@ $cakeDescription = 'Monish Dashboard';
 	<?= $this->Html->css('animate.min.css') ?>
 	<?= $this->Html->css('custom.css') ?>
 
+	<!-- jQuery -->
+	<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+	
 	<?= $this->Html->script('wow.min.js') ?>
 	<?= $this->Html->script('min/nprogress-min.js') ?>
 	<?= $this->Html->script('min/custom-min.js') ?>
 	<?= $this->Html->script('date.js') ?>
 	
-<!-- 	<?= $this->Html->script('min/angular.min.js') ?>
-	<?= $this->Html->script('app.js') ?>
- -->
 	<?= $this->fetch('meta') ?>
 	<?= $this->fetch('css') ?>
 	<?= $this->fetch('script') ?>
 
 	<link href='http://fonts.googleapis.com/css?family=Raleway|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
 	
-    <!-- DataTables -->
-    <script type="text/javascript" charset="utf8" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
-
 	<script>
 		new WOW().init();
 	</script>
@@ -138,9 +135,8 @@ $cakeDescription = 'Monish Dashboard';
 
 <footer>
 
-	    <!-- Clickable Row to View Record -->
+    <!-- Clickable Row to View Record -->
     <script>
-        
         $("table").on("click", "td", function(e) {
 			if ( $(this).find("a").length ) {
                 location.href = $(this).find("a").attr("href");
@@ -149,41 +145,45 @@ $cakeDescription = 'Monish Dashboard';
 
         //This puts a cursor pointer in all table rows with a link
         $('td>a').parent().css("cursor","pointer")
-
     </script>
 
+	<!-- DataTables -->
+	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" charset="utf8" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
 
-	<!-- Initialize Data Tables -->
+	<!-- Attempt to use the moment library to make datatables sort things properly -->
     <script>
-        $(document).ready( function () {
-        	$.fn.dataTable.moment( 'DD, MM, YYYY', 'en-AU' );
-            $('.datatable').DataTable();
+   //      $(document).ready( function () {
+   //      	$.fn.dataTable.moment( 'DD, MM, YYYY', 'en-AU' );
+   //          $('.datatable').DataTable();
 
-            $.fn.dataTable.moment = function ( format, locale ) {
-			    var types = $.fn.dataTable.ext.type;
+   //          $.fn.dataTable.moment = function ( format, locale ) {
+			//     var types = $.fn.dataTable.ext.type;
 			 
-			    // Add type detection
-			    types.detect.unshift( function ( d ) {
-			        return moment( d, format, locale, true ).isValid() ?
-			            'moment-'+format :
-			            null;
-			    } );
+			//     // Add type detection
+			//     types.detect.unshift( function ( d ) {
+			//         return moment( d, format, locale, true ).isValid() ?
+			//             'moment-'+format :
+			//             null;
+			//     } );
 			 
-			    // Add sorting method - use an integer for the sorting
-			    types.order[ 'moment-'+format+'-pre' ] = function ( d ) {
-			        return moment( d, format, locale, true ).unix();
-			    };
-			};
+			//     // Add sorting method - use an integer for the sorting
+			//     types.order[ 'moment-'+format+'-pre' ] = function ( d ) {
+			//         return moment( d, format, locale, true ).unix();
+			//     };
+			// };
 
-        } );
+   //      } );
     </script>
-	
-	<!-- updating search bar -->
+
+	<!-- Initialize DataTable and update search bar -->
     <script>
-        oTable = $('.datatable').dataTable();
-        $('#myInputTextField').keyup(function(){
-            oTable.fnFilter($(this).val());
-        })
+	    $(document).ready( function() {
+	    	oTable = $('.datatable').dataTable();
+	        $('#myInputTextField').keyup(function(){
+	            oTable.fnFilter($(this).val());
+	        })
+	    })
     </script>
 
 </footer>

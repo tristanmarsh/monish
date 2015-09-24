@@ -150,22 +150,3 @@
         }
     });
 </script>
-
-<!-- jQuery -->
-<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-
-<!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
-
-<script>
-    $(document).ready( function () {
-        $('#requests').DataTable();
-    } );
-</script>
-
-<script>
-    oTable = $('#requests').dataTable();
-    $('#myInputTextField').keyup(function(){
-        oTable.fnFilter($(this).val());
-    })
-</script>

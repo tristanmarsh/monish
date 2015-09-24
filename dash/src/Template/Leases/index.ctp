@@ -65,13 +65,11 @@ $this->Html->addCrumb('Leases', '/leases');
       <!-- Table -->
       <div class="table-responsive">
         <table class="datatable">
-        <table id="leases" cellpadding="0" cellspacing="0" class="">
           <thead>
             <tr>
-             <th>Tenant</th>
+              <th>Tenant</th>
               <th>Property</th>
               <th>Room</th>
- 
               <th>Date Start</th>
               <th>Date End</th>
               <th>Weekly Price</th>
@@ -133,25 +131,3 @@ $this->Html->addCrumb('Leases', '/leases');
     </div>
 
   </div>
-
-  <!-- Clickable Row to View Record -->
-
-
-  <!-- jQuery -->
-  <script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-
-  <!-- DataTables -->
-  <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
-
-  <script>
-  $(document).ready( function () {
-    $('#leases').DataTable();
-  } );
-  </script>
-
-  <script>
-  oTable = $('#leases').dataTable();
-  $('#myInputTextField').keyup(function(){
-    oTable.fnFilter($(this).val());
-  })
-  </script>

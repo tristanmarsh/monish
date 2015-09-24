@@ -134,38 +134,3 @@
     </div>
 
 </div>
-
-<!-- Clickable Row to View Record -->
-<script>
-    $("table").on("click", "td", function(e) {
-        window.console.log("click");
-        window.console.log(e.target);
-        if ($(e.target).is("a"))
-            return;
-        if ($(e.target).is("input")) {
-            window.console.log(e.target);
-        }
-        else {
-            location.href = $(this).find("a").attr("href");
-        }
-    });
-</script>
-
-<!-- jQuery -->
-<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-
-<!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
-
-<script>
-    $(document).ready( function () {
-        $('#requests').DataTable();
-    } );
-</script>
-
-<script>
-    oTable = $('#requests').dataTable();
-    $('#myInputTextField').keyup(function(){
-        oTable.fnFilter($(this).val());
-    })
-</script>

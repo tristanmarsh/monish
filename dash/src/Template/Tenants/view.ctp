@@ -362,5 +362,3 @@ $this->Html->addCrumb('View Tenant');
 </table>
 </div>
 </div>
-
-<!-- <a href="javascript: window.history.back()">Go Back</a> -->

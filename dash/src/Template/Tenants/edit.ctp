@@ -8,8 +8,6 @@
 <h1>Tenants</h1>
 <div class="panel panel-default clearfix">
     
-
-    
     <div class="panel-body">
         
         <ul class="nav nav-pills pull-left">

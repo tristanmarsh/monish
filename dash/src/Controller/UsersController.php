@@ -151,9 +151,12 @@ class UsersController extends AppController
         $this->Auth->allow(['add', 'logout', 'forgot_password', 'reset_password']);
     }
 
-    public function index()
-    {
+    public function index() {
+
+        $this->redirect($this->referer());
+
         $this->set('users', $this->Users->find('all'));
+        
     }
 
     public function view($id)

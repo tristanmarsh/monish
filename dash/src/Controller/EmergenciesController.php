@@ -138,7 +138,7 @@ class EmergenciesController extends AppController
         } else {
             $this->Flash->error('The emergency could not be deleted. Please, try again.');
         }
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect($this->referer());
     }
 
     public function isAuthorized($user)

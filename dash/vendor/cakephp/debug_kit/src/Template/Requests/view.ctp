@@ -26,6 +26,7 @@ use Cake\Routing\Router;
     </li>
 </ul>
 <?php $this->start('scripts') ?>
+
 <script>
 var baseUrl = "<?= Router::url('/', true) ?>";
 var toolbar;

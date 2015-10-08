@@ -10,7 +10,8 @@
 
         <div class="col-sm-6">
             <ul class="nav nav-pills pull-left">
-                <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+                <li role="presentation" class="active"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
+                <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
                 <li role="presentation"><?= $this->Html->link('New Tenant', ['action' => 'add']) ?></li>
             </ul>
             
@@ -58,7 +59,7 @@
 <div class="panel panel-primary">
   <!-- Default panel contents -->
   <div class="panel-heading">
-    <h2 class="panel-title">All Tenants</h2>
+    <h2 class="panel-title">Tenants</h2>
 </div>
 
 
@@ -79,89 +80,57 @@
             </thead>
             <tbody>
                 <?php foreach ($people as $person): ?>
-                <?php if (!($person->user->role === "admin")) : ?>
-                <tr>
-                    <td>
-                        <?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?>
+                    <?php if (!($person->user->role === "admin")) : ?>
+                        <?php if ($person->student->archived === "NO") : ?>
+                        
+                            <tr>
+                                <td>
+                                    <?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?>
 
-                            <?php
-                                $emailHash = md5( strtolower( trim( $person->email ) ) );
-                                // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
-                                $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
-                                $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
-                            ?>
+                                        <?php
+                                            $emailHash = md5( strtolower( trim( $person->email ) ) );
+                                            // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
+                                            $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
+                                            $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+                                        ?>
 
-                            <?= $gravatarImage; ?>
+                                        <?= $gravatarImage; ?>
 
-                        <span>
-                        <?= $person->first_name ?>
-                    </span>
-                </td>
-                    <td>
-                        <?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?>
-                        <span>
-                        <?= $person->last_name ?>
-                    </span>
-                </td>
-                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
-                        <?= $person->common_name ?>
-                    </span></td>
-                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
-                        <?= $person->gender ?>
-                    </span></td>
-                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
-                        <?= $person->phone ?>
-                    </span></td>
-                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
-                        <?= $person->email ?>
-                    </span></td>
-                    <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
-                        <?= $person->student->internet_plan ?>
-                    </span></td>
-                    <td class="action action-edit">
-                        <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'tenants', 'action' => 'edit', $person->user->id], ['escape' => false]); ?>
-                    </span></td>
+                                    <span>
+                                    <?= $person->first_name ?>
+                                </span>
+                            </td>
+                                <td>
+                                    <?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?>
+                                    <span>
+                                    <?= $person->last_name ?>
+                                </span>
+                            </td>
+                                <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
+                                    <?= $person->common_name ?>
+                                </span></td>
+                                <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
+                                    <?= $person->gender ?>
+                                </span></td>
+                                <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
+                                    <?= $person->phone ?>
+                                </span></td>
+                                <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
+                                    <?= $person->email ?>
+                                </span></td>
+                                <td><?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?><span>
+                                    <?= $person->student->internet_plan ?>
+                                </span></td>
+                                <td class="action action-edit">
+                                    <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'tenants', 'action' => 'edit', $person->user->id], ['escape' => false]); ?>
+                                </span></td>
+                        </tr>
+                    <?php endif; ?>
                 <?php endif; ?>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
+            <?php endforeach; ?>
+        </tbody>
     </table>
     <div class="panel-footer"><!-- Panel Footer Doesn't actually do anything here apart from  adding a border --></div>
     </div>
 
 </div>
-
-<!-- Clickable Row to View Record -->
-<script>
-    $("table").on("click", "td", function(e) {
-        window.console.log("click");
-        window.console.log(e.target);
-        if ($(e.target).is("a"))
-            return;
-        if ($(e.target).is("input")) {
-            window.console.log(e.target);
-        }
-        else {
-            location.href = $(this).find("a").attr("href");
-        }
-    });
-</script>
-
-<!-- jQuery -->
-<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-
-<!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
-
-<script>
-    $(document).ready( function () {
-        $('#requests').DataTable();
-    } );
-</script>
-
-<script>
-    oTable = $('#requests').dataTable();
-    $('#myInputTextField').keyup(function(){
-        oTable.fnFilter($(this).val());
-    })
-</script>

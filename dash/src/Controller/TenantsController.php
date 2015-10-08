@@ -316,7 +316,7 @@ class TenantsController extends AppController
         $lastroomupdate->date = date("Y-m-d");
         $lastroomupdateTable->save($lastroomupdate);
 
-        $this->Flash->success('Rooms have been updated!');    
+        // $this->Flash->success('Rooms have been updated!');    
         return $this->redirect($this->referer());
     }
 

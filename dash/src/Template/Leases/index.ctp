@@ -108,10 +108,10 @@ $this->Html->addCrumb('Leases', '/leases');
               </span></td>
 
               <td><?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $lease->id]) ?> <span>
-                <?= h($lease->date_start->format('d/m/Y')) ?>
+                <?= h($lease->date_start->format('Y/m/d')) ?>
               </span></td>
               <td><?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $lease->id]) ?> <span>
-                <?= h($lease->date_end->format('d/m/Y')) ?>
+                <?= h($lease->date_end->format('Y/m/d')) ?>
               </span></td>
               <td><?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $lease->id]) ?> <span>
                 <?= $this->Number->currency($lease->weekly_price) ?>

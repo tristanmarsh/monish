@@ -149,12 +149,12 @@ Since:    3/6/15
 .sidebar,
 .navbar-fixed-top,
 .content {
-  transition:all 400ms ease-out;
+  transition:all 400ms ease;
 }
 
 // Prevent sidebar from having to fill on page resize
 .sidebar {
-  transition:height 0ms, width 400ms ease-out;
+  transition:height 0ms, width 400ms ease;
 }
 
 .navigation-active .navbar-fixed-top,
@@ -187,7 +187,7 @@ Since:    3/6/15
     transform:translate3D(-100%,0,0);
     padding-top:71px;
     width:300px;
-    transition:transform 400ms ease-out;
+    transition:transform 400ms ease;
   }  
 
   .navigation-active {
@@ -200,7 +200,7 @@ Since:    3/6/15
     width:300px;
     transition:width 0s;
     transition-delay: 400ms;
-    transition:transform 400ms ease-out;  }
+    transition:transform 400ms ease;  }
   
   .navigation-active .content,
   .navigation-active .footer-container {

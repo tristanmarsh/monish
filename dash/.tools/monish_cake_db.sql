@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2015 at 10:09 AM
+-- Generation Time: Oct 14, 2015 at 10:42 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -200,6 +200,7 @@ INSERT INTO `people` (`id`, `first_name`, `last_name`, `common_name`, `gender`, 
 CREATE TABLE IF NOT EXISTS `properties` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `address` varchar(50) NOT NULL,
+  `archived` enum('NO','YES') NOT NULL DEFAULT 'NO',
   `avatar` varchar(255) DEFAULT NULL,
   `avatar_directory` varchar(255) DEFAULT NULL,
   `avatar_url` varchar(255) DEFAULT NULL,
@@ -213,16 +214,16 @@ CREATE TABLE IF NOT EXISTS `properties` (
 -- Dumping data for table `properties`
 --
 
-INSERT INTO `properties` (`id`, `address`, `avatar`, `avatar_directory`, `avatar_url`, `avatar_type`, `avatar_size`, `avatar_name`) VALUES
-(1, '100 one street', 'img/properties/1/eiffel-tower.jpg', 'img/properties/1/', '/img/properties/1/eiffel-tower.jpg', 'image/jpeg', '299947', 'eiffel-tower.jpg'),
-(2, '200 two street', 'img/properties/2/home_temp1__medium.jpg', 'img/properties/2/', '/img/properties/2/home_temp1__medium.jpg', 'image/jpeg', '321651', 'home_temp1__medium.jpg'),
-(3, '300 three street', 'img/properties/3/macalister-mansion-3.jpg', 'img/properties/3/', '/img/properties/3/macalister-mansion-3.jpg', 'image/jpeg', '124712', 'macalister-mansion-3.jpg'),
-(4, '400 four street', 'img/properties/4/Gelbensande3.jpg', 'img/properties/4/', '/img/properties/4/Gelbensande3.jpg', 'image/jpeg', '1294712', 'Gelbensande3.jpg'),
-(5, '500 five street', 'img/properties/5/Morey_Mansion_in_Winter.jpg', 'img/properties/5/', '/img/properties/5/Morey_Mansion_in_Winter.jpg', 'image/jpeg', '3469696', 'Morey_Mansion_in_Winter.jpg'),
-(6, '600 six street', 'img/properties/6/100987825-121017_EJ_stone_mansion_0014r.1910x1000.jpg', 'img/properties/6/', '/img/properties/6/100987825-121017_EJ_stone_mansion_0014r.1910x1000.jpg', 'image/jpeg', '364184', '100987825-121017_EJ_stone_mansion_0014r.1910x1000.jpg'),
-(7, '700 test avenue', 'img/properties/7/21mgqjl.jpg', 'img/properties/7/', '/img/properties/7/21mgqjl.jpg', 'image/jpeg', '86227', '21mgqjl.jpg'),
-(10, '800 Rad Drive', 'img/properties/10/Great_Gatsby-TP-0000.jpg', 'img/properties/10/', '/img/properties/10/Great_Gatsby-TP-0000.jpg', 'image/jpeg', '1221441', 'Great_Gatsby-TP-0000.jpg'),
-(11, '900 Frat House', 'img/properties/11/product899-001.jpg', 'img/properties/11/', '/img/properties/11/product899-001.jpg', 'image/jpeg', '78240', 'product899-001.jpg');
+INSERT INTO `properties` (`id`, `address`, `archived`, `avatar`, `avatar_directory`, `avatar_url`, `avatar_type`, `avatar_size`, `avatar_name`) VALUES
+(1, '100 one street', 'NO', 'img/properties/1/eiffel-tower.jpg', 'img/properties/1/', '/img/properties/1/eiffel-tower.jpg', 'image/jpeg', '299947', 'eiffel-tower.jpg'),
+(2, '200 two street', 'NO', 'img/properties/2/home_temp1__medium.jpg', 'img/properties/2/', '/img/properties/2/home_temp1__medium.jpg', 'image/jpeg', '321651', 'home_temp1__medium.jpg'),
+(3, '300 three street', 'NO', 'img/properties/3/macalister-mansion-3.jpg', 'img/properties/3/', '/img/properties/3/macalister-mansion-3.jpg', 'image/jpeg', '124712', 'macalister-mansion-3.jpg'),
+(4, '400 four street', 'NO', 'img/properties/4/Gelbensande3.jpg', 'img/properties/4/', '/img/properties/4/Gelbensande3.jpg', 'image/jpeg', '1294712', 'Gelbensande3.jpg'),
+(5, '500 five street', 'NO', 'img/properties/5/Morey_Mansion_in_Winter.jpg', 'img/properties/5/', '/img/properties/5/Morey_Mansion_in_Winter.jpg', 'image/jpeg', '3469696', 'Morey_Mansion_in_Winter.jpg'),
+(6, '600 six street', 'NO', 'img/properties/6/100987825-121017_EJ_stone_mansion_0014r.1910x1000.jpg', 'img/properties/6/', '/img/properties/6/100987825-121017_EJ_stone_mansion_0014r.1910x1000.jpg', 'image/jpeg', '364184', '100987825-121017_EJ_stone_mansion_0014r.1910x1000.jpg'),
+(7, '700 test avenue', 'NO', 'img/properties/7/21mgqjl.jpg', 'img/properties/7/', '/img/properties/7/21mgqjl.jpg', 'image/jpeg', '86227', '21mgqjl.jpg'),
+(10, '800 Rad Drive', 'NO', 'img/properties/10/Great_Gatsby-TP-0000.jpg', 'img/properties/10/', '/img/properties/10/Great_Gatsby-TP-0000.jpg', 'image/jpeg', '1221441', 'Great_Gatsby-TP-0000.jpg'),
+(11, '900 Frat House', 'NO', 'img/properties/11/product899-001.jpg', 'img/properties/11/', '/img/properties/11/product899-001.jpg', 'image/jpeg', '78240', 'product899-001.jpg');
 
 -- --------------------------------------------------------
 
@@ -284,7 +285,7 @@ CREATE TABLE IF NOT EXISTS `rooms` (
   `archived` enum('NO','YES') NOT NULL DEFAULT 'NO',
   PRIMARY KEY (`id`),
   KEY `property_id` (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `rooms`
@@ -318,7 +319,8 @@ INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`, `archived`) VAL
 (25, 6, 'room 1', 'TRUE', 'NO'),
 (26, 6, 'room 2', 'FALSE', 'NO'),
 (27, 6, 'room 3', 'TRUE', 'NO'),
-(28, 7, '1', 'TRUE', 'NO');
+(28, 7, '1', 'TRUE', 'NO'),
+(29, 11, 'room 1', 'TRUE', 'NO');
 
 -- --------------------------------------------------------
 

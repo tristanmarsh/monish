@@ -4,13 +4,13 @@ $this->Html->addCrumb('Properties', '/properties');
 <h1>Properties</h1>
 
 <div class="panel panel-default clearfix">
-
+    
     <div class="panel-body">
 
         <div class="col-sm-6">
             <ul class="nav nav-pills pull-left">
-                <li role="presentation" class="active"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
-                <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
+                <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
+                <li role="presentation" class="active"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
                 <li role="presentation"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>
                 <!-- <li role="presentation"><?= $this->Html->link('New Room', ['controller' => 'rooms', 'action' => 'add']) ?></li> -->
             </ul>
@@ -34,14 +34,14 @@ $this->Html->addCrumb('Properties', '/properties');
 <div class="clearfix">
     <div class="row">
 
-
+        
 
 
 
         <?php foreach ($properties as $property): ?>
 
         <?php $variable ="hello" ?>
-        <?php if($property->archived === 'NO') : ?>
+        <?php if($property->archived === 'YES') : ?>
         <div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-4">
 
             <!-- Retrieve Property Image -->
@@ -51,7 +51,7 @@ $this->Html->addCrumb('Properties', '/properties');
             } ?>
 
             <div class="panel panel-primary panel-property">
-
+               
                 <!-- Default panel contents -->
                 <div class="panel-heading">
                     <div class="property-image" style='background:url(
@@ -77,7 +77,7 @@ echo $this->Html->link('<h3 class="panel-title text-center">' . $property->addre
     </thead>
     <tbody>
         <?php foreach ($property->rooms as $rooms): ?>
-        <?php if($rooms->archived === 'NO') : ?>
+        <?php if($rooms->archived === 'YES') : ?>
         <tr>
 
             <!-- Room Name -->    
@@ -253,7 +253,7 @@ echo $this->Html->link('<h3 class="panel-title text-center">' . $property->addre
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
     </div>
     <div class="modal-body">
-
+      
     </div>
     <div class="modal-footer">
 

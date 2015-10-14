@@ -34,9 +34,24 @@
                 ['controller'=>'rooms', 'action' => 'add', $property->id] ); ?>
             </li>
 
-            <li role="presentation"><?= $this->Form->postLink('Delete',
+                        <!-- <li role="presentation"><?= $this->Form->postLink('Delete',
                 ['controller'=>'properties', 'action' => 'delete', $property->id],
                 ['confirm' => 'Are you sure?', "escape" => false]); ?>
+            </li> -->
+
+            <li role="presentation">
+
+                <?php
+
+                   if ($property->archived === "NO") {
+                    echo $this->form->postLink('Archive Property', ['action' => 'archiveproperty', $property->id], array('class' => 'menu-item-link', 'escape' => false)); 
+                   }
+                   else {
+                    echo $this->form->postLink('Unarchive Property', ['action' => 'unarchiveproperty', $property->id], array('class' => 'menu-item-link', 'escape' => false));
+                   }
+
+                ?>
+
             </li>
 
         </ul>
@@ -80,7 +95,7 @@
                             <th>Room Name</th>
                             <th>Status</th>
                             <th style="text-align:center" width="68x">Edit</th>
-                            <th style="text-align:center" width="68px">Delete</th>
+                            <!-- <th style="text-align:center" width="68px">Delete</th> -->
                         </tr>
                     </thead>
                     <?php foreach ($property->rooms as $rooms): ?>
@@ -105,11 +120,11 @@
                                 echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'Rooms', 'action' => 'edit', $rooms->id], ['escape' => false]);
                             ?>
                         </td>
-                        <td class="action action-remove">
+<!--                         <td class="action action-remove">
                             <?php
                                 echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'Rooms', 'action' => 'delete', $rooms->id], ['confirm' => 'Are you sure?', "escape" => false]);
                             ?>
-                        </td>
+                        </td> -->
                     </tr>
                     <?php endforeach; ?>
                 </table>

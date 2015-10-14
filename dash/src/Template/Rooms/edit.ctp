@@ -1,6 +1,6 @@
 <?php
 $this->Html->addCrumb('Properties', '/properties');
-$this->Html->addCrumb($room->property['address']);
+$this->Html->addCrumb($room->property['address'],['controller'=>'properties', 'action' => 'view',$room->property['id']]);
 $this->Html->addCrumb($room->room_name);
 ?> 
 <h1><?= $room->room_name; ?></h1>

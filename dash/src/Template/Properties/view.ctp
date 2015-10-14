@@ -9,7 +9,7 @@
     <div class="panel-body">
         
         <ul class="nav nav-pills pull-left">
-            <li role="presentation"><a href="/monish/dash/properties">All</a></li>
+            <li role="presentation"><?= $this->Html->link('All',['controller'=>'properties', 'action' => 'index'])?></li>
             <li role="presentation"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>
         </ul>
 

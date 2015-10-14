@@ -94,6 +94,7 @@
                         <tr>
                             <th>Room Name</th>
                             <th>Status</th>
+                            <th>Archived</th>
                             <th style="text-align:center" width="68x">Edit</th>
                             <!-- <th style="text-align:center" width="68px">Delete</th> -->
                         </tr>
@@ -115,6 +116,16 @@
                                 }
                             ?>
                         </td>
+                        <td>
+                            <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>    
+                            <?php 
+                                if ($rooms->archived === 'NO') {
+                                    echo "No";
+                                }
+                                if ($rooms->archived === 'YES') {
+                                    echo "Yes";
+                                }
+                            ?>                        </td>
                         <td class="action action-edit">
                             <?php
                                 echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'Rooms', 'action' => 'edit', $rooms->id], ['escape' => false]);

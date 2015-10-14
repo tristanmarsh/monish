@@ -23,7 +23,82 @@ class LeasesController extends AppController
         $this->loadModel('People');
         $walrus = $this->People;
         $this->paginate = [
-            'contain' => ['Rooms', 'Students', 'Properties']
+        'contain' => ['Rooms', 'Students', 'Properties']
+        ];
+        $this->set('leases', $this->paginate($this->Leases));
+        $this->set('_serialize', ['leases']);
+        $lion = $this->Leases->Students->find('all', ['contain' => ['Users']]);
+        $this->set('lion', $lion);
+        $this->set('walrus', $walrus);
+
+        $this->loadModel('Rooms');
+        $this->loadModel('Properties');
+
+        $roomlease = $this->Rooms;
+        $this->set(compact('roomlease'));
+
+        $allrooms = $this->Rooms->find('all', ['contain' => ['Properties', 'Leases']]);
+        $this->set(compact('allrooms'));
+
+        foreach ($allrooms as $room){
+            $roomsTable = TableRegistry::get('Rooms');
+            $currentroom = $roomsTable->get($room->id, ['contain'=>'Leases']); 
+            
+            $test = "";
+            $sentinel = true; //true if Never Been Leased
+            if (!empty($currentroom->leases)) {
+                foreach ($currentroom->leases as $leastenddate) {
+                    $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                }
+            }
+            else {
+                $currentroom->vacant = 'TRUE';
+                $sentinel = false;
+            }
+            if ($sentinel) { 
+                $toArray = explode("||", $test);
+                if (max($toArray) > date("Y-m-d")) {
+                    $currentroom->vacant = 'FALSE';
+                } else if (max($toArray) === date("Y-m-d")) {
+                    $currentroom->vacant = 'FALSE';
+                } else if (max($toArray) < date("Y-m-d")) {
+                    $currentroom->vacant = 'TRUE';
+                }
+            }
+
+            $roomsTable->save($currentroom);
+        }
+
+        $lastroomupdateTable = TableRegistry::get('Lastroomupdate');
+        $lastroomupdate = $lastroomupdateTable->get(1); 
+
+        $lastroomupdate->date = date("Y-m-d");
+        $lastroomupdateTable->save($lastroomupdate);
+
+        $allleases = $this->Leases->find('all');
+        $this->set(compact('allleases'));
+
+        foreach ($allleases as $lease){
+            $leasesTable = TableRegistry::get('Leases');
+            $currentlease = $leasesTable->get($lease->id); 
+
+            if ($currentlease->date_end->format('Y-m-d') < date("Y-m-d")) {
+                $currentlease->archived = 'YES';
+            }
+            else {
+                $currentlease->archived = 'NO';
+            }
+            
+            $leasesTable->save($currentlease);
+        }
+    }
+
+    public function archived()
+    {
+        $this->loadModel('People');
+        $walrus = $this->People;
+        $this->paginate = [
+        'contain' => ['Rooms', 'Students', 'Properties']
         ];
         $this->set('leases', $this->paginate($this->Leases));
         $this->set('_serialize', ['leases']);
@@ -92,7 +167,7 @@ class LeasesController extends AppController
         $this->set('walrus', $walrus);
         $lease = $this->Leases->get($id, [
             'contain' => ['Rooms', 'Students', 'Properties']
-        ]);
+            ]);
         $this->set('lease', $lease);
         //$lion = $this->User;
         //$this->set('lion', $lion);
@@ -154,7 +229,7 @@ class LeasesController extends AppController
     {
         $lease = $this->Leases->get($id, [
             'contain' => []
-        ]);
+            ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $lease = $this->Leases->patchEntity($lease, $this->request->data);
             if ($this->Leases->save($lease)) {
@@ -188,4 +263,29 @@ class LeasesController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    public function archiveleases()
+    {
+
+        $allleases = $this->Leases->find('all');
+        $this->set(compact('allleases'));
+
+        foreach ($allleases as $lease){
+            $leasesTable = TableRegistry::get('Leases');
+            $currentlease = $leasesTable->get($lease->id); 
+
+            if ($currentlease->date_end->format('Y-m-d') < date("Y-m-d")) {
+                $currentlease->archived = 'YES';
+            }
+            else {
+                $currentlease->archived = 'NO';
+            }
+            
+            $leasesTable->save($currentlease);
+        }
+
+        $this->Flash->success('Leases have been updated!');    
+        return $this->redirect($this->referer());
+    }
+
 }

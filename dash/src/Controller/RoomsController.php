@@ -147,7 +147,7 @@ class RoomsController extends AppController
     public function edit($id = null)
     {
         $room = $this->Rooms->get($id, [
-            'contain' => []
+            'contain' => ['Properties', 'Leases']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $room = $this->Rooms->patchEntity($room, $this->request->data);

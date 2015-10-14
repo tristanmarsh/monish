@@ -1,8 +1,8 @@
 <?php
     $this->Html->addCrumb('Leases', '/leases');
-    $this->Html->addCrumb('View Lease');
+    $this->Html->addCrumb($lease->property->address." ".$lease->room->room_name);
 ?>
-    <h1>Lease</h1>
+    <h1><?= $lease->property->address." ".$lease->room->room_name; ?></h1>
 
     <div class="panel panel-default clearfix">
     

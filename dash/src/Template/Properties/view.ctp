@@ -2,7 +2,7 @@
     $this->Html->addCrumb('Properties', '/properties');
     $this->Html->addCrumb($property->address);
 ?>
-<h1>Properties</h1>
+<h1><?= $property->address; ?></h1>
 
 <div class="panel panel-default clearfix">
     

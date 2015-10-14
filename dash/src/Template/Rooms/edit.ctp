@@ -1,9 +1,9 @@
 <?php
 $this->Html->addCrumb('Properties', '/properties');
-$this->Html->addCrumb('Rooms', '/rooms');
-$this->Html->addCrumb('Edit Room');
+$this->Html->addCrumb($room->property['address']);
+$this->Html->addCrumb($room->room_name);
 ?> 
-<h1>Rooms</h1>
+<h1><?= $room->room_name; ?></h1>
 
 <div class="panel panel-default clearfix">
 

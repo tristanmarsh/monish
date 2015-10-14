@@ -1,8 +1,8 @@
 <?php
 $this->Html->addCrumb('Tenants', '/tenants');
-$this->Html->addCrumb('View Tenant');
+$this->Html->addCrumb($person->first_name." ".$person->last_name);
 ?>
-<h1>Tenant Details</h1>
+<h1><?= $person->first_name." ".$person->last_name; ?></h1>
 <div class="panel panel-default clearfix">
 
     <div class="panel-body">
@@ -50,7 +50,7 @@ $this->Html->addCrumb('View Tenant');
 </div>
 
 <!-- Table -->
-<div >
+<div class="table-responsive">
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -97,7 +97,7 @@ $this->Html->addCrumb('View Tenant');
 </div>
 
 <!-- Table -->
-<div >
+<div class="table-responsive">
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

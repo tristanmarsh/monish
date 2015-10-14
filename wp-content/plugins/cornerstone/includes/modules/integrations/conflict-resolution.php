@@ -29,15 +29,18 @@ class Cornerstone_Integration_Conflict_Resolution {
 
 	public function loadBuilder() {
 
+		// General DONOTCACHEPAGE for WP Super Cache, W3TC and others.
+		if (!defined('DONOTCACHEPAGE'))
+			define( 'DONOTCACHEPAGE', true );
+
 		// Disable W3TC
 		if ( class_exists('W3_Root') && apply_filters( 'cornerstone_compat_w3tc', true ) ) {
-			define( 'DONOTCACHEPAGE', true );
-			define( 'DONOTMINIFY', true );
-			define( 'DONOTCDN', true );
-		}
 
-		if ( defined( 'WPCACHEHOME' ) && apply_filters( 'cornerstone_compat_wpcache', true ) ) {
-			define( 'DONOTCACHEPAGE', true );
+			if ( !defined( 'DONOTMINIFY') )
+				define( 'DONOTMINIFY', true );
+
+			if ( !defined( 'DONOTCDN') )
+				define( 'DONOTCDN', true );
 		}
 
 	}

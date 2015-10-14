@@ -7814,6 +7814,111 @@ __p += '\n<div class="cs-wp-select"></div>';
 
 }
 return __p
+};templates['inspector/blank-state']=function (obj) {
+obj || (obj = {});
+var __t, __p = '', __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
+with (obj) {
+
+ //builder/inspector/blank-state ;
+__p += '\n' +
+((__t = ( cs.icon('logo-flat-custom') )) == null ? '' : __t) +
+'\n<span class="title">Nothing Selected</span>\n<span>Click on an element in the site preview to begin inspecting it.</span>';
+
+}
+return __p
+};templates['inspector/breadcrumbs']=function (obj) {
+obj || (obj = {});
+var __t, __p = '', __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
+with (obj) {
+
+ if ( count > 0 ) { ;
+__p += '\n  <button data-level="0" ';
+ if ( items.length == 1 ) { print('class="disabled"') } ;
+__p += '>';
+ print((items.length == 1) ? _.first( items ).title : _.first( items ).label ) ;
+__p += '</button>\n  ';
+ _.each( _.rest( items ), function(item,index) { ;
+__p += '\n  	<span><i class="cs-icon" data-cs-icon="' +
+((__t = ( fontIcon( (rtl) ? 'angle-left' : 'angle-right' ) )) == null ? '' : __t) +
+'"></i></span>\n  	<button ';
+ if ( count == index+2 ) { print('class="disabled"') } ;
+__p += ' data-level="' +
+((__t = ( index + 1 )) == null ? '' : __t) +
+'" >' +
+((__t = ( item.label )) == null ? '' : __t) +
+'</button>\n  ';
+ }) ;
+__p += '\n';
+ } ;
+
+
+}
+return __p
+};templates['inspector/column-actions']=function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '<ul class="cs-actions">\n  <li class="action manage-layout">\n    <i class="cs-icon" data-cs-icon="' +
+((__t = ( fontIcon('bars') )) == null ? '' : __t) +
+'"></i>\n    <span>' +
+((__t = ( l18n('inspector-manage-layout') )) == null ? '' : __t) +
+'</span>\n  </li>\n  <li class="action erase">\n    <i class="cs-icon" data-cs-icon="' +
+((__t = ( fontIcon('eraser') )) == null ? '' : __t) +
+'"></i>\n    <span>' +
+((__t = ( l18n('inspector-erase') )) == null ? '' : __t) +
+'</span>\n  </li>\n</ul>';
+
+}
+return __p
+};templates['inspector/element-actions']=function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '<ul class="cs-actions">\n  <li class="action duplicate">\n    <i class="cs-icon" data-cs-icon="' +
+((__t = ( fontIcon('copy') )) == null ? '' : __t) +
+'"></i>\n    <span>' +
+((__t = ( l18n('inspector-duplicate') )) == null ? '' : __t) +
+'</span>\n  </li>\n  <li class="action delete">\n    <i class="cs-icon" data-cs-icon="' +
+((__t = ( fontIcon('trash-o') )) == null ? '' : __t) +
+'"></i>\n    <span>' +
+((__t = ( l18n('inspector-delete') )) == null ? '' : __t) +
+'</span>\n  </li>\n</ul>';
+
+}
+return __p
+};templates['inspector/inspector']=function (obj) {
+obj || (obj = {});
+var __t, __p = '', __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
+with (obj) {
+
+ //builder/inspector/inspector ;
+__p += '\n<h2>' +
+((__t = ( heading )) == null ? '' : __t) +
+'</h2>\n<div class="cs-pane-content-outer">\n	<div id="inspector-controls" class="cs-pane-content-inner"></div>\n</div>\n<div class="cs-builder-sub inspector ">\n  <button class="cs-builder-sub-back">\n  <i class="cs-icon" data-cs-icon="&#xf053;"></i>\n  <span>' +
+((__t = ( l18n('inspector-return') )) == null ? '' : __t) +
+'</span>\n	</button>\n	<div class="cs-pane-content-outer">\n		<div class="cs-pane-content-inner">\n			<div id="inspector-sub" class="cs-pane-section"></div>\n		</div>\n	</div>\n</div>\n';
+
+}
+return __p
+};templates['inspector/row-actions']=function (obj) {
+obj || (obj = {});
+var __t, __p = '';
+with (obj) {
+__p += '<ul class="cs-actions">\n  <li class="action manage-layout">\n    <i class="cs-icon" data-cs-icon="' +
+((__t = ( fontIcon('bars') )) == null ? '' : __t) +
+'"></i>\n    <span>' +
+((__t = ( l18n('inspector-manage-layout') )) == null ? '' : __t) +
+'</span>\n  </li>\n  <li class="action delete">\n    <i class="cs-icon" data-cs-icon="' +
+((__t = ( fontIcon('trash-o') )) == null ? '' : __t) +
+'"></i>\n    <span>' +
+((__t = ( l18n('inspector-delete') )) == null ? '' : __t) +
+'</span>\n  </li>\n</ul>';
+
+}
+return __p
 };templates['extra/confirm']=function (obj) {
 obj || (obj = {});
 var __t, __p = '', __j = Array.prototype.join;
@@ -7934,111 +8039,6 @@ with (obj) {
 __p += '\n<p class="message">' +
 ((__t = ( message )) == null ? '' : __t) +
 '</p>\n';
-
-}
-return __p
-};templates['inspector/blank-state']=function (obj) {
-obj || (obj = {});
-var __t, __p = '', __j = Array.prototype.join;
-function print() { __p += __j.call(arguments, '') }
-with (obj) {
-
- //builder/inspector/blank-state ;
-__p += '\n' +
-((__t = ( cs.icon('logo-flat-custom') )) == null ? '' : __t) +
-'\n<span class="title">Nothing Selected</span>\n<span>Click on an element in the site preview to begin inspecting it.</span>';
-
-}
-return __p
-};templates['inspector/breadcrumbs']=function (obj) {
-obj || (obj = {});
-var __t, __p = '', __j = Array.prototype.join;
-function print() { __p += __j.call(arguments, '') }
-with (obj) {
-
- if ( count > 0 ) { ;
-__p += '\n  <button data-level="0" ';
- if ( items.length == 1 ) { print('class="disabled"') } ;
-__p += '>';
- print((items.length == 1) ? _.first( items ).title : _.first( items ).label ) ;
-__p += '</button>\n  ';
- _.each( _.rest( items ), function(item,index) { ;
-__p += '\n  	<span><i class="cs-icon" data-cs-icon="' +
-((__t = ( fontIcon( (rtl) ? 'angle-left' : 'angle-right' ) )) == null ? '' : __t) +
-'"></i></span>\n  	<button ';
- if ( count == index+2 ) { print('class="disabled"') } ;
-__p += ' data-level="' +
-((__t = ( index + 1 )) == null ? '' : __t) +
-'" >' +
-((__t = ( item.label )) == null ? '' : __t) +
-'</button>\n  ';
- }) ;
-__p += '\n';
- } ;
-
-
-}
-return __p
-};templates['inspector/column-actions']=function (obj) {
-obj || (obj = {});
-var __t, __p = '';
-with (obj) {
-__p += '<ul class="cs-actions">\n  <li class="action manage-layout">\n    <i class="cs-icon" data-cs-icon="' +
-((__t = ( fontIcon('bars') )) == null ? '' : __t) +
-'"></i>\n    <span>' +
-((__t = ( l18n('inspector-manage-layout') )) == null ? '' : __t) +
-'</span>\n  </li>\n  <li class="action erase">\n    <i class="cs-icon" data-cs-icon="' +
-((__t = ( fontIcon('eraser') )) == null ? '' : __t) +
-'"></i>\n    <span>' +
-((__t = ( l18n('inspector-erase') )) == null ? '' : __t) +
-'</span>\n  </li>\n</ul>';
-
-}
-return __p
-};templates['inspector/element-actions']=function (obj) {
-obj || (obj = {});
-var __t, __p = '';
-with (obj) {
-__p += '<ul class="cs-actions">\n  <li class="action duplicate">\n    <i class="cs-icon" data-cs-icon="' +
-((__t = ( fontIcon('copy') )) == null ? '' : __t) +
-'"></i>\n    <span>' +
-((__t = ( l18n('inspector-duplicate') )) == null ? '' : __t) +
-'</span>\n  </li>\n  <li class="action delete">\n    <i class="cs-icon" data-cs-icon="' +
-((__t = ( fontIcon('trash-o') )) == null ? '' : __t) +
-'"></i>\n    <span>' +
-((__t = ( l18n('inspector-delete') )) == null ? '' : __t) +
-'</span>\n  </li>\n</ul>';
-
-}
-return __p
-};templates['inspector/inspector']=function (obj) {
-obj || (obj = {});
-var __t, __p = '', __j = Array.prototype.join;
-function print() { __p += __j.call(arguments, '') }
-with (obj) {
-
- //builder/inspector/inspector ;
-__p += '\n<h2>' +
-((__t = ( heading )) == null ? '' : __t) +
-'</h2>\n<div class="cs-pane-content-outer">\n	<div id="inspector-controls" class="cs-pane-content-inner"></div>\n</div>\n<div class="cs-builder-sub inspector ">\n  <button class="cs-builder-sub-back">\n  <i class="cs-icon" data-cs-icon="&#xf053;"></i>\n  <span>' +
-((__t = ( l18n('inspector-return') )) == null ? '' : __t) +
-'</span>\n	</button>\n	<div class="cs-pane-content-outer">\n		<div class="cs-pane-content-inner">\n			<div id="inspector-sub" class="cs-pane-section"></div>\n		</div>\n	</div>\n</div>\n';
-
-}
-return __p
-};templates['inspector/row-actions']=function (obj) {
-obj || (obj = {});
-var __t, __p = '';
-with (obj) {
-__p += '<ul class="cs-actions">\n  <li class="action manage-layout">\n    <i class="cs-icon" data-cs-icon="' +
-((__t = ( fontIcon('bars') )) == null ? '' : __t) +
-'"></i>\n    <span>' +
-((__t = ( l18n('inspector-manage-layout') )) == null ? '' : __t) +
-'</span>\n  </li>\n  <li class="action delete">\n    <i class="cs-icon" data-cs-icon="' +
-((__t = ( fontIcon('trash-o') )) == null ? '' : __t) +
-'"></i>\n    <span>' +
-((__t = ( l18n('inspector-delete') )) == null ? '' : __t) +
-'</span>\n  </li>\n</ul>';
 
 }
 return __p
@@ -10644,7 +10644,7 @@ String.prototype.score = function (word, fuzziness) {
 },{}],144:[function(require,module,exports){
 // Backbone.BabySitter
 // -------------------
-// v0.1.7
+// v0.1.10
 //
 // Copyright (c)2015 Derick Bailey, Muted Solutions, LLC.
 // Distributed under MIT license
@@ -10822,7 +10822,7 @@ String.prototype.score = function (word, fuzziness) {
   })(Backbone, _);
   
 
-  Backbone.ChildViewContainer.VERSION = '0.1.7';
+  Backbone.ChildViewContainer.VERSION = '0.1.10';
 
   Backbone.ChildViewContainer.noConflict = function () {
     Backbone.ChildViewContainer = previousChildViewContainer;
@@ -10836,7 +10836,7 @@ String.prototype.score = function (word, fuzziness) {
 },{"backbone":"backbone","underscore":"underscore"}],145:[function(require,module,exports){
 // MarionetteJS (Backbone.Marionette)
 // ----------------------------------
-// v2.4.1
+// v2.4.2
 //
 // Copyright (c)2015 Derick Bailey, Muted Solutions, LLC.
 // Distributed under MIT license
@@ -10867,7 +10867,7 @@ String.prototype.score = function (word, fuzziness) {
 
   var Marionette = Backbone.Marionette = {};
 
-  Marionette.VERSION = '2.4.1';
+  Marionette.VERSION = '2.4.2';
 
   Marionette.noConflict = function() {
     root.Marionette = previousMarionette;
@@ -11539,10 +11539,12 @@ String.prototype.score = function (word, fuzziness) {
         // as it's a potentially-slow method
         var displayedViews = [];
   
-        var triggerBeforeAttach = showOptions.triggerBeforeAttach || this.triggerBeforeAttach;
-        var triggerAttach = showOptions.triggerAttach || this.triggerAttach;
+        var attachOptions = _.extend({
+          triggerBeforeAttach: this.triggerBeforeAttach,
+          triggerAttach: this.triggerAttach
+        }, showOptions);
   
-        if (attachedRegion && triggerBeforeAttach) {
+        if (attachedRegion && attachOptions.triggerBeforeAttach) {
           displayedViews = this._displayedViews(view);
           this._triggerAttach(displayedViews, 'before:');
         }
@@ -11550,7 +11552,7 @@ String.prototype.score = function (word, fuzziness) {
         this.attachHtml(view);
         this.currentView = view;
   
-        if (attachedRegion && triggerAttach) {
+        if (attachedRegion && attachOptions.triggerAttach) {
           displayedViews = this._displayedViews(view);
           this._triggerAttach(displayedViews);
         }
@@ -12495,7 +12497,7 @@ String.prototype.score = function (word, fuzziness) {
     }
   });
   
-  /* jshint maxstatements: 14 */
+  /* jshint maxstatements: 20, maxcomplexity: 7 */
   
   // Collection View
   // ---------------
@@ -12519,14 +12521,17 @@ String.prototype.score = function (word, fuzziness) {
     // option to pass `{comparator: compFunction()}` to allow the `CollectionView`
     // to use a custom sort order for the collection.
     constructor: function(options) {
-  
       this.once('render', this._initialEvents);
       this._initChildViewStorage();
   
       Marionette.View.apply(this, arguments);
   
-      this.on('show', this._onShowCalled);
-  
+      this.on({
+        'before:show':   this._onBeforeShowCalled,
+        'show':          this._onShowCalled,
+        'before:attach': this._onBeforeAttachCalled,
+        'attach':        this._onAttachCalled
+      });
       this.initRenderBuffer();
     },
   
@@ -12543,33 +12548,38 @@ String.prototype.score = function (word, fuzziness) {
     },
   
     endBuffering: function() {
+      // Only trigger attach if already shown and attached, otherwise Region#show() handles this.
+      var canTriggerAttach = this._isShown && Marionette.isNodeAttached(this.el);
+      var nestedViews;
+  
       this.isBuffering = false;
-      this._triggerBeforeShowBufferedChildren();
   
-      this.attachBuffer(this);
+      if (this._isShown) {
+        this._triggerMethodMany(this._bufferedChildren, this, 'before:show');
+      }
+      if (canTriggerAttach && this._triggerBeforeAttach) {
+        nestedViews = this._getNestedViews();
+        this._triggerMethodMany(nestedViews, this, 'before:attach');
+      }
   
-      this._triggerShowBufferedChildren();
+      this.attachBuffer(this, this._createBuffer());
+  
+      if (canTriggerAttach && this._triggerAttach) {
+        nestedViews = this._getNestedViews();
+        this._triggerMethodMany(nestedViews, this, 'attach');
+      }
+      if (this._isShown) {
+        this._triggerMethodMany(this._bufferedChildren, this, 'show');
+      }
       this.initRenderBuffer();
     },
   
-    _triggerBeforeShowBufferedChildren: function() {
-      if (this._isShown) {
-        _.each(this._bufferedChildren, _.partial(this._triggerMethodOnChild, 'before:show'));
-      }
-    },
+    _triggerMethodMany: function(targets, source, eventName) {
+      var args = _.drop(arguments, 3);
   
-    _triggerShowBufferedChildren: function() {
-      if (this._isShown) {
-        _.each(this._bufferedChildren, _.partial(this._triggerMethodOnChild, 'show'));
-  
-        this._bufferedChildren = [];
-      }
-    },
-  
-    // Internal method for _.each loops to call `Marionette.triggerMethodOn` on
-    // a child view
-    _triggerMethodOnChild: function(event, childView) {
-      Marionette.triggerMethodOn(childView, event);
+      _.each(targets, function(target) {
+        Marionette.triggerMethodOn.apply(target, [target, eventName, target, source].concat(args));
+      });
     },
   
     // Configured the initial events that the collection view
@@ -12609,8 +12619,29 @@ String.prototype.score = function (word, fuzziness) {
       this.checkEmpty();
     },
   
+    _onBeforeShowCalled: function() {
+      // Reset attach event flags at the top of the Region#show() event lifecycle; if the Region's
+      // show() options permit onBeforeAttach/onAttach events, these flags will be set true again.
+      this._triggerBeforeAttach = this._triggerAttach = false;
+      this.children.each(function(childView) {
+        Marionette.triggerMethodOn(childView, 'before:show', childView);
+      });
+    },
+  
     _onShowCalled: function() {
-      this.children.each(_.partial(this._triggerMethodOnChild, 'show'));
+      this.children.each(function(childView) {
+        Marionette.triggerMethodOn(childView, 'show', childView);
+      });
+    },
+  
+    // If during Region#show() onBeforeAttach was fired, continue firing it for child views
+    _onBeforeAttachCalled: function() {
+      this._triggerBeforeAttach = true;
+    },
+  
+    // If during Region#show() onAttach was fired, continue firing it for child views
+    _onAttachCalled: function() {
+      this._triggerAttach = true;
     },
   
     // Render children views. Override this method to
@@ -12643,8 +12674,10 @@ String.prototype.score = function (word, fuzziness) {
         this.render();
       } else {
         // get the DOM nodes in the same order as the models
-        var els = _.map(models, function(model) {
-          return children.findByModel(model).el;
+        var els = _.map(models, function(model, index) {
+          var view = children.findByModel(model);
+          view._index = index;
+          return view.el;
         });
   
         // since append moves elements that are already in the DOM,
@@ -12697,7 +12730,7 @@ String.prototype.score = function (word, fuzziness) {
     // process
     _renderChildren: function() {
       this.destroyEmptyView();
-      this.destroyChildren();
+      this.destroyChildren({checkEmpty: false});
   
       if (this.isEmpty(this.collection)) {
         this.showEmptyView();
@@ -12791,6 +12824,10 @@ String.prototype.score = function (word, fuzziness) {
     // but "add:child" events are not fired, and the event from
     // emptyView are not forwarded
     addEmptyView: function(child, EmptyView) {
+      // Only trigger attach if already shown, attached, and not buffering, otherwise endBuffer() or
+      // Region#show() handles this.
+      var canTriggerAttach = this._isShown && !this.isBuffering && Marionette.isNodeAttached(this.el);
+      var nestedViews;
   
       // get the emptyViewOptions, falling back to childViewOptions
       var emptyViewOptions = this.getOption('emptyViewOptions') ||
@@ -12808,23 +12845,35 @@ String.prototype.score = function (word, fuzziness) {
       // Proxy emptyView events
       this.proxyChildEvents(view);
   
-      // trigger the 'before:show' event on `view` if the collection view
-      // has already been shown
+      // trigger the 'before:show' event on `view` if the collection view has already been shown
       if (this._isShown) {
-        Marionette.triggerMethodOn(view, 'before:show');
+        Marionette.triggerMethodOn(view, 'before:show', view);
       }
   
       // Store the `emptyView` like a `childView` so we can properly
       // remove and/or close it later
       this.children.add(view);
   
+      // Trigger `before:attach` following `render` to avoid adding logic and event triggers
+      // to public method `renderChildView()`.
+      if (canTriggerAttach && this._triggerBeforeAttach) {
+        nestedViews = [view].concat(view._getNestedViews());
+        view.once('render', function() {
+          this._triggerMethodMany(nestedViews, this, 'before:attach');
+        }, this);
+      }
+  
       // Render it and show it
       this.renderChildView(view, this._emptyViewIndex);
   
-      // call the 'show' method if the collection view
-      // has already been shown
+      // Trigger `attach`
+      if (canTriggerAttach && this._triggerAttach) {
+        nestedViews = [view].concat(view._getNestedViews());
+        this._triggerMethodMany(nestedViews, this, 'attach');
+      }
+      // call the 'show' method if the collection view has already been shown
       if (this._isShown) {
-        Marionette.triggerMethodOn(view, 'show');
+        Marionette.triggerMethodOn(view, 'show', view);
       }
     },
   
@@ -12860,7 +12909,9 @@ String.prototype.score = function (word, fuzziness) {
       // increment indices of views after this one
       this._updateIndices(view, true, index);
   
+      this.triggerMethod('before:add:child', view);
       this._addChildView(view, index);
+      this.triggerMethod('add:child', view);
   
       view._parent = this;
   
@@ -12890,27 +12941,42 @@ String.prototype.score = function (word, fuzziness) {
     // Internal Method. Add the view to children and render it at
     // the given index.
     _addChildView: function(view, index) {
+      // Only trigger attach if already shown, attached, and not buffering, otherwise endBuffer() or
+      // Region#show() handles this.
+      var canTriggerAttach = this._isShown && !this.isBuffering && Marionette.isNodeAttached(this.el);
+      var nestedViews;
+  
       // set up the child view event forwarding
       this.proxyChildEvents(view);
   
-      this.triggerMethod('before:add:child', view);
-  
-      // trigger the 'before:show' event on `view` if the collection view
-      // has already been shown
+      // trigger the 'before:show' event on `view` if the collection view has already been shown
       if (this._isShown && !this.isBuffering) {
-        Marionette.triggerMethodOn(view, 'before:show');
+        Marionette.triggerMethodOn(view, 'before:show', view);
       }
   
-      // Store the child view itself so we can properly
-      // remove and/or destroy it later
+      // Store the child view itself so we can properly remove and/or destroy it later
       this.children.add(view);
+  
+      // Trigger `before:attach` following `render` to avoid adding logic and event triggers
+      // to public method `renderChildView()`.
+      if (canTriggerAttach && this._triggerBeforeAttach) {
+        nestedViews = [view].concat(view._getNestedViews());
+        view.once('render', function() {
+          this._triggerMethodMany(nestedViews, this, 'before:attach');
+        }, this);
+      }
+  
       this.renderChildView(view, index);
   
-      if (this._isShown && !this.isBuffering) {
-        Marionette.triggerMethodOn(view, 'show');
+      // Trigger `attach`
+      if (canTriggerAttach && this._triggerAttach) {
+        nestedViews = [view].concat(view._getNestedViews());
+        this._triggerMethodMany(nestedViews, this, 'attach');
       }
-  
-      this.triggerMethod('add:child', view);
+      // Trigger `show`
+      if (this._isShown && !this.isBuffering) {
+        Marionette.triggerMethodOn(view, 'show', view);
+      }
     },
   
     // render the child view
@@ -12967,14 +13033,14 @@ String.prototype.score = function (word, fuzziness) {
     },
   
     // You might need to override this if you've overridden attachHtml
-    attachBuffer: function(collectionView) {
-      collectionView.$el.append(this._createBuffer(collectionView));
+    attachBuffer: function(collectionView, buffer) {
+      collectionView.$el.append(buffer);
     },
   
     // Create a fragment buffer from the currently buffered children
-    _createBuffer: function(collectionView) {
+    _createBuffer: function() {
       var elBuffer = document.createDocumentFragment();
-      _.each(collectionView._bufferedChildren, function(b) {
+      _.each(this._bufferedChildren, function(b) {
         elBuffer.appendChild(b.el);
       });
       return elBuffer;
@@ -13035,7 +13101,7 @@ String.prototype.score = function (word, fuzziness) {
       if (this.isDestroyed) { return this; }
   
       this.triggerMethod('before:destroy:collection');
-      this.destroyChildren();
+      this.destroyChildren({checkEmpty: false});
       this.triggerMethod('destroy:collection');
   
       return Marionette.View.prototype.destroy.apply(this, arguments);
@@ -13043,10 +13109,20 @@ String.prototype.score = function (word, fuzziness) {
   
     // Destroy the child views that this collection view
     // is holding on to, if any
-    destroyChildren: function() {
+    destroyChildren: function(options) {
+      var destroyOptions = options || {};
+      var shouldCheckEmpty = true;
       var childViews = this.children.map(_.identity);
+  
+      if (!_.isUndefined(destroyOptions.checkEmpty)) {
+        shouldCheckEmpty = destroyOptions.checkEmpty;
+      }
+  
       this.children.each(this.removeChildView, this);
-      this.checkEmpty();
+  
+      if (shouldCheckEmpty) {
+        this.checkEmpty();
+      }
       return childViews;
     },
   
@@ -13218,9 +13294,9 @@ String.prototype.score = function (word, fuzziness) {
     },
   
     // You might need to override this if you've overridden attachHtml
-    attachBuffer: function(compositeView) {
+    attachBuffer: function(compositeView, buffer) {
       var $container = this.getChildViewContainer(compositeView);
-      $container.append(this._createBuffer(compositeView));
+      $container.append(buffer);
     },
   
     // Internal method. Append a view to the end of the $el.
@@ -13242,7 +13318,7 @@ String.prototype.score = function (word, fuzziness) {
     // Internal method to ensure an `$childViewContainer` exists, for the
     // `attachHtml` method to use.
     getChildViewContainer: function(containerView, childView) {
-      if ('$childViewContainer' in containerView) {
+      if (!!containerView.$childViewContainer) {
         return containerView.$childViewContainer;
       }
   
@@ -13276,7 +13352,7 @@ String.prototype.score = function (word, fuzziness) {
     // Internal method to reset the `$childViewContainer` on render
     resetChildViewContainer: function() {
       if (this.$childViewContainer) {
-        delete this.$childViewContainer;
+        this.$childViewContainer = undefined;
       }
     }
   });
@@ -14197,30 +14273,18 @@ String.prototype.score = function (word, fuzziness) {
 }));
 
 },{"backbone":"backbone","backbone.babysitter":144,"backbone.wreqr":148,"underscore":"underscore"}],146:[function(require,module,exports){
-// Backbone.Radio v0.9.0
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define(['backbone', 'underscore'], function(Backbone, _) {
-      return factory(Backbone, _);
-    });
-  }
-  else if (typeof exports !== 'undefined') {
-    var Backbone = require('backbone');
-    var _ = require('underscore');
-    module.exports = factory(Backbone, _);
-  }
-  else {
-    factory(root.Backbone, root._);
-  }
-}(this, function(Backbone, _) {
-  'use strict';
+// Backbone.Radio v1.0.2
+(function (global, factory) {
+  typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory(require("underscore"), require("backbone")) : typeof define === "function" && define.amd ? define(["underscore", "backbone"], factory) : global.Backbone.Radio = factory(global._, global.Backbone);
+})(this, function (_, Backbone) {
+  "use strict";
 
   var previousRadio = Backbone.Radio;
-  
+
   var Radio = Backbone.Radio = {};
-  
-  Radio.VERSION = '0.9.0';
-  
+
+  Radio.VERSION = "1.0.2";
+
   // This allows you to run multiple instances of Radio on the same
   // webapp. After loading the new version, call `noConflict()` to
   // get a reference to it. At the same time the old version will be
@@ -14229,49 +14293,48 @@ String.prototype.score = function (word, fuzziness) {
     Backbone.Radio = previousRadio;
     return this;
   };
-  
+
   // Whether or not we're in DEBUG mode or not. DEBUG mode helps you
   // get around the issues of lack of warnings when events are mis-typed.
   Radio.DEBUG = false;
-  
+
   // Format debug text.
-  Radio._debugText = function(warning, eventName, channelName) {
-    return warning + (channelName ? ' on the ' + channelName + ' channel' : '') +
-      ': "' + eventName + '"';
+  Radio._debugText = function (warning, eventName, channelName) {
+    return warning + (channelName ? " on the " + channelName + " channel" : "") + ": \"" + eventName + "\"";
   };
-  
+
   // This is the method that's called when an unregistered event was called.
   // By default, it logs warning to the console. By overriding this you could
   // make it throw an Error, for instance. This would make firing a nonexistent event
   // have the same consequence as firing a nonexistent method on an Object.
-  Radio.debugLog = function(warning, eventName, channelName) {
+  Radio.debugLog = function (warning, eventName, channelName) {
     if (Radio.DEBUG && console && console.warn) {
       console.warn(Radio._debugText(warning, eventName, channelName));
     }
   };
-  
+
   var eventSplitter = /\s+/;
-  
-  // An internal method used to handle Radio's method overloading for Requests and
-  // Commands. It's borrowed from Backbone.Events. It differs from Backbone's overload
+
+  // An internal method used to handle Radio's method overloading for Requests.
+  // It's borrowed from Backbone.Events. It differs from Backbone's overload
   // API (which is used in Backbone.Events) in that it doesn't support space-separated
   // event names.
-  Radio._eventsApi = function(obj, action, name, rest) {
+  Radio._eventsApi = function (obj, action, name, rest) {
     if (!name) {
       return false;
     }
-  
+
     var results = {};
-  
+
     // Handle event maps.
-    if (typeof name === 'object') {
+    if (typeof name === "object") {
       for (var key in name) {
         var result = obj[action].apply(obj, [key, name[key]].concat(rest));
         eventSplitter.test(key) ? _.extend(results, result) : results[key] = result;
       }
       return results;
     }
-  
+
     // Handle space separated event names.
     if (eventSplitter.test(name)) {
       var names = name.split(eventSplitter);
@@ -14280,321 +14343,240 @@ String.prototype.score = function (word, fuzziness) {
       }
       return results;
     }
-  
+
     return false;
   };
-  
+
   // An optimized way to execute callbacks.
-  Radio._callHandler = function(callback, context, args) {
-    var a1 = args[0], a2 = args[1], a3 = args[2];
-    switch(args.length) {
-      case 0: return callback.call(context);
-      case 1: return callback.call(context, a1);
-      case 2: return callback.call(context, a1, a2);
-      case 3: return callback.call(context, a1, a2, a3);
-      default: return callback.apply(context, args);
+  Radio._callHandler = function (callback, context, args) {
+    var a1 = args[0],
+        a2 = args[1],
+        a3 = args[2];
+    switch (args.length) {
+      case 0:
+        return callback.call(context);
+      case 1:
+        return callback.call(context, a1);
+      case 2:
+        return callback.call(context, a1, a2);
+      case 3:
+        return callback.call(context, a1, a2, a3);
+      default:
+        return callback.apply(context, args);
     }
   };
-  
+
   // A helper used by `off` methods to the handler from the store
   function removeHandler(store, name, callback, context) {
     var event = store[name];
-    if (
-       (!callback || (callback === event.callback || callback === event.callback._callback)) &&
-       (!context || (context === event.context))
-    ) {
+    if ((!callback || (callback === event.callback || callback === event.callback._callback)) && (!context || context === event.context)) {
       delete store[name];
       return true;
     }
   }
-  
+
   function removeHandlers(store, name, callback, context) {
     store || (store = {});
     var names = name ? [name] : _.keys(store);
     var matched = false;
-  
+
     for (var i = 0, length = names.length; i < length; i++) {
       name = names[i];
-  
+
       // If there's no event by this name, log it and continue
       // with the loop
       if (!store[name]) {
         continue;
       }
-  
+
       if (removeHandler(store, name, callback, context)) {
         matched = true;
       }
     }
-  
+
     return matched;
   }
-  
+
   /*
    * tune-in
    * -------
    * Get console logs of a channel's activity
    *
    */
-  
+
   var _logs = {};
-  
+
   // This is to produce an identical function in both tuneIn and tuneOut,
   // so that Backbone.Events unregisters it.
   function _partial(channelName) {
     return _logs[channelName] || (_logs[channelName] = _.partial(Radio.log, channelName));
   }
-  
+
   _.extend(Radio, {
-  
+
     // Log information about the channel and event
-    log: function(channelName, eventName) {
+    log: function log(channelName, eventName) {
       var args = _.rest(arguments, 2);
-      console.log('[' + channelName + '] "' + eventName + '"', args);
+      console.log("[" + channelName + "] \"" + eventName + "\"", args);
     },
-  
+
     // Logs all events on this channel to the console. It sets an
     // internal value on the channel telling it we're listening,
     // then sets a listener on the Backbone.Events
-    tuneIn: function(channelName) {
+    tuneIn: function tuneIn(channelName) {
       var channel = Radio.channel(channelName);
       channel._tunedIn = true;
-      channel.on('all', _partial(channelName));
+      channel.on("all", _partial(channelName));
       return this;
     },
-  
+
     // Stop logging all of the activities on this channel to the console
-    tuneOut: function(channelName) {
+    tuneOut: function tuneOut(channelName) {
       var channel = Radio.channel(channelName);
       channel._tunedIn = false;
-      channel.off('all', _partial(channelName));
+      channel.off("all", _partial(channelName));
       delete _logs[channelName];
       return this;
     }
   });
-  
-  /*
-   * Backbone.Radio.Commands
-   * -----------------------
-   * A messaging system for sending orders.
-   *
-   */
-  
-  Radio.Commands = {
-  
-    // Issue a command
-    command: function(name) {
-      var args = _.rest(arguments);
-      if (Radio._eventsApi(this, 'command', name, args)) {
-        return this;
-      }
-      var channelName = this.channelName;
-      var commands = this._commands;
-  
-      // Check if we should log the command, and if so, do it
-      if (channelName && this._tunedIn) {
-        Radio.log.apply(this, [channelName, name].concat(args));
-      }
-  
-      // If the command isn't handled, log it in DEBUG mode and exit
-      if (commands && (commands[name] || commands['default'])) {
-        var handler = commands[name] || commands['default'];
-        args = commands[name] ? args : arguments;
-        Radio._callHandler(handler.callback, handler.context, args);
-      } else {
-        Radio.debugLog('An unhandled command was fired', name, channelName);
-      }
-  
-      return this;
-    },
-  
-    // Register a handler for a command.
-    comply: function(name, callback, context) {
-      if (Radio._eventsApi(this, 'comply', name, [callback, context])) {
-        return this;
-      }
-      this._commands || (this._commands = {});
-  
-      if (this._commands[name]) {
-        Radio.debugLog('A command was overwritten', name, this.channelName);
-      }
-  
-      this._commands[name] = {
-        callback: callback,
-        context: context || this
-      };
-  
-      return this;
-    },
-  
-    // Register a handler for a command that happens just once.
-    complyOnce: function(name, callback, context) {
-      if (Radio._eventsApi(this, 'complyOnce', name, [callback, context])) {
-        return this;
-      }
-      var self = this;
-  
-      var once = _.once(function() {
-        self.stopComplying(name);
-        return callback.apply(this, arguments);
-      });
-  
-      return this.comply(name, once, context);
-    },
-  
-    // Remove handler(s)
-    stopComplying: function(name, callback, context) {
-      if (Radio._eventsApi(this, 'stopComplying', name)) {
-        return this;
-      }
-  
-      // Remove everything if there are no arguments passed
-      if (!name && !callback && !context) {
-        delete this._commands;
-      } else if (!removeHandlers(this._commands, name, callback, context)) {
-        Radio.debugLog('Attempted to remove the unregistered command', name, this.channelName);
-      }
-  
-      return this;
-    }
-  };
-  
+
   /*
    * Backbone.Radio.Requests
    * -----------------------
    * A messaging system for requesting data.
    *
    */
-  
+
   function makeCallback(callback) {
-    return _.isFunction(callback) ? callback : function () { return callback; };
+    return _.isFunction(callback) ? callback : function () {
+      return callback;
+    };
   }
-  
+
   Radio.Requests = {
-  
+
     // Make a request
-    request: function(name) {
+    request: function request(name) {
       var args = _.rest(arguments);
-      var results = Radio._eventsApi(this, 'request', name, args);
+      var results = Radio._eventsApi(this, "request", name, args);
       if (results) {
         return results;
       }
       var channelName = this.channelName;
       var requests = this._requests;
-  
+
       // Check if we should log the request, and if so, do it
       if (channelName && this._tunedIn) {
         Radio.log.apply(this, [channelName, name].concat(args));
       }
-  
+
       // If the request isn't handled, log it in DEBUG mode and exit
-      if (requests && (requests[name] || requests['default'])) {
-        var handler = requests[name] || requests['default'];
+      if (requests && (requests[name] || requests["default"])) {
+        var handler = requests[name] || requests["default"];
         args = requests[name] ? args : arguments;
         return Radio._callHandler(handler.callback, handler.context, args);
       } else {
-        Radio.debugLog('An unhandled request was fired', name, channelName);
+        Radio.debugLog("An unhandled request was fired", name, channelName);
       }
     },
-  
+
     // Set up a handler for a request
-    reply: function(name, callback, context) {
-      if (Radio._eventsApi(this, 'reply', name, [callback, context])) {
+    reply: function reply(name, callback, context) {
+      if (Radio._eventsApi(this, "reply", name, [callback, context])) {
         return this;
       }
-  
+
       this._requests || (this._requests = {});
-  
+
       if (this._requests[name]) {
-        Radio.debugLog('A request was overwritten', name, this.channelName);
+        Radio.debugLog("A request was overwritten", name, this.channelName);
       }
-  
+
       this._requests[name] = {
         callback: makeCallback(callback),
         context: context || this
       };
-  
+
       return this;
     },
-  
+
     // Set up a handler that can only be requested once
-    replyOnce: function(name, callback, context) {
-      if (Radio._eventsApi(this, 'replyOnce', name, [callback, context])) {
+    replyOnce: function replyOnce(name, callback, context) {
+      if (Radio._eventsApi(this, "replyOnce", name, [callback, context])) {
         return this;
       }
-  
+
       var self = this;
-  
-      var once = _.once(function() {
+
+      var once = _.once(function () {
         self.stopReplying(name);
         return makeCallback(callback).apply(this, arguments);
       });
-  
+
       return this.reply(name, once, context);
     },
-  
+
     // Remove handler(s)
-    stopReplying: function(name, callback, context) {
-      if (Radio._eventsApi(this, 'stopReplying', name)) {
+    stopReplying: function stopReplying(name, callback, context) {
+      if (Radio._eventsApi(this, "stopReplying", name)) {
         return this;
       }
-  
+
       // Remove everything if there are no arguments passed
       if (!name && !callback && !context) {
         delete this._requests;
       } else if (!removeHandlers(this._requests, name, callback, context)) {
-        Radio.debugLog('Attempted to remove the unregistered request', name, this.channelName);
+        Radio.debugLog("Attempted to remove the unregistered request", name, this.channelName);
       }
-  
+
       return this;
     }
   };
-  
+
   /*
    * Backbone.Radio.channel
    * ----------------------
    * Get a reference to a channel by name.
    *
    */
-  
+
   Radio._channels = {};
-  
-  Radio.channel = function(channelName) {
+
+  Radio.channel = function (channelName) {
     if (!channelName) {
-      throw new Error('You must provide a name for the channel.');
+      throw new Error("You must provide a name for the channel.");
     }
-  
+
     if (Radio._channels[channelName]) {
       return Radio._channels[channelName];
     } else {
-      return (Radio._channels[channelName] = new Radio.Channel(channelName));
+      return Radio._channels[channelName] = new Radio.Channel(channelName);
     }
   };
-  
+
   /*
    * Backbone.Radio.Channel
    * ----------------------
    * A Channel is an object that extends from Backbone.Events,
-   * Radio.Commands, and Radio.Requests.
+   * and Radio.Requests.
    *
    */
-  
-  Radio.Channel = function(channelName) {
+
+  Radio.Channel = function (channelName) {
     this.channelName = channelName;
   };
-  
-  _.extend(Radio.Channel.prototype, Backbone.Events, Radio.Commands, Radio.Requests, {
-  
+
+  _.extend(Radio.Channel.prototype, Backbone.Events, Radio.Requests, {
+
     // Remove all handlers from the messaging systems of this channel
-    reset: function() {
+    reset: function reset() {
       this.off();
       this.stopListening();
-      this.stopComplying();
       this.stopReplying();
       return this;
     }
   });
-  
+
   /*
    * Top-level API
    * -------------
@@ -14602,28 +14584,31 @@ String.prototype.score = function (word, fuzziness) {
    * from Backbone.Radio.
    *
    */
-  
-  var channel, args, systems = [Backbone.Events, Radio.Commands, Radio.Requests];
-  
-  _.each(systems, function(system) {
-    _.each(system, function(method, methodName) {
-      Radio[methodName] = function(channelName) {
+
+  var channel,
+      args,
+      systems = [Backbone.Events, Radio.Commands, Radio.Requests];
+
+  _.each(systems, function (system) {
+    _.each(system, function (method, methodName) {
+      Radio[methodName] = function (channelName) {
         args = _.rest(arguments);
         channel = this.channel(channelName);
         return channel[methodName].apply(channel, args);
       };
     });
   });
-  
-  Radio.reset = function(channelName) {
+
+  Radio.reset = function (channelName) {
     var channels = !channelName ? this._channels : [this._channels[channelName]];
-    _.invoke(channels, 'reset');
+    _.invoke(channels, "reset");
   };
-  
 
-  return Radio;
-}));
+  var backbone_radio = Radio;
 
+  return backbone_radio;
+});
+//# sourceMappingURL=./backbone.radio.js.map
 },{"backbone":"backbone","underscore":"underscore"}],147:[function(require,module,exports){
 // Backbone.Stickit v0.9.2, MIT Licensed
 // Copyright (c) 2012-2015 The New York Times, CMS Group, Matthew DeLambo <delambo@gmail.com>
@@ -15322,7 +15307,7 @@ String.prototype.score = function (word, fuzziness) {
 
 },{}],149:[function(require,module,exports){
 //! moment.js
-//! version : 2.10.3
+//! version : 2.10.2
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
 //! momentjs.com
@@ -15345,12 +15330,28 @@ String.prototype.score = function (word, fuzziness) {
         hookCallback = callback;
     }
 
+    function defaultParsingFlags() {
+        // We need to deep clone this object.
+        return {
+            empty           : false,
+            unusedTokens    : [],
+            unusedInput     : [],
+            overflow        : -2,
+            charsLeftOver   : 0,
+            nullInput       : false,
+            invalidMonth    : null,
+            invalidFormat   : false,
+            userInvalidated : false,
+            iso             : false
+        };
+    }
+
     function isArray(input) {
         return Object.prototype.toString.call(input) === '[object Array]';
     }
 
     function isDate(input) {
-        return input instanceof Date || Object.prototype.toString.call(input) === '[object Date]';
+        return Object.prototype.toString.call(input) === '[object Date]' || input instanceof Date;
     }
 
     function map(arr, fn) {
@@ -15387,45 +15388,21 @@ String.prototype.score = function (word, fuzziness) {
         return createLocalOrUTC(input, format, locale, strict, true).utc();
     }
 
-    function defaultParsingFlags() {
-        // We need to deep clone this object.
-        return {
-            empty           : false,
-            unusedTokens    : [],
-            unusedInput     : [],
-            overflow        : -2,
-            charsLeftOver   : 0,
-            nullInput       : false,
-            invalidMonth    : null,
-            invalidFormat   : false,
-            userInvalidated : false,
-            iso             : false
-        };
-    }
-
-    function getParsingFlags(m) {
-        if (m._pf == null) {
-            m._pf = defaultParsingFlags();
-        }
-        return m._pf;
-    }
-
     function valid__isValid(m) {
         if (m._isValid == null) {
-            var flags = getParsingFlags(m);
             m._isValid = !isNaN(m._d.getTime()) &&
-                flags.overflow < 0 &&
-                !flags.empty &&
-                !flags.invalidMonth &&
-                !flags.nullInput &&
-                !flags.invalidFormat &&
-                !flags.userInvalidated;
+                m._pf.overflow < 0 &&
+                !m._pf.empty &&
+                !m._pf.invalidMonth &&
+                !m._pf.nullInput &&
+                !m._pf.invalidFormat &&
+                !m._pf.userInvalidated;
 
             if (m._strict) {
                 m._isValid = m._isValid &&
-                    flags.charsLeftOver === 0 &&
-                    flags.unusedTokens.length === 0 &&
-                    flags.bigHour === undefined;
+                    m._pf.charsLeftOver === 0 &&
+                    m._pf.unusedTokens.length === 0 &&
+                    m._pf.bigHour === undefined;
             }
         }
         return m._isValid;
@@ -15434,10 +15411,10 @@ String.prototype.score = function (word, fuzziness) {
     function valid__createInvalid (flags) {
         var m = create_utc__createUTC(NaN);
         if (flags != null) {
-            extend(getParsingFlags(m), flags);
+            extend(m._pf, flags);
         }
         else {
-            getParsingFlags(m).userInvalidated = true;
+            m._pf.userInvalidated = true;
         }
 
         return m;
@@ -15473,7 +15450,7 @@ String.prototype.score = function (word, fuzziness) {
             to._offset = from._offset;
         }
         if (typeof from._pf !== 'undefined') {
-            to._pf = getParsingFlags(from);
+            to._pf = from._pf;
         }
         if (typeof from._locale !== 'undefined') {
             to._locale = from._locale;
@@ -15508,7 +15485,7 @@ String.prototype.score = function (word, fuzziness) {
     }
 
     function isMoment (obj) {
-        return obj instanceof Moment || (obj != null && obj._isAMomentObject != null);
+        return obj instanceof Moment || (obj != null && hasOwnProp(obj, '_isAMomentObject'));
     }
 
     function toInt(argumentForCoercion) {
@@ -15946,7 +15923,7 @@ String.prototype.score = function (word, fuzziness) {
         if (month != null) {
             array[MONTH] = month;
         } else {
-            getParsingFlags(config).invalidMonth = input;
+            config._pf.invalidMonth = input;
         }
     });
 
@@ -16030,7 +16007,7 @@ String.prototype.score = function (word, fuzziness) {
         var overflow;
         var a = m._a;
 
-        if (a && getParsingFlags(m).overflow === -2) {
+        if (a && m._pf.overflow === -2) {
             overflow =
                 a[MONTH]       < 0 || a[MONTH]       > 11  ? MONTH :
                 a[DATE]        < 1 || a[DATE]        > daysInMonth(a[YEAR], a[MONTH]) ? DATE :
@@ -16040,11 +16017,11 @@ String.prototype.score = function (word, fuzziness) {
                 a[MILLISECOND] < 0 || a[MILLISECOND] > 999 ? MILLISECOND :
                 -1;
 
-            if (getParsingFlags(m)._overflowDayOfYear && (overflow < YEAR || overflow > DATE)) {
+            if (m._pf._overflowDayOfYear && (overflow < YEAR || overflow > DATE)) {
                 overflow = DATE;
             }
 
-            getParsingFlags(m).overflow = overflow;
+            m._pf.overflow = overflow;
         }
 
         return m;
@@ -16057,12 +16034,10 @@ String.prototype.score = function (word, fuzziness) {
     }
 
     function deprecate(msg, fn) {
-        var firstTime = true,
-            msgWithStack = msg + '\n' + (new Error()).stack;
-
+        var firstTime = true;
         return extend(function () {
             if (firstTime) {
-                warn(msgWithStack);
+                warn(msg);
                 firstTime = false;
             }
             return fn.apply(this, arguments);
@@ -16107,7 +16082,7 @@ String.prototype.score = function (word, fuzziness) {
             match = from_string__isoRegex.exec(string);
 
         if (match) {
-            getParsingFlags(config).iso = true;
+            config._pf.iso = true;
             for (i = 0, l = isoDates.length; i < l; i++) {
                 if (isoDates[i][1].exec(string)) {
                     // match[5] should be 'T' or undefined
@@ -16387,7 +16362,7 @@ String.prototype.score = function (word, fuzziness) {
             yearToUse = defaults(config._a[YEAR], currentDate[YEAR]);
 
             if (config._dayOfYear > daysInYear(yearToUse)) {
-                getParsingFlags(config)._overflowDayOfYear = true;
+                config._pf._overflowDayOfYear = true;
             }
 
             date = createUTCDate(yearToUse, 0, config._dayOfYear);
@@ -16483,7 +16458,7 @@ String.prototype.score = function (word, fuzziness) {
         }
 
         config._a = [];
-        getParsingFlags(config).empty = true;
+        config._pf.empty = true;
 
         // This array is used to make a Date, either with `new Date` or `Date.UTC`
         var string = '' + config._i,
@@ -16499,7 +16474,7 @@ String.prototype.score = function (word, fuzziness) {
             if (parsedInput) {
                 skipped = string.substr(0, string.indexOf(parsedInput));
                 if (skipped.length > 0) {
-                    getParsingFlags(config).unusedInput.push(skipped);
+                    config._pf.unusedInput.push(skipped);
                 }
                 string = string.slice(string.indexOf(parsedInput) + parsedInput.length);
                 totalParsedInputLength += parsedInput.length;
@@ -16507,29 +16482,27 @@ String.prototype.score = function (word, fuzziness) {
             // don't parse if it's not a known token
             if (formatTokenFunctions[token]) {
                 if (parsedInput) {
-                    getParsingFlags(config).empty = false;
+                    config._pf.empty = false;
                 }
                 else {
-                    getParsingFlags(config).unusedTokens.push(token);
+                    config._pf.unusedTokens.push(token);
                 }
                 addTimeToArrayFromToken(token, parsedInput, config);
             }
             else if (config._strict && !parsedInput) {
-                getParsingFlags(config).unusedTokens.push(token);
+                config._pf.unusedTokens.push(token);
             }
         }
 
         // add remaining unparsed input length to the string
-        getParsingFlags(config).charsLeftOver = stringLength - totalParsedInputLength;
+        config._pf.charsLeftOver = stringLength - totalParsedInputLength;
         if (string.length > 0) {
-            getParsingFlags(config).unusedInput.push(string);
+            config._pf.unusedInput.push(string);
         }
 
         // clear _12h flag if hour is <= 12
-        if (getParsingFlags(config).bigHour === true &&
-                config._a[HOUR] <= 12 &&
-                config._a[HOUR] > 0) {
-            getParsingFlags(config).bigHour = undefined;
+        if (config._pf.bigHour === true && config._a[HOUR] <= 12) {
+            config._pf.bigHour = undefined;
         }
         // handle meridiem
         config._a[HOUR] = meridiemFixWrap(config._locale, config._a[HOUR], config._meridiem);
@@ -16573,7 +16546,7 @@ String.prototype.score = function (word, fuzziness) {
             currentScore;
 
         if (config._f.length === 0) {
-            getParsingFlags(config).invalidFormat = true;
+            config._pf.invalidFormat = true;
             config._d = new Date(NaN);
             return;
         }
@@ -16584,6 +16557,7 @@ String.prototype.score = function (word, fuzziness) {
             if (config._useUTC != null) {
                 tempConfig._useUTC = config._useUTC;
             }
+            tempConfig._pf = defaultParsingFlags();
             tempConfig._f = config._f[i];
             configFromStringAndFormat(tempConfig);
 
@@ -16592,12 +16566,12 @@ String.prototype.score = function (word, fuzziness) {
             }
 
             // if there is any input that was not parsed add a penalty for that format
-            currentScore += getParsingFlags(tempConfig).charsLeftOver;
+            currentScore += tempConfig._pf.charsLeftOver;
 
             //or tokens
-            currentScore += getParsingFlags(tempConfig).unusedTokens.length * 10;
+            currentScore += tempConfig._pf.unusedTokens.length * 10;
 
-            getParsingFlags(tempConfig).score = currentScore;
+            tempConfig._pf.score = currentScore;
 
             if (scoreToBeat == null || currentScore < scoreToBeat) {
                 scoreToBeat = currentScore;
@@ -16640,8 +16614,6 @@ String.prototype.score = function (word, fuzziness) {
             configFromStringAndArray(config);
         } else if (format) {
             configFromStringAndFormat(config);
-        } else if (isDate(input)) {
-            config._d = input;
         } else {
             configFromInput(config);
         }
@@ -16694,6 +16666,7 @@ String.prototype.score = function (word, fuzziness) {
         c._i = input;
         c._f = format;
         c._strict = strict;
+        c._pf = defaultParsingFlags();
 
         return createFromConfig(c);
     }
@@ -17267,25 +17240,11 @@ String.prototype.score = function (word, fuzziness) {
     }
 
     function from (time, withoutSuffix) {
-        if (!this.isValid()) {
-            return this.localeData().invalidDate();
-        }
         return create__createDuration({to: this, from: time}).locale(this.locale()).humanize(!withoutSuffix);
     }
 
     function fromNow (withoutSuffix) {
         return this.from(local__createLocal(), withoutSuffix);
-    }
-
-    function to (time, withoutSuffix) {
-        if (!this.isValid()) {
-            return this.localeData().invalidDate();
-        }
-        return create__createDuration({from: this, to: time}).locale(this.locale()).humanize(!withoutSuffix);
-    }
-
-    function toNow (withoutSuffix) {
-        return this.to(local__createLocal(), withoutSuffix);
     }
 
     function locale (key) {
@@ -17390,11 +17349,11 @@ String.prototype.score = function (word, fuzziness) {
     }
 
     function parsingFlags () {
-        return extend({}, getParsingFlags(this));
+        return extend({}, this._pf);
     }
 
     function invalidAt () {
-        return getParsingFlags(this).overflow;
+        return this._pf.overflow;
     }
 
     addFormatToken(0, ['gg', 2], 0, function () {
@@ -17545,7 +17504,7 @@ String.prototype.score = function (word, fuzziness) {
         if (weekday != null) {
             week.d = weekday;
         } else {
-            getParsingFlags(config).invalidWeekday = input;
+            config._pf.invalidWeekday = input;
         }
     });
 
@@ -17670,7 +17629,7 @@ String.prototype.score = function (word, fuzziness) {
     });
     addParseToken(['h', 'hh'], function (input, array, config) {
         array[HOUR] = toInt(input);
-        getParsingFlags(config).bigHour = true;
+        config._pf.bigHour = true;
     });
 
     // LOCALES
@@ -17787,8 +17746,6 @@ String.prototype.score = function (word, fuzziness) {
     momentPrototype__proto.format       = format;
     momentPrototype__proto.from         = from;
     momentPrototype__proto.fromNow      = fromNow;
-    momentPrototype__proto.to           = to;
-    momentPrototype__proto.toNow        = toNow;
     momentPrototype__proto.get          = getSet;
     momentPrototype__proto.invalidAt    = invalidAt;
     momentPrototype__proto.isAfter      = isAfter;
@@ -17977,7 +17934,7 @@ String.prototype.score = function (word, fuzziness) {
         }
         // Lenient ordinal parsing accepts just a number in addition to
         // number + (possibly) stuff coming from _ordinalParseLenient.
-        this._ordinalParseLenient = new RegExp(this._ordinalParse.source + '|' + (/\d{1,2}/).source);
+        this._ordinalParseLenient = new RegExp(this._ordinalParse.source + '|' + /\d{1,2}/.source);
     }
 
     var prototype__proto = Locale.prototype;
@@ -18194,13 +18151,13 @@ String.prototype.score = function (word, fuzziness) {
             // handle milliseconds separately because of floating point math errors (issue #1867)
             days = this._days + Math.round(yearsToDays(this._months / 12));
             switch (units) {
-                case 'week'   : return days / 7     + milliseconds / 6048e5;
-                case 'day'    : return days         + milliseconds / 864e5;
-                case 'hour'   : return days * 24    + milliseconds / 36e5;
-                case 'minute' : return days * 1440  + milliseconds / 6e4;
-                case 'second' : return days * 86400 + milliseconds / 1000;
+                case 'week'   : return days / 7            + milliseconds / 6048e5;
+                case 'day'    : return days                + milliseconds / 864e5;
+                case 'hour'   : return days * 24           + milliseconds / 36e5;
+                case 'minute' : return days * 24 * 60      + milliseconds / 6e4;
+                case 'second' : return days * 24 * 60 * 60 + milliseconds / 1000;
                 // Math.floor prevents floating point math errors here
-                case 'millisecond': return Math.floor(days * 864e5) + milliseconds;
+                case 'millisecond': return Math.floor(days * 24 * 60 * 60 * 1000) + milliseconds;
                 default: throw new Error('Unknown unit ' + units);
             }
         }
@@ -18401,7 +18358,7 @@ String.prototype.score = function (word, fuzziness) {
     // Side effect imports
 
 
-    utils_hooks__hooks.version = '2.10.3';
+    utils_hooks__hooks.version = '2.10.2';
 
     setHookCallback(local__createLocal);
 

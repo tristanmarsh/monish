@@ -74,7 +74,7 @@ $this->Html->addCrumb('Leases', '/leases');
               <th>Date Start</th>
               <th>Date End</th>
               <th>Weekly Price</th>
-              <!-- <th style="text-align:center;">Delete</th> -->
+              <th style="text-align:center;">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -119,11 +119,11 @@ $this->Html->addCrumb('Leases', '/leases');
                   <td><?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $lease->id]) ?> <span>
                     <?= $this->Number->currency($lease->weekly_price) ?>
                   </span></td>
-                  <!-- <td class="action action-remove" >
+                  <td class="action action-remove" >
                             <?php echo $this->form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'Leases', 'action' => 'delete', $lease->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>
                         </span></td>
 
-                  </span></td> -->
+                  </span></td>
                 </tr>
             <?php endif ?>      
           <?php endforeach; ?>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2015 at 09:33 AM
+-- Generation Time: Oct 14, 2015 at 10:09 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -96,7 +96,6 @@ CREATE TABLE IF NOT EXISTS `leases` (
 
 INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`, `date_end`, `weekly_price`, `archived`) VALUES
 (7, 1, 1, 10, '2015-07-15', '2016-05-13', 200, 'NO'),
-(8, 2, 1, 11, '2015-07-01', '2015-11-20', 250, 'NO'),
 (9, 11, 3, 12, '2015-07-15', '2016-05-13', 260, 'NO'),
 (10, 24, 5, 10, '2015-07-04', '2016-07-04', 300, 'NO'),
 (11, 1, 1, 12, '2015-07-16', '2015-12-11', 300, 'NO'),
@@ -282,6 +281,7 @@ CREATE TABLE IF NOT EXISTS `rooms` (
   `property_id` int(11) NOT NULL,
   `room_name` varchar(50) NOT NULL,
   `vacant` enum('TRUE','FALSE') NOT NULL,
+  `archived` enum('NO','YES') NOT NULL DEFAULT 'NO',
   PRIMARY KEY (`id`),
   KEY `property_id` (`property_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
@@ -290,35 +290,35 @@ CREATE TABLE IF NOT EXISTS `rooms` (
 -- Dumping data for table `rooms`
 --
 
-INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
-(1, 1, 'room 1', 'FALSE'),
-(2, 1, 'room 2', 'FALSE'),
-(3, 1, 'room 3', 'FALSE'),
-(4, 1, 'room 4', 'TRUE'),
-(5, 1, 'room 5', 'TRUE'),
-(6, 2, 'room 1', 'TRUE'),
-(7, 2, 'room 2', 'TRUE'),
-(8, 2, 'room 3', 'TRUE'),
-(9, 2, 'room 4', 'TRUE'),
-(10, 2, 'room 5', 'TRUE'),
-(11, 3, 'room 1', 'FALSE'),
-(12, 3, 'room 2', 'TRUE'),
-(13, 3, 'room 3', 'FALSE'),
-(14, 3, 'room 4', 'TRUE'),
-(15, 4, 'room 1', 'TRUE'),
-(16, 4, 'room 2', 'TRUE'),
-(17, 4, 'room 3', 'TRUE'),
-(18, 4, 'room 4', 'TRUE'),
-(19, 4, 'room 5', 'TRUE'),
-(20, 5, 'room 1', 'TRUE'),
-(21, 5, 'room 2', 'TRUE'),
-(22, 5, 'room 3', 'TRUE'),
-(23, 5, 'room 4', 'TRUE'),
-(24, 5, 'room 5', 'FALSE'),
-(25, 6, 'room 1', 'TRUE'),
-(26, 6, 'room 2', 'FALSE'),
-(27, 6, 'room 3', 'TRUE'),
-(28, 7, '1', 'TRUE');
+INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`, `archived`) VALUES
+(1, 1, 'room 1', 'FALSE', 'NO'),
+(2, 1, 'room 2', 'TRUE', 'NO'),
+(3, 1, 'room 3', 'FALSE', 'NO'),
+(4, 1, 'room 4', 'TRUE', 'NO'),
+(5, 1, 'room 5', 'TRUE', 'NO'),
+(6, 2, 'room 1', 'TRUE', 'NO'),
+(7, 2, 'room 2', 'TRUE', 'NO'),
+(8, 2, 'room 3', 'TRUE', 'NO'),
+(9, 2, 'room 4', 'TRUE', 'NO'),
+(10, 2, 'room 5', 'TRUE', 'NO'),
+(11, 3, 'room 1', 'FALSE', 'NO'),
+(12, 3, 'room 2', 'TRUE', 'NO'),
+(13, 3, 'room 3', 'FALSE', 'NO'),
+(14, 3, 'room 4', 'TRUE', 'NO'),
+(15, 4, 'room 1', 'TRUE', 'NO'),
+(16, 4, 'room 2', 'TRUE', 'NO'),
+(17, 4, 'room 3', 'TRUE', 'NO'),
+(18, 4, 'room 4', 'TRUE', 'NO'),
+(19, 4, 'room 5', 'TRUE', 'NO'),
+(20, 5, 'room 1', 'TRUE', 'NO'),
+(21, 5, 'room 2', 'TRUE', 'NO'),
+(22, 5, 'room 3', 'TRUE', 'NO'),
+(23, 5, 'room 4', 'TRUE', 'NO'),
+(24, 5, 'room 5', 'FALSE', 'NO'),
+(25, 6, 'room 1', 'TRUE', 'NO'),
+(26, 6, 'room 2', 'FALSE', 'NO'),
+(27, 6, 'room 3', 'TRUE', 'NO'),
+(28, 7, '1', 'TRUE', 'NO');
 
 -- --------------------------------------------------------
 

@@ -181,4 +181,39 @@ class RoomsController extends AppController
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    public function archiveroom($id) {
+
+        $roomsTable = TableRegistry::get('Rooms');
+
+        $room = $roomsTable->get($id);
+        $this->set(compact('room'));
+
+        $room->archived = 'YES';
+
+        $roomsTable->save($room);
+
+        $this->Flash->success('Room Archived');
+
+        return $this->redirect($this->referer());
+
+    }
+
+    public function unarchiveroom($id) {
+
+        $roomsTable = TableRegistry::get('Rooms');
+
+        $room = $roomsTable->get($id);
+        $this->set(compact('room'));
+
+        $room->archived = 'NO';
+
+        $roomsTable->save($room);
+
+        $this->Flash->success('Room Unarchived');
+
+        return $this->redirect($this->referer());
+
+    }
+
 }

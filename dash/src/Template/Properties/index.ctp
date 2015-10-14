@@ -1,5 +1,5 @@
 <?php
-    $this->Html->addCrumb('Properties', '/properties');
+$this->Html->addCrumb('Properties', '/properties');
 ?>    
 <h1>Properties</h1>
 
@@ -9,10 +9,10 @@
 
         <div class="col-sm-6">
             <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>
-            <!-- <li role="presentation"><?= $this->Html->link('New Room', ['controller' => 'rooms', 'action' => 'add']) ?></li> -->
-        </ul>
+                <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
+                <li role="presentation"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>
+                <!-- <li role="presentation"><?= $this->Html->link('New Room', ['controller' => 'rooms', 'action' => 'add']) ?></li> -->
+            </ul>
             
         </div>
 
@@ -29,69 +29,70 @@
     </div> -->
 
 </div>
-    
+
 <div class="clearfix">
-<div class="row">
+    <div class="row">
 
 
 
 
 
-<?php foreach ($properties as $property): ?>
+        <?php foreach ($properties as $property): ?>
 
-    <?php $variable ="hello" ?>
+        <?php $variable ="hello" ?>
 
-<div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="clearing col-xs-12 col-sm-6 col-md-4 col-lg-4">
 
-        <!-- Retrieve Property Image -->
-        <?php if (!($property->avatar_directory === NULL)) {
-            $directory = substr($property->avatar_url, 5);
+            <!-- Retrieve Property Image -->
+            <?php if (!($property->avatar_directory === NULL)) {
+                $directory = substr($property->avatar_url, 5);
             // echo '<img style="max-width:100%" src="/monish/dash/img/' . $directory . '" />';
-        } ?>
+            } ?>
 
-    <div class="panel panel-primary panel-property">
-       
-        <!-- Default panel contents -->
-        <div class="panel-heading">
-            <div class="property-image" style='background:url(
-                <?php
-                echo "/monish/dash/img/" . $directory . ") center center"; ?>;background-size:cover'; >
-                <?php
-                //echo $property->address;
-                    echo $this->Html->link('<h3 class="panel-title text-center">' . $property->address . '</h3>', ['controller'=>'properties', 'action' => 'view', $property->id], ['escape'=>false] );
-                    // echo $this->Html->url(['controller'=>'properties','action'=>'view'], true);
-                ?>
-            </div>
-                
-        </div>
-
-        <!-- Table -->
-        <table cellpadding="0" cellspacing="0" class="">
-            <thead>
-            <tr>
-                <th>Room</th>
-                <th colspan="2">Tenant</th>
-                <th>Status</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($property->rooms as $rooms): ?>
-                <tr>
-
-                    <!-- Room Name -->    
-                    <td>
-                        <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
-                        <?= $rooms->room_name ?>
-                    </td>
-
-                    <!-- Tenant Avatar -->    
-                    <td>
-                        <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
+            <div class="panel panel-primary panel-property">
+             
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                    <div class="property-image" style='background:url(
                         <?php
-                        $room = $roomlease->get($rooms->id, ['contain'=>'Leases']);
+                        echo "/monish/dash/img/" . $directory . ") center center"; ?>;background-size:cover'; >
+<?php
+                //echo $property->address;
+echo $this->Html->link('<h3 class="panel-title text-center">' . $property->address . '</h3>', ['controller'=>'properties', 'action' => 'view', $property->id], ['escape'=>false] );
+                    // echo $this->Html->url(['controller'=>'properties','action'=>'view'], true);
+?>
+</div>
 
-                        $test = "";
-                        $testtwo = "";
+</div>
+
+<!-- Table -->
+<table cellpadding="0" cellspacing="0" class="">
+    <thead>
+        <tr>
+            <th>Room</th>
+            <th colspan="2">Tenant</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($property->rooms as $rooms): ?>
+        <?php if($rooms->archived === 'NO') : ?>
+        <tr>
+
+            <!-- Room Name -->    
+            <td>
+                <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
+                <?= $rooms->room_name ?>
+            </td>
+
+            <!-- Tenant Avatar -->    
+            <td>
+                <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
+                <?php
+                $room = $roomlease->get($rooms->id, ['contain'=>'Leases']);
+
+                $test = "";
+                $testtwo = "";
                         $sentinel = true; //true if Never Been Leased
                         ?>
                         <?php
@@ -230,10 +231,11 @@
                     </td>
 
                 </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
+            <?php endif ?>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+</div>
 </div>
 
 <?php endforeach; ?>
@@ -248,16 +250,16 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
+    </div>
+    <div class="modal-body">
       
-      </div>
-      <div class="modal-footer">
+    </div>
+    <div class="modal-footer">
 
 
         <button type="button" href="http://localhost/monish/dash/properties/add" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
     </div>
-  </div>
+</div>
+</div>
 </div>

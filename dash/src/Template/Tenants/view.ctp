@@ -2,7 +2,7 @@
 $this->Html->addCrumb('Tenants', '/tenants');
 $this->Html->addCrumb($person->first_name." ".$person->last_name);
 ?>
-<h1>Tenant Details</h1>
+<h1><?= $person->first_name." ".$person->last_name; ?></h1>
 <div class="panel panel-default clearfix">
 
     <div class="panel-body">

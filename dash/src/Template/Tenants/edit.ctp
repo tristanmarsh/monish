@@ -5,7 +5,7 @@
 
 <!-- File: src/Template/Users/edit.ctp -->
 
-<h1>Tenants</h1>
+<h1><?= $defaultPerson->first_name." ".$defaultPerson->last_name; ?></h1>
 <div class="panel panel-default clearfix">
     
     <div class="panel-body">

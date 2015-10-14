@@ -4,7 +4,7 @@
 ?>
 <!-- File: src/Template/Articles/edit.ctp -->
 
-<h1>Request</h1>
+<h1><?= $entity->title; ?></h1>
 <div class="panel panel-default clearfix">
     
     <div class="panel-body">

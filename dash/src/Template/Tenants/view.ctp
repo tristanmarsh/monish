@@ -50,7 +50,7 @@ $this->Html->addCrumb($person->first_name." ".$person->last_name);
 </div>
 
 <!-- Table -->
-<div >
+<div class="table-responsive">
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
@@ -97,7 +97,7 @@ $this->Html->addCrumb($person->first_name." ".$person->last_name);
 </div>
 
 <!-- Table -->
-<div >
+<div class="table-responsive">
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

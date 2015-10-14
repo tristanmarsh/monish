@@ -20,7 +20,7 @@
 
         <div class="col-sm-6">
 
-        <div class="input-group input-lg pull-right search">
+        <div class="input-group input-lg search">
           <input type="text" class="form-control" placeholder="Filter Results" id="myInputTextField">
           <div class="input-group-btn">
                     

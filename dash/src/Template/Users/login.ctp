@@ -117,7 +117,7 @@
 					<th>Property</th>
 			        <th>Room</th>
 			        <th>Tenant</th>	
-					<th>Days Remaining</th>
+					<th>Days</th>
 			</thead>
 			<tbody>
 				<?php foreach ($leases as $lease): ?>	
@@ -184,7 +184,7 @@
 					<th>Property</th>
 			        <th>Room</th>
 			        <th>Tenant</th>	
-					<th>Days Remaining</th>
+					<th>Days</th>
 			</thead>
 			<tbody>
 				<?php foreach ($leases as $lease): ?>	
@@ -251,7 +251,7 @@
 					<th>Property</th>
 			        <th>Room</th>
 			        <th>Tenant</th>	
-					<th>Days Remaining</th>
+					<th>Days</th>
 			</thead>
 			<tbody>
 				<?php foreach ($leases as $lease): ?>	

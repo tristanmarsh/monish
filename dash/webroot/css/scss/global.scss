@@ -208,31 +208,70 @@ h6 {
   background-color:#76B5ED;
 }
 
-  .panel {
-    box-shadow: 0 3px rgba(118, 170, 219,0.2);
-    box-shadow: 0 3px #D5E4F1;
-    border-radius:5px;
-    margin-bottom:20px;
+.panel {
+  box-shadow: 0 3px rgba(118, 170, 219,0.2);
+  box-shadow: 0 3px #D5E4F1;
+  border-radius:5px;
+  margin-bottom:20px;
 
-    .panel-footer {
-      padding:0 15px;
-    }
-
-    .nav {padding:10px 0;}
-
-    .nav-pills>li>a {
-      border-radius:100px;
-      padding:5px 15px;
-      font-weight: 900;
-      font-size: 1.6rem;
-    }
-
-
+  .panel-footer {
+    padding:0 15px;
   }
 
-  .panel-primary {
-    @include fadeInUp($duration:400ms);
+  .nav {padding:10px 0;}
+
+  .nav-pills>li>a {
+    border-radius:100px;
+    padding:5px 15px;
+    font-weight: 900;
+    font-size: 1.6rem;
   }
+
+
+} 
+
+.panel-primary.panel-30-day {
+
+  &>.panel-heading {
+    background: #ED5A5A;
+    border-bottom:1px solid #B03F3F;
+  }
+
+  table thead th {
+    background: #EDA2A0!important;
+  }
+
+}
+
+.panel-primary.panel-90-day {
+
+  &>.panel-heading {
+    background: #D4D05A;
+    border-bottom:1px solid #AEAB49;
+  }
+ 
+  table thead th {
+    background: #D4CF8C!important;
+  }
+
+}
+
+.panel-primary.panel-180-day {
+
+  &>.panel-heading {
+    background: #5fcf80;
+    border-bottom:1px solid #459E5F;
+  }
+  table thead th {
+    background: #A2CFA5!important;
+  }
+
+}
+
+
+.panel-primary {
+  @include fadeInUp($duration:400ms);
+}
 
 
 // holds the main view of the dashboard

@@ -22,6 +22,7 @@
         <ul class="nav nav-pills pull-left">
             <li role="presentation" ><?= $this->Html->link('View', ['action' => 'view', $entity->id]) ?></li>
             <li role="presentation" class="active"><?= $this->Html->link('Edit', ['action' => 'edit', $entity->id]) ?></li>
+            <li role="presentation"><?= $this->Html->link('Close', ['action' => 'delete', $entity->id]) ?></li>
         </ul>
 
     </div>

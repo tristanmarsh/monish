@@ -3,7 +3,7 @@
 
 
 <?php if ($user['role'] === "admin") : ?>
-
+<br>
 <div class="row">
 	<div class="col-sm-6">
 		<div class="panel panel-primary">
@@ -12,7 +12,7 @@
 		</div>
 
 			<div class="table-responsive">
-            	<table class="datatable">
+            	<table>
             		<thead>
                         <tr>
                             <th>Tenant</th>
@@ -112,7 +112,7 @@
 		<?php endforeach; ?>
 
 		<div class="table-responsive">
-    	<table class="datatable">
+    	<table>
     		<thead>
 					<th>Property</th>
 			        <th>Room</th>
@@ -179,7 +179,7 @@
 		<?php endforeach; ?>
 
 		<div class="table-responsive">
-    	<table class="datatable">
+    	<table>
     		<thead>
 					<th>Property</th>
 			        <th>Room</th>
@@ -246,7 +246,7 @@
 		<?php endforeach; ?>
 
 		<div class="table-responsive">
-    	<table class="datatable">
+    	<table>
     		<thead>
 					<th>Property</th>
 			        <th>Room</th>

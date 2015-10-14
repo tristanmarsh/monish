@@ -1,6 +1,6 @@
 <?php
     $this->Html->addCrumb('Requests', '/requests');
-    $this->Html->addCrumb('Edit');
+    $this->Html->addCrumb($entity->title);
 ?>
 <!-- File: src/Template/Articles/edit.ctp -->
 

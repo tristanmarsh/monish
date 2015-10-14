@@ -1,6 +1,6 @@
 <?php
     $this->Html->addCrumb('Requests', '/requests');
-    $this->Html->addCrumb('View Request');
+    $this->Html->addCrumb($giraffe->title);
 
 ?>
 <h1><?= $giraffe->title; ?></h1>

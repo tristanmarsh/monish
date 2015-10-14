@@ -1,6 +1,6 @@
 <?php
     $this->Html->addCrumb('Tenants', array('controller' => 'Tenants', 'action' => 'index'));
-    $this->Html->addCrumb('Edit Tenant');
+    $this->Html->addCrumb($defaultPerson->first_name." ".$defaultPerson->last_name);
 ?>
 
 <!-- File: src/Template/Users/edit.ctp -->

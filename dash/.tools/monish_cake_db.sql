@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2015 at 07:52 AM
+-- Generation Time: Oct 14, 2015 at 09:33 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `lastroomupdate` (
 --
 
 INSERT INTO `lastroomupdate` (`id`, `date`) VALUES
-(1, '2015-09-24');
+(1, '2015-10-14');
 
 -- --------------------------------------------------------
 
@@ -82,29 +82,31 @@ CREATE TABLE IF NOT EXISTS `leases` (
   `date_start` date NOT NULL,
   `date_end` date NOT NULL,
   `weekly_price` int(11) NOT NULL,
+  `archived` enum('NO','YES') NOT NULL DEFAULT 'NO',
   PRIMARY KEY (`id`),
   KEY `room_id` (`room_id`),
   KEY `student_id` (`student_id`),
   KEY `property_id` (`property_id`),
   KEY `property_id_2` (`property_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `leases`
 --
 
-INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`, `date_end`, `weekly_price`) VALUES
-(7, 1, 1, 10, '2015-07-15', '2016-05-13', 200),
-(8, 2, 1, 11, '2015-07-01', '2015-11-20', 250),
-(9, 11, 3, 12, '2015-07-15', '2016-05-13', 260),
-(10, 24, 5, 10, '2015-07-04', '2016-07-04', 300),
-(11, 1, 1, 12, '2015-07-16', '2015-12-11', 300),
-(12, 13, 3, 11, '2015-07-15', '2016-11-23', 230),
-(13, 1, 1, 13, '2015-07-15', '2016-01-21', 500),
-(14, 17, 4, 14, '0000-00-00', '2015-07-09', 450),
-(15, 15, 4, 15, '2015-08-20', '2015-08-21', 200),
-(16, 26, 6, 16, '2015-09-09', '2016-03-17', 500),
-(17, 25, 6, 17, '2015-09-10', '2015-09-30', 123123);
+INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`, `date_end`, `weekly_price`, `archived`) VALUES
+(7, 1, 1, 10, '2015-07-15', '2016-05-13', 200, 'NO'),
+(8, 2, 1, 11, '2015-07-01', '2015-11-20', 250, 'NO'),
+(9, 11, 3, 12, '2015-07-15', '2016-05-13', 260, 'NO'),
+(10, 24, 5, 10, '2015-07-04', '2016-07-04', 300, 'NO'),
+(11, 1, 1, 12, '2015-07-16', '2015-12-11', 300, 'NO'),
+(12, 13, 3, 11, '2015-07-15', '2016-11-23', 230, 'NO'),
+(13, 1, 1, 13, '2015-07-15', '2016-01-21', 500, 'NO'),
+(14, 17, 4, 14, '0000-00-00', '2015-07-09', 450, 'YES'),
+(15, 15, 4, 15, '2015-08-20', '2015-08-21', 200, 'YES'),
+(16, 26, 6, 16, '2015-09-09', '2016-03-17', 500, 'NO'),
+(17, 25, 6, 17, '2015-09-10', '2015-09-30', 123123, 'YES'),
+(18, 3, 1, 10, '2015-10-08', '2015-10-22', 123, 'NO');
 
 -- --------------------------------------------------------
 
@@ -291,7 +293,7 @@ CREATE TABLE IF NOT EXISTS `rooms` (
 INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
 (1, 1, 'room 1', 'FALSE'),
 (2, 1, 'room 2', 'FALSE'),
-(3, 1, 'room 3', 'TRUE'),
+(3, 1, 'room 3', 'FALSE'),
 (4, 1, 'room 4', 'TRUE'),
 (5, 1, 'room 5', 'TRUE'),
 (6, 2, 'room 1', 'TRUE'),
@@ -313,7 +315,7 @@ INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`) VALUES
 (22, 5, 'room 3', 'TRUE'),
 (23, 5, 'room 4', 'TRUE'),
 (24, 5, 'room 5', 'FALSE'),
-(25, 6, 'room 1', 'FALSE'),
+(25, 6, 'room 1', 'TRUE'),
 (26, 6, 'room 2', 'FALSE'),
 (27, 6, 'room 3', 'TRUE'),
 (28, 7, '1', 'TRUE');

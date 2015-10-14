@@ -70,6 +70,15 @@ class TestsController extends AppController
         $this->set(compact('propertyid'));
     }
 
+    public function lease()
+    {
+        $this->loadModel('Leases');
+
+        $lease = $this->Leases->get(8);
+        $this->set(compact('lease'));
+        
+    }
+
     public function updaterooms()
     {
         $this->loadModel('Rooms');
@@ -177,17 +186,6 @@ class TestsController extends AppController
             $this->Flash->error(__('Unable to add the user.'));
         }
         $this->set('user', $user);
-    }
-
-    public function lease(){
-        $this->loadModel('Properties');
-        $this->loadModel('Rooms');
-        $this->loadModel('Leases');
-
-        $data = $this->Properties->find('threaded')->contain('Rooms');
-        $data2 = $this->Rooms->find('list', ['groupField' => 'property.address'])->contain('Properties');
-
-        $this->set(compact('data', 'data2'));
     }
 
     //This is used as the view for index.ctp for tenants

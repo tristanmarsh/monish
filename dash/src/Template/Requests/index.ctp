@@ -62,8 +62,7 @@
                 <th>Category</th>
                 <th>Property</th>
                 <th>Requested</th>
-<!--                 <th>Status</th> -->
-                <th>Access Permission</th>
+                <th>Access</th>
                 <th>Edit</th>
                 <th>Close</th>
             </tr>

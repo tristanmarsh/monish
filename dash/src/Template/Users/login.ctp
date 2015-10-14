@@ -4,84 +4,122 @@
 
 <?php if ($user['role'] === "admin") : ?>
 
+<div class="row">
+	<div class="col-sm-6">
+		<div class="panel panel-primary">
+					<div class="panel-heading">
+			<h2 class="panel-title">Unread Request</h2>
+		</div>
+
+			<div class="table-responsive">
+            	<table class="datatable">
+            		<thead>
+                        <tr>
+                            <th>Tenant</th>
+                            <th>Title</th>
+                            <th>Property</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<?php foreach ($requests as $request): ?>
+                    	<?php if ($request->status=='Unread'): ?>
+                    	<tr class="unread">
+                    		<td>
+                    			<?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+
+
+                            <!-- Tristan's Gravatar Script  - should be replaced with offical PHP API -->
+                            <!-- Also this is bad because it does not specify the size of the source image! Should be 2x the displayed image height for retina displays -->
+
+                            <?php
+                                $emailHash = md5( strtolower( trim( $request->person->email ) ) );
+                                // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
+                                $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
+                                $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+                            ?>
+
+                            <?= $gravatarImage; ?>
+
+                            <span>
+                                <?= $request->person->first_name; ?>
+                                <?= " ".$request->person->last_name; ?>
+                            </span>
+                        
+                    		</td>
+
+                    		<td>
+                    			<?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+                            <span>
+                                <?= $request->title; ?>
+                            </span>
+                    		</td>
+
+                    		<td>
+                    			   <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+                            <span>
+                                <?= $request->property_address ?>
+                            </span>
+                    		</td>
+                    		</tr>
+                		<?php endif ?>
+                		<?php endforeach; ?>
+</tbody>
+</table>
+</div>
 
 
 
+			
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="panel panel-primary">
+					<div class="panel-heading">
+			<h2 class="panel-title">Google Site Track thing</h2>
+		</div>
+		<div class="panel-body">
+			body
+		</div>
+		<div class="panel-footer">
+			footer
+		</div>
 
-	<h1>Dashboard</h1>
-
-	<h2>Notifications</h3>
-	    <div class="panel panel-primary">
-
-        <div class="panel-body">
-
-
-		<?php $count = 0; ?>
-
-		<?php foreach ($requests as $request): ?>
-			<?php 
-				if ($request->status == 'Unread') {
-					$count = $count + 1;
-				}
-			?>
-		<?php endforeach; ?>
-		<table>
-			<tbody>
-		<tr><td style="background-color : white;cursor: pointer;">
-			<?= $this->Html->link("", ['controller'=>'Requests', 'action' => 'index']) ?>
-		<?php
-			if ($count == 0){
-				echo "You have no unread requests.";
-			}
-			else {
-				echo "You have ".$count." unread requests."; 
-			}
-		?>
-	</td>
-		</tr>
-	</tbody>
-		</table>
-
+			
+		</div>
+	</div>
+	
 	</div>
 
-	</div>
-        <div class="panel panel-primary">
 
+<div class="row">
+	<div class="col-sm-4">
+		<div class="panel panel-primary panel-30-day">
+					<div class="panel-heading">
+			<h2 class="panel-title">Leases that expire in less than 30 days.</h2>
+		</div>
 
-
-
-		<!-- Start of 30 days table -->
-<!-- 		<br><br> -->
 		<?php $countthirty = 0; ?>
 		<?php foreach ($leases as $lease): ?>	
-			<?php
+		<?php
 			    $now = time(); 
 			    $your_date = strtotime($lease->date_end);
 			    $datediff = $your_date - $now;
-			?>
-			<?php if (floor($datediff/(60*60*24)) < 30 && floor($datediff/(60*60*24)) >= 0) : ?>
-				<?php $countthirty = $countthirty + 1 ?>
-			<?php endif ?>	
-		<?php endforeach; ?>
-		<div class="panel-body">
-		<?php 
-			if ($countthirty == 0) {
-				echo "You have no leases that expire in less than 30 days.";
-			}
-			else {
-				echo "You have ".$countthirty." lease(s) that expires in less than 30 days.";
-			}
 		?>
-	</div>
-		<?php if ($countthirty > 0) : ?>
+		<?php if (floor($datediff/(60*60*24)) < 30 && floor($datediff/(60*60*24)) >= 0) : ?>
+		<?php $countthirty = $countthirty + 1 ?>
+		<?php endif ?>	
+		<?php endforeach; ?>
 
-			<table>
-				<thead>
+		<div class="table-responsive">
+    	<table class="datatable">
+    		<thead>
 					<th>Property</th>
 			        <th>Room</th>
 			        <th>Tenant</th>	
 					<th>Days Remaining</th>
-				</thead>
+			</thead>
+			<tbody>
 				<?php foreach ($leases as $lease): ?>	
 					<?php
 					     $now = time(); 
@@ -115,16 +153,20 @@
 						</tr>	
 					<?php endif ?>	
 				<?php endforeach; ?>
+			</tbody>
 			</table>
-		<?php endif ?>	
+
+		</div>
+
+			
+		</div>
 	</div>
-
-
-
-
-		<!-- Start of 90 days table -->
-        <div class="panel panel-primary">
-		<?php $countninety = 0; ?>
+	<div class="col-sm-4">
+		<div class="panel panel-primary panel-90-day">
+					<div class="panel-heading">
+			<h2 class="panel-title">Leases that expire in less than 90 days.</h2>
+		</div>
+		<?php $countthirty = 0; ?>
 		<?php foreach ($leases as $lease): ?>	
 			<?php
 			    $now = time(); 
@@ -132,27 +174,19 @@
 			    $datediff = $your_date - $now;
 			?>
 			<?php if (floor($datediff/(60*60*24)) < 90 && floor($datediff/(60*60*24)) >= 30) : ?>
-				<?php $countninety = $countninety + 1 ?>
+				<?php $countthirty = $countthirty + 1 ?>
 			<?php endif ?>	
 		<?php endforeach; ?>
-		<div class="panel-body">
-		<?php 
-			if ($countninety == 0) {
-				echo "You have no leases that expire in less than 90 days.";
-			}
-			else {
-				echo "You have ".$countninety." lease(s) that expires in less than 90 days.";
-			}
-		?>
-	</div>
-		<?php if ($countninety > 0) : ?>
-			<table>
-				<thead>
+
+		<div class="table-responsive">
+    	<table class="datatable">
+    		<thead>
 					<th>Property</th>
 			        <th>Room</th>
 			        <th>Tenant</th>	
 					<th>Days Remaining</th>
-				</thead>
+			</thead>
+			<tbody>
 				<?php foreach ($leases as $lease): ?>	
 					<?php
 					     $now = time(); 
@@ -186,14 +220,20 @@
 						</tr>	
 					<?php endif ?>	
 				<?php endforeach; ?>
+			</tbody>
 			</table>
-		<?php endif ?>	
-	</div>
 
-		<!-- Start of 180 days table -->
-<!-- 		<br><br> -->
-        <div class="panel panel-primary">
-		<?php $countoneeighty = 0; ?>
+		</div>
+
+			
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="panel panel-primary panel-180-day">
+					<div class="panel-heading">
+			<h2 class="panel-title">Leases that expire in less than 180 days.</h2>
+		</div>
+		<?php $countthirty = 0; ?>
 		<?php foreach ($leases as $lease): ?>	
 			<?php
 			    $now = time(); 
@@ -201,27 +241,19 @@
 			    $datediff = $your_date - $now;
 			?>
 			<?php if (floor($datediff/(60*60*24)) < 180 && floor($datediff/(60*60*24)) >= 90) : ?>
-				<?php $countoneeighty = $countoneeighty + 1 ?>
+				<?php $countthirty = $countthirty + 1 ?>
 			<?php endif ?>	
 		<?php endforeach; ?>
-				<div class="panel-body">
-		<?php 
-			if ($countoneeighty == 0) {
-				echo "You have no leases that expire in less than 180 days.";
-			}
-			else {
-				echo "You have ".$countoneeighty." lease(s) that expires in less than 180 days.";
-			}
-		?>
-	</div>
-		<?php if ($countoneeighty > 0) : ?>
-			<table>
-				<thead>
+
+		<div class="table-responsive">
+    	<table class="datatable">
+    		<thead>
 					<th>Property</th>
 			        <th>Room</th>
 			        <th>Tenant</th>	
 					<th>Days Remaining</th>
-				</thead>
+			</thead>
+			<tbody>
 				<?php foreach ($leases as $lease): ?>	
 					<?php
 					     $now = time(); 
@@ -255,9 +287,40 @@
 						</tr>	
 					<?php endif ?>	
 				<?php endforeach; ?>
+			</tbody>
 			</table>
-		<?php endif ?>	
+
+		</div>
+
+			
+		</div>
 	</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <?php endif; ?>

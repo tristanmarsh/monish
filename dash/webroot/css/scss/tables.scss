@@ -37,186 +37,188 @@ body {
 // Effective Table Footer
 .table-responsive {
   border-radius: 0 0 5px 5px;
-}
 
-table {
-  display: table;
-  width: 100%;
-  font-family: $open-sans-font-stack;
 
-  * {
-    transition:all 200ms ease-out
-  }
-  
-  // Link Style
-  a {
-    color: #3C73C3;
-    text-decoration: none;
-  }
+  table {
+    display: table;
+    width: 100%;
+    font-family: $open-sans-font-stack;
 
-  
-  // Table Header
-  & thead th {
-    background: #2980b9;
-    background: rgba(41, 128, 185,0.5);
-    font-size:1.4rem;
-    line-height: 2.4em;
-    font-family:$roboto-slab-font-stack;
-    position:relative;
-    overflow:hidden;
-    color:#fff;
-    padding: 6px 12px;
-    color:#fff;
-  
-  }
-
-  // Table Row
-
-  & tr {
-    background: darken(#fff, 1%);
-    border-bottom:1px solid #D5E4F1;
-  }
-
-  & tr:nth-of-type(odd) {
-    background: darken(#fff, 4%);
-  }
-
-  & tr:last-child {
-    border-bottom:0;
-  }
-
-  & tr:focus td,
-  & tr:hover td, {
-    background: darken(#fff, 0%);
-
-  }
-
-  & tr.unread {
+    * {
+      transition:all 200ms ease-out
+    }
     
-    &>td {
-      font-weight:bold;
+    // Link Style
+    a {
+      color: #3C73C3;
+      text-decoration: none;
     }
 
-  }
-
-  & tr.unread {
     
-    &>td {
-      font-weight:bold;
+    // Table Header
+    & thead th {
+      background: #2980b9;
+      background: rgba(41, 128, 185,0.5);
+      font-size:1.4rem;
+      line-height: 2.4em;
+      font-family:$roboto-slab-font-stack;
+      position:relative;
+      overflow:hidden;
+      color:#fff;
+      padding: 6px 12px;
+      color:#fff;
+    
     }
 
-  }
+    // Table Row
 
-  // No need to apply border radius when table footer has same effect
-  // & tr:last-child td:first-child {
-  //   border-bottom-left-radius:5px;
-  // }
+    & tr {
+      background: darken(#fff, 1%);
+      border-bottom:1px solid #D5E4F1;
+    }
 
-  // & tr:last-child td:last-child {
-  //   border-bottom-right-radius:5px;
-  // }
+    & tr:nth-of-type(odd) {
+      background: darken(#fff, 4%);
+    }
 
-  // Table Action Buttons
-  & td a {
-    display:block;
-    text-align: center;
-  }
+    & tr:last-child {
+      border-bottom:0;
+    }
 
-  @media screen and (max-width: 580px) {
-    padding: 8px 0;
-    // display: block;
-  }
+    & tr:focus td,
+    & tr:hover td, {
+      background: darken(#fff, 0%);
 
-  td {
-    padding:0 10px 0 10px;
-    position: relative;
-    overflow: hidden;
-    height:60px;
-  }
+    }
 
-  // td>span:not([class="glyphicon"]) {
-  td>* {
-    // display: block;
-    color:#555;
-  }
+    & tr.unread {
+      
+      &>td {
+        font-weight:bold;
+      }
 
-  td>span,
-  td>img {
-    // display: block;
-    padding: 0;
-  }
-  
-  // Gravatar flush
-  td:first-child>img.gravatar {
-    margin-left:-10px;
-    background:#fff;
-  }
-  
-  // Profile Name after gravatar offset
-  td:first-child>img.gravatar + span {
-    margin-left:10px;
-  }
+    }
 
-  td.action>a {
-    display: block;
-    margin: -10em;
-    padding: 10em;
-  }
-  
-  // General Icon Color
-  td.action>a span:before,
-  td.action>a span:before{
-    color: lighten(#2980b9,10%);
-  }  
+    & tr.unread {
+      
+      &>td {
+        font-weight:bold;
+      }
 
-  // General Action hover background
-  td.action>a:focus,
-  td.action>a:hover {
-    background: lighten(#2980b9,10%);
-  }
+    }
 
+    // No need to apply border radius when table footer has same effect
+    // & tr:last-child td:first-child {
+    //   border-bottom-left-radius:5px;
+    // }
 
-  // Close Icon Color
-  td.action-close>a span:before,
-  td.action-close>a span:before{
-    color: lighten(#5fcf80,10%);
-  }  
+    // & tr:last-child td:last-child {
+    //   border-bottom-right-radius:5px;
+    // }
 
-  // Close hover background
-  td.action-close>a:focus,
-  td.action-close>a:hover {
-    background: lighten(#5fcf80,10%);
-  }
+    // Table Action Buttons
+    & td a {
+      display:block;
+      text-align: center;
+    }
 
-
-  // Remove Icon Color
-  td.action-remove>a span:before,
-  td.action-remove>a span:before{
-    color: lighten(#CF6370,10%);
-  }  
-
-  // Remove hover background
-  td.action-remove>a:focus,
-  td.action-remove>a:hover {
-    background: lighten(#CF6370,10%);
-  }
-
-  // Action hover icon color
-  td>a:focus>span.glyphicon:before,
-  td>a:hover>span.glyphicon:before {
-    color:#fff;
-  }
-
-  // Used for hiding the 1px * 0px view links
-  td>[href*="view"] {
-    padding: 0;
     @media screen and (max-width: 580px) {
+      padding: 8px 0;
+      // display: block;
+    }
+
+    td {
+      padding:0 10px 0 10px;
+      position: relative;
+      overflow: hidden;
+      height:60px;
+    }
+
+    // td>span:not([class="glyphicon"]) {
+    td>* {
+      // display: block;
+      color:#555;
+    }
+
+    td>span,
+    td>img {
+      // display: block;
       padding: 0;
     }
-  }
+    
+    // Gravatar flush
+    td:first-child>img.gravatar {
+      margin-left:-10px;
+      background:#fff;
+    }
+    
+    // Profile Name after gravatar offset
+    td:first-child>img.gravatar + span {
+      margin-left:10px;
+    }
 
-  & .checkbox {
-    margin:0;
+    td.action>a {
+      display: block;
+      margin: -10em;
+      padding: 10em;
+    }
+    
+    // General Icon Color
+    td.action>a span:before,
+    td.action>a span:before{
+      color: lighten(#2980b9,10%);
+    }  
+
+    // General Action hover background
+    td.action>a:focus,
+    td.action>a:hover {
+      background: lighten(#2980b9,10%);
+    }
+
+
+    // Close Icon Color
+    td.action-close>a span:before,
+    td.action-close>a span:before{
+      color: lighten(#5fcf80,10%);
+    }  
+
+    // Close hover background
+    td.action-close>a:focus,
+    td.action-close>a:hover {
+      background: lighten(#5fcf80,10%);
+    }
+
+
+    // Remove Icon Color
+    td.action-remove>a span:before,
+    td.action-remove>a span:before{
+      color: lighten(#CF6370,10%);
+    }  
+
+    // Remove hover background
+    td.action-remove>a:focus,
+    td.action-remove>a:hover {
+      background: lighten(#CF6370,10%);
+    }
+
+    // Action hover icon color
+    td>a:focus>span.glyphicon:before,
+    td>a:hover>span.glyphicon:before {
+      color:#fff;
+    }
+
+    // Used for hiding the 1px * 0px view links
+    td>[href*="view"] {
+      padding: 0;
+      @media screen and (max-width: 580px) {
+        padding: 0;
+      }
+    }
+
+    & .checkbox {
+      margin:0;
+    }
+
   }
 
 

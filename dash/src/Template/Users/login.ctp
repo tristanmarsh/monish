@@ -279,7 +279,7 @@
   <!-- Unread Requests -->
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h2 class="panel-title">Unread Request</h2>
+      <h2 class="panel-title">Unread Requests</h2>
     </div>
 
     <div class="table-responsive">

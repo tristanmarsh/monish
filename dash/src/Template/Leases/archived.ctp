@@ -8,31 +8,17 @@ $this->Html->addCrumb('Leases', '/leases');
 
   <div class="panel-body">
 
-    <div class="col-sm-6"> 
+    <div class="col-sm-6 clearfix"> 
     <ul class="nav nav-pills pull-left">
       <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
       <li role="presentation" class="active"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
       <li role="presentation"><?= $this->Html->link('New Lease', ['action' => 'add']) ?></li>
 
         </div>
-      <div class="col-sm-6">
+      <div class="col-sm-6 clearfix">
         <div class="input-group input-lg search">
-          <input type="text" class="form-control" placeholder="Filter Results" id="myInputTextField">
+          <input type="text" class="form-control" placeholder="Filter Records" id="myInputTextField">
           <div class="input-group-btn">
-
-            <!-- Single button -->
-            <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Action <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a href="#">Search</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </div>
 
           </div>
         </div>

@@ -18,7 +18,7 @@
 
         <ul class="nav nav-pills pull-left">
           <li role="presentation" ><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-          <li role="presentation" class="active"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+          <li role="presentation" class="active"><?= $this->Html->link('New Emergency Contact', ['action' => 'add']) ?></li>
         </ul>
 
 
@@ -29,7 +29,7 @@
     <div class="panel panel-primary">
 
           <div class="panel-heading">
-            <h2 class="panel-title">New Emergency contact</h2>
+            <h2 class="panel-title">New Emergency Contact</h2>
 
                       </div>
       <div class="panel-body">

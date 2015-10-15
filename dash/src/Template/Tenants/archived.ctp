@@ -1,8 +1,8 @@
 <?php
-    $this->Html->addCrumb('Tenants', '/tenants');
+    $this->Html->addCrumb('Archived tenants', '/tenants/archived');
 ?>
 
-<h1>Tenants</h1>
+<h1>Archived Tenants</h1>
 
 <div class="panel panel-default clearfix">
     
@@ -59,7 +59,7 @@
 <div class="panel panel-primary">
   <!-- Default panel contents -->
   <div class="panel-heading">
-    <h2 class="panel-title">Tenants</h2>
+    <h2 class="panel-title">Archived Tenants</h2>
 </div>
 
 

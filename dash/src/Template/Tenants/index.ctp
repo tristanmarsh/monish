@@ -59,7 +59,7 @@
 <div class="panel panel-primary">
   <!-- Default panel contents -->
   <div class="panel-heading">
-    <h2 class="panel-title">Tenants</h2>
+    <h2 class="panel-title">Current Tenants</h2>
 </div>
 
 

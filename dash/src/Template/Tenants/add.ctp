@@ -24,7 +24,7 @@
   </script>
 </head>
 
-<h1>Tenants</h1>
+<h1>New Tenant</h1>
 
 <div class="panel panel-default clearfix">
     

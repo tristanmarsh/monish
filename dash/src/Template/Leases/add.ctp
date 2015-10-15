@@ -36,7 +36,7 @@
     <ul class="nav nav-pills pull-left">
       <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
       <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
-      <li role="presentation" class="active"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+      <li role="presentation" class="active"><?= $this->Html->link('New Lease', ['action' => 'add']) ?></li>
     </ul>
 
   </div>

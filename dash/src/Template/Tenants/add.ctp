@@ -27,24 +27,31 @@
 <h1>Tenants</h1>
 
 <div class="panel panel-default clearfix">
+    
+    <div class="panel-body">
 
-
-
-      <div class="panel-body">
-
-        <ul class="nav nav-pills pull-left">
-          <li role="presentation"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
-          <li role="presentation" class="active"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
-        </ul>
-
-
-      </div>
-
-
-
-
+        <div class="col-sm-6">
+            <ul class="nav nav-pills pull-left">
+                <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
+                <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
+                <li role="presentation" class="active"><?= $this->Html->link('New Tenant', ['action' => 'add']) ?></li>
+            </ul>
+            
+        </div>
 
     </div>
+
+<!--     <div class="panel-footer">
+
+        <ul class="nav nav-pills pull-left">
+            <li role="presentation" class="active"><a href="#">Imagine</a></li>
+            <li role="presentation"><a href="#">Secondary</a></li>
+            <li role="presentation"><a href="#">Buttons</a></li>
+        </ul>
+
+    </div> -->
+
+</div>
 
 
 

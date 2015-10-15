@@ -39,7 +39,7 @@ body {
   border-radius: 0 0 5px 5px;
 }
 
-table {
+table:not(.ui-datepicker-calendar) {
   display: table;
   width: 100%;
   font-family: $open-sans-font-stack;

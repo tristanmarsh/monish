@@ -13,7 +13,23 @@
   <div class="col-sm-4">
     <div class="panel panel-primary panel-30-day">
       <div class="panel-heading text-center">
-        <h1><?php echo count($leases); ?></h1>
+      
+        <?php
+          $i=0;
+          foreach ($leases as $lease) {
+            
+            $now = time(); 
+            $your_date = strtotime($lease->date_end);
+            $datediff = $your_date - $now;
+
+            if (floor($datediff/(60*60*24)) < 30 && floor($datediff/(60*60*24)) >= 0) {
+              $i+=1;
+            }
+          }
+        ?> 
+
+        <h1><?= $i ?></h1>
+
         <span>Leases expiring in 30 days</span>
       </div>
 
@@ -91,9 +107,25 @@
   <div class="col-sm-4">
     <div class="panel panel-primary panel-90-day">
       <div class="panel-heading text-center">
-          <h1><?php echo count($leases); ?></h1>
-          <span>Leases expiring in 90 days</span>
-        </div>
+    
+        <?php
+          $i=0;
+          foreach ($leases as $lease) {
+            
+            $now = time(); 
+            $your_date = strtotime($lease->date_end);
+            $datediff = $your_date - $now;
+
+            if (floor($datediff/(60*60*24)) < 90 && floor($datediff/(60*60*24)) >= 30) {
+              $i+=1;
+            }
+          }
+        ?> 
+        
+        <h1><?= $i ?></h1>
+
+        <span>Leases expiring in 30 days</span>
+      </div>
 
       <?php $countninety = 0; ?>
       <?php foreach ($leases as $lease): ?> 
@@ -160,13 +192,23 @@
 <div class="col-sm-4">
   <div class="panel panel-primary panel-180-day">
     <div class="panel-heading text-center">
+      
       <?php
         $i=0;
         foreach ($leases as $lease) {
-          $i+=1;
+          
+          $now = time(); 
+          $your_date = strtotime($lease->date_end);
+          $datediff = $your_date - $now;
+
+          if (floor($datediff/(60*60*24)) < 180 && floor($datediff/(60*60*24)) >= 90) {
+            $i+=1;
+          }
         }
-        echo '<h1>'.$i.'</h1>';
       ?> 
+
+      <h1><?= $i ?></h1>
+
       <span>Leases expiring in 180 days</span>
     </div>
 

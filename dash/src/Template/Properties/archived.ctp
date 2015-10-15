@@ -1,7 +1,7 @@
 <?php
-$this->Html->addCrumb('Properties', '/properties');
+$this->Html->addCrumb('Archived Properties', '/properties/archived');
 ?>    
-<h1>Properties</h1>
+<h1>Archived Properties</h1>
 
 <div class="panel panel-default clearfix">
     

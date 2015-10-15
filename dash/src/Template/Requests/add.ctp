@@ -4,7 +4,7 @@
 ?>
 <!-- File: src/Template/Articles/add.ctp -->
 
-<h1>Requests</h1>
+<h1>New Request</h1>
 
 <div class="panel panel-default clearfix">
 

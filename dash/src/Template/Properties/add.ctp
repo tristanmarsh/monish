@@ -3,7 +3,7 @@
     $this->Html->addCrumb('Add Property', array('controller' => 'properties', 'action' => 'add'));
 ?>    
 
-<h1>Properties</h1>
+<h1>New Property</h1>
 
 <div class="panel panel-default clearfix">
 

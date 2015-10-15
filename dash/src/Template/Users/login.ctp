@@ -3,299 +3,394 @@
 
 
 <?php if ($user['role'] === "admin") : ?>
-<br>
+  
+<h1>Dashboard</h1>
+
+
+<!-- Expiring Leases -->
 <div class="row">
-	<div class="col-sm-6">
-		<div class="panel panel-primary">
-					<div class="panel-heading">
-			<h2 class="panel-title">Unread Request</h2>
-		</div>
 
-			<div class="table-responsive">
-            	<table>
-            		<thead>
-                        <tr>
-                            <th>Tenant</th>
-                            <th>Title</th>
-                            <th>Property</th>
+  <div class="col-sm-4">
+    <div class="panel panel-primary panel-30-day">
+      <div class="panel-heading text-center">
+        <h1><?php echo count($leases); ?></h1>
+        <span>Leases expiring in 30 days</span>
+      </div>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                    	<?php foreach ($requests as $request): ?>
-                    	<?php if ($request->status=='Unread'): ?>
-                    	<tr class="unread">
-                    		<td>
-                    			<?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+      <?php $countthirty = 0; ?>
+      <?php foreach ($leases as $lease): ?> 
+      <?php
+      $now = time(); 
+      $your_date = strtotime($lease->date_end);
+      $datediff = $your_date - $now;
+      ?>
+      <?php if (floor($datediff/(60*60*24)) < 30 && floor($datediff/(60*60*24)) >= 0) : ?>
 
+      <?php endif ?>  
+      <?php endforeach; ?>
 
-                            <!-- Tristan's Gravatar Script  - should be replaced with offical PHP API -->
-                            <!-- Also this is bad because it does not specify the size of the source image! Should be 2x the displayed image height for retina displays -->
+      <div class="table-responsive">
+        
+        <table>
+          
+          <thead>
+            <th>Property</th>
+            <th>Room</th>
+            <th>Tenant</th> 
+            <th>Days</th>
+          </thead>
+          
+          <tbody>
+            <?php foreach ($leases as $lease): ?> 
+            <?php
+            $now = time(); 
+            $your_date = strtotime($lease->date_end);
+            $datediff = $your_date - $now;
+            ?>
+            <?php if (floor($datediff/(60*60*24)) < 30 && floor($datediff/(60*60*24)) >= 0) : ?>
+            <tr>
+              <td>
+                <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
+                <?= $lease->property->address ?>
+              </td>
 
-                            <?php
-                                $emailHash = md5( strtolower( trim( $request->person->email ) ) );
-                                // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
-                                $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
-                                $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
-                            ?>
+              <td>
+                <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
+                <?= $lease->room->room_name ?>
+              </td>
 
-                            <?= $gravatarImage; ?>
+              <td>
+                <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
+                <?php
+                $person = $walrus->get($lease->student->person_id);
+                ?>
+                <?= $person->first_name ?>
+                <?= $person->last_name ?>
+              </td>
 
-                            <span>
-                                <?= $request->person->first_name; ?>
-                                <?= " ".$request->person->last_name; ?>
-                            </span>
-                        
-                    		</td>
+              <td>
+                <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
+                <?php
+                echo floor($datediff/(60*60*24));
+                ?>
+              </td>
 
-                    		<td>
-                    			<?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
-                            <span>
-                                <?= $request->title; ?>
-                            </span>
-                    		</td>
+            </tr> 
+            <?php endif ?>  
+            <?php endforeach; ?>
+         
+          </tbody>
 
-                    		<td>
-                    			   <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
-                            <span>
-                                <?= $request->property_address ?>
-                            </span>
-                    		</td>
-                    		</tr>
-                		<?php endif ?>
-                		<?php endforeach; ?>
-</tbody>
+        </table>
+
+      </div>
+
+    </div>
+    
+  </div>
+  <div class="col-sm-4">
+    <div class="panel panel-primary panel-90-day">
+      <div class="panel-heading text-center">
+          <h1><?php echo count($leases); ?></h1>
+          <span>Leases expiring in 90 days</span>
+        </div>
+
+      <?php $countninety = 0; ?>
+      <?php foreach ($leases as $lease): ?> 
+      <?php
+      $now = time(); 
+      $your_date = strtotime($lease->date_end);
+      $datediff = $your_date - $now;
+      ?>
+      <?php if (floor($datediff/(60*60*24)) < 90 && floor($datediff/(60*60*24)) >= 30) : ?>
+
+    <?php endif ?>  
+  <?php endforeach; ?>
+
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <th>Property</th>
+        <th>Room</th>
+        <th>Tenant</th> 
+        <th>Days</th>
+      </thead>
+      <tbody>
+        <?php foreach ($leases as $lease): ?> 
+        <?php
+        $now = time(); 
+        $your_date = strtotime($lease->date_end);
+        $datediff = $your_date - $now;
+        ?>
+        <?php if (floor($datediff/(60*60*24)) < 90 && floor($datediff/(60*60*24)) >= 30) : ?>
+        <tr>
+          <td>
+            <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
+            <?= $lease->property->address ?>
+          </td>
+          <td>
+            <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
+            <?= $lease->room->room_name ?>
+          </td>
+          <td>
+            <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
+            <?php
+            $person = $walrus->get($lease->student->person_id);
+            ?>
+            <?= $person->first_name ?>
+            <?= $person->last_name ?>
+          </td>
+          <td>
+            <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
+            <?php
+            echo floor($datediff/(60*60*24));
+            ?>
+          </td>
+        </tr> 
+      <?php endif ?>  
+    <?php endforeach; ?>
+  </tbody>
 </table>
+
 </div>
 
 
+</div>
+</div>
+<div class="col-sm-4">
+  <div class="panel panel-primary panel-180-day">
+    <div class="panel-heading text-center">
+      <?php
+        $i=0;
+        foreach ($leases as $lease) {
+          $i+=1;
+        }
+        echo '<h1>'.$i.'</h1>';
+      ?> 
+      <span>Leases expiring in 180 days</span>
+    </div>
 
-			
-		</div>
-	</div>
-	<div class="col-sm-6">
-		<div class="panel panel-primary">
-					<div class="panel-heading">
-			<h2 class="panel-title">Google Site Track thing</h2>
-		</div>
-		<div class="panel-body">
-			body
-		</div>
-		<div class="panel-footer">
-			footer
-		</div>
+    <?php $countonehundredandeighty = 0; ?>
+    <?php foreach ($leases as $lease): ?> 
+    <?php
+    $now = time(); 
+    $your_date = strtotime($lease->date_end);
+    $datediff = $your_date - $now;
+    ?>
+    <?php if (floor($datediff/(60*60*24)) < 180 && floor($datediff/(60*60*24)) >= 90) : ?>
 
-			
-		</div>
-	</div>
-	
-	</div>
+  <?php endif ?>  
+<?php endforeach; ?>
+
+<div class="table-responsive">
+  <table>
+    <thead>
+      <th>Property</th>
+      <th>Room</th>
+      <th>Tenant</th> 
+      <th>Days</th>
+    </thead>
+    <tbody>
+      <?php foreach ($leases as $lease): ?> 
+      <?php
+      $now = time(); 
+      $your_date = strtotime($lease->date_end);
+      $datediff = $your_date - $now;
+      ?>
+      <?php if (floor($datediff/(60*60*24)) < 180 && floor($datediff/(60*60*24)) >= 90) : ?>
+      <tr>
+        <td>
+          <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
+          <?= $lease->property->address ?>
+        </td>
+        <td>
+          <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
+          <?= $lease->room->room_name ?>
+        </td>
+        <td>
+          <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
+          <?php
+          $person = $walrus->get($lease->student->person_id);
+          ?>
+          <?= $person->first_name ?>
+          <?= $person->last_name ?>
+        </td>
+        <td>
+          <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
+          <?php
+          echo floor($datediff/(60*60*24));
+          ?>
+        </td>
+      </tr> 
+    <?php endif ?>  
+  <?php endforeach; ?>
+</tbody>
+</table>
+
+</div>
 
 
-<div class="row">
-	<div class="col-sm-4">
-		<div class="panel panel-primary panel-30-day">
-					<div class="panel-heading">
-			<h2 class="panel-title">Leases that expire in less than 30 days.</h2>
-		</div>
+</div>
+</div>
+</div>
+  
+  <!-- Unread Requests -->
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title">Unread Request</h2>
+    </div>
 
-		<?php $countthirty = 0; ?>
-		<?php foreach ($leases as $lease): ?>	
-		<?php
-			    $now = time(); 
-			    $your_date = strtotime($lease->date_end);
-			    $datediff = $your_date - $now;
-		?>
-		<?php if (floor($datediff/(60*60*24)) < 30 && floor($datediff/(60*60*24)) >= 0) : ?>
-		<?php $countthirty = $countthirty + 1 ?>
-		<?php endif ?>	
-		<?php endforeach; ?>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Tenant</th>
+            <th>Title</th>
+            <th>Property</th>
 
-		<div class="table-responsive">
-    	<table>
-    		<thead>
-					<th>Property</th>
-			        <th>Room</th>
-			        <th>Tenant</th>	
-					<th>Days</th>
-			</thead>
-			<tbody>
-				<?php foreach ($leases as $lease): ?>	
-					<?php
-					     $now = time(); 
-					     $your_date = strtotime($lease->date_end);
-					     $datediff = $your_date - $now;
-					?>
-					<?php if (floor($datediff/(60*60*24)) < 30 && floor($datediff/(60*60*24)) >= 0) : ?>
-						<tr>
-							<td>
-								<?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>	
-						        <?= $lease->property->address ?>
-					        </td>
-					        <td>
-						        <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
-						        <?= $lease->room->room_name ?>
-					        </td>
-					        <td>
-						        <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
-						        <?php
-						        	$person = $walrus->get($lease->student->person_id);
-						        ?>
-						        <?= $person->first_name ?>
-						        <?= $person->last_name ?>
-					        </td>
-							<td>
-								<?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
-								<?php
-								    echo floor($datediff/(60*60*24));
-								?>
-							</td>
-						</tr>	
-					<?php endif ?>	
-				<?php endforeach; ?>
-			</tbody>
-			</table>
+          </tr>
+        </thead>
+        
+        <tbody>
+        
+        <?php foreach ($requests as $request): ?>
+        
+        <?php if ($request->status=='Unread'): ?>
+        
+        <tr class="unread">
+          <td>
+            <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
 
-		</div>
+            <!-- Tristan's Gravatar Script  - should be replaced with offical PHP API -->
+            <!-- Also this is bad because it does not specify the size of the source image! Should be 2x the displayed image height for retina displays -->
 
-			
-		</div>
-	</div>
-	<div class="col-sm-4">
-		<div class="panel panel-primary panel-90-day">
-					<div class="panel-heading">
-			<h2 class="panel-title">Leases that expire in less than 90 days.</h2>
-		</div>
-		<?php $countthirty = 0; ?>
-		<?php foreach ($leases as $lease): ?>	
-			<?php
-			    $now = time(); 
-			    $your_date = strtotime($lease->date_end);
-			    $datediff = $your_date - $now;
-			?>
-			<?php if (floor($datediff/(60*60*24)) < 90 && floor($datediff/(60*60*24)) >= 30) : ?>
-				<?php $countthirty = $countthirty + 1 ?>
-			<?php endif ?>	
-		<?php endforeach; ?>
+            <?php
+            $emailHash = md5( strtolower( trim( $request->person->email ) ) );
+                    // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
+            $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
+            $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+            ?>
 
-		<div class="table-responsive">
-    	<table>
-    		<thead>
-					<th>Property</th>
-			        <th>Room</th>
-			        <th>Tenant</th>	
-					<th>Days</th>
-			</thead>
-			<tbody>
-				<?php foreach ($leases as $lease): ?>	
-					<?php
-					     $now = time(); 
-					     $your_date = strtotime($lease->date_end);
-					     $datediff = $your_date - $now;
-					?>
-					<?php if (floor($datediff/(60*60*24)) < 90 && floor($datediff/(60*60*24)) >= 30) : ?>
-						<tr>
-							<td>
-								<?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>	
-						        <?= $lease->property->address ?>
-					        </td>
-					        <td>
-						        <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
-						        <?= $lease->room->room_name ?>
-					        </td>
-					        <td>
-						        <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
-						        <?php
-						        	$person = $walrus->get($lease->student->person_id);
-						        ?>
-						        <?= $person->first_name ?>
-						        <?= $person->last_name ?>
-					        </td>
-							<td>
-								<?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
-								<?php
-								    echo floor($datediff/(60*60*24));
-								?>
-							</td>
-						</tr>	
-					<?php endif ?>	
-				<?php endforeach; ?>
-			</tbody>
-			</table>
+            <?= $gravatarImage; ?>
 
-		</div>
+            <span>
+              <?= $request->person->first_name; ?>
+              <?= " ".$request->person->last_name; ?>
+            </span>
 
-			
-		</div>
-	</div>
-	<div class="col-sm-4">
-		<div class="panel panel-primary panel-180-day">
-					<div class="panel-heading">
-			<h2 class="panel-title">Leases that expire in less than 180 days.</h2>
-		</div>
-		<?php $countthirty = 0; ?>
-		<?php foreach ($leases as $lease): ?>	
-			<?php
-			    $now = time(); 
-			    $your_date = strtotime($lease->date_end);
-			    $datediff = $your_date - $now;
-			?>
-			<?php if (floor($datediff/(60*60*24)) < 180 && floor($datediff/(60*60*24)) >= 90) : ?>
-				<?php $countthirty = $countthirty + 1 ?>
-			<?php endif ?>	
-		<?php endforeach; ?>
+          </td>
 
-		<div class="table-responsive">
-    	<table>
-    		<thead>
-					<th>Property</th>
-			        <th>Room</th>
-			        <th>Tenant</th>	
-					<th>Days</th>
-			</thead>
-			<tbody>
-				<?php foreach ($leases as $lease): ?>	
-					<?php
-					     $now = time(); 
-					     $your_date = strtotime($lease->date_end);
-					     $datediff = $your_date - $now;
-					?>
-					<?php if (floor($datediff/(60*60*24)) < 180 && floor($datediff/(60*60*24)) >= 90) : ?>
-						<tr>
-							<td>
-								<?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>	
-						        <?= $lease->property->address ?>
-					        </td>
-					        <td>
-						        <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
-						        <?= $lease->room->room_name ?>
-					        </td>
-					        <td>
-						        <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
-						        <?php
-						        	$person = $walrus->get($lease->student->person_id);
-						        ?>
-						        <?= $person->first_name ?>
-						        <?= $person->last_name ?>
-					        </td>
-							<td>
-								<?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>
-								<?php
-								    echo floor($datediff/(60*60*24));
-								?>
-							</td>
-						</tr>	
-					<?php endif ?>	
-				<?php endforeach; ?>
-			</tbody>
-			</table>
+          <td>
+            <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+            <span>
+              <?= $request->title; ?>
+            </span>
+          </td>
 
-		</div>
+          <td>
+            <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
+            <span>
+              <?= $request->property_address ?>
+            </span>
+          </td>
+        </tr>
 
-			
-		</div>
-	</div>
-	</div>
+        <?php endif; ?>
+
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+<!-- Google Analytics Widget -->
+<div class="panel panel-primary">
+  
+  <div class="panel-heading">
+    <h2 class="panel-title">Google Analytics</h2>
+  </div>
+  
+  <div class="panel-body">
+
+    <!-- Step 1: Create the containing elements. -->
+
+    <section id="auth-button"></section>
+    <section id="view-selector"></section>
+    <section id="timeline"></section>
+
+    <!-- Step 2: Load the library. -->
+
+    <script>
+    (function(w,d,s,g,js,fjs){
+      g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(cb){this.q.push(cb)}};
+      js=d.createElement(s);fjs=d.getElementsByTagName(s)[0];
+      js.src='https://apis.google.com/js/platform.js';
+      fjs.parentNode.insertBefore(js,fjs);js.onload=function(){g.load('analytics')};
+    }(window,document,'script'));
+    </script>
+
+    <script>
+    gapi.analytics.ready(function() {
+
+      // Step 3: Authorize the user.
+
+      var CLIENT_ID = 'UA-66079921-1';
+
+      gapi.analytics.auth.authorize({
+        container: 'auth-button',
+        clientid: CLIENT_ID,
+      });
+
+      // Step 4: Create the view selector.
+
+      var viewSelector = new gapi.analytics.ViewSelector({
+        container: 'view-selector'
+      });
+
+      // Step 5: Create the timeline chart.
+
+      var timeline = new gapi.analytics.googleCharts.DataChart({
+        reportType: 'ga',
+        query: {
+          'dimensions': 'ga:date',
+          'metrics': 'ga:sessions',
+          'start-date': '30daysAgo',
+          'end-date': 'yesterday',
+        },
+        chart: {
+          type: 'LINE',
+          container: 'timeline'
+        }
+      });
+
+      // Step 6: Hook up the components to work together.
+
+      gapi.analytics.auth.on('success', function(response) {
+        viewSelector.execute();
+      });
+
+      viewSelector.on('change', function(ids) {
+        var newIds = {
+          query: {
+            ids: ids
+          }
+        }
+        timeline.set(newIds).execute();
+      });
+    });
+    </script>
+
+  </div>
+  
+  <div class="panel-footer">
+    footer
+  </div>
+
+</div>
+
+
 
 
 
@@ -327,12 +422,12 @@
 
 <?php if ($user['role'] === "tenant") : ?>
 
-	<h1>Welcome to the tenants dashboard</h1>
+  <h1>Welcome to the tenants dashboard</h1>
 
-	<p>
+  <p>
 
-		You can manage the detail and add request with the buttons on the left:<br>
+    You can manage the detail and add request with the buttons on the left:<br>
 
-	</p>
+  </p>
 
 <?php endif; ?>

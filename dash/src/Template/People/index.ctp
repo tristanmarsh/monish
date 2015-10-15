@@ -9,7 +9,7 @@
 
 <?php
     // $this->Html->addCrumb('Requests', '/requests');
-    $this->Html->addCrumb('Personal Details', array('controller' => 'People', 'action' => 'index'));
+    $this->Html->addCrumb('Profile', array('controller' => 'People', 'action' => 'index'));
 ?>
 
 <!-- File: src/Template/People/index.ctp -->

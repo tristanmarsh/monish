@@ -425,10 +425,6 @@
     </script>
 
   </div>
-  
-  <div class="panel-footer">
-    footer
-  </div>
 
 </div>
 

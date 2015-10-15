@@ -91,6 +91,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "Template/Users/login.ctp",
+			"settings":
+			{
+				"buffer_size": 11797,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -240,15 +248,22 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/login.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/edit.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/index (backup before turning it into a profile page).ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/edit.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/editpassword.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/editusername.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/custom.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/archived.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index (Backup with the modals on click).ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/archived.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
@@ -283,7 +298,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/footer.scss",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sm.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/animate.css-scss/_properties.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Email/html/reset_password.ctp",
@@ -293,7 +307,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/changepassword.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/reset_password.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/forgot_password.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/bootstrap/css/bootstrap.css",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/bootstrap/css/bootstrap.min.css",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/bootstrap.min.css",
@@ -311,7 +324,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/app.js",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Collection/Iterator/BufferedIterator.php",
 		"/Volumes/Data/Documents/Uni/Archive/Monash/2014/Semester 1/FIT1008/Python/Projects/character_generator/character_generator.py",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/bootstrap/config.json",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/bootstrap/css/bootstrap-theme.css",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/bootstrap/css/bootstrap-theme.min.css",
@@ -319,7 +331,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Students/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Recoveries/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Macaddresses/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/add.ctp",
@@ -364,10 +375,7 @@
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/realia/templates/submission/edit.twig",
 		"/Applications/MAMP/htdocs/dcstrategy/wp-content/themes/franchise/sass/style.scss",
 		"/Users/dev/Desktop/content",
-		"/Users/dev/Desktop/content.html",
-		"/Users/dev/Desktop/mulitisite instructions/multisite move.txt",
-		"/Applications/MAMP/htdocs/dcstrategy/.htaccess",
-		"/Users/dev/Desktop/mulitisite instructions/multisite set up.txt"
+		"/Users/dev/Desktop/content.html"
 	],
 	"find":
 	{
@@ -397,6 +405,36 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"text-center",
+			"180",
+			"30",
+			"180",
+			"$this->Html->addCrumb('Personal details', array('controller' => 'People', 'action' => 'index'));",
+			"Personal Details",
+			"crumb",
+			"google",
+			"</td>",
+			"count",
+			"days",
+			"p",
+			"h2",
+			"google",
+			"h1",
+			"180",
+			"90",
+			"panel-body",
+			"count",
+			"panel-body",
+			"h1",
+			"countthirty",
+			"ninety",
+			"countthirty",
+			"count",
+			"30",
+			"google",
+			"anal",
+			"unread",
+			"access",
 			"<div class=\"input-group input-lg pull-right search\">",
 			"Days Remaining",
 			"pane",
@@ -494,37 +532,7 @@
 			"echo",
 			"edit",
 			"prompt",
-			"no",
-			"gravatar",
-			"filter",
-			"hover",
-			"none",
-			"content",
-			"propert",
-			"property",
-			"cursor",
-			"properties",
-			"left",
-			"user",
-			"gravatar",
-			"script",
-			"ease",
-			"reset pass",
-			"pre",
-			"ick it!",
-			"click it",
-			"email",
-			"$ms",
-			"or visit this link",
-			"Username",
-			"h1",
-			"70808e",
-			"log",
-			"username",
-			"Username",
-			"username",
-			"a",
-			"style"
+			"no"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -532,6 +540,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"$this->Html->addCrumb('Profile', array('controller' => 'People', 'action' => 'index'));",
 			"<div class=\"input-group input-lg search\">",
 			"panel-primary",
 			"<!--             <div class=\"btn-group\">\n              <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                Action <span class=\"caret\"></span>\n              </button>\n              <ul class=\"dropdown-menu\">\n                <li><a href=\"#\">Search</a></li>\n                <li><a href=\"#\">Another action</a></li>\n                <li><a href=\"#\">Something else here</a></li>\n                <li role=\"separator\" class=\"divider\"></li>\n                <li><a href=\"#\">Separated link</a></li>\n              </ul>\n            </div> -->",
@@ -570,8 +579,86 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Template/Users/login.ctp",
+					"settings":
+					{
+						"buffer_size": 11797,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2927,
+								2927
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"color_scheme": "Packages/User/Color Highlighter/themes/Monokai.tmTheme",
+							"syntax": "Packages/CakePHP (Native)/CakePHP-Template.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1800.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -625,6 +712,14 @@
 		"selected_items":
 		[
 			[
+				"login.ctp",
+				"dash/src/Template/Users/login.ctp"
+			],
+			[
+				"requests/index",
+				"dash/src/Template/Requests/index.ctp"
+			],
+			[
 				"emrgencies/index",
 				"dash/src/Template/Emergencies/index.ctp"
 			],
@@ -635,10 +730,6 @@
 			[
 				"login.",
 				"dash/src/Template/Users/login.ctp"
-			],
-			[
-				"login.ctp",
-				"dash/src/Template/Element/login.ctp"
 			],
 			[
 				"global",
@@ -687,10 +778,6 @@
 			[
 				"leases/index",
 				"dash/src/Template/Leases/index.ctp"
-			],
-			[
-				"requests/index",
-				"dash/src/Template/Requests/index.ctp"
 			],
 			[
 				"default",

@@ -27,7 +27,7 @@
 
 </head>
 
-<h1>Leases</h1>
+<h1>New Lease</h1>
 
 <div class="panel panel-default clearfix">
 

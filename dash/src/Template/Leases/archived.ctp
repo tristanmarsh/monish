@@ -1,7 +1,7 @@
 <?php
 $this->Html->addCrumb('Leases', '/leases');
 ?>
-<h1>Leases</h1>
+<h1>Archived</h1>
 
 <!-- File: src/Template/Leases/index.ctp -->
 <div class="panel panel-default clearfix">
@@ -59,7 +59,7 @@ $this->Html->addCrumb('Leases', '/leases');
     <div class="panel panel-primary">
       <!-- Default panel contents -->
       <div class="panel-heading">
-        <h2 class="panel-title">All Leases</h2>
+        <h2 class="panel-title">Archived Leases</h2>
       </div>
 
 

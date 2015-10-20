@@ -11,8 +11,9 @@
     <div class="panel-body">
         
         <ul class="nav nav-pills pull-left">
-            <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
+            <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
+            <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
+            <li role="presentation"><?= $this->Html->link('New Tenant', ['action' => 'add']) ?></li>
         </ul>
 
     </div>
@@ -21,6 +22,21 @@
         <ul class="nav nav-pills pull-left">
             <li role="presentation" ><?= $this->Html->link('View', ['action' => 'view', $defaultPerson->id]) ?></li>
             <li role="presentation" class="active"><?= $this->Html->link('Edit', ['action' => 'edit', $user->id]) ?></li>
+            <li role="presentation">
+
+                <?php
+
+                   if ($defaultPerson->student->archived === "NO") {
+                    echo $this->form->postLink('Archive Tenant', ['controller'=>'tenants', 'action' => 'archivetenant', $defaultPerson->student->id], array('class' => 'menu-item-link', 'escape' => false)); 
+                   }
+                   else {
+                    echo $this->form->postLink('Unarchive Tenant', ['controller'=>'tenants', 'action' => 'unarchivetenant', $defaultPerson->student->id], array('class' => 'menu-item-link', 'escape' => false));
+                   }
+
+                ?>
+
+
+            </li>
         </ul>
 
     </div>

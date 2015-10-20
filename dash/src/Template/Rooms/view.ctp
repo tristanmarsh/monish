@@ -135,7 +135,7 @@ $this->Html->addCrumb($room->room_name);
                                 <th><?= __('Date Start') ?></th>
                                 <th><?= __('Date End') ?></th>
                                 <th><?= __('Weekly Price') ?></th>
-                                <th class="actions"><?= __('Actions') ?></th>
+                                <!-- <th class="actions"><?= __('Actions') ?></th> -->
                             </tr>
                         </thead>    
 
@@ -143,6 +143,7 @@ $this->Html->addCrumb($room->room_name);
                         <tbody>
                             <tr>
                                 <td>
+                                    <?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $leases->id]) ?>
                                     <?php 
                                     $currentLease = $leasesTable->get($leases->id, ['contain'=>'students']);
                                     $currentStudent = $studentsTable->get($currentLease->student_id, ['contain'=>'people']);
@@ -150,13 +151,19 @@ $this->Html->addCrumb($room->room_name);
                                     echo $currentStudent->People['last_name'];
                                     ?>
                                 </td>
-                                <td><?= h($leases->date_start->format('d/m/Y')) ?></td>
-                                <td><?= h($leases->date_end->format('d/m/Y')) ?></td>
-                                <td><?= h($this->Number->currency($leases->weekly_price)) ?></td>
+                                <td>
+                                    <?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $leases->id]) ?>
+                                    <?= h($leases->date_start->format('d/m/Y')) ?></td>
+                                <td>
+                                    <?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $leases->id]) ?>
+                                    <?= h($leases->date_end->format('d/m/Y')) ?></td>
+                                <td>
+                                    <?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $leases->id]) ?>
+                                    <?= h($this->Number->currency($leases->weekly_price)) ?></td>
                                 
-                                <td class="action action-remove" >
+                            <!--     <td class="action action-remove" >
                                   <?php echo $this->form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'Leases', 'action' => 'delete', $leases->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>
-                                </span></td>
+                                </span></td> -->
                             </tr>
 
                         </tbody>

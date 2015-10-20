@@ -60,7 +60,7 @@ $this->Html->addCrumb($room->room_name);
             ?>
             <br>
         </fieldset>
-        <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']) ?>
+        <?= $this->Form->button(__('Edit Room'), ['class' => 'form-control btn btn-primary']) ?>
         <?= $this->Form->end() ?>
         <?= $this->Form->create(null, [
             'url' => ['controller' => 'Properties', 'action' => 'index']

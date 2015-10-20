@@ -50,7 +50,7 @@
         ?>
     </fieldset>
     <br>
-    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']) ?>
+    <?= $this->Form->button(__('Create Property'), ['class' => 'form-control btn btn-primary']) ?>
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Properties', 'action' => 'index']

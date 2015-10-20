@@ -25,7 +25,7 @@
 
 </div>
 
-<?= $lastroomupdate->date->format('d/m/Y') ?>
+<?= $lastroomupdate->date->format('Y/m/d') ?>
 <br><br>
 
 <p>

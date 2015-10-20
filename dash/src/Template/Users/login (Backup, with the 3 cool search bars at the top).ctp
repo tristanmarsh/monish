@@ -147,7 +147,7 @@
                                 </td>
                                 <td>
                                     <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
-                                    <?= $request->created->format('d/m/Y' /*'h:m A'*/) ?>
+                                    <?= $request->created->format('Y/m/d' /*'h:m A'*/) ?>
                                 </td>
                                 <td>
                                     <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>

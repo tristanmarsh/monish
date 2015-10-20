@@ -47,9 +47,9 @@
 
 <tr><td>Weekly Price: <?= $this->Number->currency($lease->weekly_price, 'USD') ?></td></tr>
 
-<tr><td>Lease Started On: <?= h($lease->date_start->format('d/m/Y')) ?></td></tr>
+<tr><td>Lease Started On: <?= h($lease->date_start->format('Y/m/d')) ?></td></tr>
 
-<tr><td>Lease Expires On: <?= h($lease->date_end->format('d/m/Y')) ?></td></tr>
+<tr><td>Lease Expires On: <?= h($lease->date_end->format('Y/m/d')) ?></td></tr>
 
 <!-- <tr><td>Lease Status: <?= $this->Text->autoParagraph(h($lease->lease_status)); ?></td></tr> -->
 

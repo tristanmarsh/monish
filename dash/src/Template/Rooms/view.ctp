@@ -128,50 +128,51 @@ $this->Html->addCrumb($room->room_name);
                     </div>
 
                     <?php if (!empty($room->leases)): ?>
-                    <table cellpadding="0" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th><?= __('Tenant') ?></th>
-                                <th><?= __('Date Start') ?></th>
-                                <th><?= __('Date End') ?></th>
-                                <th><?= __('Weekly Price') ?></th>
-                                <!-- <th class="actions"><?= __('Actions') ?></th> -->
-                            </tr>
-                        </thead>    
+                    <div class="table-responsive">
+                        <table class="datatable">
+                            <thead>
+                                <tr>
+                                    <th>Tenant</th>
+                                    <th>Date Start</th>
+                                    <th>Date End</th>
+                                    <th>'Weekly Price</th>
+                                    <!-- <th class="actions"><?= __('Actions') ?></th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($room->leases as $leases): ?>
 
-                        <?php foreach ($room->leases as $leases): ?>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $leases->id]) ?>
-                                    <?php 
-                                    $currentLease = $leasesTable->get($leases->id, ['contain'=>'students']);
-                                    $currentStudent = $studentsTable->get($currentLease->student_id, ['contain'=>'people']);
-                                    echo $currentStudent->People['first_name']." ";
-                                    echo $currentStudent->People['last_name'];
-                                    ?>
-                                </td>
-                                <td>
-                                    <?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $leases->id]) ?>
-                                    <?= h($leases->date_start->format('d/m/Y')) ?></td>
-                                <td>
-                                    <?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $leases->id]) ?>
-                                    <?= h($leases->date_end->format('d/m/Y')) ?></td>
-                                <td>
-                                    <?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $leases->id]) ?>
-                                    <?= h($this->Number->currency($leases->weekly_price)) ?></td>
-                                
-                            <!--     <td class="action action-remove" >
-                                  <?php echo $this->form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'Leases', 'action' => 'delete', $leases->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>
-                                </span></td> -->
-                            </tr>
 
-                        </tbody>
+                                    <tr>
+                                        <td>
+                                            <?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $leases->id]) ?>
+                                            <?php
+                                            $currentLease = $leasesTable->get($leases->id, ['contain'=>'students']);
+                                            $currentStudent = $studentsTable->get($currentLease->student_id, ['contain'=>'people']);
+                                            echo $currentStudent->People['first_name']." ";
+                                            echo $currentStudent->People['last_name'];
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $leases->id]) ?>
+                                            <?= h($leases->date_start->format('Y/m/d')) ?></td>
+                                        <td>
+                                            <?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $leases->id]) ?>
+                                            <?= h($leases->date_end->format('Y/m/d')) ?></td>
+                                        <td>
+                                            <?= $this->Html->link("", ['controller'=>'leases', 'action' => 'view', $leases->id]) ?>
+                                            <?= h($this->Number->currency($leases->weekly_price)) ?></td>
 
-                    <?php endforeach; ?>
+                                    <!--     <td class="action action-remove" >
+                                          <?php echo $this->form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'Leases', 'action' => 'delete', $leases->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>
+                                        </span></td> -->
+                                    </tr>
 
-                </table>
 
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                </div>
             <?php endif; ?>
 
         </div>

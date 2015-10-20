@@ -16,7 +16,7 @@
             echo $this->Form->create($user, array('class' => 'form-group'));
             //echo $this->Form->input('person_id', ['options' => $people]);
             // echo $this->Form->input('username', array('class' => 'form-control'));
-            echo $this->Form->input('password', array('class' => 'form-control'));
+            echo $this->Form->input('password', array('value'=>'', 'class' => 'form-control','autocomplete' => 'off'));
             echo $this->Form->input('confirm_password', array('class' => 'form-control', 'type'  =>  'password'));
             ?>
             <br>

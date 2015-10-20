@@ -19,6 +19,7 @@
 
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $lease->id]) ?></li>
+            <li role="presentation" ><?= $this->Form->postLink('Delete', ['action' => 'delete', $lease->id],['confirm' => 'Delete ' . "Are you Sure?" , "escape" => false]) ?></li>
             <!-- <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $lease->id]) ?></li> -->
         </ul>
 

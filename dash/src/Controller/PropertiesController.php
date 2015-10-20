@@ -78,6 +78,27 @@ class PropertiesController extends AppController
         ]);
         $this->set('property', $property);
         $this->set('_serialize', ['property']);
+		
+		$this->loadModel('Leases');
+        $this->loadModel('Rooms');
+        $this->loadModel('Students');
+        $this->loadModel('People');
+
+        $rooms = $this->Rooms->find('all', ['contain' => ['Leases']]);
+        $this->set(compact('rooms'));
+
+        $properties = $this->Properties->find('all', ['contain' => ['Rooms']]);
+        $this->set(compact('properties'));
+
+        $roomlease = $this->Rooms;
+        $this->set(compact('roomlease'));
+
+        $studentTable = $this->Students;
+        $this->set(compact('studentTable'));
+
+        $peopleTable = $this->People;
+        $this->set(compact('peopleTable'));
+		
     }
 
     /**

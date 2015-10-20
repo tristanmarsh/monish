@@ -112,6 +112,18 @@ class RoomsController extends AppController
 
         $studentTable = $this->Students;
         $this->set(compact('studentTable'));
+
+        $rooms = $this->Rooms->find('all', ['contain' => ['Leases']]);
+        $this->set(compact('rooms'));
+
+        $properties = $this->Properties->find('all', ['contain' => ['Rooms']]);
+        $this->set(compact('properties'));
+
+        $peopleTable = $this->People;
+        $this->set(compact('peopleTable'));
+
+
+
     }
 
     /**

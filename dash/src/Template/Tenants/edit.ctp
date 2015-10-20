@@ -58,13 +58,17 @@
 
             
             <div class="col-md-6">
-            
+              <legend>Personal Detail</legend>
               <?= $this->Form->input('first_name', array('default' => $defaultPerson->first_name,'class' => 'form-control')) ?>
               <?= $this->Form->input('last_name', array('default' => $defaultPerson->last_name,'class' => 'form-control')) ?>
               <?= $this->Form->input('common_name', array('default' => $defaultPerson->common_name,'class' => 'form-control')) ?>
+              <?= $this->Form->input('phone', array('default' => $defaultPerson->phone,'class' => 'form-control')) ?>
+
               <?= $this->Form->input('visa', array('default' => $defaultPerson->visa,'class' => 'form-control')) ?>
-              <?= $this->Form->input('account_name', array('default' => $defaultPerson->account_name,'class' => 'form-control')) ?>
-              <?= $this->Form->input('bsb_number', array('default' => $defaultPerson->bsb_number,'class' => 'form-control')) ?>
+              <?= $this->Form->input('username', array('label'=>'Username/Email', 'class' => 'form-control')) ?>
+              
+              
+              
 <!--              <?= $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']); ?>
                  <?= $this->form->input('date_start',['id'=>'dateStartPicker','class' => 'form-control']); ?> -->
 
@@ -74,18 +78,19 @@
 
 
             <div class="col-md-6">
-             
-              <?= $this->Form->input('role', ['options' => ['admin' => 'Admin', 'tenant' => 'Tenant'], 'class' => 'form-control']) ?>
-             
-              <?= $this->Form->input('phone', array('default' => $defaultPerson->phone,'class' => 'form-control')) ?>
-             
-              <?= $this->Form->input('username', array('label'=>'Username/Email', 'class' => 'form-control')) ?>
 
               <?= $this->Form->input('parent_address', array('default' => $defaultPerson->parent_address,'class' => 'form-control')) ?>
-
-              <?= $this->Form->input('account_number', array('default' => $defaultPerson->account_number,'class' => 'form-control')) ?>
-
               <?= $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'],'default' => $defaultStudent->internet_plan, 'class' => 'form-control']) ?>
+              <?= $this->Form->input('role', ['options' => ['admin' => 'Admin', 'tenant' => 'Tenant'], 'class' => 'form-control']) ?>
+             <legend>Bank Detail</legend>
+              <?= $this->Form->input('account_name', array('default' => $defaultPerson->account_name,'class' => 'form-control')) ?>
+              <?= $this->Form->input('account_number', array('default' => $defaultPerson->account_number,'class' => 'form-control')) ?>
+              <?= $this->Form->input('bsb_number', array('default' => $defaultPerson->bsb_number,'class' => 'form-control')) ?>
+              
+
+              
+
+              
 <!-- 
               <?= $this->Form->input('weekly_price', ['class' => 'form-control']); ?>
 

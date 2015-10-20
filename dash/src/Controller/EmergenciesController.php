@@ -87,10 +87,10 @@ class EmergenciesController extends AppController
             $emergency = $this->Emergencies->patchEntity($emergency, $this->request->data);
             $emergency->person_id = $personEntity->id;
             if ($this->Emergencies->save($emergency)) {
-                $this->Flash->success('The emergency has been saved.');
+                $this->Flash->success('The emergency has been saved');
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error('The emergency could not be saved. Please, try again.');
+                $this->Flash->error('The emergency could not be saved. Please, try again');
             }
         }
         $this->set(compact('emergency'));
@@ -115,7 +115,7 @@ class EmergenciesController extends AppController
                 $this->Flash->success('The emergency has been saved.');
                 return $this->redirect(['controller'=>'tenants','action' => 'index']);
             } else {
-                $this->Flash->error('The emergency could not be saved. Please, try again.');
+                $this->Flash->error('The emergency could not be saved. Please, try again');
             }
         }
         $this->set(compact('emergency'));
@@ -136,7 +136,7 @@ class EmergenciesController extends AppController
         if ($this->Emergencies->delete($emergency)) {
             $this->Flash->success('The emergency has been deleted.');
         } else {
-            $this->Flash->error('The emergency could not be deleted. Please, try again.');
+            $this->Flash->error('The emergency could not be deleted. Please, try again');
         }
         return $this->redirect($this->referer());
     }

@@ -205,10 +205,10 @@ class LeasesController extends AppController
                 $lease->property_id = $room->property_id;
                 //Always remember to save
                 $this->Leases->save($lease);
-                $this->Flash->success('The lease has been saved.');
+                $this->Flash->success('The lease has been saved');
                 return $this->redirect(['controller' => 'tenants', 'action' => 'updaterooms']);
             } else {
-                $this->Flash->error('The lease could not be saved. Please, try again.');
+                $this->Flash->error('The lease could not be saved. Please, try again');
             }
         }
         //$properties = $this->Leases->Properties->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'address']);
@@ -233,10 +233,10 @@ class LeasesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $lease = $this->Leases->patchEntity($lease, $this->request->data);
             if ($this->Leases->save($lease)) {
-                $this->Flash->success('The lease has been saved.');
+                $this->Flash->success('The lease has been saved');
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error('The lease could not be saved. Please, try again.');
+                $this->Flash->error('The lease could not be saved. Please, try again');
             }
         }
         $rooms = $this->Leases->Rooms->find('list', ['limit' => 200]);
@@ -257,9 +257,9 @@ class LeasesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $lease = $this->Leases->get($id);
         if ($this->Leases->delete($lease)) {
-            $this->Flash->success('The lease has been deleted.');
+            $this->Flash->success('The lease has been deleted');
         } else {
-            $this->Flash->error('The lease could not be deleted. Please, try again.');
+            $this->Flash->error('The lease could not be deleted. Please, try again');
         }
         return $this->redirect(['action' => 'index']);
     }
@@ -284,7 +284,7 @@ class LeasesController extends AppController
             $leasesTable->save($currentlease);
         }
 
-        $this->Flash->success('Leases have been updated!');    
+        $this->Flash->success('Leases have been updated');
         return $this->redirect($this->referer());
     }
 

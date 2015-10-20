@@ -51,10 +51,10 @@ class StudentsController extends AppController
         if ($this->request->is('post')) {
             $student = $this->Students->patchEntity($student, $this->request->data);
             if ($this->Students->save($student)) {
-                $this->Flash->success('The student has been saved.');
+                $this->Flash->success('The student has been saved');
                 return $this->redirect(['controller' => 'leases', 'action' => 'add']);
             } else {
-                $this->Flash->error('The student could not be saved. Please, try again.');
+                $this->Flash->error('The student could not be saved. Please, try again');
             }
         }
         //the condition removes the Person with id = 1 from the drop down list (which is Tony Wise)
@@ -79,10 +79,10 @@ class StudentsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $student = $this->Students->patchEntity($student, $this->request->data);
             if ($this->Students->save($student)) {
-                $this->Flash->success('The student has been saved.');
+                $this->Flash->success('The student has been saved');
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error('The student could not be saved. Please, try again.');
+                $this->Flash->error('The student could not be saved. Please, try again');
             }
         }
         $person = $this->Students->People->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'first_name']);
@@ -103,9 +103,9 @@ class StudentsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $student = $this->Students->get($id);
         if ($this->Students->delete($student)) {
-            $this->Flash->success('The student has been deleted.');
+            $this->Flash->success('The student has been deleted');
         } else {
-            $this->Flash->error('The student could not be deleted. Please, try again.');
+            $this->Flash->error('The student could not be deleted. Please, try again');
         }
         return $this->redirect(['action' => 'index']);
     }

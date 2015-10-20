@@ -126,10 +126,10 @@ class RoomsController extends AppController
             $room = $this->Rooms->patchEntity($room, $this->request->data);
             $room->vacant = 'TRUE';
             if ($this->Rooms->save($room)) {
-                $this->Flash->success('The room has been saved.');
+                $this->Flash->success('The room has been saved');
                 return $this->redirect(['controller' => 'properties', 'action' => 'index']);
             } else {
-                $this->Flash->error('The room could not be saved. Please, try again.');
+                $this->Flash->error('The room could not be saved. Please, try again');
             }
         }
         $properties = $this->Rooms->Properties->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'address']);
@@ -152,10 +152,10 @@ class RoomsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $room = $this->Rooms->patchEntity($room, $this->request->data);
             if ($this->Rooms->save($room)) {
-                $this->Flash->success('The room has been saved.');
+                $this->Flash->success('The room has been saved');
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error('The room could not be saved. Please, try again.');
+                $this->Flash->error('The room could not be saved. Please, try again');
             }
         }
         $properties = $this->Rooms->Properties->find('list', ['limit' => 200, 'valueField'=>'address']);
@@ -175,9 +175,9 @@ class RoomsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $room = $this->Rooms->get($id);
         if ($this->Rooms->delete($room)) {
-            $this->Flash->success('The room has been deleted.');
+            $this->Flash->success('The room has been deleted');
         } else {
-            $this->Flash->error('The room could not be deleted. Please, try again.');
+            $this->Flash->error('The room could not be deleted. Please, try again');
         }
         return $this->redirect(['action' => 'index']);
     }

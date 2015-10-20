@@ -171,7 +171,7 @@ echo $this->Html->link('<h3 class="panel-title text-center">' . $property->addre
                             }
                         }
                         else {
-                            echo "No Tenant";
+                            echo "Vacant";
                             $sentinel = false;
                         }
                         if ($sentinel) { //THIS CHECK MAKES THE TABLE ALIGNMENT WEIRD I HAVE NO IDEA WHY, But it is the only way for the code to correctly check room status
@@ -190,7 +190,7 @@ echo $this->Html->link('<h3 class="panel-title text-center">' . $property->addre
                             } else if (max($toArray) === date("Y-m-d")) {
                                 echo $personEntity->first_name." ".$personEntity->last_name;
                             } else if (max($toArray) < date("Y-m-d")) {
-                                echo "No Tenant ";
+                                echo "Vacant";
                             }
                         }
                         ?>

@@ -112,7 +112,7 @@ class UsersController extends AppController
 
                         if($this->Users->save($u))
                         {
-                            $this->Flash->success('Password Successfully Updated!');
+                            $this->Flash->success('Password Successfully Updated');
 
                             //Redirects home rather than to a controller to prevent error access message
                             $this->redirect('/');
@@ -120,14 +120,14 @@ class UsersController extends AppController
                         
                     }
                     else{
-                        $this->Flash->error('Oops! Please try again.');
+                        $this->Flash->error('Oops! Please try again');
                     }
                 }
             }
             else
             {
                 $this->redirect(['controller' => 'users', 'action' => 'login']);
-                $this->Flash->error('Token Corrupted, please retry. The reset link will only work once.');
+                $this->Flash->error('Token Corrupted, please retry. The reset link will only work once');
             }
         }
 
@@ -172,17 +172,17 @@ class UsersController extends AppController
     public function add()
     {
         //I made this function redirect back to the tenants index because this should not be accessible, and can break the system
-        $this->Flash->error(__('Restricted area. Redirecting you to tenants.'));
+        $this->Flash->error(__('Restricted area. Redirecting you to tenants'));
         $this->redirect(['controller'=>'tenants', 'action' => 'index']);
 
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('Thank you for registering!'));
+                $this->Flash->success(__('Thank you for registering'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('Unable to add the user.'));
+            $this->Flash->error(__('Unable to add the user'));
         }
         $people = $this->Users->People->find('list', ['limit' => 200]);
         $this->set(compact('people'));
@@ -195,7 +195,7 @@ class UsersController extends AppController
 
         $user = $this->Users->get($id);
         if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user with id: {0} has been deleted.', h($id)));
+            $this->Flash->success(__('The user with id: {0} has been deleted', h($id)));
             return $this->redirect(['action' => 'index']);
         }
     }
@@ -246,10 +246,10 @@ class UsersController extends AppController
         if ($this->request->is(['post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)){
-                $this->Flash->success(__('This user has been updated.'));
+                $this->Flash->success(__('This user has been updated'));
                 return $this->redirect(['controller'=>'people', 'action' => 'index']);
             }
-            $this->Flash->error(__('Unable to update this user.'));
+            $this->Flash->error(__('Unable to update this user'));
         }
         $this->set('user', $user);
 
@@ -263,10 +263,10 @@ class UsersController extends AppController
         if ($this->request->is(['post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)){
-                $this->Flash->success(__('This user has been updated.'));
+                $this->Flash->success(__('This user has been updated'));
                 return $this->redirect(['controller'=>'people', 'action' => 'index']);
             }
-            $this->Flash->error(__('Unable to update this user.'));
+            $this->Flash->error(__('Unable to update this user'));
         }
         $this->set('user', $user);
 

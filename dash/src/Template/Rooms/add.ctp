@@ -1,6 +1,6 @@
 <?php
     $this->Html->addCrumb('Properties', '/properties');
-    $this->Html->addCrumb('Rooms', '/rooms');
+    $this->Html->addCrumb('Rooms');
     $this->Html->addCrumb('Add Room', array('controller' => 'rooms', 'action' => 'add'));
 
 ?>    
@@ -17,7 +17,7 @@
       <div class="panel-body">
 
         <ul class="nav nav-pills pull-left">
-          <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
+         <!--  <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li> -->
           <li role="presentation" class="active"><?= $this->Html->link('New Room', ['action' => 'add']) ?></li>
         </ul>
 

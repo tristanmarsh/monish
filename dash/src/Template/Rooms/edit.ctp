@@ -10,7 +10,7 @@ $this->Html->addCrumb($room->room_name);
     <div class="panel-body">
 
         <ul class="nav nav-pills pull-left">
-            <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
+<!--             <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li> -->
             <li role="presentation"><?= $this->Html->link('New Room', ['action' => 'add']) ?></li>
         </ul>
 

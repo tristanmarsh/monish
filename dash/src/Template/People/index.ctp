@@ -30,6 +30,8 @@
         echo $gravatarImage;
         echo '<br><br>'."You are an Administrator. That's all we know about you.";
     ?>    
+    <?php echo $this->Html->link('Edit Username', ['controller' => 'users', 'action' => 'editusername', $currentlogged['id'], ]); ?>
+                <?php echo $this->Html->link('Edit Password', ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id'], ]); ?>
 
 <?php endif; ?>
 

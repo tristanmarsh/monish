@@ -16,10 +16,13 @@
 
     </div>
     <div class="panel-footer">
+        <?php
+          $person = $walrus->get($lease->student->person_id);
+          ?>
 
         <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $lease->id]) ?></li>
-            <li role="presentation" ><?= $this->Form->postLink('Delete', ['action' => 'delete', $lease->id],['confirm' => 'Delete ' . "Are you Sure?" , "escape" => false]) ?></li>
+            <li role="presentation" ><?= $this->Form->postLink('Delete', ['action' => 'delete', $lease->id],['confirm' => 'Delete ' . $lease->property->address. " ". $lease->room->room_name  .' Lease for '. $person->first_name . " " . $person->last_name . '?' , "escape" => false]) ?></li>
             <!-- <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $lease->id]) ?></li> -->
         </ul>
 

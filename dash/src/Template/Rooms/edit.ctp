@@ -22,6 +22,18 @@ $this->Html->addCrumb($room->room_name);
         <ul class="nav nav-pills pull-left">
             <li role="presentation"><?= $this->Html->link('View', ['action' => 'view', $room->id]) ?></li>
             <li role="presentation" class="active"><?= $this->Html->link('Edit', ['action' => 'edit', $room->id]) ?></li>
+            <li role="presentation">
+            <?php
+
+            if ($room->archived === "NO") {
+                echo $this->form->postLink('Archive Room', ['action' => 'archiveroom', $room->id], array('class' => 'menu-item-link', 'escape' => false)); 
+            }
+            else {
+                echo $this->form->postLink('Unarchive Room', ['action' => 'unarchiveroom', $room->id], array('class' => 'menu-item-link', 'escape' => false));
+            }
+
+            ?>
+        </li>
         </ul>
 
     </div>

@@ -36,9 +36,24 @@
                 ['controller'=>'rooms', 'action' => 'add', $entity->id] ); ?>
             </li>
 
-            <li role="presentation"><?= $this->Form->postLink('Delete',
+            <!-- <li role="presentation"><?= $this->Form->postLink('Delete',
                 ['controller'=>'properties', 'action' => 'delete', $entity->id],
                 ['confirm' => 'Are you sure?', "escape" => false]); ?>
+            </li> -->
+
+            <li role="presentation">
+
+                <?php
+
+                   if ($entity->archived === "NO") {
+                    echo $this->form->postLink('Archive Property', ['action' => 'archiveproperty', $entity->id], array('class' => 'menu-item-link', 'escape' => false)); 
+                   }
+                   else {
+                    echo $this->form->postLink('Unarchive Property', ['action' => 'unarchiveproperty', $entity->id], array('class' => 'menu-item-link', 'escape' => false));
+                   }
+
+                ?>
+
             </li>
 
         </ul>

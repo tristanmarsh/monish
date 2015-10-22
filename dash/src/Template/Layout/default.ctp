@@ -80,10 +80,20 @@ $cakeDescription = 'Monish Dashboard';
 		});
 	</script>
 
+	<!-- Buttons core css -->
+	<!-- <link rel="stylesheet" href="css/buttons.css"> -->
+
+	<!-- Only needed if you want support for dropdown menus -->
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+	<!-- <script type="text/javascript" src="js/buttons.js"></script> -->
+
+	<!-- Only needed if you want font icons -->
+	<!-- Maybe we already have them? -->
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+
 </head>
 
 <body>
-
 
 	<!-- User not logged in -->
 	<?php if (!$this->Session->read('Auth.User')) : ?>
@@ -103,11 +113,9 @@ $cakeDescription = 'Monish Dashboard';
 
 			</div>
 
-			<div class="row">
-				
-				<?php echo $this->element('navbar'); ?>
+					
+			<?php echo $this->element('navbar'); ?>
 
-			</div>
 
 			<div class="main-content">
 
@@ -151,30 +159,6 @@ $cakeDescription = 'Monish Dashboard';
 	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
 	<script type="text/javascript" charset="utf8" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
 
-	<!-- Attempt to use the moment library to make datatables sort things properly -->
-    <script>
-   //      $(document).ready( function () {
-   //      	$.fn.dataTable.moment( 'DD, MM, YYYY', 'en-AU' );
-   //          $('.datatable').DataTable();
-
-   //          $.fn.dataTable.moment = function ( format, locale ) {
-			//     var types = $.fn.dataTable.ext.type;
-			 
-			//     // Add type detection
-			//     types.detect.unshift( function ( d ) {
-			//         return moment( d, format, locale, true ).isValid() ?
-			//             'moment-'+format :
-			//             null;
-			//     } );
-			 
-			//     // Add sorting method - use an integer for the sorting
-			//     types.order[ 'moment-'+format+'-pre' ] = function ( d ) {
-			//         return moment( d, format, locale, true ).unix();
-			//     };
-			// };
-
-   //      } );
-    </script>
 
 	<!-- Initialize DataTable and update search bar -->
     <script>

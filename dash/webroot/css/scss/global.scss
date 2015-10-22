@@ -109,12 +109,21 @@ a {color:#618DB6;}
 }
 
 // #### HEADER ####
+
 header {
   height: auto;
   padding: 0;
 
   .page-header {
     margin-top:0;
+  }
+
+  #navigation-toggle {
+    font-size:3rem;
+    line-height:3rem;
+    padding:5px 10px;
+    margin:10px;
+    margin-left:0;
   }
 
   .breadcrumb {
@@ -155,12 +164,14 @@ header {
 
   }
 
+  .navbar-image img {
+    max-width: 100%;
+    height: 40px!important;
+  }
+
+
 }
 
-.navbar-image img {
-  max-width: 100%;
-  height: 40px!important;
-}
 
 
 
@@ -372,14 +383,6 @@ h6 {
 }
 
 
-// #### HEADER ####
-
-#navigation-toggle {
-  background:#337ab7;
-  span {
-    background:lighten(#337ab7,50%);
-  }
-}
 
 
 // #### CONTENT ####

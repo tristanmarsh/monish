@@ -113,20 +113,21 @@
       <?php
       $i=0;
       foreach ($leases as $lease) {
-
         $now = time(); 
         $your_date = strtotime($lease->date_end);
         $datediff = $your_date - $now;
 
-        if (floor($datediff/(60*60*24)) < 90 && floor($datediff/(60*60*24)) >= 30) {
+        if (floor($datediff/(60*60*24)) < 90 && floor($datediff/(60*60*24)) >= 30){
           $i+=1;
         }
+
       }
       ?> 
 
       <h1><?= $i ?></h1>
 
-      <span><?php if($i==0) {echo 'Leases';} else {echo 'Lease';} ?> ending within 90 days</span>
+      <span><?php if($i==1) {echo 'Lease';} else {echo 'Leases';} ?> ending within 3 months</span>
+
     </div>
 
     <?php $countninety = 0; ?>
@@ -429,33 +430,6 @@
 </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <?php endif; ?>

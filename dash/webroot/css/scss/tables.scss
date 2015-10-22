@@ -15,7 +15,6 @@ body {
   color: #70808e;
 }
 
-
 .search {
   
   width: 100%;
@@ -110,15 +109,6 @@ table:not(.ui-datepicker-calendar) {
 
   }
 
-  // No need to apply border radius when table footer has same effect
-  // & tr:last-child td:first-child {
-  //   border-bottom-left-radius:5px;
-  // }
-
-  // & tr:last-child td:last-child {
-  //   border-bottom-right-radius:5px;
-  // }
-
   // Table Action Buttons
   & td a {
     display:block;
@@ -178,7 +168,6 @@ table:not(.ui-datepicker-calendar) {
     background: lighten(#2980b9,10%);
   }
 
-
   // Close Icon Color
   td.action-close>a span:before,
   td.action-close>a span:before{
@@ -191,17 +180,16 @@ table:not(.ui-datepicker-calendar) {
     background: lighten(#5fcf80,10%);
   }
 
-
   // Remove Icon Color
   td.action-remove>a span:before,
   td.action-remove>a span:before{
-    color: lighten(#CF6370,10%);
+    color:rgba(255,105,97,0.8);
   }  
 
   // Remove hover background
   td.action-remove>a:focus,
   td.action-remove>a:hover {
-    background: lighten(#CF6370,10%);
+    background:rgba(255,105,97,0.8);
   }
 
   // Action hover icon color

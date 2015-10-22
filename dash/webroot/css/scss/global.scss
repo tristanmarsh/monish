@@ -234,30 +234,44 @@ h6 {
 
   & h1 {
     color:#fff;
+    font-size:5rem;
+    margin:0;
   }
 
 }
 
 .panel-primary.panel-30-day {
 
+  h1 {
+    color:rgb(255, 105, 97);
+  }
+
   table thead th {
-    background: #EDD7E2!important;
+    background: rgba(255, 105, 97, 0.8);
   }
 
 }
 
 .panel-primary.panel-90-day {
- 
+
+  h1 {
+    color:rgb(255, 179, 71);
+  }
+
   table thead th {
-    background: #D4D3BB!important;
+    background: rgba(255, 179, 71, 0.8);
   }
 
 }
 
 .panel-primary.panel-180-day {
 
+  h1 {
+    color:rgb(119, 221, 119);
+  }
+
   table thead th {
-    background: #CFE0CA!important;
+    background: rgba(119, 221, 119, 0.8);
   }
 
 }

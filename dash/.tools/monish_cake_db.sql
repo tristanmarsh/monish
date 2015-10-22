@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2015 at 10:42 AM
+-- Generation Time: Oct 22, 2015 at 09:00 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `lastroomupdate` (
 --
 
 INSERT INTO `lastroomupdate` (`id`, `date`) VALUES
-(1, '2015-10-14');
+(1, '2015-10-22');
 
 -- --------------------------------------------------------
 
@@ -282,7 +282,7 @@ CREATE TABLE IF NOT EXISTS `rooms` (
   `property_id` int(11) NOT NULL,
   `room_name` varchar(50) NOT NULL,
   `vacant` enum('TRUE','FALSE') NOT NULL,
-  `archived` enum('NO','YES') NOT NULL DEFAULT 'NO',
+  `room_archived` enum('NO','YES') NOT NULL DEFAULT 'NO',
   PRIMARY KEY (`id`),
   KEY `property_id` (`property_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
@@ -291,8 +291,8 @@ CREATE TABLE IF NOT EXISTS `rooms` (
 -- Dumping data for table `rooms`
 --
 
-INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`, `archived`) VALUES
-(1, 1, 'room 1', 'FALSE', 'NO'),
+INSERT INTO `rooms` (`id`, `property_id`, `room_name`, `vacant`, `room_archived`) VALUES
+(1, 1, 'room 1', 'FALSE', 'YES'),
 (2, 1, 'room 2', 'TRUE', 'NO'),
 (3, 1, 'room 3', 'FALSE', 'NO'),
 (4, 1, 'room 4', 'TRUE', 'NO'),

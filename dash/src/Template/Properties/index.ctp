@@ -77,7 +77,7 @@ echo $this->Html->link('<h3 class="panel-title text-center">' . $property->addre
     </thead>
     <tbody>
         <?php foreach ($property->rooms as $rooms): ?>
-        <?php if($rooms->archived === 'NO') : ?>
+        <?php if($rooms->room_archived === 'NO') : ?>
         <tr>
 
             <!-- Room Name -->    

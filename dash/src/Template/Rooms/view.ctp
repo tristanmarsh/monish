@@ -31,11 +31,11 @@ $this->Html->addCrumb($room->room_name);
         <li role="presentation">
             <?php
 
-            if ($room->archived === "NO") {
-                echo $this->form->postLink('Archive Room', ['action' => 'archiveroom', $room->id], array('class' => 'menu-item-link', 'escape' => false)); 
+            if ($room->room_archived === "NO") {
+                echo $this->Form->postLink('Archive Room', ['action' => 'archiveroom', $room->id], array('class' => 'menu-item-link', 'escape' => false)); 
             }
             else {
-                echo $this->form->postLink('Unarchive Room', ['action' => 'unarchiveroom', $room->id], array('class' => 'menu-item-link', 'escape' => false));
+                echo $this->Form->postLink('Unarchive Room', ['action' => 'unarchiveroom', $room->id], array('class' => 'menu-item-link', 'escape' => false));
             }
 
             ?>

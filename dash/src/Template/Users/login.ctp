@@ -30,7 +30,7 @@
 
         <h1><?= $i ?></h1>
 
-        <span>Leases expiring in 30 days</span>
+        <span>Lease(s) expiring in 30 days</span>
       </div>
 
       <?php $countthirty = 0; ?>
@@ -124,7 +124,7 @@
         
         <h1><?= $i ?></h1>
 
-        <span>Leases expiring in 90 days</span>
+        <span>Lease(s) expiring in 90 days</span>
       </div>
 
       <?php $countninety = 0; ?>
@@ -209,7 +209,7 @@
 
       <h1><?= $i ?></h1>
 
-      <span>Leases expiring in 180 days</span>
+      <span>Lease(s) expiring in 180 days</span>
     </div>
 
     <?php $countonehundredandeighty = 0; ?>

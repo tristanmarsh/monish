@@ -4,7 +4,7 @@ $this->Html->addCrumb('Leases', '/leases');
 <h1>Leases</h1>
 
 <!-- File: src/Template/Leases/index.ctp -->
-<div class="panel panel-default clearfix">
+<div class="panel panel-default panel-actionbar clearfix">
 
   <div class="panel-body">
 
@@ -12,7 +12,11 @@ $this->Html->addCrumb('Leases', '/leases');
       <ul class="nav nav-pills pull-left">
         <li role="presentation" class="active"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
         <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
-        <li role="presentation"><?= $this->Html->link('New Lease', ['action' => 'add']) ?></li>
+        <li role="presentation"><?= $this->Html->link(
+          '<i class="glyphicon-plus"></i><span>New Lease</span>',
+          ['action' => 'add'],
+          ['escape'=>false]);
+        ?></li>
 
       </div>
       <div class="col-sm-6 clearfix">

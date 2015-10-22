@@ -55,26 +55,26 @@ Since:    15/8/15
       background: darken(#2980b9,5%);
     }
 
-    // Hover Direction Preview
-    &:focus:after,
-    &:hover:after {
-      opacity:1;
-    }
+    // // Hover Direction Preview
+    // &:focus:after,
+    // &:hover:after {
+    //   opacity:1;
+    // }
     
-    //Make preview Hidden for active state
-    &[class^='sorting_']:after {
-      opacity:1;
-    }
+    // //Make preview Hidden for active state
+    // &[class^='sorting_']:after {
+    //   opacity:1;
+    // }
 
-    //inherited from hover preview
-    &.asc:after {
-      content:inherit;
-    }
+    // //inherited from hover preview
+    // &.asc:after {
+    //   content:inherit;
+    // }
     
-    //modify from inherited hover preview
-    &.sorting_desc:after {
-      content:'\25BC';
-    }
+    // //modify from inherited hover preview
+    // &.sorting_desc:after {
+    //   content:'\25BC';
+    // }
 
   }
 
@@ -84,10 +84,6 @@ Since:    15/8/15
     cursor: pointer;
     *cursor: hand;
   }
-
-
-
-
 
 
   // Showing x to y of z results
@@ -172,5 +168,64 @@ Since:    15/8/15
   .dataTables_empty {
     padding:20px;
   }
+
+
+  // Datatables Additions
+  table.dataTable thead > tr > th.sorting_asc, table.dataTable thead > tr > th.sorting_desc, table.dataTable thead > tr > th.sorting,
+  table.dataTable thead > tr > td.sorting_asc,
+  table.dataTable thead > tr > td.sorting_desc,
+  table.dataTable thead > tr > td.sorting {
+    padding-right: 30px;
+  }
+
+  table.dataTable thead .sorting:after,
+  table.dataTable thead .sorting_asc:after,
+  table.dataTable thead .sorting_desc:after,
+  table.dataTable thead .sorting_asc_disabled:after,
+  table.dataTable thead .sorting_desc_disabled:after {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    display: block;
+    font-family: 'Glyphicons Halflings';
+    opacity: 0.5;
+  }
+  table.dataTable thead .sorting:after {
+    opacity: 0.2;
+    content: "\e150";
+    /* sort */
+  }
+  table.dataTable thead .sorting_asc:after {
+    content: "\e155";
+    /* sort-by-attributes */
+  }
+  table.dataTable thead .sorting_desc:after {
+    content: "\e156";
+    /* sort-by-attributes-alt */
+  }
+  table.dataTable thead .sorting_asc_disabled:after,
+  table.dataTable thead .sorting_desc_disabled:after {
+    color: #eee;
+  }
+
+  div.dataTables_scrollHead table.dataTable {
+    margin-bottom: 0 !important;
+  }
+
+  div.dataTables_scrollBody table {
+    border-top: none;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  div.dataTables_scrollBody table thead .sorting:after,
+  div.dataTables_scrollBody table thead .sorting_asc:after,
+  div.dataTables_scrollBody table thead .sorting_desc:after {
+    display: none;
+  }
+  div.dataTables_scrollBody table tbody tr:first-child th,
+  div.dataTables_scrollBody table tbody tr:first-child td {
+    border-top: none;
+  }
+
 
 }

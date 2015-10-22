@@ -29,16 +29,35 @@
 
 <h1>New Lease</h1>
 
-<div class="panel panel-default clearfix">
+<div class="panel panel-default panel-actionbar clearfix">
 
   <div class="panel-body">
 
-    <ul class="nav nav-pills pull-left">
-      <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
-      <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
-      <li role="presentation" class="active"><?= $this->Html->link('New Lease', ['action' => 'add']) ?></li>
-    </ul>
+    <div class="button-group">
 
+      <?= $this->Html->link(
+      '<i class="fa fa-home"></i> Current',
+      ['action' => 'index'],
+      ['class' => 'button button-pill button-primary ', 'escape' => false]
+      ); ?>
+
+      <?= $this->Html->link(
+      '<i class="fa fa-archive"></i> Archived',
+      ['action' => 'archived'],
+      ['class' => 'button button-pill button-primary ', 'escape' => false]
+      ); ?>
+
+    </div>
+    
+    <div class="button-group">
+      <?= $this->Html->link(
+      '<i class="fa fa-plus"></i> New Lease',
+      ['action' => 'add'],
+      ['class' => 'button button-pill button-action  active', 'escape' => false]
+      ); ?>
+
+    </div>
+        
   </div>
 
 </div>

@@ -9,32 +9,45 @@ Since:      23/10/15
 
 .panel-actionbar {
 
-  .nav-pills {
+  .search {
+    
+    width: 100%;
+    padding:6px 0;
+    position:absolute;
+    
 
-    li a {
-
-      transition:$standard-transition;
-
-      &:hover {
-        background:$green;
-        // color:#fff;
-      }
-
+    input[type="text"].form-control {
+      display: block;
+      top:0;
+      height: 100%;
+      width: 100%;
+      font-size:2rem;
+      border-radius: 5px;
     }
 
-    li .glyphicon-plus {
-      position:absolute;
-      left:0.3em;
-      top:-0.18em;
-      font-size:3rem;
-
-    }
-
-    li .glyphicon-plus + span {
-      padding-left:1em; 
+    .input-group-btn {
+      opacity: 0;
+      visibility:none;
     }
 
   }
 
+  .button,
+  .button>label {
+
+    color:#fff;
+    font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    transition:$standard-transition;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+  }
+
+  .button.active {
+    color:#fff;
+  }
 
 }

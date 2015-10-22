@@ -4,40 +4,55 @@ $this->Html->addCrumb('Leases', '/leases');
 <h1>Archived</h1>
 
 <!-- File: src/Template/Leases/index.ctp -->
-<div class="panel panel-default clearfix">
+<div class="panel panel-default panel-actionbar clearfix">
 
   <div class="panel-body">
 
-    <div class="col-sm-6 clearfix"> 
-    <ul class="nav nav-pills pull-left">
-      <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
-      <li role="presentation" class="active"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
-      <li role="presentation"><?= $this->Html->link('New Lease', ['action' => 'add']) ?></li>
+    <div class="row">
+
+      <div class="col-sm-6 clearfix"> 
+
+        <div class="button-group">
+
+          <?= $this->Html->link(
+          '<i class="fa fa-home"></i> Current',
+          ['action' => 'index'],
+          ['class' => 'button button-pill button-primary ', 'escape' => false]
+          ); ?>
+
+          <?= $this->Html->link(
+          '<i class="fa fa-archive"></i> Archived',
+          ['action' => 'archived'],
+          ['class' => 'button button-pill button-primary  active', 'escape' => false]
+          ); ?>
 
         </div>
+        
+        <div class="button-group">
+          <?= $this->Html->link(
+          '<i class="fa fa-plus"></i> New Lease',
+          ['action' => 'add'],
+          ['class' => 'button button-pill button-action ', 'escape' => false]
+          ); ?>
+
+        </div>
+        
+      </div>
+
+      
       <div class="col-sm-6 clearfix">
         <div class="input-group input-lg search">
           <input type="text" class="form-control" placeholder="Filter Records" id="myInputTextField">
           <div class="input-group-btn">
 
+
           </div>
         </div>
-
-
       </div>
-    </ul>
+
+    </div>
 
   </div>
-
-<!--     <div class="panel-footer">
-
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><a href="#">Imagine</a></li>
-            <li role="presentation"><a href="#">Secondary</a></li>
-            <li role="presentation"><a href="#">Buttons</a></li>
-        </ul>
-
-      </div> -->
 
 </div>
 

@@ -15,27 +15,6 @@ body {
   color: #70808e;
 }
 
-.search {
-  
-  width: 100%;
-  padding:6px 0;
-
-  input[type="text"].form-control {
-    display: block;
-    top:0;
-    height: 100%;
-    width: 100%;
-    font-size:2rem;
-    border-radius: 5px;
-  }
-
-  .input-group-btn {
-    opacity: 0;
-    visibility:none;
-  }
-}
-
-
 // Effective Table Footer
 .table-responsive {
   border-radius: 0 0 5px 5px;
@@ -207,6 +186,5 @@ table:not(.ui-datepicker-calendar) {
   & .checkbox {
     margin:0;
   }
-
 
 }

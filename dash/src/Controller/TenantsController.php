@@ -139,7 +139,7 @@ class TenantsController extends AppController
         $user = $this->People->newEntity();
 
         $properties = $this->Properties->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'address']);
-        $rooms = $this->Leases->Rooms->find('list', ['groupField' => 'property.address', 'conditions'=>['vacant'=>'TRUE', 'rooms.archived'=>'NO']])->contain('Properties');
+        $rooms = $this->Leases->Rooms->find('list', ['groupField' => 'property.address', 'conditions'=>['room_archived'=>'NO']])->contain('Properties');
         $this->set(compact('rooms', 'properties'));  
 
         if ($this->request->is('post')) {

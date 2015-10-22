@@ -201,7 +201,7 @@ class RoomsController extends AppController
         $room = $roomsTable->get($id);
         $this->set(compact('room'));
 
-        $room->archived = 'YES';
+        $room->room_archived = 'YES';
 
         $roomsTable->save($room);
 
@@ -218,7 +218,7 @@ class RoomsController extends AppController
         $room = $roomsTable->get($id);
         $this->set(compact('room'));
 
-        $room->archived = 'NO';
+        $room->room_archived = 'NO';
 
         $roomsTable->save($room);
 

@@ -212,7 +212,7 @@ class LeasesController extends AppController
             }
         }
         //$properties = $this->Leases->Properties->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'address']);
-        $rooms = $this->Leases->Rooms->find('list', ['groupField' => 'property.address', 'conditions'=>['vacant'=>'TRUE', 'rooms.archived'=>'NO']])->contain('Properties');
+        $rooms = $this->Leases->Rooms->find('list', ['groupField' => 'property.address', 'conditions'=>['room_archived'=>'NO']])->contain('Properties');
         $students = $this->Leases->Students->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'person.full_name'])->contain(['People']);
         $this->set(compact('lease', 'rooms', 'students', 'properties'));
         $this->set('_serialize', ['lease']);

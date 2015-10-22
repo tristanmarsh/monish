@@ -261,10 +261,10 @@
                                 <td>
                                     <?= $this->Html->link("", ['controller'=>'rooms', 'action' => 'view', $rooms->id]) ?>
                                     <?php
-                                    if ($rooms->archived === 'NO') {
+                                    if ($rooms->room_archived === 'NO') {
                                         echo "No";
                                     }
-                                    if ($rooms->archived === 'YES') {
+                                    if ($rooms->room_archived === 'YES') {
                                         echo "Yes";
                                     }
                                     ?>

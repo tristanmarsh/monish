@@ -35,15 +35,9 @@
 
     </div>
 
-<!--     <div class="panel-footer">
-
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><a href="#">Imagine</a></li>
-            <li role="presentation"><a href="#">Secondary</a></li>
-            <li role="presentation"><a href="#">Buttons</a></li>
-        </ul>
-
-    </div> -->
+    <div class="panel-body">
+        MAC address or Physical address, Looks like 34:45:56:ed:34:23 or 34-45-56-ed-34-23
+    </div>
 
 </div>
 

@@ -3,7 +3,7 @@
 ?>    
 <h1>Properties</h1>
 
-<div class="panel panel-default clearfix">
+<div class="panel panel-default panel-actionbar clearfix">
     
     <div class="panel-body">
 
@@ -16,29 +16,17 @@
             
         </div>
 
-        <div class="col-sm-6 clearfix">
+      <div class="col-sm-6 clearfix">
 
-        <div class="input-group input-lg search">
-          <input type="text" class="form-control" placeholder="Filter Records" id="myInputTextField">
-          <div class="input-group-btn">
-                    
+        <form class="searchbox">
+          <input type="search" id="myInputTextField" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+          <input type="submit" class="searchbox-submit" value="Go">
+          <span class="searchbox-icon"><i class="fa fa-search"></i></span>
+        </form>
 
-                </div>
-            </div>
-
-        </div>
+      </div>
 
     </div>
-
-<!--     <div class="panel-footer">
-
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><a href="#">Imagine</a></li>
-            <li role="presentation"><a href="#">Secondary</a></li>
-            <li role="presentation"><a href="#">Buttons</a></li>
-        </ul>
-
-    </div> -->
 
 </div>
     

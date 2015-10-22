@@ -7,27 +7,38 @@
 
 <h1>Requests</h1>
 
-<div class="panel panel-default clearfix">
+<div class="panel panel-default panel-actionbar clearfix">
     
     <div class="panel-body">
 
-        <div class="col-sm-6 clearfix">
-            <ul class="nav nav-pills pull-left">
-                <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-                <li role="presentation"><?= $this->Html->link('New Request', ['action' => 'add']) ?></li>
-            </ul>
+        <div class="row">
+
+            <div class="col-sm-6 clearfix">
+
+                <?= $this->Html->link(
+                '<i class="fa fa-flash"></i> Current',
+                ['action' => 'index'],
+                ['class' => 'button button-pill button-primary button-3d active', 'escape' => false]
+                ); ?>
+
             
-        </div>
+                <?= $this->Html->link(
+                '<i class="fa fa-plus"></i> New Tenant',
+                ['action' => 'add'],
+                ['class' => 'button button-pill button-action button-3d', 'escape' => false]
+                ); ?>
 
-        <div class="col-sm-6 clearfix">
-
-        <div class="input-group input-lg search">
-          <input type="text" class="form-control" placeholder="Filter Records" id="myInputTextField">
-          <div class="input-group-btn">
-                    
+            </div>
 
 
-                </div>
+            <div class="col-sm-6 clearfix">
+
+                <form class="searchbox">
+                <input type="search" id="myInputTextField" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+                <input type="submit" class="searchbox-submit" value="Go">
+                <span class="searchbox-icon"><i class="fa fa-search"></i></span>
+                </form>
+
             </div>
 
         </div>

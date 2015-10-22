@@ -4,44 +4,56 @@
 
 <h1>Tenants</h1>
 
-<div class="panel panel-default clearfix">
+<div class="panel panel-default panel-actionbar clearfix">
     
     <div class="panel-body">
 
-        <div class="col-sm-6 clearfix">
-            <ul class="nav nav-pills pull-left">
-                <li role="presentation" class="active"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
-                <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
-                <li role="presentation"><?= $this->Html->link('New Tenant', ['action' => 'add']) ?></li>
-            </ul>
-            
-        </div>
+        <div class="row">
 
-        <div class="col-sm-6 clearfix">
+            <div class="col-sm-6 clearfix">
+                <div class="button-group">
 
-        <div class="input-group input-lg search">
-          <input type="text" class="form-control" placeholder="Filter Records" id="myInputTextField">
-          <div class="input-group-btn">
-                    
+                    <?= $this->Html->link(
+                    '<i class="fa fa-flash"></i> Current',
+                    ['action' => 'index'],
+                    ['class' => 'button button-pill button-primary button-3d active', 'escape' => false]
+                    ); ?>
+
+                    <?= $this->Html->link(
+                    '<i class="fa fa-archive"></i> Archived',
+                    ['action' => 'archived'],
+                    ['class' => 'button button-pill button-primary button-3d', 'escape' => false]
+                    ); ?>
 
                 </div>
+                
+                <div class="button-group">
+                    <?= $this->Html->link(
+                    '<i class="fa fa-plus"></i> New Tenant',
+                    ['action' => 'add'],
+                    ['class' => 'button button-pill button-action button-3d', 'escape' => false]
+                    ); ?>
+
+                </div>                
+                
+            </div>
+
+
+            <div class="col-sm-6 clearfix">
+
+                <form class="searchbox">
+                <input type="search" id="myInputTextField" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+                <input type="submit" class="searchbox-submit" value="Go">
+                <span class="searchbox-icon"><i class="fa fa-search"></i></span>
+                </form>
+
             </div>
 
         </div>
 
     </div>
-
-<!--     <div class="panel-footer">
-
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><a href="#">Imagine</a></li>
-            <li role="presentation"><a href="#">Secondary</a></li>
-            <li role="presentation"><a href="#">Buttons</a></li>
-        </ul>
-
-    </div> -->
-
 </div>
+
 
 <div class="panel panel-primary">
   <!-- Default panel contents -->

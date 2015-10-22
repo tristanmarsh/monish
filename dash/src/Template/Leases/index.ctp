@@ -15,15 +15,15 @@ $this->Html->addCrumb('Leases', '/leases');
         <div class="button-group">
 
           <?= $this->Html->link(
-          '<i class="fa fa-home"></i> Current',
+          '<i class="fa fa-flash"></i> Current',
           ['action' => 'index'],
-          ['class' => 'button button-pill button-primary  active', 'escape' => false]
+          ['class' => 'button button-pill button-primary button-3d active', 'escape' => false]
           ); ?>
 
           <?= $this->Html->link(
           '<i class="fa fa-archive"></i> Archived',
           ['action' => 'archived'],
-          ['class' => 'button button-pill button-primary ', 'escape' => false]
+          ['class' => 'button button-pill button-primary button-3d', 'escape' => false]
           ); ?>
 
         </div>
@@ -32,7 +32,7 @@ $this->Html->addCrumb('Leases', '/leases');
           <?= $this->Html->link(
           '<i class="fa fa-plus"></i> New Lease',
           ['action' => 'add'],
-          ['class' => 'button button-pill button-action ', 'escape' => false]
+          ['class' => 'button button-pill button-action button-3d', 'escape' => false]
           ); ?>
 
         </div>
@@ -41,13 +41,13 @@ $this->Html->addCrumb('Leases', '/leases');
 
       
       <div class="col-sm-6 clearfix">
-        <div class="input-group input-lg search">
-          <input type="text" class="form-control" placeholder="Filter Records" id="myInputTextField">
-          <div class="input-group-btn">
 
+        <form class="searchbox">
+          <input type="search" id="myInputTextField" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+          <input type="submit" class="searchbox-submit" value="Go">
+          <span class="searchbox-icon"><i class="fa fa-search"></i></span>
+        </form>
 
-          </div>
-        </div>
       </div>
 
     </div>

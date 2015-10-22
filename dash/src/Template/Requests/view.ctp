@@ -70,7 +70,7 @@
 <table>
 
     <tr>
-      <th>Title: <?= h($giraffe->title) ?></th>
+      <td>Title: <?= h($giraffe->title) ?></td>
     </tr>
 
     <tr>

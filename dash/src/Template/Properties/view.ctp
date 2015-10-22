@@ -85,7 +85,7 @@
         <div class="panel panel-primary">
             <!-- Default panel contents -->
             <div class="panel-heading">
-                <h2 class="panel-title">Related Rooms</h2>
+                <h2 class="panel-title">Rooms</h2>
             </div>
 
             <div class="table-responsive">
@@ -93,7 +93,7 @@
                     <table class="datatable">
                         <thead>
                         <tr>
-                            <th>Room Name</th>
+                            <th>Room</th>
                             <th colspan="2">Tenant</th>
                             <th>Status</th>
                             <th>Archived</th>

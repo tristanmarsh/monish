@@ -243,11 +243,11 @@ h6 {
 .panel-primary.panel-30-day {
 
   h1 {
-    color:rgb(255, 105, 97);
+    color:$red;
   }
 
   table thead th {
-    background: rgba(255, 105, 97, 0.8);
+    background:lighten($red,5%);
   }
 
 }
@@ -255,11 +255,11 @@ h6 {
 .panel-primary.panel-90-day {
 
   h1 {
-    color:rgb(255, 179, 71);
+    color:$orange;
   }
 
   table thead th {
-    background: rgba(255, 179, 71, 0.8);
+    background:lighten($orange,5%);
   }
 
 }
@@ -267,11 +267,11 @@ h6 {
 .panel-primary.panel-180-day {
 
   h1 {
-    color:rgb(119, 221, 119);
+    color:$green;
   }
 
   table thead th {
-    background: rgba(119, 221, 119, 0.8);
+    background: lighten($green, 5%);
   }
 
 }
@@ -312,7 +312,6 @@ h6 {
 
   .header {}
 
-
   .panel-default,
   .panel-primary {
     border-color:#D5E4F1;
@@ -347,20 +346,20 @@ h6 {
 
 }
 
-  .navbar-toggle {
-      display: block;
-    position: relative;
-    float: left;
-    padding-left: 15px;
-    padding: 9px 10px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    background-color: transparent;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    left: 10px;
-  }
+.navbar-toggle {
+  display: block;
+  position: relative;
+  float: left;
+  padding-left: 15px;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  left: 10px;
+}
 
 @media (min-width: 768px) {
   .navbar-toggle {

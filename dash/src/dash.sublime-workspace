@@ -240,6 +240,8 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/archived.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/index.ctp",
@@ -248,7 +250,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/archived.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Controller/PropertiesController.php",
@@ -261,7 +262,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/footer.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/custom.scss",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/edit.ctp",
@@ -375,7 +375,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"",
@@ -397,6 +397,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"<span>Leases expiring in",
+			"leases",
 			"col-sm-6",
 			"Single button",
 			"Single button\nSingle button",
@@ -522,9 +524,7 @@
 			"action",
 			"ok",
 			"title",
-			"panel",
-			"active",
-			"footer"
+			"panel"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -628,6 +628,10 @@
 		"selected_items":
 		[
 			[
+				"login.ctp",
+				"dash/src/Template/Users/login.ctp"
+			],
+			[
 				"propertiesadd",
 				"dash/src/Template/Properties/add.ctp"
 			],
@@ -670,10 +674,6 @@
 			[
 				"login",
 				"dash/src/Template/Element/login.ctp"
-			],
-			[
-				"login.ctp",
-				"dash/src/Template/Users/login.ctp"
 			],
 			[
 				"requests/index",

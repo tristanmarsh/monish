@@ -230,40 +230,34 @@ h6 {
 
 } 
 
-.panel-primary.panel-30-day {
+.panel-primary {
 
-  &>.panel-heading {
-    background: #ED5A5A;
-    border-bottom:1px solid #B03F3F;
+  & h1 {
+    color:#fff;
   }
 
+}
+
+.panel-primary.panel-30-day {
+
   table thead th {
-    background: #EDA2A0!important;
+    background: #EDD7E2!important;
   }
 
 }
 
 .panel-primary.panel-90-day {
-
-  &>.panel-heading {
-    background: #D4D05A;
-    border-bottom:1px solid #AEAB49;
-  }
  
   table thead th {
-    background: #D4CF8C!important;
+    background: #D4D3BB!important;
   }
 
 }
 
 .panel-primary.panel-180-day {
 
-  &>.panel-heading {
-    background: #5fcf80;
-    border-bottom:1px solid #459E5F;
-  }
   table thead th {
-    background: #A2CFA5!important;
+    background: #CFE0CA!important;
   }
 
 }

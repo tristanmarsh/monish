@@ -1,6 +1,6 @@
 /*
 Name:   Custom.SCSS
-Author:   Team Dash
+Author:   Tristan Marsh
 Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  All custom styling for the Monish Dashboard
 Note:     Remeber mobile first methodology when styling
@@ -16,6 +16,7 @@ Since:    29/4/15
 @import 'override.scss';
 @import 'footer.scss';
 @import 'sidebar.scss';
+@import 'actionbar.scss';
 @import 'tables.scss';
 @import 'datatables.scss';
 @import 'global.scss';

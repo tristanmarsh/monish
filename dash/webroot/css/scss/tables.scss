@@ -1,6 +1,6 @@
 /*
 Name:   tables.SCSS
-Author:   Team Dash
+Author:   Tristan Marsh
 Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  All custom styling for tables
 Since:    30/7/15
@@ -55,7 +55,6 @@ table:not(.ui-datepicker-calendar) {
     color: #3C73C3;
     text-decoration: none;
   }
-
   
   // Table Header
   & thead th {
@@ -69,7 +68,6 @@ table:not(.ui-datepicker-calendar) {
     color:#fff;
     padding: 6px 12px;
     color:#fff;
-  
   }
 
   // Table Row
@@ -212,4 +210,3 @@ table:not(.ui-datepicker-calendar) {
 
 
 }
-

@@ -291,19 +291,6 @@ h6 {
   background: rgb(236,242,246);
   transition: all 400ms ease-out;
 
-
-  &:before {
-    // content: "";
-    // display: block;
-    // width:100vw;
-    // height:100vh;
-    // background: #bada55;
-    // position:absolute;
-    // top:-30%;
-    // left:0%;
-    // z-index:9999;
-  }
-
   .content {
     margin-top:70px;
     min-height:70vh;
@@ -387,7 +374,6 @@ h6 {
 
 // #### HEADER ####
 
-
 #navigation-toggle {
   background:#337ab7;
   span {
@@ -397,6 +383,9 @@ h6 {
 
 
 // #### CONTENT ####
+
+
+// #### PROPERTIES ####
 
 .panel-property {
   

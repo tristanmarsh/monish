@@ -124,7 +124,7 @@
         
         <h1><?= $i ?></h1>
 
-        <span>Leases expiring in 30 days</span>
+        <span>Leases expiring in 90 days</span>
       </div>
 
       <?php $countninety = 0; ?>

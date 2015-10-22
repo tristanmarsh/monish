@@ -240,6 +240,8 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/webroot/js/custom.js",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/index.ctp",
@@ -257,7 +259,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/bake/tests/TestCase/Utility/Model/AssociationFilterTest.php",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/lab10.sublime-workspace",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/add.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
 		"/Users/dev/Desktop/Build 5 Feedback.txt",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/footer.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/add.ctp",
@@ -316,7 +317,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/psy/psysh/src/Psy/Command/ListCommand/GlobalVariableEnumerator.php",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/override.scss",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/js/custom.js",
 		"/Users/dev/Desktop/dataTables.min.js",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/app.js",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Collection/Iterator/BufferedIterator.php",
@@ -628,6 +628,14 @@
 		"selected_items":
 		[
 			[
+				"custom.js",
+				"dash/webroot/js/custom.js"
+			],
+			[
+				"layout",
+				"dash/src/Template/Layout/default.ctp"
+			],
+			[
 				"login.ctp",
 				"dash/src/Template/Users/login.ctp"
 			],
@@ -888,10 +896,6 @@
 				"dash/src/Template/Users/forgot_password.ctp"
 			],
 			[
-				"layout",
-				"dash/src/Template/Layout/default.ctp"
-			],
-			[
 				"navbar",
 				"dash/src/Template/Element/navbar.ctp"
 			],
@@ -966,10 +970,6 @@
 			[
 				"users/lo",
 				"dash/src/Template/Users/login.ctp"
-			],
-			[
-				"custom.js",
-				"dash/webroot/js/custom.js"
 			],
 			[
 				"globabl",

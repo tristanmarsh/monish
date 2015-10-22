@@ -53,24 +53,22 @@ $cakeDescription = 'Monish Dashboard';
 	<?= $this->Html->css('animate.min.css') ?>
 	<?= $this->Html->css('custom.css') ?>
 
-	<!-- jQuery -->
-	<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-	
+	<!-- Scripts -->
 	<?= $this->Html->script('wow.min.js') ?>
 	<?= $this->Html->script('min/nprogress-min.js') ?>
 	<?= $this->Html->script('min/custom-min.js') ?>
-	<?= $this->Html->script('date.js') ?>
 	
 	<?= $this->fetch('meta') ?>
 	<?= $this->fetch('css') ?>
 	<?= $this->fetch('script') ?>
 
+	<!-- Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Raleway|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
+	
 	
 	<script>
 		new WOW().init();
 	</script>
-
 
 	<script>
 		NProgress.start();
@@ -82,12 +80,9 @@ $cakeDescription = 'Monish Dashboard';
 
 	<!-- Buttons core css -->
 	<!-- <link rel="stylesheet" href="css/buttons.css"> -->
-
 	<!-- Only needed if you want support for dropdown menus -->
 	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
 	<!-- <script type="text/javascript" src="js/buttons.js"></script> -->
-
-	<!-- Only needed if you want font icons -->
 	<!-- Maybe we already have them? -->
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
 
@@ -154,11 +149,6 @@ $cakeDescription = 'Monish Dashboard';
         //This puts a cursor pointer in all table rows with a link
         $('td>a').parent().css("cursor","pointer")
     </script>
-
-	<!-- DataTables -->
-	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
-	<script type="text/javascript" charset="utf8" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
-
 
 	<!-- Initialize DataTable and update search bar -->
     <script>

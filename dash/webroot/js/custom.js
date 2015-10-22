@@ -4,6 +4,8 @@ Author:   	Team Dash
 Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  	All custom scripting for Monish Dashboard
 Since:    	31/7/15
+Note:       This file prepends multiple javascript libraries using Codekit!
+Prepends:   Jquery, bootstrap, NProgress, wow
 */
 
 // jQuery(document).ready(function($) {
@@ -17,7 +19,7 @@ Since:    	31/7/15
 
 //This is supposed to apply and remove the style when the scrollbar is not at the top and back at the top, respectively
 //Note to self. Remove all CDN stuff. fonts/etc/
-$(document).ready(function() {
-	window.console.log('go');
-	$('.header').css('box-shadow', '0 5px 10px 0px rgba(118, 170, 219, 0.8)');
-})(jQuery);
+// $(document).ready(function() {
+// 	window.console.log('go');
+// 	$('.header').css('box-shadow', '0 5px 10px 0px rgba(118, 170, 219, 0.8)');
+// })(jQuery);

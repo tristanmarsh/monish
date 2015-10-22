@@ -14,13 +14,13 @@
 					
 				</div>
 
-<!--				<div class="col-md-4">-->
-<!--					<h4>Help</h4>-->
-<!--					<ul class="list-unstyled">-->
-<!--						<li><a href="http://localhost/monish/documentation/">Doumentation</a></li>-->
-<!--						<li><a href="http://localhost/monish/documentation/#screencasts	">Screencasts</a></li>-->
-<!--					</ul>-->
-<!--				</div>-->
+				<div class="col-md-4">
+					<h4>Help</h4>
+					<ul class="list-unstyled">
+						<li><a href="http://localhost/monish/documentation/">Doumentation</a></li>
+						<li><a href="http://localhost/monish/documentation/#screencasts	">Screencasts</a></li>
+					</ul>
+				</div>
 
 				<div class="col-md-4">
 					<h4>Issues</h4>

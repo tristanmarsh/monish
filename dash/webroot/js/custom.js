@@ -25,6 +25,16 @@ Prepends:   Jquery, bootstrap, NProgress, wow
 // })(jQuery);
 
 
+
+
+
+// Cookie Goodness
+
+
+
+
+
+
 //Search box expand
 $(document).ready(function(){
 var submitIcon = $('.searchbox-icon');

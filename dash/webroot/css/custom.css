@@ -838,22 +838,6 @@ h1, h2, h3, h4, h5, h6 { font-family: "Raleway", serif; color: #5986AD; }
 
 @media (min-width: 768px) { .navbar-toggle { display: block; position: relative; float: left; padding-left: 15px; padding: 9px 10px; margin-top: 8px; margin-bottom: 8px; background-color: transparent; background-image: none; border: 1px solid transparent; border-radius: 4px; left: 10px; }
   .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand { margin-left: 10px; } }
-.custom-file-upload-hidden { display: none; visibility: hidden; position: absolute; left: -9999px; }
-
-.custom-file-upload { display: block; width: auto; font-size: 16px; margin-top: 30px; }
-
-.custom-file-upload label { display: block; margin-bottom: 5px; }
-
-.file-upload-wrapper { position: relative; margin-bottom: 5px; }
-
-.file-upload-input { width: 300px; color: #fff; font-size: 16px; padding: 11px 17px; border: none; background-color: #b2cfe9; transition: all 0.2s ease-in; float: left; /* IE 9 Fix */ }
-
-.file-upload-input:hover, .file-upload-input:focus { background-color: #8fbbd7; outline: none; }
-
-.file-upload-button { cursor: pointer; display: inline-block; color: #fff; font-size: 16px; text-transform: uppercase; padding: 11px 20px; border: none; margin-left: -1px; background-color: #337ab7; float: left; /* IE 9 Fix */ transition: all 0.2s ease-in; }
-
-.file-upload-button:hover { background-color: #285f8f; }
-
 .panel-property .panel-heading { padding: 0; overflow: hidden; }
 .panel-property .panel-heading .property-image { transition: transform 2s ease-out; height: 50vh; }
 .panel-property .panel-heading .property-image a { display: block; height: 100%; }
@@ -944,6 +928,7 @@ Since:      23/10/15
 .panel-actionbar .search { width: 100%; padding: 6px 0; position: absolute; }
 .panel-actionbar .search input[type="text"].form-control { display: block; top: 0; height: 100%; width: 100%; font-size: 2rem; border-radius: 5px; }
 .panel-actionbar .search .input-group-btn { opacity: 0; visibility: none; }
+.panel-actionbar .button-set { display: inline-block; margin-right: 10px; }
 .panel-actionbar .button, .panel-actionbar .button > label { color: #fff; font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: 300; transition: all 400ms ease; }
 .panel-actionbar .button:hover, .panel-actionbar .button > label:hover { text-decoration: none; }
 .panel-actionbar .button.active { color: #fff; }
@@ -1040,7 +1025,16 @@ Purpose:  Style applying specifically to our datatables components
 Since:    23/10/15
 */
 form .form-control { display: block; width: 100%; }
-form select.form-control, form textarea.form-control, form input[type="text"], form input[type="tel"], form input[type="email"] { padding: 8px 12px; font-size: 16px; height: auto; line-height: auto; color: #1d4567; background-color: #dae8f4; border: 1px solid #dae8f4; border-radius: 0 !important; margin-bottom: 1em; }
+form select.form-control, form textarea.form-control, form input[type="text"], form input[type="tel"], form input[type="email"] { padding: 8px 12px; font-size: 2rem; height: 50px; line-height: auto; color: #1d4567; background-color: #dae8f4; border: 1px solid #dae8f4; margin-bottom: 1em; }
+form textarea.form-control { height: auto; }
+form .custom-file-upload-hidden { display: none; visibility: hidden; position: absolute; left: -9999px; }
+form .custom-file-upload { display: block; width: auto; font-size: 16px; margin-top: 30px; }
+form .custom-file-upload label { display: block; margin-bottom: 5px; }
+form .file-upload-wrapper { position: relative; margin-bottom: 5px; }
+form .file-upload-input { width: 300px; color: #fff; font-size: 16px; padding: 11px 17px; border: none; background-color: #b2cfe9; transition: all 0.2s ease-in; margin-bottom: 0 !important; float: left; /* IE 9 Fix */ }
+form .file-upload-input:hover, form .file-upload-input:focus { background-color: #8fbbd7; outline: none; }
+form .file-upload-button { height: 50px; cursor: pointer; display: inline-block; color: #fff; font-size: 16px; text-transform: uppercase; padding: 13px 20px; border: none; margin-left: -1px; background-color: #337ab7; float: left; /* IE 9 Fix */ transition: all 0.2s ease-in; }
+form .file-upload-button:hover { background-color: #285f8f; }
 
 /*
 Name:   footer.scss

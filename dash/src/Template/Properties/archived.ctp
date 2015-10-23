@@ -19,24 +19,10 @@ $this->Html->addCrumb('Archived Properties', '/properties/archived');
 
     </div>
 
-<!--     <div class="panel-footer">
-
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><a href="#">Imagine</a></li>
-            <li role="presentation"><a href="#">Secondary</a></li>
-            <li role="presentation"><a href="#">Buttons</a></li>
-        </ul>
-
-    </div> -->
-
 </div>
 
 <div class="clearfix">
     <div class="row">
-
-        
-
-
 
         <?php foreach ($properties as $property): ?>
 
@@ -127,7 +113,7 @@ echo $this->Html->link('<h3 class="panel-title text-center">' . $property->addre
                         <?php
                         $emailHash = md5( strtolower( trim( $personEntity->email ) ) );
                         // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
-                        $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
+                        $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=retro';
                         $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
                         ?>
 

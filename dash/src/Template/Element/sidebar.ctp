@@ -1,11 +1,17 @@
 <?php $user = $this->Session->read('Auth.User'); ?>
 
-<!-- Tristan's Gravatar Script  - should be replaced with offical PHP API -->
+<!-- Tristan's Adorable/Gravatar Avatar Script -->
 <?php
-  $emailHash = md5( strtolower( trim( $user['username'] ) ) );
-  // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
-  $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
+  $email = $user['username'];
+  $emailHash = md5( strtolower( trim( $email ) ) );
+
+  $defaultImageQuery = 'http://api.adorable.io/avatars/200/' . $email;
+  $defaultImageQuery = urlencode($defaultImageQuery);
+
+  $gravatarQuery = 'http://www.gravatar.com/avatar/'.$emailHash.'?d='.$defaultImageQuery;
+  
   $gravatarImage = '<img height="40px" width="40px" class="img img-circle gravatar" src="' . $gravatarQuery . '"/>';
+
 ?>
 
 <?php

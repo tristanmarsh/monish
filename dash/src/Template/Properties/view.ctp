@@ -148,14 +148,20 @@
                                         }
                                     }
                                     ?>
-                                    <?php
-                                    if (!empty($personEntity)){
-                                    $emailHash = md5( strtolower( trim( $personEntity->email ) ) );
-                                    // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
-                                    $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
-                                    $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
-                                    }
-                                    ?>
+                                    
+                                    <!-- Tristan's Adorable/Gravatar Avatar Script -->
+                                    <?php if (!empty($personEntity)){
+
+                                        $email = $personEntity->email;
+                                        $emailHash = md5( strtolower( trim( $email ) ) );
+
+                                        $defaultImageQuery = 'http://api.adorable.io/avatars/200/' . $email;
+                                        $defaultImageQuery = urlencode($defaultImageQuery);
+
+                                        $gravatarQuery = 'http://www.gravatar.com/avatar/'.$emailHash.'?d='.$defaultImageQuery;
+                                        
+                                        $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+                                    } ?>
 
                                     <?php
                                     if (!empty($room->leases)) {

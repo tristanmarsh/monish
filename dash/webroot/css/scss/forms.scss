@@ -26,24 +26,91 @@ form {
     // transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   }
 
+
+  label {
+    // display: none;
+  }
+
+  
   select.form-control,
   textarea.form-control,
   input[type="text"],
   input[type="tel"],
   input[type="email"] {
     padding: 8px 12px;
-    font-size: 16px;
-    height:auto;
+    font-size: 2rem;
+    height:50px;
     line-height:auto;
     color:darken($darkblue,20%);
     background-color:lighten($lightblue,10%);
     border:1px solid lighten($lightblue,10%);
-    border-radius: 0!important;
     margin-bottom: 1em;
   }
 
+  textarea.form-control {
+    height:auto;
+  }
 
+  // #### FILE UPLOAD ####
 
+  .custom-file-upload-hidden {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    left: -9999px;
+  }
 
+  .custom-file-upload {
+    display: block;
+    width: auto;
+    font-size: 16px;
+    margin-top: 30px;
+  }
+  .custom-file-upload label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .file-upload-wrapper {
+    position: relative;
+    margin-bottom: 5px;
+  }
+
+  .file-upload-input {
+    width: 300px;
+    color: #fff;
+    font-size: 16px;
+    padding: 11px 17px;
+    border: none;
+    background-color: $lightblue;
+    transition: all 0.2s ease-in;
+    margin-bottom:0!important;
+    float: left;
+    /* IE 9 Fix */
+  }
+  .file-upload-input:hover, .file-upload-input:focus {
+    background-color: $blue;
+    outline: none;
+  }
+
+  .file-upload-button {
+    height:50px;
+    cursor: pointer;
+    display: inline-block;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 13px 20px;
+    border: none;
+    margin-left: -1px;
+    background-color: $darkblue;
+    float: left;
+    /* IE 9 Fix */
+    transition: all 0.2s ease-in;
+  }
+
+  .file-upload-button:hover {
+    background-color:darken($darkblue,10%);
+  }
 
 }

@@ -9,12 +9,14 @@
 <div class="panel panel-default panel-actionbar clearfix">
 
   <div class="panel-body">
-
-    <?= $this->Html->link(
-    '<i class="fa fa-paper-plane"></i> All',
-    ['action' => 'index'],
-    ['class' => 'button button-pill button-primary', 'escape' => false]
-    ); ?>
+    
+    <div class="button-set">
+      <?= $this->Html->link(
+      '<i class="fa fa-paper-plane"></i> All',
+      ['action' => 'index'],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ); ?>
+    </div>
 
     <?= $this->Html->link(
     '<i class="fa fa-plus"></i> New Request',
@@ -36,6 +38,15 @@
       '<i class="fa fa-pencil"></i> Edit',
       ['action' => 'edit', $entity->id],
       ['class' => 'button button-pill button-primary active', 'escape' => false]
+      ); ?>
+
+      <?= $this->Form->postLink(
+      '<i class="fa fa-times"></i> Close',
+      ['controller'=>'requests', 'action' => 'delete', $entity->id],
+      ['confirm' => 'Close ' . $entity->title .' Request from '. /* $entity->person->first_name . " " . $entity->person->last_name .*/ '?' , "escape" => false,
+        'class' => 'button button-pill button-caution',
+        'escape' => false
+      ]
       ); ?>
     
   </div>
@@ -86,9 +97,8 @@
     </fieldset>
     <br>
     <div class="col-md-12">
-     <?= $this->Form->button(__('Edit Request'), ['class' => 'form-control button button-action button-3d']); ?>
+     <?= $this->Form->button('<i class="fa fa-pencil"></i> Edit Request', ['class' => 'form-control button button-action button-3d']); ?>
      <?= $this->Form->end() ?>
-     <br>
      <br>
 
      <?php

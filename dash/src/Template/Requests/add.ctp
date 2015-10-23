@@ -9,12 +9,14 @@
 <div class="panel panel-default panel-actionbar clearfix">
     
   <div class="panel-body">
-
-    <?= $this->Html->link(
-    '<i class="fa fa-paper-plane"></i> All',
-    ['action' => 'index'],
-    ['class' => 'button button-pill button-primary', 'escape' => false]
-    ); ?>
+  
+    <div class="button-set">
+      <?= $this->Html->link(
+      '<i class="fa fa-paper-plane"></i> All',
+      ['action' => 'index'],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ); ?>
+    </div>
 
     <?= $this->Html->link(
     '<i class="fa fa-plus"></i> New Request',
@@ -87,7 +89,7 @@
         <?= $this->Form->input('description', ['class' => 'form-control']) ?>
 
         <div class="custom-file-upload">
-          <!--<label for="file">File: </label>-->
+          <label for="file">Image</label>
           <input type="file" id="file" name="myfiles[]" multiple />
         </div>
 
@@ -100,8 +102,6 @@
     <div class="col-md-12">
       <?= $this->Form->button(__('Create Request'), ['class' => 'form-control btn-primary button button-action button-3d']); ?>
       <?= $this->Form->end() ?>
-      
-      <br>
       
       <br>
            

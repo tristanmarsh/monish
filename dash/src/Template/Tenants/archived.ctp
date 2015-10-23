@@ -85,15 +85,21 @@
                             <tr>
                                 <td>
                                     <?= $this->Html->link("", ['controller'=>'tenants', 'action' => 'view', $person ->id]) ?>
-
+                                        
+                                        <!-- Tristan's Adorable/Gravatar Avatar Script -->
                                         <?php
-                                            $emailHash = md5( strtolower( trim( $person->email ) ) );
-                                            // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
-                                            $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
-                                            $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
-                                        ?>
+                                          $email = $person->email;
+                                          $emailHash = md5( strtolower( trim( $email ) ) );
 
-                                        <?= $gravatarImage; ?>
+                                          $defaultImageQuery = 'http://api.adorable.io/avatars/200/' . $email;
+                                          $defaultImageQuery = urlencode($defaultImageQuery);
+
+                                          $gravatarQuery = 'http://www.gravatar.com/avatar/'.$emailHash.'?d='.$defaultImageQuery;
+                                          
+                                          $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+
+                                          echo $gravatarImage;
+                                        ?>
 
                                     <span>
                                     <?= $person->first_name ?>

@@ -19,7 +19,7 @@
 				<div>
 
 					<!-- Nav tabs -->
-					<ul class="nav nav-pills" role="tablist">
+<!-- 					<ul class="nav nav-pills" role="tablist">
 
 						<li role="presentation" class="active">
 							<a href="#log-in"  aria-controls="log-in" role="tab" data-toggle="tab">Login</a>
@@ -30,7 +30,17 @@
 							</a>
 						</li>
 
-					</ul>
+					</ul> -->
+
+<!-- 
+
+                    <?= $this->Html->link(
+                    '<i class="fa fa-log-in"></i> Login',
+                    ['action' => 'login'],
+                    ['class' => 'button button-pill button-primary', 'escape' => false]
+                    ); ?>
+ -->
+
 
 					<div role="tabpanel" class="tab-pane fade in active" id="log-in">
 
@@ -38,7 +48,7 @@
 
 							<?= $this->Flash->render('auth') ?>
 
-							<?= $this->Form->create() ?>
+							<?= $this->Form->create('Model',array('id' => 'login')) ?>
 
 							<hr>
 
@@ -67,11 +77,29 @@
 
 							<br>
 
-							<?= $this->Form->button(__('Login'), ['class' => 'form-control btn btn-primary']); ?>
+							<div class="col-sm-6">
 
-							<?= $this->Form->end() ?>
-							
-							<br>
+			                    <?= $this->Html->link(
+			                    '<i class="fa fa-archive"></i> Account Recovery',
+			                    ['action' => 'forgot_password'],
+			                    ['class' => 'button button-block button-rounded button-3d button-normal', 'escape' => false]
+			                    ); ?>
+
+							</div>							
+
+							<div class="col-sm-6">
+
+								<?= $this->Html->link(
+								'<i class="fa fa-sign-in"></i> Login',
+								'javascript:document.forms["login"].submit();',
+								['class' => 'button button-block button-rounded button-3d button-action', 'escape' => false]
+								); ?>
+								
+								<?= $this->Form->end() ?>
+								
+							</div>
+
+									
 
 						<?php endif; ?>
 

@@ -14,18 +14,17 @@
         <div class="row">
 
             <div class="col-sm-6 clearfix">
-
+                        
                 <?= $this->Html->link(
                 '<i class="fa fa-flash"></i> Current',
                 ['action' => 'index'],
-                ['class' => 'button button-pill button-primary button-3d active', 'escape' => false]
+                ['class' => 'button button-pill button-primary active', 'escape' => false]
                 ); ?>
-
             
                 <?= $this->Html->link(
-                '<i class="fa fa-plus"></i> New Tenant',
+                '<i class="fa fa-plus"></i> New Request',
                 ['action' => 'add'],
-                ['class' => 'button button-pill button-action button-3d', 'escape' => false]
+                ['class' => 'button button-pill button-action', 'escape' => false]
                 ); ?>
 
             </div>

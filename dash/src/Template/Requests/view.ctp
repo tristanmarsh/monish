@@ -5,32 +5,48 @@
 ?>
 <h1><?= $giraffe->title; ?></h1>
 
-<div class="panel panel-default clearfix">
+<div class="panel panel-default panel-actionbar clearfix">
 
-<!--     <div class="panel-heading">
-        <h1 class="panel-title">Example</h1>
-      </div> -->
+  <div class="panel-body">
 
-    <div class="panel-body">
-        
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('New Request', ['action' => 'add']) ?></li>
-        </ul>
+    <?= $this->Html->link(
+    '<i class="fa fa-flash"></i> Current',
+    ['action' => 'index'],
+    ['class' => 'button button-pill button-primary', 'escape' => false]
+    ); ?>
 
-    </div>
+    <?= $this->Html->link(
+    '<i class="fa fa-plus"></i> New Request',
+    ['action' => 'add'],
+    ['class' => 'button button-pill button-action', 'escape' => false]
+    ); ?>
 
-    <div class="panel-footer">
+  </div>
 
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $giraffe->id]) ?></li>
-            <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $giraffe->id]) ?></li>
-            <li role="presentation"><?= $this->Form->postLink(
-                                    'Close', ['controller'=>'requests', 'action' => 'delete', $giraffe->id],
-                                    ['confirm' => 'Close ' . "Are you Sure?" , "escape" => false]); ?></li>
-        </ul>
+  <div class="panel-footer">
 
-    </div>
+      <?= $this->Html->link(
+      '<i class="fa fa-eye"></i> View',
+      ['action' => 'index'],
+      ['class' => 'button button-pill button-primary active', 'escape' => false]
+      ); ?>
+
+      <?= $this->Html->link(
+      '<i class="fa fa-pencil"></i> Edit',
+      ['action' => 'edit', $giraffe->id],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ); ?>
+    
+      <?= $this->Form->postLink(
+      '<i class="fa fa-times"></i> Close',
+      ['controller'=>'requests', 'action' => 'delete', $giraffe->id],
+      ['confirm' => 'Close ' . $giraffe->title .' Request from '. /* $giraffe->person->first_name . " " . $giraffe->person->last_name .*/ '?' , "escape" => false,
+        'class' => 'button button-pill button-caution',
+        'escape' => false
+      ]
+      ); ?>
+
+  </div>
 
 </div>
 

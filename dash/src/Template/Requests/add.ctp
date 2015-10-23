@@ -8,117 +8,103 @@
 
 <div class="panel panel-default panel-actionbar clearfix">
     
-    <div class="panel-body">
+  <div class="panel-body">
 
-        <div class="row">
+    <?= $this->Html->link(
+    '<i class="fa fa-flash"></i> Current',
+    ['action' => 'index'],
+    ['class' => 'button button-pill button-primary', 'escape' => false]
+    ); ?>
 
-            <div class="col-sm-6 clearfix">
+    <?= $this->Html->link(
+    '<i class="fa fa-plus"></i> New Request',
+    ['action' => 'add'],
+    ['class' => 'button button-pill button-action active', 'escape' => false]
+    ); ?>
 
-                <?= $this->Html->link(
-                '<i class="fa fa-flash"></i> Current',
-                ['action' => 'index'],
-                ['class' => 'button button-pill button-primary button-3d', 'escape' => false]
-                ); ?>
-            
-                <?= $this->Html->link(
-                '<i class="fa fa-plus"></i> New Request',
-                ['action' => 'add'],
-                ['class' => 'button button-pill button-action button-3d active', 'escape' => false]
-                ); ?>
+  </div>
 
-            </div>
-
-
-            <div class="col-sm-6 clearfix">
-
-                <form class="searchbox">
-                <input type="search" id="myInputTextField" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
-                <input type="submit" class="searchbox-submit" value="Go">
-                <span class="searchbox-icon"><i class="fa fa-search"></i></span>
-                </form>
-
-            </div>
-
-        </div>
-
-    </div>
 </div>
 
+<div class="panel panel-primary">
 
+  <div class="panel-heading">
+    <h2 class="panel-title">New Request</h2>
+  </div>
 
+  <div class="panel-body">
+    <?= $this->Form->create($entity, array('type' => 'file', 'class' => 'form-group')) ?>
+    
+    <fieldset>
 
+      <div class="col-md-6">
 
-
-
-              <div class="panel panel-primary">
-
-          <div class="panel-heading">
-            <h2 class="panel-title">New Request</h2>
-
-                      </div>
-            <div class="panel-body">
-                      <?= $this->Form->create($entity, array('type' => 'file', 'class' => 'form-group')) ?>
-              <fieldset>
-
-            <div class="col-md-6">
-
-
-            
-              <?= $this->Form->input('title', array('class' => 'form-control')) ?>
-
+        <?= $this->Form->input('title', array('class' => 'form-control')) ?>
 
 			  <?= $this->Form->input('property_address', ['options' => $addresses,'class' => 'form-control']) ?>
-                       </div>
-
-                                   <div class="col-md-6">   
-              
-              <?= $this->Form->input('entry_time', ['label'=>'Permission to enter room or property?', 'options' => ['Anytime' => 'Yes, Any Time', '10am to 5pm' => 'Yes, Between 10:am and 5:pm', 'Arrange a time' => 'No, please arrange a time with me', 'N/A' => 'Not applicable'],'class' => 'form-control']) ?>
-
-              <?= $this->Form->input('category', ['options' => ['General' => 'General', 'Maintenance' => 'Maintenance', 'Internet' => 'Internet', 'Lease' => 'Lease', 'Noisy Tenant'=> 'Noisy Tenant', 'Other Tenant Not Cleaning'=> 'Other Tenant Not Cleaning','Bathroom Light Broken'=>'Bathroom Light Broken','Bedroom Light Broken'=>'Bedroom Light Broken','Shower Hose Leaking/Broken' =>'Shower Hose Leaking/Broken', 'Shower Leaking'=>'Shower Leaking','Toilet Broken'=>'Toilet Broken','Toilet Not Flushing Properly'=>'Toilet Not Flushing Properly','Fan not Working'=>'Fan not Working','Vacuum Cleaner not Working'=>'Vacuum Cleaner not Working','Others Leaking (Please state in description)'=>'Others Leaking (Please state in description)','Main Room Lights Not Working (Please state in description'=>'Main Room Lights Not Working (Please state in description)','Remote for the Garage ($50 refundable deposit) '=>'Remote for the Garage ($50 refundable deposit)', 'Lost Keys ($55 replacement cost)'=>'Lost Keys ($55 replacement cost)','Others(Please specify below)'=>'Others(Please specify below)'],'class' => 'form-control']) ?>
-
-
-                          </div>
-
-                          
-            <div class="col-md-12">
-
-              <?= $this->Form->input('description', ['rows' => '3', 'class' => 'form-control']) ?>
-
-			<?php	// add the type to the create-method
-				//echo $this->Form->create($entity, ['type' => 'file']);
-
-				// add the avatar-input
-				echo $this->Form->input('avatar', ['type' => 'file', 'label' => 'Picture (Optional)']);
-			?>
-    </div>
-           
-           </fieldset>
-           <br>
-                        <div class="col-md-12">
-           <?= $this->Form->button(__('Create Request'), ['class' => 'form-control btn btn-primary']); ?>
-           <?= $this->Form->end() ?>
-            <br>
-            <br>
-           <?php
-           echo $this->Form->create(null, [
-            'url' => ['controller' => 'Requests', 'action' => 'index']
-            ]);
-           ?>
       </div>
-    </div>
-</div>
 
-<!-- // <?php
-//     // note $this->Form->create() generates <form method="post" action="/articles/add">
-//     echo $this->Form->create($zebra, array('class' => 'form-group'));
-//     echo $this->Form->input('title', array('class' => 'form-control'));
-// 	echo $this->Form->input('category', ['options' => ['GENERAL' => 'GENERAL', 'MAINTENANCE' => 'MAINTENANCE', 'INTERNET' => 'INTERNET', 'LEASE' => 'LEASE']], array('class' => 'form-control'));
-//     echo $this->Form->input('property_address', ['options' => $addresses], array('class' => 'form-control'));
-//     echo $this->Form->input('description', ['rows' => '3'], array('class' => 'form-control'));
-//     echo $this->Form->button(__('Submit Request'));
-//     echo $this->Form->end();
-// 	echo $this->Form->create(null, [
-// 		'url' => ['controller' => 'Requests', 'action' => 'index']
-// 		]);
-// 	echo $this->Form->button(__('Cancel'));
-// ?> -->
+      <div class="col-md-6">   
+              
+        <?= $this->Form->input(
+          'entry_time',
+          ['label'=>'Permission to enter room or property?',
+            'options' => ['Anytime' => 'Yes, Any Time',
+            '10am to 5pm' => 'Yes, Between 10:am and 5:pm',
+            'Arrange a time' => 'No, please arrange a time with me',
+            'N/A' => 'Not applicable'],
+          'class' => 'form-control'])
+         ?>
+
+        <?= $this->Form->input(
+          'category',
+          ['options' => ['General' => 'General',
+            'Maintenance' => 'Maintenance',
+            'Internet' => 'Internet',
+            'Lease' => 'Lease',
+            'Noisy Tenant'=> 'Noisy Tenant',
+            'Other Tenant Not Cleaning'=> 'Other Tenant Not Cleaning',
+            'Bathroom Light Broken'=>'Bathroom Light Broken',
+            'Bedroom Light Broken'=>'Bedroom Light Broken',
+            'Shower Hose Leaking/Broken' =>'Shower Hose Leaking/Broken',
+            'Shower Leaking'=>'Shower Leaking',
+            'Toilet Broken'=>'Toilet Broken',
+            'Toilet Not Flushing Properly'=>'Toilet Not Flushing Properly',
+            'Fan not Working'=>'Fan not Working',
+            'Vacuum Cleaner not Working'=>'Vacuum Cleaner not Working',
+            'Others Leaking (Please state in description)'=>'Others Leaking (Please state in description)',
+            'Main Room Lights Not Working (Please state in description'=>'Main Room Lights Not Working (Please state in description)',
+            'Remote for the Garage ($50 refundable deposit) '=>'Remote for the Garage ($50 refundable deposit)',
+            'Lost Keys ($55 replacement cost)'=>'Lost Keys ($55 replacement cost)',
+            'Others(Please specify below)'=>'Others(Please specify below)'],
+          'class' => 'form-control'])
+        ?>
+
+      </div>
+                          
+      <div class="col-md-12">
+
+        <?= $this->Form->input('description', ['class' => 'form-control']) ?>
+
+        <div class="custom-file-upload">
+          <!--<label for="file">File: </label>-->
+          <input type="file" id="file" name="myfiles[]" multiple />
+        </div>
+
+      </div>
+           
+    </fieldset>
+
+    <br>
+
+    <div class="col-md-12">
+      <?= $this->Form->button(__('Create Request'), ['class' => 'form-control btn-primary button button-action button-3d']); ?>
+      <?= $this->Form->end() ?>
+      
+      <br>
+      
+      <br>
+           
+    </div>
+  </div>
+</div>

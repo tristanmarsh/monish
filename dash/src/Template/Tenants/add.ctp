@@ -104,7 +104,16 @@
              
               <legend>Lease Detail</legend>
               <?= $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']); ?>
-              <?= $this->Form->input('weekly_price', ['class' => 'form-control']); ?>
+              
+              <div class="input-group">
+                <?= $this->Form->input('<span class="input-group-addon">$</span>weekly_price', ['class' => 'form-control', 'escape'=>false]); ?>
+              </div>
+
+              <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="text" class="form-control" placeholder="Weekly Price">
+              </div>
+
               <?= $this->form->input('date_start',['id'=>'dateStartPicker','class' => 'form-control']); ?>
 
               

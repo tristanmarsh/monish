@@ -13,11 +13,12 @@ Since:    29/4/15
 @import '../nprogress.scss';
 @import 'font-icomoon-monish.scss';
 @import 'variables.scss';
-@import 'sm.scss';
 @import 'override.scss';
-@import 'footer.scss';
+@import 'global.scss';
+@import 'sm.scss';
 @import 'sidebar.scss';
 @import 'actionbar.scss';
 @import 'tables.scss';
 @import 'datatables.scss';
-@import 'global.scss';
+@import 'forms.scss';
+@import 'footer.scss';

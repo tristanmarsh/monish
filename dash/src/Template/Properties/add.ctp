@@ -1,61 +1,47 @@
 <?php
-    $this->Html->addCrumb('Properties', '/properties');
-    $this->Html->addCrumb('Add Property', array('controller' => 'properties', 'action' => 'add'));
+$this->Html->addCrumb('Properties', '/properties');
+$this->Html->addCrumb('Add Property', array('controller' => 'properties', 'action' => 'add'));
 ?>    
 
 <h1>New Property</h1>
 
 <div class="panel panel-default clearfix">
 
-<!--     <div class="panel-heading">
-        <h1 class="panel-title">Example</h1>
-      </div> -->
+  <div class="panel-body">
 
-      <div class="panel-body">
+    <ul class="nav nav-pills pull-left">
+      <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
+      <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
+      <li role="presentation"  class="active"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>
+      <!-- <li role="presentation"><?= $this->Html->link('New Room', ['controller' => 'rooms', 'action' => 'add']) ?></li> -->
+    </ul>
 
-        <ul class="nav nav-pills pull-left">
-          <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
-            <li role="presentation"  class="active"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>
-          <!-- <li role="presentation"><?= $this->Html->link('New Room', ['controller' => 'rooms', 'action' => 'add']) ?></li> -->
-        </ul>
+  </div>
 
+</div>
 
-      </div>
+<div class="panel panel-primary">
 
-<!--       <div class="panel-footer">
+  <div class="panel-heading">
+    <h2 class="panel-title">New Property</h2>
+  </div>
 
-        <ul class="nav nav-pills pull-left">
-          <li role="presentation" class="active"><a href="#">Imagine</a></li>
-          <li role="presentation"><a href="#">Alternative</a></li>
-          <li role="presentation"><a href="#">Secondary</a></li>
-          <li role="presentation"><a href="#">Buttons</a></li>
-        </ul>
-
-      </div> -->
-    </div>
-
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h2 class="panel-title">New Property</h2>
-      </div>
-      <div class="panel-body">
-<div class="properties form large-10 medium-9 columns">
-    <?= $this->Form->create($entity, array('type'=>'file', 'class' => 'form-group')); ?>
-    <fieldset>
+  <div class="panel-body">
+    <div class="properties form large-10 medium-9 columns">
+      <?= $this->Form->create($entity, array('type'=>'file', 'class' => 'form-group')); ?>
+      <fieldset>
         <!-- <legend><?= __('New Property', array('type'=>'file', 'class' => 'form-control')) ?></legend> -->
         <?php
-            echo $this->Form->input('address', array('class' => 'form-control'));
-			echo $this->Form->input('avatar', ['type' => 'file', 'label' => 'Picture (Optional)']);
+        echo $this->Form->input('address', array('class' => 'form-control'));
+        echo $this->Form->input('avatar', ['type' => 'file', 'label' => 'Picture (Optional)']);
         ?>
-    </fieldset>
-    <br>
-    <?= $this->Form->button(__('Create Property'), ['class' => 'form-control btn btn-primary']) ?>
-    <?= $this->Form->end() ?>
-    <?= $this->Form->create(null, [
+        <br>
+      </fieldset>
+      <?= $this->Form->button(__('Create Property'), ['class' => 'form-control btn btn-primary']) ?>
+      <?= $this->Form->end() ?>
+      <?= $this->Form->create(null, [
         'url' => ['controller' => 'Properties', 'action' => 'index']
-    ])?>
-<!--     <?= $this->Form->button(__('Cancel')) ?> -->
-</div>
-</div>
+      ])?>
+    </div>
+  </div>
 </div>

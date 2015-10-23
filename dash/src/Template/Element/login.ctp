@@ -89,17 +89,11 @@
 
 							<div class="col-sm-6">
 
-								<?= $this->Html->link(
-								'<i class="fa fa-sign-in"></i> Login',
-								'javascript:document.forms["login"].submit();',
-								['class' => 'button button-block button-rounded button-3d button-action', 'escape' => false]
-								); ?>
-								
-								<?= $this->Form->end() ?>
-								
-							</div>
+								<?= $this->Form->button(__('Login'), ['class' => 'form-control button button-block button-rounded button-3d button-action']); ?>
 
-									
+								<?= $this->Form->end() ?>
+
+							</div>
 
 						<?php endif; ?>
 

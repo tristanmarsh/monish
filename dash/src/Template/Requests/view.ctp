@@ -10,7 +10,7 @@
   <div class="panel-body">
 
     <?= $this->Html->link(
-    '<i class="fa fa-flash"></i> Current',
+    '<i class="fa fa-paper-plane"></i> All',
     ['action' => 'index'],
     ['class' => 'button button-pill button-primary', 'escape' => false]
     ); ?>
@@ -27,7 +27,7 @@
 
       <?= $this->Html->link(
       '<i class="fa fa-eye"></i> View',
-      ['action' => 'index'],
+      ['action' => 'view', $giraffe->id],
       ['class' => 'button button-pill button-primary active', 'escape' => false]
       ); ?>
 

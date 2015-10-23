@@ -16,7 +16,7 @@
             <div class="col-sm-6 clearfix">
                         
                 <?= $this->Html->link(
-                '<i class="fa fa-flash"></i> Current',
+                '<i class="fa fa-paper-plane"></i> All',
                 ['action' => 'index'],
                 ['class' => 'button button-pill button-primary active', 'escape' => false]
                 ); ?>

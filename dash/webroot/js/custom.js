@@ -25,14 +25,42 @@ Prepends:   Jquery, bootstrap, NProgress, wow
 // })(jQuery);
 
 
+// #### COOKIES ####
+function setCookie(cname, cvalue, exhours) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exhours*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
 
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+          return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
-
-// Cookie Goodness
-
-
-
-
+$(document).ready(function() {
+  $('#navigation-toggle').on('click', '#navigation-toggle', function(event) {
+    // event.preventDefault();
+    /* Act on the event */
+    if (getCookie('navigation') == 'active') {
+      setCookie('navigation','inactive', 24);
+      window.console.log('cookie set to innactive');
+    } else {
+      setCookie('navigation','active', 24);
+      window.console.log('cookie set to active');
+    }
+  });
+}(jQuery));
 
 
 //Search box expand

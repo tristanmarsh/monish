@@ -15,7 +15,6 @@
 ?>
 
 <?php
-    // $this->Html->addCrumb('Requests', '/requests');
     $this->Html->addCrumb('Profile', array('controller' => 'People', 'action' => 'index'));
 ?>
 
@@ -44,56 +43,91 @@
 
 <!-- THIS IS WHAT THE TENANTS SEES -->
 <?php if ($currentlogged['role'] === "tenant") : ?>
+    
+    <!-- Here is where we iterate through our $articles query object, printing out article info -->
+    <?php foreach ($users as $user): ?>
+    <?php if ($currentlogged['person_id'] === $user->id) : ?>
+
 
     <h1>Profile</h1>
+
+    <div class="panel panel-default panel-actionbar clearfix">
+
+      <div class="panel-body">
+
+          <?= $this->Html->link(
+          '<i class="fa fa-eye"></i> View',
+          ['action' => 'index'],
+          ['class' => 'button button-pill button-primary', 'escape' => false]
+          ); ?>
+
+      </div>
+
+      <div class="panel-footer">
+
+        <?= $this->Html->link(
+      '<i class="fa fa-phone"></i> Edit Phone Number',
+      ['action' => 'edit', $currentlogged['id']],
+      ['class' => 'button button-pill button-primary active', 'escape' => false]
+      ); ?>
+
+      </div>
+
+    </div>
+
+    <?= $gravatarImage; ?>
+    
     <div class="panel panel-primary">
-    <!-- Default panel contents -->
-    <div class="panel-heading">
-        <h2 class="panel-title">All Requests</h2>
-    </div>
-    <div class="table-responsive">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            <h2 class="panel-title">Profile</h2>
+        </div>
+        <div class="table-responsive">
 
-        <table>
-            <tr>
+            <table>
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Contact Number</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
 
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Contact Number</th>
-                <th>Gender</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Action</th>
-            </tr>
+                <tr>
 
-            <!-- Here is where we iterate through our $articles query object, printing out article info -->
+                    <td><?= $user->first_name ?></td>
+                    <td><?= $user->last_name ?></td>
+                    <td><?= $user->common_name ?></td>
+                    <td><?= $user->gender ?></td>
+                    <td><?= $user->phone ?></td>
+                    <td><?= $user->email ?></td>
+                    <td>
+                    <?php echo $this->Html->link('Edit Phone Number', ['action' => 'edit', $user->id, ]); ?>
+                    <?php echo $this->Html->link('Edit Username', ['controller' => 'users', 'action' => 'editusername', $currentlogged['id'], ]); ?>
+                    <?php echo $this->Html->link('Edit Password', ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id'], ]); ?>
+                </td>
 
-            <?php foreach ($users as $user): ?>
+                </tr>
 
-            <?php if ($currentlogged['person_id'] === $user->id) : ?>
+                <?php endif; ?>
 
-            <tr>
+                <?php endforeach; ?>
 
-                <td><?= $user->first_name ?></td>
-                <td><?= $user->last_name ?></td>
-                <td><?= $user->common_name ?></td>
-                <td><?= $user->gender ?></td>
-                <td><?= $user->phone ?></td>
-                <td><?= $user->email ?></td>
-                <td>
-                <?php echo $this->Html->link('Edit Phone Number', ['action' => 'edit', $user->id, ]); ?>
-                <?php echo $this->Html->link('Edit Username', ['controller' => 'users', 'action' => 'editusername', $currentlogged['id'], ]); ?>
-                <?php echo $this->Html->link('Edit Password', ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id'], ]); ?>
-            </td>
+            </table>
+        </div>
 
-            </tr>
-
-            <?php endif; ?>
-
-            <?php endforeach; ?>
-
-        </table>
     </div>
 
+
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <p>Your unique avatar has been provided by <a href="http://avatars.adorable.io/">Adorable Avatars</a> from your email address.</p>
+            <p>To manage your avatar, create a <a href="https://en.gravatar.com/">Gravatar</a> Account.</p>
+        </div>
     </div>
 
 <?php endif; ?>

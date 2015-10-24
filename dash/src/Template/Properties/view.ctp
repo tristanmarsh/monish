@@ -73,19 +73,22 @@
     } ?>
   </div>
 
+  <div class="button-group">
+    <?= $this->Html->link(
+      '<i class="fa fa-plus"></i> New Room',
+      ['controller'=>'rooms', 'action' => 'add', $property->id],
+      ['class' => 'button button-pill-override button-action', 'escape' => false]
+    ); ?>
+  </div>
+
+
   </div>
 
 </div>
 
-
-
-
-
-
-
 <div class="row">
 
-  <div class="col-lg-6">
+  <div class="col-md-6">
     <div class="panel panel-primary">
 
       <div class="panel-heading">
@@ -102,7 +105,7 @@
     </div>
   </div> 
 
-  <div class="col-lg-6">
+  <div class="col-md-6">
     
     <div class="panel panel-primary">
       <!-- Default panel contents -->

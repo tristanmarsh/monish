@@ -99,7 +99,8 @@
 
     <br>
 
-    <?= $this->Form->button(__('Edit Property'), ['class' => 'form-control button button-action button-3d']) ?>
+    <?= $this->Form->button('<i class="fa fa-pencil"></i> Update Property', ['class' => 'form-control button button-action button-3d']); ?>
+    
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Properties', 'action' => 'index']

@@ -80,14 +80,11 @@
       </fieldset>
       <br>
 
-      <div class="col-md-12">
-      <?= $this->Form->button(__('Edit Lease'), ['class' => 'form-control btn btn-primary']); ?>
+      <?= $this->Form->button('<i class="fa fa-pencil"></i> Edit Lease', ['class' => 'form-control button button-action button-3d']); ?>
       <?= $this->Form->end() ?>
       <?= $this->Form->create(null, [
       'url' => ['controller' => 'Leases', 'action' => 'index']
       ])?>
       <br>
-      <!--     <?= $this->Form->button(__('Cancel')) ?> -->
-      </div>
     </div>
   </div>

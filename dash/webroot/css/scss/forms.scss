@@ -8,20 +8,28 @@ Since:    23/10/15
 
 form {
 
-
   .form-control {
     display: block;
     width: 100%;
+    transition:background 400ms ease;
   }
 
+  .form-control:focus {
+    border:1px solid mix($white,$lightprimarycolour,10%);
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
 
   label {
+    font-weight: 100;
     // display: none;
   }
-
   
   select.form-control,
   textarea.form-control,
+  input[type="password"],
+  input[type="username"],
   input[type="text"],
   input[type="tel"],
   input[type="email"] {
@@ -29,14 +37,42 @@ form {
     font-size: 2rem;
     height:50px;
     line-height:auto;
-    color:darken($darkprimarycolour,20%);
-    background-color:lighten($lightprimarycolour,10%);
-    border:1px solid lighten($lightprimarycolour,10%);
+    color:mix(#000,$primarycolour,20%);
+    background:mix($white,$lightprimarycolour,50%);
+    border:1px solid mix($white,$lightprimarycolour,10%);
     margin-bottom: 1em;
+  }
+  
+  select.form-control:focus,
+  textarea.form-control:focus,
+  input[type="password"]:focus,
+  input[type="username"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="email"]:focus {
+    background: $lightprimarycolour;
+     outline:0px !important;
+    -webkit-appearance:none;
+  }
+
+  textarea:hover, 
+  input:hover, 
+  textarea:active, 
+  input:active, 
+  textarea:focus, 
+  input:focus,
+  button:focus,
+  button:active,
+  button:hover
+  {
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none;
   }
 
   textarea.form-control {
     height:auto;
+    resize:none
   }
 
   // #### FILE UPLOAD ####
@@ -66,7 +102,7 @@ form {
 
   .file-upload-input {
     width: 300px;
-    color: #fff;
+    color: $white;
     font-size: 16px;
     padding: 11px 17px;
     border: none;
@@ -77,7 +113,7 @@ form {
     /* IE 9 Fix */
   }
   .file-upload-input:hover, .file-upload-input:focus {
-    background-color: $blue;
+    background: $lightprimarycolour;
     outline: none;
   }
 
@@ -85,7 +121,7 @@ form {
     height:50px;
     cursor: pointer;
     display: inline-block;
-    color: #fff;
+    color: $white;
     font-size: 16px;
     text-transform: uppercase;
     padding: 13px 20px;

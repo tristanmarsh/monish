@@ -66,9 +66,7 @@
               <?= h($giraffe->title) ?>
             </h2>
           </div>
-          <div class="panel-body">
-            <?= $this->Html->image($directory, ['alt' => 'CakePHP', 'class' => 'img img-responsive img-center']); ?>
-          </div>
+          <?= $this->Html->image($directory, ['alt' => 'CakePHP', 'class' => 'img img-responsive img-center']); ?>
         </div>
       </div>
 

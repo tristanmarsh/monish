@@ -38,13 +38,13 @@
       <?= $this->Html->link(
       '<i class="fa fa-flash"></i> Current',
       ['action' => 'index'],
-      ['class' => 'button button-pill button-primary button-3d', 'escape' => false]
+      ['class' => 'button button-pill button-primary', 'escape' => false]
       ); ?>
 
       <?= $this->Html->link(
       '<i class="fa fa-archive"></i> Archived',
       ['action' => 'archived'],
-      ['class' => 'button button-pill button-primary button-3d', 'escape' => false]
+      ['class' => 'button button-pill button-primary', 'escape' => false]
       ); ?>
 
     </div>
@@ -53,7 +53,7 @@
       <?= $this->Html->link(
       '<i class="fa fa-plus"></i> New Lease',
       ['action' => 'add'],
-      ['class' => 'button button-pill button-action button-3d active', 'escape' => false]
+      ['class' => 'button button-pill button-action active', 'escape' => false]
       ); ?>
 
     </div>
@@ -95,7 +95,7 @@
       <br>
 
       <div class="col-md-12">
-      <?= $this->Form->button(__('Create Lease'), ['class' => 'form-control btn btn-primary']); ?>
+      <?= $this->Form->button(__('Create Lease'), ['class' => 'form-control button button-action button-3d']); ?>
       <?= $this->Form->end() ?>
       <?= $this->Form->create(null, [
       'url' => ['controller' => 'Leases', 'action' => 'index']

@@ -67,13 +67,13 @@
         <table  class="datatable">
             <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Common Name</th>
+                    <th>First&nbsp;Name</th>
+                    <th>Last&nbsp;Name</th>
+                    <th>Preferred&nbsp;Name</th>
                     <th>Gender</th>
                     <th>Phone</th>
                     <th>Email</th>
-                    <th>Internet Plan</th>
+                    <th>Internet&nbsp;Plan</th>
                     <th>Edit</th>
                 </tr>
             </thead>
@@ -96,7 +96,7 @@
 
                                           $gravatarQuery = 'http://www.gravatar.com/avatar/'.$emailHash.'?d='.$defaultImageQuery;
                                           
-                                          $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+                                          $gravatarImage = '<img height="80px" width="80px" class="img gravatar" src="' . $gravatarQuery . '"/>';
 
                                           echo $gravatarImage;
                                         ?>

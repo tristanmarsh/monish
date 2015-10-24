@@ -2,7 +2,7 @@
     $this->Html->addCrumb('Archived tenants', '/tenants/archived');
 ?>
 
-<h1>Archived Tenants</h1>
+<h1>Tenants</h1>
 
 <div class="panel panel-default panel-actionbar clearfix">
     
@@ -17,22 +17,22 @@
                     <?= $this->Html->link(
                     '<i class="fa fa-flash"></i> Current',
                     ['action' => 'index'],
-                    ['class' => 'button button-pill button-primary button-3d', 'escape' => false]
+                    ['class' => 'button button-pill button-primary', 'escape' => false]
                     ); ?>
 
                     <?= $this->Html->link(
                     '<i class="fa fa-archive"></i> Archived',
                     ['action' => 'archived'],
-                    ['class' => 'button button-pill button-primary button-3d active', 'escape' => false]
+                    ['class' => 'button button-pill button-primary active', 'escape' => false]
                     ); ?>
 
                 </div>
                 
-                <div class="button-group">
+                <div class="button-set">
                     <?= $this->Html->link(
                     '<i class="fa fa-plus"></i> New Tenant',
                     ['action' => 'add'],
-                    ['class' => 'button button-pill button-action button-3d', 'escape' => false]
+                    ['class' => 'button button-pill button-action', 'escape' => false]
                     ); ?>
 
                 </div>       
@@ -67,13 +67,13 @@
         <table  class="datatable">
             <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Common Name</th>
+                    <th>First&nbsp;Name</th>
+                    <th>Last&nbsp;Name</th>
+                    <th>Preferred&nbsp;Name</th>
                     <th>Gender</th>
                     <th>Phone</th>
                     <th>Email</th>
-                    <th>Internet Plan</th>
+                    <th>Internet&nbsp;Plan</th>
                     <th>Edit</th>
                 </tr>
             </thead>
@@ -96,7 +96,7 @@
 
                                           $gravatarQuery = 'http://www.gravatar.com/avatar/'.$emailHash.'?d='.$defaultImageQuery;
                                           
-                                          $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+                                          $gravatarImage = '<img height="80px" width="80px" class="img gravatar" src="' . $gravatarQuery . '"/>';
 
                                           echo $gravatarImage;
                                         ?>

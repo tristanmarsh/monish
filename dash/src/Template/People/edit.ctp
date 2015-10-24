@@ -10,7 +10,7 @@
 
 <?php if ($currentlogged['role'] === "admin") : ?>
 
-    <h1>Update Person</h1>
+    <h1>Profile</h1>
         <div class="panel panel-default">
       <div class="panel-body">  
     <?php
@@ -36,7 +36,7 @@
 
 <?php if ($currentlogged['role'] === "tenant") : ?>
 
-    <h1>Edit Personal Details</h1>
+    <h1>Profile</h1>
 
         <div class="panel panel-default panel-actionbar clearfix">
 
@@ -82,7 +82,7 @@
 
     echo $this->Form->create($user,array('class' => 'form-group'));
     echo $this->Form->input( 'phone', array( 'type' => 'number', 'class' => 'form-control' ) );
-    echo $this->Form->button(__('Update Details'), ['class' => 'form-control btn btn-primary']);
+    echo $this->Form->button(__('<i class="fa fa-pencil"></i> Update Username'), ['class' => 'form-control button button-action button-3d']);
     echo $this->Form->end();
     echo $this->Form->create(null, [
         'url' => ['controller' => 'People', 'action' => 'index']

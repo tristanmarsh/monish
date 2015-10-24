@@ -67,7 +67,7 @@
                     <?= $this->Html->link(
                       '<i class="fa fa-archive"></i> Account Recovery',
                       ['action' => 'forgot_password'],
-                      ['class' => 'button button-block button-rounded button-3d button-normal', 'escape' => false]
+                      ['class' => 'button button-block button-rounded button-normal', 'escape' => false]
                     ); ?>
 
                   </div>              
@@ -75,7 +75,7 @@
                   <div class="col-sm-6">
 
                     <?= $this->Form->button('<i class="fa fa-log-in"></i> Login',
-                      ['class' => 'form-control button button-block button-rounded button-3d button-action', 'escape' => false]
+                      ['class' => 'form-control button button-block button-rounded button-action', 'escape' => false]
                     ); ?>
 
                   </div>
@@ -85,7 +85,7 @@
               <!-- Standard login -->
               <?php else :?>
 
-                <?= $this->Form->button(__('Login'), ['class' => 'form-control button button-large button-block button-rounded button-3d button-action']); ?>
+                <?= $this->Form->button(__('Login'), ['class' => 'form-control button button-large button-block button-rounded button-action']); ?>
 
               <?php endif; ?>
 

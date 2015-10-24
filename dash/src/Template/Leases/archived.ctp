@@ -1,7 +1,7 @@
 <?php
 $this->Html->addCrumb('Leases', '/leases');
 ?>
-<h1>Archived</h1>
+<h1>Leases</h1>
 
 <!-- File: src/Template/Leases/index.ctp -->
 <div class="panel panel-default panel-actionbar clearfix">
@@ -17,13 +17,13 @@ $this->Html->addCrumb('Leases', '/leases');
           <?= $this->Html->link(
             '<i class="fa fa-flash"></i> Current',
             ['action' => 'index'],
-            ['class' => 'button button-pill button-primary button-3d', 'escape' => false]
+            ['class' => 'button button-pill button-primary', 'escape' => false]
             ); ?>
 
           <?= $this->Html->link(
             '<i class="fa fa-archive"></i> Archived',
             ['action' => 'archived'],
-            ['class' => 'button button-pill button-primary button-3d active', 'escape' => false]
+            ['class' => 'button button-pill button-primary active', 'escape' => false]
             ); ?>
 
         </div>
@@ -33,7 +33,7 @@ $this->Html->addCrumb('Leases', '/leases');
           <?= $this->Html->link(
             '<i class="fa fa-plus"></i> New Lease',
             ['action' => 'add'],
-            ['class' => 'button button-pill button-action button-3d', 'escape' => false]
+            ['class' => 'button button-pill button-action', 'escape' => false]
           ); ?>
 
         </div>
@@ -72,9 +72,9 @@ $this->Html->addCrumb('Leases', '/leases');
           <th>Tenant</th>
           <th>Property</th>
           <th>Room</th>
-          <th>Date Start</th>
-          <th>Date End</th>
-          <th>Weekly Price</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Weekly&nbsp;Price</th>
           <th style="text-align:center;">Delete</th>
         </tr>
       </thead>
@@ -99,7 +99,7 @@ $this->Html->addCrumb('Leases', '/leases');
 
               $gravatarQuery = 'http://www.gravatar.com/avatar/'.$emailHash.'?d='.$defaultImageQuery;
               
-              $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+              $gravatarImage = '<img height="80px" width="80px" class="img gravatar" src="' . $gravatarQuery . '"/>';
 
               echo $gravatarImage;
             ?>

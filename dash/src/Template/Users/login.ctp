@@ -66,7 +66,7 @@
           $datediff = $your_date - $now;
           ?>
           <?php if (floor($datediff/(60*60*24)) < 30 && floor($datediff/(60*60*24)) >= 0) : ?>
-          <tr>
+          <tr class="expiring-30-days">
             <td>
               <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
               <?= $lease->property->address ?>
@@ -158,7 +158,7 @@
       $datediff = $your_date - $now;
       ?>
       <?php if (floor($datediff/(60*60*24)) < 90 && floor($datediff/(60*60*24)) >= 30) : ?>
-      <tr>
+      <tr class="expiring-90-days">
         <td>
           <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
           <?= $lease->property->address ?>
@@ -243,7 +243,7 @@
       $datediff = $your_date - $now;
       ?>
       <?php if (floor($datediff/(60*60*24)) < 180 && floor($datediff/(60*60*24)) >= 90) : ?>
-      <tr>
+      <tr class="expiring-180-days">
         <td>
           <?= $this->Html->link("", ['controller'=>'Leases', 'action' => 'view', $lease->id]) ?>  
           <?= $lease->property->address ?>
@@ -316,7 +316,7 @@
 
               $gravatarQuery = 'http://www.gravatar.com/avatar/'.$emailHash.'?d='.$defaultImageQuery;
               
-              $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+              $gravatarImage = '<img height="80px" width="80px" class="img gravatar" src="' . $gravatarQuery . '"/>';
 
               echo $gravatarImage;
             ?>

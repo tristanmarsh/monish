@@ -7,7 +7,7 @@
 
 <!-- File: src/Template/Users/edit.ctp -->
 
-<h1>Update User</h1>
+<h1>Profile</h1>
 
 
     <div class="panel panel-default panel-actionbar clearfix">
@@ -58,10 +58,10 @@
             // echo $this->Form->input('password', array('class' => 'form-control'));
             // echo $this->Form->input('confirm_password', array('class' => 'form-control', 'type'  =>  'password'));
             ?>
-            <br>
             <?php
             //echo $this->Form->input('role', ['options' => ['admin' => 'Admin', 'tenant' => 'Tenant']]);
-            echo $this->Form->button(__('Update User'), ['class' => 'form-control btn btn-primary']);
+            echo $this->Form->button('<i class="fa fa-pencil"></i> Update Username', ['class' => 'form-control button button-action button-3d']);
+
             echo $this->Form->end();
             echo $this->Form->create(null, [
                 'url' => ['controller' => 'Users', 'action' => 'index']

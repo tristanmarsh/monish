@@ -306,7 +306,9 @@ h6 {
   overflow-x: hidden; //prevents scrollable panels when mobile nav visible
   overflow-y: scrollable; 
   background: $whiteprimarycolour;
+  // background: $whiteprimarycolour url(http://www.bing.com/az/hprichbg/rb/SunbloodMountain_EN-US11233736221_1920x1080.jpg);
   transition: all 400ms ease-out;
+  // background-size:cover;
 
   .content {
     margin-top:70px;

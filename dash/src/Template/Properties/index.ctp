@@ -136,7 +136,7 @@ echo $this->Html->link('<h3 class="panel-title text-center">' . $property->addre
 
                             $gravatarQuery = 'http://www.gravatar.com/avatar/'.$emailHash.'?d='.$defaultImageQuery;
                             
-                            $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+                            $gravatarImage = '<img height="80px" width="80px" class="img gravatar" src="' . $gravatarQuery . '"/>';
                         } ?>
 
                         <?php

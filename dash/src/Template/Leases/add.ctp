@@ -34,28 +34,25 @@
   <div class="panel-body">
 
     <div class="button-group">
-
       <?= $this->Html->link(
-      '<i class="fa fa-flash"></i> Current',
-      ['action' => 'index'],
-      ['class' => 'button button-pill button-primary', 'escape' => false]
+        '<i class="fa fa-flash"></i> Current',
+        ['action' => 'index'],
+        ['class' => 'button button-pill button-primary', 'escape' => false]
       ); ?>
 
       <?= $this->Html->link(
-      '<i class="fa fa-archive"></i> Archived',
-      ['action' => 'archived'],
-      ['class' => 'button button-pill button-primary', 'escape' => false]
+        '<i class="fa fa-archive"></i> Archived',
+        ['action' => 'archived'],
+        ['class' => 'button button-pill button-primary', 'escape' => false]
       ); ?>
-
     </div>
     
     <div class="button-group">
-      <?= $this->Html->link(
-      '<i class="fa fa-plus"></i> New Lease',
-      ['action' => 'add'],
-      ['class' => 'button button-pill button-action active', 'escape' => false]
+        <?= $this->Html->link(
+        '<i class="fa fa-plus"></i> New Lease',
+        ['action' => 'add'],
+        ['class' => 'button button-pill-override button-action active', 'escape' => false]
       ); ?>
-
     </div>
         
   </div>
@@ -70,37 +67,46 @@
   <div class="panel-body">
 
       <?= $this->Form->create($lease, array('class' => 'form-group')); ?>
-      <fieldset>
+
+      <fieldset class="input-group">
+        <legend>Tenant</legend>
+        <div class="col-md-6">
+          <?= $this->Form->input('student_id', ['options' => $students,'class' => 'form-control']); ?>
+        </div>
+      </fieldset>
+
+      <fieldset class="input-group">
+        <legend>Lease</legend>
 
         <div class="col-md-6">
-        <?php
-        echo $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']);
+          <?= $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']); ?>
+        </div>
+
+        <div class="col-sm-6">
+          <label for="weekly_price">Weekly Price</label>
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="number" name="weekly_price" id="weekly_price" class="form-control">
+          </div>
+        </div>
         
-        echo $this->Form->input('date_start',['id'=>'dateStartPicker', 'type'=>'text','class' => 'form-control']);
+        <div class="col-md-6">
+          <?= $this->Form->input('date_start',['id'=>'dateStartPicker', 'type'=>'text','class' => 'form-control']); ?>
+        </div>
         
-        echo $this->Form->input('weekly_price', array('class' => 'form-control'));
-        ?>
-      </div>
+        <div class="col-md-6">
+          <?= $this->Form->input('date_end',['id'=>'dateEndPicker', 'type'=>'text', 'class' => 'form-control']); ?>
+        </div>
 
-      <div class="col-md-6">
-        <?php
-        echo $this->Form->input('student_id', ['options' => $students,'class' => 'form-control']);
-
-        echo $this->Form->input('date_end',['id'=>'dateEndPicker', 'type'=>'text', 'class' => 'form-control']);
-
-        ?>
-
-      </div>
       </fieldset>
+
       <br>
 
-      <div class="col-md-12">
       <?= $this->Form->button(__('Create Lease'), ['class' => 'form-control button button-action button-3d']); ?>
       <?= $this->Form->end() ?>
       <?= $this->Form->create(null, [
       'url' => ['controller' => 'Leases', 'action' => 'index']
       ])?>
-      <br>
       <!--     <?= $this->Form->button(__('Cancel')) ?> -->
       </div>
     </div>

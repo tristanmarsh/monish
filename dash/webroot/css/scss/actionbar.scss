@@ -19,6 +19,10 @@ Since:      23/10/15
     background:mix($white,$primarycolour, 70%);
 
     .button-pill {
+      margin-right:15px;
+    }
+
+    .button-group>.button-pill {
       margin-right:0;
     }
 

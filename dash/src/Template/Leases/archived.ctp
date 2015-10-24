@@ -13,29 +13,25 @@ $this->Html->addCrumb('Leases', '/leases');
       <div class="col-sm-6 clearfix"> 
 
         <div class="button-group">
-
           <?= $this->Html->link(
             '<i class="fa fa-flash"></i> Current',
             ['action' => 'index'],
             ['class' => 'button button-pill button-primary', 'escape' => false]
-            ); ?>
+          ); ?>
 
           <?= $this->Html->link(
             '<i class="fa fa-archive"></i> Archived',
             ['action' => 'archived'],
             ['class' => 'button button-pill button-primary active', 'escape' => false]
-            ); ?>
-
+          ); ?>
         </div>
 
         <div class="button-group">
-
           <?= $this->Html->link(
             '<i class="fa fa-plus"></i> New Lease',
             ['action' => 'add'],
-            ['class' => 'button button-pill button-action', 'escape' => false]
+            ['class' => 'button button-pill-override button-action', 'escape' => false]
           ); ?>
-
         </div>
 
       </div>

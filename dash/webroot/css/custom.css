@@ -932,7 +932,8 @@ Since:      23/10/15
 */
 .panel-actionbar .panel-body, .panel-actionbar .panel-footer { padding-bottom: 0; }
 .panel-actionbar .panel-footer { background: #d6e2ef; }
-.panel-actionbar .panel-footer .button-pill { margin-right: 0; }
+.panel-actionbar .panel-footer .button-pill { margin-right: 15px; }
+.panel-actionbar .panel-footer .button-group > .button-pill { margin-right: 0; }
 .panel-actionbar .search { width: 100%; padding: 6px 0; position: absolute; }
 .panel-actionbar .search input[type="text"].form-control { display: block; top: 0; height: 100%; width: 100%; font-size: 2rem; border-radius: 5px; }
 .panel-actionbar .search .input-group-btn { opacity: 0; visibility: none; }

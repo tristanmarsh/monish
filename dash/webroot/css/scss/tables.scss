@@ -4,16 +4,9 @@ Author:   Tristan Marsh
 Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  All custom styling for tables
 Since:    30/7/15
-
 */
 
 // Taken from forked codepen http://codepen.io/tristanmarsh/pen/VLVQqo
-
-
-
-body {
-  color: #70808e;
-}
 
 // Effective Table Footer
 .table-responsive {
@@ -31,33 +24,32 @@ table:not(.ui-datepicker-calendar) {
   
   // Link Style
   a {
-    color: #3C73C3;
+    // color:darken($darkprimarycolour,20%);
     text-decoration: none;
   }
   
   // Table Header
   & thead th {
-    background: #2980b9;
     background: rgba(41, 128, 185,0.5);
+    background: $primarycolour;
     font-size:1.4rem;
     line-height: 2.4em;
     font-family:$roboto-slab-font-stack;
     position:relative;
     overflow:hidden;
-    color:#fff;
     padding: 6px 12px;
-    color:#fff;
+    color:$lightthemetext;
   }
 
   // Table Row
 
-  & tr {
-    background: darken(#fff, 1%);
-    border-bottom:1px solid #D5E4F1;
+  & tr {  
+    background:mix($white, $primarycolour, 97%);
+    border-bottom:1px solid $lightprimarycolour;
   }
 
   & tr:nth-of-type(odd) {
-    background: darken(#fff, 4%);
+    background:mix($white, $primarycolour, 92%);
   }
 
   & tr:last-child {
@@ -66,7 +58,7 @@ table:not(.ui-datepicker-calendar) {
 
   & tr:focus td,
   & tr:hover td, {
-    background: darken(#fff, 0%);
+    background: desaturate(lighten($primarycolour, 40%),40%);
 
   }
 
@@ -107,7 +99,8 @@ table:not(.ui-datepicker-calendar) {
   // td>span:not([class="glyphicon"]) {
   td>* {
     // display: block;
-    color:#555;
+    color:$darkthemetext
+
   }
 
   td>span,
@@ -119,7 +112,7 @@ table:not(.ui-datepicker-calendar) {
   // Gravatar flush
   td:first-child>img.gravatar {
     margin-left:-10px;
-    background:#fff;
+    background:$white;
   }
   
   // Profile Name after gravatar offset
@@ -136,43 +129,43 @@ table:not(.ui-datepicker-calendar) {
   // General Icon Color
   td.action>a span:before,
   td.action>a span:before{
-    color: lighten(#2980b9,10%);
+    color: lighten($primarycolour,10%);
   }  
 
   // General Action hover background
   td.action>a:focus,
   td.action>a:hover {
-    background: lighten(#2980b9,10%);
+    background: lighten($primarycolour,10%);
   }
 
   // Close Icon Color
   td.action-close>a span:before,
   td.action-close>a span:before{
-    color: lighten(#5fcf80,10%);
+    color: $green;
   }  
 
   // Close hover background
   td.action-close>a:focus,
   td.action-close>a:hover {
-    background: lighten(#5fcf80,10%);
+    background: $green;
   }
 
   // Remove Icon Color
   td.action-remove>a span:before,
   td.action-remove>a span:before{
-    color:rgba(255,105,97,0.8);
+    color:$red;
   }  
 
   // Remove hover background
   td.action-remove>a:focus,
   td.action-remove>a:hover {
-    background:rgba(255,105,97,0.8);
+    background:$red;
   }
 
   // Action hover icon color
   td>a:focus>span.glyphicon:before,
   td>a:hover>span.glyphicon:before {
-    color:#fff;
+    color:$white;
   }
 
   // Used for hiding the 1px * 0px view links

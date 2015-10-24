@@ -41,9 +41,9 @@ form {
     font-size: 2rem;
     height:50px;
     line-height:auto;
-    color:darken($darkblue,20%);
-    background-color:lighten($lightblue,10%);
-    border:1px solid lighten($lightblue,10%);
+    color:darken($darkprimarycolour,20%);
+    background-color:lighten($lightprimarycolour,10%);
+    border:1px solid lighten($lightprimarycolour,10%);
     margin-bottom: 1em;
   }
 
@@ -82,7 +82,7 @@ form {
     font-size: 16px;
     padding: 11px 17px;
     border: none;
-    background-color: $lightblue;
+    background-color: $lightprimarycolour;
     transition: all 0.2s ease-in;
     margin-bottom:0!important;
     float: left;
@@ -103,14 +103,14 @@ form {
     padding: 13px 20px;
     border: none;
     margin-left: -1px;
-    background-color: $darkblue;
+    background-color: $darkprimarycolour;
     float: left;
     /* IE 9 Fix */
     transition: all 0.2s ease-in;
   }
 
   .file-upload-button:hover {
-    background-color:darken($darkblue,10%);
+    background-color:darken($darkprimarycolour,10%);
   }
 
 }

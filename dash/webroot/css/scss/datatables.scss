@@ -21,22 +21,13 @@ Since:    15/8/15
     padding-left:10px;
   }
 
-  /* #### Sorting Table Heads #### */
-  table.dataTable thead .sorting,
-  table.dataTable thead .sorting_asc,
-  table.dataTable thead .sorting_desc {
-    cursor: pointer;
-    *cursor: hand;
-  }
-
-
 // Table Header
   & thead th {
   
     &:focus,
     &:hover {
-      background: lighten(#2980b9,5%);
-      color:#fff;
+      background: lighten($primarycolour,5%);
+      color:$white;
       text-decoration: none;
     }
 
@@ -51,30 +42,11 @@ Since:    15/8/15
     }
     
     // Actively Sorting State
+    &:active,
     &[class^='sorting_'] {
-      background: darken(#2980b9,5%);
+      background: darken($primarycolour,5%);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
     }
-
-    // // Hover Direction Preview
-    // &:focus:after,
-    // &:hover:after {
-    //   opacity:1;
-    // }
-    
-    // //Make preview Hidden for active state
-    // &[class^='sorting_']:after {
-    //   opacity:1;
-    // }
-
-    // //inherited from hover preview
-    // &.asc:after {
-    //   content:inherit;
-    // }
-    
-    // //modify from inherited hover preview
-    // &.sorting_desc:after {
-    //   content:'\25BC';
-    // }
 
   }
 
@@ -109,10 +81,10 @@ Since:    15/8/15
       padding: 6px 12px;
       line-height: 1.42857143;
       text-decoration: none;
-      color: #70808e;
-      background: #fff;
+      color: $darkthemetext;
+      background: $white;
       margin-left: -1px; 
-      border: 1px solid #D5E4F1;
+      border: 1px solid $lightprimarycolour;
       border-right:0;
       border-bottom:0;
       cursor:pointer;
@@ -123,8 +95,8 @@ Since:    15/8/15
       }
 
       &:hover {
-        background-color: #D5E4F1;
-        color: #555;
+        background-color: $lightprimarycolour;
+        color: $darkthemetext;
       }
 
       //Current Page
@@ -135,9 +107,9 @@ Since:    15/8/15
       &.current:focus,
       &.current>span:focus {
           z-index: 2;
-          color: #fff;
-          background-color: #B2CFE9;
-          border-color: #B2CFE9;
+          color: $darkthemetext;
+          background-color: $lightprimarycolour;
+          border-color: $lightprimarycolour;
           cursor: default;
       }
 
@@ -160,15 +132,11 @@ Since:    15/8/15
     }
 
   }
-
-
-
   
   // Little bit of space when no results found
   .dataTables_empty {
     padding:20px;
   }
-
 
   // Datatables Additions
   table.dataTable thead > tr > th.sorting_asc, table.dataTable thead > tr > th.sorting_desc, table.dataTable thead > tr > th.sorting,
@@ -177,7 +145,7 @@ Since:    15/8/15
   table.dataTable thead > tr > td.sorting {
     padding-right: 30px;
   }
-
+    
   table.dataTable thead .sorting:after,
   table.dataTable thead .sorting_asc:after,
   table.dataTable thead .sorting_desc:after,
@@ -205,7 +173,7 @@ Since:    15/8/15
   }
   table.dataTable thead .sorting_asc_disabled:after,
   table.dataTable thead .sorting_desc_disabled:after {
-    color: #eee;
+    color: $lightprimarycolour;
   }
 
   div.dataTables_scrollHead table.dataTable {

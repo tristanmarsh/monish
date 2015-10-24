@@ -106,17 +106,33 @@
 ?></td>
 </tr> -->
 
-
-
     <tr>
       <td>
-          Maintenace Requested By: <?= h($lion->person->first_name)?> <?= h($lion->person->last_name)?>
+          <!-- Tristan's Adorable/Gravatar Avatar Script -->
+          <?php
+            $email = $lion->person->email;
+            $emailHash = md5( strtolower( trim( $email ) ) );
+
+            $defaultImageQuery = 'http://api.adorable.io/avatars/200/' . $email;
+            $defaultImageQuery = urlencode($defaultImageQuery);
+
+            $gravatarQuery = 'http://www.gravatar.com/avatar/'.$emailHash.'?d='.$defaultImageQuery;
+            
+            $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+
+            echo $gravatarImage;
+          ?>
+
+          <?= h($lion->person->first_name)?> <?= h($lion->person->last_name)?>
       </td>
     </tr>
-    <tr>
-      <td><small>Created: <?= $giraffe->created->format('d M Y H:i:s') ?></small></td>
-    </tr>
+
 </table>
+
+<div class="panel-footer">
+    <span>Created: <?= $giraffe->created->format('d M Y H:i:s') ?></span>
+</div>
+
   </div>
       <?php if ($giraffe->avatar_directory) : ?>
   </div>

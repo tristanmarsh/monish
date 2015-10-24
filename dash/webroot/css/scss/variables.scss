@@ -19,12 +19,22 @@ $open-sans-font-stack: 'Open Sans', sans-serif;
 /* Transition */
 $standard-transition: all 400ms ease;
 
-
 /* Colours */
+$white:#fff;
 $green:rgb(119,221,119);
 $orange:rgb(255,179,71);
 $red:rgb(255,105,97);
+$blue: rgb(119,158,203);
 
-$darkblue:#337ab7;
-$blue:rgb(143, 187, 215);
-$lightblue:rgb(178, 207, 233);;
+// Theme
+$primarycolour: $blue;
+$primarycolour: $red;
+
+// Theme Colour Variations
+$darkprimarycolour: darken($primarycolour,10%);
+$lightprimarycolour: lighten($primarycolour,27%);
+$whiteprimarycolour: lighten($primarycolour,32%);
+
+// Theme Text Colours
+$darkthemetext:darken(desaturate($darkprimarycolour,30%),20%);
+$lightthemetext:lighten(desaturate($darkprimarycolour,0%),50%);

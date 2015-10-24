@@ -250,10 +250,10 @@ Since:    29/4/15
 * Create colors for buttons
 * (.button-primary, .button-secondary, etc.)
 */
-.button-primary, .button-primary-flat { background-color: #337ab7; border-color: #337ab7; color: #FFF; }
+.button-primary, .button-primary-flat { background-color: #ff392e; border-color: #ff392e; color: #FFF; }
 .button-primary:visited, .button-primary-flat:visited { color: #FFF; }
-.button-primary:hover, .button-primary:focus, .button-primary-flat:hover, .button-primary-flat:focus { background-color: #4f93ce; border-color: #4f93ce; color: #FFF; }
-.button-primary:active, .button-primary.active, .button-primary.is-active, .button-primary-flat:active, .button-primary-flat.active, .button-primary-flat.is-active { background-color: #3f79ab; border-color: #3f79ab; color: #285f8f; }
+.button-primary:hover, .button-primary:focus, .button-primary-flat:hover, .button-primary-flat:focus { background-color: #ff6961; border-color: #ff6961; color: #FFF; }
+.button-primary:active, .button-primary.active, .button-primary.is-active, .button-primary-flat:active, .button-primary-flat.active, .button-primary-flat.is-active { background-color: #f54238; border-color: #f54238; color: #fa0d00; }
 
 .button-plain, .button-plain-flat { background-color: #FFF; border-color: #FFF; color: #1B9AF7; }
 .button-plain:visited, .button-plain-flat:visited { color: #1B9AF7; }
@@ -360,9 +360,9 @@ Since:    29/4/15
 * The line-height must be adjusted to compinsate for
 * the width of the border.
 */ }
-.button-border.button-primary, .button-primary.button-border-thin, .button-primary.button-border-thick, .button-border-thin.button-primary, .button-border-thick.button-primary { color: #337ab7; }
-.button-border.button-primary:hover, .button-primary.button-border-thin:hover, .button-primary.button-border-thick:hover, .button-border.button-primary:focus, .button-primary.button-border-thin:focus, .button-primary.button-border-thick:focus, .button-border-thin.button-primary:hover, .button-border-thin.button-primary:focus, .button-border-thick.button-primary:hover, .button-border-thick.button-primary:focus { background-color: rgba(79, 147, 206, 0.9); color: rgba(255, 255, 255, 0.9); }
-.button-border.button-primary:active, .button-primary.button-border-thin:active, .button-primary.button-border-thick:active, .button-border.button-primary.active, .button-primary.active.button-border-thin, .button-primary.active.button-border-thick, .button-border.button-primary.is-active, .button-primary.is-active.button-border-thin, .button-primary.is-active.button-border-thick, .button-border-thin.button-primary:active, .button-border-thin.button-primary.active, .button-border-thin.button-primary.is-active, .button-border-thick.button-primary:active, .button-border-thick.button-primary.active, .button-border-thick.button-primary.is-active { background-color: rgba(63, 121, 171, 0.7); color: rgba(255, 255, 255, 0.5); opacity: .3; }
+.button-border.button-primary, .button-primary.button-border-thin, .button-primary.button-border-thick, .button-border-thin.button-primary, .button-border-thick.button-primary { color: #ff392e; }
+.button-border.button-primary:hover, .button-primary.button-border-thin:hover, .button-primary.button-border-thick:hover, .button-border.button-primary:focus, .button-primary.button-border-thin:focus, .button-primary.button-border-thick:focus, .button-border-thin.button-primary:hover, .button-border-thin.button-primary:focus, .button-border-thick.button-primary:hover, .button-border-thick.button-primary:focus { background-color: rgba(255, 105, 97, 0.9); color: rgba(255, 255, 255, 0.9); }
+.button-border.button-primary:active, .button-primary.button-border-thin:active, .button-primary.button-border-thick:active, .button-border.button-primary.active, .button-primary.active.button-border-thin, .button-primary.active.button-border-thick, .button-border.button-primary.is-active, .button-primary.is-active.button-border-thin, .button-primary.is-active.button-border-thick, .button-border-thin.button-primary:active, .button-border-thin.button-primary.active, .button-border-thin.button-primary.is-active, .button-border-thick.button-primary:active, .button-border-thick.button-primary.active, .button-border-thick.button-primary.is-active { background-color: rgba(245, 66, 56, 0.7); color: rgba(255, 255, 255, 0.5); opacity: .3; }
 .button-border.button-plain, .button-plain.button-border-thin, .button-plain.button-border-thick, .button-border-thin.button-plain, .button-border-thick.button-plain { color: #FFF; }
 .button-border.button-plain:hover, .button-plain.button-border-thin:hover, .button-plain.button-border-thick:hover, .button-border.button-plain:focus, .button-plain.button-border-thin:focus, .button-plain.button-border-thick:focus, .button-border-thin.button-plain:hover, .button-border-thin.button-plain:focus, .button-border-thick.button-plain:hover, .button-border-thick.button-plain:focus { background-color: rgba(255, 255, 255, 0.9); color: rgba(27, 154, 247, 0.9); }
 .button-border.button-plain:active, .button-plain.button-border-thin:active, .button-plain.button-border-thick:active, .button-border.button-plain.active, .button-plain.active.button-border-thin, .button-plain.active.button-border-thick, .button-border.button-plain.is-active, .button-plain.is-active.button-border-thin, .button-plain.is-active.button-border-thick, .button-border-thin.button-plain:active, .button-border-thin.button-plain.active, .button-border-thin.button-plain.is-active, .button-border-thick.button-plain:active, .button-border-thick.button-plain.active, .button-border-thick.button-plain.is-active { background-color: rgba(255, 255, 255, 0.7); color: rgba(27, 154, 247, 0.5); opacity: .3; }
@@ -407,7 +407,7 @@ Since:    29/4/15
 */ }
 .button-borderless:hover, .button-borderless:focus { background: none; }
 .button-borderless:active, .button-borderless.active, .button-borderless.is-active { box-shadow: none; text-shadow: none; transition-property: all; transition-duration: .3s; opacity: .3; }
-.button-borderless.button-primary { color: #337ab7; }
+.button-borderless.button-primary { color: #ff392e; }
 .button-borderless.button-plain { color: #FFF; }
 .button-borderless.button-inverse { color: #222; }
 .button-borderless.button-action { color: #77dd77; }
@@ -436,9 +436,9 @@ Since:    29/4/15
 *
 * Create colors for raised buttons
 */
-.button-raised.button-primary { border-color: #2d6da3; background: linear-gradient(#3b87c8, #2d6da3); }
-.button-raised.button-primary:hover, .button-raised.button-primary:focus { background: linear-gradient(top, #478ecc, #2b679b); }
-.button-raised.button-primary:active, .button-raised.button-primary.active, .button-raised.button-primary.is-active { border-color: #285f8f; background: #3f79ab; }
+.button-raised.button-primary { border-color: #ff2015; background: linear-gradient(#ff5148, #ff2015); }
+.button-raised.button-primary:hover, .button-raised.button-primary:focus { background: linear-gradient(top, #ff5f57, #ff170a); }
+.button-raised.button-primary:active, .button-raised.button-primary.active, .button-raised.button-primary.is-active { border-color: #fa0d00; background: #f54238; }
 .button-raised.button-plain { border-color: #f2f2f2; background: linear-gradient(white, #f2f2f2); }
 .button-raised.button-plain:hover, .button-raised.button-plain:focus { background: linear-gradient(top, white, #ededed); }
 .button-raised.button-plain:active, .button-raised.button-plain.active, .button-raised.button-plain.is-active { border-color: #e6e6e6; background: white; }
@@ -475,9 +475,9 @@ Since:    29/4/15
 * Create colors for buttons
 * (.button-primary, .button-secondary, etc.)
 */
-.button-3d.button-primary { box-shadow: 0 7px 0 #285f8f, 0 8px 3px rgba(0, 0, 0, 0.3); }
-.button-3d.button-primary:hover, .button-3d.button-primary:focus { box-shadow: 0 7px 0 #265a87, 0 8px 3px rgba(0, 0, 0, 0.3); }
-.button-3d.button-primary:active, .button-3d.button-primary.active, .button-3d.button-primary.is-active { box-shadow: 0 2px 0 #1d4567, 0 3px 3px rgba(0, 0, 0, 0.2); }
+.button-3d.button-primary { box-shadow: 0 7px 0 #fa0d00, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-primary:hover, .button-3d.button-primary:focus { box-shadow: 0 7px 0 #f00c00, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-primary:active, .button-3d.button-primary.active, .button-3d.button-primary.is-active { box-shadow: 0 2px 0 #c70a00, 0 3px 3px rgba(0, 0, 0, 0.2); }
 .button-3d.button-plain { box-shadow: 0 7px 0 #e6e6e6, 0 8px 3px rgba(0, 0, 0, 0.3); }
 .button-3d.button-plain:hover, .button-3d.button-plain:focus { box-shadow: 0 7px 0 #e0e0e0, 0 8px 3px rgba(0, 0, 0, 0.3); }
 .button-3d.button-plain:active, .button-3d.button-plain.active, .button-3d.button-plain.is-active { box-shadow: 0 2px 0 #cccccc, 0 3px 3px rgba(0, 0, 0, 0.2); }
@@ -519,9 +519,9 @@ Since:    29/4/15
 * Glowing Keyframes for various colors
 *
 */
-@keyframes glowing-primary { from { box-shadow: 0 0 0 rgba(51, 122, 183, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(51, 122, 183, 0.8); }
-  to { box-shadow: 0 0 0 rgba(51, 122, 183, 0.3); } }
+@keyframes glowing-primary { from { box-shadow: 0 0 0 rgba(255, 57, 46, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(255, 57, 46, 0.8); }
+  to { box-shadow: 0 0 0 rgba(255, 57, 46, 0.3); } }
 @keyframes glowing-plain { from { box-shadow: 0 0 0 rgba(255, 255, 255, 0.3); }
   50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
   to { box-shadow: 0 0 0 rgba(255, 255, 255, 0.3); } }
@@ -605,10 +605,10 @@ Since:    29/4/15
 * Create colors for buttons
 * (.button-primary, .button-secondary, etc.)
 */
-.button-dropdown.button-dropdown-primary .button-dropdown-list { background: rgba(51, 122, 183, 0.95); border-color: #285f8f; }
-.button-dropdown.button-dropdown-primary .button-dropdown-list .button-dropdown-divider { border-color: #2b679b; }
+.button-dropdown.button-dropdown-primary .button-dropdown-list { background: rgba(255, 57, 46, 0.95); border-color: #fa0d00; }
+.button-dropdown.button-dropdown-primary .button-dropdown-list .button-dropdown-divider { border-color: #ff170a; }
 .button-dropdown.button-dropdown-primary .button-dropdown-list > li > a { color: #FFF; }
-.button-dropdown.button-dropdown-primary .button-dropdown-list > li > a:hover { color: #f2f2f2; background: #2d6da3; }
+.button-dropdown.button-dropdown-primary .button-dropdown-list > li > a:hover { color: #f2f2f2; background: #ff2015; }
 .button-dropdown.button-dropdown-plain .button-dropdown-list { background: rgba(255, 255, 255, 0.95); border-color: #e6e6e6; }
 .button-dropdown.button-dropdown-plain .button-dropdown-list .button-dropdown-divider { border-color: #ededed; }
 .button-dropdown.button-dropdown-plain .button-dropdown-list > li > a { color: #1B9AF7; }
@@ -675,7 +675,7 @@ Since:    29/4/15
 *
 */
 .button-longshadow, .button-longshadow-right { overflow: hidden; }
-.button-longshadow.button-primary, .button-longshadow-right.button-primary { text-shadow: 0px 0px #285f8f, 1px 1px #285f8f, 2px 2px #285f8f, 3px 3px #285f8f, 4px 4px #285f8f, 5px 5px #285f8f, 6px 6px #285f8f, 7px 7px #285f8f, 8px 8px #285f8f, 9px 9px #285f8f, 10px 10px #285f8f, 11px 11px #285f8f, 12px 12px #285f8f, 13px 13px #285f8f, 14px 14px #285f8f, 15px 15px #285f8f, 16px 16px #285f8f, 17px 17px #285f8f, 18px 18px #285f8f, 19px 19px #285f8f, 20px 20px #285f8f, 21px 21px #285f8f, 22px 22px #285f8f, 23px 23px #285f8f, 24px 24px #285f8f, 25px 25px #285f8f, 26px 26px #285f8f, 27px 27px #285f8f, 28px 28px #285f8f, 29px 29px #285f8f, 30px 30px #285f8f, 31px 31px #285f8f, 32px 32px #285f8f, 33px 33px #285f8f, 34px 34px #285f8f, 35px 35px #285f8f, 36px 36px #285f8f, 37px 37px #285f8f, 38px 38px #285f8f, 39px 39px #285f8f, 40px 40px #285f8f, 41px 41px #285f8f, 42px 42px #285f8f, 43px 43px #285f8f, 44px 44px #285f8f, 45px 45px #285f8f, 46px 46px #285f8f, 47px 47px #285f8f, 48px 48px #285f8f, 49px 49px #285f8f, 50px 50px #285f8f, 51px 51px #285f8f, 52px 52px #285f8f, 53px 53px #285f8f, 54px 54px #285f8f, 55px 55px #285f8f, 56px 56px #285f8f, 57px 57px #285f8f, 58px 58px #285f8f, 59px 59px #285f8f, 60px 60px #285f8f, 61px 61px #285f8f, 62px 62px #285f8f, 63px 63px #285f8f, 64px 64px #285f8f, 65px 65px #285f8f, 66px 66px #285f8f, 67px 67px #285f8f, 68px 68px #285f8f, 69px 69px #285f8f, 70px 70px #285f8f, 71px 71px #285f8f, 72px 72px #285f8f, 73px 73px #285f8f, 74px 74px #285f8f, 75px 75px #285f8f, 76px 76px #285f8f, 77px 77px #285f8f, 78px 78px #285f8f, 79px 79px #285f8f, 80px 80px #285f8f, 81px 81px #285f8f, 82px 82px #285f8f, 83px 83px #285f8f, 84px 84px #285f8f, 85px 85px #285f8f; }
+.button-longshadow.button-primary, .button-longshadow-right.button-primary { text-shadow: 0px 0px #fa0d00, 1px 1px #fa0d00, 2px 2px #fa0d00, 3px 3px #fa0d00, 4px 4px #fa0d00, 5px 5px #fa0d00, 6px 6px #fa0d00, 7px 7px #fa0d00, 8px 8px #fa0d00, 9px 9px #fa0d00, 10px 10px #fa0d00, 11px 11px #fa0d00, 12px 12px #fa0d00, 13px 13px #fa0d00, 14px 14px #fa0d00, 15px 15px #fa0d00, 16px 16px #fa0d00, 17px 17px #fa0d00, 18px 18px #fa0d00, 19px 19px #fa0d00, 20px 20px #fa0d00, 21px 21px #fa0d00, 22px 22px #fa0d00, 23px 23px #fa0d00, 24px 24px #fa0d00, 25px 25px #fa0d00, 26px 26px #fa0d00, 27px 27px #fa0d00, 28px 28px #fa0d00, 29px 29px #fa0d00, 30px 30px #fa0d00, 31px 31px #fa0d00, 32px 32px #fa0d00, 33px 33px #fa0d00, 34px 34px #fa0d00, 35px 35px #fa0d00, 36px 36px #fa0d00, 37px 37px #fa0d00, 38px 38px #fa0d00, 39px 39px #fa0d00, 40px 40px #fa0d00, 41px 41px #fa0d00, 42px 42px #fa0d00, 43px 43px #fa0d00, 44px 44px #fa0d00, 45px 45px #fa0d00, 46px 46px #fa0d00, 47px 47px #fa0d00, 48px 48px #fa0d00, 49px 49px #fa0d00, 50px 50px #fa0d00, 51px 51px #fa0d00, 52px 52px #fa0d00, 53px 53px #fa0d00, 54px 54px #fa0d00, 55px 55px #fa0d00, 56px 56px #fa0d00, 57px 57px #fa0d00, 58px 58px #fa0d00, 59px 59px #fa0d00, 60px 60px #fa0d00, 61px 61px #fa0d00, 62px 62px #fa0d00, 63px 63px #fa0d00, 64px 64px #fa0d00, 65px 65px #fa0d00, 66px 66px #fa0d00, 67px 67px #fa0d00, 68px 68px #fa0d00, 69px 69px #fa0d00, 70px 70px #fa0d00, 71px 71px #fa0d00, 72px 72px #fa0d00, 73px 73px #fa0d00, 74px 74px #fa0d00, 75px 75px #fa0d00, 76px 76px #fa0d00, 77px 77px #fa0d00, 78px 78px #fa0d00, 79px 79px #fa0d00, 80px 80px #fa0d00, 81px 81px #fa0d00, 82px 82px #fa0d00, 83px 83px #fa0d00, 84px 84px #fa0d00, 85px 85px #fa0d00; }
 .button-longshadow.button-primary:active, .button-longshadow.button-primary.active, .button-longshadow.button-primary.is-active, .button-longshadow-right.button-primary:active, .button-longshadow-right.button-primary.active, .button-longshadow-right.button-primary.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
 .button-longshadow.button-plain, .button-longshadow-right.button-plain { text-shadow: 0px 0px #e6e6e6, 1px 1px #e6e6e6, 2px 2px #e6e6e6, 3px 3px #e6e6e6, 4px 4px #e6e6e6, 5px 5px #e6e6e6, 6px 6px #e6e6e6, 7px 7px #e6e6e6, 8px 8px #e6e6e6, 9px 9px #e6e6e6, 10px 10px #e6e6e6, 11px 11px #e6e6e6, 12px 12px #e6e6e6, 13px 13px #e6e6e6, 14px 14px #e6e6e6, 15px 15px #e6e6e6, 16px 16px #e6e6e6, 17px 17px #e6e6e6, 18px 18px #e6e6e6, 19px 19px #e6e6e6, 20px 20px #e6e6e6, 21px 21px #e6e6e6, 22px 22px #e6e6e6, 23px 23px #e6e6e6, 24px 24px #e6e6e6, 25px 25px #e6e6e6, 26px 26px #e6e6e6, 27px 27px #e6e6e6, 28px 28px #e6e6e6, 29px 29px #e6e6e6, 30px 30px #e6e6e6, 31px 31px #e6e6e6, 32px 32px #e6e6e6, 33px 33px #e6e6e6, 34px 34px #e6e6e6, 35px 35px #e6e6e6, 36px 36px #e6e6e6, 37px 37px #e6e6e6, 38px 38px #e6e6e6, 39px 39px #e6e6e6, 40px 40px #e6e6e6, 41px 41px #e6e6e6, 42px 42px #e6e6e6, 43px 43px #e6e6e6, 44px 44px #e6e6e6, 45px 45px #e6e6e6, 46px 46px #e6e6e6, 47px 47px #e6e6e6, 48px 48px #e6e6e6, 49px 49px #e6e6e6, 50px 50px #e6e6e6, 51px 51px #e6e6e6, 52px 52px #e6e6e6, 53px 53px #e6e6e6, 54px 54px #e6e6e6, 55px 55px #e6e6e6, 56px 56px #e6e6e6, 57px 57px #e6e6e6, 58px 58px #e6e6e6, 59px 59px #e6e6e6, 60px 60px #e6e6e6, 61px 61px #e6e6e6, 62px 62px #e6e6e6, 63px 63px #e6e6e6, 64px 64px #e6e6e6, 65px 65px #e6e6e6, 66px 66px #e6e6e6, 67px 67px #e6e6e6, 68px 68px #e6e6e6, 69px 69px #e6e6e6, 70px 70px #e6e6e6, 71px 71px #e6e6e6, 72px 72px #e6e6e6, 73px 73px #e6e6e6, 74px 74px #e6e6e6, 75px 75px #e6e6e6, 76px 76px #e6e6e6, 77px 77px #e6e6e6, 78px 78px #e6e6e6, 79px 79px #e6e6e6, 80px 80px #e6e6e6, 81px 81px #e6e6e6, 82px 82px #e6e6e6, 83px 83px #e6e6e6, 84px 84px #e6e6e6, 85px 85px #e6e6e6; }
 .button-longshadow.button-plain:active, .button-longshadow.button-plain.active, .button-longshadow.button-plain.is-active, .button-longshadow-right.button-plain:active, .button-longshadow-right.button-plain.active, .button-longshadow-right.button-plain.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
@@ -695,7 +695,7 @@ Since:    29/4/15
 *
 */
 .button-longshadow-left { overflow: hidden; }
-.button-longshadow-left.button-primary { text-shadow: 0px 0px #285f8f, -1px 1px #285f8f, -2px 2px #285f8f, -3px 3px #285f8f, -4px 4px #285f8f, -5px 5px #285f8f, -6px 6px #285f8f, -7px 7px #285f8f, -8px 8px #285f8f, -9px 9px #285f8f, -10px 10px #285f8f, -11px 11px #285f8f, -12px 12px #285f8f, -13px 13px #285f8f, -14px 14px #285f8f, -15px 15px #285f8f, -16px 16px #285f8f, -17px 17px #285f8f, -18px 18px #285f8f, -19px 19px #285f8f, -20px 20px #285f8f, -21px 21px #285f8f, -22px 22px #285f8f, -23px 23px #285f8f, -24px 24px #285f8f, -25px 25px #285f8f, -26px 26px #285f8f, -27px 27px #285f8f, -28px 28px #285f8f, -29px 29px #285f8f, -30px 30px #285f8f, -31px 31px #285f8f, -32px 32px #285f8f, -33px 33px #285f8f, -34px 34px #285f8f, -35px 35px #285f8f, -36px 36px #285f8f, -37px 37px #285f8f, -38px 38px #285f8f, -39px 39px #285f8f, -40px 40px #285f8f, -41px 41px #285f8f, -42px 42px #285f8f, -43px 43px #285f8f, -44px 44px #285f8f, -45px 45px #285f8f, -46px 46px #285f8f, -47px 47px #285f8f, -48px 48px #285f8f, -49px 49px #285f8f, -50px 50px #285f8f, -51px 51px #285f8f, -52px 52px #285f8f, -53px 53px #285f8f, -54px 54px #285f8f, -55px 55px #285f8f, -56px 56px #285f8f, -57px 57px #285f8f, -58px 58px #285f8f, -59px 59px #285f8f, -60px 60px #285f8f, -61px 61px #285f8f, -62px 62px #285f8f, -63px 63px #285f8f, -64px 64px #285f8f, -65px 65px #285f8f, -66px 66px #285f8f, -67px 67px #285f8f, -68px 68px #285f8f, -69px 69px #285f8f, -70px 70px #285f8f, -71px 71px #285f8f, -72px 72px #285f8f, -73px 73px #285f8f, -74px 74px #285f8f, -75px 75px #285f8f, -76px 76px #285f8f, -77px 77px #285f8f, -78px 78px #285f8f, -79px 79px #285f8f, -80px 80px #285f8f, -81px 81px #285f8f, -82px 82px #285f8f, -83px 83px #285f8f, -84px 84px #285f8f, -85px 85px #285f8f; }
+.button-longshadow-left.button-primary { text-shadow: 0px 0px #fa0d00, -1px 1px #fa0d00, -2px 2px #fa0d00, -3px 3px #fa0d00, -4px 4px #fa0d00, -5px 5px #fa0d00, -6px 6px #fa0d00, -7px 7px #fa0d00, -8px 8px #fa0d00, -9px 9px #fa0d00, -10px 10px #fa0d00, -11px 11px #fa0d00, -12px 12px #fa0d00, -13px 13px #fa0d00, -14px 14px #fa0d00, -15px 15px #fa0d00, -16px 16px #fa0d00, -17px 17px #fa0d00, -18px 18px #fa0d00, -19px 19px #fa0d00, -20px 20px #fa0d00, -21px 21px #fa0d00, -22px 22px #fa0d00, -23px 23px #fa0d00, -24px 24px #fa0d00, -25px 25px #fa0d00, -26px 26px #fa0d00, -27px 27px #fa0d00, -28px 28px #fa0d00, -29px 29px #fa0d00, -30px 30px #fa0d00, -31px 31px #fa0d00, -32px 32px #fa0d00, -33px 33px #fa0d00, -34px 34px #fa0d00, -35px 35px #fa0d00, -36px 36px #fa0d00, -37px 37px #fa0d00, -38px 38px #fa0d00, -39px 39px #fa0d00, -40px 40px #fa0d00, -41px 41px #fa0d00, -42px 42px #fa0d00, -43px 43px #fa0d00, -44px 44px #fa0d00, -45px 45px #fa0d00, -46px 46px #fa0d00, -47px 47px #fa0d00, -48px 48px #fa0d00, -49px 49px #fa0d00, -50px 50px #fa0d00, -51px 51px #fa0d00, -52px 52px #fa0d00, -53px 53px #fa0d00, -54px 54px #fa0d00, -55px 55px #fa0d00, -56px 56px #fa0d00, -57px 57px #fa0d00, -58px 58px #fa0d00, -59px 59px #fa0d00, -60px 60px #fa0d00, -61px 61px #fa0d00, -62px 62px #fa0d00, -63px 63px #fa0d00, -64px 64px #fa0d00, -65px 65px #fa0d00, -66px 66px #fa0d00, -67px 67px #fa0d00, -68px 68px #fa0d00, -69px 69px #fa0d00, -70px 70px #fa0d00, -71px 71px #fa0d00, -72px 72px #fa0d00, -73px 73px #fa0d00, -74px 74px #fa0d00, -75px 75px #fa0d00, -76px 76px #fa0d00, -77px 77px #fa0d00, -78px 78px #fa0d00, -79px 79px #fa0d00, -80px 80px #fa0d00, -81px 81px #fa0d00, -82px 82px #fa0d00, -83px 83px #fa0d00, -84px 84px #fa0d00, -85px 85px #fa0d00; }
 .button-longshadow-left.button-primary:active, .button-longshadow-left.button-primary.active, .button-longshadow-left.button-primary.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
 .button-longshadow-left.button-plain { text-shadow: 0px 0px #e6e6e6, -1px 1px #e6e6e6, -2px 2px #e6e6e6, -3px 3px #e6e6e6, -4px 4px #e6e6e6, -5px 5px #e6e6e6, -6px 6px #e6e6e6, -7px 7px #e6e6e6, -8px 8px #e6e6e6, -9px 9px #e6e6e6, -10px 10px #e6e6e6, -11px 11px #e6e6e6, -12px 12px #e6e6e6, -13px 13px #e6e6e6, -14px 14px #e6e6e6, -15px 15px #e6e6e6, -16px 16px #e6e6e6, -17px 17px #e6e6e6, -18px 18px #e6e6e6, -19px 19px #e6e6e6, -20px 20px #e6e6e6, -21px 21px #e6e6e6, -22px 22px #e6e6e6, -23px 23px #e6e6e6, -24px 24px #e6e6e6, -25px 25px #e6e6e6, -26px 26px #e6e6e6, -27px 27px #e6e6e6, -28px 28px #e6e6e6, -29px 29px #e6e6e6, -30px 30px #e6e6e6, -31px 31px #e6e6e6, -32px 32px #e6e6e6, -33px 33px #e6e6e6, -34px 34px #e6e6e6, -35px 35px #e6e6e6, -36px 36px #e6e6e6, -37px 37px #e6e6e6, -38px 38px #e6e6e6, -39px 39px #e6e6e6, -40px 40px #e6e6e6, -41px 41px #e6e6e6, -42px 42px #e6e6e6, -43px 43px #e6e6e6, -44px 44px #e6e6e6, -45px 45px #e6e6e6, -46px 46px #e6e6e6, -47px 47px #e6e6e6, -48px 48px #e6e6e6, -49px 49px #e6e6e6, -50px 50px #e6e6e6, -51px 51px #e6e6e6, -52px 52px #e6e6e6, -53px 53px #e6e6e6, -54px 54px #e6e6e6, -55px 55px #e6e6e6, -56px 56px #e6e6e6, -57px 57px #e6e6e6, -58px 58px #e6e6e6, -59px 59px #e6e6e6, -60px 60px #e6e6e6, -61px 61px #e6e6e6, -62px 62px #e6e6e6, -63px 63px #e6e6e6, -64px 64px #e6e6e6, -65px 65px #e6e6e6, -66px 66px #e6e6e6, -67px 67px #e6e6e6, -68px 68px #e6e6e6, -69px 69px #e6e6e6, -70px 70px #e6e6e6, -71px 71px #e6e6e6, -72px 72px #e6e6e6, -73px 73px #e6e6e6, -74px 74px #e6e6e6, -75px 75px #e6e6e6, -76px 76px #e6e6e6, -77px 77px #e6e6e6, -78px 78px #e6e6e6, -79px 79px #e6e6e6, -80px 80px #e6e6e6, -81px 81px #e6e6e6, -82px 82px #e6e6e6, -83px 83px #e6e6e6, -84px 84px #e6e6e6, -85px 85px #e6e6e6; }
 .button-longshadow-left.button-plain:active, .button-longshadow-left.button-plain.active, .button-longshadow-left.button-plain.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
@@ -768,13 +768,15 @@ Purpose:  Global styling for the Monish Dashboard
 Since:    31/7/15
 
 */
-body { font-family: "Open Sans", sans-serif; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; background: #b2cfe9; }
+body { font-family: "Open Sans", sans-serif; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; color: #a9251e; background: #ffbbb8; }
 
-.logo { margin-top: 2vw; }
+.logo { margin-top: 3vw; }
 
-.log-in-window { margin-top: 20px; }
-.log-in-window label { color: #70808e; }
-.log-in-window .input-group-addon .glyphicon { color: #70808e; }
+.log-in-window { margin-top: 5vw; }
+.log-in-window label { color: #eb0c00; font-weight: 100; }
+.log-in-window input.form-control { border-color: #ffeceb; height: 50px; font-size: 1.5em; }
+.log-in-window .input-group-addon { border-color: #ffeceb; background: #ffeceb; padding: 0.5em 1em; }
+.log-in-window .input-group-addon .glyphicon { color: #ea4b43; font-size: 1.5em; }
 
 .img-center { display: block; margin: 0 auto; }
 
@@ -790,14 +792,14 @@ a { color: #618DB6; }
 header { height: auto; padding: 0; }
 header .page-header { margin-top: 0; }
 header #navigation-toggle { font-size: 3rem; line-height: 3rem; padding: 5px 10px; margin: 10px; margin-left: 0; }
-header .breadcrumb { margin-left: 0; margin-bottom: 0; padding: 0px 30px; list-style: none; background: none; border-radius: 0; background: rgba(118, 170, 219, 0.8); background: #337ab7; color: #fff; }
+header .breadcrumb { margin-left: 0; margin-bottom: 0; padding: 0px 30px; list-style: none; background: none; border-radius: 0; background: #ff392e; color: #fff; }
 header .breadcrumb a { display: inline-block; font-size: 1.4rem; font-weight: lighter; color: #fff; transition: all 400ms ease; background: none; }
-header .breadcrumb a.active:hover, header .breadcrumb a:hover { text-decoration: none; background: #b2cfe9; color: #337ab7; }
+header .breadcrumb a.active:hover, header .breadcrumb a:hover { text-decoration: none; background: #aec5e0; color: #ff392e; }
 header .breadcrumb a.active { color: #fff; }
 header .breadcrumb ul { display: none; }
 header .navbar-image img { max-width: 100%; height: 40px !important; }
 
-h1, h2, h3, h4, h5, h6 { font-family: "Raleway", serif; color: #5986AD; }
+h1, h2, h3, h4, h5, h6 { font-family: "Raleway", serif; color: #ff392e; }
 
 .alert { margin-top: 20px; border-width: 0; color: #fff; -webkit-animation-name: fadeInUp; -moz-animation-name: fadeInUp; -ms-animation-name: fadeInUp; -o-animation-name: fadeInUp; animation-name: fadeInUp; -webkit-animation-duration: 400ms; -moz-animation-duration: 400ms; -ms-animation-duration: 400ms; -o-animation-duration: 400ms; animation-duration: 400ms; -webkit-animation-delay: 0s; -moz-animation-delay: 0s; -ms-animation-delay: 0s; -o-animation-delay: 0s; animation-delay: 0s; -webkit-animation-timing-function: ease; -moz-animation-timing-function: ease; -ms-animation-timing-function: ease; -o-animation-timing-function: ease; animation-timing-function: ease; -webkit-animation-fill-mode: both; -moz-animation-fill-mode: both; -ms-animation-fill-mode: both; -o-animation-fill-mode: both; animation-fill-mode: both; -webkit-backface-visibility: hidden; -moz-backface-visibility: hidden; -ms-backface-visibility: hidden; -o-backface-visibility: hidden; backface-visibility: hidden; }
 .alert .close { top: -4px; font-size: 3rem; color: #fff; opacity: 0.5; }
@@ -806,14 +808,16 @@ h1, h2, h3, h4, h5, h6 { font-family: "Raleway", serif; color: #5986AD; }
 
 .alert-danger { background-color: #ff6961; }
 
-.alert-info { background-color: #337ab7; }
+.alert-info { background-color: #ff392e; }
 
-.panel { box-shadow: 0 3px rgba(118, 170, 219, 0.2); box-shadow: 0 3px #D5E4F1; border-radius: 5px; margin-bottom: 20px; }
-.panel .panel-footer { padding: 0 15px; }
+.panel { box-shadow: 0 3px #ffeceb; border-radius: 5px; margin-bottom: 20px; }
+.panel .panel-footer { height: 100%; background-color: #fff; border-top: 1px solid #ffeceb; }
 .panel .nav { padding: 10px 0; }
 .panel .nav-pills > li > a { border-radius: 100px; padding: 5px 15px; font-weight: 900; font-size: 1.6rem; }
 
+.panel-primary { -webkit-animation-name: fadeInUp; -moz-animation-name: fadeInUp; -ms-animation-name: fadeInUp; -o-animation-name: fadeInUp; animation-name: fadeInUp; -webkit-animation-duration: 400ms; -moz-animation-duration: 400ms; -ms-animation-duration: 400ms; -o-animation-duration: 400ms; animation-duration: 400ms; -webkit-animation-delay: 0s; -moz-animation-delay: 0s; -ms-animation-delay: 0s; -o-animation-delay: 0s; animation-delay: 0s; -webkit-animation-timing-function: ease; -moz-animation-timing-function: ease; -ms-animation-timing-function: ease; -o-animation-timing-function: ease; animation-timing-function: ease; -webkit-animation-fill-mode: both; -moz-animation-fill-mode: both; -ms-animation-fill-mode: both; -o-animation-fill-mode: both; animation-fill-mode: both; -webkit-backface-visibility: hidden; -moz-backface-visibility: hidden; -ms-backface-visibility: hidden; -o-backface-visibility: hidden; backface-visibility: hidden; }
 .panel-primary h1 { color: #fff; font-size: 5rem; margin: 0; }
+.panel-primary > .panel-heading { color: #fff; background-color: #ff392e; border-color: #ff392e; }
 
 .panel-primary.panel-30-day h1 { color: #ff6961; }
 .panel-primary.panel-30-day table thead th { background: #ff817b; }
@@ -824,25 +828,23 @@ h1, h2, h3, h4, h5, h6 { font-family: "Raleway", serif; color: #5986AD; }
 .panel-primary.panel-180-day h1 { color: #77dd77; }
 .panel-primary.panel-180-day table thead th { background: #8be28b; }
 
-.panel-primary { -webkit-animation-name: fadeInUp; -moz-animation-name: fadeInUp; -ms-animation-name: fadeInUp; -o-animation-name: fadeInUp; animation-name: fadeInUp; -webkit-animation-duration: 400ms; -moz-animation-duration: 400ms; -ms-animation-duration: 400ms; -o-animation-duration: 400ms; animation-duration: 400ms; -webkit-animation-delay: 0s; -moz-animation-delay: 0s; -ms-animation-delay: 0s; -o-animation-delay: 0s; animation-delay: 0s; -webkit-animation-timing-function: ease; -moz-animation-timing-function: ease; -ms-animation-timing-function: ease; -o-animation-timing-function: ease; animation-timing-function: ease; -webkit-animation-fill-mode: both; -moz-animation-fill-mode: both; -ms-animation-fill-mode: both; -o-animation-fill-mode: both; animation-fill-mode: both; -webkit-backface-visibility: hidden; -moz-backface-visibility: hidden; -ms-backface-visibility: hidden; -o-backface-visibility: hidden; backface-visibility: hidden; }
-
-.main-content { position: relative; overflow-x: hidden; overflow-y: scrollable; background: #ecf2f6; transition: all 400ms ease-out; }
+.main-content { position: relative; overflow-x: hidden; overflow-y: scrollable; background: white; transition: all 400ms ease-out; }
 .main-content .content { margin-top: 70px; min-height: 70vh; margin-bottom: 20px; }
-.main-content .panel-default, .main-content .panel-primary { border-color: #D5E4F1; }
+.main-content .panel-default, .main-content .panel-primary { border-color: #ffeceb; }
 .main-content .paginator { margin-bottom: 60px; }
-.main-content .paginator .pagination { box-shadow: 0 3px #D5E4F1; border-radius: 5px; border: 1px solid #D5E4F1; }
-.main-content .paginator .pagination li a { border-right: 1px solid #D5E4F1; border: 0; }
+.main-content .paginator .pagination { box-shadow: 0 3px #ffeceb; border-radius: 5px; border: 1px solid #ffeceb; }
+.main-content .paginator .pagination li a { border-right: 1px solid #ffeceb; border: 0; }
 .main-content .paginator .pagination li a:last-child { border-right: 0; }
 
 .navbar-toggle { display: block; position: relative; float: left; padding-left: 15px; padding: 9px 10px; margin-top: 8px; margin-bottom: 8px; background-color: transparent; background-image: none; border: 1px solid transparent; border-radius: 4px; left: 10px; }
 
 @media (min-width: 768px) { .navbar-toggle { display: block; position: relative; float: left; padding-left: 15px; padding: 9px 10px; margin-top: 8px; margin-bottom: 8px; background-color: transparent; background-image: none; border: 1px solid transparent; border-radius: 4px; left: 10px; }
   .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand { margin-left: 10px; } }
-.panel-property .panel-heading { padding: 0; overflow: hidden; }
+.panel-property .panel-heading { padding: 0; overflow: hidden; background-color: #ffeceb; border-color: #ff392e; }
 .panel-property .panel-heading .property-image { transition: transform 2s ease-out; height: 50vh; }
 .panel-property .panel-heading .property-image a { display: block; height: 100%; }
 .panel-property .panel-heading .property-image a:hover, .panel-property .panel-heading .property-image a:focus { text-decoration: none; }
-.panel-property .panel-heading .property-image a .panel-title { display: block; padding: 2rem; transition: transform 2s ease; background-color: rgba(0, 0, 0, 0.5); border-top-left-radius: 5px; border-top-right-radius: 5px; font-size: 2rem; color: #fff; }
+.panel-property .panel-heading .property-image a .panel-title { display: block; padding: 2rem; transition: transform 2s ease; background-color: rgba(0, 0, 0, 0.5); background-color: rgba(82, 18, 15, 0.5); border-top-left-radius: 5px; border-top-right-radius: 5px; font-size: 2rem; color: #ffeceb; }
 .panel-property .gravatar { display: inline-block; z-index: 0; }
 
 footer { overflow: hidden; }
@@ -869,22 +871,22 @@ Since:    3/6/15
 */
 .nav > li > a:hover, .nav > li > a:focus { text-decoration: none; background: none; }
 
-.sidebar { width: 60px; position: fixed; left: 0; padding-left: 0; height: 100vh; z-index: 1000; overflow-x: hidden; padding: 0; background-color: #293846; overflow-x: hidden; }
+.sidebar { width: 60px; position: fixed; left: 0; padding-left: 0; height: 100vh; z-index: 1000; overflow-x: hidden; padding: 0; background-color: #293846; background-color: #7d120c; overflow-x: hidden; }
 .sidebar .nav-sidebar { margin-left: 0; }
 .sidebar ul { padding-left: 0; }
-.sidebar li { display: block; position: relative; font-size: 2rem; border-bottom: 1px solid #334658; height: 6rem; }
-.sidebar li .menu-item-link { display: block; color: #5F666C; transition: color 200ms ease-out, background 200ms ease-out; height: 100%; padding: 10px; }
-.sidebar li .menu-item-link #icon-monish-home { font-size: 4rem; color: #76AADB !important; }
-.sidebar li .menu-item-link .gravatar { opacity: 0.8; transition: opacity 200ms ease-out; background: #212D38; }
+.sidebar li { display: block; position: relative; font-size: 2rem; border-bottom: 1px solid #95150f; height: 6rem; }
+.sidebar li .menu-item-link { display: block; color: #5F666C; color: #d5544d; transition: color 200ms ease-out, background 200ms ease-out; height: 100%; padding: 10px; }
+.sidebar li .menu-item-link .gravatar { opacity: 0.8; transition: opacity 200ms ease-out; background: #95150f; }
 .sidebar li .menu-item-link .glyphicon { position: static; vertical-align: middle; vertical-align: -webkit-baseline-middle; width: 60px; margin: 0 auto; margin-left: -10px; text-align: center; }
 .sidebar li .menu-item-link .glyphicon:before { text-align: center; }
 .sidebar li .menu-item-link .menu-item-label { position: absolute; white-space: nowrap; left: 6rem; margin-left: 10px; top: 1.7rem; font-size: 2rem; color: #fff; }
-.sidebar li[data-original-title="Home"] > a.menu-item-link, .sidebar li[title="Home"] > a.menu-item-link { background: rgba(0, 0, 0, 0.4); }
-.sidebar li[data-original-title="Home"] > a.menu-item-link #icon-monish-home.icon-monish:before, .sidebar li[title="Home"] > a.menu-item-link #icon-monish-home.icon-monish:before { color: #76AADB !important; }
+.sidebar li[data-original-title="Home"] > a.menu-item-link, .sidebar li[title="Home"] > a.menu-item-link { background: rgba(0, 0, 0, 0.5); }
+.sidebar li[data-original-title="Home"] > a.menu-item-link #icon-monish-home, .sidebar li[title="Home"] > a.menu-item-link #icon-monish-home { font-size: 4rem; }
+.sidebar li[data-original-title="Home"] > a.menu-item-link #icon-monish-home.icon-monish:before, .sidebar li[title="Home"] > a.menu-item-link #icon-monish-home.icon-monish:before { color: #ff6961 !important; }
 .sidebar li[data-original-title="Home"]:hover > a.menu-item-link, .sidebar li[title="Home"]:hover > a.menu-item-link { background: rgba(0, 0, 0, 0.4); }
 .sidebar li .menu-item-link.active { background: rgba(0, 0, 0, 0.2); }
 .sidebar li .menu-item-link.active .glyphicon, .sidebar li .menu-item-link.active .menu-item-label { color: #fff; }
-.sidebar .menu-item-link:active, .sidebar .menu-item-link:focus, .sidebar .menu-item-link:hover { color: #D4D9E0; background: rgba(255, 255, 255, 0.05); color: #fff; }
+.sidebar .menu-item-link:active, .sidebar .menu-item-link:focus, .sidebar .menu-item-link:hover { color: #eb4138; background: rgba(255, 255, 255, 0.05); color: #fff; }
 .sidebar .menu-item-link:active .gravatar, .sidebar .menu-item-link:focus .gravatar, .sidebar .menu-item-link:hover .gravatar { opacity: 1; }
 
 .sidebar, .navbar-fixed-top, .content { transition: all 400ms ease; }
@@ -895,12 +897,12 @@ Since:    3/6/15
 
 .tooltip.right { display: none !important; font-size: 2rem; -webkit-animation-name: fadeInRight; -moz-animation-name: fadeInRight; -ms-animation-name: fadeInRight; -o-animation-name: fadeInRight; animation-name: fadeInRight; -webkit-animation-duration: 400ms; -moz-animation-duration: 400ms; -ms-animation-duration: 400ms; -o-animation-duration: 400ms; animation-duration: 400ms; -webkit-animation-delay: 0s; -moz-animation-delay: 0s; -ms-animation-delay: 0s; -o-animation-delay: 0s; animation-delay: 0s; -webkit-animation-timing-function: ease; -moz-animation-timing-function: ease; -ms-animation-timing-function: ease; -o-animation-timing-function: ease; animation-timing-function: ease; -webkit-animation-fill-mode: both; -moz-animation-fill-mode: both; -ms-animation-fill-mode: both; -o-animation-fill-mode: both; animation-fill-mode: both; -webkit-backface-visibility: hidden; -moz-backface-visibility: hidden; -ms-backface-visibility: hidden; -o-backface-visibility: hidden; backface-visibility: hidden; margin-left: 30px; }
 
-.tooltip.right .tooltip-arrow { border-right-color: #374A5D; }
+.tooltip.right .tooltip-arrow { border-right-color: #95150f; border-right-color: #95150f; }
 
-.tooltip-inner { background: #374A5D; }
+.tooltip-inner { background: #95150f; }
 
 @media (max-width: 480px) { .sidebar { transform: translate3D(-100%, 0, 0); padding-top: 71px; width: 300px; transition: transform 400ms ease; }
-  .navigation-active { background-color: #293846; }
+  .navigation-active { background-color: #95150f; }
   .navigation-active .sidebar { transform: translate3D(0, 0, 0); width: 300px; transition: width 0s; transition-delay: 400ms; transition: transform 400ms ease; }
   .navigation-active .content, .navigation-active .footer-container { transform: translate3D(20%, 0, 0); }
   .navigation-active .main-content { opacity: 0.5; } }
@@ -934,11 +936,11 @@ Since:      23/10/15
 .panel-actionbar .button.active { color: #fff; }
 .panel-actionbar .searchbox { position: absolute; min-width: 75px; width: 0%; height: 70px; float: right; overflow: hidden; right: 0; top: -15px; transition: width 0.3s; border-top-right-radius: 4px; border-bottom-right-radius: 4px; transition: all 400ms ease; opacity: 0.4; }
 .panel-actionbar .searchbox-open { opacity: 1; }
-.panel-actionbar .searchbox-input { top: 0; right: 0; border: 0; outline: 0; background: rgba(143, 187, 215, 0.2); width: 100%; height: 75px; margin: 0; padding: 0px 55px 0px 20px; font-size: 20px; color: #555; border-left: 1px solid #D5E4F1; }
-.panel-actionbar .searchbox-input::-webkit-input-placeholder { color: #555; }
-.panel-actionbar .searchbox-icon, .panel-actionbar .searchbox-submit { width: 75px; height: 75px; display: block; position: absolute; top: 0; font-family: verdana; font-size: 4rem; right: 0; padding: 0; margin: 0; outline: 0; line-height: 75px; text-align: center; cursor: pointer; color: #8fbbd7; background: #337ab7; }
+.panel-actionbar .searchbox-input { top: 0; right: 0; border: 0; outline: 0; background: white; width: 100%; height: 75px; margin: 0; padding: 0px 55px 0px 20px; font-size: 20px; color: #c70a00; border-left: 1px solid #ffeceb; }
+.panel-actionbar .searchbox-input::-webkit-input-placeholder { color: #c70a00; }
+.panel-actionbar .searchbox-icon, .panel-actionbar .searchbox-submit { width: 75px; height: 75px; display: block; position: absolute; top: 0; font-family: verdana; font-size: 4rem; right: 0; padding: 0; margin: 0; outline: 0; line-height: 70px; text-align: center; cursor: pointer; color: #ffeceb; background: #ff392e; }
 .panel-actionbar .searchbox-open { width: 100%; }
-.panel-actionbar .panel-footer { padding: 15px; background-color: #eef4fa; }
+.panel-actionbar .panel-footer { padding: 15px; background-color: white; }
 
 /*
 Name:   tables.SCSS
@@ -946,18 +948,15 @@ Author:   Tristan Marsh
 Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  All custom styling for tables
 Since:    30/7/15
-
 */
-body { color: #70808e; }
-
 .table-responsive { border-radius: 0 0 5px 5px; }
 
 table:not(.ui-datepicker-calendar) { display: table; width: 100%; font-family: "Open Sans", sans-serif; }
 table:not(.ui-datepicker-calendar) * { transition: all 200ms ease-out; }
-table:not(.ui-datepicker-calendar) a { color: #3C73C3; text-decoration: none; }
-table:not(.ui-datepicker-calendar) thead th { background: #2980b9; background: rgba(41, 128, 185, 0.5); font-size: 1.4rem; line-height: 2.4em; font-family: "Raleway", serif; position: relative; overflow: hidden; color: #fff; padding: 6px 12px; color: #fff; }
-table:not(.ui-datepicker-calendar) tr { background: #fcfcfc; border-bottom: 1px solid #D5E4F1; }
-table:not(.ui-datepicker-calendar) tr:nth-of-type(odd) { background: whitesmoke; }
+table:not(.ui-datepicker-calendar) a { text-decoration: none; }
+table:not(.ui-datepicker-calendar) thead th { background: rgba(41, 128, 185, 0.5); background: #ff6961; font-size: 1.4rem; line-height: 2.4em; font-family: "Raleway", serif; position: relative; overflow: hidden; padding: 6px 12px; color: white; }
+table:not(.ui-datepicker-calendar) tr { background: #fffbfa; border-bottom: 1px solid #ffeceb; }
+table:not(.ui-datepicker-calendar) tr:nth-of-type(odd) { background: #fff3f2; }
 table:not(.ui-datepicker-calendar) tr:last-child { border-bottom: 0; }
 table:not(.ui-datepicker-calendar) tr:focus td, table:not(.ui-datepicker-calendar) tr:hover td { background: white; }
 table:not(.ui-datepicker-calendar) tr.unread > td { font-weight: bold; }
@@ -965,17 +964,17 @@ table:not(.ui-datepicker-calendar) tr.unread > td { font-weight: bold; }
 table:not(.ui-datepicker-calendar) td a { display: block; text-align: center; }
 @media screen and (max-width: 580px) { table:not(.ui-datepicker-calendar) { padding: 8px 0; } }
 table:not(.ui-datepicker-calendar) td { padding: 0 10px 0 10px; position: relative; overflow: hidden; height: 60px; }
-table:not(.ui-datepicker-calendar) td > * { color: #555; }
+table:not(.ui-datepicker-calendar) td > * { color: #a9251e; }
 table:not(.ui-datepicker-calendar) td > span, table:not(.ui-datepicker-calendar) td > img { padding: 0; }
 table:not(.ui-datepicker-calendar) td:first-child > img.gravatar { margin-left: -10px; background: #fff; }
 table:not(.ui-datepicker-calendar) td:first-child > img.gravatar + span { margin-left: 10px; }
 table:not(.ui-datepicker-calendar) td.action > a { display: block; margin: -10em; padding: 10em; }
-table:not(.ui-datepicker-calendar) td.action > a span:before, table:not(.ui-datepicker-calendar) td.action > a span:before { color: #409ad5; }
-table:not(.ui-datepicker-calendar) td.action > a:focus, table:not(.ui-datepicker-calendar) td.action > a:hover { background: #409ad5; }
-table:not(.ui-datepicker-calendar) td.action-close > a span:before, table:not(.ui-datepicker-calendar) td.action-close > a span:before { color: #86db9f; }
-table:not(.ui-datepicker-calendar) td.action-close > a:focus, table:not(.ui-datepicker-calendar) td.action-close > a:hover { background: #86db9f; }
-table:not(.ui-datepicker-calendar) td.action-remove > a span:before, table:not(.ui-datepicker-calendar) td.action-remove > a span:before { color: rgba(255, 105, 97, 0.8); }
-table:not(.ui-datepicker-calendar) td.action-remove > a:focus, table:not(.ui-datepicker-calendar) td.action-remove > a:hover { background: rgba(255, 105, 97, 0.8); }
+table:not(.ui-datepicker-calendar) td.action > a span:before, table:not(.ui-datepicker-calendar) td.action > a span:before { color: #ff9994; }
+table:not(.ui-datepicker-calendar) td.action > a:focus, table:not(.ui-datepicker-calendar) td.action > a:hover { background: #ff9994; }
+table:not(.ui-datepicker-calendar) td.action-close > a span:before, table:not(.ui-datepicker-calendar) td.action-close > a span:before { color: #77dd77; }
+table:not(.ui-datepicker-calendar) td.action-close > a:focus, table:not(.ui-datepicker-calendar) td.action-close > a:hover { background: #77dd77; }
+table:not(.ui-datepicker-calendar) td.action-remove > a span:before, table:not(.ui-datepicker-calendar) td.action-remove > a span:before { color: #ff6961; }
+table:not(.ui-datepicker-calendar) td.action-remove > a:focus, table:not(.ui-datepicker-calendar) td.action-remove > a:hover { background: #ff6961; }
 table:not(.ui-datepicker-calendar) td > a:focus > span.glyphicon:before, table:not(.ui-datepicker-calendar) td > a:hover > span.glyphicon:before { color: #fff; }
 table:not(.ui-datepicker-calendar) td > [href*="view"] { padding: 0; }
 @media screen and (max-width: 580px) { table:not(.ui-datepicker-calendar) td > [href*="view"] { padding: 0; } }
@@ -988,21 +987,20 @@ Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  Style applying specifically to our datatables components
 Since:    15/8/15
 */
-.dataTables_wrapper { /* #### Sorting Table Heads #### */ /* #### DataTable Rows #### */ /* #### Pagination #### */ }
+.dataTables_wrapper { /* #### DataTable Rows #### */ /* #### Pagination #### */ }
 .dataTables_wrapper .dataTables_filter { display: none; }
 .dataTables_wrapper .dataTables_length { display: none; }
 .dataTables_wrapper .dataTables > thead > tr > th { padding-left: 10px; }
-.dataTables_wrapper table.dataTable thead .sorting, .dataTables_wrapper table.dataTable thead .sorting_asc, .dataTables_wrapper table.dataTable thead .sorting_desc { cursor: pointer; *cursor: hand; }
-.dataTables_wrapper thead th:focus, .dataTables_wrapper thead th:hover { background: #2e8ece; color: #fff; text-decoration: none; }
+.dataTables_wrapper thead th:focus, .dataTables_wrapper thead th:hover { background: #ff817b; color: #fff; text-decoration: none; }
 .dataTables_wrapper thead th:after { content: '\25B2'; position: absolute; float: right; right: 1em; font-size: 0.8em; opacity: 0; }
-.dataTables_wrapper thead th[class^='sorting_'] { background: #2472a4; }
+.dataTables_wrapper thead th:active, .dataTables_wrapper thead th[class^='sorting_'] { background: #ff5148; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); }
 .dataTables_wrapper tr { cursor: pointer; *cursor: hand; }
 .dataTables_wrapper .dataTables_info { display: block; position: static; float: left; line-height: 32px; padding-left: 10px; vertical-align: middle; }
 .dataTables_wrapper .dataTables_paginate { position: relative; display: block; float: right; padding-top: 7px; }
-.dataTables_wrapper .dataTables_paginate .paginate_button { box-sizing: border-box; padding: 6px 12px; line-height: 1.42857143; text-decoration: none; color: #70808e; background: #fff; margin-left: -1px; border: 1px solid #D5E4F1; border-right: 0; border-bottom: 0; cursor: pointer; transition: all 100ms ease; }
+.dataTables_wrapper .dataTables_paginate .paginate_button { box-sizing: border-box; padding: 6px 12px; line-height: 1.42857143; text-decoration: none; color: #a9251e; background: #fff; margin-left: -1px; border: 1px solid #ffeceb; border-right: 0; border-bottom: 0; cursor: pointer; transition: all 100ms ease; }
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled { cursor: not-allowed; }
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover { background-color: #D5E4F1; color: #555; }
-.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current > span, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.current > span:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.current:focus, .dataTables_wrapper .dataTables_paginate .paginate_button.current > span:focus { z-index: 2; color: #fff; background-color: #B2CFE9; border-color: #B2CFE9; cursor: default; }
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover { background-color: #ffeceb; color: #a9251e; }
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current > span, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.current > span:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.current:focus, .dataTables_wrapper .dataTables_paginate .paginate_button.current > span:focus { z-index: 2; color: #a9251e; background-color: #ffeceb; border-color: #ffeceb; cursor: default; }
 .dataTables_wrapper .dataTables_paginate .paginate_button:last-child { border-bottom-right-radius: 4px; }
 .dataTables_wrapper .dataTables_paginate > span > .paginate_button:first-child, .dataTables_wrapper .dataTables_paginate > span > .paginate_button:last-child { border-radius: 0; }
 .dataTables_wrapper .dataTables_empty { padding: 20px; }
@@ -1011,7 +1009,7 @@ Since:    15/8/15
 .dataTables_wrapper table.dataTable thead .sorting:after { opacity: 0.2; content: "\e150"; /* sort */ }
 .dataTables_wrapper table.dataTable thead .sorting_asc:after { content: "\e155"; /* sort-by-attributes */ }
 .dataTables_wrapper table.dataTable thead .sorting_desc:after { content: "\e156"; /* sort-by-attributes-alt */ }
-.dataTables_wrapper table.dataTable thead .sorting_asc_disabled:after, .dataTables_wrapper table.dataTable thead .sorting_desc_disabled:after { color: #eee; }
+.dataTables_wrapper table.dataTable thead .sorting_asc_disabled:after, .dataTables_wrapper table.dataTable thead .sorting_desc_disabled:after { color: #ffeceb; }
 .dataTables_wrapper div.dataTables_scrollHead table.dataTable { margin-bottom: 0 !important; }
 .dataTables_wrapper div.dataTables_scrollBody table { border-top: none; margin-top: 0 !important; margin-bottom: 0 !important; }
 .dataTables_wrapper div.dataTables_scrollBody table thead .sorting:after, .dataTables_wrapper div.dataTables_scrollBody table thead .sorting_asc:after, .dataTables_wrapper div.dataTables_scrollBody table thead .sorting_desc:after { display: none; }
@@ -1025,16 +1023,16 @@ Purpose:  Style applying specifically to our datatables components
 Since:    23/10/15
 */
 form .form-control { display: block; width: 100%; }
-form select.form-control, form textarea.form-control, form input[type="text"], form input[type="tel"], form input[type="email"] { padding: 8px 12px; font-size: 2rem; height: 50px; line-height: auto; color: #1d4567; background-color: #dae8f4; border: 1px solid #dae8f4; margin-bottom: 1em; }
+form select.form-control, form textarea.form-control, form input[type="text"], form input[type="tel"], form input[type="email"] { padding: 8px 12px; font-size: 2rem; height: 50px; line-height: auto; color: #c70a00; background-color: white; border: 1px solid white; margin-bottom: 1em; }
 form textarea.form-control { height: auto; }
 form .custom-file-upload-hidden { display: none; visibility: hidden; position: absolute; left: -9999px; }
 form .custom-file-upload { display: block; width: auto; font-size: 16px; margin-top: 30px; }
 form .custom-file-upload label { display: block; margin-bottom: 5px; }
 form .file-upload-wrapper { position: relative; margin-bottom: 5px; }
-form .file-upload-input { width: 300px; color: #fff; font-size: 16px; padding: 11px 17px; border: none; background-color: #b2cfe9; transition: all 0.2s ease-in; margin-bottom: 0 !important; float: left; /* IE 9 Fix */ }
-form .file-upload-input:hover, form .file-upload-input:focus { background-color: #8fbbd7; outline: none; }
-form .file-upload-button { height: 50px; cursor: pointer; display: inline-block; color: #fff; font-size: 16px; text-transform: uppercase; padding: 13px 20px; border: none; margin-left: -1px; background-color: #337ab7; float: left; /* IE 9 Fix */ transition: all 0.2s ease-in; }
-form .file-upload-button:hover { background-color: #285f8f; }
+form .file-upload-input { width: 300px; color: #fff; font-size: 16px; padding: 11px 17px; border: none; background-color: #ffeceb; transition: all 0.2s ease-in; margin-bottom: 0 !important; float: left; /* IE 9 Fix */ }
+form .file-upload-input:hover, form .file-upload-input:focus { background-color: #779ecb; outline: none; }
+form .file-upload-button { height: 50px; cursor: pointer; display: inline-block; color: #fff; font-size: 16px; text-transform: uppercase; padding: 13px 20px; border: none; margin-left: -1px; background-color: #ff392e; float: left; /* IE 9 Fix */ transition: all 0.2s ease-in; }
+form .file-upload-button:hover { background-color: #fa0d00; }
 
 /*
 Name:   footer.scss
@@ -1045,7 +1043,7 @@ Since:    28/5/15
 
 */
 .footer-container { transition: all 400ms ease-out; }
-.footer-container footer { max-width: 100%; position: static; bottom: 0; left: 0; width: 100%; background: rgba(118, 170, 219, 0.5); padding: 40px 0; color: #fff; font-size: 1.4rem; overflow-x: hidden; }
+.footer-container footer { max-width: 100%; position: static; bottom: 0; left: 0; width: 100%; background: #ffbbb8; padding: 40px 0; color: #fff; font-size: 1.4rem; overflow-x: hidden; }
 .footer-container footer h3 { margin-top: 0; }
 .footer-container footer a { color: #fff; transition: all 400ms ease-out; }
 .footer-container footer .col-md-3 { padding: 20px; }
@@ -1055,3 +1053,5 @@ Since:    28/5/15
 
 @media (max-width: 991px) { .footer-container footer .col-md-4:nth-of-type(1n) { text-align: center; }
   .credits, .credits .col-sm-6.text-right { text-align: center !important; } }
+
+/*# sourceMappingURL=custom.css.map */

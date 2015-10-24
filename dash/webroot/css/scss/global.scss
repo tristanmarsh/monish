@@ -10,47 +10,39 @@ body {
   font-family:$open-sans-font-stack;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
-  background:rgb(178,207,233);
+  color:darken(desaturate($darkprimarycolour,30%),20%);
+  background:lighten($primarycolour,17%);
 }
-
-// Prevents Overscrolling
-// html, body {
-//     width: 100%;
-//     height: 100%;
-//     overflow: hidden;
-// }
-
-// body > div {
-//     height: 100%;
-//     overflow: scroll;
-//     -webkit-overflow-scrolling: touch;
-// }
 
 // #### UTILITY ####
 
 .logo{
-  margin-top:2vw;
+  margin-top:3vw;
 }
 
 .log-in-window {
 
-  margin-top:20px;
-
+  margin-top:5vw;
 
   label {
-    color:#70808e;
+    color:darken($lightprimarycolour, 50%);
+    font-weight: 100;
   }
 
-  input {
-    // border-color:#eee;
+  input.form-control {
+    border-color:$lightprimarycolour;
+    height:50px;
+    font-size:1.5em;
   }
-
 
   .input-group-addon {
-    // background:#B2CFE9;
+    border-color:$lightprimarycolour;
+    background:$lightprimarycolour;
+    padding:0.5em 1em;
 
     .glyphicon {
-      color:#70808e;
+      color:desaturate($darkprimarycolour,20%);
+      font-size:1.5em;
     }
 
   }
@@ -88,7 +80,7 @@ a {color:#618DB6;}
 
 /* #### NAVBAR #### */
 .navbar {
-  background:#fff;
+  background:$white;
   border-bottom:0;
   margin-bottom:0;
 
@@ -133,15 +125,14 @@ header {
     list-style: none;
     background: none;
     border-radius:0;
-    background:rgba(118, 170, 219,0.8);
-    background: #337ab7;
-    color:#fff;
+    background: $darkprimarycolour;
+    color:$white;
 
     a {
       display:inline-block;
       font-size:1.4rem;
       font-weight:lighter;
-      color:#fff;
+      color:$white;
       transition:all 400ms ease;
       background: none;
     }
@@ -149,12 +140,12 @@ header {
     a.active:hover,
     a:hover {
       text-decoration: none;
-      background:#b2cfe9;
-      color:#337ab7;
+      background:lighten($blue,15%);
+      color:$darkprimarycolour;
     }
 
     a.active {
-      color:#fff;
+      color:$white;
     }
     
     //uneccessary cakePHP generated list
@@ -172,10 +163,6 @@ header {
 
 }
 
-
-
-
-
 // #### HEADER ####
 
 h1,
@@ -185,7 +172,7 @@ h4,
 h5,
 h6 {
   font-family:$roboto-slab-font-stack;
-  color:#5986AD;
+  color:$darkprimarycolour;
 }
 
 // #### CONTENT ####
@@ -193,13 +180,13 @@ h6 {
 .alert {
   margin-top:20px;
   border-width:0;
-  color:#fff;
+  color:$white;
   @include fadeInUp($duration:400ms);
 
   .close {
     top:-4px;
     font-size:3rem;
-    color:#fff;
+    color:$white;
     opacity:0.5;
   }
 
@@ -216,17 +203,20 @@ h6 {
 
 
 .alert-info  {
-  background-color:$darkblue;
+  background-color:$darkprimarycolour;
 }
 
 .panel {
-  box-shadow: 0 3px rgba(118, 170, 219,0.2);
-  box-shadow: 0 3px #D5E4F1;
+
+  box-shadow: 0 3px $lightprimarycolour;
   border-radius:5px;
   margin-bottom:20px;
 
   .panel-footer {
-    padding:0 15px;
+    height:100%;
+    // padding:0 15px;
+    background-color: $white;
+    border-top: 1px solid $lightprimarycolour;
   }
 
   .nav {padding:10px 0;}
@@ -243,14 +233,26 @@ h6 {
 
 .panel-primary {
 
+  @include fadeInUp($duration:400ms);
+
+
   & h1 {
-    color:#fff;
+    color:$white;
     font-size:5rem;
     margin:0;
   }
 
+  &>.panel-heading {
+    color: #fff;
+    background-color: $darkprimarycolour;
+    border-color: $darkprimarycolour;
+  }
+
+
 }
 
+
+// #### DASHBOARD #### 
 .panel-primary.panel-30-day {
 
   h1 {
@@ -287,19 +289,13 @@ h6 {
 
 }
 
-
-.panel-primary {
-  @include fadeInUp($duration:400ms);
-}
-
-
 // holds the main view of the dashboard
 
 .main-content {
   position: relative;
   overflow-x: hidden; //prevents scrollable panels when mobile nav visible
   overflow-y: scrollable; 
-  background: rgb(236,242,246);
+  background: $whiteprimarycolour;
   transition: all 400ms ease-out;
 
   .content {
@@ -312,21 +308,21 @@ h6 {
 
   .panel-default,
   .panel-primary {
-    border-color:#D5E4F1;
+    border-color:$lightprimarycolour;
   }
 
   .paginator {
     margin-bottom:60px;
     
     .pagination {
-      box-shadow: 0 3px #D5E4F1;
+      box-shadow: 0 3px $lightprimarycolour;
       border-radius:5px;
-      // border-left:1px solid #D5E4F1;
-      // border-right:1px solid #D5E4F1;
-      border:1px solid #D5E4F1;
+      // border-left:1px solid $lightprimarycolour;
+      // border-right:1px solid $lightprimarycolour;
+      border:1px solid $lightprimarycolour;
       
       li a {
-        border-right:1px solid #D5E4F1;
+        border-right:1px solid $lightprimarycolour;
         border:0;
       }
 
@@ -335,7 +331,7 @@ h6 {
       }
 
       li:last-child>a {
-        // border-left:1px solid #D5E4F1;
+        // border-left:1px solid $lightprimarycolour;
       }
 
     }
@@ -386,10 +382,11 @@ h6 {
 
 .panel-property {
   
-
   .panel-heading {
     padding:0;
     overflow:hidden;
+    background-color: $lightprimarycolour;
+    border-color: $darkprimarycolour;
 
     .property-image {
       transition:transform 2s ease-out;
@@ -409,10 +406,11 @@ h6 {
           padding:2rem;
           transition:transform 2s ease;
           background-color: rgba(0,0,0,0.5);
+          background-color: rgba(darken(desaturate($primarycolour,30%),50%),0.5);
           border-top-left-radius: 5px;
           border-top-right-radius: 5px;
           font-size:2rem;
-          color: #fff;
+          color: $lightprimarycolour;
         }
       }
       &:hover {

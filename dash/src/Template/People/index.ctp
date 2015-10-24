@@ -31,13 +31,46 @@
             echo $personEntity->first_name." ".$personEntity->last_name;
         ?>
     </h1>
+
+
+        <div class="panel panel-default panel-actionbar clearfix">
+
+      <div class="panel-body">
+
+          <?= $this->Html->link(
+          '<i class="fa fa-eye"></i> View',
+          ['action' => 'index'],
+          ['class' => 'button button-pill button-primary active', 'escape' => false]
+          ); ?>
+
+      </div>
+
+      <div class="panel-footer">
+
+
+
+      <?= $this->Html->link(
+      '<i class="fa fa-pencil"></i> Edit Username',
+       ['controller' => 'users', 'action' => 'editusername', $currentlogged['id']],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ); ?>
+
+      <?= $this->Html->link(
+      '<i class="fa fa-pencil"></i> Edit Password',
+      ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id']],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ); ?>
+
+      </div>
+
+    </div>
     
     <?php 
         echo $gravatarImage;
-        echo '<br><br>'."You are an Administrator. That's all we know about you.";
+        // echo '<br><br>'."You are an Administrator. That's all we know about you.";
     ?>    
-    <?php echo $this->Html->link('Edit Username', ['controller' => 'users', 'action' => 'editusername', $currentlogged['id'], ]); ?>
-                <?php echo $this->Html->link('Edit Password', ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id'], ]); ?>
+ <!--    <?php echo $this->Html->link('Edit Username', ['controller' => 'users', 'action' => 'editusername', $currentlogged['id'], ]); ?>
+                <?php echo $this->Html->link('Edit Password', ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id'], ]); ?> -->
 
 <?php endif; ?>
 
@@ -58,7 +91,7 @@
           <?= $this->Html->link(
           '<i class="fa fa-eye"></i> View',
           ['action' => 'index'],
-          ['class' => 'button button-pill button-primary', 'escape' => false]
+          ['class' => 'button button-pill button-primary active', 'escape' => false]
           ); ?>
 
       </div>
@@ -67,8 +100,20 @@
 
         <?= $this->Html->link(
       '<i class="fa fa-phone"></i> Edit Phone Number',
-      ['action' => 'edit', $currentlogged['id']],
-      ['class' => 'button button-pill button-primary active', 'escape' => false]
+      ['action' => 'edit',$user->id ],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ); ?>
+
+      <?= $this->Html->link(
+      '<i class="fa fa-pencil"></i> Edit Username',
+       ['controller' => 'users', 'action' => 'editusername', $currentlogged['id']],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ); ?>
+
+      <?= $this->Html->link(
+      '<i class="fa fa-pencil"></i> Edit Password',
+      ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id']],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
       ); ?>
 
       </div>
@@ -93,7 +138,7 @@
                     <th>Gender</th>
                     <th>Phone</th>
                     <th>Email</th>
-                    <th>Action</th>
+<!--                     <th>Action</th> -->
                 </tr>
                 </thead>
 
@@ -105,11 +150,11 @@
                     <td><?= $user->gender ?></td>
                     <td><?= $user->phone ?></td>
                     <td><?= $user->email ?></td>
-                    <td>
+<!--                     <td>
                     <?php echo $this->Html->link('Edit Phone Number', ['action' => 'edit', $user->id, ]); ?>
                     <?php echo $this->Html->link('Edit Username', ['controller' => 'users', 'action' => 'editusername', $currentlogged['id'], ]); ?>
                     <?php echo $this->Html->link('Edit Password', ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id'], ]); ?>
-                </td>
+                </td> -->
 
                 </tr>
 

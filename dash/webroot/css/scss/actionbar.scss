@@ -14,6 +14,16 @@ Since:      23/10/15
     padding-bottom:0;
   }
 
+  .panel-footer {
+    
+    background:mix($white,$primarycolour, 70%);
+
+    .button-pill {
+      margin-right:0;
+    }
+
+  }
+
   .search {
     
     width: 100%;
@@ -47,8 +57,15 @@ Since:      23/10/15
     margin-right:15px;
   }
 
-  .button.button-pill {
+  .panel-body .button.button-pill {
     margin-right:0;
+  }
+
+  .button-pill-override {
+    border-top-left-radius:200px!important;
+    border-top-right-radius:200px!important;
+    border-bottom-left-radius:200px!important;
+    border-bottom-right-radius:200px!important;
   }
 
   .button-group {

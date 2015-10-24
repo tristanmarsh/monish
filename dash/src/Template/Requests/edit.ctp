@@ -28,29 +28,33 @@
 
   <div class="panel-footer">
 
+      <div class="button-group">
       <?= $this->Html->link(
-      '<i class="fa fa-eye"></i> View',
-      ['action' => 'view', $entity->id],
-      ['class' => 'button button-pill button-primary', 'escape' => false]
-      ); ?>
+        '<i class="fa fa-eye"></i> View',
+        ['action' => 'view', $entity->id],
+        ['class' => 'button button-pill button-primary', 'escape' => false]
+        ); ?>
 
       <?= $this->Html->link(
-      '<i class="fa fa-pencil"></i> Edit',
-      ['action' => 'edit', $entity->id],
-      ['class' => 'button button-pill button-primary active', 'escape' => false]
-      ); ?>
+        '<i class="fa fa-pencil"></i> Edit',
+        ['action' => 'edit', $entity->id],
+        ['class' => 'button button-pill button-action active', 'escape' => false]
+      ); ?>  
+      </div>
 
-      <?= $this->Form->postLink(
-      '<i class="fa fa-times"></i> Close',
-      ['controller'=>'requests', 'action' => 'delete', $entity->id],
-      ['confirm' => 'Close ' . $entity->title .' Request from '. /* $entity->person->first_name . " " . $entity->person->last_name .*/ '?' , "escape" => false,
-        'class' => 'button button-pill button-caution',
-        'escape' => false
-      ]
-      ); ?>
+      <div class="button-group">
+        <?= $this->Form->postLink(
+          '<i class="fa fa-times"></i> Close',
+          ['controller'=>'requests', 'action' => 'delete', $entity->id],
+          ['confirm' => 'Close ' . $entity->title .' Request from '. /* $giraffe->person->first_name . " " . $giraffe->person->last_name .*/ '?' , "escape" => false,
+            'class' => 'button button-pill-override button-caution',
+            'escape' => false
+          ]
+        ); ?>
+      </div>
     
   </div>
-
+  
 </div>
 
 <div class="panel panel-primary">

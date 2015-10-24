@@ -1,6 +1,6 @@
 <?php
     $this->Html->addCrumb('Tenants', '/tenants');
-    $this->Html->addCrumb('Add Tenant', array('controller' => 'tenants', 'action' => 'add'));
+    $this->Html->addCrumb('New Tenant', array('controller' => 'tenants', 'action' => 'add'));
 ?>
 <!-- src/Template/People/add.ctp -->
 <!-- <script src="//code.jquery.com/jquery-1.10.2.js"></script> -->
@@ -27,10 +27,10 @@
 <h1>New Tenant</h1>
 
 <div class="panel panel-default panel-actionbar clearfix">
-    
+  
   <div class="panel-body">
 
-     <div class="button-group">
+    <div class="button-group">
 
       <?= $this->Html->link(
       '<i class="fa fa-flash"></i> Current',
@@ -47,23 +47,26 @@
     </div>
     
     <div class="button-group">
-      <?= $this->Html->link(
-      '<i class="fa fa-plus"></i> New Lease',
-      ['action' => 'add'],
-      ['class' => 'button button-pill button-action active', 'escape' => false]
-      ); ?>
 
+      <?= $this->Html->link(
+      '<i class="fa fa-plus"></i> New Tenant',
+      ['action' => 'add'],
+      ['class' => 'button button-pill button-pill-override button-action active', 'escape' => false]
+      ); ?>
+    
     </div>
+
   </div>
 
 </div>
 
 
 
+
     <div class="panel panel-primary">
 
       <div class="panel-heading">
-                    <h2 class="panel-title">New Tenant & Lease</h2>
+        <h2 class="panel-title">Create New Tenant & Lease</h2>
       </div>
       <div class="panel-body">
 
@@ -71,67 +74,98 @@
 
         <fieldset class="input-group">
 
+          <legend>Personal Details</legend>
 
+          <div class="col-sm-6">
+            <?= $this->Form->input('first_name', array('class' => 'form-control', 'tabindex' => 1)) ?>
+          </div>
+
+          <div class="col-sm-6">
+            <?= $this->Form->input('last_name', array('class' => 'form-control', 'tabindex' => 2)) ?>
+          </div>
+
+          <div class="col-sm-6">
+            <?= $this->Form->input('common_name', array('class' => 'form-control', 'tabindex' => 3)) ?>
+          </div>
+          
+          <div class="col-sm-6">
+          <?= $this->Form->input('gender', ['options' => ['M' => 'Male', 'F' => 'Female'], 'class' => 'form-control', 'tabindex'   => 4 ]) ?>
+          </div>
+          
+          <div class="col-sm-6">
+            <?= $this->Form->input('phone', array('type'=>'number', 'class' => 'form-control', 'tabindex' => 5)) ?>
+          </div>
+          
+          <div class="col-sm-6">
+            <?= $this->Form->input('visa', array('class' => 'form-control', 'tabindex' => 6)) ?>
+          </div>
+          
+          <div class="col-sm-6">
+            <?= $this->Form->input('email', array('type'=>'email', 'class' => 'form-control', 'tabindex' => 7)) ?>
+          </div>
+          
+          <div class="col-sm-6">
+            <?= $this->Form->input('parent_address', array('class' => 'form-control', 'tabindex' => 8)) ?>
+          
+          </div>
+        </fieldset>
+
+        <fieldset class="input-group">
+        
+          <legend>Payment Details</legend>
             
-            <div class="col-md-6">
-              <legend>Personal Detail</legend>
-            
-              <?= $this->Form->input('first_name', array('class' => 'form-control')) ?>
-              <?= $this->Form->input('last_name', array('class' => 'form-control')) ?>
-              <?= $this->Form->input('common_name', array('class' => 'form-control')) ?>
-              <?= $this->Form->input('gender', ['options' => ['M' => 'Male', 'F' => 'Female'], 'class' => 'form-control' ]) ?>
-              <?= $this->Form->input('phone', array('class' => 'form-control')) ?>
-              <?= $this->Form->input('visa', array('class' => 'form-control')) ?>
-              <?= $this->Form->input('email', array('class' => 'form-control')) ?>
-              <?= $this->Form->input('parent_address', array('class' => 'form-control')) ?>
-              <?= $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'], 'class' => 'form-control']) ?>
-              
-              
-              
-              
+          <div class="col-sm-6">
+            <?= $this->Form->input('account_name', array('class' => 'form-control', 'tabindex' => 9)) ?>
+          </div>
+                  
+          <div class="col-sm-6">
+            <?= $this->Form->input('account_number', array('type'=>'number', 'class' => 'form-control', 'tabindex' => 10)) ?>
+          </div>
 
+          <div class="col-sm-6">
+            <?= $this->Form->input('bsb_number', array('type'=>'number', 'class' => 'form-control', 'tabindex' => 11)) ?>
+          </div>
 
-              
+        </fieldset>
+
+        <fieldset class="input-group">
+
+          <legend>Lease Details</legend>
+
+          <div class="col-sm-6">
+            <?= $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']); ?>
+          </div>
+
+          <div class="col-sm-6">
+            <label for="weekly_price">Weekly Price</label>
+            <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <input type="number" name="weekly_price" id="weekly_price" class="form-control">
             </div>
+          </div>
+
+          <div class="col-sm-6">
+            <?= $this->form->input('date_start',['id'=>'dateStartPicker','class' => 'form-control']); ?>
+          </div>
+
+          <div class="col-sm-6">
+            <?= $this->form->input('date_end',['id'=>'dateEndPicker','class' => 'form-control']); ?>
+          </div>
+
+          <div class="col-sm-6">
+            <?= $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'], 'class' => 'form-control']) ?>
+          </div>
 
 
-            <div class="col-md-6">
-             <legend>Bank Detail</legend>
-              <?= $this->Form->input('account_name', array('class' => 'form-control')) ?>
-              <?= $this->Form->input('account_number', array('class' => 'form-control')) ?>
-             <?= $this->Form->input('bsb_number', array('class' => 'form-control')) ?>
-              
-             
-              <legend>Lease Detail</legend>
-              <?= $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']); ?>
-              
-              <div class="input-group">
-                <?= $this->Form->input('<span class="input-group-addon">$</span>weekly_price', ['class' => 'form-control', 'escape'=>false]); ?>
-              </div>
 
-              <div class="input-group">
-                <span class="input-group-addon">$</span>
-                <input type="text" class="form-control" placeholder="Weekly Price">
-              </div>
+        </fieldset>
 
-              <?= $this->form->input('date_start',['id'=>'dateStartPicker','class' => 'form-control']); ?>
-
-              
-
-              <?= $this->form->input('date_end',['id'=>'dateEndPicker','class' => 'form-control']); ?>
-
-
-            
-            </div>
-
-            
            </fieldset>
            <br>
             <div class="col-md-12">
 
-           <?= $this->Form->button(__('Create Tenant'), ['class' => 'form-control btn btn-primary']); ?>
+           <?= $this->Form->button('<i class="fa fa-plus"></i> Create New Tenant', ['class' => 'form-control button button-action button-3d']); ?>
            <?= $this->Form->end() ?>
-           <br><br>
            <?php
            echo $this->Form->create(null, [
             'url' => ['controller' => 'People', 'action' => 'index']
@@ -140,8 +174,6 @@
          </div>
 
            </div>
-
-
 
       </div>
 

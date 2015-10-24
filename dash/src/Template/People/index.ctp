@@ -47,13 +47,13 @@
     <?= $this->Html->link(
       '<i class="fa fa-pencil"></i> Change Username',
       ['controller' => 'users', 'action' => 'editusername', $currentlogged['id']],
-      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ['class' => 'button button-pill button-action', 'escape' => false]
       ); ?>
 
     <?= $this->Html->link(
       '<i class="fa fa-pencil"></i> Change Password',
       ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id']],
-      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ['class' => 'button button-pill button-action', 'escape' => false]
       ); ?>
 
   </div>
@@ -153,19 +153,19 @@
     <?= $this->Html->link(
   '<i class="fa fa-phone"></i> Change Phone Number',
   ['action' => 'edit',$user->id ],
-  ['class' => 'button button-pill button-primary', 'escape' => false]
+  ['class' => 'button button-pill button-action', 'escape' => false]
   ); ?>
 
   <?= $this->Html->link(
   '<i class="fa fa-pencil"></i> Change Username',
    ['controller' => 'users', 'action' => 'editusername', $currentlogged['id']],
-  ['class' => 'button button-pill button-primary', 'escape' => false]
+  ['class' => 'button button-pill button-action', 'escape' => false]
   ); ?>
 
   <?= $this->Html->link(
   '<i class="fa fa-pencil"></i> Change Password',
   ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id']],
-  ['class' => 'button button-pill button-primary', 'escape' => false]
+  ['class' => 'button button-pill button-action', 'escape' => false]
   ); ?>
 
   </div>

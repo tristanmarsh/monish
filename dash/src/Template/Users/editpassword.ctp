@@ -25,42 +25,47 @@
       <div class="panel-footer">
   <?php if ($currentlogged['role'] === "tenant") : ?>
         <?= $this->Html->link(
-      '<i class="fa fa-phone"></i> Edit Phone Number',
+      '<i class="fa fa-phone"></i> Change Phone Number',
       ['controller' => 'people','action' => 'edit',$user->person_id],
-      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ['class' => 'button button-pill button-action', 'escape' => false]
       ); ?>
       <?php endif; ?>
       <?= $this->Html->link(
-      '<i class="fa fa-pencil"></i> Edit Username',
+      '<i class="fa fa-pencil"></i> Change Username',
        ['controller' => 'users', 'action' => 'editusername', $currentlogged['id']],
-      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ['class' => 'button button-pill button-action', 'escape' => false]
       ); ?>
 
       <?= $this->Html->link(
-      '<i class="fa fa-pencil"></i> Edit Password',
+      '<i class="fa fa-pencil"></i> Change Password',
       ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id']],
-      ['class' => 'button button-pill button-primary active', 'escape' => false]
+      ['class' => 'button button-pill button-action active', 'escape' => false]
       ); ?>
 
       </div>
 
     </div>
 
-<div class="panel panel-default">
-    <div class="panel-body">
-        <?php
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2 class="panel-title">Change Password</h2>
+  </div>
 
-            echo $this->Form->create($user, array('class' => 'form-group'));
-            echo $this->Form->input('password', array('value'=>'', 'class' => 'form-control','autocomplete' => 'off'));
-            echo $this->Form->input('confirm_password', array('class' => 'form-control', 'type'  =>  'password'));
-            ?>
-            <?php
-            echo $this->Form->button('<i class="fa fa-pencil"></i> Update Password', ['class' => 'form-control button button-action button-3d']);
-            echo $this->Form->end();
-            echo $this->Form->create(null, [
-                'url' => ['controller' => 'Users', 'action' => 'index']
-                ]);
-            // echo $this->Form->button(__('Cancel'));
-        ?>
-    </div>
+  <div class="panel-body">
+    <?php
+
+      echo $this->Form->create($user, array('class' => 'form-group'));
+      echo $this->Form->input('password', array('value'=>'', 'class' => 'form-control','autocomplete' => 'off'));
+      echo $this->Form->input('confirm_password', array('class' => 'form-control', 'type'  =>  'password'));
+      ?>
+
+      <?php
+      echo $this->Form->button('<i class="fa fa-pencil"></i> Update Password', ['class' => 'form-control button button-action button-3d']);
+      echo $this->Form->end();
+      echo $this->Form->create(null, [
+          'url' => ['controller' => 'Users', 'action' => 'index']
+          ]);
+      // echo $this->Form->button(__('Cancel'));
+    ?>
+  </div>
 </div>

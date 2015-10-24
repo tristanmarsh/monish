@@ -107,10 +107,8 @@ $cakeDescription = 'Monish Dashboard';
 				<?php echo $this->element('sidebar'); ?>
 
 			</div>
-
 					
 			<?php echo $this->element('navbar'); ?>
-
 
 			<div class="main-content">
 

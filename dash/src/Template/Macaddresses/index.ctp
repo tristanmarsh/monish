@@ -43,7 +43,7 @@
       <?= $this->Html->link(
         '<i class="fa fa-pencil"></i> Update Devices',
         ['action' => 'edit', $personEntity->macaddress->id],
-        ['class' => 'button button-pill button-primary', 'escape' => false]
+        ['class' => 'button button-pill button-action', 'escape' => false]
       ); ?>
     </div>
 

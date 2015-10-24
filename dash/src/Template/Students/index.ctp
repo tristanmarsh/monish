@@ -81,12 +81,14 @@
         ['class' => 'button button-pill button-primary active', 'escape' => false]
       ); ?>
 
-      <?= $this->Html->link(
-        '<i class="fa fa-arrow-up"></i> Change Internet Plan',
-        ['controller'=>'students', 'action' => 'edit', $student->id],
-        ['class' => 'button button-pill button-action', 'escape' => false]
-      ); ?>
+  </div>
 
+  <div class="panel-footer">
+    <?= $this->Html->link(
+      '<i class="fa fa-arrow-up"></i> Change Internet Plan',
+      ['controller'=>'students', 'action' => 'edit', $student->id],
+      ['class' => 'button button-pill button-action', 'escape' => false]
+    ); ?>
   </div>
 
 </div>

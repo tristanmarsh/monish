@@ -27,27 +27,31 @@
 
   <div class="panel-footer">
 
+      <div class="button-group">
       <?= $this->Html->link(
-      '<i class="fa fa-eye"></i> View',
-      ['action' => 'view', $giraffe->id],
-      ['class' => 'button button-pill button-primary active', 'escape' => false]
-      ); ?>
+        '<i class="fa fa-eye"></i> View',
+        ['action' => 'view', $giraffe->id],
+        ['class' => 'button button-pill button-primary active', 'escape' => false]
+        ); ?>
 
       <?= $this->Html->link(
-      '<i class="fa fa-pencil"></i> Edit',
-      ['action' => 'edit', $giraffe->id],
-      ['class' => 'button button-pill button-primary', 'escape' => false]
-      ); ?>
+        '<i class="fa fa-pencil"></i> Edit',
+        ['action' => 'edit', $giraffe->id],
+        ['class' => 'button button-pill button-action', 'escape' => false]
+      ); ?>  
+      </div>
+
+      <div class="button-group">
+        <?= $this->Form->postLink(
+          '<i class="fa fa-times"></i> Close',
+          ['controller'=>'requests', 'action' => 'delete', $giraffe->id],
+          ['confirm' => 'Close ' . $giraffe->title .' Request from '. /* $giraffe->person->first_name . " " . $giraffe->person->last_name .*/ '?' , "escape" => false,
+            'class' => 'button button-pill-override button-caution',
+            'escape' => false
+          ]
+        ); ?>
+      </div>
     
-      <?= $this->Form->postLink(
-      '<i class="fa fa-times"></i> Close',
-      ['controller'=>'requests', 'action' => 'delete', $giraffe->id],
-      ['confirm' => 'Close ' . $giraffe->title .' Request from '. /* $giraffe->person->first_name . " " . $giraffe->person->last_name .*/ '?' , "escape" => false,
-        'class' => 'button button-pill button-caution',
-        'escape' => false
-      ]
-      ); ?>
-
   </div>
 
 </div>

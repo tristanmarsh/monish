@@ -85,7 +85,7 @@
               <!-- Standard login -->
               <?php else :?>
 
-                <?= $this->Form->button(__('Login'), ['class' => 'form-control button button-large button-block button-rounded button-action']); ?>
+                <?= $this->Form->button(__('Login'), ['class' => 'form-control button button-large button-3d button-block button-rounded button-action']); ?>
 
               <?php endif; ?>
 

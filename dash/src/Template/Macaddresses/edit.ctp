@@ -11,7 +11,7 @@
 <div class="panel panel-default clearfix">
 <div class="panel-body">
 
-    <ul class="nav nav-pills pull-left">
+    <ul class="nav nav-pills">
         <li role="presentation">
             <?= $this->Html->link('All', ['action' => 'index']) ?>
         </li>

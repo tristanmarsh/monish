@@ -8,7 +8,7 @@
     
     <div class="panel-body">
         
-        <ul class="nav nav-pills pull-left">
+        <ul class="nav nav-pills">
             <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
             <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
             <li role="presentation"><?= $this->Html->link('New Lease', ['action' => 'add']) ?></li>
@@ -20,7 +20,7 @@
           $person = $walrus->get($lease->student->person_id);
           ?>
 
-        <ul class="nav nav-pills pull-left">
+        <ul class="nav nav-pills">
             <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $lease->id]) ?></li>
             <li role="presentation" ><?= $this->Form->postLink('Delete', ['action' => 'delete', $lease->id],['confirm' => 'Delete ' . $lease->property->address. " ". $lease->room->room_name  .' Lease for '. $person->first_name . " " . $person->last_name . '?' , "escape" => false]) ?></li>
             <!-- <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $lease->id]) ?></li> -->

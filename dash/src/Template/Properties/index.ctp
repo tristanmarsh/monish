@@ -8,7 +8,7 @@ $this->Html->addCrumb('Properties', '/properties');
     <div class="panel-body">
 
         <div class="col-sm-6">
-            <ul class="nav nav-pills pull-left">
+            <ul class="nav nav-pills">
                 <li role="presentation" class="active"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
                 <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
                 <li role="presentation"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>
@@ -21,7 +21,7 @@ $this->Html->addCrumb('Properties', '/properties');
 
 <!--     <div class="panel-footer">
 
-        <ul class="nav nav-pills pull-left">
+        <ul class="nav nav-pills">
             <li role="presentation" class="active"><a href="#">Imagine</a></li>
             <li role="presentation"><a href="#">Secondary</a></li>
             <li role="presentation"><a href="#">Buttons</a></li>

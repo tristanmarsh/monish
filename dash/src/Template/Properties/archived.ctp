@@ -8,7 +8,7 @@ $this->Html->addCrumb('Archived Properties', '/properties/archived');
     <div class="panel-body">
 
         <div class="col-sm-6">
-            <ul class="nav nav-pills pull-left">
+            <ul class="nav nav-pills">
                 <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
                 <li role="presentation" class="active"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
                 <li role="presentation"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>

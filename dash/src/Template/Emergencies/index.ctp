@@ -9,7 +9,7 @@ $this->Html->addCrumb('Emergency Contacts', array('controller' => 'Emergencies',
 
     <div class="panel-body">
         <div class="col-sm-6 clearfix">
-            <ul class="nav nav-pills pull-left">
+            <ul class="nav nav-pills">
                 <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
                 <li role="presentation"><?= $this->Html->link('New Emergency Contact', ['action' => 'add']) ?></li>
             </ul>

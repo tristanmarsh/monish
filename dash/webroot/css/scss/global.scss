@@ -6,12 +6,14 @@ Since:    31/7/15
 
 */
 
+
+
 body {
   font-family:$open-sans-font-stack;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   color:darken(desaturate($darkprimarycolour,30%),20%);
-  background:lighten($primarycolour,17%);
+  background:mix($white, $primarycolour, 45%);
 }
 
 // #### UTILITY ####
@@ -25,7 +27,7 @@ body {
   margin-top:5vw;
 
   label {
-    color:darken($lightprimarycolour, 50%);
+    color:mix(#000, $primarycolour, 50%);;
     font-weight: 100;
   }
 
@@ -75,7 +77,9 @@ body {
 
 // #### GLOBAL ####
 
-a {color:#618DB6;}
+a {
+  color:$darkthemetext;
+}
 
 
 /* #### NAVBAR #### */
@@ -140,7 +144,7 @@ header {
     a.active:hover,
     a:hover {
       text-decoration: none;
-      background:lighten($blue,15%);
+      background:mix($white,$primarycolour,15%);
       color:$darkprimarycolour;
     }
 
@@ -213,9 +217,11 @@ h6 {
   margin-bottom:20px;
 
   .panel-footer {
+    display:block;
+    padding:1.1em;
+    color:$lightthemetext;
     height:100%;
-    // padding:0 15px;
-    background-color: $white;
+    background-color:mix($white, $primarycolour, 40%);
     border-top: 1px solid $lightprimarycolour;
   }
 

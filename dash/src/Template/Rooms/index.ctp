@@ -10,7 +10,7 @@
 
         <div class="col-sm-6 clearfix">
             
-            <ul class="nav nav-pills pull-left">
+            <ul class="nav nav-pills">
                 <li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
                 <li role="presentation"><?= $this->Html->link('New Room', ['action' => 'add']) ?></li>
 
@@ -33,7 +33,7 @@
 
 <!--     <div class="panel-footer">
 
-        <ul class="nav nav-pills pull-left">
+        <ul class="nav nav-pills">
             <li role="presentation" class="active"><a href="#">Imagine</a></li>
             <li role="presentation"><a href="#">Secondary</a></li>
             <li role="presentation"><a href="#">Buttons</a></li>

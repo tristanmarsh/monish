@@ -30,7 +30,6 @@ table:not(.ui-datepicker-calendar) {
   
   // Table Header
   & thead th {
-    background: rgba(41, 128, 185,0.5);
     background: $primarycolour;
     font-size:1.4rem;
     line-height: 2.4em;
@@ -45,7 +44,7 @@ table:not(.ui-datepicker-calendar) {
 
   & tr {  
     background:mix($white, $primarycolour, 97%);
-    border-bottom:1px solid $lightprimarycolour;
+    border-bottom:1px solid mix($white, $primarycolour, 80%);
   }
 
   & tr:nth-of-type(odd) {
@@ -58,8 +57,7 @@ table:not(.ui-datepicker-calendar) {
 
   & tr:focus td,
   & tr:hover td, {
-    background: desaturate(lighten($primarycolour, 40%),40%);
-
+    background: $white;
   }
 
   & tr.unread {

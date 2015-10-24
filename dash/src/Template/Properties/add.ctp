@@ -9,7 +9,7 @@ $this->Html->addCrumb('Add Property', array('controller' => 'properties', 'actio
 
   <div class="panel-body">
 
-    <ul class="nav nav-pills pull-left">
+    <ul class="nav nav-pills">
       <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
       <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
       <li role="presentation"  class="active"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>

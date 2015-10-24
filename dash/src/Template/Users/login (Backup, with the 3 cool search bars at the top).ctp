@@ -14,7 +14,7 @@
 						<h2 class="text-center">Tenants</h2>
 						<hr>
 						<div class="panel-body">
-						<ul class="nav nav-pills pull-left">
+						<ul class="nav nav-pills">
 							<li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
 							<li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
 						</ul>
@@ -35,7 +35,7 @@
 						<h2 class="text-center">Requests</h2>
 						<hr>
 						<div class="panel-body">
-						<ul class="nav nav-pills pull-left">
+						<ul class="nav nav-pills">
 							<li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
 							<li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
 						</ul>
@@ -56,7 +56,7 @@
 						<h2 class="text-center">Properties</h2>
 						<hr>
 						<div class="panel-body">
-						<ul class="nav nav-pills pull-left">
+						<ul class="nav nav-pills">
 							<li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
 							<li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
 						</ul>

@@ -134,7 +134,12 @@ form {
   }
 
   .file-upload-button:hover {
-    background-color:darken($darkprimarycolour,10%);
+    background-color:$primarycolour;
+  }
+
+  .file-upload-button:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    background-color:darken($primarycolour,10%);
   }
 
 }

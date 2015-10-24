@@ -14,7 +14,7 @@ $this->Html->addCrumb('Emergency Contacts', array('controller' => 'Emergencies',
 
         <div class="button-set">
           <?= $this->Html->link(
-            '<i class="fa fa-group"></i> All',
+            '<i class="glyphicon glyphicon-user"></i> All',
             ['action' => 'index'],
             ['class' => 'button button-pill button-primary active', 'escape' => false]
           ); ?>

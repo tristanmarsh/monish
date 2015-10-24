@@ -17,7 +17,7 @@
 
         <div class="button-set">
           <?= $this->Html->link(
-          '<i class="fa fa-paper-plane"></i> All',
+          '<i class="glyphicon glyphicon-envelope"></i> All',
           ['action' => 'index'],
           ['class' => 'button button-pill button-primary active', 'escape' => false]
           ); ?>

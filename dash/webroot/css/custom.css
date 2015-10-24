@@ -1037,7 +1037,8 @@ form .file-upload-wrapper { position: relative; margin-bottom: 5px; }
 form .file-upload-input { width: 300px; color: #fff; font-size: 16px; padding: 11px 17px; border: none; background-color: #ffecd1; transition: all 0.2s ease-in; margin-bottom: 0 !important; float: left; /* IE 9 Fix */ }
 form .file-upload-input:hover, form .file-upload-input:focus { background: #ffecd1; outline: none; }
 form .file-upload-button { height: 50px; cursor: pointer; display: inline-block; color: #fff; font-size: 16px; text-transform: uppercase; padding: 13px 20px; border: none; margin-left: -1px; background-color: #ff9e14; float: left; /* IE 9 Fix */ transition: all 0.2s ease-in; }
-form .file-upload-button:hover { background-color: #e08300; }
+form .file-upload-button:hover { background-color: #ffb347; }
+form .file-upload-button:active { box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); background-color: #ff9e14; }
 
 /*
 Name:   footer.scss

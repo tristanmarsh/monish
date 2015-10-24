@@ -26,7 +26,7 @@
   <?php if ($currentlogged['role'] === "tenant") : ?>
         <?= $this->Html->link(
       '<i class="fa fa-phone"></i> Edit Phone Number',
-      ['controller' => 'people','action' => 'edit', $user->id],
+      ['controller' => 'people','action' => 'edit', $user->person_id],
       ['class' => 'button button-pill button-primary', 'escape' => false]
       ); ?>
 

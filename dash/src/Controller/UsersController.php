@@ -216,6 +216,9 @@ class UsersController extends AppController
         $leases = $this->Leases->find('all')->contain(['Students', 'Properties', 'Rooms']);
         $this->set(compact('leases'));
 
+
+
+
         $walrus = $this->People;
         $this->set('walrus', $walrus);
 
@@ -259,6 +262,9 @@ class UsersController extends AppController
         $this->set(compact('user'));
         $this->set('user', $user);
 
+       
+       
+        
         //finds the list of people in the people's table
         $people = $this->Users->People->find('list', ['limit' => 200]);
         $this->set(compact('people'));

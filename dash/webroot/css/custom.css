@@ -929,10 +929,12 @@ Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:    Styling specific to actionbar
 Since:      23/10/15
 */
+.panel-actionbar .panel-body, .panel-actionbar .panel-footer { padding-bottom: 0; }
 .panel-actionbar .search { width: 100%; padding: 6px 0; position: absolute; }
 .panel-actionbar .search input[type="text"].form-control { display: block; top: 0; height: 100%; width: 100%; font-size: 2rem; border-radius: 5px; }
 .panel-actionbar .search .input-group-btn { opacity: 0; visibility: none; }
-.panel-actionbar .button-set { display: inline-block; margin-right: 10px; }
+.panel-actionbar .button-set { display: inline-block; }
+.panel-actionbar .button { padding: 0 30px; margin-bottom: 15px; margin-right: 15px; }
 .panel-actionbar .button, .panel-actionbar .button > label { color: #fff; font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: 300; transition: all 400ms ease; }
 .panel-actionbar .button:hover, .panel-actionbar .button > label:hover { text-decoration: none; }
 .panel-actionbar .button.active { color: #fff; }

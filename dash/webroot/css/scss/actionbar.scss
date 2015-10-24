@@ -8,6 +8,12 @@ Since:      23/10/15
 
 .panel-actionbar {
 
+  // Removing padding to allow responsive for button margin-bottom
+  .panel-body,
+  .panel-footer {
+    padding-bottom:0;
+  }
+
   .search {
     
     width: 100%;
@@ -33,7 +39,12 @@ Since:      23/10/15
 
   .button-set {
     display: inline-block;
-    margin-right:10px;
+  }
+
+  .button {
+    padding: 0 30px;
+    margin-bottom:15px;
+    margin-right:15px;
   }
 
   .button,

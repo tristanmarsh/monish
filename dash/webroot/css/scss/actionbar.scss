@@ -47,6 +47,16 @@ Since:      23/10/15
     margin-right:15px;
   }
 
+  .button.button-pill {
+    margin-right:0;
+  }
+
+  .button-group {
+    margin-right:15px;
+    margin-bottom: -5px;
+    overflow: hidden;
+  }
+
   .button,
   .button>label {
 
@@ -81,6 +91,7 @@ Since:      23/10/15
     opacity:0.4;
   }
 
+  .searchbox:hover,
   .searchbox-open{
     opacity: 1;
   } 

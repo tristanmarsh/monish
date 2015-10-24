@@ -11,18 +11,19 @@
         <div class="row">
 
             <div class="col-sm-6 clearfix">
+                
                 <div class="button-group">
 
                     <?= $this->Html->link(
                     '<i class="fa fa-flash"></i> Current',
                     ['action' => 'index'],
-                    ['class' => 'button button-pill button-primary button-3d active', 'escape' => false]
+                    ['class' => 'button button-pill button-primary active', 'escape' => false]
                     ); ?>
 
                     <?= $this->Html->link(
                     '<i class="fa fa-archive"></i> Archived',
                     ['action' => 'archived'],
-                    ['class' => 'button button-pill button-primary button-3d', 'escape' => false]
+                    ['class' => 'button button-pill button-primary', 'escape' => false]
                     ); ?>
 
                 </div>
@@ -31,9 +32,8 @@
                     <?= $this->Html->link(
                     '<i class="fa fa-plus"></i> New Tenant',
                     ['action' => 'add'],
-                    ['class' => 'button button-pill button-action button-3d', 'escape' => false]
+                    ['class' => 'button button-pill button-action', 'escape' => false]
                     ); ?>
-
                 </div>                
                 
             </div>
@@ -42,7 +42,7 @@
             <div class="col-sm-6 clearfix">
 
                 <form class="searchbox">
-                <input type="search" id="myInputTextField" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+                <input type="search" id="myInputTextField" placeholder="Search..." name="search" class="searchbox-input" onkeyup="buttonUp();" required>
                 <input type="submit" class="searchbox-submit" value="Go">
                 <span class="searchbox-icon"><i class="fa fa-search"></i></span>
                 </form>

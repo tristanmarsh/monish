@@ -43,7 +43,7 @@ $this->Html->addCrumb('Leases', '/leases');
       <div class="col-sm-6 clearfix">
 
         <form class="searchbox">
-          <input type="search" id="myInputTextField" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+          <input type="search" id="myInputTextField" placeholder="Search..." name="search" class="searchbox-input" onkeyup="buttonUp();" required>
           <input type="submit" class="searchbox-submit" value="Go">
           <span class="searchbox-icon"><i class="fa fa-search"></i></span>
         </form>

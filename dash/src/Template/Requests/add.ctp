@@ -12,7 +12,7 @@
   
     <div class="button-set">
       <?= $this->Html->link(
-      '<i class="fa fa-paper-plane"></i> All',
+      '<i class="glyphicon glyphicon-envelope"></i> All',
       ['action' => 'index'],
       ['class' => 'button button-pill button-primary', 'escape' => false]
       ); ?>
@@ -106,7 +106,7 @@
     
     <br>
 
-    <?= $this->Form->button(__('Create Request'), ['class' => 'form-control btn-primary button button-action button-3d']); ?>
+    <?= $this->Form->button('<i class="fa fa-paper-plane"></i> Send Request', ['class' => 'form-control btn-primary button button-action button-3d']); ?>
     <?= $this->Form->end() ?>
     
   </div>

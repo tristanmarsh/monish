@@ -3,21 +3,33 @@ $this->Html->addCrumb('Archived Properties', '/properties/archived');
 ?>    
 <h1>Archived Properties</h1>
 
-<div class="panel panel-default clearfix">
-    
-    <div class="panel-body">
+<div class="panel panel-default panel-actionbar clearfix">
 
-        <div class="col-sm-6">
-            <ul class="nav nav-pills">
-                <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
-                <li role="presentation" class="active"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
-                <li role="presentation"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>
-                <!-- <li role="presentation"><?= $this->Html->link('New Room', ['controller' => 'rooms', 'action' => 'add']) ?></li> -->
-            </ul>
-            
-        </div>
+  <div class="panel-body">
 
+    <div class="button-group">
+      <?= $this->Html->link(
+      '<i class="fa fa-flash"></i> Current',
+      ['action' => 'index'],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ); ?>
+
+      <?= $this->Html->link(
+      '<i class="fa fa-archive"></i> Archived',
+      ['action' => 'archived'],
+      ['class' => 'button button-pill button-primary active', 'escape' => false]
+      ); ?>
     </div>
+    
+    <div class="button-group">
+      <?= $this->Html->link(
+      '<i class="fa fa-plus"></i> New Property',
+      ['action' => 'add'],
+      ['class' => 'button button-pill-override button-action', 'escape' => false]
+      ); ?>
+    </div>
+
+  </div>
 
 </div>
 

@@ -5,109 +5,106 @@
 
 <h1><?= $entity->address; ?></h1>
 
-<div class="panel panel-default clearfix">
+<div class="panel panel-default panel-actionbar clearfix">
+  
+  <div class="panel-body">
+
+  <div class="button-group">
+
+    <?= $this->Html->link(
+    '<i class="fa fa-flash"></i> Current',
+    ['action' => 'index'],
+    ['class' => 'button button-pill button-primary', 'escape' => false]
+    ); ?>
+
+    <?= $this->Html->link(
+    '<i class="fa fa-archive"></i> Archived',
+    ['action' => 'archived'],
+    ['class' => 'button button-pill button-primary', 'escape' => false]
+    ); ?>
+
+  </div>
+  
+  <div class="button-group">
+    <?= $this->Html->link(
+    '<i class="fa fa-plus"></i> New Property',
+    ['action' => 'add'],
+    ['class' => 'button button-pill button-pill-override button-action', 'escape' => false]
+    ); ?>
+  </div>                
     
-    <div class="panel-body">
-        
-        <ul class="nav nav-pills">
-            <li role="presentation"><?= $this->Html->link('Current', ['action' => 'index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('Archived', ['action' => 'archived']) ?></li>
-            <li role="presentation"><?= $this->Html->link('New Property', ['action' => 'add']) ?></li>
-        </ul>
+  </div>
 
-        <!-- <h2><?= $property->address ?></h2> -->
+  <div class="panel-footer">
 
-    </div>
+  <div class="button-group">
+    <?= $this->Html->link(
+    '<i class="fa fa-eye"></i> View',
+    ['action' => 'view', $entity->id],
+    ['class' => 'button button-pill button-primary', 'escape' => false]
+    ); ?>
 
-        <div class="panel-footer">
+    <?= $this->Html->link(
+    '<i class="fa fa-pencil"></i> Edit',
+    ['action' => 'edit', $entity->id],
+    ['class' => 'button button-pill button-action active', 'escape' => false]
+    ); ?>
+  </div>
 
-        <ul class="nav nav-pills">
+  <div class="button-group">
+  <?php
+   if ($entity->archived === "NO") {
+     echo $this->Form->postLink(
+    '<i class="fa fa-archive"></i> Archive Property',
+    ['action' => 'archiveproperty',$entity->id],
+    ['confirm' => 'Archive ' . $entity->address .'?' , "escape" => false,
+      'class' => 'button button-pill-override button-caution',
+      'escape' => false
+    ]);
 
-            <li role="presentation"><?= $this->Html->link('View',
-                ['controller'=>'properties', 'action' => 'view', $entity->id],
-                ['class'=>'active'] ); ?>
-            </li>
+     } else {
+      echo $this->Form->postLink(
+      '<i class="fa fa-archive"></i> Unarchive Property',
+      ['action' => 'unarchiveproperty',$entity->id],
+      ['confirm' => 'Unarchive ' . $entity->address .'?' , "escape" => false,
+        'class' => 'button button-pill-override button-caution',
+        'escape' => false
+      ]);
 
-            <li role="presentation"  class="active"><?= $this->Html->link('Edit',
-                ['controller'=>'properties', 'action' => 'edit', $entity->id] ); ?>
-            </li>
+    } ?>
+  </div>
 
-            <li role="presentation"><?= $this->Html->link('New Room',
-                ['controller'=>'rooms', 'action' => 'add', $entity->id] ); ?>
-            </li>
-
-            <!-- <li role="presentation"><?= $this->Form->postLink('Delete',
-                ['controller'=>'properties', 'action' => 'delete', $entity->id],
-                ['confirm' => 'Are you sure?', "escape" => false]); ?>
-            </li> -->
-
-            <li role="presentation">
-
-                <?php
-
-                   if ($entity->archived === "NO") {
-                    echo $this->form->postLink('Archive Property', ['action' => 'archiveproperty', $entity->id], array('class' => 'menu-item-link', 'escape' => false)); 
-                   }
-                   else {
-                    echo $this->form->postLink('Unarchive Property', ['action' => 'unarchiveproperty', $entity->id], array('class' => 'menu-item-link', 'escape' => false));
-                   }
-
-                ?>
-
-            </li>
-
-        </ul>
-
-    </div>
+  </div>
 
 </div>
-
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2 class="panel-title">Edit <?= $entity->address ?></h2>
+    <h2 class="panel-title">
+        Edit <?= $entity->address ?></h2>
   </div>  
 
   <div class="panel-body">
- 
-    <div class="rooms form large-10 medium-9 columns">
-        <?= $this->Form->create($entity, array('type' => 'file')); ?>
-        <fieldset>
-            <!-- <legend><?= __('Edit Room', array('class' => 'form-control')) ?></legend> -->
-            <?php
-            echo $this->Form->input('address', array('class' => 'form-control'));
-            echo $this->Form->input('avatar', ['type' => 'file', 'label' => 'Picture (Optional)']);
-        ?>
-            <br>
-        </fieldset>
-        <?= $this->Form->button(__('Edit Property'), ['class' => 'form-control btn btn-primary']) ?>
-        <?= $this->Form->end() ?>
-        <?= $this->Form->create(null, [
-            'url' => ['controller' => 'Properties', 'action' => 'index']
-            ])?>
-            <!--     <?= $this->Form->button(__('Cancel'), ['class' => 'form-control btn btn-fail']) ?>  -->
-        </div>
-    </div>
-</div>
 
-
-
-
-<!-- 
-<div class="properties form large-10 medium-9 columns">
     <?= $this->Form->create($entity, array('type' => 'file')); ?>
+
     <fieldset>
-        <legend><?= __('Edit Property') ?></legend>
-        <?php
-            echo $this->Form->input('address');
-			echo $this->Form->input('avatar', ['type' => 'file', 'label' => 'Picture (Optional)']);
-        ?>
+    <!-- <legend><?= __('Edit Room', array('class' => 'form-control')) ?></legend> -->
+    <?php
+        echo $this->Form->input('address', array('class' => 'form-control'));
+        
+        echo $this->Form->input('avatar', ['type' => 'file', 'label' => 'Picture (Optional)']);
+    ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+
+    <br>
+
+    <?= $this->Form->button(__('Edit Property'), ['class' => 'form-control button button-action button-3d']) ?>
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Properties', 'action' => 'index']
-    ])?>
-    <?= $this->Form->button(__('Cancel')) ?>
+        ])?>
+
+    </div>
+
 </div>
- -->

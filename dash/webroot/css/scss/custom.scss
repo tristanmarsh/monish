@@ -7,12 +7,12 @@ Note:     Remeber mobile first methodology when styling
 Since:    29/4/15
 
 */
+@import 'variables.scss';
 @import '../../../../bower_components/animate.css-scss/_fading-entrances/fading-entrances.scss';
 @import '../../../../bower_components/animate.css-scss/_properties.scss';
 @import '../../../../bower_components/Buttons/scss/buttons.scss';
 @import '../nprogress.scss';
 @import 'font-icomoon-monish.scss';
-@import 'variables.scss';
 @import 'override.scss';
 @import 'global.scss';
 @import 'sm.scss';

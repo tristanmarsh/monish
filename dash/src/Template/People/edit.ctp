@@ -37,6 +37,45 @@
 <?php if ($currentlogged['role'] === "tenant") : ?>
 
     <h1>Edit Personal Details</h1>
+
+        <div class="panel panel-default panel-actionbar clearfix">
+
+      <div class="panel-body">
+
+          <?= $this->Html->link(
+          '<i class="fa fa-eye"></i> View',
+          ['action' => 'index'],
+          ['class' => 'button button-pill button-primary', 'escape' => false]
+          ); ?>
+
+      </div>
+
+      <div class="panel-footer">
+
+        <?= $this->Html->link(
+      '<i class="fa fa-phone"></i> Edit Phone Number',
+      ['action' => 'edit',$user->id ],
+      ['class' => 'button button-pill button-primary active', 'escape' => false]
+      ); ?>
+
+      <?= $this->Html->link(
+      '<i class="fa fa-pencil"></i> Edit Username',
+       ['controller' => 'users', 'action' => 'editusername', $currentlogged['id']],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ); ?>
+
+      <?= $this->Html->link(
+      '<i class="fa fa-pencil"></i> Edit Password',
+      ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id']],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ); ?>
+
+      </div>
+
+    </div>
+    
+
+
         <div class="panel panel-default">
       <div class="panel-body">  
     <?php

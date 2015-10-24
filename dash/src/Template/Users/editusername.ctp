@@ -3,11 +3,50 @@
     $this->Html->addCrumb('Username');
 
 ?>
-
+<?php $currentlogged = $this->Session->read('Auth.User'); ?>
 
 <!-- File: src/Template/Users/edit.ctp -->
 
 <h1>Update User</h1>
+
+
+    <div class="panel panel-default panel-actionbar clearfix">
+
+      <div class="panel-body">
+
+          <?= $this->Html->link(
+          '<i class="fa fa-eye"></i> View',
+          ['controller' => 'people','action' => 'index'],
+          ['class' => 'button button-pill button-primary', 'escape' => false]
+          ); ?>
+
+      </div>
+
+      <div class="panel-footer">
+  <?php if ($currentlogged['role'] === "tenant") : ?>
+        <?= $this->Html->link(
+      '<i class="fa fa-phone"></i> Edit Phone Number',
+      ['controller' => 'people','action' => 'edit', $user->id],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ); ?>
+
+      <?php endif; ?>
+
+      <?= $this->Html->link(
+      '<i class="fa fa-pencil"></i> Edit Username',
+       ['controller' => 'users', 'action' => 'editusername', $currentlogged['id']],
+      ['class' => 'button button-pill button-primary active', 'escape' => false]
+      ); ?>
+
+      <?= $this->Html->link(
+      '<i class="fa fa-pencil"></i> Edit Password',
+      ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id']],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ); ?>
+
+      </div>
+
+    </div>
 
 <div class="panel panel-default">
     <div class="panel-body">

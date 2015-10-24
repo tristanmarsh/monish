@@ -242,7 +242,11 @@ class UsersController extends AppController
 
     public function editpassword($id = null)
     {
-        $user = $this->Users->get($id);
+
+        
+        $user = $this->Users->get($id, [
+            'contain' => []
+            ]);
         if ($this->request->is(['post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)){
@@ -251,6 +255,8 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('Unable to update this user'));
         }
+
+        $this->set(compact('user'));
         $this->set('user', $user);
 
         //finds the list of people in the people's table
@@ -259,7 +265,11 @@ class UsersController extends AppController
     }
         public function editusername($id = null)
     {
-        $user = $this->Users->get($id);
+
+        
+        $user = $this->Users->get($id, [
+            'contain' => []
+            ]);
         if ($this->request->is(['post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)){
@@ -268,6 +278,9 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('Unable to update this user'));
         }
+
+
+        $this->set(compact('user'));
         $this->set('user', $user);
 
         //finds the list of people in the people's table

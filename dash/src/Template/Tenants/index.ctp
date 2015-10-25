@@ -63,7 +63,7 @@
 
   <!-- Table -->
   <div class="table-responsive">
-    <table  class="datatable">
+    <table class="datatable">
       <thead>
         <tr>
           <th class="hidden-xs">First&nbsp;Name</th>

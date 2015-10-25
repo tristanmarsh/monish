@@ -18,11 +18,11 @@
           ['class' => 'navbar-logo']
         ); ?> -->
 
-        <span>Monash ISH</span>
+        <h2>Dash</h2>
 
       </div>
 
-      <button class="button button-royal button-medium" id="navigation-toggle"><i class="fa fa-bars"></i></button>
+      <button class="button button-inverse button-medium" id="navigation-toggle"><i class="fa fa-bars"></i></button>
 
     </div>
 

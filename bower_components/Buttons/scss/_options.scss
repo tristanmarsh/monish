@@ -43,7 +43,7 @@ $ubtn-font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "
 * Each block contains the (name, background, color)
 * The class is generated using the name: (ex .button-primary)
 */
-$ubtn-colors: ('primary' $primarycolour  #FFF) ('plain' #FFF #1B9AF7) ('inverse' #222 #EEE) ('action' $green  #FFF) ('highlight' #FEAE1B #FFF)('caution' $red #FFF) ('royal' #7B72E9 #FFF) !default;
+$ubtn-colors: ('primary' $primarycolour  #FFF) ('plain' #FFF #1B9AF7) ('inverse' $primarycolour $mutedsidebarcolour) ('action' $green  #FFF) ('highlight' #FEAE1B #FFF)('caution' $red #FFF) ('royal' $purple #FFF) !default;
 
 
 /*

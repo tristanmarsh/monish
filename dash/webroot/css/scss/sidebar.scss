@@ -5,15 +5,9 @@ Author URI: http://wiki.tristanmarsh.net/dash/
 Since:    3/6/15
 */
 
-
 // #### NAVIGATION ####
 
-
-
-$sidebarcolour:desaturate(darken($primarycolour,42%),18%);
-
-$mutedsidebarcolour: lighten($sidebarcolour,5%);
-$mutedlinksidebarcolour: lighten($sidebarcolour,30%);
+$sidebarwidth:300px;
 
 // override default bootstrap
 .nav>li>a:hover, .nav>li>a:focus {
@@ -149,7 +143,6 @@ $mutedlinksidebarcolour: lighten($sidebarcolour,30%);
 }
 
 
-
 // Classes to animate
 .sidebar,
 .navbar-fixed-top,
@@ -187,12 +180,11 @@ $mutedlinksidebarcolour: lighten($sidebarcolour,30%);
 // xs
 @media(max-width:480px){
 
-
   // Inactive
   .sidebar {
     transform:translate3D(-100%,0,0);
     padding-top:79px;
-    width:300px;
+    width:$sidebarwidth;
     transition:transform 400ms ease;
   }  
 
@@ -203,7 +195,7 @@ $mutedlinksidebarcolour: lighten($sidebarcolour,30%);
   // Active
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
-    width:300px;
+    width:$sidebarwidth;
     transition:width 0s;
     transition-delay: 400ms;
     transition:transform 400ms ease;  }
@@ -242,7 +234,7 @@ $mutedlinksidebarcolour: lighten($sidebarcolour,30%);
   // Active
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
-    width:300px;
+    width:$sidebarwidth;
   }
   .navigation-active .content {
     transform:translate3D(0,0,0);
@@ -251,7 +243,7 @@ $mutedlinksidebarcolour: lighten($sidebarcolour,30%);
   .navigation-active .navbar-fixed-top,
   .navigation-active .content,
   .navigation-active .footer-container {
-    margin-left:300px;
+    margin-left:$sidebarwidth;
   }
     // Show tooltips
   .navigation-active .tooltip.right {
@@ -285,7 +277,7 @@ $mutedlinksidebarcolour: lighten($sidebarcolour,30%);
   // Active
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
-    width:300px;
+    width:$sidebarwidth;
   }
   .navigation-active .content {
     transform:translate3D(0,0,0);
@@ -294,7 +286,7 @@ $mutedlinksidebarcolour: lighten($sidebarcolour,30%);
   .navigation-active .navbar-fixed-top,
   .navigation-active .content,
   .navigation-active .footer-container {
-    margin-left:300px;
+    margin-left:$sidebarwidth;
   }
     // Show tooltips
   .navigation-active .tooltip.right {

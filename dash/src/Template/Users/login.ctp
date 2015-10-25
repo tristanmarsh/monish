@@ -4,7 +4,8 @@
 
 <?php if ($user['role'] === "admin") : ?>
 
-  <h1>Dashboard</h1>
+  <!-- <h1>Dashboard</h1> -->
+  <h1> </h1>
 
 
   <!-- Expiring Leases -->

@@ -22,9 +22,11 @@ $standard-transition: all 400ms ease;
 /* Colours */
 $white:#fff;
 $green:rgb(119,221,119);
+$headergreen:rgb(112, 204, 176);
 $orange:rgb(255,179,71);
 $red:rgb(255,105,97);
 $blue: rgb(119,158,203);
+$purple: rgb(135, 128, 209);
 
 // Theme
 $primarycolour: $blue;
@@ -38,3 +40,8 @@ $whiteprimarycolour: lighten($primarycolour,32%);
 // Theme Text Colours
 $darkthemetext:darken(desaturate($darkprimarycolour,30%),20%);
 $lightthemetext:lighten(desaturate($darkprimarycolour,0%),50%);
+
+// Sidebar Colours
+$sidebarcolour:desaturate(darken($primarycolour,42%),18%);
+$mutedsidebarcolour: lighten($sidebarcolour,5%);
+$mutedlinksidebarcolour: lighten($sidebarcolour,30%);

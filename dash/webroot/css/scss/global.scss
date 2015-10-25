@@ -22,35 +22,6 @@ body {
   margin-top:3vw;
 }
 
-.log-in-window {
-
-  margin-top:5vw;
-
-  label {
-    color:mix(#000, $primarycolour, 50%);;
-    font-weight: 100;
-  }
-
-  input.form-control {
-    border-color:$lightprimarycolour;
-    height:50px;
-    font-size:1.5em;
-  }
-
-  .input-group-addon {
-    border-color:$lightprimarycolour;
-    background:$lightprimarycolour;
-    padding:0.5em 1em;
-
-    .glyphicon {
-      color:desaturate($darkprimarycolour,20%);
-      font-size:1.5em;
-    }
-
-  }
-
-}
-
 .img-center {
   display: block;
   margin:0 auto;
@@ -89,7 +60,13 @@ a {
   margin-bottom:0;
 
   .navbar-brand {
-    padding:5px;
+    padding:10px;
+
+    span {
+      font:$roboto-slab-font-stack;
+      margin-left:60px;
+    }
+
   }
 
   .nav>li>a {
@@ -107,22 +84,73 @@ a {
 // #### HEADER ####
 
 header {
-  height: auto;
+  height: 79px;
   padding: 0;
 
   .page-header {
     margin-top:0;
   }
 
+  // #### NAVBAR TOGGLE BUTTON ####
+  // .navbar-toggle {
+  //   display: block;
+  //   position: relative;
+  //   float: left;
+  //   padding-left: 15px;
+  //   padding: 9px 10px;
+  //   margin-top: 8px;
+  //   margin-bottom: 8px;
+  //   background-color: transparent;
+  //   background-image: none;
+  //   border: 1px solid transparent;
+  //   border-radius: 4px;
+  //   left: 10px;
+  //   height:59x
+  // }
+
+  // @media (min-width: 768px) {
+  //   .navbar-toggle {
+  //     display: block;
+  //     position: relative;
+  //     float: left;
+  //     padding-left: 15px;
+  //     padding: 9px 10px;
+  //     margin-top: 8px;
+  //     margin-bottom: 8px;
+  //     background-color: transparent;
+  //     background-image: none;
+  //     border: 1px solid transparent;
+  //     border-radius: 4px;
+  //     left: 10px;
+  //   }
+
+  //   .navbar>.container .navbar-brand,
+  //   .navbar>.container-fluid .navbar-brand {
+  //       margin-left: 10px;
+  //   }
+
   #navigation-toggle {
+    position:absolute;
+    left:0;
     font-size:3rem;
     line-height:3rem;
     padding:5px 10px;
-    margin:10px;
-    margin-left:0;
+    height: 59px;
+    width: 59px;
+
+    @media(max-width:480px) {
+      right:0;
+      left:auto;  
+    }
   }
 
+
   .breadcrumb {
+    position:absolute;
+    top: 59px;
+    left:0;
+    width:100%;
+    padding: 0;
     margin-left:0;
     margin-bottom:0;
     padding: 0px 30px;
@@ -166,6 +194,7 @@ header {
 
 
 }
+
 
 // #### HEADER ####
 
@@ -352,40 +381,34 @@ h6 {
 
 }
 
-.navbar-toggle {
-  display: block;
-  position: relative;
-  float: left;
-  padding-left: 15px;
-  padding: 9px 10px;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  background-color: transparent;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  left: 10px;
-}
 
-@media (min-width: 768px) {
-  .navbar-toggle {
-    display: block;
-    position: relative;
-    float: left;
-    padding-left: 15px;
-    padding: 9px 10px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    background-color: transparent;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    left: 10px;
+// #### LOGIN ####
+
+.log-in-window {
+
+  margin-top:5vw;
+
+  label {
+    color:mix(#000, $primarycolour, 50%);;
+    font-weight: 100;
   }
 
-  .navbar>.container .navbar-brand,
-  .navbar>.container-fluid .navbar-brand {
-      margin-left: 10px;
+  input.form-control {
+    border-color:$lightprimarycolour;
+    height:50px;
+    font-size:1.5em;
+  }
+
+  .input-group-addon {
+    border-color:$lightprimarycolour;
+    background:$lightprimarycolour;
+    padding:0.5em 1em;
+
+    .glyphicon {
+      color:desaturate($darkprimarycolour,20%);
+      font-size:1.5em;
+    }
+
   }
 
 }

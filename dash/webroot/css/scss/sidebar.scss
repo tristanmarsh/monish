@@ -30,7 +30,6 @@ $mutedlinksidebarcolour: lighten($sidebarcolour,30%);
   z-index: 1000;
   overflow-x: hidden;
   padding: 0;
-  background-color: #293846;
   background-color: $sidebarcolour;
   overflow-x:hidden;
 
@@ -53,7 +52,6 @@ $mutedlinksidebarcolour: lighten($sidebarcolour,30%);
 
     .menu-item-link {
       display:block;
-      color:#5F666C;
       color:desaturate($mutedlinksidebarcolour,20%);
       transition:color 200ms ease-out, background 200ms ease-out;
       height:100%;
@@ -193,7 +191,7 @@ $mutedlinksidebarcolour: lighten($sidebarcolour,30%);
   // Inactive
   .sidebar {
     transform:translate3D(-100%,0,0);
-    padding-top:71px;
+    padding-top:79px;
     width:300px;
     transition:transform 400ms ease;
   }  

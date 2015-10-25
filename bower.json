@@ -19,6 +19,7 @@
     "animate.css": "~3.3.0",
     "nprogress": "~0.2.0",
     "Buttons": "~2.0.0",
-    "DataTables": "~1.10.9"
+    "DataTables": "~1.10.9",
+    "bs-datetimepicker": "~4.17.37"
   }
 }

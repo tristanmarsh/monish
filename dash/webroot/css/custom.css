@@ -772,27 +772,23 @@ body { font-family: "Open Sans", sans-serif; -webkit-font-smoothing: antialiased
 
 .logo { margin-top: 3vw; }
 
-.log-in-window { margin-top: 5vw; }
-.log-in-window label { color: #3c4f66; font-weight: 100; }
-.log-in-window input.form-control { border-color: #dbe5f1; height: 50px; font-size: 1.5em; }
-.log-in-window .input-group-addon { border-color: #dbe5f1; background: #dbe5f1; padding: 0.5em 1em; }
-.log-in-window .input-group-addon .glyphicon { color: #6a85a5; font-size: 1.5em; }
-
 .img-center { display: block; margin: 0 auto; }
 
 a { color: #485461; }
 
 /* #### NAVBAR #### */
 .navbar { background: #fff; border-bottom: 0; margin-bottom: 0; }
-.navbar .navbar-brand { padding: 5px; }
+.navbar .navbar-brand { padding: 10px; }
+.navbar .navbar-brand span { font: "Raleway", serif; margin-left: 60px; }
 .navbar .nav > li > a { position: relative; display: block; padding: 5px; }
 
 .gravatar { background-color: #212D38; }
 
-header { height: auto; padding: 0; }
+header { height: 79px; padding: 0; }
 header .page-header { margin-top: 0; }
-header #navigation-toggle { font-size: 3rem; line-height: 3rem; padding: 5px 10px; margin: 10px; margin-left: 0; }
-header .breadcrumb { margin-left: 0; margin-bottom: 0; padding: 0px 30px; list-style: none; background: none; border-radius: 0; background: #5284bd; color: #fff; }
+header #navigation-toggle { position: absolute; left: 0; font-size: 3rem; line-height: 3rem; padding: 5px 10px; height: 59px; width: 59px; }
+@media (max-width: 480px) { header #navigation-toggle { right: 0; left: auto; } }
+header .breadcrumb { position: absolute; top: 59px; left: 0; width: 100%; padding: 0; margin-left: 0; margin-bottom: 0; padding: 0px 30px; list-style: none; background: none; border-radius: 0; background: #5284bd; color: #fff; }
 header .breadcrumb a { display: inline-block; font-size: 1.4rem; font-weight: lighter; color: #fff; transition: all 400ms ease; background: none; }
 header .breadcrumb a.active:hover, header .breadcrumb a:hover { text-decoration: none; background: #8badd3; color: #5284bd; }
 header .breadcrumb a.active { color: #fff; }
@@ -839,10 +835,12 @@ h1, h2, h3, h4, h5, h6 { font-family: "Raleway", serif; color: #5284bd; }
 .main-content .paginator .pagination li a { border-right: 1px solid #dbe5f1; border: 0; }
 .main-content .paginator .pagination li a:last-child { border-right: 0; }
 
-.navbar-toggle { display: block; position: relative; float: left; padding-left: 15px; padding: 9px 10px; margin-top: 8px; margin-bottom: 8px; background-color: transparent; background-image: none; border: 1px solid transparent; border-radius: 4px; left: 10px; }
+.log-in-window { margin-top: 5vw; }
+.log-in-window label { color: #3c4f66; font-weight: 100; }
+.log-in-window input.form-control { border-color: #dbe5f1; height: 50px; font-size: 1.5em; }
+.log-in-window .input-group-addon { border-color: #dbe5f1; background: #dbe5f1; padding: 0.5em 1em; }
+.log-in-window .input-group-addon .glyphicon { color: #6a85a5; font-size: 1.5em; }
 
-@media (min-width: 768px) { .navbar-toggle { display: block; position: relative; float: left; padding-left: 15px; padding: 9px 10px; margin-top: 8px; margin-bottom: 8px; background-color: transparent; background-image: none; border: 1px solid transparent; border-radius: 4px; left: 10px; }
-  .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand { margin-left: 10px; } }
 .panel-property .panel-heading { padding: 0; overflow: hidden; background-color: #dbe5f1; border-color: #5284bd; }
 .panel-property .panel-heading .property-image { transition: transform 2s ease-out; height: 50vh; }
 .panel-property .panel-heading .property-image a { display: block; height: 100%; }
@@ -874,11 +872,11 @@ Since:    3/6/15
 */
 .nav > li > a:hover, .nav > li > a:focus { text-decoration: none; background: none; }
 
-.sidebar { width: 60px; position: fixed; left: 0; padding-left: 0; height: 100vh; z-index: 1000; overflow-x: hidden; padding: 0; background-color: #293846; background-color: #283544; overflow-x: hidden; }
+.sidebar { width: 60px; position: fixed; left: 0; padding-left: 0; height: 100vh; z-index: 1000; overflow-x: hidden; padding: 0; background-color: #283544; overflow-x: hidden; }
 .sidebar .nav-sidebar { margin-left: 0; }
 .sidebar ul { padding-left: 0; }
 .sidebar li { display: block; position: relative; font-size: 2rem; border-bottom: 1px solid #314154; height: 6rem; }
-.sidebar li .menu-item-link { display: block; color: #5F666C; color: #7a828b; transition: color 200ms ease-out, background 200ms ease-out; height: 100%; padding: 10px; }
+.sidebar li .menu-item-link { display: block; color: #7a828b; transition: color 200ms ease-out, background 200ms ease-out; height: 100%; padding: 10px; }
 .sidebar li .menu-item-link .gravatar { opacity: 0.8; transition: opacity 200ms ease-out; background: #314154; }
 .sidebar li .menu-item-link .glyphicon { position: static; vertical-align: middle; vertical-align: -webkit-baseline-middle; width: 60px; margin: 0 auto; margin-left: -10px; text-align: center; }
 .sidebar li .menu-item-link .glyphicon:before { text-align: center; }
@@ -904,7 +902,7 @@ Since:    3/6/15
 
 .tooltip-inner { background: #314154; }
 
-@media (max-width: 480px) { .sidebar { transform: translate3D(-100%, 0, 0); padding-top: 71px; width: 300px; transition: transform 400ms ease; }
+@media (max-width: 480px) { .sidebar { transform: translate3D(-100%, 0, 0); padding-top: 79px; width: 300px; transition: transform 400ms ease; }
   .navigation-active { background-color: #314154; }
   .navigation-active .sidebar { transform: translate3D(0, 0, 0); width: 300px; transition: width 0s; transition-delay: 400ms; transition: transform 400ms ease; }
   .navigation-active .content, .navigation-active .footer-container { transform: translate3D(20%, 0, 0); }
@@ -1041,13 +1039,16 @@ Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  Style applying specifically to our datatables components
 Since:    23/10/15
 */
-form .form-control { display: block; width: 100%; transition: background 400ms ease; margin-bottom: 1em; }
+form .form-control { display: block; width: 100%; transition: background 400ms ease; margin-bottom: 1em; outline: 0px !important; -webkit-appearance: none; box-shadow: none; }
 form .input-group .col-sm-6 { margin-bottom: 1em; }
-form .form-control:focus { border: 1px solid #dfe8f2; outline: 0; -webkit-box-shadow: none; box-shadow: none; }
-form label { font-weight: 100; }
-form select.form-control, form textarea.form-control, form input[type="password"], form input[type="username"], form input[type="text"], form input[type="tel"], form input[type="number"], form input[type="email"] { padding: 8px 12px; font-size: 2rem; height: 50px; line-height: auto; color: #5f7ea2; background: #edf2f8; border: 1px solid #dfe8f2; }
+form .form-control:focus { border: 1px solid #dfe8f2; outline: 0; -webkit-box-shadow: none; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); }
+form label { color: #3c4f66; font-weight: 100; }
+form input.form-control { border-color: #dbe5f1; height: 50px; font-size: 1.5em; }
+form .input-group-addon { border-color: #dbe5f1; background: #edf2f8; padding: 0.5em 0.5em; color: #6a85a5; font-size: 1.5rem; }
+form .input-group-addon .glyphicon { color: #6a85a5; font-size: 1.5rem; }
+form select.form-control, form textarea.form-control, form input[type="password"], form input[type="username"], form input[type="text"], form input[type="tel"], form input[type="number"], form input[type="email"] { padding: 8px 12px; font-size: 2rem; height: 50px; line-height: auto; color: #5f7ea2; background: #edf2f8; border: 1px solid #dfe8f2; transition: all 0.15s ease; }
+form select.form-control:hover, form textarea.form-control:hover, form input[type="password"]:hover, form input[type="username"]:hover, form input[type="text"]:hover, form input[type="tel"]:hover, form input[type="number"]:hover, form input[type="email"]:hover { background: #e9eff7; outline: 0px !important; -webkit-appearance: none; }
 form select.form-control:focus, form textarea.form-control:focus, form input[type="password"]:focus, form input[type="username"]:focus, form input[type="text"]:focus, form input[type="tel"]:focus, form input[type="number"]:focus, form input[type="email"]:focus { background: #dbe5f1; outline: 0px !important; -webkit-appearance: none; }
-form textarea:hover, form input:hover, form textarea:active, form input:active, form textarea:focus, form input:focus, form button:focus, form button:active, form button:hover { outline: 0px !important; -webkit-appearance: none; box-shadow: none; }
 form textarea.form-control { height: auto; resize: none; }
 form .custom-file-upload-hidden { display: none; visibility: hidden; position: absolute; left: -9999px; }
 form .custom-file-upload { display: block; width: auto; font-size: 16px; margin-top: 30px; }

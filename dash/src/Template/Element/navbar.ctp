@@ -9,20 +9,20 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
 
-      <div class="navbar-image navbar-brand hidden-xs hidden-sm hidden-md hidden-lg">
+      <div class="navbar-image navbar-brand">
         
-        <?= $this->Html->image('logo-monish.png', [
+<!--         <?= $this->Html->image('logo-monish.png', [
           'alt' => 'Monash International Student House',
           'url' => ['controller' => 'Users', 'action' => 'login']
           ],
           ['class' => 'navbar-logo']
-        ); ?>
+        ); ?> -->
 
         <span>Monash ISH</span>
 
       </div>
 
-      <button class="button button-primary button-rounded button-medium" id="navigation-toggle"><i class="fa fa-bars"></i></button>
+      <button class="button button-royal button-medium" id="navigation-toggle"><i class="fa fa-bars"></i></button>
 
     </div>
 

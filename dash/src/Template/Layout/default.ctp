@@ -62,6 +62,16 @@ $cakeDescription = 'Monish Dashboard';
 	<?= $this->fetch('css') ?>
 	<?= $this->fetch('script') ?>
 
+	<!-- Bootstrap Date Picker -->
+	<!-- <script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script> -->
+
+	<!-- <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script> -->
+
+	<!-- // <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
+	<!-- // <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script> -->
+	<!-- <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" /> -->
+	<!-- <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" /> -->
+
 	<!-- Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Raleway|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
 	
@@ -78,12 +88,7 @@ $cakeDescription = 'Monish Dashboard';
 		});
 	</script>
 
-	<!-- Buttons core css -->
-	<!-- <link rel="stylesheet" href="css/buttons.css"> -->
-	<!-- Only needed if you want support for dropdown menus -->
-	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
-	<!-- <script type="text/javascript" src="js/buttons.js"></script> -->
-	<!-- Maybe we already have them? -->
+	<!-- Font Awesome Used in Buttons -->
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
 
 </head>

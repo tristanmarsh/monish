@@ -13,6 +13,9 @@ form {
     width: 100%;
     transition:background 400ms ease;
     margin-bottom: 1em;
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none;
   }
 
   .input-group .col-sm-6 {
@@ -23,14 +26,37 @@ form {
     border:1px solid mix($white,$lightprimarycolour,10%);
     outline: 0;
     -webkit-box-shadow: none;
-    box-shadow: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
   }
 
+
   label {
+    color:mix(#000, $primarycolour, 50%);;
     font-weight: 100;
-    // display: none;
   }
-  
+
+  input.form-control {
+    border-color:$lightprimarycolour;
+    height:50px;
+    font-size:1.5em;
+  }
+
+  .input-group-addon {
+    border-color:$lightprimarycolour;
+    background:mix($white,$lightprimarycolour,50);
+    padding:0.5em 0.5em;
+    color:desaturate($darkprimarycolour,20%);
+    font-size:1.5rem;
+
+    .glyphicon {
+      color:desaturate($darkprimarycolour,20%);
+      font-size:1.5rem;
+    }
+
+  }
+
+
+
   select.form-control,
   textarea.form-control,
   input[type="password"],
@@ -46,6 +72,20 @@ form {
     color:mix(#000,$primarycolour,20%);
     background:mix($white,$lightprimarycolour,50%);
     border:1px solid mix($white,$lightprimarycolour,10%);
+    transition: all 0.15s ease;
+  }
+  
+  select.form-control:hover,
+  textarea.form-control:hover,
+  input[type="password"]:hover,
+  input[type="username"]:hover,
+  input[type="text"]:hover,
+  input[type="tel"]:hover,
+  input[type="number"]:hover,
+  input[type="email"]:hover {
+    background:mix($white,$lightprimarycolour,40%);
+     outline:0px !important;
+    -webkit-appearance:none;
   }
   
   select.form-control:focus,
@@ -59,21 +99,6 @@ form {
     background: $lightprimarycolour;
      outline:0px !important;
     -webkit-appearance:none;
-  }
-
-  textarea:hover, 
-  input:hover, 
-  textarea:active, 
-  input:active, 
-  textarea:focus, 
-  input:focus,
-  button:focus,
-  button:active,
-  button:hover
-  {
-    outline:0px !important;
-    -webkit-appearance:none;
-    box-shadow: none;
   }
 
   textarea.form-control {

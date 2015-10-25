@@ -256,11 +256,11 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/actionbar.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/bower_components/Buttons/scss/_options.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/variables.scss",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/actionbar.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/footer.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/.sass-cache/9bef6f12d4e9ce5f41696d4156340e7247ffd194/_options.scssc",
@@ -391,7 +391,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"",
@@ -420,6 +420,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"inset",
+			"open",
 			"manual",
 			"primary",
 			"blue",
@@ -545,9 +547,7 @@
 			"header",
 			"Edit",
 			"edit",
-			"p>",
-			"<p",
-			"Search......"
+			"p>"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -671,6 +671,10 @@
 		"selected_items":
 		[
 			[
+				"actionbar",
+				"scss/actionbar.scss"
+			],
+			[
 				"requestsadd",
 				"dash/src/Template/Requests/add.ctp"
 			],
@@ -785,10 +789,6 @@
 			[
 				"requestsedit",
 				"dash/src/Template/Requests/edit.ctp"
-			],
-			[
-				"actionbar",
-				"scss/actionbar.scss"
 			],
 			[
 				"requestsview",

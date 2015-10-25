@@ -116,15 +116,6 @@ Since:      23/10/15
     opacity:0.4;
   }
 
-  .searchbox:hover,
-  .searchbox-open{
-    opacity: 1;
-  } 
-
-  .searchbox-open>input[type="submit"]{
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-  }
-
   .searchbox-input{
     top:0;
     right:0;
@@ -139,6 +130,7 @@ Since:      23/10/15
     color:darken($darkprimarycolour,20%);
     border-left:1px solid $lightprimarycolour;
   }
+
   .searchbox-input::-webkit-input-placeholder {
     color:darken($darkprimarycolour,20%);
   }
@@ -160,11 +152,24 @@ Since:      23/10/15
     text-align:center;
     cursor:pointer;
     color:$lightprimarycolour;
-    background:$darkprimarycolour;
+    background:$primarycolour;
+    transition:$standard-transition;
   }
+
+  .searchbox:hover,
+  .searchbox-open{
+    opacity: 1; 
+  } 
 
   .searchbox-open{
     width:100%;
-  }
+
+    .searchbox-icon,
+    .searchbox-submit {
+      background: $darkprimarycolour;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+  } 
 
 }

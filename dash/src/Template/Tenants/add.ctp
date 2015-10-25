@@ -77,35 +77,35 @@
           <legend>Personal Details</legend>
 
           <div class="col-sm-6">
-            <?= $this->Form->input('first_name', array('class' => 'form-control', 'tabindex' => 1)) ?>
+            <?= $this->Form->input('first_name', array('class' => 'form-control')) ?>
           </div>
 
           <div class="col-sm-6">
-            <?= $this->Form->input('last_name', array('class' => 'form-control', 'tabindex' => 2)) ?>
+            <?= $this->Form->input('last_name', array('class' => 'form-control')) ?>
           </div>
 
           <div class="col-sm-6">
-            <?= $this->Form->input('common_name', array('class' => 'form-control', 'tabindex' => 3)) ?>
+            <?= $this->Form->input('common_name', array('class' => 'form-control')) ?>
           </div>
           
           <div class="col-sm-6">
-          <?= $this->Form->input('gender', ['options' => ['M' => 'Male', 'F' => 'Female'], 'class' => 'form-control', 'tabindex'   => 4 ]) ?>
+          <?= $this->Form->input('gender', ['options' => ['M' => 'Male', 'F' => 'Female'], 'class' => 'form-control']) ?>
           </div>
           
           <div class="col-sm-6">
-            <?= $this->Form->input('phone', array('type'=>'number', 'class' => 'form-control', 'tabindex' => 5)) ?>
+            <?= $this->Form->input('phone', array('type'=>'number', 'class' => 'form-control')) ?>
           </div>
           
           <div class="col-sm-6">
-            <?= $this->Form->input('visa', array('class' => 'form-control', 'tabindex' => 6)) ?>
+            <?= $this->Form->input('visa', array('class' => 'form-control')) ?>
           </div>
           
           <div class="col-sm-6">
-            <?= $this->Form->input('email', array('type'=>'email', 'class' => 'form-control', 'tabindex' => 7)) ?>
+            <?= $this->Form->input('email', array('type'=>'email', 'class' => 'form-control')) ?>
           </div>
           
           <div class="col-sm-6">
-            <?= $this->Form->input('parent_address', array('class' => 'form-control', 'tabindex' => 8)) ?>
+            <?= $this->Form->input('parent_address', array('class' => 'form-control')) ?>
           
           </div>
         </fieldset>
@@ -115,15 +115,15 @@
           <legend>Payment Details</legend>
             
           <div class="col-sm-6">
-            <?= $this->Form->input('account_name', array('class' => 'form-control', 'tabindex' => 9)) ?>
+            <?= $this->Form->input('account_name', array('class' => 'form-control')) ?>
           </div>
                   
           <div class="col-sm-6">
-            <?= $this->Form->input('account_number', array('type'=>'number', 'class' => 'form-control', 'tabindex' => 10)) ?>
+            <?= $this->Form->input('account_number', array('type'=>'number', 'class' => 'form-control')) ?>
           </div>
 
           <div class="col-sm-6">
-            <?= $this->Form->input('bsb_number', array('type'=>'number', 'class' => 'form-control', 'tabindex' => 11)) ?>
+            <?= $this->Form->input('bsb_number', array('type'=>'number', 'class' => 'form-control')) ?>
           </div>
 
         </fieldset>

@@ -188,13 +188,17 @@ class LeasesController extends AppController
         $this->loadModel('Rooms');
         $this->loadModel('Properties');
         $this->loadModel('People');
-
+		
+		//finds a random property id
+		$test = $this->Properties->find('all')->first()->id;
+		$this->set(compact('test'));
 
         $lease = $this->Leases->newEntity();
         if ($this->request->is('post')) {
             $lease->date_start = $lease->start;
             $lease->date_end = $lease->end;
-            $lease->property_id = 1;
+            $lease->property_id = $test; //uses the random id
+			
 
             $lease = $this->Leases->patchEntity($lease, $this->request->data);
             if ($this->Leases->save($lease)) {

@@ -79,7 +79,7 @@ class StudentsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $student = $this->Students->patchEntity($student, $this->request->data);
             if ($this->Students->save($student)) {
-                $this->Flash->success('The student has been saved');
+                $this->Flash->success('The internet plan has been changed');
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error('The student could not be saved. Please, try again');

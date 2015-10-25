@@ -45,7 +45,9 @@
         <div class="col-md-6">
 
           <?= $this->Form->input('title', array('class' => 'form-control')) ?>
+        </div>
 
+        <div class="col-md-6">
   			  <?= $this->Form->input('property_address', ['options' => $addresses,'class' => 'form-control']) ?>
         
         </div>
@@ -61,6 +63,9 @@
               'N/A' => 'Not applicable'],
             'class' => 'form-control'])
            ?>
+         </div>
+
+         <div class="col-md-6">
 
           <?= $this->Form->input(
             'category',
@@ -101,10 +106,6 @@
       </div>
            
     </fieldset>
-
-    <br>
-    
-    <br>
 
     <?= $this->Form->button('<i class="fa fa-paper-plane"></i> Send Request', ['class' => 'form-control btn-primary button button-action button-3d']); ?>
     <?= $this->Form->end() ?>

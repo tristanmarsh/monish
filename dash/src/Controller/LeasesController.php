@@ -227,6 +227,8 @@ class LeasesController extends AppController
      */
     public function edit($id = null)
     {
+
+        $this->redirect($this->referer());
         $lease = $this->Leases->get($id, [
             'contain' => []
             ]);

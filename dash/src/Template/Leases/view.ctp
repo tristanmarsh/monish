@@ -39,7 +39,7 @@
       <?= $this->Html->link(
         '<i class="fa fa-eye"></i> View',
         ['action' => 'view',$lease->id],
-        ['class' => 'button button-pill button-primary', 'escape' => false]
+        ['class' => 'button button-pill button-primary active', 'escape' => false]
       ); ?>
 
       <?= $this->Html->link(

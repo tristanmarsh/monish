@@ -41,7 +41,7 @@
   <div class="button-set">
     <?= $this->Html->link(
     '<i class="fa fa-pencil"></i> Update Devices',
-    ['action' => 'edit', $personEntity->macaddress->id],
+    ['action' => 'edit', $lion->id],
     ['class' => 'button button-pill button-action active', 'escape' => false]
     ); ?>
   </div>

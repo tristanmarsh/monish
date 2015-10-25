@@ -5,28 +5,64 @@
 ?>
 <h1>Emergency Contacts</h1>
 
-    <div class="panel panel-default">
-      <div class="panel-body">   
-<div class="emergencies form large-10 medium-9 columns">
-    <?= $this->Form->create($emergency, array('class' => 'form-group')); ?>
-    <fieldset>
-        <legend><?= __('Edit Emergency', array('class' => 'form-control')) ?></legend>
-        <?php
-            echo $this->Form->input('first_name', array('class' => 'form-control'));
-            echo $this->Form->input('last_name', array('class' => 'form-control'));
-            echo $this->Form->input('phone', array('class' => 'form-control'));
-            echo $this->Form->input('email', array('class' => 'form-control'));
-        ?>
-    </fieldset>
-    <br>
-    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']) ?>
-    <?= $this->Form->end() ?>
-	<?= $this->Form->create(null, [
-        'url' => ['controller' => 'Emergencies', 'action' => 'index']
-    ])?>
-<!--     <a href="javascript: window.history.back()" class="button">Go Back</a> -->
-<!--     <?= $this->Form->button(__('Cancel')) ?> -->
+<div class="panel panel-default panel-actionbar clearfix">
+
+  <div class="panel-body">
+
+    <?= $this->Html->link(
+      '<i class="fa fa-pencil"></i> Edit Emergency Contact',
+      ['controller' => 'emergencies', 'action' => 'edit', $emergency->id],
+      ['class' => 'button button-pill button-action active', 'escape' => false]
+    ); ?>
+
+  </div>
+
+
 </div>
+
+
+<div class="panel panel-primary">
+
+    <div class="panel-heading">
+        <h2 class="panel-title">Edit Emergency Contact</h2>
+    </div>
+
+    <div class="panel-body">
+        <?= $this->Form->create($emergency, array('class' => 'form-group')); ?>
+        <fieldset>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                  <?= $this->Form->input('first_name', array('class' => 'form-control')); ?>
+                </div>
+
+                <div class="col-md-6">
+                  <?= $this->Form->input('last_name', array('class' => 'form-control')); ?>
+                </div>
+
+                <div class="col-md-6">
+                  <?= $this->Form->input('phone', array('class' => 'form-control')); ?>
+                </div>
+
+                <div class="col-md-6">
+                  <?= $this->Form->input('email', array('class' => 'form-control')); ?>
+                </div>
+
+            </div>
+
+        </fieldset>
+        <br>
+    <?= $this->Form->button('<i class="fa fa-pencil"></i> Edit Emergency Contact', ['class' => 'form-control btn-primary button button-action button-3d', 'escape' => false]); ?>
+
+        <?= $this->Form->end() ?>
+    	<?= $this->Form->create(null, [
+            'url' => ['controller' => 'Emergencies', 'action' => 'index']
+        ])?>
+    <!--     <a href="javascript: window.history.back()" class="button">Go Back</a> -->
+    <!--     <?= $this->Form->button(__('Cancel')) ?> -->
+    </div>
 </div>
-</div>
+
+
 

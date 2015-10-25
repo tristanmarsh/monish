@@ -123,7 +123,11 @@ class RequestsController extends AppController
             $this->Flash->error(__('Unable to update your request'));
         }
         $this->set('entity', $entity);
-
+        $lion = $this->Requests->get($id, [
+            'contain' => ['People']
+        ]);
+        $this->loadModel('People');
+        $this->set(compact('lion'));
         $this->loadModel('Properties');
         $addresses = $this->Properties->find('list', ['keyField' => 'address', 'valueField' => 'address']);
         $this->set('addresses', $addresses);

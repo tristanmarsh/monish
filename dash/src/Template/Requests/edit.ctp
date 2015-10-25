@@ -46,7 +46,7 @@
         <?= $this->Form->postLink(
           '<i class="fa fa-times"></i> Close',
           ['controller'=>'requests', 'action' => 'delete', $entity->id],
-          ['confirm' => 'Close ' . $entity->title .' Request from '. /* $giraffe->person->first_name . " " . $giraffe->person->last_name .*/ '?' , "escape" => false,
+          ['confirm' => 'Close ' . $entity->title .' Request from '.  $lion->person->first_name . " " . $lion->person->last_name . '?' , "escape" => false,
             'class' => 'button button-pill-override button-caution',
             'escape' => false
           ]

@@ -96,6 +96,10 @@ Since:      23/10/15
     color:$white;
   }
 
+  .button-primary.active {
+    background-color:$darkprimarycolour;
+  }
+
   .searchbox{
     position:absolute;
     min-width:75px;

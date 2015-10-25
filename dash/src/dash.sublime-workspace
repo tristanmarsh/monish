@@ -256,6 +256,18 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/view.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/edit.ctp",
+		"/Applications/MAMP/htdocs/monish/bower_components/Buttons/scss/_options.scss",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/variables.scss",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/actionbar.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/footer.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/add.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/.sass-cache/9bef6f12d4e9ce5f41696d4156340e7247ffd194/_options.scssc",
+		"/Applications/MAMP/htdocs/monish/dash/src/Controller/EmergenciesController.php",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Macaddresses/edit.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/add.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Controller/StudentsController.php",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/view.ctp",
@@ -263,20 +275,17 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/edit.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/archived.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/view.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/actionbar.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/editpassword.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/editusername.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Macaddresses/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Macaddresses/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Students/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Controller/InternetplansController.php",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Students/edit.ctp",
@@ -287,21 +296,17 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/forms.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/archived.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/login.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/Flash/default.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/dash.sublime-workspace",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/variables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/tests/test_app/Plugin/TestPlugin/src/Cache/Engine/TestPluginCacheEngine.php",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/custom.js",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/datatables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/.sass-cache/21ce48ccb42f1305f7c758973914a4cc084344e5/sidebar.scssc",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
@@ -317,7 +322,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/gravatar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sm.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/custom.css",
-		"/Applications/MAMP/htdocs/monish/bower_components/Buttons/scss/_options.scss",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakemanager/cakephp-utils/src/Model/Behavior/StateableBehavior.php",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/override.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/css/custom.css",
@@ -337,14 +341,12 @@
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/bake/tests/TestCase/Utility/Model/AssociationFilterTest.php",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/lab10.sublime-workspace",
 		"/Users/dev/Desktop/Build 5 Feedback.txt",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/footer.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/index (backup before turning it into a profile page).ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Controller/LeasesController.php",
 		"/Applications/MAMP/htdocs/monish/dash/src/Model/Table/LeasesTable.php",
 		"/Users/dev/Desktop/2000px-Biological_clock_human.svg.png",
-		"/Applications/MAMP/htdocs/monish/dash/src/Controller/EmergenciesController.php",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Error/missing_controller.php",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/debug_kit/src/Template/Requests/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Controller/RoomsController.php",
@@ -372,7 +374,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/bootstrap/css/bootstrap-theme.css",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/bootstrap/css/bootstrap-theme.min.css",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Recoveries/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/debug_kit/src/Template/Requests/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/symfony/config/Symfony/Component/Config/Definition/Builder/ArrayNodeDefinition.php",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/debug_kit/tests/test_app/View/DebugKitTest/request_action_render.ctp",
@@ -382,8 +383,7 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/modal.modalEffects.js",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/animate.min.css",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/error.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Controller/Component/FlashComponent.php",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Homepages/index.ctp"
+		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Controller/Component/FlashComponent.php"
 	],
 	"find":
 	{
@@ -420,6 +420,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"manual",
+			"primary",
+			"blue",
+			"the emergency has been saved",
+			"emergenc",
+			"related",
+			"contact",
+			"cont",
+			"cnotact",
+			"emergenc",
+			"echo",
+			"details",
 			"saved",
 			"the student has been saved",
 			"first_name",
@@ -535,19 +547,7 @@
 			"edit",
 			"p>",
 			"<p",
-			"Search......",
-			"opacity",
-			"student has been updated",
-			"submit",
-			"l')",
-			"echo",
-			"form",
-			"pre",
-			"personEntity",
-			"if",
-			"inset",
-			"inset\ninset",
-			"inset"
+			"Search......"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -671,6 +671,46 @@
 		"selected_items":
 		[
 			[
+				"requestsadd",
+				"dash/src/Template/Requests/add.ctp"
+			],
+			[
+				"footer.ctp",
+				"dash/src/Template/Element/footer.ctp"
+			],
+			[
+				"action",
+				"scss/actionbar.scss"
+			],
+			[
+				"_options",
+				"scss/.sass-cache/9bef6f12d4e9ce5f41696d4156340e7247ffd194/_options.scssc"
+			],
+			[
+				"variables",
+				"scss/variables.scss"
+			],
+			[
+				"tenantsview",
+				"dash/src/Template/Tenants/view.ctp"
+			],
+			[
+				"tenantsindex",
+				"dash/src/Template/Tenants/index.ctp"
+			],
+			[
+				"emergenciesedit",
+				"dash/src/Template/Emergencies/edit.ctp"
+			],
+			[
+				"emergenciesadd",
+				"dash/src/Template/Emergencies/add.ctp"
+			],
+			[
+				"macaddressedit",
+				"dash/src/Template/Macaddresses/edit.ctp"
+			],
+			[
 				"roomview",
 				"dash/src/Template/Rooms/view.ctp"
 			],
@@ -703,10 +743,6 @@
 				"dash/src/Template/Properties/view.ctp"
 			],
 			[
-				"tenantsview",
-				"dash/src/Template/Tenants/view.ctp"
-			],
-			[
 				"propertiesadd",
 				"dash/src/Template/Properties/add.ctp"
 			],
@@ -721,10 +757,6 @@
 			[
 				"leasesindex",
 				"dash/src/Template/Leases/index.ctp"
-			],
-			[
-				"action",
-				"scss/actionbar.scss"
 			],
 			[
 				"leaseview",
@@ -807,10 +839,6 @@
 				"dash/src/Template/Users/editusername.ctp"
 			],
 			[
-				"tenantsindex",
-				"dash/src/Template/Tenants/index.ctp"
-			],
-			[
 				"requestsvie",
 				"dash/src/Template/Requests/view.ctp"
 			],
@@ -871,10 +899,6 @@
 				"dash/src/Template/Element/Flash/default.ctp"
 			],
 			[
-				"requestsadd",
-				"dash/src/Template/Requests/add.ctp"
-			],
-			[
 				"requests/edit",
 				"dash/src/Template/Requests/edit.ctp"
 			],
@@ -895,20 +919,12 @@
 				"dash/src/Template/Requests/add.ctp"
 			],
 			[
-				"macaddressedit",
-				"dash/src/Template/Macaddresses/edit.ctp"
-			],
-			[
 				"macaddressesindex",
 				"dash/src/Template/Macaddresses/index.ctp"
 			],
 			[
 				"data",
 				"scss/datatables.scss"
-			],
-			[
-				"emergenciesadd",
-				"dash/src/Template/Emergencies/add.ctp"
 			],
 			[
 				"emergenciesindex",
@@ -997,10 +1013,6 @@
 			[
 				"custom.",
 				"scss/custom.scss"
-			],
-			[
-				"variables",
-				"scss/variables.scss"
 			],
 			[
 				"custom.js",
@@ -1169,18 +1181,6 @@
 			[
 				"globa",
 				"scss/global.scss"
-			],
-			[
-				"leases/indec",
-				"dash/src/Template/Leases/index.ctp"
-			],
-			[
-				"emergencies/index",
-				"dash/src/Template/Emergencies/index.ctp"
-			],
-			[
-				"userscontroll",
-				"dash/src/Controller/UsersController.php"
 			]
 		],
 		"width": 0.0

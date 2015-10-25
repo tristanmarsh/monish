@@ -16,15 +16,14 @@
         <div class="col-md-4">
           <h4>Help</h4>
           <ul class="list-unstyled">
-            <li><a href="http://localhost/monish/documentation/">Doumentation</a></li>
-            <li><a href="http://localhost/monish/documentation/#screencasts ">Screencasts</a></li>
+            <li><a href="http://localhost/monish/manual/">Doumentation</a></li>
           </ul>
         </div>
 
         <div class="col-md-4">
           <h4>Issues</h4>
           <ul class="list-unstyled">
-            <li><a href="Requests/add">Report a problem</a></li>
+            <li><a href="http://localhost/monish/dash/requests/add">Report a problem</a></li>
         
           </ul>
         </div>

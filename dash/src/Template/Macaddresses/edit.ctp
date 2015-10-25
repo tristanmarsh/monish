@@ -8,14 +8,6 @@
 
 <h1>Registered Devices</h1>
 
-<div class="alert alert-alternative-info alert-dismissible" role="alert">
-  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  <span>Your devices MAC Address (sometimes referred to as physical address) looks like <code>34:45:56:ed:34:23</code> or <code>34-45-56-ed-34-23</code></span>
-</div>
-
 <div class="panel panel-default panel-actionbar clearfix">
   
   <div class="panel-body">
@@ -50,11 +42,18 @@
 
 </div>
 
+<div class="alert alert-alternative-info alert-dismissible" role="alert">
+  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <span>Your devices MAC Address (sometimes referred to as physical address) looks like <code>34:45:56:ed:34:23</code> or <code>34-45-56-ed-34-23</code></span>
+</div>
 
 <div class="panel panel-primary">
 
   <div class="panel-heading">
-    <h2 class="panel-title">Device Detail</h2>
+    <h2 class="panel-title">Device Details</h2>
 
   </div>
   <div class="panel-body">   

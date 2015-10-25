@@ -256,6 +256,7 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/src/Controller/StudentsController.php",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/edit.ctp",
@@ -382,8 +383,7 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/animate.min.css",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/error.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/vendor/cakephp/cakephp/src/Controller/Component/FlashComponent.php",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Homepages/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/Flash/error.ctp"
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Homepages/index.ctp"
 	],
 	"find":
 	{
@@ -420,6 +420,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"saved",
+			"the student has been saved",
 			"first_name",
 			"room details",
 			"active",
@@ -545,9 +547,7 @@
 			"if",
 			"inset",
 			"inset\ninset",
-			"inset",
-			"all",
-			"Request"
+			"inset"
 		],
 		"highlight": true,
 		"in_selection": false,

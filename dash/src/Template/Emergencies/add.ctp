@@ -4,8 +4,6 @@
 
 ?>
 
-
-
 <h1>Emergency Contacts</h1>
 
 <div class="panel panel-default panel-actionbar clearfix">
@@ -40,31 +38,32 @@
 
     <?= $this->Form->create($emergency, array('class' => 'form-group')); ?>
     <fieldset>
-      <div class="col-md-6">
-        <?php
-        echo $this->Form->input('first_name', array('class' => 'form-control'));
-        echo $this->Form->input('last_name', array('class' => 'form-control'));
-        ?>
+
+      <div class="row">
+
+        <div class="col-md-6">
+          <?= $this->Form->input('first_name', array('class' => 'form-control')); ?>
+        </div>
+
+        <div class="col-md-6">
+          <?= $this->Form->input('last_name', array('class' => 'form-control')); ?>
+        </div>
+
+        <div class="col-md-6">
+          <?= $this->Form->input('phone', array('class' => 'form-control')); ?>
+        </div>
+        
+        <div class="col-md-6">
+          <?= $this->Form->input('email', array('class' => 'form-control')); ?>
+        </div>
+
       </div>
-      <div class="col-md-6">
-        <?php
-        echo $this->Form->input('phone', array('class' => 'form-control'));
-        echo $this->Form->input('email', array('class' => 'form-control'));
-        ?>
-      </div>
+      
     </fieldset>
 
-    <br>
-
-    <div class="col-md-12">
-      
-      <?= $this->Form->button('<i class="fa fa-plus"></i> Create Emergency Contact', ['class' => 'form-control btn-primary button button-action button-3d', 'escape' => false]); ?>
-      <?= $this->Form->end() ?>
-      
-      <br>
-           
-    </div>
-
+    <?= $this->Form->button('<i class="fa fa-plus"></i> Create Emergency Contact', ['class' => 'form-control btn-primary button button-action button-3d', 'escape' => false]); ?>
+    <?= $this->Form->end() ?>
+    
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, ['url' => ['controller' => 'Emergencies', 'action' => 'index'] ])?>
   

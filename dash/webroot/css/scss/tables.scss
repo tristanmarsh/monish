@@ -66,12 +66,15 @@ table:not(.ui-datepicker-calendar) {
       font-weight:bold;
     }
 
-  }
-
-  & tr.unread {
-    
-    &>td {
-      font-weight:bold;
+    &>td:not(.action):after {
+      position:absolute;
+      display:block;
+      content:"";
+      height:100%;
+      width:100%;
+      background:rgba($green,0.1);
+      left:0;
+      top:0;
     }
 
   }

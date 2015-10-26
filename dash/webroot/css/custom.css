@@ -971,7 +971,7 @@ table:not(.ui-datepicker-calendar) tr:nth-of-type(odd) { background: #f4f7fb; }
 table:not(.ui-datepicker-calendar) tr:last-child { border-bottom: 0; }
 table:not(.ui-datepicker-calendar) tr:focus td, table:not(.ui-datepicker-calendar) tr:hover td { background: #fff; }
 table:not(.ui-datepicker-calendar) tr.unread > td { font-weight: bold; }
-table:not(.ui-datepicker-calendar) tr.unread > td { font-weight: bold; }
+table:not(.ui-datepicker-calendar) tr.unread > td:not(.action):after { position: absolute; display: block; content: ""; height: 100%; width: 100%; background: rgba(119, 221, 119, 0.1); left: 0; top: 0; }
 table:not(.ui-datepicker-calendar) td a { display: block; text-align: center; }
 @media screen and (max-width: 580px) { table:not(.ui-datepicker-calendar) { padding: 8px 0; } }
 table:not(.ui-datepicker-calendar) td { padding: 0 10px 0 10px; position: relative; overflow: hidden; height: 60px; }

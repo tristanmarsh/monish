@@ -10,16 +10,24 @@
 
   <div class="button-group">
 
+    <?php if ($property->archived === "NO") {
+      $current='active';
+      $archived='';
+    } else if($property->archived === "YES"){
+      $current='';
+      $archived='active';
+    } ?>
+
     <?= $this->Html->link(
     '<i class="fa fa-flash"></i> Current',
     ['action' => 'index'],
-    ['class' => 'button button-pill button-primary', 'escape' => false]
+    ['class' => 'button button-pill button-primary ' . $current, 'escape' => false]
     ); ?>
 
     <?= $this->Html->link(
     '<i class="fa fa-archive"></i> Archived',
     ['action' => 'archived'],
-    ['class' => 'button button-pill button-primary', 'escape' => false]
+    ['class' => 'button button-pill button-primary ' . $archived, 'escape' => false]
     ); ?>
 
   </div>

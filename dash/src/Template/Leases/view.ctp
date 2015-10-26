@@ -10,17 +10,25 @@
 
   <div class="panel-body">
 
+      <?php if ($lease->archived === "NO") {
+        $current='active';
+        $archived='';
+      } else if($lease->archived === "YES"){
+        $current='';
+        $archived='active';
+      } ?>
+
     <div class="button-group">
       <?= $this->Html->link(
         '<i class="fa fa-flash"></i> Current',
         ['action' => 'index'],
-        ['class' => 'button button-pill button-primary', 'escape' => false]
+        ['class' => 'button button-pill button-primary ' . $current, 'escape' => false]
       ); ?>
 
       <?= $this->Html->link(
         '<i class="fa fa-archive"></i> Archived',
         ['action' => 'archived'],
-        ['class' => 'button button-pill button-primary', 'escape' => false]
+        ['class' => 'button button-pill button-primary ' . $archived, 'escape' => false]
       ); ?>
     </div>
     

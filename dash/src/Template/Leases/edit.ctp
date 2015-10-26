@@ -1,3 +1,5 @@
+<!-- NOT VISIBLE WITHIN THE SYSTEM - DELETE ME -->
+
 <?php
     $this->Html->addCrumb('Leases', '/leases');
     $this->Html->addCrumb('Edit Lease', array('controller' => 'leases', 'action' => 'edit'));
@@ -24,27 +26,27 @@
     </script>
 </head>
 
-   <h1>Leases</h1>
+<h1>Leases</h1>
 
-    <div class="panel panel-default clearfix">
+<div class="panel panel-default clearfix">
     
-    <div class="panel-body">
-        
-        <ul class="nav nav-pills">
-            <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('New Lease', ['action' => 'add']) ?></li>
-        </ul>
+  <div class="panel-body">
+      
+      <ul class="nav nav-pills">
+          <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
+          <li role="presentation"><?= $this->Html->link('New Lease', ['action' => 'add']) ?></li>
+      </ul>
 
-    </div>
-    <div class="panel-footer">
+  </div>
 
-        <ul class="nav nav-pills">
-            <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $lease->id]) ?></li>
-            <!-- <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $lease->id]) ?></li> -->
-        </ul>
+  <div class="panel-footer">
 
-    </div>
+      <ul class="nav nav-pills">
+          <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $lease->id]) ?></li>
+          <!-- <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $lease->id]) ?></li> -->
+      </ul>
 
+  </div>
 
 </div>
 

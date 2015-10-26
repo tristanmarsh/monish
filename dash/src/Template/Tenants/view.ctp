@@ -205,7 +205,7 @@ $this->Html->addCrumb($person->first_name." ".$person->last_name);
       <td><?= h($leases->date_end->format('Y M d')) ?></td>
       <td><?= h($this->Number->currency($leases->weekly_price)) ?></td>
       <td class="action action-remove" >
-        <?php echo $this->form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'Leases', 'action' => 'delete', $leases->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>
+        <?php echo $this->Form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'Leases', 'action' => 'delete', $leases->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>
       </span></td>
 
     </tr>
@@ -245,7 +245,7 @@ $this->Html->addCrumb($person->first_name." ".$person->last_name);
         <?php echo $this->Html->link('<span class="glyphicon glyphicon-pencil"></span>', ['controller' => 'emergencies', 'action' => 'edit', $emergency->id], ['escape' => false]); ?>
       </span></td>
       <td class="action action-remove" >
-        <?php echo $this->form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'emergencies', 'action' => 'delete', $emergency->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>
+        <?php echo $this->Form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'emergencies', 'action' => 'delete', $emergency->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>
       </span></td>
     </tr>
 

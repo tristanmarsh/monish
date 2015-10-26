@@ -202,7 +202,7 @@ $this->Html->addCrumb($room->room_name);
                       <?= h($this->Number->currency($leases->weekly_price)) ?></td>
 
                   <!--     <td class="action action-remove" >
-                      <?php echo $this->form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'Leases', 'action' => 'delete', $leases->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>
+                      <?php echo $this->Form->postlink('<span class="glyphicon glyphicon-remove"></span>', ['controller' => 'Leases', 'action' => 'delete', $leases->id], ['confirm' => 'Delete ' . '?' , "escape" => false]); ?>
                     </span></td> -->
                   </tr>
 

@@ -146,7 +146,7 @@
       </div>
 
       <div class="col-sm-6">
-        <?= $this->form->input('date_start',['id'=>'dateStartPicker','class' => 'form-control']); ?>
+        <?= $this->Form->input('date_start',['id'=>'dateStartPicker','class' => 'form-control']); ?>
       </div>
 
 <!-- 
@@ -172,7 +172,7 @@
  -->
 
       <div class="col-sm-6">
-        <?= $this->form->input('date_end',['id'=>'dateEndPicker','class' => 'form-control']); ?>
+        <?= $this->Form->input('date_end',['id'=>'dateEndPicker','class' => 'form-control']); ?>
       </div>
 
       <div class="col-sm-6">

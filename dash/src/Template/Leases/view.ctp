@@ -42,7 +42,7 @@
         ['class' => 'button button-pill button-primary active', 'escape' => false]
       ); ?>
 
-      <?= $this->form->postlink(
+      <?= $this->Form->postlink(
         '<i class="fa fa-times"></i> Delete',
         ['action' => 'delete',$lease->id],
         ['confirm' => 'Delete ' . $lease->property->address. " ". $lease->room->room_name  .' Lease for '. $person->first_name . " " . $person->last_name . '?' ,'class' => 'button button-pill-override button-caution', "escape" => false]

@@ -171,8 +171,8 @@
         <!-- Hidden Lease Details Which Should Never Be Edited -->
         <!-- <?= $this->Form->input('room_id', ['options' => $rooms,'class' => 'form-control']); ?> -->
         <!-- <?= $this->Form->input('weekly_price', ['class' => 'form-control']); ?> -->
-        <!-- <?= $this->form->input('date_start',['id'=>'dateStartPicker','class' => 'form-control']); ?> -->
-        <!-- <?= $this->form->input('date_end',['id'=>'dateEndPicker','class' => 'form-control']); ?> -->
+        <!-- <?= $this->Form->input('date_start',['id'=>'dateStartPicker','class' => 'form-control']); ?> -->
+        <!-- <?= $this->Form->input('date_end',['id'=>'dateEndPicker','class' => 'form-control']); ?> -->
       
      </fieldset>
     

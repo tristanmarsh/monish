@@ -52,157 +52,53 @@
 </div>
 
 <div class="panel panel-primary">
+        
+  <!-- Table -->
   <div class="table-responsive">
-    <table >
+    <table>
       <thead>
-      <tr>
-        <th>#</th>
-        <th>Device Name</th>
-        <th>Mac Address</th>
-      </tr>
-    </head>
-      <!-- ONE -->
+        <tr>
+          <th>#</th>
+          <th>Device&nbsp;Name</th>
+          <th>Mac&nbsp;Address</th>
+        </tr>
+      </thead>
+
       <tbody>
-      <tr>
-        <td><strong>1</strong></td>
-        <td>
-          <?php if ($personEntity->macaddress->device_name_one === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->device_name_one ?>
-        </td>
-        <td>
-          <?php if ($personEntity->macaddress->mac_address_one === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->mac_address_one ?>
-        </td>
-      </tr>
-      <!-- TWO -->
-      <tr>
-        <td><strong>2</strong></td>
-        <td>
-          <?php if ($personEntity->macaddress->device_name_two === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->device_name_two ?>
-        </td>
-        <td>
-          <?php if ($personEntity->macaddress->mac_address_two === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->mac_address_two ?>
-        </td>
-      </tr>
-      <!-- THREE -->
-      <tr>
-        <td><strong>3</strong></td>
-        <td>
-          <?php if ($personEntity->macaddress->device_name_three === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->device_name_three ?>
-        </td>
-        <td>
-          <?php if ($personEntity->macaddress->mac_address_three === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->mac_address_three ?>
-        </td>
-      </tr>
-      <!-- FOUR -->
-      <tr>
-        <td><strong>4</strong></td>
-        <td>
-          <?php if ($personEntity->macaddress->device_name_four === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->device_name_four ?>
-        </td>
-        <td>
-          <?php if ($personEntity->macaddress->mac_address_four === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->mac_address_four ?>
-        </td>
-      </tr>
-      <!-- FIVE -->
-      <tr>
-        <td><strong>5</strong></td>
-        <td>
-          <?php if ($personEntity->macaddress->device_name_five === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->device_name_five ?>
-        </td>
-        <td>
-          <?php if ($personEntity->macaddress->mac_address_five === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->mac_address_five ?>
-        </td>
-      </tr>
-      <!-- SIX -->
-      <tr>
-        <td><strong>6</strong></td>
-        <td>
-          <?php if ($personEntity->macaddress->device_name_six === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->device_name_six ?>
-        </td>
-        <td>
-          <?php if ($personEntity->macaddress->mac_address_six === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->mac_address_six ?>
-        </td>
-      </tr>
-      <!-- SEVEN -->
-      <tr>
-        <td><strong>7</strong></td>
-        <td>
-          <?php if ($personEntity->macaddress->device_name_seven === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->device_name_seven ?>
-        </td>
-        <td>
-          <?php if ($personEntity->macaddress->mac_address_seven === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->mac_address_seven ?>
-        </td>
-      </tr>
-      <!-- EIGHT -->
-      <tr>
-        <td><strong>8</strong></td>
-        <td>
-          <?php if ($personEntity->macaddress->device_name_eight === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->device_name_eight ?>
-        </td>
-        <td>
-          <?php if ($personEntity->macaddress->mac_address_eight === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->mac_address_eight ?>
-        </td>
-      </tr>
-      <!-- NINE -->
-      <tr>
-        <td><strong>9</strong></td>
-        <td>
-          <?php if ($personEntity->macaddress->device_name_nine === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->device_name_nine ?>
-        </td>
-        <td>
-          <?php if ($personEntity->macaddress->mac_address_nine === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->mac_address_nine ?>
-        </td>
-      </tr>
-      <!-- TEN -->
-      <tr>
-        <td><strong>10</strong></td>
-        <td>
-          <?php if ($personEntity->macaddress->device_name_ten === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->device_name_ten ?>
-        </td>
-        <td>
-          <?php if ($personEntity->macaddress->mac_address_ten === "") : ?>
-          <?php endif; ?>
-          <?= $personEntity->macaddress->mac_address_ten ?>
-        </td>
-      </tr>
-    </tbody>
+
+        <?php
+
+        $i=0;
+
+        $array = array('one','two','three','four','five','six','seven','eight','nine','ten');
+
+        foreach ($array as $value) {
+
+          $device_name = 'device_name_' . $value;
+          $mac_address = 'mac_address_' . $value;
+          $i++;
+
+          if ( ($personEntity->macaddress->$device_name !== "") && ($personEntity->macaddress->$mac_address !== "") ): ?>
+            <tr>
+
+              <td><strong><?= $i ?></strong></td>
+
+              <td>
+                <?= $personEntity->macaddress->$device_name ?>
+              </td>
+
+              <td>
+                <?= $personEntity->macaddress->$mac_address ?>
+              </td>
+
+            </tr>
+          
+          <?php endif;
+
+        } ?>
+
+      </tbody>
+      
     </table>
   </div>
 </div>

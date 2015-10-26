@@ -15,19 +15,17 @@
 
       <div class="col-sm-6 clearfix">
 
-        <div class="button-set">
           <?= $this->Html->link(
           '<i class="glyphicon glyphicon-envelope"></i> All',
           ['action' => 'index'],
-          ['class' => 'button button-pill button-primary active', 'escape' => false]
+          ['class' => 'button button-pill-override button-primary active', 'escape' => false]
           ); ?>
-        </div>
 
-        <?= $this->Html->link(
-        '<i class="fa fa-plus"></i> New Request',
-        ['action' => 'add'],
-        ['class' => 'button button-pill button-action', 'escape' => false]
-        ); ?>
+          <?= $this->Html->link(
+          '<i class="fa fa-plus"></i> New Request',
+          ['action' => 'add'],
+          ['class' => 'button button-pill-override button-action', 'escape' => false]
+          ); ?>
 
       </div>
 

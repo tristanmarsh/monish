@@ -931,8 +931,8 @@ Purpose:    Styling specific to actionbar
 Since:      23/10/15
 */
 .panel-actionbar .panel-body, .panel-actionbar .panel-footer { padding-bottom: 0; }
+.panel-actionbar .button-pill { margin-right: 15px; }
 .panel-actionbar .panel-footer { background: #d6e2ef; }
-.panel-actionbar .panel-footer .button-pill { margin-right: 15px; }
 .panel-actionbar .panel-footer .button-group > .button-pill { margin-right: 0; }
 .panel-actionbar .button-set { display: inline-block; }
 .panel-actionbar .button { padding: 0 30px; margin-bottom: 15px; margin-right: 15px; }

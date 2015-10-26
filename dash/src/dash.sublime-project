@@ -9,6 +9,9 @@
 		},
 		{
 			"path": "/Applications/MAMP/htdocs/monish/bower_components"
+		},
+		{
+			"path": "/Applications/MAMP/htdocs/monish/dash/config"
 		}
 	]
 }

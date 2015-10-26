@@ -8,7 +8,7 @@
   $defaultImageQuery = 'http://api.adorable.io/avatars/200/' . $email;
   $defaultImageQuery = urlencode($defaultImageQuery);
 
-  $gravatarQuery = 'http://www.gravatar.com/avatar/'.$emailHash.'?d='.$defaultImageQuery;
+  $gravatarQuery = 'http://www.gravatar.com/avatar/'.$emailHash.'?s=300'.'?d='.$defaultImageQuery;
   
   $gravatarImage = '<img height="200px" width="200px" class="img img-responsive img-center gravatar" src="' . $gravatarQuery . '"/>';
 

@@ -99,7 +99,7 @@ class TestsController extends AppController
             $sentinel = true; //true if Never Been Leased
             if (!empty($currentroom->leases)) {
                 foreach ($currentroom->leases as $leastenddate) {
-                    $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                    $test = $test."||".$leastenddate->date_end->Format('Y-m-d');
                 }
             }
             else {

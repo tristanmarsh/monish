@@ -48,7 +48,7 @@ class LeasesController extends AppController
             $sentinel = true; //true if Never Been Leased
             if (!empty($currentroom->leases)) {
                 foreach ($currentroom->leases as $leastenddate) {
-                    $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                    $test = $test."||".$leastenddate->date_end->Format('Y-m-d');
                 }
             }
             else {
@@ -82,7 +82,7 @@ class LeasesController extends AppController
             $leasesTable = TableRegistry::get('Leases');
             $currentlease = $leasesTable->get($lease->id); 
 
-            if ($currentlease->date_end->format('Y-m-d') < date("Y-m-d")) {
+            if ($currentlease->date_end->Format('Y-m-d') < date("Y-m-d")) {
                 $currentlease->archived = 'YES';
             }
             else {
@@ -123,7 +123,7 @@ class LeasesController extends AppController
             $sentinel = true; //true if Never Been Leased
             if (!empty($currentroom->leases)) {
                 foreach ($currentroom->leases as $leastenddate) {
-                    $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                    $test = $test."||".$leastenddate->date_end->Format('Y-m-d');
                 }
             }
             else {
@@ -280,7 +280,7 @@ class LeasesController extends AppController
             $leasesTable = TableRegistry::get('Leases');
             $currentlease = $leasesTable->get($lease->id); 
 
-            if ($currentlease->date_end->format('Y-m-d') < date("Y-m-d")) {
+            if ($currentlease->date_end->Format('Y-m-d') < date("Y-m-d")) {
                 $currentlease->archived = 'YES';
             }
             else {

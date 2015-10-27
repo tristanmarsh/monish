@@ -234,6 +234,7 @@ class UsersController extends AppController
 					return $this->redirect(['controller' => '','action' => 'index']);
 				}	
             }
+            $this->set('loginerror', 'tryagain');
             $this->Flash->error(__('Invalid username or password, try again'));
         }
     }

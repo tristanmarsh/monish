@@ -58,29 +58,17 @@
               <!-- http://stackoverflow.com/questions/20379785/cakephp-check-if-specific-flash-message-is-set -->
 
               <!-- if error Logging in -->
-              <?php if ($this->Session->check('Message.login') == true) :?>
+              <?php if ( isset($loginerror) and $loginerror = 'tryagain' ) :?>
 
-                <div class="row">
+                <?= $this->Form->button('<i class="fa fa-log-in"></i> Login',
+                  ['class' => 'form-control button button-large button-3d button-block button-rounded button-action', 'escape' => false]
+                ); ?>
 
-                  <div class="col-sm-6">
-
-                    <?= $this->Html->link(
-                      '<i class="fa fa-archive"></i> Account Recovery',
-                      ['action' => 'forgot_password'],
-                      ['class' => 'button button-block button-rounded button-normal', 'escape' => false]
-                    ); ?>
-
-                  </div>              
-
-                  <div class="col-sm-6">
-
-                    <?= $this->Form->button('<i class="fa fa-log-in"></i> Login',
-                      ['class' => 'form-control button button-block button-rounded button-action', 'escape' => false]
-                    ); ?>
-
-                  </div>
-
-                </div>
+                <?= $this->Html->link(
+                  '<i class="fa fa-archive"></i> Account Recovery',
+                  ['action' => 'forgot_password'],
+                  ['class' => 'form-control button button-small button-block button-rounded button-warning', 'escape' => false]
+                ); ?>
                 
               <!-- Standard login -->
               <?php else :?>
@@ -90,8 +78,6 @@
               <?php endif; ?>
 
               <?= $this->Form->end() ?>
-
-              <br>
 
             <?php endif; ?>
 

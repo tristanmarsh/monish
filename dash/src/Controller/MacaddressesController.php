@@ -62,10 +62,10 @@ class MacaddressesController extends AppController
         if ($this->request->is(['post', 'put'])) {
             $lion = $this->Macaddresses->patchEntity($lion, $this->request->data);
             if ($this->Macaddresses->save($lion)){
-                $this->Flash->success(__('Your MAC addresses has been updated.'));
+                $this->Flash->success(__('Your MAC addresses has been updated'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('Unable to update your MAC addresses.'));
+            $this->Flash->error(__('Unable to update your MAC addresses'));
         }
         $this->set('lion', $lion);
 

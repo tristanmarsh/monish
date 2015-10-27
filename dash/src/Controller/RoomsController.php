@@ -43,7 +43,7 @@ class RoomsController extends AppController
             $sentinel = true; //true if Never Been Leased
             if (!empty($currentroom->leases)) {
                 foreach ($currentroom->leases as $leastenddate) {
-                    $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                    $test = $test."||".$leastenddate->date_end->Format('Y-m-d');
                 }
             }
             else {
@@ -112,6 +112,18 @@ class RoomsController extends AppController
 
         $studentTable = $this->Students;
         $this->set(compact('studentTable'));
+
+        $rooms = $this->Rooms->find('all', ['contain' => ['Leases']]);
+        $this->set(compact('rooms'));
+
+        $properties = $this->Properties->find('all', ['contain' => ['Rooms']]);
+        $this->set(compact('properties'));
+
+        $peopleTable = $this->People;
+        $this->set(compact('peopleTable'));
+
+
+
     }
 
     /**
@@ -126,10 +138,10 @@ class RoomsController extends AppController
             $room = $this->Rooms->patchEntity($room, $this->request->data);
             $room->vacant = 'TRUE';
             if ($this->Rooms->save($room)) {
-                $this->Flash->success('The room has been saved.');
+                $this->Flash->success('The room has been saved');
                 return $this->redirect(['controller' => 'properties', 'action' => 'index']);
             } else {
-                $this->Flash->error('The room could not be saved. Please, try again.');
+                $this->Flash->error('The room could not be saved. Please, try again');
             }
         }
         $properties = $this->Rooms->Properties->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'address']);
@@ -147,15 +159,15 @@ class RoomsController extends AppController
     public function edit($id = null)
     {
         $room = $this->Rooms->get($id, [
-            'contain' => []
+            'contain' => ['Properties', 'Leases']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $room = $this->Rooms->patchEntity($room, $this->request->data);
             if ($this->Rooms->save($room)) {
-                $this->Flash->success('The room has been saved.');
+                $this->Flash->success('The room has been saved');
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error('The room could not be saved. Please, try again.');
+                $this->Flash->error('The room could not be saved. Please, try again');
             }
         }
         $properties = $this->Rooms->Properties->find('list', ['limit' => 200, 'valueField'=>'address']);
@@ -175,10 +187,45 @@ class RoomsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $room = $this->Rooms->get($id);
         if ($this->Rooms->delete($room)) {
-            $this->Flash->success('The room has been deleted.');
+            $this->Flash->success('The room has been deleted');
         } else {
-            $this->Flash->error('The room could not be deleted. Please, try again.');
+            $this->Flash->error('The room could not be deleted. Please, try again');
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    public function archiveroom($id) {
+
+        $roomsTable = TableRegistry::get('Rooms');
+
+        $room = $roomsTable->get($id);
+        $this->set(compact('room'));
+
+        $room->room_archived = 'YES';
+
+        $roomsTable->save($room);
+
+        $this->Flash->success('Room Archived');
+
+        return $this->redirect($this->referer());
+
+    }
+
+    public function unarchiveroom($id) {
+
+        $roomsTable = TableRegistry::get('Rooms');
+
+        $room = $roomsTable->get($id);
+        $this->set(compact('room'));
+
+        $room->room_archived = 'NO';
+
+        $roomsTable->save($room);
+
+        $this->Flash->success('Room Unarchived');
+
+        return $this->redirect($this->referer());
+
+    }
+
 }

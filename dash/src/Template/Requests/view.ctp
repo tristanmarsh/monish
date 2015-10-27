@@ -1,33 +1,58 @@
 <?php
     $this->Html->addCrumb('Requests', '/requests');
-    $this->Html->addCrumb('View Request');
+    $this->Html->addCrumb($giraffe->title);
 
 ?>
 <h1><?= $giraffe->title; ?></h1>
 
-<div class="panel panel-default clearfix">
+<div class="panel panel-default panel-actionbar clearfix">
 
-<!--     <div class="panel-heading">
-        <h1 class="panel-title">Example</h1>
-      </div> -->
+  <div class="panel-body">
 
-    <div class="panel-body">
-        
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('New Request', ['action' => 'add']) ?></li>
-        </ul>
-
+    <div class="button-set">
+      <?= $this->Html->link(
+      '<i class="fa fa-paper-plane"></i> All',
+      ['action' => 'index'],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ); ?>
     </div>
 
-    <div class="panel-footer">
+    <?= $this->Html->link(
+    '<i class="fa fa-plus"></i> New Request',
+    ['action' => 'add'],
+    ['class' => 'button button-pill button-action', 'escape' => false]
+    ); ?>
 
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $giraffe->id]) ?></li>
-            <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $giraffe->id]) ?></li>
-        </ul>
+  </div>
 
-    </div>
+  <div class="panel-footer">
+
+      <div class="button-group">
+      <?= $this->Html->link(
+        '<i class="fa fa-eye"></i> View',
+        ['action' => 'view', $giraffe->id],
+        ['class' => 'button button-pill button-primary active', 'escape' => false]
+        ); ?>
+
+      <?= $this->Html->link(
+        '<i class="fa fa-pencil"></i> Edit',
+        ['action' => 'edit', $giraffe->id],
+        ['class' => 'button button-pill button-action', 'escape' => false]
+      ); ?>  
+      </div>
+
+      <div class="button-group">
+        <?= $this->Form->postLink(
+          '<i class="fa fa-times"></i> Close',
+          ['controller'=>'requests', 'action' => 'delete', $giraffe->id],
+          ['confirm' => 'Close ' . $giraffe->title .' Request from '.  $lion->person->first_name . " " . $lion->person->last_name . '?' , "escape" => false,
+            'class' => 'button button-pill-override button-caution',
+            'escape' => false
+          ]
+        ); ?>
+      </div>
+    
+  </div>
 
 </div>
 
@@ -45,9 +70,7 @@
               <?= h($giraffe->title) ?>
             </h2>
           </div>
-          <div class="panel-body">
-            <?= $this->Html->image($directory, ['alt' => 'CakePHP', 'class' => 'img img-responsive img-center']); ?>
-          </div>
+          <?= $this->Html->image($directory, ['alt' => 'CakePHP', 'class' => 'img img-responsive img-center']); ?>
         </div>
       </div>
 
@@ -67,7 +90,7 @@
 <table>
 
     <tr>
-      <th>Title: <?= h($giraffe->title) ?></th>
+      <td>Title: <?= h($giraffe->title) ?></td>
     </tr>
 
     <tr>
@@ -85,17 +108,33 @@
 ?></td>
 </tr> -->
 
-
-
     <tr>
       <td>
-          Maintenace Requested By: <?= h($lion->person->first_name)?> <?= h($lion->person->last_name)?>
+          <!-- Tristan's Adorable/Gravatar Avatar Script -->
+          <?php
+            $email = $lion->person->email;
+            $emailHash = md5( strtolower( trim( $email ) ) );
+
+            $defaultImageQuery = 'http://api.adorable.io/avatars/200/' . $email;
+            $defaultImageQuery = urlencode($defaultImageQuery);
+
+            $gravatarQuery = 'http://www.gravatar.com/avatar/'.$emailHash.'?d='.$defaultImageQuery;
+            
+            $gravatarImage = '<img height="60px" width="60px" class="img gravatar" src="' . $gravatarQuery . '"/>';
+
+            echo $gravatarImage;
+          ?>
+
+          <?= h($lion->person->first_name)?> <?= h($lion->person->last_name)?>
       </td>
     </tr>
-    <tr>
-      <td><small>Created: <?= $giraffe->created->format('d M Y H:i:s') ?></small></td>
-    </tr>
+
 </table>
+
+<div class="panel-footer">
+    <span>Created: <?= $giraffe->created->format('d M Y H:i:s') ?></span>
+</div>
+
   </div>
       <?php if ($giraffe->avatar_directory) : ?>
   </div>

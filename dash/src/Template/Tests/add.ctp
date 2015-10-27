@@ -35,8 +35,8 @@
 		<?= $this->Form->input('internet_plan', ['options' => ['FREE' => 'FREE', 'BASIC' => 'BASIC', 'STANDARD' => 'STANDARD', 'PREMIUM' => 'PREMIUM']]) ?>
 		<?= $this->Form->input('property_id', ['options' => $properties]); ?>
         <?= $this->Form->input('room_id', ['options' => $rooms]); ?>
-        <?= $this->form->input('date_start',['id'=>'dateStartPicker']); ?>
-        <?= $this->form->input('date_end',['id'=>'dateEndPicker']); ?>
+        <?= $this->Form->input('date_start',['id'=>'dateStartPicker']); ?>
+        <?= $this->Form->input('date_end',['id'=>'dateEndPicker']); ?>
         <?= $this->Form->input('weekly_price'); ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')); ?>

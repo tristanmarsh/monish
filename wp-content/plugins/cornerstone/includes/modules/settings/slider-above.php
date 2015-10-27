@@ -82,7 +82,7 @@ class CS_Settings_Slider_Above extends Cornerstone_Setting_Section_Base {
       'toggle',
       __( 'Enable Scroll Bottom Anchor', csl18n() ),
       __( 'Select to enable the scroll bottom anchor for your slider.', csl18n() ),
-      get_post_meta( $post->ID, '_x_slider_above_scroll_bottom_anchor_enable', true ),
+      ( 'on' == get_post_meta( $post->ID, '_x_slider_above_scroll_bottom_anchor_enable', true ) ),
       array(
         'notLive' => 'settings-theme-changed'
       )

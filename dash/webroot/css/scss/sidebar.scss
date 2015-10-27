@@ -1,13 +1,13 @@
 /*
 Name:   sidebar.SCSS
-Author:   Team Dash
+Author:   Tristan Marsh
 Author URI: http://wiki.tristanmarsh.net/dash/
 Since:    3/6/15
 */
 
-
 // #### NAVIGATION ####
 
+$sidebarwidth:300px;
 
 // override default bootstrap
 .nav>li>a:hover, .nav>li>a:focus {
@@ -24,7 +24,7 @@ Since:    3/6/15
   z-index: 1000;
   overflow-x: hidden;
   padding: 0;
-  background-color: #293846;
+  background-color: $sidebarcolour;
   overflow-x:hidden;
 
   .nav-sidebar {
@@ -40,27 +40,21 @@ Since:    3/6/15
     display:block;
     position:relative;
     font-size:2rem;
-    border-bottom:1px solid #334658;
+    border-bottom:1px solid $mutedsidebarcolour;
     height:6rem;
 
 
     .menu-item-link {
       display:block;
-      color:#5F666C;
+      color:desaturate($mutedlinksidebarcolour,20%);
       transition:color 200ms ease-out, background 200ms ease-out;
       height:100%;
       padding:10px;
 
-      // Home Link
-      #icon-monish-home {
-        font-size:4rem;
-        color:#76AADB!important;
-      }
-
       .gravatar {
         opacity:0.8;
         transition:opacity 200ms ease-out;
-        background:#212D38;
+        background:$mutedsidebarcolour;
       }
 
       .glyphicon {
@@ -85,7 +79,7 @@ Since:    3/6/15
         margin-left: 10px;
         top: 1.7rem;
         font-size: 2rem;
-        color:#fff;
+        color:$white;
       }
 
     }
@@ -95,10 +89,15 @@ Since:    3/6/15
     &[title="Home"] {
       
       &>a.menu-item-link {
-        background: rgba(0,0,0,0.4);
+        background: rgba(0,0,0,0.5);
+
+        // Home Link
+        #icon-monish-home {
+          font-size:4rem;
+        }
 
         #icon-monish-home.icon-monish:before {
-          color:#76AADB!important;
+          color:$primarycolour!important;
         }
 
       }
@@ -115,7 +114,7 @@ Since:    3/6/15
 
       .glyphicon,
       .menu-item-label {
-        color:#fff;
+        color:$white;
       }
 
     }
@@ -127,9 +126,9 @@ Since:    3/6/15
   .menu-item-link:focus,
   .menu-item-link:hover {
     
-    color:#D4D9E0;
+    color:$mutedlinksidebarcolour;
     background:rgba(255,255,255,0.05);
-    color:#fff;
+    color:$white;
 
     .menu-item-label {
 
@@ -142,7 +141,6 @@ Since:    3/6/15
   }
 
 }
-
 
 
 // Classes to animate
@@ -171,33 +169,33 @@ Since:    3/6/15
 }
 
 .tooltip.right .tooltip-arrow {
-  border-right-color: #374A5D;
+  border-right-color: $mutedsidebarcolour;
+  border-right-color: $mutedsidebarcolour;
 }
 
 .tooltip-inner {
-  background: #374A5D;
+  background: $mutedsidebarcolour;
 }
 
 // xs
 @media(max-width:480px){
 
-
   // Inactive
   .sidebar {
     transform:translate3D(-100%,0,0);
-    padding-top:71px;
-    width:300px;
+    padding-top:79px;
+    width:$sidebarwidth;
     transition:transform 400ms ease;
   }  
 
   .navigation-active {
-    background-color: #293846;
+    background-color: $mutedsidebarcolour;
   }
 
   // Active
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
-    width:300px;
+    width:$sidebarwidth;
     transition:width 0s;
     transition-delay: 400ms;
     transition:transform 400ms ease;  }
@@ -236,7 +234,7 @@ Since:    3/6/15
   // Active
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
-    width:300px;
+    width:$sidebarwidth;
   }
   .navigation-active .content {
     transform:translate3D(0,0,0);
@@ -245,7 +243,7 @@ Since:    3/6/15
   .navigation-active .navbar-fixed-top,
   .navigation-active .content,
   .navigation-active .footer-container {
-    margin-left:300px;
+    margin-left:$sidebarwidth;
   }
     // Show tooltips
   .navigation-active .tooltip.right {
@@ -279,7 +277,7 @@ Since:    3/6/15
   // Active
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
-    width:300px;
+    width:$sidebarwidth;
   }
   .navigation-active .content {
     transform:translate3D(0,0,0);
@@ -288,7 +286,7 @@ Since:    3/6/15
   .navigation-active .navbar-fixed-top,
   .navigation-active .content,
   .navigation-active .footer-container {
-    margin-left:300px;
+    margin-left:$sidebarwidth;
   }
     // Show tooltips
   .navigation-active .tooltip.right {

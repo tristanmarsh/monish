@@ -1,21 +1,24 @@
 /*
 Name:   Custom.SCSS
-Author:   Team Dash
+Author:   Tristan Marsh
 Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  All custom styling for the Monish Dashboard
 Note:     Remeber mobile first methodology when styling
 Since:    29/4/15
 
 */
+@import 'variables.scss';
 @import '../../../../bower_components/animate.css-scss/_fading-entrances/fading-entrances.scss';
 @import '../../../../bower_components/animate.css-scss/_properties.scss';
+@import '../../../../bower_components/Buttons/scss/buttons.scss';
 @import '../nprogress.scss';
 @import 'font-icomoon-monish.scss';
-@import 'variables.scss';
+@import 'override.scss'; // Remove
+@import 'global.scss';
 @import 'sm.scss';
-@import 'override.scss';
-@import 'footer.scss';
 @import 'sidebar.scss';
+@import 'actionbar.scss';
 @import 'tables.scss';
 @import 'datatables.scss';
-@import 'global.scss';
+@import 'forms.scss';
+@import 'footer.scss';

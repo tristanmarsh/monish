@@ -1,6 +1,6 @@
 /*
 Name:   Variables.SCSS
-Author:   Team Dash
+Author:   Tristan Marsh
 Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  All custom styling for the Monish Dashboard
 Note:     Remeber mobile first methodology when styling
@@ -15,3 +15,33 @@ $roboto-slab-font-stack: 'Raleway', serif;
 
 /* Content */
 $open-sans-font-stack: 'Open Sans', sans-serif;
+
+/* Transition */
+$standard-transition: all 400ms ease;
+
+/* Colours */
+$white:#fff;
+$green:rgb(119,221,119);
+$headergreen:rgb(112, 204, 176);
+$orange:rgb(255,179,71);
+$red:rgb(255,105,97);
+$blue: rgb(119,158,203);
+$purple: rgb(135, 128, 209);
+
+// Theme
+$primarycolour: $blue;
+// $primarycolour: $green;
+
+// Theme Colour Variations
+$darkprimarycolour: darken($primarycolour,10%);
+$lightprimarycolour: lighten($primarycolour,27%);
+$whiteprimarycolour: lighten($primarycolour,32%);
+
+// Theme Text Colours
+$darkthemetext:darken(desaturate($darkprimarycolour,30%),20%);
+$lightthemetext:lighten(desaturate($darkprimarycolour,0%),50%);
+
+// Sidebar Colours
+$sidebarcolour:desaturate(darken($primarycolour,42%),18%);
+$mutedsidebarcolour: lighten($sidebarcolour,5%);
+$mutedlinksidebarcolour: lighten($sidebarcolour,30%);

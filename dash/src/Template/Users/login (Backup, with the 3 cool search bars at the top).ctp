@@ -14,8 +14,8 @@
 						<h2 class="text-center">Tenants</h2>
 						<hr>
 						<div class="panel-body">
-						<ul class="nav nav-pills pull-left">
-							<li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+						<ul class="nav nav-pills">
+							<li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
 							<li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
 						</ul>
 
@@ -35,8 +35,8 @@
 						<h2 class="text-center">Requests</h2>
 						<hr>
 						<div class="panel-body">
-						<ul class="nav nav-pills pull-left">
-							<li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+						<ul class="nav nav-pills">
+							<li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
 							<li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
 						</ul>
 						
@@ -56,8 +56,8 @@
 						<h2 class="text-center">Properties</h2>
 						<hr>
 						<div class="panel-body">
-						<ul class="nav nav-pills pull-left">
-							<li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
+						<ul class="nav nav-pills">
+							<li role="presentation" class="active"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
 							<li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
 						</ul>
 						
@@ -147,7 +147,7 @@
                                 </td>
                                 <td>
                                     <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>
-                                    <?= $request->created->format('d/m/Y' /*'h:m A'*/) ?>
+                                    <?= $request->created->format('Y/m/d' /*'h:m A'*/) ?>
                                 </td>
                                 <td>
                                     <?= $this->Html->link("", ['controller'=>'requests', 'action' => 'view', $request->id]) ?>

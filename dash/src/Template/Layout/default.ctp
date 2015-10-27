@@ -53,24 +53,32 @@ $cakeDescription = 'Monish Dashboard';
 	<?= $this->Html->css('animate.min.css') ?>
 	<?= $this->Html->css('custom.css') ?>
 
-	<!-- jQuery -->
-	<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-	
+	<!-- Scripts -->
 	<?= $this->Html->script('wow.min.js') ?>
 	<?= $this->Html->script('min/nprogress-min.js') ?>
 	<?= $this->Html->script('min/custom-min.js') ?>
-	<?= $this->Html->script('date.js') ?>
 	
 	<?= $this->fetch('meta') ?>
 	<?= $this->fetch('css') ?>
 	<?= $this->fetch('script') ?>
 
+	<!-- Bootstrap Date Picker -->
+	<!-- <script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script> -->
+
+	<!-- <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script> -->
+
+	<!-- // <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
+	<!-- // <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script> -->
+	<!-- <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" /> -->
+	<!-- <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" /> -->
+
+	<!-- Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Raleway|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
+	
 	
 	<script>
 		new WOW().init();
 	</script>
-
 
 	<script>
 		NProgress.start();
@@ -80,10 +88,12 @@ $cakeDescription = 'Monish Dashboard';
 		});
 	</script>
 
+	<!-- Font Awesome Used in Buttons -->
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+
 </head>
 
 <body>
-
 
 	<!-- User not logged in -->
 	<?php if (!$this->Session->read('Auth.User')) : ?>
@@ -102,12 +112,8 @@ $cakeDescription = 'Monish Dashboard';
 				<?php echo $this->element('sidebar'); ?>
 
 			</div>
-
-			<div class="row">
-				
-				<?php echo $this->element('navbar'); ?>
-
-			</div>
+					
+			<?php echo $this->element('navbar'); ?>
 
 			<div class="main-content">
 
@@ -145,35 +151,6 @@ $cakeDescription = 'Monish Dashboard';
 
         //This puts a cursor pointer in all table rows with a link
         $('td>a').parent().css("cursor","pointer")
-    </script>
-
-	<!-- DataTables -->
-	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.8/js/jquery.dataTables.js"></script>
-	<script type="text/javascript" charset="utf8" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
-
-	<!-- Attempt to use the moment library to make datatables sort things properly -->
-    <script>
-   //      $(document).ready( function () {
-   //      	$.fn.dataTable.moment( 'DD, MM, YYYY', 'en-AU' );
-   //          $('.datatable').DataTable();
-
-   //          $.fn.dataTable.moment = function ( format, locale ) {
-			//     var types = $.fn.dataTable.ext.type;
-			 
-			//     // Add type detection
-			//     types.detect.unshift( function ( d ) {
-			//         return moment( d, format, locale, true ).isValid() ?
-			//             'moment-'+format :
-			//             null;
-			//     } );
-			 
-			//     // Add sorting method - use an integer for the sorting
-			//     types.order[ 'moment-'+format+'-pre' ] = function ( d ) {
-			//         return moment( d, format, locale, true ).unix();
-			//     };
-			// };
-
-   //      } );
     </script>
 
 	<!-- Initialize DataTable and update search bar -->

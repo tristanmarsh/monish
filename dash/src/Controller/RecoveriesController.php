@@ -27,7 +27,7 @@ class RecoveriesController extends AppController
                 ->to($recipient)
                 ->subject('About')
                 ->send('Dear Tony, '.$user->username.' has requested a password reset.');
-                $this->Flash->success(__('The administrator will reset your password shortly.'));
+                $this->Flash->success(__('The administrator will reset your password shortly'));
             }
         }
         

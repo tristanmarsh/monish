@@ -3749,7 +3749,7 @@ xData.api.map('card', function( params ) {
 
   $card.trigger('cs:setcardheight');
 
-  $(window).resize(function() {
+  $(window).on('load resize', function() {
     $card.trigger('cs:setcardheight');
   });
 

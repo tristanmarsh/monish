@@ -1,0 +1,176 @@
+/*
+Name:   forms.SCSS
+Author:   Tristan Marsh
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  Style applying specifically to our datatables components
+Since:    23/10/15
+*/
+
+form {
+
+  .form-control {
+    display: block;
+    width: 100%;
+    transition:background 400ms ease;
+    margin-bottom: 1em;
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none;
+  }
+
+  .input-group .col-sm-6 {
+    margin-bottom:1em;
+  }
+
+  .form-control:focus {
+    border:1px solid mix($white,$lightprimarycolour,10%);
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+
+  label {
+    color:mix(#000, $primarycolour, 50%);;
+    font-weight: 100;
+  }
+
+  input.form-control {
+    border-color:$lightprimarycolour;
+    height:50px;
+    font-size:1.5em;
+  }
+
+  .input-group-addon {
+    border-color:$lightprimarycolour;
+    background:mix($white,$lightprimarycolour,50);
+    padding:0.5em 0.5em;
+    color:desaturate($darkprimarycolour,20%);
+    font-size:1.5rem;
+
+    .glyphicon {
+      color:desaturate($darkprimarycolour,20%);
+      font-size:1.5rem;
+    }
+
+  }
+
+
+
+  select.form-control,
+  textarea.form-control,
+  input[type="password"],
+  input[type="username"],
+  input[type="text"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="email"] {
+    padding: 8px 12px;
+    font-size: 2rem;
+    height:50px;
+    line-height:auto;
+    color:mix(#000,$primarycolour,20%);
+    background:mix($white,$lightprimarycolour,50%);
+    border:1px solid mix($white,$lightprimarycolour,10%);
+    transition: all 0.15s ease;
+  }
+  
+  select.form-control:hover,
+  textarea.form-control:hover,
+  input[type="password"]:hover,
+  input[type="username"]:hover,
+  input[type="text"]:hover,
+  input[type="tel"]:hover,
+  input[type="number"]:hover,
+  input[type="email"]:hover {
+    background:mix($white,$lightprimarycolour,40%);
+     outline:0px !important;
+    -webkit-appearance:none;
+  }
+  
+  select.form-control:focus,
+  textarea.form-control:focus,
+  input[type="password"]:focus,
+  input[type="username"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="number"]:focus,
+  input[type="email"]:focus {
+    background: $lightprimarycolour;
+     outline:0px !important;
+    -webkit-appearance:none;
+  }
+
+  textarea.form-control {
+    height:auto;
+    resize:none
+  }
+
+  // #### FILE UPLOAD ####
+
+  .custom-file-upload-hidden {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    left: -9999px;
+  }
+
+  .custom-file-upload {
+    display: block;
+    width: auto;
+    font-size: 16px;
+    margin-top: 30px;
+  }
+  .custom-file-upload label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .file-upload-wrapper {
+    position: relative;
+    margin-bottom: 5px;
+  }
+
+  .file-upload-input {
+    width: 300px;
+    color: $white;
+    font-size: 16px;
+    padding: 11px 17px;
+    border: none;
+    background-color: $lightprimarycolour;
+    transition: all 0.2s ease-in;
+    margin-bottom:0!important;
+    float: left;
+    /* IE 9 Fix */
+  }
+  .file-upload-input:hover, .file-upload-input:focus {
+    background: $lightprimarycolour;
+    outline: none;
+  }
+
+  .file-upload-button {
+    height:50px;
+    cursor: pointer;
+    display: inline-block;
+    color: $white;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 13px 20px;
+    border: none;
+    margin-left: -1px;
+    background-color: $darkprimarycolour;
+    float: left;
+    /* IE 9 Fix */
+    transition: all 0.2s ease-in;
+  }
+
+  .file-upload-button:hover {
+    background-color:$primarycolour;
+  }
+
+  .file-upload-button:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    background-color:darken($primarycolour,10%);
+  }
+
+}

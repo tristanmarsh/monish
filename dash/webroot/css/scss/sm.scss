@@ -1,6 +1,6 @@
 /*
 Name:   sm.SCSS
-Author:   Team Dash
+Author:   Tristan Marsh
 Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  Style for small devices
 Since:    3/6/15
@@ -9,18 +9,21 @@ Since:    3/6/15
 
 // sm
 @media(max-width:767px){
+
+	// Properties Grid
 	.clearing.col-sm-6:nth-of-type(2n+1) {
 		clear:none;
 	}
+	
 }
 
 // md
 @media(min-width:768px){
-		
+	
+	// Properties Grid
 	.clearing.col-sm-6:nth-of-type(2n+1) {
 		clear:none;
 	}
-
 	.clearing.col-md-4:nth-of-type(2n+1) {
 		clear:left;
 	}
@@ -30,10 +33,10 @@ Since:    3/6/15
 // lg
 @media(min-width:992px){
 
+	// Properties Grid
 	.clearing.col-md-4:nth-of-type(2n+1) {
 		clear:none;
 	}
-
 	.clearing.col-lg-4:nth-of-type(3n+1) {
 		clear:left;
 	}
@@ -42,11 +45,11 @@ Since:    3/6/15
 
 // xl
 @media(min-width:1200px){
-
+	
+	// Properties Grid
 	.clearing.col-lg-4:nth-of-type(4n+1) {
 		clear:none;
 	}
-
 	.clearing.col-lg-4:nth-of-type(3n+1) {
 		clear:left;
 	}

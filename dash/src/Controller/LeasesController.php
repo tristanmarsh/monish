@@ -23,7 +23,7 @@ class LeasesController extends AppController
         $this->loadModel('People');
         $walrus = $this->People;
         $this->paginate = [
-            'contain' => ['Rooms', 'Students', 'Properties']
+        'contain' => ['Rooms', 'Students', 'Properties']
         ];
         $this->set('leases', $this->paginate($this->Leases));
         $this->set('_serialize', ['leases']);
@@ -48,7 +48,82 @@ class LeasesController extends AppController
             $sentinel = true; //true if Never Been Leased
             if (!empty($currentroom->leases)) {
                 foreach ($currentroom->leases as $leastenddate) {
-                    $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                    $test = $test."||".$leastenddate->date_end->Format('Y-m-d');
+                }
+            }
+            else {
+                $currentroom->vacant = 'TRUE';
+                $sentinel = false;
+            }
+            if ($sentinel) { 
+                $toArray = explode("||", $test);
+                if (max($toArray) > date("Y-m-d")) {
+                    $currentroom->vacant = 'FALSE';
+                } else if (max($toArray) === date("Y-m-d")) {
+                    $currentroom->vacant = 'FALSE';
+                } else if (max($toArray) < date("Y-m-d")) {
+                    $currentroom->vacant = 'TRUE';
+                }
+            }
+
+            $roomsTable->save($currentroom);
+        }
+
+        $lastroomupdateTable = TableRegistry::get('Lastroomupdate');
+        $lastroomupdate = $lastroomupdateTable->get(1); 
+
+        $lastroomupdate->date = date("Y-m-d");
+        $lastroomupdateTable->save($lastroomupdate);
+
+        $allleases = $this->Leases->find('all');
+        $this->set(compact('allleases'));
+
+        foreach ($allleases as $lease){
+            $leasesTable = TableRegistry::get('Leases');
+            $currentlease = $leasesTable->get($lease->id); 
+
+            if ($currentlease->date_end->Format('Y-m-d') < date("Y-m-d")) {
+                $currentlease->archived = 'YES';
+            }
+            else {
+                $currentlease->archived = 'NO';
+            }
+            
+            $leasesTable->save($currentlease);
+        }
+    }
+
+    public function archived()
+    {
+        $this->loadModel('People');
+        $walrus = $this->People;
+        $this->paginate = [
+        'contain' => ['Rooms', 'Students', 'Properties']
+        ];
+        $this->set('leases', $this->paginate($this->Leases));
+        $this->set('_serialize', ['leases']);
+        $lion = $this->Leases->Students->find('all', ['contain' => ['Users']]);
+        $this->set('lion', $lion);
+        $this->set('walrus', $walrus);
+
+        $this->loadModel('Rooms');
+        $this->loadModel('Properties');
+
+        $roomlease = $this->Rooms;
+        $this->set(compact('roomlease'));
+
+        $allrooms = $this->Rooms->find('all', ['contain' => ['Properties', 'Leases']]);
+        $this->set(compact('allrooms'));
+
+        foreach ($allrooms as $room){
+            $roomsTable = TableRegistry::get('Rooms');
+            $currentroom = $roomsTable->get($room->id, ['contain'=>'Leases']); 
+            
+            $test = "";
+            $sentinel = true; //true if Never Been Leased
+            if (!empty($currentroom->leases)) {
+                foreach ($currentroom->leases as $leastenddate) {
+                    $test = $test."||".$leastenddate->date_end->Format('Y-m-d');
                 }
             }
             else {
@@ -92,7 +167,7 @@ class LeasesController extends AppController
         $this->set('walrus', $walrus);
         $lease = $this->Leases->get($id, [
             'contain' => ['Rooms', 'Students', 'Properties']
-        ]);
+            ]);
         $this->set('lease', $lease);
         //$lion = $this->User;
         //$this->set('lion', $lion);
@@ -113,13 +188,17 @@ class LeasesController extends AppController
         $this->loadModel('Rooms');
         $this->loadModel('Properties');
         $this->loadModel('People');
-
+		
+		//finds a random property id
+		$test = $this->Properties->find('all')->first()->id;
+		$this->set(compact('test'));
 
         $lease = $this->Leases->newEntity();
         if ($this->request->is('post')) {
             $lease->date_start = $lease->start;
             $lease->date_end = $lease->end;
-            $lease->property_id = 1;
+            $lease->property_id = $test; //uses the random id
+			
 
             $lease = $this->Leases->patchEntity($lease, $this->request->data);
             if ($this->Leases->save($lease)) {
@@ -130,14 +209,14 @@ class LeasesController extends AppController
                 $lease->property_id = $room->property_id;
                 //Always remember to save
                 $this->Leases->save($lease);
-                $this->Flash->success('The lease has been saved.');
+                $this->Flash->success('The lease has been saved');
                 return $this->redirect(['controller' => 'tenants', 'action' => 'updaterooms']);
             } else {
-                $this->Flash->error('The lease could not be saved. Please, try again.');
+                $this->Flash->error('The lease could not be saved. Please, try again');
             }
         }
         //$properties = $this->Leases->Properties->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'address']);
-        $rooms = $this->Leases->Rooms->find('list', ['groupField' => 'property.address', 'conditions'=>['vacant'=>'TRUE']])->contain('Properties');
+        $rooms = $this->Leases->Rooms->find('list', ['groupField' => 'property.address', 'conditions'=>['room_archived'=>'NO']])->contain('Properties');
         $students = $this->Leases->Students->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'person.full_name'])->contain(['People']);
         $this->set(compact('lease', 'rooms', 'students', 'properties'));
         $this->set('_serialize', ['lease']);
@@ -152,16 +231,18 @@ class LeasesController extends AppController
      */
     public function edit($id = null)
     {
+
+        $this->redirect($this->referer());
         $lease = $this->Leases->get($id, [
             'contain' => []
-        ]);
+            ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $lease = $this->Leases->patchEntity($lease, $this->request->data);
             if ($this->Leases->save($lease)) {
-                $this->Flash->success('The lease has been saved.');
+                $this->Flash->success('The lease has been saved');
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error('The lease could not be saved. Please, try again.');
+                $this->Flash->error('The lease could not be saved. Please, try again');
             }
         }
         $rooms = $this->Leases->Rooms->find('list', ['limit' => 200]);
@@ -182,10 +263,35 @@ class LeasesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $lease = $this->Leases->get($id);
         if ($this->Leases->delete($lease)) {
-            $this->Flash->success('The lease has been deleted.');
+            $this->Flash->success('The lease has been deleted');
         } else {
-            $this->Flash->error('The lease could not be deleted. Please, try again.');
+            $this->Flash->error('The lease could not be deleted. Please, try again');
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    public function archiveleases()
+    {
+
+        $allleases = $this->Leases->find('all');
+        $this->set(compact('allleases'));
+
+        foreach ($allleases as $lease){
+            $leasesTable = TableRegistry::get('Leases');
+            $currentlease = $leasesTable->get($lease->id); 
+
+            if ($currentlease->date_end->Format('Y-m-d') < date("Y-m-d")) {
+                $currentlease->archived = 'YES';
+            }
+            else {
+                $currentlease->archived = 'NO';
+            }
+            
+            $leasesTable->save($currentlease);
+        }
+
+        $this->Flash->success('Leases have been updated');
+        return $this->redirect($this->referer());
+    }
+
 }

@@ -6,6 +6,9 @@
 		},
 		{
 			"path": "/Applications/MAMP/htdocs/monish/dash/webroot/css/scss"
+		},
+		{
+			"path": "/Applications/MAMP/htdocs/monish/bower_components"
 		}
 	]
 }

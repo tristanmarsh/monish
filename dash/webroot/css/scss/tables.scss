@@ -1,45 +1,19 @@
 /*
 Name:   tables.SCSS
-Author:   Team Dash
+Author:   Tristan Marsh
 Author URI: http://wiki.tristanmarsh.net/dash/
 Purpose:  All custom styling for tables
 Since:    30/7/15
-
 */
 
 // Taken from forked codepen http://codepen.io/tristanmarsh/pen/VLVQqo
-
-
-
-body {
-  color: #70808e;
-}
-
-
-.search {
-
-  input[type="text"].form-control {
-    position: absolute;
-    right:-15px;
-    top:0;
-    height: 100%;
-    font-size:2rem;
-    border-radius: 5px;
-  }
-
-  .input-group-btn {
-    opacity: 0;
-    visibility:none;
-  }
-}
-
 
 // Effective Table Footer
 .table-responsive {
   border-radius: 0 0 5px 5px;
 }
 
-table {
+table:not(.ui-datepicker-calendar) {
   display: table;
   width: 100%;
   font-family: $open-sans-font-stack;
@@ -50,35 +24,31 @@ table {
   
   // Link Style
   a {
-    color: #3C73C3;
+    // color:darken($darkprimarycolour,20%);
     text-decoration: none;
   }
-
   
   // Table Header
   & thead th {
-    background: #2980b9;
-    background: rgba(41, 128, 185,0.5);
+    background: $primarycolour;
     font-size:1.4rem;
     line-height: 2.4em;
     font-family:$roboto-slab-font-stack;
     position:relative;
     overflow:hidden;
-    color:#fff;
     padding: 6px 12px;
-    color:#fff;
-  
+    color:$lightthemetext;
   }
 
   // Table Row
 
-  & tr {
-    background: darken(#fff, 1%);
-    border-bottom:1px solid #D5E4F1;
+  & tr {  
+    background:mix($white, $primarycolour, 97%);
+    border-bottom:1px solid mix($white, $primarycolour, 80%);
   }
 
   & tr:nth-of-type(odd) {
-    background: darken(#fff, 4%);
+    background:mix($white, $primarycolour, 92%);
   }
 
   & tr:last-child {
@@ -87,34 +57,31 @@ table {
 
   & tr:focus td,
   & tr:hover td, {
-    background: darken(#fff, 0%);
-
+    background: $white;
   }
 
   & tr.unread {
+
+    // outline effect
+      // outline: 1px solid rgba(0,255,0, 0.25);
     
     &>td {
       font-weight:bold;
     }
-
-  }
-
-  & tr.unread {
     
-    &>td {
-      font-weight:bold;
-    }
+    //background highlight effect
+    // &>td:not(.action):after {
+    //   position:absolute;
+    //   display:block;
+    //   content:"";
+    //   height:100%;
+    //   width:100%;
+    //   background:rgba($green,0.1);
+    //   left:0;
+    //   top:0;
+    // }
 
   }
-
-  // No need to apply border radius when table footer has same effect
-  // & tr:last-child td:first-child {
-  //   border-bottom-left-radius:5px;
-  // }
-
-  // & tr:last-child td:last-child {
-  //   border-bottom-right-radius:5px;
-  // }
 
   // Table Action Buttons
   & td a {
@@ -137,7 +104,8 @@ table {
   // td>span:not([class="glyphicon"]) {
   td>* {
     // display: block;
-    color:#555;
+    color:$darkthemetext
+
   }
 
   td>span,
@@ -149,7 +117,7 @@ table {
   // Gravatar flush
   td:first-child>img.gravatar {
     margin-left:-10px;
-    background:#fff;
+    background:$white;
   }
   
   // Profile Name after gravatar offset
@@ -166,45 +134,43 @@ table {
   // General Icon Color
   td.action>a span:before,
   td.action>a span:before{
-    color: lighten(#2980b9,10%);
+    color: lighten($primarycolour,10%);
   }  
 
   // General Action hover background
   td.action>a:focus,
   td.action>a:hover {
-    background: lighten(#2980b9,10%);
+    background: lighten($primarycolour,10%);
   }
-
 
   // Close Icon Color
   td.action-close>a span:before,
   td.action-close>a span:before{
-    color: lighten(#5fcf80,10%);
+    color: $green;
   }  
 
   // Close hover background
   td.action-close>a:focus,
   td.action-close>a:hover {
-    background: lighten(#5fcf80,10%);
+    background: $green;
   }
-
 
   // Remove Icon Color
   td.action-remove>a span:before,
   td.action-remove>a span:before{
-    color: lighten(#CF6370,10%);
+    color:$red;
   }  
 
   // Remove hover background
   td.action-remove>a:focus,
   td.action-remove>a:hover {
-    background: lighten(#CF6370,10%);
+    background:$red;
   }
 
   // Action hover icon color
   td>a:focus>span.glyphicon:before,
   td>a:hover>span.glyphicon:before {
-    color:#fff;
+    color:$white;
   }
 
   // Used for hiding the 1px * 0px view links
@@ -219,6 +185,54 @@ table {
     margin:0;
   }
 
+  // highlighting leases expiring
+  tr.expiring-30-days {
+    position: relative;
+  }
+
+  tr.expiring-30-days>:after {
+    display:block;
+    content:"";
+    background:rgba($red,0.1);
+    z-index:10;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+  }
+
+  tr.expiring-90-days {
+    position: relative;
+  }
+
+  tr.expiring-90-days>:after {
+    display:block;
+    content:"";
+    background:rgba($orange,0.1);
+    z-index:10;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+  }
+
+  tr.expiring-180-days {
+    position: relative;
+  }
+
+  tr.expiring-180-days>:after {
+    display:block;
+    content:"";
+    background:rgba($green,0.1);
+    z-index:10;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+  }
+
 
 }
-

@@ -1,15 +1,21 @@
 <?php $user = $this->Session->read('Auth.User'); ?>
 
+<!-- Tristan's Adorable/Gravatar Avatar Script -->
 <?php
-    $emailHash = md5( strtolower( trim( $user['username'] ) ) );
-    // $defaultImage = urlencode('http://localhost/monish/dash/img/default-profile.jpg');
-    $gravatarQuery = 'http://www.gravatar.com/avatar/' . $emailHash . '?d=mm';
-    $gravatarImage = '<img height="150px" width="150px" class="img gravatar" style="border-radius:10px;" src="' . $gravatarQuery . '"/>';
+  $email = $user['username'];
+  $emailHash = md5( strtolower( trim( $email ) ) );
+
+  $defaultImageQuery = 'http://api.adorable.io/avatars/200/' . $email;
+  $defaultImageQuery = urlencode($defaultImageQuery);
+
+  $gravatarQuery = 'http://www.gravatar.com/avatar/'.$emailHash.'?d='.$defaultImageQuery.'?s=300';
+  
+  $gravatarImage = '<img height="200px" width="200px" class="img img-responsive img-center gravatar" src="' . $gravatarQuery . '"/>';
+
 ?>
 
 <?php
-    // $this->Html->addCrumb('Requests', '/requests');
-    $this->Html->addCrumb('Personal Details', array('controller' => 'People', 'action' => 'index'));
+    $this->Html->addCrumb('Profile', array('controller' => 'People', 'action' => 'index'));
 ?>
 
 <!-- File: src/Template/People/index.ctp -->
@@ -18,73 +24,220 @@
 <!-- THIS IS WHAT THE ADMINISTRATOR SEES -->
 <?php if ($currentlogged['role'] === "admin") : ?>
 
+<?php $personEntity = $peopleTable->get($user['person_id']);
+// echo $personEntity->first_name." ".$personEntity->last_name;
+?>
+  
+<h1>Profile</h1>
 
-    <h1>
-        <?php 
-            $personEntity = $peopleTable->get($user['person_id']);
-            echo $personEntity->first_name." ".$personEntity->last_name;
-        ?>
-    </h1>
+<div class="panel panel-default panel-actionbar clearfix">
+
+  <div class="panel-body">
+
+    <?= $this->Html->link(
+      '<i class="fa fa-eye"></i> View',
+      ['action' => 'index'],
+      ['class' => 'button button-pill button-primary active', 'escape' => false]
+    ); ?>
+
+  </div>
+
+  <div class="panel-footer">
+
+    <?= $this->Html->link(
+      '<i class="fa fa-pencil"></i> Change Username',
+      ['controller' => 'users', 'action' => 'editusername', $currentlogged['id']],
+      ['class' => 'button button-pill button-action', 'escape' => false]
+      ); ?>
+
+    <?= $this->Html->link(
+      '<i class="fa fa-pencil"></i> Change Password',
+      ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id']],
+      ['class' => 'button button-pill button-action', 'escape' => false]
+      ); ?>
+
+  </div>
+
+</div>
+
+<div class="row">
+  
+  <div class="col-sm-3">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">Profile Picture</h2>
+      </div>
+        <?= $gravatarImage; ?>
+    </div>
+  </div>
+
+  <div class="col-sm-9">
     
-    <?php 
-        echo $gravatarImage;
-        echo '<br><br>'."You are an Administrator. That's all we know about you.";
-    ?>    
+    <div class="panel panel-primary">
+
+      <div class="panel-heading">
+        <h2 class="panel-title">Personal Details</h2>
+      </div>
+
+      <div class="table-responsive">
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Contact Number</th>
+              <th>Gender</th>
+              <th>Phone</th>
+              <th>Email</th>
+            </tr>
+
+          </thead>
+
+          <tr>
+            <td><?= $personEntity->first_name ?></td>
+            <td><?= $personEntity->last_name ?></td>
+            <td><?= $personEntity->common_name ?></td>
+            <td><?= $personEntity->gender ?></td>
+            <td><?= $personEntity->phone ?></td>
+            <td><?= $personEntity->email ?></td>
+          </tr>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="alert alert-alternative-info alert-dismissible" role="alert">
+  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <span>Your unique avatar has been provided by <a href="http://avatars.adorable.io/">Adorable Avatars</a> from your email address.</span>
+  <span>To manage your avatar, create a <a href="https://en.gravatar.com/">Gravatar</a> Account.</span>
+</div>
 
 <?php endif; ?>
 
 <!-- THIS IS WHAT THE TENANTS SEES -->
 <?php if ($currentlogged['role'] === "tenant") : ?>
+    
+<!-- Here is where we iterate through our $articles query object, printing out article info -->
+<?php foreach ($users as $user): ?>
+<?php if ($currentlogged['person_id'] === $user->id) : ?>
 
-    <h1>Profile</h1>
+
+<h1>Profile</h1>
+
+<div class="panel panel-default panel-actionbar clearfix">
+
+  <div class="panel-body">
+
+      <?= $this->Html->link(
+      '<i class="fa fa-eye"></i> View',
+      ['action' => 'index'],
+      ['class' => 'button button-pill button-primary active', 'escape' => false]
+      ); ?>
+
+  </div>
+
+  <div class="panel-footer">
+
+    <?= $this->Html->link(
+  '<i class="fa fa-phone"></i> Change Phone Number',
+  ['action' => 'edit',$user->id ],
+  ['class' => 'button button-pill button-action', 'escape' => false]
+  ); ?>
+
+  <?= $this->Html->link(
+  '<i class="fa fa-pencil"></i> Change Username',
+   ['controller' => 'users', 'action' => 'editusername', $currentlogged['id']],
+  ['class' => 'button button-pill button-action', 'escape' => false]
+  ); ?>
+
+  <?= $this->Html->link(
+  '<i class="fa fa-pencil"></i> Change Password',
+  ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id']],
+  ['class' => 'button button-pill button-action', 'escape' => false]
+  ); ?>
+
+  </div>
+
+</div>
+
+<div class="row">
+  
+  <div class="col-sm-3">
     <div class="panel panel-primary">
-    <!-- Default panel contents -->
-    <div class="panel-heading">
-        <h2 class="panel-title">All Requests</h2>
+      <div class="panel-heading">
+        <h2 class="panel-title">Profile Picture</h2>
+      </div>
+        <?= $gravatarImage; ?>
     </div>
-    <div class="table-responsive">
+  </div>
+
+  <div class="col-sm-9">
+    
+    <div class="panel panel-primary">
+
+      <div class="panel-heading">
+        <h2 class="panel-title">Personal Details</h2>
+      </div>
+
+      <div class="table-responsive">
 
         <table>
-            <tr>
 
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Contact Number</th>
-                <th>Gender</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Action</th>
-            </tr>
-
-            <!-- Here is where we iterate through our $articles query object, printing out article info -->
-
-            <?php foreach ($users as $user): ?>
-
-            <?php if ($currentlogged['person_id'] === $user->id) : ?>
+          <thead>
 
             <tr>
-
-                <td><?= $user->first_name ?></td>
-                <td><?= $user->last_name ?></td>
-                <td><?= $user->common_name ?></td>
-                <td><?= $user->gender ?></td>
-                <td><?= $user->phone ?></td>
-                <td><?= $user->email ?></td>
-                <td>
-                <?php echo $this->Html->link('Edit Phone Number', ['action' => 'edit', $user->id, ]); ?>
-                <?php echo $this->Html->link('Edit Username', ['controller' => 'users', 'action' => 'editusername', $currentlogged['id'], ]); ?>
-                <?php echo $this->Html->link('Edit Password', ['controller' => 'users', 'action' => 'editpassword', $currentlogged['id'], ]); ?>
-            </td>
-
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Contact Number</th>
+              <th>Gender</th>
+              <th>Phone</th>
+              <th>Email</th>
             </tr>
 
-            <?php endif; ?>
+          </thead>
 
-            <?php endforeach; ?>
+          <tr>
+            <td><?= $user->first_name ?></td>
+            <td><?= $user->last_name ?></td>
+            <td><?= $user->common_name ?></td>
+            <td><?= $user->gender ?></td>
+            <td><?= $user->phone ?></td>
+            <td><?= $user->email ?></td>
+          </tr>
 
-        </table>
+          <?php endif; ?>
+
+          <?php endforeach; ?>
+
+          </table>
+
+        </div>
+
+      </div>
+
     </div>
 
-    </div>
+  </div>
+
+<div class="alert alert-alternative-info alert-dismissible" role="alert">
+  <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <span>Your unique avatar has been provided by <a href="http://avatars.adorable.io/">Adorable Avatars</a> from your email address.</span>
+  <span>To manage your avatar, create a <a href="https://en.gravatar.com/">Gravatar</a> Account.</span>
+</div> 
 
 <?php endif; ?>

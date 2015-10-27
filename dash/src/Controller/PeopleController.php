@@ -53,7 +53,7 @@ class PeopleController extends AppController
                 $this->Flash->success(__('Person Added'));
                 return $this->redirect(['controller' => 'students', 'action' => 'add']);
             }
-            $this->Flash->error(__('Unable to add the user.'));
+            $this->Flash->error(__('Unable to add the user'));
         }
         $this->set('user', $user);
     }
@@ -64,7 +64,7 @@ class PeopleController extends AppController
 
         $user = $this->People->get($id);
         if ($this->People->delete($user)) {
-            $this->Flash->success(__('The user with id: {0} has been deleted.', h($id)));
+            $this->Flash->success(__('The user with id: {0} has been deleted', h($id)));
             return $this->redirect(['action' => 'index']);
         }
     }
@@ -75,10 +75,10 @@ class PeopleController extends AppController
         if ($this->request->is(['post', 'put'])) {
             $user = $this->People->patchEntity($user, $this->request->data);
             if ($this->People->save($user)){
-                $this->Flash->success(__('This user has been updated.'));
+                $this->Flash->success(__('This user has been updated'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('Unable to update this user.'));
+            $this->Flash->error(__('Unable to update this user'));
         }
         $this->set('user', $user);
     }

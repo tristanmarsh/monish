@@ -1,42 +1,64 @@
 <?php
 $this->Html->addCrumb('Properties', '/properties');
-$this->Html->addCrumb('Rooms', '/rooms');
-$this->Html->addCrumb('Edit Room');
+$this->Html->addCrumb($room->property['address'],['controller'=>'properties', 'action' => 'view',$room->property['id']]);
+$this->Html->addCrumb($room->room_name);
 ?> 
-<h1>Rooms</h1>
+<h1>Edit <?= $room->room_name; ?></h1>
 
-<div class="panel panel-default clearfix">
+<div class="panel panel-default panel-actionbar clearfix">
+  
+  <div class="panel-body">
 
-    <div class="panel-body">
+    <div class="button-group">
+    <?= $this->Html->link(
+      '<i class="fa fa-plus"></i> New Room',
+      ['action' => 'add'],
+      ['class' => 'button button-pill-override button-pill-override button-action', 'escape' => false]
+    ); ?>
+    </div>                
 
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('New Room', ['action' => 'add']) ?></li>
-        </ul>
+  </div>
 
+  <div class="panel-footer">
+
+    <div class="button-group">
+      <?= $this->Html->link(
+      '<i class="fa fa-eye"></i> View',
+      ['action' => 'view', $room->id],
+      ['class' => 'button button-pill button-primary', 'escape' => false]
+      ); ?>
+
+      <?= $this->Html->link(
+      '<i class="fa fa-pencil"></i> Edit',
+      ['action' => 'edit', $room->id],
+      ['class' => 'button button-pill button-action active', 'escape' => false]
+      ); ?>
     </div>
 
-    <div class="panel-footer">
+    <div class="button-group">
+    <?php
+      if ($room->room_archived === "NO") {
+       echo $this->Form->postLink(
+      '<i class="fa fa-archive"></i> Archive Room',
+      ['action' => 'archiveroom',$room->id],
+      ['confirm' => 'Archive ' . $room->room_name .' of ' . $room->property["address"] . '?' , "escape" => false,
+        'class' => 'button button-pill-override button-caution',
+        'escape' => false
+      ]);
 
+       } else {
+        echo $this->Form->postLink(
+        '<i class="fa fa-archive"></i> Unarchive Room',
+        ['action' => 'unarchiveroom',$room->id],
+        ['confirm' => 'Unarchive ' . $room->room_name .' of ' . $room->property["address"] . '?' , "escape" => false,
+        'class' => 'button button-pill-override button-caution',
+        'escape' => false
+        ]);
 
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation"><?= $this->Html->link('View', ['action' => 'view', $room->id]) ?></li>
-            <li role="presentation" class="active"><?= $this->Html->link('Edit', ['action' => 'edit', $room->id]) ?></li>
-        </ul>
-
+      } ?>
     </div>
 
-
-
-<!--     <div class="panel-footer">
-
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><a href="#">Imagine</a></li>
-            <li role="presentation"><a href="#">Secondary</a></li>
-            <li role="presentation"><a href="#">Buttons</a></li>
-        </ul>
-
-    </div> -->
+  </div>
 
 </div>
 
@@ -60,7 +82,8 @@ $this->Html->addCrumb('Edit Room');
             ?>
             <br>
         </fieldset>
-        <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']) ?>
+    <?= $this->Form->button('<i class="fa fa-pencil"></i> Update Room', ['class' => 'form-control button button-action button-3d']); ?>
+        
         <?= $this->Form->end() ?>
         <?= $this->Form->create(null, [
             'url' => ['controller' => 'Properties', 'action' => 'index']

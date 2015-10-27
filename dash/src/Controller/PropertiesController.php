@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Properties Controller
@@ -39,6 +40,30 @@ class PropertiesController extends AppController
         $this->set(compact('peopleTable'));
     }
 
+    public function archived()
+    {
+        $this->loadModel('Leases');
+        $this->loadModel('Properties');
+        $this->loadModel('Rooms');
+        $this->loadModel('Students');
+        $this->loadModel('People');
+
+        $rooms = $this->Rooms->find('all', ['contain' => ['Leases']]);
+        $this->set(compact('rooms'));
+
+        $properties = $this->Properties->find('all', ['contain' => ['Rooms']]);
+        $this->set(compact('properties'));
+
+        $roomlease = $this->Rooms;
+        $this->set(compact('roomlease'));
+
+        $studentTable = $this->Students;
+        $this->set(compact('studentTable'));
+
+        $peopleTable = $this->People;
+        $this->set(compact('peopleTable'));
+    }
+
     /**
      * View method
      *
@@ -53,6 +78,27 @@ class PropertiesController extends AppController
         ]);
         $this->set('property', $property);
         $this->set('_serialize', ['property']);
+		
+		$this->loadModel('Leases');
+        $this->loadModel('Rooms');
+        $this->loadModel('Students');
+        $this->loadModel('People');
+
+        $rooms = $this->Rooms->find('all', ['contain' => ['Leases']]);
+        $this->set(compact('rooms'));
+
+        $properties = $this->Properties->find('all', ['contain' => ['Rooms']]);
+        $this->set(compact('properties'));
+
+        $roomlease = $this->Rooms;
+        $this->set(compact('roomlease'));
+
+        $studentTable = $this->Students;
+        $this->set(compact('studentTable'));
+
+        $peopleTable = $this->People;
+        $this->set(compact('peopleTable'));
+		
     }
 
     /**
@@ -66,10 +112,10 @@ class PropertiesController extends AppController
         if ($this->request->is('post')) {
             $entity = $this->Properties->patchEntity($entity, $this->request->data);
             if ($this->Properties->save($entity)) {
-                $this->Flash->success('The property has been saved.');
+                $this->Flash->success('The property has been saved');
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error('The property could not be saved. Please, try again.');
+                $this->Flash->error('The property could not be saved. Please, try again');
             }
         }
         $this->set('entity', $entity);
@@ -90,10 +136,10 @@ class PropertiesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $entity = $this->Properties->patchEntity($entity, $this->request->data);
             if ($this->Properties->save($entity)) {
-                $this->Flash->success('The property has been saved.');
+                $this->Flash->success('The property has been saved');
                 return $this->redirect(['action' => 'index']);
             } else {
-                $this->Flash->error('The property could not be saved. Please, try again.');
+                $this->Flash->error('The property could not be saved. Please, try again');
             }
         }
         $this->set('entity', $entity);
@@ -111,10 +157,49 @@ class PropertiesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $property = $this->Properties->get($id);
         if ($this->Properties->delete($property)) {
-            $this->Flash->success('The property has been deleted.');
+            $this->Flash->success('The property has been deleted');
         } else {
-            $this->Flash->error('The property could not be deleted. Please, try again.');
+            $this->Flash->error('The property could not be deleted. Please, try again');
         }
         return $this->redirect(['action' => 'index']);
     }
+
+    public function archiveproperty($id) {
+
+        $this->loadModel('Properties');
+
+        $propertiesTable = TableRegistry::get('Properties');
+
+        $property = $propertiesTable->get($id);
+        $this->set(compact('property'));
+
+        $property->archived = 'YES';
+
+        $propertiesTable->save($property);
+
+        $this->Flash->success('Property Archived');
+
+        return $this->redirect($this->referer());
+
+    }
+
+    public function unarchiveproperty($id) {
+
+        $this->loadModel('Properties');
+
+        $propertiesTable = TableRegistry::get('Properties');
+
+        $property = $propertiesTable->get($id);
+        $this->set(compact('property'));
+
+        $property->archived = 'NO';
+
+        $propertiesTable->save($property);
+
+        $this->Flash->success('Property Unarchived');
+
+        return $this->redirect($this->referer());
+
+    }
+
 }

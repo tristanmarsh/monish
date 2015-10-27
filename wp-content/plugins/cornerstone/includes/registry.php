@@ -56,6 +56,7 @@ return array(
 		// Admin
 		'admin/class-admin',
 		'admin/class-settings-handler',
+		'admin/class-revision',
 
 		// Tools
 		'tools/class-code-editor',

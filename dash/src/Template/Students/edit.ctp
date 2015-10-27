@@ -28,7 +28,33 @@
 <?php endif; ?>
 
 <?php if ($currentlogged['role'] === "tenant") : ?>
-    <h1>Internet Plan</h1>
+
+
+<h1>Internet Plan</h1>
+
+<div class="panel panel-default panel-actionbar clearfix">
+  
+  <div class="panel-body">
+
+    <?= $this->Html->link(
+        '<i class="glyphicon glyphicon-globe"></i> Current',
+        ['action' => 'index'],
+        ['class' => 'button button-pill button-primary', 'escape' => false]
+    ); ?>
+
+  </div>
+
+  <div class="panel-footer">
+    <?= $this->Html->link(
+      '<i class="fa fa-arrow-up"></i> Change Internet Plan',
+      ['controller'=>'students', 'action' => 'edit', $student->id],
+      ['class' => 'button button-pill button-action', 'escape' => false]
+    ); ?>
+  </div>
+
+</div>
+
+
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h2 class="panel-title">Select Internet Plan</h2>
@@ -42,7 +68,7 @@
             echo $this->Form->input('internet_plan', ['options' => ['Free' => 'Free', 'Basic' => 'Basic', 'Standard' => 'Standard', 'Premium' => 'Premium'], 'class' => 'form-control']);
             ?>
             <br>
-        <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']) ?>
+        <?= $this->Form->button('<i class="fa fa-arrow-up"></i> Change Internet Plan', ['class' => 'form-control button button-action button-3d']); ?>
         <?= $this->Form->end() ?>
         <?= $this->Form->create(null, [
             'url' => ['controller' => 'Students', 'action' => 'index']

@@ -154,6 +154,7 @@ class Cornerstone {
 		$this->admin    = new Cornerstone_Admin;
 		$this->elements = new Cornerstone_Element_Manager;
 		$this->builder  = new Cornerstone_Builder;
+		new Cornerstone_Revision;
 
 		// Version Migration
 		add_action( 'admin_init', array( $this, 'versionMigration' ) );
@@ -280,7 +281,7 @@ class Cornerstone {
 	  	return;
 
 	  do_action( 'cornerstone_updated', $prior );
-	  update_option( 'cornerstone_updated', $this->version() );
+	  update_option( 'cornerstone_version', $this->version() );
 
 	}
 

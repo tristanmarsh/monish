@@ -38,7 +38,7 @@ class TenantsController extends AppController
             $sentinel = true; //true if Never Been Leased
             if (!empty($currentroom->leases)) {
                 foreach ($currentroom->leases as $leastenddate) {
-                    $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                    $test = $test."||".$leastenddate->date_end->Format('Y-m-d');
                 }
             }
             else {
@@ -97,7 +97,7 @@ class TenantsController extends AppController
             $sentinel = true; //true if Never Been Leased
             if (!empty($currentroom->leases)) {
                 foreach ($currentroom->leases as $leastenddate) {
-                    $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                    $test = $test."||".$leastenddate->date_end->Format('Y-m-d');
                 }
             }
             else {
@@ -139,7 +139,7 @@ class TenantsController extends AppController
         $user = $this->People->newEntity();
 
         $properties = $this->Properties->find('list', ['limit' => 200, 'keyField' => 'id', 'valueField' => 'address']);
-        $rooms = $this->Leases->Rooms->find('list', ['groupField' => 'property.address', 'conditions'=>['vacant'=>'TRUE']])->contain('Properties');
+        $rooms = $this->Leases->Rooms->find('list', ['groupField' => 'property.address', 'conditions'=>['room_archived'=>'NO']])->contain('Properties');
         $this->set(compact('rooms', 'properties'));  
 
         if ($this->request->is('post')) {
@@ -189,7 +189,7 @@ class TenantsController extends AppController
                 $this->Flash->success(__('Person Added'));
                 return $this->redirect(['controller' => 'tenants', 'action' => 'updaterooms']);
             }
-            $this->Flash->error(__('Unable to add the person.'));
+            $this->Flash->error(__('Unable to add the person'));
         }
         $this->set('user', $user);
     }
@@ -230,10 +230,10 @@ class TenantsController extends AppController
                 $student->internet_plan = $user->internet_plan;
                 $studentsTable->save($person); //Must have this statement to save the changes
 
-                $this->Flash->success(__('This tenant has been updated.'));
+                $this->Flash->success(__('This tenant has been updated'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('Unable to update this tenant.'));
+            $this->Flash->error(__('Unable to update this tenant'));
         }
         $this->set('user', $user);
 
@@ -289,7 +289,7 @@ class TenantsController extends AppController
             $sentinel = true; //true if Never Been Leased
             if (!empty($currentroom->leases)) {
                 foreach ($currentroom->leases as $leastenddate) {
-                    $test = $test."||".$leastenddate->date_end->format('Y-m-d');
+                    $test = $test."||".$leastenddate->date_end->Format('Y-m-d');
                 }
             }
             else {
@@ -316,7 +316,7 @@ class TenantsController extends AppController
         $lastroomupdate->date = date("Y-m-d");
         $lastroomupdateTable->save($lastroomupdate);
 
-        $this->Flash->success('Rooms have been updated!');    
+        // $this->Flash->success('Rooms have been updated!');    
         return $this->redirect($this->referer());
     }
 

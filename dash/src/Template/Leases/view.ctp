@@ -1,28 +1,62 @@
 <?php
     $this->Html->addCrumb('Leases', '/leases');
-    $this->Html->addCrumb('View Lease');
+    $this->Html->addCrumb($lease->property->address." ".$lease->room->room_name);
 ?>
-    <h1>Lease</h1>
+<h1><?= $lease->property->address." ".$lease->room->room_name; ?></h1>
 
-    <div class="panel panel-default clearfix">
+<?php $person = $walrus->get($lease->student->person_id); ?>
+
+<div class="panel panel-default panel-actionbar clearfix">
+
+  <div class="panel-body">
+
+      <?php if ($lease->archived === "NO") {
+        $current='active';
+        $archived='';
+      } else if($lease->archived === "YES"){
+        $current='';
+        $archived='active';
+      } ?>
+
+    <div class="button-group">
+      <?= $this->Html->link(
+        '<i class="fa fa-flash"></i> Current',
+        ['action' => 'index'],
+        ['class' => 'button button-pill button-primary ' . $current, 'escape' => false]
+      ); ?>
+
+      <?= $this->Html->link(
+        '<i class="fa fa-archive"></i> Archived',
+        ['action' => 'archived'],
+        ['class' => 'button button-pill button-primary ' . $archived, 'escape' => false]
+      ); ?>
+    </div>
     
-    <div class="panel-body">
+    <div class="button-group">
+        <?= $this->Html->link(
+        '<i class="fa fa-plus"></i> New Lease',
+        ['action' => 'add'],
+        ['class' => 'button button-pill-override button-action', 'escape' => false]
+      ); ?>
+    </div>
         
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation"><?= $this->Html->link('All', ['action' => 'Index']) ?></li>
-            <li role="presentation"><?= $this->Html->link('New', ['action' => 'add']) ?></li>
-        </ul>
+  </div>
 
-    </div>
-    <div class="panel-footer">
+  <div class="panel-footer">
+    
+      <?= $this->Html->link(
+        '<i class="fa fa-eye"></i> View',
+        ['action' => 'view',$lease->id],
+        ['class' => 'button button-pill button-primary active', 'escape' => false]
+      ); ?>
 
-        <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><?= $this->Html->link('View', ['action' => 'view', $lease->id]) ?></li>
-            <!-- <li role="presentation"><?= $this->Html->link('Edit', ['action' => 'edit', $lease->id]) ?></li> -->
-        </ul>
+      <?= $this->Form->postlink(
+        '<i class="fa fa-times"></i> Delete',
+        ['action' => 'delete',$lease->id],
+        ['confirm' => 'Delete ' . $lease->property->address. " ". $lease->room->room_name  .' Lease for '. $person->first_name . " " . $person->last_name . '?' ,'class' => 'button button-pill-override button-caution', "escape" => false]
+      ); ?>
 
-    </div>
-
+  </div>
 
 </div>
 
@@ -45,9 +79,9 @@
 
 <tr><td>Weekly Price: <?= $this->Number->currency($lease->weekly_price, 'USD') ?></td></tr>
 
-<tr><td>Lease Started On: <?= h($lease->date_start->format('d/m/Y')) ?></td></tr>
+<tr><td>Lease Started On: <?= h($lease->date_start->format('Y/m/d')) ?></td></tr>
 
-<tr><td>Lease Expires On: <?= h($lease->date_end->format('d/m/Y')) ?></td></tr>
+<tr><td>Lease Expires On: <?= h($lease->date_end->format('Y/m/d')) ?></td></tr>
 
 <!-- <tr><td>Lease Status: <?= $this->Text->autoParagraph(h($lease->lease_status)); ?></td></tr> -->
 

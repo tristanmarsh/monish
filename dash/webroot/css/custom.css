@@ -1,1 +1,1084 @@
-@-webkit-keyframes fadeIn{0%{opacity:0}100%{opacity:1}}@keyframes fadeIn{0%{opacity:0}100%{opacity:1}}@-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translateY(-20px)}100%{opacity:1;-webkit-transform:translateY(0)}}@keyframes fadeInDown{0%{opacity:0;-webkit-transform:translateY(-20px);transform:translateY(-20px)}100%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}@-webkit-keyframes fadeInDownBig{0%{opacity:0;-webkit-transform:translateY(-2000px)}100%{opacity:1;-webkit-transform:translateY(0)}}@keyframes fadeInDownBig{0%{opacity:0;-webkit-transform:translateY(-2000px);transform:translateY(-2000px)}100%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}@-webkit-keyframes fadeInLeft{0%{opacity:0;-webkit-transform:translateX(-20px)}100%{opacity:1;-webkit-transform:translateX(0)}}@keyframes fadeInLeft{0%{opacity:0;-webkit-transform:translateX(-20px);transform:translateX(-20px)}100%{opacity:1;-webkit-transform:translateX(0);transform:translateX(0)}}@-webkit-keyframes fadeInLeftBig{0%{opacity:0;-webkit-transform:translateX(-2000px)}100%{opacity:1;-webkit-transform:translateX(0)}}@keyframes fadeInLeftBig{0%{opacity:0;-webkit-transform:translateX(-2000px);transform:translateX(-2000px)}100%{opacity:1;-webkit-transform:translateX(0);transform:translateX(0)}}@-webkit-keyframes fadeInRight{0%{opacity:0;-webkit-transform:translateX(20px)}100%{opacity:1;-webkit-transform:translateX(0)}}@keyframes fadeInRight{0%{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px)}100%{opacity:1;-webkit-transform:translateX(0);transform:translateX(0)}}@-webkit-keyframes fadeInRightBig{0%{opacity:0;-webkit-transform:translateX(2000px)}100%{opacity:1;-webkit-transform:translateX(0)}}@keyframes fadeInRightBig{0%{opacity:0;-webkit-transform:translateX(2000px);transform:translateX(2000px)}100%{opacity:1;-webkit-transform:translateX(0);transform:translateX(0)}}@-webkit-keyframes fadeInUp{0%{opacity:0;-webkit-transform:translateY(20px)}100%{opacity:1;-webkit-transform:translateY(0)}}@keyframes fadeInUp{0%{opacity:0;-webkit-transform:translateY(20px);transform:translateY(20px)}100%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}@-webkit-keyframes fadeInUpBig{0%{opacity:0;-webkit-transform:translateY(2000px)}100%{opacity:1;-webkit-transform:translateY(0)}}@keyframes fadeInUpBig{0%{opacity:0;-webkit-transform:translateY(2000px);transform:translateY(2000px)}100%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}#nprogress{pointer-events:none}#nprogress .bar{background:#29d;position:fixed;z-index:1031;top:0;left:0;width:100%;height:2px}#nprogress .peg{display:block;position:absolute;right:0px;width:100px;height:100%;box-shadow:0 0 10px #29d,0 0 5px #29d;opacity:1.0;-webkit-transform:rotate(3deg) translate(0px, -4px);-ms-transform:rotate(3deg) translate(0px, -4px);transform:rotate(3deg) translate(0px, -4px)}#nprogress .spinner{display:block;position:fixed;z-index:1031;top:15px;right:15px}#nprogress .spinner-icon{width:18px;height:18px;box-sizing:border-box;border:solid 2px transparent;border-top-color:#29d;border-left-color:#29d;border-radius:50%;-webkit-animation:nprogress-spinner 400ms linear infinite;animation:nprogress-spinner 400ms linear infinite}.nprogress-custom-parent{overflow:hidden;position:relative}.nprogress-custom-parent #nprogress .spinner,.nprogress-custom-parent #nprogress .bar{position:absolute}@-webkit-keyframes nprogress-spinner{0%{-webkit-transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg)}}@keyframes nprogress-spinner{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@font-face{font-family:'icomoon';src:url("../fonts/icomoon.eot?hi5vxy");src:url("../fonts/icomoon.eot?#iefixhi5vxy") format("embedded-opentype"),url("../fonts/icomoon.ttf?hi5vxy") format("truetype"),url("../fonts/icomoon.woff?hi5vxy") format("woff"),url("../fonts/icomoon.svg?hi5vxy#icomoon") format("svg");font-weight:normal;font-style:normal}[class^="icon-"],[class*=" icon-"]{font-family:'icomoon';speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-monish:before{content:"\e600"}@media (max-width: 767px){.clearing.col-sm-6:nth-of-type(2n+1){clear:none}}@media (min-width: 768px){.clearing.col-sm-6:nth-of-type(2n+1){clear:none}.clearing.col-md-4:nth-of-type(2n+1){clear:left}}@media (min-width: 992px){.clearing.col-md-4:nth-of-type(2n+1){clear:none}.clearing.col-lg-4:nth-of-type(3n+1){clear:left}}@media (min-width: 1200px){.clearing.col-lg-4:nth-of-type(4n+1){clear:none}.clearing.col-lg-4:nth-of-type(3n+1){clear:left}}.footer-container{-webkit-transition:all 400ms ease-out;transition:all 400ms ease-out}.footer-container footer{max-width:100%;position:static;bottom:0;left:0;width:100%;background:rgba(118,170,219,0.5);padding:40px 0;color:#fff;font-size:1.4rem;overflow-x:hidden}.footer-container footer h3{margin-top:0}.footer-container footer a{color:#fff;-webkit-transition:all 400ms ease-out;transition:all 400ms ease-out}.footer-container footer .col-md-3{padding:20px}.footer-container footer .credits{font-size:1.2rem}.footer-container footer .credits,.footer-container footer .credits a{color:#ECEDFA}.footer-container footer:hover>.credits,.footer-container footer:hover>.credits a{color:#fff}@media (max-width: 991px){.footer-container footer .col-md-4:nth-of-type(1n){text-align:center}.credits,.credits .col-sm-6.text-right{text-align:center !important}}.nav>li>a:hover,.nav>li>a:focus{text-decoration:none;background:none}.sidebar{width:60px;position:fixed;left:0;padding-left:0;height:100vh;z-index:1000;overflow-x:hidden;padding:0;background-color:#293846;overflow-x:hidden}.sidebar .nav-sidebar{margin-left:0}.sidebar ul{padding-left:0}.sidebar li{display:block;position:relative;font-size:2rem;border-bottom:1px solid #334658;height:6rem}.sidebar li .menu-item-link{display:block;color:#5F666C;-webkit-transition:color 200ms ease-out,background 200ms ease-out;transition:color 200ms ease-out,background 200ms ease-out;height:100%;padding:10px}.sidebar li .menu-item-link #icon-monish-home{font-size:4rem;color:#76AADB !important}.sidebar li .menu-item-link .gravatar{opacity:0.8;-webkit-transition:opacity 200ms ease-out;transition:opacity 200ms ease-out;background:#212D38}.sidebar li .menu-item-link .glyphicon{position:static;vertical-align:middle;vertical-align:-webkit-baseline-middle;width:60px;margin:0 auto;margin-left:-10px;text-align:center}.sidebar li .menu-item-link .glyphicon:before{text-align:center}.sidebar li .menu-item-link .menu-item-label{position:absolute;white-space:nowrap;left:6rem;margin-left:10px;top:1.7rem;font-size:2rem;color:#fff}.sidebar li[data-original-title="Home"]>a.menu-item-link,.sidebar li[title="Home"]>a.menu-item-link{background:rgba(0,0,0,0.4)}.sidebar li[data-original-title="Home"]>a.menu-item-link #icon-monish-home.icon-monish:before,.sidebar li[title="Home"]>a.menu-item-link #icon-monish-home.icon-monish:before{color:#76AADB !important}.sidebar li[data-original-title="Home"]:hover>a.menu-item-link,.sidebar li[title="Home"]:hover>a.menu-item-link{background:rgba(0,0,0,0.4)}.sidebar li .menu-item-link.active{background:rgba(0,0,0,0.2)}.sidebar li .menu-item-link.active .glyphicon,.sidebar li .menu-item-link.active .menu-item-label{color:#fff}.sidebar .menu-item-link:active,.sidebar .menu-item-link:focus,.sidebar .menu-item-link:hover{color:#D4D9E0;background:rgba(255,255,255,0.05);color:#fff}.sidebar .menu-item-link:active .gravatar,.sidebar .menu-item-link:focus .gravatar,.sidebar .menu-item-link:hover .gravatar{opacity:1}.sidebar,.navbar-fixed-top,.content{-webkit-transition:all 400ms ease;transition:all 400ms ease}.sidebar{-webkit-transition:height 0ms,width 400ms ease;transition:height 0ms,width 400ms ease}.navigation-active .navbar-fixed-top,.navigation-active .content{margin-left:0px}.tooltip.right{display:none !important;font-size:2rem;-webkit-animation-name:fadeInRight;animation-name:fadeInRight;-webkit-animation-duration:400ms;animation-duration:400ms;-webkit-animation-delay:0s;animation-delay:0s;-webkit-animation-timing-function:ease;animation-timing-function:ease;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-backface-visibility:hidden;-ms-backface-visibility:hidden;-o-backface-visibility:hidden;backface-visibility:hidden;margin-left:30px}.tooltip.right .tooltip-arrow{border-right-color:#374A5D}.tooltip-inner{background:#374A5D}@media (max-width: 480px){.sidebar{-webkit-transform:translate3D(-100%, 0, 0);-ms-transform:translate3D(-100%, 0, 0);transform:translate3D(-100%, 0, 0);padding-top:71px;width:300px;-webkit-transition:-webkit-transform 400ms ease;transition:transform 400ms ease}.navigation-active{background-color:#293846}.navigation-active .sidebar{-webkit-transform:translate3D(0, 0, 0);-ms-transform:translate3D(0, 0, 0);transform:translate3D(0, 0, 0);width:300px;-webkit-transition:width 0s;transition:width 0s;-webkit-transition-delay:400ms;transition-delay:400ms;-webkit-transition:-webkit-transform 400ms ease;transition:transform 400ms ease}.navigation-active .content,.navigation-active .footer-container{-webkit-transform:translate3D(20%, 0, 0);-ms-transform:translate3D(20%, 0, 0);transform:translate3D(20%, 0, 0)}.navigation-active .main-content{opacity:0.5}}@media (min-width: 481px){.tooltip.right{display:block !important}.sidebar{-webkit-transform:translate3D(0, 0, 0);-ms-transform:translate3D(0, 0, 0);transform:translate3D(0, 0, 0);width:60px}.navbar-fixed-top,.content,.footer-container{margin-left:60px}.navigation-active .sidebar{-webkit-transform:translate3D(0, 0, 0);-ms-transform:translate3D(0, 0, 0);transform:translate3D(0, 0, 0);width:300px}.navigation-active .content{-webkit-transform:translate3D(0, 0, 0);-ms-transform:translate3D(0, 0, 0);transform:translate3D(0, 0, 0)}.navigation-active .navbar-fixed-top,.navigation-active .content,.navigation-active .footer-container{margin-left:300px}.navigation-active .tooltip.right{display:none !important}}@media (min-width: 768px){.tooltip.right{display:block !important}.sidebar{-webkit-transform:translate3D(0, 0, 0);-ms-transform:translate3D(0, 0, 0);transform:translate3D(0, 0, 0);width:60px}.navbar-fixed-top,.content,.footer-container{margin-left:60px}.navigation-active .sidebar{-webkit-transform:translate3D(0, 0, 0);-ms-transform:translate3D(0, 0, 0);transform:translate3D(0, 0, 0);width:300px}.navigation-active .content{-webkit-transform:translate3D(0, 0, 0);-ms-transform:translate3D(0, 0, 0);transform:translate3D(0, 0, 0)}.navigation-active .navbar-fixed-top,.navigation-active .content,.navigation-active .footer-container{margin-left:300px}.navigation-active .tooltip.right{display:none !important}}body{color:#70808e}.search input[type="text"].form-control{position:absolute;right:-15px;top:0;height:100%;font-size:2rem;border-radius:5px}.search .input-group-btn{opacity:0;visibility:none}.table-responsive{border-radius:0 0 5px 5px}table{display:table;width:100%;font-family:"Open Sans",sans-serif}table *{-webkit-transition:all 200ms ease-out;transition:all 200ms ease-out}table a{color:#3C73C3;text-decoration:none}table thead th{background:#2980b9;background:rgba(41,128,185,0.5);font-size:1.4rem;line-height:2.4em;font-family:"Raleway",serif;position:relative;overflow:hidden;color:#fff;padding:6px 12px;color:#fff}table tr{background:#fcfcfc;border-bottom:1px solid #D5E4F1}table tr:nth-of-type(odd){background:#f5f5f5}table tr:last-child{border-bottom:0}table tr:focus td,table tr:hover td{background:#fff}table tr.unread>td{font-weight:bold}table tr.unread>td{font-weight:bold}table td a{display:block;text-align:center}@media screen and (max-width: 580px){table{padding:8px 0}}table td{padding:0 10px 0 10px;position:relative;overflow:hidden;height:60px}table td>*{color:#555}table td>span,table td>img{padding:0}table td:first-child>img.gravatar{margin-left:-10px;background:#fff}table td:first-child>img.gravatar+span{margin-left:10px}table td.action>a{display:block;margin:-10em;padding:10em}table td.action>a span:before,table td.action>a span:before{color:#409ad5}table td.action>a:focus,table td.action>a:hover{background:#409ad5}table td.action-close>a span:before,table td.action-close>a span:before{color:#86db9f}table td.action-close>a:focus,table td.action-close>a:hover{background:#86db9f}table td.action-remove>a span:before,table td.action-remove>a span:before{color:#db8a94}table td.action-remove>a:focus,table td.action-remove>a:hover{background:#db8a94}table td>a:focus>span.glyphicon:before,table td>a:hover>span.glyphicon:before{color:#fff}table td>[href*="view"]{padding:0}@media screen and (max-width: 580px){table td>[href*="view"]{padding:0}}table .checkbox{margin:0}.dataTables_wrapper .dataTables_filter{display:none}.dataTables_wrapper .dataTables_length{display:none}.dataTables_wrapper .dataTables>thead>tr>th{padding-left:10px}.dataTables_wrapper table.dataTable thead .sorting,.dataTables_wrapper table.dataTable thead .sorting_asc,.dataTables_wrapper table.dataTable thead .sorting_desc{cursor:pointer;*cursor:hand}.dataTables_wrapper thead th:focus,.dataTables_wrapper thead th:hover{background:#2e8ece;color:#fff;text-decoration:none}.dataTables_wrapper thead th:after{content:'\25B2';position:absolute;float:right;right:1em;font-size:0.8em;opacity:0}.dataTables_wrapper thead th[class^='sorting_']{background:#2472a4}.dataTables_wrapper thead th:focus:after,.dataTables_wrapper thead th:hover:after{opacity:1}.dataTables_wrapper thead th[class^='sorting_']:after{opacity:1}.dataTables_wrapper thead th.asc:after{content:inherit}.dataTables_wrapper thead th.sorting_desc:after{content:'\25BC'}.dataTables_wrapper tr{cursor:pointer;*cursor:hand}.dataTables_wrapper .dataTables_info{display:block;position:static;float:left;line-height:32px;padding-left:10px;vertical-align:middle}.dataTables_wrapper .dataTables_paginate{position:relative;display:block;float:right;padding-top:7px}.dataTables_wrapper .dataTables_paginate .paginate_button{box-sizing:border-box;padding:6px 12px;line-height:1.42857143;text-decoration:none;color:#70808e;background:#fff;margin-left:-1px;border:1px solid #D5E4F1;border-right:0;border-bottom:0;cursor:pointer;-webkit-transition:all 100ms ease;transition:all 100ms ease}.dataTables_wrapper .dataTables_paginate .paginate_button.disabled{cursor:not-allowed}.dataTables_wrapper .dataTables_paginate .paginate_button:hover{background-color:#D5E4F1;color:#555}.dataTables_wrapper .dataTables_paginate .paginate_button.current,.dataTables_wrapper .dataTables_paginate .paginate_button.current>span,.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,.dataTables_wrapper .dataTables_paginate .paginate_button.current>span:hover,.dataTables_wrapper .dataTables_paginate .paginate_button.current:focus,.dataTables_wrapper .dataTables_paginate .paginate_button.current>span:focus{z-index:2;color:#fff;background-color:#B2CFE9;border-color:#B2CFE9;cursor:default}.dataTables_wrapper .dataTables_paginate .paginate_button:last-child{border-bottom-right-radius:4px}.dataTables_wrapper .dataTables_paginate>span>.paginate_button:first-child,.dataTables_wrapper .dataTables_paginate>span>.paginate_button:last-child{border-radius:0}.dataTables_wrapper .dataTables_empty{padding:20px}body{font-family:"Open Sans",sans-serif;-webkit-font-smoothing:antialiased;font-smoothing:antialiased;background:#b2cfe9}.logo{margin-top:2vw}.log-in-window{margin-top:20px}.log-in-window label{color:#70808e}.log-in-window .input-group-addon .glyphicon{color:#70808e}.img-center{display:block;margin:0 auto}a{color:#618DB6}.navbar{background:#fff;border-bottom:0;margin-bottom:0}.navbar .navbar-brand{padding:5px}.navbar .nav>li>a{position:relative;display:block;padding:5px}.gravatar{background-color:#212D38}header{height:auto;padding:0}header .page-header{margin-top:0}header .breadcrumb{margin-left:0;margin-bottom:0;padding:0px 30px;list-style:none;background:none;border-radius:0;background:rgba(118,170,219,0.8);background:#337ab7;color:#fff}header .breadcrumb a{display:inline-block;font-size:1.4rem;font-weight:lighter;color:#fff;-webkit-transition:all 400ms ease;transition:all 400ms ease;background:none}header .breadcrumb a.active:hover,header .breadcrumb a:hover{text-decoration:none;background:#b2cfe9;color:#337ab7}header .breadcrumb a.active{color:#fff}header .breadcrumb ul{display:none}.navbar-image img{max-width:100%;height:40px !important}h1,h2,h3,h4,h5,h6{font-family:"Raleway",serif;color:#5986AD}.alert{margin-top:20px;border-width:0;color:#fff}.alert .close{top:-4px;font-size:3rem;color:#fff;opacity:0.5}.alert-success{background-color:#5fcf80}.alert-danger{background-color:#ED5A5A}.alert-info{background-color:#76B5ED}.panel{box-shadow:0 3px rgba(118,170,219,0.2);box-shadow:0 3px #D5E4F1;border-radius:5px;margin-bottom:20px}.panel .panel-footer{padding:0 15px}.panel .nav{padding:10px 0}.panel .nav-pills>li>a{border-radius:100px;padding:5px 15px;font-weight:900;font-size:1.6rem}.panel-primary{-webkit-animation-name:fadeInUp;animation-name:fadeInUp;-webkit-animation-duration:400ms;animation-duration:400ms;-webkit-animation-delay:0s;animation-delay:0s;-webkit-animation-timing-function:ease;animation-timing-function:ease;-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-backface-visibility:hidden;-ms-backface-visibility:hidden;-o-backface-visibility:hidden;backface-visibility:hidden}.main-content{position:relative;overflow-x:hidden;overflow-y:scrollable;background:#ecf2f6;-webkit-transition:all 400ms ease-out;transition:all 400ms ease-out}.main-content .content{margin-top:70px;min-height:70vh;margin-bottom:20px}.main-content .panel-default,.main-content .panel-primary{border-color:#D5E4F1}.main-content .paginator{margin-bottom:60px}.main-content .paginator .pagination{box-shadow:0 3px #D5E4F1;border-radius:5px;border:1px solid #D5E4F1}.main-content .paginator .pagination li a{border-right:1px solid #D5E4F1;border:0}.main-content .paginator .pagination li a:last-child{border-right:0}.navbar-toggle{display:block;position:relative;float:left;padding-left:15px;padding:9px 10px;margin-top:8px;margin-bottom:8px;background-color:transparent;background-image:none;border:1px solid transparent;border-radius:4px;left:10px}@media (min-width: 768px){.navbar-toggle{display:block;position:relative;float:left;padding-left:15px;padding:9px 10px;margin-top:8px;margin-bottom:8px;background-color:transparent;background-image:none;border:1px solid transparent;border-radius:4px;left:10px}.navbar>.container .navbar-brand,.navbar>.container-fluid .navbar-brand{margin-left:10px}}#navigation-toggle{background:#337ab7}#navigation-toggle span{background:#eff5fa}.panel-property .panel-heading{padding:0;overflow:hidden}.panel-property .panel-heading .property-image{-webkit-transition:-webkit-transform 2s ease-out;transition:transform 2s ease-out;height:50vh}.panel-property .panel-heading .property-image a{display:block;height:100%}.panel-property .panel-heading .property-image a:hover,.panel-property .panel-heading .property-image a:focus{text-decoration:none}.panel-property .panel-heading .property-image a .panel-title{display:block;padding:2rem;-webkit-transition:-webkit-transform 2s ease;transition:transform 2s ease;background-color:rgba(0,0,0,0.5);border-top-left-radius:5px;border-top-right-radius:5px;font-size:2rem;color:#fff}.panel-property .gravatar{display:inline-block;z-index:0}footer{overflow:hidden}
+/*
+Name:   Custom.SCSS
+Author:   Tristan Marsh
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  All custom styling for the Monish Dashboard
+Note:     Remeber mobile first methodology when styling
+Since:    29/4/15
+
+*/
+/*
+Name:   Variables.SCSS
+Author:   Tristan Marsh
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  All custom styling for the Monish Dashboard
+Note:     Remeber mobile first methodology when styling
+Since:    29/4/15
+
+*/
+/* #### Font Varaiables #### */
+/* Headings */
+/* Content */
+/* Transition */
+/* Colours */
+@-webkit-keyframes fadeIn { 0% { opacity: 0; }
+  100% { opacity: 1; } }
+@-moz-keyframes fadeIn { 0% { opacity: 0; }
+  100% { opacity: 1; } }
+@-ms-keyframes fadeIn { 0% { opacity: 0; }
+  100% { opacity: 1; } }
+@-o-keyframes fadeIn { 0% { opacity: 0; }
+  100% { opacity: 1; } }
+@keyframes fadeIn { 0% { opacity: 0; }
+  100% { opacity: 1; } }
+@-webkit-keyframes fadeInDown { 0% { opacity: 0; -webkit-transform: translateY(-20px); }
+  100% { opacity: 1; -webkit-transform: translateY(0); } }
+@-moz-keyframes fadeInDown { 0% { opacity: 0; -moz-transform: translateY(-20px); }
+  100% { opacity: 1; -moz-transform: translateY(0); } }
+@-ms-keyframes fadeInDown { 0% { opacity: 0; -ms-transform: translateY(-20px); }
+  100% { opacity: 1; -ms-transform: translateY(0); } }
+@-o-keyframes fadeInDown { 0% { opacity: 0; -ms-transform: translateY(-20px); }
+  100% { opacity: 1; -ms-transform: translateY(0); } }
+@keyframes fadeInDown { 0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); } }
+@-webkit-keyframes fadeInDownBig { 0% { opacity: 0; -webkit-transform: translateY(-2000px); }
+  100% { opacity: 1; -webkit-transform: translateY(0); } }
+@-moz-keyframes fadeInDownBig { 0% { opacity: 0; -moz-transform: translateY(-2000px); }
+  100% { opacity: 1; -moz-transform: translateY(0); } }
+@-ms-keyframes fadeInDownBig { 0% { opacity: 0; -ms-transform: translateY(-2000px); }
+  100% { opacity: 1; -ms-transform: translateY(0); } }
+@-o-keyframes fadeInDownBig { 0% { opacity: 0; -o-transform: translateY(-2000px); }
+  100% { opacity: 1; -o-transform: translateY(0); } }
+@keyframes fadeInDownBig { 0% { opacity: 0; transform: translateY(-2000px); }
+  100% { opacity: 1; transform: translateY(0); } }
+@-webkit-keyframes fadeInLeft { 0% { opacity: 0; -webkit-transform: translateX(-20px); }
+  100% { opacity: 1; -webkit-transform: translateX(0); } }
+@-moz-keyframes fadeInLeft { 0% { opacity: 0; -moz-transform: translateX(-20px); }
+  100% { opacity: 1; -moz-transform: translateX(0); } }
+@-ms-keyframes fadeInLeft { 0% { opacity: 0; -ms-transform: translateX(-20px); }
+  100% { opacity: 1; -ms-transform: translateX(0); } }
+@-o-keyframes fadeInLeft { 0% { opacity: 0; -o-transform: translateX(-20px); }
+  100% { opacity: 1; -o-transform: translateX(0); } }
+@keyframes fadeInLeft { 0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); } }
+@-webkit-keyframes fadeInLeftBig { 0% { opacity: 0; -webkit-transform: translateX(-2000px); }
+  100% { opacity: 1; -webkit-transform: translateX(0); } }
+@-moz-keyframes fadeInLeftBig { 0% { opacity: 0; -moz-transform: translateX(-2000px); }
+  100% { opacity: 1; -moz-transform: translateX(0); } }
+@-ms-keyframes fadeInLeftBig { 0% { opacity: 0; -ms-transform: translateX(-2000px); }
+  100% { opacity: 1; -ms-transform: translateX(0); } }
+@-o-keyframes fadeInLeftBig { 0% { opacity: 0; -o-transform: translateX(-2000px); }
+  100% { opacity: 1; -o-transform: translateX(0); } }
+@keyframes fadeInLeftBig { 0% { opacity: 0; transform: translateX(-2000px); }
+  100% { opacity: 1; transform: translateX(0); } }
+@-webkit-keyframes fadeInRight { 0% { opacity: 0; -webkit-transform: translateX(20px); }
+  100% { opacity: 1; -webkit-transform: translateX(0); } }
+@-moz-keyframes fadeInRight { 0% { opacity: 0; -moz-transform: translateX(20px); }
+  100% { opacity: 1; -moz-transform: translateX(0); } }
+@-ms-keyframes fadeInRight { 0% { opacity: 0; -ms-transform: translateX(20px); }
+  100% { opacity: 1; -ms-transform: translateX(0); } }
+@-o-keyframes fadeInRight { 0% { opacity: 0; -o-transform: translateX(20px); }
+  100% { opacity: 1; -o-transform: translateX(0); } }
+@keyframes fadeInRight { 0% { opacity: 0; transform: translateX(20px); }
+  100% { opacity: 1; transform: translateX(0); } }
+@-webkit-keyframes fadeInRightBig { 0% { opacity: 0; -webkit-transform: translateX(2000px); }
+  100% { opacity: 1; -webkit-transform: translateX(0); } }
+@-moz-keyframes fadeInRightBig { 0% { opacity: 0; -moz-transform: translateX(2000px); }
+  100% { opacity: 1; -moz-transform: translateX(0); } }
+@-ms-keyframes fadeInRightBig { 0% { opacity: 0; -ms-transform: translateX(2000px); }
+  100% { opacity: 1; -ms-transform: translateX(0); } }
+@-o-keyframes fadeInRightBig { 0% { opacity: 0; -o-transform: translateX(2000px); }
+  100% { opacity: 1; -o-transform: translateX(0); } }
+@keyframes fadeInRightBig { 0% { opacity: 0; transform: translateX(2000px); }
+  100% { opacity: 1; transform: translateX(0); } }
+@-webkit-keyframes fadeInUp { 0% { opacity: 0; -webkit-transform: translateY(20px); }
+  100% { opacity: 1; -webkit-transform: translateY(0); } }
+@-moz-keyframes fadeInUp { 0% { opacity: 0; -moz-transform: translateY(20px); }
+  100% { opacity: 1; -moz-transform: translateY(0); } }
+@-ms-keyframes fadeInUp { 0% { opacity: 0; -ms-transform: translateY(20px); }
+  100% { opacity: 1; -ms-transform: translateY(0); } }
+@-o-keyframes fadeInUp { 0% { opacity: 0; -o-transform: translateY(20px); }
+  100% { opacity: 1; -o-transform: translateY(0); } }
+@keyframes fadeInUp { 0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); } }
+@-webkit-keyframes fadeInUpBig { 0% { opacity: 0; -webkit-transform: translateY(2000px); }
+  100% { opacity: 1; -webkit-transform: translateY(0); } }
+@-moz-keyframes fadeInUpBig { 0% { opacity: 0; -moz-transform: translateY(2000px); }
+  100% { opacity: 1; -moz-transform: translateY(0); } }
+@-ms-keyframes fadeInUpBig { 0% { opacity: 0; -ms-transform: translateY(2000px); }
+  100% { opacity: 1; -ms-transform: translateY(0); } }
+@-o-keyframes fadeInUpBig { 0% { opacity: 0; -o-transform: translateY(2000px); }
+  100% { opacity: 1; -o-transform: translateY(0); } }
+@keyframes fadeInUpBig { 0% { opacity: 0; transform: translateY(2000px); }
+  100% { opacity: 1; transform: translateY(0); } }
+/*! @license
+*
+* Buttons
+* Copyright 2012-2014 Alex Wolfe and Rob Levin
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*        http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+/*
+* Compass (optional)
+*
+* We recommend the use of autoprefixer instead of Compass
+* when using buttons. However, buttons does support Compass.
+* simply change $ubtn-use-compass to true and uncomment the
+* @import 'compass' code below to use Compass.
+*/
+/*
+* Required Files
+*
+* These files include the variables and options
+* and base css styles that are required to generate buttons.
+*/
+/*
+* $ubtn prefix (reserved)
+*
+* This prefix stands for Unicorn Button - ubtn
+* We provide a prefix to the Sass Variables to
+* prevent namespace collisions that could occur if
+* you import buttons as part of your Sass build process.
+* We kindly ask you not to use the prefix $ubtn in your project
+* in order to avoid possilbe name conflicts. Thanks!
+*/
+/*
+* Button Namespace (ex .button or .btn)
+*
+*/
+/*
+* Button Defaults
+*
+* Some default settings that are used throughout the button library.
+* Changes to these settings will be picked up by all of the other modules.
+* The colors used here are the default colors for the base button (gray).
+* The font size and height are used to set the base size for the buttons.
+* The size values will be used to calculate the larger and smaller button sizes.
+*/
+/*
+* Button Colors
+*
+* $ubtn-colors is used to generate the different button colors.
+* Edit or add colors to the list below and recompile.
+* Each block contains the (name, background, color)
+* The class is generated using the name: (ex .button-primary)
+*/
+/*
+* Button Shapes
+*
+* $ubtn-shapes is used to generate the different button shapes.
+* Edit or add shapes to the list below and recompile.
+* Each block contains the (name, border-radius).
+* The class is generated using the name: (ex .button-square).
+*/
+/*
+* Button Sizes
+*
+* $ubtn-sizes is used to generate the different button sizes.
+* Edit or add colors to the list below and recompile.
+* Each block contains the (name, size multiplier).
+* The class is generated using the name: (ex .button-giant).
+*/
+/*
+* Color Mixin
+*
+* Iterates through the list of colors and creates
+*
+*/
+/*
+* No Animation
+*
+* Sets animation property to none
+*/
+/*
+* Clearfix
+*
+* Clears floats inside the container
+*/
+/*
+* Base Button Style
+*
+* The default values for the .button class
+*/
+.button { color: #666; background-color: #EEE; border-color: #EEE; font-weight: 300; font-size: 16px; font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; text-decoration: none; text-align: center; line-height: 40px; height: 40px; padding: 0 40px; margin: 0; display: inline-block; appearance: none; cursor: pointer; border: none; box-sizing: border-box; transition-property: all; transition-duration: .3s; /*
+* Disabled State
+*
+* The disabled state uses the class .disabled, is-disabled,
+* and the form attribute disabled="disabled".
+* The use of !important is only added because this is a state
+* that must be applied to all buttons when in a disabled state.
+*/ }
+.button:visited { color: #666; }
+.button:hover, .button:focus { background-color: #f6f6f6; text-decoration: none; outline: none; }
+.button:active, .button.active, .button.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3); text-decoration: none; background-color: #eeeeee; border-color: #cfcfcf; color: #d5d5d5; transition-duration: 0s; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); }
+.button.disabled, .button.is-disabled, .button:disabled { top: 0 !important; background: #EEE !important; border: 1px solid #DDD !important; text-shadow: 0 1px 1px white !important; color: #CCC !important; cursor: default !important; appearance: none !important; }
+.button.disabled else, .button.is-disabled else, .button:disabled else { box-shadow: none !important; opacity: .8 !important; }
+
+/*
+* Base Button Tyography
+*
+*/
+.button-uppercase { text-transform: uppercase; }
+
+.button-lowercase { text-transform: lowercase; }
+
+.button-capitalize { text-transform: capitalize; }
+
+.button-small-caps { font-variant: small-caps; }
+
+.button-icon-txt-large { font-size: 36px !important; }
+
+/*
+* Base padding
+*
+*/
+.button-width-small { padding: 0 10px !important; }
+
+/*
+* Base Colors
+*
+* Create colors for buttons
+* (.button-primary, .button-secondary, etc.)
+*/
+.button-primary, .button-primary-flat { background-color: #779ecb; border-color: #779ecb; color: #FFF; }
+.button-primary:visited, .button-primary-flat:visited { color: #FFF; }
+.button-primary:hover, .button-primary:focus, .button-primary-flat:hover, .button-primary-flat:focus { background-color: #9cb8d9; border-color: #9cb8d9; color: #FFF; }
+.button-primary:active, .button-primary.active, .button-primary.is-active, .button-primary-flat:active, .button-primary-flat.active, .button-primary-flat.is-active { background-color: #809fc2; border-color: #809fc2; color: #5284bd; }
+
+.button-plain, .button-plain-flat { background-color: #FFF; border-color: #FFF; color: #1B9AF7; }
+.button-plain:visited, .button-plain-flat:visited { color: #1B9AF7; }
+.button-plain:hover, .button-plain:focus, .button-plain-flat:hover, .button-plain-flat:focus { background-color: white; border-color: white; color: #1B9AF7; }
+.button-plain:active, .button-plain.active, .button-plain.is-active, .button-plain-flat:active, .button-plain-flat.active, .button-plain-flat.is-active { background-color: white; border-color: white; color: #e6e6e6; }
+
+.button-inverse, .button-inverse-flat { background-color: #779ecb; border-color: #779ecb; color: #314154; }
+.button-inverse:visited, .button-inverse-flat:visited { color: #314154; }
+.button-inverse:hover, .button-inverse:focus, .button-inverse-flat:hover, .button-inverse-flat:focus { background-color: #9cb8d9; border-color: #9cb8d9; color: #314154; }
+.button-inverse:active, .button-inverse.active, .button-inverse.is-active, .button-inverse-flat:active, .button-inverse-flat.active, .button-inverse-flat.is-active { background-color: #809fc2; border-color: #809fc2; color: #5284bd; }
+
+.button-action, .button-action-flat { background-color: #77dd77; border-color: #77dd77; color: #FFF; }
+.button-action:visited, .button-action-flat:visited { color: #FFF; }
+.button-action:hover, .button-action:focus, .button-action-flat:hover, .button-action-flat:focus { background-color: #a0e7a0; border-color: #a0e7a0; color: #FFF; }
+.button-action:active, .button-action.active, .button-action.is-active, .button-action-flat:active, .button-action-flat.active, .button-action-flat.is-active { background-color: #80d580; border-color: #80d580; color: #4ed34e; }
+
+.button-highlight, .button-highlight-flat { background-color: #FEAE1B; border-color: #FEAE1B; color: #FFF; }
+.button-highlight:visited, .button-highlight-flat:visited { color: #FFF; }
+.button-highlight:hover, .button-highlight:focus, .button-highlight-flat:hover, .button-highlight-flat:focus { background-color: #fec04e; border-color: #fec04e; color: #FFF; }
+.button-highlight:active, .button-highlight.active, .button-highlight.is-active, .button-highlight-flat:active, .button-highlight-flat.active, .button-highlight-flat.is-active { background-color: #f3ab26; border-color: #f3ab26; color: #e59501; }
+
+.button-caution, .button-caution-flat { background-color: #ff6961; border-color: #ff6961; color: #FFF; }
+.button-caution:visited, .button-caution-flat:visited { color: #FFF; }
+.button-caution:hover, .button-caution:focus, .button-caution-flat:hover, .button-caution-flat:focus { background-color: #ff9994; border-color: #ff9994; color: #FFF; }
+.button-caution:active, .button-caution.active, .button-caution.is-active, .button-caution-flat:active, .button-caution-flat.active, .button-caution-flat.is-active { background-color: #f77069; border-color: #f77069; color: #ff392e; }
+
+.button-royal, .button-royal-flat { background-color: #8780d1; border-color: #8780d1; color: #FFF; }
+.button-royal:visited, .button-royal-flat:visited { color: #FFF; }
+.button-royal:hover, .button-royal:focus, .button-royal-flat:hover, .button-royal-flat:focus { background-color: #aaa5df; border-color: #aaa5df; color: #FFF; }
+.button-royal:active, .button-royal.active, .button-royal.is-active, .button-royal-flat:active, .button-royal-flat.active, .button-royal-flat.is-active { background-color: #8e89c8; border-color: #8e89c8; color: #645bc3; }
+
+/*
+* Base Layout Styles
+*
+* Very Miminal Layout Styles
+*/
+.button-block, .button-stacked { display: block; }
+
+/*
+* Button Types (optional)
+*
+* All of the files below represent the various button
+* types (including shapes & sizes). None of these files
+* are required. Simple remove the uneeded type below and
+* the button type will be excluded from the final build
+*/
+/*
+* Button Shapes
+*
+* This file creates the various button shapes
+* (ex. Circle, Rounded, Pill)
+*/
+.button-square { border-radius: 0; }
+
+.button-box { border-radius: 10px; }
+
+.button-rounded { border-radius: 4px; }
+
+.button-pill { border-radius: 200px; }
+
+.button-circle { border-radius: 100%; }
+
+/*
+* Size Adjustment for equal height & widht buttons
+*
+* Remove padding and set a fixed width.
+*/
+.button-circle, .button-box, .button-square { padding: 0 !important; width: 40px; }
+.button-circle.button-giant, .button-box.button-giant, .button-square.button-giant { width: 70px; }
+.button-circle.button-jumbo, .button-box.button-jumbo, .button-square.button-jumbo { width: 60px; }
+.button-circle.button-large, .button-box.button-large, .button-square.button-large { width: 50px; }
+.button-circle.button-normal, .button-box.button-normal, .button-square.button-normal { width: 40px; }
+.button-circle.button-small, .button-box.button-small, .button-square.button-small { width: 30px; }
+.button-circle.button-tiny, .button-box.button-tiny, .button-square.button-tiny { width: 24px; }
+
+/*
+* Border Buttons
+*
+* These buttons have no fill they only have a
+* border to define their hit target.
+*/
+.button-border, .button-border-thin, .button-border-thick { background: none; border-width: 2px; border-style: solid; line-height: 36px; }
+.button-border:hover, .button-border-thin:hover, .button-border-thick:hover { background-color: rgba(255, 255, 255, 0.9); }
+.button-border:active, .button-border-thin:active, .button-border-thick:active, .button-border.active, .active.button-border-thin, .active.button-border-thick, .button-border.is-active, .is-active.button-border-thin, .is-active.button-border-thick { box-shadow: none; text-shadow: none; transition-property: all; transition-duration: .3s; }
+
+/*
+* Border Optional Sizes
+*
+* A slight variation in border thickness
+*/
+.button-border-thin { border-width: 1px; }
+
+.button-border-thick { border-width: 3px; }
+
+/*
+* Border Button Colors
+*
+* Create colors for buttons
+* (.button-primary, .button-secondary, etc.)
+*/
+.button-border, .button-border-thin, .button-border-thick, .button-border-thin, .button-border-thick { /*
+* Border Button Size Adjustment
+*
+* The line-height must be adjusted to compinsate for
+* the width of the border.
+*/ }
+.button-border.button-primary, .button-primary.button-border-thin, .button-primary.button-border-thick, .button-border-thin.button-primary, .button-border-thick.button-primary { color: #779ecb; }
+.button-border.button-primary:hover, .button-primary.button-border-thin:hover, .button-primary.button-border-thick:hover, .button-border.button-primary:focus, .button-primary.button-border-thin:focus, .button-primary.button-border-thick:focus, .button-border-thin.button-primary:hover, .button-border-thin.button-primary:focus, .button-border-thick.button-primary:hover, .button-border-thick.button-primary:focus { background-color: rgba(156, 184, 217, 0.9); color: rgba(255, 255, 255, 0.9); }
+.button-border.button-primary:active, .button-primary.button-border-thin:active, .button-primary.button-border-thick:active, .button-border.button-primary.active, .button-primary.active.button-border-thin, .button-primary.active.button-border-thick, .button-border.button-primary.is-active, .button-primary.is-active.button-border-thin, .button-primary.is-active.button-border-thick, .button-border-thin.button-primary:active, .button-border-thin.button-primary.active, .button-border-thin.button-primary.is-active, .button-border-thick.button-primary:active, .button-border-thick.button-primary.active, .button-border-thick.button-primary.is-active { background-color: rgba(128, 159, 194, 0.7); color: rgba(255, 255, 255, 0.5); opacity: .3; }
+.button-border.button-plain, .button-plain.button-border-thin, .button-plain.button-border-thick, .button-border-thin.button-plain, .button-border-thick.button-plain { color: #FFF; }
+.button-border.button-plain:hover, .button-plain.button-border-thin:hover, .button-plain.button-border-thick:hover, .button-border.button-plain:focus, .button-plain.button-border-thin:focus, .button-plain.button-border-thick:focus, .button-border-thin.button-plain:hover, .button-border-thin.button-plain:focus, .button-border-thick.button-plain:hover, .button-border-thick.button-plain:focus { background-color: rgba(255, 255, 255, 0.9); color: rgba(27, 154, 247, 0.9); }
+.button-border.button-plain:active, .button-plain.button-border-thin:active, .button-plain.button-border-thick:active, .button-border.button-plain.active, .button-plain.active.button-border-thin, .button-plain.active.button-border-thick, .button-border.button-plain.is-active, .button-plain.is-active.button-border-thin, .button-plain.is-active.button-border-thick, .button-border-thin.button-plain:active, .button-border-thin.button-plain.active, .button-border-thin.button-plain.is-active, .button-border-thick.button-plain:active, .button-border-thick.button-plain.active, .button-border-thick.button-plain.is-active { background-color: rgba(255, 255, 255, 0.7); color: rgba(27, 154, 247, 0.5); opacity: .3; }
+.button-border.button-inverse, .button-inverse.button-border-thin, .button-inverse.button-border-thick, .button-border-thin.button-inverse, .button-border-thick.button-inverse { color: #779ecb; }
+.button-border.button-inverse:hover, .button-inverse.button-border-thin:hover, .button-inverse.button-border-thick:hover, .button-border.button-inverse:focus, .button-inverse.button-border-thin:focus, .button-inverse.button-border-thick:focus, .button-border-thin.button-inverse:hover, .button-border-thin.button-inverse:focus, .button-border-thick.button-inverse:hover, .button-border-thick.button-inverse:focus { background-color: rgba(156, 184, 217, 0.9); color: rgba(49, 65, 84, 0.9); }
+.button-border.button-inverse:active, .button-inverse.button-border-thin:active, .button-inverse.button-border-thick:active, .button-border.button-inverse.active, .button-inverse.active.button-border-thin, .button-inverse.active.button-border-thick, .button-border.button-inverse.is-active, .button-inverse.is-active.button-border-thin, .button-inverse.is-active.button-border-thick, .button-border-thin.button-inverse:active, .button-border-thin.button-inverse.active, .button-border-thin.button-inverse.is-active, .button-border-thick.button-inverse:active, .button-border-thick.button-inverse.active, .button-border-thick.button-inverse.is-active { background-color: rgba(128, 159, 194, 0.7); color: rgba(49, 65, 84, 0.5); opacity: .3; }
+.button-border.button-action, .button-action.button-border-thin, .button-action.button-border-thick, .button-border-thin.button-action, .button-border-thick.button-action { color: #77dd77; }
+.button-border.button-action:hover, .button-action.button-border-thin:hover, .button-action.button-border-thick:hover, .button-border.button-action:focus, .button-action.button-border-thin:focus, .button-action.button-border-thick:focus, .button-border-thin.button-action:hover, .button-border-thin.button-action:focus, .button-border-thick.button-action:hover, .button-border-thick.button-action:focus { background-color: rgba(160, 231, 160, 0.9); color: rgba(255, 255, 255, 0.9); }
+.button-border.button-action:active, .button-action.button-border-thin:active, .button-action.button-border-thick:active, .button-border.button-action.active, .button-action.active.button-border-thin, .button-action.active.button-border-thick, .button-border.button-action.is-active, .button-action.is-active.button-border-thin, .button-action.is-active.button-border-thick, .button-border-thin.button-action:active, .button-border-thin.button-action.active, .button-border-thin.button-action.is-active, .button-border-thick.button-action:active, .button-border-thick.button-action.active, .button-border-thick.button-action.is-active { background-color: rgba(128, 213, 128, 0.7); color: rgba(255, 255, 255, 0.5); opacity: .3; }
+.button-border.button-highlight, .button-highlight.button-border-thin, .button-highlight.button-border-thick, .button-border-thin.button-highlight, .button-border-thick.button-highlight { color: #FEAE1B; }
+.button-border.button-highlight:hover, .button-highlight.button-border-thin:hover, .button-highlight.button-border-thick:hover, .button-border.button-highlight:focus, .button-highlight.button-border-thin:focus, .button-highlight.button-border-thick:focus, .button-border-thin.button-highlight:hover, .button-border-thin.button-highlight:focus, .button-border-thick.button-highlight:hover, .button-border-thick.button-highlight:focus { background-color: rgba(254, 192, 78, 0.9); color: rgba(255, 255, 255, 0.9); }
+.button-border.button-highlight:active, .button-highlight.button-border-thin:active, .button-highlight.button-border-thick:active, .button-border.button-highlight.active, .button-highlight.active.button-border-thin, .button-highlight.active.button-border-thick, .button-border.button-highlight.is-active, .button-highlight.is-active.button-border-thin, .button-highlight.is-active.button-border-thick, .button-border-thin.button-highlight:active, .button-border-thin.button-highlight.active, .button-border-thin.button-highlight.is-active, .button-border-thick.button-highlight:active, .button-border-thick.button-highlight.active, .button-border-thick.button-highlight.is-active { background-color: rgba(243, 171, 38, 0.7); color: rgba(255, 255, 255, 0.5); opacity: .3; }
+.button-border.button-caution, .button-caution.button-border-thin, .button-caution.button-border-thick, .button-border-thin.button-caution, .button-border-thick.button-caution { color: #ff6961; }
+.button-border.button-caution:hover, .button-caution.button-border-thin:hover, .button-caution.button-border-thick:hover, .button-border.button-caution:focus, .button-caution.button-border-thin:focus, .button-caution.button-border-thick:focus, .button-border-thin.button-caution:hover, .button-border-thin.button-caution:focus, .button-border-thick.button-caution:hover, .button-border-thick.button-caution:focus { background-color: rgba(255, 153, 148, 0.9); color: rgba(255, 255, 255, 0.9); }
+.button-border.button-caution:active, .button-caution.button-border-thin:active, .button-caution.button-border-thick:active, .button-border.button-caution.active, .button-caution.active.button-border-thin, .button-caution.active.button-border-thick, .button-border.button-caution.is-active, .button-caution.is-active.button-border-thin, .button-caution.is-active.button-border-thick, .button-border-thin.button-caution:active, .button-border-thin.button-caution.active, .button-border-thin.button-caution.is-active, .button-border-thick.button-caution:active, .button-border-thick.button-caution.active, .button-border-thick.button-caution.is-active { background-color: rgba(247, 112, 105, 0.7); color: rgba(255, 255, 255, 0.5); opacity: .3; }
+.button-border.button-royal, .button-royal.button-border-thin, .button-royal.button-border-thick, .button-border-thin.button-royal, .button-border-thick.button-royal { color: #8780d1; }
+.button-border.button-royal:hover, .button-royal.button-border-thin:hover, .button-royal.button-border-thick:hover, .button-border.button-royal:focus, .button-royal.button-border-thin:focus, .button-royal.button-border-thick:focus, .button-border-thin.button-royal:hover, .button-border-thin.button-royal:focus, .button-border-thick.button-royal:hover, .button-border-thick.button-royal:focus { background-color: rgba(170, 165, 223, 0.9); color: rgba(255, 255, 255, 0.9); }
+.button-border.button-royal:active, .button-royal.button-border-thin:active, .button-royal.button-border-thick:active, .button-border.button-royal.active, .button-royal.active.button-border-thin, .button-royal.active.button-border-thick, .button-border.button-royal.is-active, .button-royal.is-active.button-border-thin, .button-royal.is-active.button-border-thick, .button-border-thin.button-royal:active, .button-border-thin.button-royal.active, .button-border-thin.button-royal.is-active, .button-border-thick.button-royal:active, .button-border-thick.button-royal.active, .button-border-thick.button-royal.is-active { background-color: rgba(142, 137, 200, 0.7); color: rgba(255, 255, 255, 0.5); opacity: .3; }
+.button-border.button-giant, .button-giant.button-border-thin, .button-giant.button-border-thick, .button-border-thin.button-giant, .button-border-thick.button-giant { line-height: 66px; }
+.button-border.button-jumbo, .button-jumbo.button-border-thin, .button-jumbo.button-border-thick, .button-border-thin.button-jumbo, .button-border-thick.button-jumbo { line-height: 56px; }
+.button-border.button-large, .button-large.button-border-thin, .button-large.button-border-thick, .button-border-thin.button-large, .button-border-thick.button-large { line-height: 46px; }
+.button-border.button-normal, .button-normal.button-border-thin, .button-normal.button-border-thick, .button-border-thin.button-normal, .button-border-thick.button-normal { line-height: 36px; }
+.button-border.button-small, .button-small.button-border-thin, .button-small.button-border-thick, .button-border-thin.button-small, .button-border-thick.button-small { line-height: 26px; }
+.button-border.button-tiny, .button-tiny.button-border-thin, .button-tiny.button-border-thick, .button-border-thin.button-tiny, .button-border-thick.button-tiny { line-height: 20px; }
+
+/*
+* Border Buttons
+*
+* These buttons have no fill they only have a
+* border to define their hit target.
+*/
+.button-borderless { background: none; border: none; padding: 0 8px !important; color: #EEE; font-size: 20.8px; font-weight: 200; /*
+* Borderless Button Colors
+*
+* Create colors for buttons
+* (.button-primary, .button-secondary, etc.)
+*/ /*
+* Borderles Size Adjustment
+*
+* The font-size must be large to compinsate for
+* the lack of a hit target.
+*/ }
+.button-borderless:hover, .button-borderless:focus { background: none; }
+.button-borderless:active, .button-borderless.active, .button-borderless.is-active { box-shadow: none; text-shadow: none; transition-property: all; transition-duration: .3s; opacity: .3; }
+.button-borderless.button-primary { color: #779ecb; }
+.button-borderless.button-plain { color: #FFF; }
+.button-borderless.button-inverse { color: #779ecb; }
+.button-borderless.button-action { color: #77dd77; }
+.button-borderless.button-highlight { color: #FEAE1B; }
+.button-borderless.button-caution { color: #ff6961; }
+.button-borderless.button-royal { color: #8780d1; }
+.button-borderless.button-giant { font-size: 36.4px; height: 52.4px; line-height: 52.4px; }
+.button-borderless.button-jumbo { font-size: 31.2px; height: 47.2px; line-height: 47.2px; }
+.button-borderless.button-large { font-size: 26px; height: 42px; line-height: 42px; }
+.button-borderless.button-normal { font-size: 20.8px; height: 36.8px; line-height: 36.8px; }
+.button-borderless.button-small { font-size: 15.6px; height: 31.6px; line-height: 31.6px; }
+.button-borderless.button-tiny { font-size: 12.48px; height: 28.48px; line-height: 28.48px; }
+
+/*
+* Raised Buttons
+*
+* A classic looking button that offers
+* great depth and affordance.
+*/
+.button-raised { border-color: #e1e1e1; border-style: solid; border-width: 1px; line-height: 38px; background: linear-gradient(#f6f6f6, #e1e1e1); box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.15); }
+.button-raised:hover, .button-raised:focus { background: linear-gradient(top, white, gainsboro); }
+.button-raised:active, .button-raised.active, .button-raised.is-active { background: #eeeeee; box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2), 0px 1px 0px white; }
+
+/*
+* Raised Button Colors
+*
+* Create colors for raised buttons
+*/
+.button-raised.button-primary { border-color: #6591c4; background: linear-gradient(#89abd2, #6591c4); }
+.button-raised.button-primary:hover, .button-raised.button-primary:focus { background: linear-gradient(top, #95b3d6, #5d8cc1); }
+.button-raised.button-primary:active, .button-raised.button-primary.active, .button-raised.button-primary.is-active { border-color: #5284bd; background: #809fc2; }
+.button-raised.button-plain { border-color: #f2f2f2; background: linear-gradient(white, #f2f2f2); }
+.button-raised.button-plain:hover, .button-raised.button-plain:focus { background: linear-gradient(top, white, #ededed); }
+.button-raised.button-plain:active, .button-raised.button-plain.active, .button-raised.button-plain.is-active { border-color: #e6e6e6; background: white; }
+.button-raised.button-inverse { border-color: #6591c4; background: linear-gradient(#89abd2, #6591c4); }
+.button-raised.button-inverse:hover, .button-raised.button-inverse:focus { background: linear-gradient(top, #95b3d6, #5d8cc1); }
+.button-raised.button-inverse:active, .button-raised.button-inverse.active, .button-raised.button-inverse.is-active { border-color: #5284bd; background: #809fc2; }
+.button-raised.button-action { border-color: #63d863; background: linear-gradient(#8be28b, #63d863); }
+.button-raised.button-action:hover, .button-raised.button-action:focus { background: linear-gradient(top, #98e598, #5ad65a); }
+.button-raised.button-action:active, .button-raised.button-action.active, .button-raised.button-action.is-active { border-color: #4ed34e; background: #80d580; }
+.button-raised.button-highlight { border-color: #fea502; background: linear-gradient(#feb734, #fea502); }
+.button-raised.button-highlight:hover, .button-raised.button-highlight:focus { background: linear-gradient(top, #febc44, #f49f01); }
+.button-raised.button-highlight:active, .button-raised.button-highlight.active, .button-raised.button-highlight.is-active { border-color: #e59501; background: #f3ab26; }
+.button-raised.button-caution { border-color: #ff5148; background: linear-gradient(#ff817b, #ff5148); }
+.button-raised.button-caution:hover, .button-raised.button-caution:focus { background: linear-gradient(top, #ff908a, #ff473d); }
+.button-raised.button-caution:active, .button-raised.button-caution.active, .button-raised.button-caution.is-active { border-color: #ff392e; background: #f77069; }
+.button-raised.button-royal { border-color: #756dca; background: linear-gradient(#9993d8, #756dca); }
+.button-raised.button-royal:hover, .button-raised.button-royal:focus { background: linear-gradient(top, #a39edc, #6e66c8); }
+.button-raised.button-royal:active, .button-raised.button-royal.active, .button-raised.button-royal.is-active { border-color: #645bc3; background: #8e89c8; }
+
+/*
+* 3D Buttons
+*
+* These buttons have a heavy three dimensional
+* style that mimics the visual appearance of a
+* real life button.
+*/
+.button-3d { position: relative; top: 0; box-shadow: 0 7px 0 #bbbbbb, 0 8px 3px rgba(0, 0, 0, 0.2); }
+.button-3d:hover, .button-3d:focus { box-shadow: 0 7px 0 #bbbbbb, 0 8px 3px rgba(0, 0, 0, 0.2); }
+.button-3d:active, .button-3d.active, .button-3d.is-active { top: 5px; transition-property: all; transition-duration: .15s; box-shadow: 0 2px 0 #bbbbbb, 0 3px 3px rgba(0, 0, 0, 0.2); }
+
+/*
+* 3D Button Colors
+*
+* Create colors for buttons
+* (.button-primary, .button-secondary, etc.)
+*/
+.button-3d.button-primary { box-shadow: 0 7px 0 #5284bd, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-primary:hover, .button-3d.button-primary:focus { box-shadow: 0 7px 0 #4b7eba, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-primary:active, .button-3d.button-primary.active, .button-3d.button-primary.is-active { box-shadow: 0 2px 0 #3d6a9f, 0 3px 3px rgba(0, 0, 0, 0.2); }
+.button-3d.button-plain { box-shadow: 0 7px 0 #e6e6e6, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-plain:hover, .button-3d.button-plain:focus { box-shadow: 0 7px 0 #e0e0e0, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-plain:active, .button-3d.button-plain.active, .button-3d.button-plain.is-active { box-shadow: 0 2px 0 #cccccc, 0 3px 3px rgba(0, 0, 0, 0.2); }
+.button-3d.button-inverse { box-shadow: 0 7px 0 #5284bd, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-inverse:hover, .button-3d.button-inverse:focus { box-shadow: 0 7px 0 #4b7eba, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-inverse:active, .button-3d.button-inverse.active, .button-3d.button-inverse.is-active { box-shadow: 0 2px 0 #3d6a9f, 0 3px 3px rgba(0, 0, 0, 0.2); }
+.button-3d.button-action { box-shadow: 0 7px 0 #4ed34e, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-action:hover, .button-3d.button-action:focus { box-shadow: 0 7px 0 #46d146, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-action:active, .button-3d.button-action.active, .button-3d.button-action.is-active { box-shadow: 0 2px 0 #30be30, 0 3px 3px rgba(0, 0, 0, 0.2); }
+.button-3d.button-highlight { box-shadow: 0 7px 0 #e59501, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-highlight:hover, .button-3d.button-highlight:focus { box-shadow: 0 7px 0 #db8e01, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-highlight:active, .button-3d.button-highlight.active, .button-3d.button-highlight.is-active { box-shadow: 0 2px 0 #b27401, 0 3px 3px rgba(0, 0, 0, 0.2); }
+.button-3d.button-caution { box-shadow: 0 7px 0 #ff392e, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-caution:hover, .button-3d.button-caution:focus { box-shadow: 0 7px 0 #ff2f24, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-caution:active, .button-3d.button-caution.active, .button-3d.button-caution.is-active { box-shadow: 0 2px 0 #fa0d00, 0 3px 3px rgba(0, 0, 0, 0.2); }
+.button-3d.button-royal { box-shadow: 0 7px 0 #645bc3, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-royal:hover, .button-3d.button-royal:focus { box-shadow: 0 7px 0 #5d53c1, 0 8px 3px rgba(0, 0, 0, 0.3); }
+.button-3d.button-royal:active, .button-3d.button-royal.active, .button-3d.button-royal.is-active { box-shadow: 0 2px 0 #483ead, 0 3px 3px rgba(0, 0, 0, 0.2); }
+
+/*
+* Glowing Buttons
+*
+* A pulse like glow that appears
+* rythmically around the edges of
+* a button.
+*/
+/*
+* Glow animation mixin for Compass users
+*
+*/
+/*
+* Glowing Keyframes
+*
+*/
+@keyframes glowing { from { box-shadow: 0 0 0 rgba(44, 154, 219, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(44, 154, 219, 0.8); }
+  to { box-shadow: 0 0 0 rgba(44, 154, 219, 0.3); } }
+/*
+* Glowing Keyframes for various colors
+*
+*/
+@keyframes glowing-primary { from { box-shadow: 0 0 0 rgba(119, 158, 203, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(119, 158, 203, 0.8); }
+  to { box-shadow: 0 0 0 rgba(119, 158, 203, 0.3); } }
+@keyframes glowing-plain { from { box-shadow: 0 0 0 rgba(255, 255, 255, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+  to { box-shadow: 0 0 0 rgba(255, 255, 255, 0.3); } }
+@keyframes glowing-inverse { from { box-shadow: 0 0 0 rgba(119, 158, 203, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(119, 158, 203, 0.8); }
+  to { box-shadow: 0 0 0 rgba(119, 158, 203, 0.3); } }
+@keyframes glowing-action { from { box-shadow: 0 0 0 rgba(119, 221, 119, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(119, 221, 119, 0.8); }
+  to { box-shadow: 0 0 0 rgba(119, 221, 119, 0.3); } }
+@keyframes glowing-highlight { from { box-shadow: 0 0 0 rgba(254, 174, 27, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(254, 174, 27, 0.8); }
+  to { box-shadow: 0 0 0 rgba(254, 174, 27, 0.3); } }
+@keyframes glowing-caution { from { box-shadow: 0 0 0 rgba(255, 105, 97, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(255, 105, 97, 0.8); }
+  to { box-shadow: 0 0 0 rgba(255, 105, 97, 0.3); } }
+@keyframes glowing-royal { from { box-shadow: 0 0 0 rgba(135, 128, 209, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(135, 128, 209, 0.8); }
+  to { box-shadow: 0 0 0 rgba(135, 128, 209, 0.3); } }
+/*
+* Glowing Buttons Base Styes
+*
+* A pulse like glow that appears
+* rythmically around the edges of
+* a button.
+*/
+.button-glow { animation-duration: 3s; animation-iteration-count: infinite; animation-name: glowing; }
+.button-glow:active, .button-glow.active, .button-glow.is-active { animation-name: none; }
+
+/*
+* Glowing Button Colors
+*
+* Create colors for glowing buttons
+*/
+.button-glow.button-primary { animation-name: glowing-primary; }
+.button-glow.button-plain { animation-name: glowing-plain; }
+.button-glow.button-inverse { animation-name: glowing-inverse; }
+.button-glow.button-action { animation-name: glowing-action; }
+.button-glow.button-highlight { animation-name: glowing-highlight; }
+.button-glow.button-caution { animation-name: glowing-caution; }
+.button-glow.button-royal { animation-name: glowing-royal; }
+
+/*
+* Dropdown menu buttons
+*
+* A dropdown menu appears
+* when a button is pressed
+*/
+/*
+* Dropdown Container
+*
+*/
+.button-dropdown { position: relative; overflow: visible; display: inline-block; }
+
+/*
+* Dropdown List Style
+*
+*/
+.button-dropdown-list { display: none; position: absolute; padding: 0; margin: 0; top: 0; left: 0; z-index: 1000; min-width: 100%; list-style-type: none; background: rgba(255, 255, 255, 0.95); border-style: solid; border-width: 1px; border-color: #d5d5d5; font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; box-shadow: 0 2px 7px rgba(0, 0, 0, 0.2); border-radius: 3px; box-sizing: border-box; /*
+* Dropdown Below
+*
+*/ /*
+* Dropdown Above
+*
+*/ }
+.button-dropdown-list.is-below { top: 100%; border-top: none; border-radius: 0 0 3px 3px; }
+.button-dropdown-list.is-above { bottom: 100%; top: auto; border-bottom: none; border-radius: 3px 3px 0 0; box-shadow: 0 -2px 7px rgba(0, 0, 0, 0.2); }
+
+/*
+* Dropdown Buttons
+*
+*/
+.button-dropdown-list > li { padding: 0; margin: 0; display: block; }
+.button-dropdown-list > li > a { display: block; line-height: 40px; font-size: 12.8px; padding: 5px 10px; float: none; color: #666; text-decoration: none; }
+.button-dropdown-list > li > a:hover { color: #5e5e5e; background: #f6f6f6; text-decoration: none; }
+
+.button-dropdown-divider { border-top: 1px solid #e6e6e6; }
+
+/*
+* Dropdown Colors
+*
+* Create colors for buttons
+* (.button-primary, .button-secondary, etc.)
+*/
+.button-dropdown.button-dropdown-primary .button-dropdown-list { background: rgba(119, 158, 203, 0.95); border-color: #5284bd; }
+.button-dropdown.button-dropdown-primary .button-dropdown-list .button-dropdown-divider { border-color: #5d8cc1; }
+.button-dropdown.button-dropdown-primary .button-dropdown-list > li > a { color: #FFF; }
+.button-dropdown.button-dropdown-primary .button-dropdown-list > li > a:hover { color: #f2f2f2; background: #6591c4; }
+.button-dropdown.button-dropdown-plain .button-dropdown-list { background: rgba(255, 255, 255, 0.95); border-color: #e6e6e6; }
+.button-dropdown.button-dropdown-plain .button-dropdown-list .button-dropdown-divider { border-color: #ededed; }
+.button-dropdown.button-dropdown-plain .button-dropdown-list > li > a { color: #1B9AF7; }
+.button-dropdown.button-dropdown-plain .button-dropdown-list > li > a:hover { color: #088ef0; background: #f2f2f2; }
+.button-dropdown.button-dropdown-inverse .button-dropdown-list { background: rgba(119, 158, 203, 0.95); border-color: #5284bd; }
+.button-dropdown.button-dropdown-inverse .button-dropdown-list .button-dropdown-divider { border-color: #5d8cc1; }
+.button-dropdown.button-dropdown-inverse .button-dropdown-list > li > a { color: #314154; }
+.button-dropdown.button-dropdown-inverse .button-dropdown-list > li > a:hover { color: #283544; background: #6591c4; }
+.button-dropdown.button-dropdown-action .button-dropdown-list { background: rgba(119, 221, 119, 0.95); border-color: #4ed34e; }
+.button-dropdown.button-dropdown-action .button-dropdown-list .button-dropdown-divider { border-color: #5ad65a; }
+.button-dropdown.button-dropdown-action .button-dropdown-list > li > a { color: #FFF; }
+.button-dropdown.button-dropdown-action .button-dropdown-list > li > a:hover { color: #f2f2f2; background: #63d863; }
+.button-dropdown.button-dropdown-highlight .button-dropdown-list { background: rgba(254, 174, 27, 0.95); border-color: #e59501; }
+.button-dropdown.button-dropdown-highlight .button-dropdown-list .button-dropdown-divider { border-color: #f49f01; }
+.button-dropdown.button-dropdown-highlight .button-dropdown-list > li > a { color: #FFF; }
+.button-dropdown.button-dropdown-highlight .button-dropdown-list > li > a:hover { color: #f2f2f2; background: #fea502; }
+.button-dropdown.button-dropdown-caution .button-dropdown-list { background: rgba(255, 105, 97, 0.95); border-color: #ff392e; }
+.button-dropdown.button-dropdown-caution .button-dropdown-list .button-dropdown-divider { border-color: #ff473d; }
+.button-dropdown.button-dropdown-caution .button-dropdown-list > li > a { color: #FFF; }
+.button-dropdown.button-dropdown-caution .button-dropdown-list > li > a:hover { color: #f2f2f2; background: #ff5148; }
+.button-dropdown.button-dropdown-royal .button-dropdown-list { background: rgba(135, 128, 209, 0.95); border-color: #645bc3; }
+.button-dropdown.button-dropdown-royal .button-dropdown-list .button-dropdown-divider { border-color: #6e66c8; }
+.button-dropdown.button-dropdown-royal .button-dropdown-list > li > a { color: #FFF; }
+.button-dropdown.button-dropdown-royal .button-dropdown-list > li > a:hover { color: #f2f2f2; background: #756dca; }
+
+/*
+* Buton Groups
+*
+* A group of related buttons
+* displayed edge to edge
+*/
+.button-group { *zoom: 1; position: relative; display: inline-block; }
+.button-group:after, .button-group:before { content: '.'; clear: both; display: block; overflow: hidden; visibility: hidden; font-size: 0; line-height: 0; width: 0; height: 0; }
+.button-group .button, .button-group .button-dropdown { float: left; }
+.button-group .button:not(:first-child):not(:last-child), .button-group .button-dropdown:not(:first-child):not(:last-child) { border-radius: 0; border-right: none; }
+.button-group .button:first-child, .button-group .button-dropdown:first-child { border-top-right-radius: 0; border-bottom-right-radius: 0; border-right: none; }
+.button-group .button:last-child, .button-group .button-dropdown:last-child { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+
+/*
+* Button Wrapper
+*
+* A wrap around effect to highlight
+* the shape of the button and offer
+* a subtle visual effect.
+*/
+.button-wrap { border: 1px solid #e3e3e3; display: inline-block; padding: 9px; background: linear-gradient(#f2f2f2, #FFF); border-radius: 200px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04); }
+
+/*
+* Long Shadow Buttons
+*
+* A visual effect adding a flat shadow to the text of a button
+*/
+/*
+* Long Shadow Function
+*
+* Loops $length times building a long shadow. Defaults downward right
+*/
+/*
+* LONG SHADOW MIXIN
+*
+*/
+/*
+* Shadow Right
+*
+*/
+.button-longshadow, .button-longshadow-right { overflow: hidden; }
+.button-longshadow.button-primary, .button-longshadow-right.button-primary { text-shadow: 0px 0px #5284bd, 1px 1px #5284bd, 2px 2px #5284bd, 3px 3px #5284bd, 4px 4px #5284bd, 5px 5px #5284bd, 6px 6px #5284bd, 7px 7px #5284bd, 8px 8px #5284bd, 9px 9px #5284bd, 10px 10px #5284bd, 11px 11px #5284bd, 12px 12px #5284bd, 13px 13px #5284bd, 14px 14px #5284bd, 15px 15px #5284bd, 16px 16px #5284bd, 17px 17px #5284bd, 18px 18px #5284bd, 19px 19px #5284bd, 20px 20px #5284bd, 21px 21px #5284bd, 22px 22px #5284bd, 23px 23px #5284bd, 24px 24px #5284bd, 25px 25px #5284bd, 26px 26px #5284bd, 27px 27px #5284bd, 28px 28px #5284bd, 29px 29px #5284bd, 30px 30px #5284bd, 31px 31px #5284bd, 32px 32px #5284bd, 33px 33px #5284bd, 34px 34px #5284bd, 35px 35px #5284bd, 36px 36px #5284bd, 37px 37px #5284bd, 38px 38px #5284bd, 39px 39px #5284bd, 40px 40px #5284bd, 41px 41px #5284bd, 42px 42px #5284bd, 43px 43px #5284bd, 44px 44px #5284bd, 45px 45px #5284bd, 46px 46px #5284bd, 47px 47px #5284bd, 48px 48px #5284bd, 49px 49px #5284bd, 50px 50px #5284bd, 51px 51px #5284bd, 52px 52px #5284bd, 53px 53px #5284bd, 54px 54px #5284bd, 55px 55px #5284bd, 56px 56px #5284bd, 57px 57px #5284bd, 58px 58px #5284bd, 59px 59px #5284bd, 60px 60px #5284bd, 61px 61px #5284bd, 62px 62px #5284bd, 63px 63px #5284bd, 64px 64px #5284bd, 65px 65px #5284bd, 66px 66px #5284bd, 67px 67px #5284bd, 68px 68px #5284bd, 69px 69px #5284bd, 70px 70px #5284bd, 71px 71px #5284bd, 72px 72px #5284bd, 73px 73px #5284bd, 74px 74px #5284bd, 75px 75px #5284bd, 76px 76px #5284bd, 77px 77px #5284bd, 78px 78px #5284bd, 79px 79px #5284bd, 80px 80px #5284bd, 81px 81px #5284bd, 82px 82px #5284bd, 83px 83px #5284bd, 84px 84px #5284bd, 85px 85px #5284bd; }
+.button-longshadow.button-primary:active, .button-longshadow.button-primary.active, .button-longshadow.button-primary.is-active, .button-longshadow-right.button-primary:active, .button-longshadow-right.button-primary.active, .button-longshadow-right.button-primary.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+.button-longshadow.button-plain, .button-longshadow-right.button-plain { text-shadow: 0px 0px #e6e6e6, 1px 1px #e6e6e6, 2px 2px #e6e6e6, 3px 3px #e6e6e6, 4px 4px #e6e6e6, 5px 5px #e6e6e6, 6px 6px #e6e6e6, 7px 7px #e6e6e6, 8px 8px #e6e6e6, 9px 9px #e6e6e6, 10px 10px #e6e6e6, 11px 11px #e6e6e6, 12px 12px #e6e6e6, 13px 13px #e6e6e6, 14px 14px #e6e6e6, 15px 15px #e6e6e6, 16px 16px #e6e6e6, 17px 17px #e6e6e6, 18px 18px #e6e6e6, 19px 19px #e6e6e6, 20px 20px #e6e6e6, 21px 21px #e6e6e6, 22px 22px #e6e6e6, 23px 23px #e6e6e6, 24px 24px #e6e6e6, 25px 25px #e6e6e6, 26px 26px #e6e6e6, 27px 27px #e6e6e6, 28px 28px #e6e6e6, 29px 29px #e6e6e6, 30px 30px #e6e6e6, 31px 31px #e6e6e6, 32px 32px #e6e6e6, 33px 33px #e6e6e6, 34px 34px #e6e6e6, 35px 35px #e6e6e6, 36px 36px #e6e6e6, 37px 37px #e6e6e6, 38px 38px #e6e6e6, 39px 39px #e6e6e6, 40px 40px #e6e6e6, 41px 41px #e6e6e6, 42px 42px #e6e6e6, 43px 43px #e6e6e6, 44px 44px #e6e6e6, 45px 45px #e6e6e6, 46px 46px #e6e6e6, 47px 47px #e6e6e6, 48px 48px #e6e6e6, 49px 49px #e6e6e6, 50px 50px #e6e6e6, 51px 51px #e6e6e6, 52px 52px #e6e6e6, 53px 53px #e6e6e6, 54px 54px #e6e6e6, 55px 55px #e6e6e6, 56px 56px #e6e6e6, 57px 57px #e6e6e6, 58px 58px #e6e6e6, 59px 59px #e6e6e6, 60px 60px #e6e6e6, 61px 61px #e6e6e6, 62px 62px #e6e6e6, 63px 63px #e6e6e6, 64px 64px #e6e6e6, 65px 65px #e6e6e6, 66px 66px #e6e6e6, 67px 67px #e6e6e6, 68px 68px #e6e6e6, 69px 69px #e6e6e6, 70px 70px #e6e6e6, 71px 71px #e6e6e6, 72px 72px #e6e6e6, 73px 73px #e6e6e6, 74px 74px #e6e6e6, 75px 75px #e6e6e6, 76px 76px #e6e6e6, 77px 77px #e6e6e6, 78px 78px #e6e6e6, 79px 79px #e6e6e6, 80px 80px #e6e6e6, 81px 81px #e6e6e6, 82px 82px #e6e6e6, 83px 83px #e6e6e6, 84px 84px #e6e6e6, 85px 85px #e6e6e6; }
+.button-longshadow.button-plain:active, .button-longshadow.button-plain.active, .button-longshadow.button-plain.is-active, .button-longshadow-right.button-plain:active, .button-longshadow-right.button-plain.active, .button-longshadow-right.button-plain.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+.button-longshadow.button-inverse, .button-longshadow-right.button-inverse { text-shadow: 0px 0px #5284bd, 1px 1px #5284bd, 2px 2px #5284bd, 3px 3px #5284bd, 4px 4px #5284bd, 5px 5px #5284bd, 6px 6px #5284bd, 7px 7px #5284bd, 8px 8px #5284bd, 9px 9px #5284bd, 10px 10px #5284bd, 11px 11px #5284bd, 12px 12px #5284bd, 13px 13px #5284bd, 14px 14px #5284bd, 15px 15px #5284bd, 16px 16px #5284bd, 17px 17px #5284bd, 18px 18px #5284bd, 19px 19px #5284bd, 20px 20px #5284bd, 21px 21px #5284bd, 22px 22px #5284bd, 23px 23px #5284bd, 24px 24px #5284bd, 25px 25px #5284bd, 26px 26px #5284bd, 27px 27px #5284bd, 28px 28px #5284bd, 29px 29px #5284bd, 30px 30px #5284bd, 31px 31px #5284bd, 32px 32px #5284bd, 33px 33px #5284bd, 34px 34px #5284bd, 35px 35px #5284bd, 36px 36px #5284bd, 37px 37px #5284bd, 38px 38px #5284bd, 39px 39px #5284bd, 40px 40px #5284bd, 41px 41px #5284bd, 42px 42px #5284bd, 43px 43px #5284bd, 44px 44px #5284bd, 45px 45px #5284bd, 46px 46px #5284bd, 47px 47px #5284bd, 48px 48px #5284bd, 49px 49px #5284bd, 50px 50px #5284bd, 51px 51px #5284bd, 52px 52px #5284bd, 53px 53px #5284bd, 54px 54px #5284bd, 55px 55px #5284bd, 56px 56px #5284bd, 57px 57px #5284bd, 58px 58px #5284bd, 59px 59px #5284bd, 60px 60px #5284bd, 61px 61px #5284bd, 62px 62px #5284bd, 63px 63px #5284bd, 64px 64px #5284bd, 65px 65px #5284bd, 66px 66px #5284bd, 67px 67px #5284bd, 68px 68px #5284bd, 69px 69px #5284bd, 70px 70px #5284bd, 71px 71px #5284bd, 72px 72px #5284bd, 73px 73px #5284bd, 74px 74px #5284bd, 75px 75px #5284bd, 76px 76px #5284bd, 77px 77px #5284bd, 78px 78px #5284bd, 79px 79px #5284bd, 80px 80px #5284bd, 81px 81px #5284bd, 82px 82px #5284bd, 83px 83px #5284bd, 84px 84px #5284bd, 85px 85px #5284bd; }
+.button-longshadow.button-inverse:active, .button-longshadow.button-inverse.active, .button-longshadow.button-inverse.is-active, .button-longshadow-right.button-inverse:active, .button-longshadow-right.button-inverse.active, .button-longshadow-right.button-inverse.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+.button-longshadow.button-action, .button-longshadow-right.button-action { text-shadow: 0px 0px #4ed34e, 1px 1px #4ed34e, 2px 2px #4ed34e, 3px 3px #4ed34e, 4px 4px #4ed34e, 5px 5px #4ed34e, 6px 6px #4ed34e, 7px 7px #4ed34e, 8px 8px #4ed34e, 9px 9px #4ed34e, 10px 10px #4ed34e, 11px 11px #4ed34e, 12px 12px #4ed34e, 13px 13px #4ed34e, 14px 14px #4ed34e, 15px 15px #4ed34e, 16px 16px #4ed34e, 17px 17px #4ed34e, 18px 18px #4ed34e, 19px 19px #4ed34e, 20px 20px #4ed34e, 21px 21px #4ed34e, 22px 22px #4ed34e, 23px 23px #4ed34e, 24px 24px #4ed34e, 25px 25px #4ed34e, 26px 26px #4ed34e, 27px 27px #4ed34e, 28px 28px #4ed34e, 29px 29px #4ed34e, 30px 30px #4ed34e, 31px 31px #4ed34e, 32px 32px #4ed34e, 33px 33px #4ed34e, 34px 34px #4ed34e, 35px 35px #4ed34e, 36px 36px #4ed34e, 37px 37px #4ed34e, 38px 38px #4ed34e, 39px 39px #4ed34e, 40px 40px #4ed34e, 41px 41px #4ed34e, 42px 42px #4ed34e, 43px 43px #4ed34e, 44px 44px #4ed34e, 45px 45px #4ed34e, 46px 46px #4ed34e, 47px 47px #4ed34e, 48px 48px #4ed34e, 49px 49px #4ed34e, 50px 50px #4ed34e, 51px 51px #4ed34e, 52px 52px #4ed34e, 53px 53px #4ed34e, 54px 54px #4ed34e, 55px 55px #4ed34e, 56px 56px #4ed34e, 57px 57px #4ed34e, 58px 58px #4ed34e, 59px 59px #4ed34e, 60px 60px #4ed34e, 61px 61px #4ed34e, 62px 62px #4ed34e, 63px 63px #4ed34e, 64px 64px #4ed34e, 65px 65px #4ed34e, 66px 66px #4ed34e, 67px 67px #4ed34e, 68px 68px #4ed34e, 69px 69px #4ed34e, 70px 70px #4ed34e, 71px 71px #4ed34e, 72px 72px #4ed34e, 73px 73px #4ed34e, 74px 74px #4ed34e, 75px 75px #4ed34e, 76px 76px #4ed34e, 77px 77px #4ed34e, 78px 78px #4ed34e, 79px 79px #4ed34e, 80px 80px #4ed34e, 81px 81px #4ed34e, 82px 82px #4ed34e, 83px 83px #4ed34e, 84px 84px #4ed34e, 85px 85px #4ed34e; }
+.button-longshadow.button-action:active, .button-longshadow.button-action.active, .button-longshadow.button-action.is-active, .button-longshadow-right.button-action:active, .button-longshadow-right.button-action.active, .button-longshadow-right.button-action.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+.button-longshadow.button-highlight, .button-longshadow-right.button-highlight { text-shadow: 0px 0px #e59501, 1px 1px #e59501, 2px 2px #e59501, 3px 3px #e59501, 4px 4px #e59501, 5px 5px #e59501, 6px 6px #e59501, 7px 7px #e59501, 8px 8px #e59501, 9px 9px #e59501, 10px 10px #e59501, 11px 11px #e59501, 12px 12px #e59501, 13px 13px #e59501, 14px 14px #e59501, 15px 15px #e59501, 16px 16px #e59501, 17px 17px #e59501, 18px 18px #e59501, 19px 19px #e59501, 20px 20px #e59501, 21px 21px #e59501, 22px 22px #e59501, 23px 23px #e59501, 24px 24px #e59501, 25px 25px #e59501, 26px 26px #e59501, 27px 27px #e59501, 28px 28px #e59501, 29px 29px #e59501, 30px 30px #e59501, 31px 31px #e59501, 32px 32px #e59501, 33px 33px #e59501, 34px 34px #e59501, 35px 35px #e59501, 36px 36px #e59501, 37px 37px #e59501, 38px 38px #e59501, 39px 39px #e59501, 40px 40px #e59501, 41px 41px #e59501, 42px 42px #e59501, 43px 43px #e59501, 44px 44px #e59501, 45px 45px #e59501, 46px 46px #e59501, 47px 47px #e59501, 48px 48px #e59501, 49px 49px #e59501, 50px 50px #e59501, 51px 51px #e59501, 52px 52px #e59501, 53px 53px #e59501, 54px 54px #e59501, 55px 55px #e59501, 56px 56px #e59501, 57px 57px #e59501, 58px 58px #e59501, 59px 59px #e59501, 60px 60px #e59501, 61px 61px #e59501, 62px 62px #e59501, 63px 63px #e59501, 64px 64px #e59501, 65px 65px #e59501, 66px 66px #e59501, 67px 67px #e59501, 68px 68px #e59501, 69px 69px #e59501, 70px 70px #e59501, 71px 71px #e59501, 72px 72px #e59501, 73px 73px #e59501, 74px 74px #e59501, 75px 75px #e59501, 76px 76px #e59501, 77px 77px #e59501, 78px 78px #e59501, 79px 79px #e59501, 80px 80px #e59501, 81px 81px #e59501, 82px 82px #e59501, 83px 83px #e59501, 84px 84px #e59501, 85px 85px #e59501; }
+.button-longshadow.button-highlight:active, .button-longshadow.button-highlight.active, .button-longshadow.button-highlight.is-active, .button-longshadow-right.button-highlight:active, .button-longshadow-right.button-highlight.active, .button-longshadow-right.button-highlight.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+.button-longshadow.button-caution, .button-longshadow-right.button-caution { text-shadow: 0px 0px #ff392e, 1px 1px #ff392e, 2px 2px #ff392e, 3px 3px #ff392e, 4px 4px #ff392e, 5px 5px #ff392e, 6px 6px #ff392e, 7px 7px #ff392e, 8px 8px #ff392e, 9px 9px #ff392e, 10px 10px #ff392e, 11px 11px #ff392e, 12px 12px #ff392e, 13px 13px #ff392e, 14px 14px #ff392e, 15px 15px #ff392e, 16px 16px #ff392e, 17px 17px #ff392e, 18px 18px #ff392e, 19px 19px #ff392e, 20px 20px #ff392e, 21px 21px #ff392e, 22px 22px #ff392e, 23px 23px #ff392e, 24px 24px #ff392e, 25px 25px #ff392e, 26px 26px #ff392e, 27px 27px #ff392e, 28px 28px #ff392e, 29px 29px #ff392e, 30px 30px #ff392e, 31px 31px #ff392e, 32px 32px #ff392e, 33px 33px #ff392e, 34px 34px #ff392e, 35px 35px #ff392e, 36px 36px #ff392e, 37px 37px #ff392e, 38px 38px #ff392e, 39px 39px #ff392e, 40px 40px #ff392e, 41px 41px #ff392e, 42px 42px #ff392e, 43px 43px #ff392e, 44px 44px #ff392e, 45px 45px #ff392e, 46px 46px #ff392e, 47px 47px #ff392e, 48px 48px #ff392e, 49px 49px #ff392e, 50px 50px #ff392e, 51px 51px #ff392e, 52px 52px #ff392e, 53px 53px #ff392e, 54px 54px #ff392e, 55px 55px #ff392e, 56px 56px #ff392e, 57px 57px #ff392e, 58px 58px #ff392e, 59px 59px #ff392e, 60px 60px #ff392e, 61px 61px #ff392e, 62px 62px #ff392e, 63px 63px #ff392e, 64px 64px #ff392e, 65px 65px #ff392e, 66px 66px #ff392e, 67px 67px #ff392e, 68px 68px #ff392e, 69px 69px #ff392e, 70px 70px #ff392e, 71px 71px #ff392e, 72px 72px #ff392e, 73px 73px #ff392e, 74px 74px #ff392e, 75px 75px #ff392e, 76px 76px #ff392e, 77px 77px #ff392e, 78px 78px #ff392e, 79px 79px #ff392e, 80px 80px #ff392e, 81px 81px #ff392e, 82px 82px #ff392e, 83px 83px #ff392e, 84px 84px #ff392e, 85px 85px #ff392e; }
+.button-longshadow.button-caution:active, .button-longshadow.button-caution.active, .button-longshadow.button-caution.is-active, .button-longshadow-right.button-caution:active, .button-longshadow-right.button-caution.active, .button-longshadow-right.button-caution.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+.button-longshadow.button-royal, .button-longshadow-right.button-royal { text-shadow: 0px 0px #645bc3, 1px 1px #645bc3, 2px 2px #645bc3, 3px 3px #645bc3, 4px 4px #645bc3, 5px 5px #645bc3, 6px 6px #645bc3, 7px 7px #645bc3, 8px 8px #645bc3, 9px 9px #645bc3, 10px 10px #645bc3, 11px 11px #645bc3, 12px 12px #645bc3, 13px 13px #645bc3, 14px 14px #645bc3, 15px 15px #645bc3, 16px 16px #645bc3, 17px 17px #645bc3, 18px 18px #645bc3, 19px 19px #645bc3, 20px 20px #645bc3, 21px 21px #645bc3, 22px 22px #645bc3, 23px 23px #645bc3, 24px 24px #645bc3, 25px 25px #645bc3, 26px 26px #645bc3, 27px 27px #645bc3, 28px 28px #645bc3, 29px 29px #645bc3, 30px 30px #645bc3, 31px 31px #645bc3, 32px 32px #645bc3, 33px 33px #645bc3, 34px 34px #645bc3, 35px 35px #645bc3, 36px 36px #645bc3, 37px 37px #645bc3, 38px 38px #645bc3, 39px 39px #645bc3, 40px 40px #645bc3, 41px 41px #645bc3, 42px 42px #645bc3, 43px 43px #645bc3, 44px 44px #645bc3, 45px 45px #645bc3, 46px 46px #645bc3, 47px 47px #645bc3, 48px 48px #645bc3, 49px 49px #645bc3, 50px 50px #645bc3, 51px 51px #645bc3, 52px 52px #645bc3, 53px 53px #645bc3, 54px 54px #645bc3, 55px 55px #645bc3, 56px 56px #645bc3, 57px 57px #645bc3, 58px 58px #645bc3, 59px 59px #645bc3, 60px 60px #645bc3, 61px 61px #645bc3, 62px 62px #645bc3, 63px 63px #645bc3, 64px 64px #645bc3, 65px 65px #645bc3, 66px 66px #645bc3, 67px 67px #645bc3, 68px 68px #645bc3, 69px 69px #645bc3, 70px 70px #645bc3, 71px 71px #645bc3, 72px 72px #645bc3, 73px 73px #645bc3, 74px 74px #645bc3, 75px 75px #645bc3, 76px 76px #645bc3, 77px 77px #645bc3, 78px 78px #645bc3, 79px 79px #645bc3, 80px 80px #645bc3, 81px 81px #645bc3, 82px 82px #645bc3, 83px 83px #645bc3, 84px 84px #645bc3, 85px 85px #645bc3; }
+.button-longshadow.button-royal:active, .button-longshadow.button-royal.active, .button-longshadow.button-royal.is-active, .button-longshadow-right.button-royal:active, .button-longshadow-right.button-royal.active, .button-longshadow-right.button-royal.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+
+/*
+* Shadow Left
+*
+*/
+.button-longshadow-left { overflow: hidden; }
+.button-longshadow-left.button-primary { text-shadow: 0px 0px #5284bd, -1px 1px #5284bd, -2px 2px #5284bd, -3px 3px #5284bd, -4px 4px #5284bd, -5px 5px #5284bd, -6px 6px #5284bd, -7px 7px #5284bd, -8px 8px #5284bd, -9px 9px #5284bd, -10px 10px #5284bd, -11px 11px #5284bd, -12px 12px #5284bd, -13px 13px #5284bd, -14px 14px #5284bd, -15px 15px #5284bd, -16px 16px #5284bd, -17px 17px #5284bd, -18px 18px #5284bd, -19px 19px #5284bd, -20px 20px #5284bd, -21px 21px #5284bd, -22px 22px #5284bd, -23px 23px #5284bd, -24px 24px #5284bd, -25px 25px #5284bd, -26px 26px #5284bd, -27px 27px #5284bd, -28px 28px #5284bd, -29px 29px #5284bd, -30px 30px #5284bd, -31px 31px #5284bd, -32px 32px #5284bd, -33px 33px #5284bd, -34px 34px #5284bd, -35px 35px #5284bd, -36px 36px #5284bd, -37px 37px #5284bd, -38px 38px #5284bd, -39px 39px #5284bd, -40px 40px #5284bd, -41px 41px #5284bd, -42px 42px #5284bd, -43px 43px #5284bd, -44px 44px #5284bd, -45px 45px #5284bd, -46px 46px #5284bd, -47px 47px #5284bd, -48px 48px #5284bd, -49px 49px #5284bd, -50px 50px #5284bd, -51px 51px #5284bd, -52px 52px #5284bd, -53px 53px #5284bd, -54px 54px #5284bd, -55px 55px #5284bd, -56px 56px #5284bd, -57px 57px #5284bd, -58px 58px #5284bd, -59px 59px #5284bd, -60px 60px #5284bd, -61px 61px #5284bd, -62px 62px #5284bd, -63px 63px #5284bd, -64px 64px #5284bd, -65px 65px #5284bd, -66px 66px #5284bd, -67px 67px #5284bd, -68px 68px #5284bd, -69px 69px #5284bd, -70px 70px #5284bd, -71px 71px #5284bd, -72px 72px #5284bd, -73px 73px #5284bd, -74px 74px #5284bd, -75px 75px #5284bd, -76px 76px #5284bd, -77px 77px #5284bd, -78px 78px #5284bd, -79px 79px #5284bd, -80px 80px #5284bd, -81px 81px #5284bd, -82px 82px #5284bd, -83px 83px #5284bd, -84px 84px #5284bd, -85px 85px #5284bd; }
+.button-longshadow-left.button-primary:active, .button-longshadow-left.button-primary.active, .button-longshadow-left.button-primary.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+.button-longshadow-left.button-plain { text-shadow: 0px 0px #e6e6e6, -1px 1px #e6e6e6, -2px 2px #e6e6e6, -3px 3px #e6e6e6, -4px 4px #e6e6e6, -5px 5px #e6e6e6, -6px 6px #e6e6e6, -7px 7px #e6e6e6, -8px 8px #e6e6e6, -9px 9px #e6e6e6, -10px 10px #e6e6e6, -11px 11px #e6e6e6, -12px 12px #e6e6e6, -13px 13px #e6e6e6, -14px 14px #e6e6e6, -15px 15px #e6e6e6, -16px 16px #e6e6e6, -17px 17px #e6e6e6, -18px 18px #e6e6e6, -19px 19px #e6e6e6, -20px 20px #e6e6e6, -21px 21px #e6e6e6, -22px 22px #e6e6e6, -23px 23px #e6e6e6, -24px 24px #e6e6e6, -25px 25px #e6e6e6, -26px 26px #e6e6e6, -27px 27px #e6e6e6, -28px 28px #e6e6e6, -29px 29px #e6e6e6, -30px 30px #e6e6e6, -31px 31px #e6e6e6, -32px 32px #e6e6e6, -33px 33px #e6e6e6, -34px 34px #e6e6e6, -35px 35px #e6e6e6, -36px 36px #e6e6e6, -37px 37px #e6e6e6, -38px 38px #e6e6e6, -39px 39px #e6e6e6, -40px 40px #e6e6e6, -41px 41px #e6e6e6, -42px 42px #e6e6e6, -43px 43px #e6e6e6, -44px 44px #e6e6e6, -45px 45px #e6e6e6, -46px 46px #e6e6e6, -47px 47px #e6e6e6, -48px 48px #e6e6e6, -49px 49px #e6e6e6, -50px 50px #e6e6e6, -51px 51px #e6e6e6, -52px 52px #e6e6e6, -53px 53px #e6e6e6, -54px 54px #e6e6e6, -55px 55px #e6e6e6, -56px 56px #e6e6e6, -57px 57px #e6e6e6, -58px 58px #e6e6e6, -59px 59px #e6e6e6, -60px 60px #e6e6e6, -61px 61px #e6e6e6, -62px 62px #e6e6e6, -63px 63px #e6e6e6, -64px 64px #e6e6e6, -65px 65px #e6e6e6, -66px 66px #e6e6e6, -67px 67px #e6e6e6, -68px 68px #e6e6e6, -69px 69px #e6e6e6, -70px 70px #e6e6e6, -71px 71px #e6e6e6, -72px 72px #e6e6e6, -73px 73px #e6e6e6, -74px 74px #e6e6e6, -75px 75px #e6e6e6, -76px 76px #e6e6e6, -77px 77px #e6e6e6, -78px 78px #e6e6e6, -79px 79px #e6e6e6, -80px 80px #e6e6e6, -81px 81px #e6e6e6, -82px 82px #e6e6e6, -83px 83px #e6e6e6, -84px 84px #e6e6e6, -85px 85px #e6e6e6; }
+.button-longshadow-left.button-plain:active, .button-longshadow-left.button-plain.active, .button-longshadow-left.button-plain.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+.button-longshadow-left.button-inverse { text-shadow: 0px 0px #5284bd, -1px 1px #5284bd, -2px 2px #5284bd, -3px 3px #5284bd, -4px 4px #5284bd, -5px 5px #5284bd, -6px 6px #5284bd, -7px 7px #5284bd, -8px 8px #5284bd, -9px 9px #5284bd, -10px 10px #5284bd, -11px 11px #5284bd, -12px 12px #5284bd, -13px 13px #5284bd, -14px 14px #5284bd, -15px 15px #5284bd, -16px 16px #5284bd, -17px 17px #5284bd, -18px 18px #5284bd, -19px 19px #5284bd, -20px 20px #5284bd, -21px 21px #5284bd, -22px 22px #5284bd, -23px 23px #5284bd, -24px 24px #5284bd, -25px 25px #5284bd, -26px 26px #5284bd, -27px 27px #5284bd, -28px 28px #5284bd, -29px 29px #5284bd, -30px 30px #5284bd, -31px 31px #5284bd, -32px 32px #5284bd, -33px 33px #5284bd, -34px 34px #5284bd, -35px 35px #5284bd, -36px 36px #5284bd, -37px 37px #5284bd, -38px 38px #5284bd, -39px 39px #5284bd, -40px 40px #5284bd, -41px 41px #5284bd, -42px 42px #5284bd, -43px 43px #5284bd, -44px 44px #5284bd, -45px 45px #5284bd, -46px 46px #5284bd, -47px 47px #5284bd, -48px 48px #5284bd, -49px 49px #5284bd, -50px 50px #5284bd, -51px 51px #5284bd, -52px 52px #5284bd, -53px 53px #5284bd, -54px 54px #5284bd, -55px 55px #5284bd, -56px 56px #5284bd, -57px 57px #5284bd, -58px 58px #5284bd, -59px 59px #5284bd, -60px 60px #5284bd, -61px 61px #5284bd, -62px 62px #5284bd, -63px 63px #5284bd, -64px 64px #5284bd, -65px 65px #5284bd, -66px 66px #5284bd, -67px 67px #5284bd, -68px 68px #5284bd, -69px 69px #5284bd, -70px 70px #5284bd, -71px 71px #5284bd, -72px 72px #5284bd, -73px 73px #5284bd, -74px 74px #5284bd, -75px 75px #5284bd, -76px 76px #5284bd, -77px 77px #5284bd, -78px 78px #5284bd, -79px 79px #5284bd, -80px 80px #5284bd, -81px 81px #5284bd, -82px 82px #5284bd, -83px 83px #5284bd, -84px 84px #5284bd, -85px 85px #5284bd; }
+.button-longshadow-left.button-inverse:active, .button-longshadow-left.button-inverse.active, .button-longshadow-left.button-inverse.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+.button-longshadow-left.button-action { text-shadow: 0px 0px #4ed34e, -1px 1px #4ed34e, -2px 2px #4ed34e, -3px 3px #4ed34e, -4px 4px #4ed34e, -5px 5px #4ed34e, -6px 6px #4ed34e, -7px 7px #4ed34e, -8px 8px #4ed34e, -9px 9px #4ed34e, -10px 10px #4ed34e, -11px 11px #4ed34e, -12px 12px #4ed34e, -13px 13px #4ed34e, -14px 14px #4ed34e, -15px 15px #4ed34e, -16px 16px #4ed34e, -17px 17px #4ed34e, -18px 18px #4ed34e, -19px 19px #4ed34e, -20px 20px #4ed34e, -21px 21px #4ed34e, -22px 22px #4ed34e, -23px 23px #4ed34e, -24px 24px #4ed34e, -25px 25px #4ed34e, -26px 26px #4ed34e, -27px 27px #4ed34e, -28px 28px #4ed34e, -29px 29px #4ed34e, -30px 30px #4ed34e, -31px 31px #4ed34e, -32px 32px #4ed34e, -33px 33px #4ed34e, -34px 34px #4ed34e, -35px 35px #4ed34e, -36px 36px #4ed34e, -37px 37px #4ed34e, -38px 38px #4ed34e, -39px 39px #4ed34e, -40px 40px #4ed34e, -41px 41px #4ed34e, -42px 42px #4ed34e, -43px 43px #4ed34e, -44px 44px #4ed34e, -45px 45px #4ed34e, -46px 46px #4ed34e, -47px 47px #4ed34e, -48px 48px #4ed34e, -49px 49px #4ed34e, -50px 50px #4ed34e, -51px 51px #4ed34e, -52px 52px #4ed34e, -53px 53px #4ed34e, -54px 54px #4ed34e, -55px 55px #4ed34e, -56px 56px #4ed34e, -57px 57px #4ed34e, -58px 58px #4ed34e, -59px 59px #4ed34e, -60px 60px #4ed34e, -61px 61px #4ed34e, -62px 62px #4ed34e, -63px 63px #4ed34e, -64px 64px #4ed34e, -65px 65px #4ed34e, -66px 66px #4ed34e, -67px 67px #4ed34e, -68px 68px #4ed34e, -69px 69px #4ed34e, -70px 70px #4ed34e, -71px 71px #4ed34e, -72px 72px #4ed34e, -73px 73px #4ed34e, -74px 74px #4ed34e, -75px 75px #4ed34e, -76px 76px #4ed34e, -77px 77px #4ed34e, -78px 78px #4ed34e, -79px 79px #4ed34e, -80px 80px #4ed34e, -81px 81px #4ed34e, -82px 82px #4ed34e, -83px 83px #4ed34e, -84px 84px #4ed34e, -85px 85px #4ed34e; }
+.button-longshadow-left.button-action:active, .button-longshadow-left.button-action.active, .button-longshadow-left.button-action.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+.button-longshadow-left.button-highlight { text-shadow: 0px 0px #e59501, -1px 1px #e59501, -2px 2px #e59501, -3px 3px #e59501, -4px 4px #e59501, -5px 5px #e59501, -6px 6px #e59501, -7px 7px #e59501, -8px 8px #e59501, -9px 9px #e59501, -10px 10px #e59501, -11px 11px #e59501, -12px 12px #e59501, -13px 13px #e59501, -14px 14px #e59501, -15px 15px #e59501, -16px 16px #e59501, -17px 17px #e59501, -18px 18px #e59501, -19px 19px #e59501, -20px 20px #e59501, -21px 21px #e59501, -22px 22px #e59501, -23px 23px #e59501, -24px 24px #e59501, -25px 25px #e59501, -26px 26px #e59501, -27px 27px #e59501, -28px 28px #e59501, -29px 29px #e59501, -30px 30px #e59501, -31px 31px #e59501, -32px 32px #e59501, -33px 33px #e59501, -34px 34px #e59501, -35px 35px #e59501, -36px 36px #e59501, -37px 37px #e59501, -38px 38px #e59501, -39px 39px #e59501, -40px 40px #e59501, -41px 41px #e59501, -42px 42px #e59501, -43px 43px #e59501, -44px 44px #e59501, -45px 45px #e59501, -46px 46px #e59501, -47px 47px #e59501, -48px 48px #e59501, -49px 49px #e59501, -50px 50px #e59501, -51px 51px #e59501, -52px 52px #e59501, -53px 53px #e59501, -54px 54px #e59501, -55px 55px #e59501, -56px 56px #e59501, -57px 57px #e59501, -58px 58px #e59501, -59px 59px #e59501, -60px 60px #e59501, -61px 61px #e59501, -62px 62px #e59501, -63px 63px #e59501, -64px 64px #e59501, -65px 65px #e59501, -66px 66px #e59501, -67px 67px #e59501, -68px 68px #e59501, -69px 69px #e59501, -70px 70px #e59501, -71px 71px #e59501, -72px 72px #e59501, -73px 73px #e59501, -74px 74px #e59501, -75px 75px #e59501, -76px 76px #e59501, -77px 77px #e59501, -78px 78px #e59501, -79px 79px #e59501, -80px 80px #e59501, -81px 81px #e59501, -82px 82px #e59501, -83px 83px #e59501, -84px 84px #e59501, -85px 85px #e59501; }
+.button-longshadow-left.button-highlight:active, .button-longshadow-left.button-highlight.active, .button-longshadow-left.button-highlight.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+.button-longshadow-left.button-caution { text-shadow: 0px 0px #ff392e, -1px 1px #ff392e, -2px 2px #ff392e, -3px 3px #ff392e, -4px 4px #ff392e, -5px 5px #ff392e, -6px 6px #ff392e, -7px 7px #ff392e, -8px 8px #ff392e, -9px 9px #ff392e, -10px 10px #ff392e, -11px 11px #ff392e, -12px 12px #ff392e, -13px 13px #ff392e, -14px 14px #ff392e, -15px 15px #ff392e, -16px 16px #ff392e, -17px 17px #ff392e, -18px 18px #ff392e, -19px 19px #ff392e, -20px 20px #ff392e, -21px 21px #ff392e, -22px 22px #ff392e, -23px 23px #ff392e, -24px 24px #ff392e, -25px 25px #ff392e, -26px 26px #ff392e, -27px 27px #ff392e, -28px 28px #ff392e, -29px 29px #ff392e, -30px 30px #ff392e, -31px 31px #ff392e, -32px 32px #ff392e, -33px 33px #ff392e, -34px 34px #ff392e, -35px 35px #ff392e, -36px 36px #ff392e, -37px 37px #ff392e, -38px 38px #ff392e, -39px 39px #ff392e, -40px 40px #ff392e, -41px 41px #ff392e, -42px 42px #ff392e, -43px 43px #ff392e, -44px 44px #ff392e, -45px 45px #ff392e, -46px 46px #ff392e, -47px 47px #ff392e, -48px 48px #ff392e, -49px 49px #ff392e, -50px 50px #ff392e, -51px 51px #ff392e, -52px 52px #ff392e, -53px 53px #ff392e, -54px 54px #ff392e, -55px 55px #ff392e, -56px 56px #ff392e, -57px 57px #ff392e, -58px 58px #ff392e, -59px 59px #ff392e, -60px 60px #ff392e, -61px 61px #ff392e, -62px 62px #ff392e, -63px 63px #ff392e, -64px 64px #ff392e, -65px 65px #ff392e, -66px 66px #ff392e, -67px 67px #ff392e, -68px 68px #ff392e, -69px 69px #ff392e, -70px 70px #ff392e, -71px 71px #ff392e, -72px 72px #ff392e, -73px 73px #ff392e, -74px 74px #ff392e, -75px 75px #ff392e, -76px 76px #ff392e, -77px 77px #ff392e, -78px 78px #ff392e, -79px 79px #ff392e, -80px 80px #ff392e, -81px 81px #ff392e, -82px 82px #ff392e, -83px 83px #ff392e, -84px 84px #ff392e, -85px 85px #ff392e; }
+.button-longshadow-left.button-caution:active, .button-longshadow-left.button-caution.active, .button-longshadow-left.button-caution.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+.button-longshadow-left.button-royal { text-shadow: 0px 0px #645bc3, -1px 1px #645bc3, -2px 2px #645bc3, -3px 3px #645bc3, -4px 4px #645bc3, -5px 5px #645bc3, -6px 6px #645bc3, -7px 7px #645bc3, -8px 8px #645bc3, -9px 9px #645bc3, -10px 10px #645bc3, -11px 11px #645bc3, -12px 12px #645bc3, -13px 13px #645bc3, -14px 14px #645bc3, -15px 15px #645bc3, -16px 16px #645bc3, -17px 17px #645bc3, -18px 18px #645bc3, -19px 19px #645bc3, -20px 20px #645bc3, -21px 21px #645bc3, -22px 22px #645bc3, -23px 23px #645bc3, -24px 24px #645bc3, -25px 25px #645bc3, -26px 26px #645bc3, -27px 27px #645bc3, -28px 28px #645bc3, -29px 29px #645bc3, -30px 30px #645bc3, -31px 31px #645bc3, -32px 32px #645bc3, -33px 33px #645bc3, -34px 34px #645bc3, -35px 35px #645bc3, -36px 36px #645bc3, -37px 37px #645bc3, -38px 38px #645bc3, -39px 39px #645bc3, -40px 40px #645bc3, -41px 41px #645bc3, -42px 42px #645bc3, -43px 43px #645bc3, -44px 44px #645bc3, -45px 45px #645bc3, -46px 46px #645bc3, -47px 47px #645bc3, -48px 48px #645bc3, -49px 49px #645bc3, -50px 50px #645bc3, -51px 51px #645bc3, -52px 52px #645bc3, -53px 53px #645bc3, -54px 54px #645bc3, -55px 55px #645bc3, -56px 56px #645bc3, -57px 57px #645bc3, -58px 58px #645bc3, -59px 59px #645bc3, -60px 60px #645bc3, -61px 61px #645bc3, -62px 62px #645bc3, -63px 63px #645bc3, -64px 64px #645bc3, -65px 65px #645bc3, -66px 66px #645bc3, -67px 67px #645bc3, -68px 68px #645bc3, -69px 69px #645bc3, -70px 70px #645bc3, -71px 71px #645bc3, -72px 72px #645bc3, -73px 73px #645bc3, -74px 74px #645bc3, -75px 75px #645bc3, -76px 76px #645bc3, -77px 77px #645bc3, -78px 78px #645bc3, -79px 79px #645bc3, -80px 80px #645bc3, -81px 81px #645bc3, -82px 82px #645bc3, -83px 83px #645bc3, -84px 84px #645bc3, -85px 85px #645bc3; }
+.button-longshadow-left.button-royal:active, .button-longshadow-left.button-royal.active, .button-longshadow-left.button-royal.is-active { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4); }
+
+/*
+* Button Sizes
+*
+* This file creates the various button sizes
+* (ex. .button-large, .button-small, etc.)
+*/
+.button-giant { font-size: 28px; height: 70px; line-height: 70px; padding: 0 70px; }
+
+.button-jumbo { font-size: 24px; height: 60px; line-height: 60px; padding: 0 60px; }
+
+.button-large { font-size: 20px; height: 50px; line-height: 50px; padding: 0 50px; }
+
+.button-normal { font-size: 16px; height: 40px; line-height: 40px; padding: 0 40px; }
+
+.button-small { font-size: 12px; height: 30px; line-height: 30px; padding: 0 30px; }
+
+.button-tiny { font-size: 9.6px; height: 24px; line-height: 24px; padding: 0 24px; }
+
+/* Make clicks pass-through */
+#nprogress { pointer-events: none; }
+
+#nprogress .bar { background: #29d; position: fixed; z-index: 1031; top: 0; left: 0; width: 100%; height: 2px; }
+
+/* Fancy blur effect */
+#nprogress .peg { display: block; position: absolute; right: 0px; width: 100px; height: 100%; box-shadow: 0 0 10px #29d, 0 0 5px #29d; opacity: 1.0; -webkit-transform: rotate(3deg) translate(0px, -4px); -ms-transform: rotate(3deg) translate(0px, -4px); transform: rotate(3deg) translate(0px, -4px); }
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner { display: block; position: fixed; z-index: 1031; top: 15px; right: 15px; }
+
+#nprogress .spinner-icon { width: 18px; height: 18px; box-sizing: border-box; border: solid 2px transparent; border-top-color: #29d; border-left-color: #29d; border-radius: 50%; -webkit-animation: nprogress-spinner 400ms linear infinite; animation: nprogress-spinner 400ms linear infinite; }
+
+.nprogress-custom-parent { overflow: hidden; position: relative; }
+
+.nprogress-custom-parent #nprogress .spinner, .nprogress-custom-parent #nprogress .bar { position: absolute; }
+
+@-webkit-keyframes nprogress-spinner { 0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); } }
+@keyframes nprogress-spinner { 0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); } }
+@font-face { font-family: 'icomoon'; src: url("../fonts/icomoon.eot?hi5vxy"); src: url("../fonts/icomoon.eot?#iefixhi5vxy") format("embedded-opentype"), url("../fonts/icomoon.ttf?hi5vxy") format("truetype"), url("../fonts/icomoon.woff?hi5vxy") format("woff"), url("../fonts/icomoon.svg?hi5vxy#icomoon") format("svg"); font-weight: normal; font-style: normal; }
+[class^="icon-"], [class*=" icon-"] { font-family: 'icomoon'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; /* Better Font Rendering =========== */ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+.icon-monish:before { content: "\e600"; }
+
+/*
+Name:   override.scss
+Author:   Tristan Marsh
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  Overriding cake css for compatability with bootstrap framework
+Since:    25/5/15
+*/
+/*
+Name:   Global.SCSS
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  Global styling for the Monish Dashboard
+Since:    31/7/15
+
+*/
+body { font-family: "Open Sans", sans-serif; -webkit-font-smoothing: antialiased; font-smoothing: antialiased; color: #485461; background: #b4cae2; }
+
+.logo { margin-top: 3vw; }
+
+.img-center { display: block; margin: 0 auto; }
+
+a { color: #485461; }
+
+/* #### NAVBAR #### */
+.navbar { background: #bbcfe5; border-bottom: 0; margin-bottom: 0; }
+.navbar .navbar-header { display: block; width: 100%; }
+.navbar .navbar-brand { display: block; width: 100%; padding: 0; }
+.navbar .navbar-brand h2 { display: block; color: #5284bd; margin: 0; padding: 15px; text-align: center; font-family: "Raleway", serif; font-family: "Open Sans", sans-serif; margin-left: 60px; }
+.navbar .nav > li > a { position: relative; display: block; padding: 5px; }
+
+header { height: 79px; padding: 0; overflow: hidden; }
+header .page-header { margin-top: 0; }
+header #navigation-toggle { background: rgba(219, 229, 241, 0.5); background: #bbcfe5; position: absolute; left: 0; font-size: 3rem; line-height: 3rem; padding: 5px 10px; height: 59px; width: 59px; border-right: 1px solid #adc5e0; }
+header #navigation-toggle:hover { background: #c9d8ea; color: #779ecb; }
+@media (max-width: 480px) { header #navigation-toggle { right: 0; left: auto; border-left: 1px solid #adc5e0; border-right: 0; } }
+header .breadcrumb { position: absolute; top: 59px; left: 0; width: 100%; padding: 0; margin-left: 0; margin-bottom: 0; padding: 0px 30px; list-style: none; background: none; border-radius: 0; background: #5284bd; color: #fff; }
+header .breadcrumb a { display: inline-block; font-size: 1.4rem; font-weight: lighter; color: #fff; transition: all 400ms ease; background: none; }
+header .breadcrumb a.active:hover, header .breadcrumb a:hover { text-decoration: none; background: #8badd3; color: #5284bd; }
+header .breadcrumb a.active { color: #fff; }
+header .breadcrumb ul { display: none; }
+header .navbar-image img { max-width: 100%; height: 40px !important; }
+
+.navigation-active #navigation-toggle, .navigation-active #navigation-toggle:hover { background: #7196c1; color: #314154; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); }
+
+h1, h2, h3, h4, h5, h6 { font-family: "Raleway", serif; color: #5284bd; }
+
+.alert { margin-top: 20px; border-width: 0; color: #fff; -webkit-animation-name: fadeInUp; -moz-animation-name: fadeInUp; -ms-animation-name: fadeInUp; -o-animation-name: fadeInUp; animation-name: fadeInUp; -webkit-animation-duration: 400ms; -moz-animation-duration: 400ms; -ms-animation-duration: 400ms; -o-animation-duration: 400ms; animation-duration: 400ms; -webkit-animation-delay: 0s; -moz-animation-delay: 0s; -ms-animation-delay: 0s; -o-animation-delay: 0s; animation-delay: 0s; -webkit-animation-timing-function: ease; -moz-animation-timing-function: ease; -ms-animation-timing-function: ease; -o-animation-timing-function: ease; animation-timing-function: ease; -webkit-animation-fill-mode: both; -moz-animation-fill-mode: both; -ms-animation-fill-mode: both; -o-animation-fill-mode: both; animation-fill-mode: both; -webkit-backface-visibility: hidden; -moz-backface-visibility: hidden; -ms-backface-visibility: hidden; -o-backface-visibility: hidden; backface-visibility: hidden; }
+.alert .close { top: -4px; font-size: 3rem; color: #fff; opacity: 0.5; }
+
+.alert-success { background-color: #77dd77; }
+
+.alert-danger { background-color: #ff6961; }
+
+.alert-info { background-color: #5284bd; }
+
+.alert-alternative-info { background-color: #7b72e9; }
+.alert-alternative-info a { color: white; }
+
+.panel { box-shadow: 0 3px #dbe5f1; border-radius: 5px; margin-bottom: 20px; }
+.panel .panel-footer { display: block; padding: 1.1em; color: white; height: 100%; background-color: #adc5e0; border-top: 1px solid #dbe5f1; }
+.panel .nav { padding: 10px 0; }
+.panel .nav-pills > li > a { border-radius: 100px; padding: 5px 15px; font-weight: 900; font-size: 1.6rem; }
+
+.panel-primary { -webkit-animation-name: fadeInUp; -moz-animation-name: fadeInUp; -ms-animation-name: fadeInUp; -o-animation-name: fadeInUp; animation-name: fadeInUp; -webkit-animation-duration: 400ms; -moz-animation-duration: 400ms; -ms-animation-duration: 400ms; -o-animation-duration: 400ms; animation-duration: 400ms; -webkit-animation-delay: 0s; -moz-animation-delay: 0s; -ms-animation-delay: 0s; -o-animation-delay: 0s; animation-delay: 0s; -webkit-animation-timing-function: ease; -moz-animation-timing-function: ease; -ms-animation-timing-function: ease; -o-animation-timing-function: ease; animation-timing-function: ease; -webkit-animation-fill-mode: both; -moz-animation-fill-mode: both; -ms-animation-fill-mode: both; -o-animation-fill-mode: both; animation-fill-mode: both; -webkit-backface-visibility: hidden; -moz-backface-visibility: hidden; -ms-backface-visibility: hidden; -o-backface-visibility: hidden; backface-visibility: hidden; }
+.panel-primary h1 { color: #fff; font-size: 5rem; margin: 0; }
+.panel-primary > .panel-heading { color: #fff; background-color: #5284bd; border-color: #5284bd; }
+
+.panel-primary.panel-30-day h1 { color: #ff6961; }
+.panel-primary.panel-30-day table thead th { background: #ff817b; }
+
+.panel-primary.panel-90-day h1 { color: #ffb347; }
+.panel-primary.panel-90-day table thead th { background: #ffbe61; }
+
+.panel-primary.panel-180-day h1 { color: #77dd77; }
+.panel-primary.panel-180-day table thead th { background: #8be28b; }
+
+.main-content { position: relative; overflow-x: hidden; overflow-y: scrollable; background: #edf2f8; transition: all 400ms ease-out; }
+.main-content .content { margin-top: 70px; min-height: 70vh; margin-bottom: 20px; }
+.main-content .panel-default, .main-content .panel-primary { border-color: #dbe5f1; }
+.main-content .paginator { margin-bottom: 60px; }
+.main-content .paginator .pagination { box-shadow: 0 3px #dbe5f1; border-radius: 5px; border: 1px solid #dbe5f1; }
+.main-content .paginator .pagination li a { border-right: 1px solid #dbe5f1; border: 0; }
+.main-content .paginator .pagination li a:last-child { border-right: 0; }
+
+.log-in-window { margin-top: 5vw; }
+.log-in-window label { color: #3c4f66; font-weight: 100; }
+.log-in-window input.form-control { border-color: #dbe5f1; height: 50px; font-size: 1.5em; }
+.log-in-window .input-group-addon { border-color: #dbe5f1; background: #dbe5f1; padding: 0.5em 1em; }
+.log-in-window .input-group-addon .glyphicon { color: #6a85a5; font-size: 1.5em; }
+
+.panel-property .panel-heading { padding: 0; overflow: hidden; background-color: #dbe5f1; border-color: #5284bd; }
+.panel-property .panel-heading .property-image { transition: transform 2s ease-out; height: 50vh; }
+.panel-property .panel-heading .property-image a { display: block; height: 100%; }
+.panel-property .panel-heading .property-image a:hover, .panel-property .panel-heading .property-image a:focus { text-decoration: none; }
+.panel-property .panel-heading .property-image a .panel-title { display: block; padding: 2rem; transition: transform 2s ease; background-color: rgba(0, 0, 0, 0.5); background-color: rgba(29, 33, 38, 0.5); border-top-left-radius: 5px; border-top-right-radius: 5px; font-size: 2rem; color: #dbe5f1; }
+.panel-property .gravatar { display: inline-block; z-index: 0; }
+
+footer { overflow: hidden; }
+
+/*
+Name:   sm.SCSS
+Author:   Tristan Marsh
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  Style for small devices
+Since:    3/6/15
+*/
+@media (max-width: 767px) { .clearing.col-sm-6:nth-of-type(2n+1) { clear: none; } }
+@media (min-width: 768px) { .clearing.col-sm-6:nth-of-type(2n+1) { clear: none; }
+  .clearing.col-md-4:nth-of-type(2n+1) { clear: left; } }
+@media (min-width: 992px) { .clearing.col-md-4:nth-of-type(2n+1) { clear: none; }
+  .clearing.col-lg-4:nth-of-type(3n+1) { clear: left; } }
+@media (min-width: 1200px) { .clearing.col-lg-4:nth-of-type(4n+1) { clear: none; }
+  .clearing.col-lg-4:nth-of-type(3n+1) { clear: left; } }
+/*
+Name:   sidebar.SCSS
+Author:   Tristan Marsh
+Author URI: http://wiki.tristanmarsh.net/dash/
+Since:    3/6/15
+*/
+.nav > li > a:hover, .nav > li > a:focus { text-decoration: none; background: none; }
+
+.sidebar { width: 60px; position: fixed; left: 0; padding-left: 0; height: 100vh; z-index: 1000; overflow-x: hidden; padding: 0; background-color: #283544; overflow-x: hidden; }
+.sidebar .nav-sidebar { margin-left: 0; }
+.sidebar ul { padding-left: 0; }
+.sidebar li { display: block; position: relative; font-size: 2rem; border-bottom: 1px solid #314154; height: 6rem; }
+.sidebar li .menu-item-link { display: block; color: #7a828b; transition: color 200ms ease-out, background 200ms ease-out; height: 100%; padding: 10px; }
+.sidebar li .menu-item-link .gravatar { opacity: 0.8; transition: opacity 200ms ease-out; background: #314154; }
+.sidebar li .menu-item-link .glyphicon { position: static; vertical-align: middle; vertical-align: -webkit-baseline-middle; width: 60px; margin: 0 auto; margin-left: -10px; text-align: center; }
+.sidebar li .menu-item-link .glyphicon:before { text-align: center; }
+.sidebar li .menu-item-link .menu-item-label { position: absolute; white-space: nowrap; left: 6rem; margin-left: 10px; top: 1.7rem; font-size: 2rem; color: #fff; }
+.sidebar li[data-original-title="Home"] > a.menu-item-link, .sidebar li[title="Home"] > a.menu-item-link { background: rgba(0, 0, 0, 0.5); }
+.sidebar li[data-original-title="Home"] > a.menu-item-link #icon-monish-home, .sidebar li[title="Home"] > a.menu-item-link #icon-monish-home { font-size: 4rem; }
+.sidebar li[data-original-title="Home"] > a.menu-item-link #icon-monish-home.icon-monish:before, .sidebar li[title="Home"] > a.menu-item-link #icon-monish-home.icon-monish:before { color: #779ecb !important; }
+.sidebar li[data-original-title="Home"]:hover > a.menu-item-link, .sidebar li[title="Home"]:hover > a.menu-item-link { background: rgba(0, 0, 0, 0.4); }
+.sidebar li .menu-item-link.active { background: rgba(0, 0, 0, 0.2); }
+.sidebar li .menu-item-link.active .glyphicon, .sidebar li .menu-item-link.active .menu-item-label { color: #fff; }
+.sidebar .menu-item-link:active, .sidebar .menu-item-link:focus, .sidebar .menu-item-link:hover { color: #6180a4; background: rgba(255, 255, 255, 0.05); color: #fff; }
+.sidebar .menu-item-link:active .gravatar, .sidebar .menu-item-link:focus .gravatar, .sidebar .menu-item-link:hover .gravatar { opacity: 1; }
+
+.sidebar, .navbar-fixed-top, .content { transition: all 400ms ease; }
+
+.sidebar { transition: height 0ms, width 400ms ease; }
+
+.navigation-active .navbar-fixed-top, .navigation-active .content { margin-left: 0px; }
+
+.tooltip.right { display: none !important; font-size: 2rem; -webkit-animation-name: fadeInRight; -moz-animation-name: fadeInRight; -ms-animation-name: fadeInRight; -o-animation-name: fadeInRight; animation-name: fadeInRight; -webkit-animation-duration: 400ms; -moz-animation-duration: 400ms; -ms-animation-duration: 400ms; -o-animation-duration: 400ms; animation-duration: 400ms; -webkit-animation-delay: 0s; -moz-animation-delay: 0s; -ms-animation-delay: 0s; -o-animation-delay: 0s; animation-delay: 0s; -webkit-animation-timing-function: ease; -moz-animation-timing-function: ease; -ms-animation-timing-function: ease; -o-animation-timing-function: ease; animation-timing-function: ease; -webkit-animation-fill-mode: both; -moz-animation-fill-mode: both; -ms-animation-fill-mode: both; -o-animation-fill-mode: both; animation-fill-mode: both; -webkit-backface-visibility: hidden; -moz-backface-visibility: hidden; -ms-backface-visibility: hidden; -o-backface-visibility: hidden; backface-visibility: hidden; margin-left: 30px; }
+
+.tooltip.right .tooltip-arrow { border-right-color: #314154; border-right-color: #314154; }
+
+.tooltip-inner { background: #314154; }
+
+@media (max-width: 480px) { .sidebar { transform: translate3D(-100%, 0, 0); padding-top: 79px; width: 300px; transition: transform 400ms ease; }
+  .navigation-active { background-color: #314154; }
+  .navigation-active .sidebar { transform: translate3D(0, 0, 0); width: 300px; transition: width 0s; transition-delay: 400ms; transition: transform 400ms ease; }
+  .navigation-active .content, .navigation-active .footer-container { transform: translate3D(20%, 0, 0); }
+  .navigation-active .main-content { opacity: 0.5; } }
+@media (min-width: 481px) { .tooltip.right { display: block !important; }
+  .sidebar { transform: translate3D(0, 0, 0); width: 60px; }
+  .navbar-fixed-top, .content, .footer-container { margin-left: 60px; }
+  .navigation-active .sidebar { transform: translate3D(0, 0, 0); width: 300px; }
+  .navigation-active .content { transform: translate3D(0, 0, 0); }
+  .navigation-active .navbar-fixed-top, .navigation-active .content, .navigation-active .footer-container { margin-left: 300px; }
+  .navigation-active .tooltip.right { display: none !important; } }
+@media (min-width: 768px) { .tooltip.right { display: block !important; }
+  .sidebar { transform: translate3D(0, 0, 0); width: 60px; }
+  .navbar-fixed-top, .content, .footer-container { margin-left: 60px; }
+  .navigation-active .sidebar { transform: translate3D(0, 0, 0); width: 300px; }
+  .navigation-active .content { transform: translate3D(0, 0, 0); }
+  .navigation-active .navbar-fixed-top, .navigation-active .content, .navigation-active .footer-container { margin-left: 300px; }
+  .navigation-active .tooltip.right { display: none !important; } }
+/*
+Name:       actionbar.SCSS
+Author:     Tristan Marsh
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:    Styling specific to actionbar
+Since:      23/10/15
+*/
+.panel-actionbar .panel-body, .panel-actionbar .panel-footer { padding-bottom: 0; }
+.panel-actionbar .button-pill { margin-right: 15px; }
+.panel-actionbar .panel-footer { background: #d6e2ef; }
+.panel-actionbar .panel-footer .button-group > .button-pill { margin-right: 0; }
+.panel-actionbar .button-set { display: inline-block; }
+.panel-actionbar .button { padding: 0 30px; margin-bottom: 15px; margin-right: 15px; }
+.panel-actionbar .panel-body .button.button-pill { margin-right: 0; }
+.panel-actionbar .button-pill-override { border-top-left-radius: 200px !important; border-top-right-radius: 200px !important; border-bottom-left-radius: 200px !important; border-bottom-right-radius: 200px !important; }
+.panel-actionbar .button-group { margin-right: 15px; margin-bottom: -5px; overflow: hidden; }
+.panel-actionbar .button, .panel-actionbar .button > label { color: #fff; font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: 300; transition: all 400ms ease; }
+.panel-actionbar .button:hover, .panel-actionbar .button > label:hover { text-decoration: none; }
+.panel-actionbar .button.active { color: #fff; }
+.panel-actionbar .button-primary.active { background-color: #5284bd; }
+.panel-actionbar .searchbox { position: absolute; min-width: 75px; width: 0%; height: 70px; float: right; overflow: hidden; right: 0; top: -15px; transition: width 0.3s; border-top-right-radius: 4px; border-bottom-right-radius: 4px; transition: all 400ms ease; }
+.panel-actionbar .searchbox-input { top: 0; right: 0; border: 0; outline: 0; background: #edf2f8; width: 100%; height: 75px; margin: 0; padding: 0px 55px 0px 20px; font-size: 20px; color: #2f527a; border-left: 1px solid #dbe5f1; }
+.panel-actionbar .searchbox-input::-webkit-input-placeholder { color: #2f527a; }
+.panel-actionbar .searchbox-icon, .panel-actionbar .searchbox-submit { width: 75px; height: 75px; display: block; position: absolute; top: 0; font-family: verdana; font-size: 4rem; right: 0; padding: 0; margin: 0; outline: 0; line-height: 70px; text-align: center; cursor: pointer; color: #dbe5f1; background: #779ecb; transition: all 400ms ease; }
+.panel-actionbar .searchbox-open { width: 100%; }
+.panel-actionbar .searchbox-open .searchbox-icon, .panel-actionbar .searchbox-open .searchbox-submit { background: #5284bd; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); }
+@media (max-width: 767px) { .panel-actionbar .searchbox { position: static; min-width: 75px; height: 70px; overflow: hidden; transition: width 0.3s; border-top-right-radius: 4px; border-bottom-right-radius: 4px; transition: all 400ms ease; opacity: 1; margin-right: -20px; }
+  .panel-actionbar .searchbox-icon, .panel-actionbar .searchbox-submit { width: 70px; height: 70px; display: block; top: 0; font-family: verdana; font-size: 4rem; right: 0; padding: 0; margin: 0; outline: 0; line-height: 70px; text-align: center; cursor: pointer; border-bottom-right-radius: 4px; color: #dbe5f1; background: #779ecb; transition: all 400ms ease; }
+  .panel-actionbar .searchbox-open { width: 100%; margin-right: 15px; } }
+
+/*
+Name:   tables.SCSS
+Author:   Tristan Marsh
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  All custom styling for tables
+Since:    30/7/15
+*/
+.table-responsive { border-radius: 0 0 5px 5px; }
+
+table:not(.ui-datepicker-calendar) { display: table; width: 100%; font-family: "Open Sans", sans-serif; }
+table:not(.ui-datepicker-calendar) * { transition: all 200ms ease-out; }
+table:not(.ui-datepicker-calendar) a { text-decoration: none; }
+table:not(.ui-datepicker-calendar) thead th { background: #779ecb; font-size: 1.4rem; line-height: 2.4em; font-family: "Raleway", serif; position: relative; overflow: hidden; padding: 6px 12px; color: white; }
+table:not(.ui-datepicker-calendar) tr { background: #fbfcfd; border-bottom: 1px solid #e4ecf5; }
+table:not(.ui-datepicker-calendar) tr:nth-of-type(odd) { background: #f4f7fb; }
+table:not(.ui-datepicker-calendar) tr:last-child { border-bottom: 0; }
+table:not(.ui-datepicker-calendar) tr:focus td, table:not(.ui-datepicker-calendar) tr:hover td { background: #fff; }
+table:not(.ui-datepicker-calendar) tr.unread > td { font-weight: bold; }
+table:not(.ui-datepicker-calendar) td a { display: block; text-align: center; }
+@media screen and (max-width: 580px) { table:not(.ui-datepicker-calendar) { padding: 8px 0; } }
+table:not(.ui-datepicker-calendar) td { padding: 0 10px 0 10px; position: relative; overflow: hidden; height: 60px; }
+table:not(.ui-datepicker-calendar) td > * { color: #485461; }
+table:not(.ui-datepicker-calendar) td > span, table:not(.ui-datepicker-calendar) td > img { padding: 0; }
+table:not(.ui-datepicker-calendar) td:first-child > img.gravatar { margin-left: -10px; background: #fff; }
+table:not(.ui-datepicker-calendar) td:first-child > img.gravatar + span { margin-left: 10px; }
+table:not(.ui-datepicker-calendar) td.action > a { display: block; margin: -10em; padding: 10em; }
+table:not(.ui-datepicker-calendar) td.action > a span:before, table:not(.ui-datepicker-calendar) td.action > a span:before { color: #9cb8d9; }
+table:not(.ui-datepicker-calendar) td.action > a:focus, table:not(.ui-datepicker-calendar) td.action > a:hover { background: #9cb8d9; }
+table:not(.ui-datepicker-calendar) td.action-close > a span:before, table:not(.ui-datepicker-calendar) td.action-close > a span:before { color: #77dd77; }
+table:not(.ui-datepicker-calendar) td.action-close > a:focus, table:not(.ui-datepicker-calendar) td.action-close > a:hover { background: #77dd77; }
+table:not(.ui-datepicker-calendar) td.action-remove > a span:before, table:not(.ui-datepicker-calendar) td.action-remove > a span:before { color: #ff6961; }
+table:not(.ui-datepicker-calendar) td.action-remove > a:focus, table:not(.ui-datepicker-calendar) td.action-remove > a:hover { background: #ff6961; }
+table:not(.ui-datepicker-calendar) td > a:focus > span.glyphicon:before, table:not(.ui-datepicker-calendar) td > a:hover > span.glyphicon:before { color: #fff; }
+table:not(.ui-datepicker-calendar) td > [href*="view"] { padding: 0; }
+@media screen and (max-width: 580px) { table:not(.ui-datepicker-calendar) td > [href*="view"] { padding: 0; } }
+table:not(.ui-datepicker-calendar) .checkbox { margin: 0; }
+table:not(.ui-datepicker-calendar) tr.expiring-30-days { position: relative; }
+table:not(.ui-datepicker-calendar) tr.expiring-30-days > :after { display: block; content: ""; background: rgba(255, 105, 97, 0.1); z-index: 10; width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+table:not(.ui-datepicker-calendar) tr.expiring-90-days { position: relative; }
+table:not(.ui-datepicker-calendar) tr.expiring-90-days > :after { display: block; content: ""; background: rgba(255, 179, 71, 0.1); z-index: 10; width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+table:not(.ui-datepicker-calendar) tr.expiring-180-days { position: relative; }
+table:not(.ui-datepicker-calendar) tr.expiring-180-days > :after { display: block; content: ""; background: rgba(119, 221, 119, 0.1); z-index: 10; width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+
+/*
+Name:   datatables.SCSS
+Author:   Tristan Marsh
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  Style applying specifically to our datatables components
+Since:    15/8/15
+*/
+.dataTables_wrapper { /* #### DataTable Rows #### */ /* #### Pagination #### */ }
+.dataTables_wrapper .dataTables_filter { display: none; }
+.dataTables_wrapper .dataTables_length { display: none; }
+.dataTables_wrapper .dataTables > thead > tr > th { padding-left: 10px; }
+.dataTables_wrapper thead th:focus, .dataTables_wrapper thead th:hover { background: #89abd2; color: #fff; text-decoration: none; }
+.dataTables_wrapper thead th:after { content: '\25B2'; position: absolute; float: right; right: 1em; font-size: 0.8em; opacity: 0; }
+.dataTables_wrapper thead th:active, .dataTables_wrapper thead th[class*='sorting_'] { background: #6591c4; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); }
+.dataTables_wrapper tr { cursor: pointer; *cursor: hand; }
+.dataTables_wrapper .dataTables_info { display: block; position: static; float: left; line-height: 32px; padding-left: 10px; vertical-align: middle; color: white; }
+.dataTables_wrapper .dataTables_paginate { position: relative; display: block; float: right; padding-top: 7px; }
+.dataTables_wrapper .dataTables_paginate .paginate_button { box-sizing: border-box; padding: 6px 12px; line-height: 1.42857143; text-decoration: none; color: white; background: #779ecb; margin-left: -1px; border-right: 0; border-bottom: 0; cursor: pointer; transition: all 100ms ease; transition: all 400ms ease; }
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled { cursor: not-allowed; }
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover { background: #779ecb; }
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover { background: #9cb8d9; }
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current > span, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.current > span:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.current:focus, .dataTables_wrapper .dataTables_paginate .paginate_button.current > span:focus { z-index: 2; background: #6591c4; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); border-color: #dbe5f1; cursor: default; }
+.dataTables_wrapper .dataTables_paginate .paginate_button:last-child { border-bottom-right-radius: 4px; }
+.dataTables_wrapper .dataTables_paginate > span > .paginate_button:first-child, .dataTables_wrapper .dataTables_paginate > span > .paginate_button:last-child { border-radius: 0; }
+.dataTables_wrapper .dataTables_empty { padding: 20px; }
+.dataTables_wrapper table.dataTable thead > tr > th.sorting_asc, .dataTables_wrapper table.dataTable thead > tr > th.sorting_desc, .dataTables_wrapper table.dataTable thead > tr > td.sorting_asc, .dataTables_wrapper table.dataTable thead > tr > td.sorting_desc { box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); }
+.dataTables_wrapper table.dataTable thead > tr > th.sorting_asc, .dataTables_wrapper table.dataTable thead > tr > th.sorting_desc, .dataTables_wrapper table.dataTable thead > tr > th.sorting, .dataTables_wrapper table.dataTable thead > tr > td.sorting_asc, .dataTables_wrapper table.dataTable thead > tr > td.sorting_desc, .dataTables_wrapper table.dataTable thead > tr > td.sorting { padding-right: 30px; }
+.dataTables_wrapper table.dataTable thead .sorting:after, .dataTables_wrapper table.dataTable thead .sorting_asc:after, .dataTables_wrapper table.dataTable thead .sorting_desc:after, .dataTables_wrapper table.dataTable thead .sorting_asc_disabled:after, .dataTables_wrapper table.dataTable thead .sorting_desc_disabled:after { position: absolute; bottom: 8px; right: 8px; display: block; font-family: 'Glyphicons Halflings'; opacity: 0.5; }
+.dataTables_wrapper table.dataTable thead .sorting:after { opacity: 0.2; content: "\e150"; /* sort */ }
+.dataTables_wrapper table.dataTable thead .sorting_asc:after { content: "\e155"; /* sort-by-attributes */ }
+.dataTables_wrapper table.dataTable thead .sorting_desc:after { content: "\e156"; /* sort-by-attributes-alt */ }
+.dataTables_wrapper table.dataTable thead .sorting_asc_disabled:after, .dataTables_wrapper table.dataTable thead .sorting_desc_disabled:after { color: #dbe5f1; }
+.dataTables_wrapper div.dataTables_scrollHead table.dataTable { margin-bottom: 0 !important; }
+.dataTables_wrapper div.dataTables_scrollBody table { border-top: none; margin-top: 0 !important; margin-bottom: 0 !important; }
+.dataTables_wrapper div.dataTables_scrollBody table thead .sorting:after, .dataTables_wrapper div.dataTables_scrollBody table thead .sorting_asc:after, .dataTables_wrapper div.dataTables_scrollBody table thead .sorting_desc:after { display: none; }
+.dataTables_wrapper div.dataTables_scrollBody table tbody tr:first-child th, .dataTables_wrapper div.dataTables_scrollBody table tbody tr:first-child td { border-top: none; }
+
+/*
+Name:   forms.SCSS
+Author:   Tristan Marsh
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  Style applying specifically to our datatables components
+Since:    23/10/15
+*/
+form .form-control { display: block; width: 100%; transition: background 400ms ease; margin-bottom: 1em; outline: 0px !important; -webkit-appearance: none; box-shadow: none; }
+form .input-group .col-sm-6 { margin-bottom: 1em; }
+form .form-control:focus { border: 1px solid #dfe8f2; outline: 0; -webkit-box-shadow: none; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); }
+form label { color: #3c4f66; font-weight: 100; }
+form input.form-control { border-color: #dbe5f1; height: 50px; font-size: 1.5em; }
+form .input-group-addon { border-color: #dbe5f1; background: #edf2f8; padding: 0.5em 0.5em; color: #6a85a5; font-size: 1.5rem; }
+form .input-group-addon .glyphicon { color: #6a85a5; font-size: 1.5rem; }
+form select.form-control, form textarea.form-control, form input[type="password"], form input[type="username"], form input[type="text"], form input[type="tel"], form input[type="number"], form input[type="email"] { padding: 8px 12px; font-size: 2rem; height: 50px; line-height: auto; color: #5f7ea2; background: #edf2f8; border: 1px solid #dfe8f2; transition: all 0.15s ease; }
+form select.form-control:hover, form textarea.form-control:hover, form input[type="password"]:hover, form input[type="username"]:hover, form input[type="text"]:hover, form input[type="tel"]:hover, form input[type="number"]:hover, form input[type="email"]:hover { background: #e9eff7; outline: 0px !important; -webkit-appearance: none; }
+form select.form-control:focus, form textarea.form-control:focus, form input[type="password"]:focus, form input[type="username"]:focus, form input[type="text"]:focus, form input[type="tel"]:focus, form input[type="number"]:focus, form input[type="email"]:focus { background: #dbe5f1; outline: 0px !important; -webkit-appearance: none; }
+form textarea.form-control { height: auto; resize: none; }
+form .custom-file-upload-hidden { display: none; visibility: hidden; position: absolute; left: -9999px; }
+form .custom-file-upload { display: block; width: auto; font-size: 16px; margin-top: 30px; }
+form .custom-file-upload label { display: block; margin-bottom: 5px; }
+form .file-upload-wrapper { position: relative; margin-bottom: 5px; }
+form .file-upload-input { width: 300px; color: #fff; font-size: 16px; padding: 11px 17px; border: none; background-color: #dbe5f1; transition: all 0.2s ease-in; margin-bottom: 0 !important; float: left; /* IE 9 Fix */ }
+form .file-upload-input:hover, form .file-upload-input:focus { background: #dbe5f1; outline: none; }
+form .file-upload-button { height: 50px; cursor: pointer; display: inline-block; color: #fff; font-size: 16px; text-transform: uppercase; padding: 13px 20px; border: none; margin-left: -1px; background-color: #5284bd; float: left; /* IE 9 Fix */ transition: all 0.2s ease-in; }
+form .file-upload-button:hover { background-color: #779ecb; }
+form .file-upload-button:active { box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); background-color: #5284bd; }
+
+/*
+Name:   footer.scss
+Author:   Tristan Marsh
+Author URI: http://wiki.tristanmarsh.net/dash/
+Purpose:  All custom styling for the Monish Dashboard Footer
+Since:    28/5/15
+
+*/
+.footer-container { transition: all 400ms ease-out; }
+.footer-container footer { max-width: 100%; position: static; bottom: 0; left: 0; width: 100%; background: #b6cbe3; padding: 40px 0; color: #fff; font-size: 1.4rem; overflow-x: hidden; }
+.footer-container footer h3 { margin-top: 0; color: #5284bd; }
+.footer-container footer a { color: #fff; transition: all 400ms ease-out; }
+.footer-container footer .col-md-3 { padding: 20px; }
+.footer-container footer .credits { font-size: 1.2rem; }
+.footer-container footer .credits, .footer-container footer .credits a { color: white; }
+.footer-container footer:hover > .credits, .footer-container footer:hover > .credits a { color: #fff; }
+
+@media (max-width: 991px) { .footer-container footer .col-md-4:nth-of-type(1n) { text-align: center; }
+  .credits, .credits .col-sm-6.text-right { text-align: center !important; } }
+
+/*# sourceMappingURL=custom.css.map */

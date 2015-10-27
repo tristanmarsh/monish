@@ -1,6 +1,6 @@
 <?php
     $this->Html->addCrumb('Properties', '/properties');
-    $this->Html->addCrumb('Rooms', '/rooms');
+    $this->Html->addCrumb('Rooms');
     $this->Html->addCrumb('Add Room', array('controller' => 'rooms', 'action' => 'add'));
 
 ?>    
@@ -16,8 +16,8 @@
 
       <div class="panel-body">
 
-        <ul class="nav nav-pills pull-left">
-          <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li>
+        <ul class="nav nav-pills">
+         <!--  <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li> -->
           <li role="presentation" class="active"><?= $this->Html->link('New Room', ['action' => 'add']) ?></li>
         </ul>
 
@@ -26,7 +26,7 @@
 
 <!--       <div class="panel-footer">
 
-        <ul class="nav nav-pills pull-left">
+        <ul class="nav nav-pills">
           <li role="presentation" class="active"><a href="#">Imagine</a></li>
           <li role="presentation"><a href="#">Alternative</a></li>
           <li role="presentation"><a href="#">Secondary</a></li>
@@ -37,12 +37,19 @@
     </div>
 
 
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
+
+      <div class="panel-heading">
+            <h2 class="panel-title">New Room</h2>
+
+                      </div>
       <div class="panel-body">
-<div class="rooms form large-10 medium-9 columns">
+
+
     <?= $this->Form->create($room, array('class' => 'form-group')); ?>
     <fieldset>
-        <legend><?= __('New Room', array('class' => 'form-control')) ?></legend>
+      <div class="rooms form large-10 medium-9 columns">
+        
         <?php
             echo $this->Form->input('room_name', array('class' => 'form-control'));
             ?>
@@ -60,7 +67,7 @@
         ?>
         <br>
     </fieldset>
-    <?= $this->Form->button(__('Submit'), ['class' => 'form-control btn btn-primary']) ?>
+    <?= $this->Form->button(__('Create Room'), ['class' => 'form-control btn btn-primary']) ?>
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Rooms', 'action' => 'index']

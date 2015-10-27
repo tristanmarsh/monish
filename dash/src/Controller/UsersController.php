@@ -58,7 +58,7 @@ class UsersController extends AppController
                                 ->emailFormat('html')
                                 ->to($toemail)
                                 ->subject('Request To Recover Monash International Student House Account')
-                                ->from('mafak1@student.monash.edu')
+                                ->from('accounts@monash-ish.com.au')
                                 ->viewVars(['ms' => $ms])
                                 ->send();
 

@@ -53,14 +53,10 @@
 
               <br>
               
-              <?php //var_dump($_SESSION["Flash"]); ?>
-
-              <!-- http://stackoverflow.com/questions/20379785/cakephp-check-if-specific-flash-message-is-set -->
-
               <!-- if error Logging in -->
               <?php if ( isset($loginerror) and $loginerror = 'tryagain' ) :?>
 
-                <?= $this->Form->button('<i class="fa fa-log-in"></i> Login',
+                <?= $this->Form->button('<i class="glyphicon glyphicon-log-in"></i> Login',
                   ['class' => 'form-control button button-large button-3d button-block button-rounded button-action', 'escape' => false]
                 ); ?>
 
@@ -73,7 +69,8 @@
               <!-- Standard login -->
               <?php else :?>
 
-                <?= $this->Form->button(__('Login'), ['class' => 'form-control button button-large button-3d button-block button-rounded button-action']); ?>
+                <?= $this->Form->button('<i class="glyphicon glyphicon-log-in"></i> Login',
+                ['class' => 'form-control button button-large button-3d button-block button-rounded button-action']); ?>
 
               <?php endif; ?>
 

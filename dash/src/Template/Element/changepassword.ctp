@@ -18,21 +18,6 @@
 				
 				<div>
 
-					<!-- Nav tabs -->
-                    <ul class="nav nav-pills" role="tablist">
-                       
-                        <li role="presentation">
-                            <a href="#log-in" style="height:0;margin:0;padding:0;" aria-controls="log-in" role="tab" data-toggle="tab">
-                                <?= $this->Html->link('Login', ['action' => 'login']) ?>
-                            </a>
-                        </li>
-                        
-                        <li role="presentation"class="active">
-                            <a href="#account-recovery" style=""aria-controls="account-recovery" role="tab" data-toggle="tab">Account Recovery</a>
-                        </li>
-
-                    </ul>
-
 					<div role="tabpanel" class="tab-pane fade in" id="password-recovery">
 
 						<?= $this->Form->create($user, ['novalidate' => true]) ?>
@@ -61,7 +46,14 @@
 
 						<br>
 						
-						<?= $this->Form->button('Update Password', ['type' => 'submit', 'class' => 'btn btn-primary btn-primary btn-block']) ?>
+						<?= $this->Form->button('<i class="fa fa-pencil"></i> Login',
+						['type' => 'submit', 'class' => 'form-control button button-large button-3d button-block button-rounded button-action', 'escape' => false]) ?>
+
+		                <?= $this->Html->link(
+		                  '<i class="glyphicon glyphicon-log-in"></i> Login',
+		                  ['action' => 'login'],
+		                  ['class' => 'form-control button button-small button-block button-rounded button-warning', 'escape' => false]
+		                ); ?>
 
 						<?= $this->Form->end() ?>
 

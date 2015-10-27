@@ -1,3 +1,23 @@
+<?php
+/**
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @since         0.10.0
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ */
+
+$cakeDescription = 'Monish Dashboard';
+?>
+<?php $user = $this->Session->read('Auth.User'); ?>
+<!DOCTYPE html>
+<html>
 <head>
 	<?= $this->Html->charset() ?>
 	
@@ -23,28 +43,53 @@
 	<meta name="theme-color" content="#88c6ff">
 
 	<title>
-		Password Recovery
+		<?= $cakeDescription ?>:
+		<?= $this->fetch('title') ?>
 	</title>
 
 	<!-- <?= $this->Html->meta('icon') ?> -->
 
 	<?= $this->Html->css('bootstrap.min.css') ?>
-	<?= $this->Html->css('custom.css') ?>
 	<?= $this->Html->css('animate.min.css') ?>
+	<?= $this->Html->css('custom.css') ?>
 
+	<!-- Scripts -->
 	<?= $this->Html->script('wow.min.js') ?>
+	<?= $this->Html->script('min/nprogress-min.js') ?>
 	<?= $this->Html->script('min/custom-min.js') ?>
-
+	
 	<?= $this->fetch('meta') ?>
 	<?= $this->fetch('css') ?>
 	<?= $this->fetch('script') ?>
 
+	<!-- Bootstrap Date Picker -->
+	<!-- <script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script> -->
+
+	<!-- <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script> -->
+
+	<!-- // <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
+	<!-- // <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script> -->
+	<!-- <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" /> -->
+	<!-- <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" /> -->
+
+	<!-- Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Raleway|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
+	
+	
 	<script>
 		new WOW().init();
 	</script>
 
-	<link href='http://fonts.googleapis.com/css?family=Raleway|Open+Sans:400italic,400' rel='stylesheet' type='text/css'>
+	<script>
+		NProgress.start();
 
+		jQuery(window).load(function($) {
+			NProgress.done();
+		});
+	</script>
+
+	<!-- Font Awesome Used in Buttons -->
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
 
 </head>
 <body>

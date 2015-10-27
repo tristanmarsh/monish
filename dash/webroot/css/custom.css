@@ -874,7 +874,7 @@ Since:    3/6/15
 */
 .nav > li > a:hover, .nav > li > a:focus { text-decoration: none; background: none; }
 
-.sidebar { width: 60px; position: fixed; left: 0; padding-left: 0; height: 100vh; z-index: 1000; overflow-x: hidden; padding: 0; background-color: #283544; overflow-x: hidden; }
+.sidebar { width: 60px; position: fixed; left: 0; padding-left: 0; height: 100vh; z-index: 1000; overflow-x: hidden; padding: 0; background-color: #283544; overflow-x: hidden; transition: all 400ms ease; }
 .sidebar .nav-sidebar { margin-left: 0; }
 .sidebar ul { padding-left: 0; }
 .sidebar li { display: block; position: relative; font-size: 2rem; border-bottom: 1px solid #314154; height: 6rem; }
@@ -906,13 +906,13 @@ Since:    3/6/15
 
 @media (max-width: 480px) { .sidebar { transform: translate3D(-100%, 0, 0); padding-top: 79px; width: 300px; transition: transform 400ms ease; }
   .navigation-active { background-color: #314154; }
-  .navigation-active .sidebar { transform: translate3D(0, 0, 0); width: 300px; transition: width 0s; transition-delay: 400ms; transition: transform 400ms ease; }
+  .navigation-active .sidebar { transform: translate3D(0, 0, 0); width: 300px; transition: width 0s; transition-delay: 400ms; transition: transform 400ms ease; box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5); }
   .navigation-active .content, .navigation-active .footer-container { transform: translate3D(20%, 0, 0); }
   .navigation-active .main-content { opacity: 0.5; } }
 @media (min-width: 481px) { .tooltip.right { display: block !important; }
-  .sidebar { transform: translate3D(0, 0, 0); width: 60px; }
+  .sidebar { transform: translate3D(0, 0, 0); width: 60px; box-shadow: inset -10px 0 20px 0px rgba(0, 0, 0, 0.25); }
   .navbar-fixed-top, .content, .footer-container { margin-left: 60px; }
-  .navigation-active .sidebar { transform: translate3D(0, 0, 0); width: 300px; }
+  .navigation-active .sidebar { transform: translate3D(0, 0, 0); width: 300px; box-shadow: 0px 0 0px 0px transparent; }
   .navigation-active .content { transform: translate3D(0, 0, 0); }
   .navigation-active .navbar-fixed-top, .navigation-active .content, .navigation-active .footer-container { margin-left: 300px; }
   .navigation-active .tooltip.right { display: none !important; } }

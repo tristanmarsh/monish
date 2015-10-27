@@ -26,6 +26,7 @@ $sidebarwidth:300px;
   padding: 0;
   background-color: $sidebarcolour;
   overflow-x:hidden;
+  transition:all 400ms ease;
 
   .nav-sidebar {
     margin-left:0;
@@ -198,7 +199,10 @@ $sidebarwidth:300px;
     width:$sidebarwidth;
     transition:width 0s;
     transition-delay: 400ms;
-    transition:transform 400ms ease;  }
+    transition:transform 400ms ease;
+    // Shadow making the menu overlay
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.5);
+  }
   
   .navigation-active .content,
   .navigation-active .footer-container {
@@ -223,6 +227,8 @@ $sidebarwidth:300px;
   .sidebar {
     transform:translate3D(0,0,0);
     width:60px;
+    //shadow alluding to hidden content
+    box-shadow: inset -10px 0 20px 0px rgba(0,0,0,0.25);
   }
 
   .navbar-fixed-top,
@@ -235,6 +241,8 @@ $sidebarwidth:300px;
   .navigation-active .sidebar {
     transform:translate3D(0,0,0);
     width:$sidebarwidth;
+    // Shadow making the menu overlay
+    box-shadow: 0px 0 0px 0px rgba(0,0,0,0);
   }
   .navigation-active .content {
     transform:translate3D(0,0,0);

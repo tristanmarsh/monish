@@ -260,11 +260,15 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/archived.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/recovery.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Controller/UsersController.php",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/forgot_password.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/changepassword.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/logs/error.log",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/recovery.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/login.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Layout/default.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sidebar.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/view.ctp",
@@ -316,7 +320,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/archived.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/add.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/archived.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/Flash/default.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/dash.sublime-workspace",
@@ -337,7 +340,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/css/custom.css",
 		"/Applications/MAMP/htdocs/monish/dash/src/Controller/RequestsController.php",
 		"/Applications/MAMP/htdocs/monish/dash/src/Model/Table/RequestsTable.php",
-		"/Applications/MAMP/htdocs/monish/dash/src/Controller/UsersController.php",
 		"/Applications/MAMP/htdocs/monish/dash/src/Controller/TenantsController.php",
 		"/Applications/MAMP/htdocs/monish/dash/src/Model/Entity/User.php",
 		"/Applications/MAMP/htdocs/monish/dash/src/Model/Entity/Student.php",
@@ -363,9 +365,7 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Email/html/reset_password.ctp",
 		"/Users/dev/Downloads/all-templates/hero.html",
 		"/Applications/MAMP/htdocs/monish/.tools/contact-form-email-template.html",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/changepassword.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/reset_password.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/forgot_password.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/bootstrap/css/bootstrap.min.css",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/bootstrap.min.css",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/nprogress.js",
@@ -424,6 +424,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"<? echo",
+			"account",
+			"hello",
+			"reset",
+			"in",
+			"glyphicon",
+			"fa",
 			"recovery",
 			"better windows",
 			"h1",
@@ -544,14 +551,7 @@
 			"contact",
 			"cont",
 			"cnotact",
-			"emergenc",
-			"echo",
-			"details",
-			"saved",
-			"the student has been saved",
-			"first_name",
-			"room details",
-			"active"
+			"emergenc"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -676,12 +676,36 @@
 		"selected_items":
 		[
 			[
-				"login",
-				"dash/src/Template/Element/login.ctp"
+				"userscontroller",
+				"dash/src/Controller/UsersController.php"
 			],
 			[
 				"default",
 				"dash/src/Template/Layout/default.ctp"
+			],
+			[
+				"forgotpass",
+				"dash/src/Template/Users/forgot_password.ctp"
+			],
+			[
+				"login",
+				"dash/src/Template/Element/login.ctp"
+			],
+			[
+				"change",
+				"dash/src/Template/Element/changepassword.ctp"
+			],
+			[
+				"usersfor",
+				"dash/src/Template/Users/forgot_password.ctp"
+			],
+			[
+				"recover",
+				"dash/src/Template/Element/recovery.ctp"
+			],
+			[
+				"users/forgot",
+				"dash/src/Template/Users/forgot_password.ctp"
 			],
 			[
 				"propertiesindex",
@@ -1162,30 +1186,6 @@
 			[
 				"leases/add",
 				"dash/src/Template/Leases/add.ctp"
-			],
-			[
-				"datables",
-				"scss/datatables.scss"
-			],
-			[
-				"cust",
-				"scss/custom.scss"
-			],
-			[
-				"tables.",
-				"scss/tables.scss"
-			],
-			[
-				"global.",
-				"scss/global.scss"
-			],
-			[
-				"defalt",
-				"dash/src/Template/Layout/default.ctp"
-			],
-			[
-				"emrgencies/index",
-				"dash/src/Template/Emergencies/index.ctp"
 			]
 		],
 		"width": 0.0

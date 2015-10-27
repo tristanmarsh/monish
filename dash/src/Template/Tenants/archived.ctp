@@ -119,7 +119,7 @@
           <?= $gravatarImage; ?>
 
           <span>
-          <? echo $person->first_name .'&nbsp;' . $person->last_name; ?>
+          <?= $person->first_name .'&nbsp;' . $person->last_name; ?>
           </span>
 
         </td>

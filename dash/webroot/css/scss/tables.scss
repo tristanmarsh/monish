@@ -61,21 +61,25 @@ table:not(.ui-datepicker-calendar) {
   }
 
   & tr.unread {
+
+    // outline effect
+      // outline: 1px solid rgba(0,255,0, 0.25);
     
     &>td {
       font-weight:bold;
     }
-
-    &>td:not(.action):after {
-      position:absolute;
-      display:block;
-      content:"";
-      height:100%;
-      width:100%;
-      background:rgba($green,0.1);
-      left:0;
-      top:0;
-    }
+    
+    //background highlight effect
+    // &>td:not(.action):after {
+    //   position:absolute;
+    //   display:block;
+    //   content:"";
+    //   height:100%;
+    //   width:100%;
+    //   background:rgba($green,0.1);
+    //   left:0;
+    //   top:0;
+    // }
 
   }
 

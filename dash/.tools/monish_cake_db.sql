@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Oct 26, 2015 at 04:09 AM
+-- Generation Time: Oct 27, 2015 at 03:38 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.6.7
 
@@ -33,7 +33,7 @@ CREATE TABLE `emergencies` (
   `last_name` varchar(25) NOT NULL,
   `phone` varchar(11) NOT NULL,
   `email` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `emergencies`
@@ -41,7 +41,8 @@ CREATE TABLE `emergencies` (
 
 INSERT INTO `emergencies` (`id`, `person_id`, `first_name`, `last_name`, `phone`, `email`) VALUES
 (20, 22, 'Sherry', 'Smith', '0492719232', 'Sherry@hotmail.com'),
-(21, 22, 'Peter', 'Smith', '0428192831', 'peter@gmail.com');
+(21, 22, 'Peter', 'Smith', '0428192831', 'peter@gmail.com'),
+(22, 24, 'John', 'Doe', '0987654', 't@t.com');
 
 -- --------------------------------------------------------
 
@@ -59,7 +60,7 @@ CREATE TABLE `lastroomupdate` (
 --
 
 INSERT INTO `lastroomupdate` (`id`, `date`) VALUES
-(1, '2015-10-26');
+(1, '2015-10-27');
 
 -- --------------------------------------------------------
 
@@ -76,7 +77,7 @@ CREATE TABLE `leases` (
   `date_end` date NOT NULL,
   `weekly_price` int(11) NOT NULL,
   `archived` enum('NO','YES') NOT NULL DEFAULT 'NO'
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `leases`
@@ -89,7 +90,8 @@ INSERT INTO `leases` (`id`, `room_id`, `property_id`, `student_id`, `date_start`
 (34, 33, 14, 25, '2015-08-06', '2016-07-14', 500, 'NO'),
 (35, 34, 14, 26, '2015-10-31', '2016-01-22', 900, 'NO'),
 (36, 39, 16, 27, '2015-10-22', '2016-01-15', 230, 'NO'),
-(37, 34, 14, 29, '2015-05-20', '2016-06-24', 400, 'NO');
+(37, 34, 14, 29, '2015-05-20', '2016-06-24', 400, 'NO'),
+(38, 30, 13, 22, '2015-10-01', '2015-10-02', 123, 'YES');
 
 -- --------------------------------------------------------
 
@@ -129,7 +131,7 @@ CREATE TABLE `macaddresses` (
 INSERT INTO `macaddresses` (`id`, `person_id`, `device_name_one`, `device_name_two`, `device_name_three`, `device_name_four`, `device_name_five`, `device_name_six`, `device_name_seven`, `device_name_eight`, `device_name_nine`, `device_name_ten`, `mac_address_one`, `mac_address_two`, `mac_address_three`, `mac_address_four`, `mac_address_five`, `mac_address_six`, `mac_address_seven`, `mac_address_eight`, `mac_address_nine`, `mac_address_ten`) VALUES
 (11, 22, 'Ipad', 'Smart TV', 'Iphone5s', 'Iphone 6', '', '', '', '', '', '', '24:23:13:21:22', '22:22:13:21:22', '25:22:112:21:22', '45:22:112:22:22', '', '', '', '', '', ''),
 (12, 23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 24, 'iPhone', 'Laptop', '', '', '', '', '', '', '', '', '34:45:56:ed:34:23', '34-45-56-ed-34-23', '', '', '', '', '', '', '', ''),
+(13, 24, 'iPhone', 'Laptop3e3e3e', '3e3ee3', 's', '', '', '', '', '', '', '34:45:56:ed:34:23', '34-45-56-ed-34-23', 's', '', 's', '', '', '', '', ''),
 (14, 25, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (15, 26, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (16, 27, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -161,7 +163,7 @@ CREATE TABLE `people` (
 --
 
 INSERT INTO `people` (`id`, `first_name`, `last_name`, `common_name`, `gender`, `phone`, `email`, `visa`, `parent_address`, `account_name`, `bsb_number`, `account_number`) VALUES
-(1, 'Tony', 'Wise', 'Tony', 'M', '04828192832', 'tonywise@monish.com', '123', 'China', 'Mr Mang', '123', '123'),
+(1, 'Tony', 'Wise', 'Tony', 'M', '04828192832', 'admin', '123', 'China', 'Mr Mang', '123', '123'),
 (22, 'Ben', 'Smith', 'Ben', 'M', '0483729128', 'ben@ben.com', '198237328', '52 Wood Avenue', 'Ben Smith', '828233', '91283829'),
 (23, 'Yee', 'Tan', 'Yee', 'F', '0429284829', 'yeeboon23@hotmail.com', '2917398127', '610/300 Swanston Street', 'Yeeboon Tan', '9817238', '28399291'),
 (24, 'Tristan', 'Marsh', 'Tristan', 'M', '0482819232', 'tmar41@student.monash.edu', '9171497491', '87 Pan Street', 'Tristan', '201938', '987198723'),
@@ -194,7 +196,7 @@ CREATE TABLE `properties` (
 --
 
 INSERT INTO `properties` (`id`, `address`, `archived`, `avatar`, `avatar_directory`, `avatar_url`, `avatar_type`, `avatar_size`, `avatar_name`) VALUES
-(13, '24 Grant Street', 'NO', 'img/properties/13/13.jpg', 'img/properties/13/', '/img/properties/13/13.jpg', 'image/jpeg', '192440', '13.jpg'),
+(13, '24 Grant Street', 'YES', 'img/properties/13/13.jpg', 'img/properties/13/', '/img/properties/13/13.jpg', 'image/jpeg', '192440', '13.jpg'),
 (14, '78 Pine Road', 'NO', 'img/properties/14/14.jpeg', 'img/properties/14/', '/img/properties/14/14.jpeg', 'image/jpeg', '399369', '14.jpeg'),
 (15, '100 Mansion Street', 'NO', 'img/properties/15/15.JPG', 'img/properties/15/', '/img/properties/15/15.JPG', 'image/jpeg', '53869', '15.JPG'),
 (16, '80 Botan Avenue', 'NO', 'img/properties/16/16.jpeg', 'img/properties/16/', '/img/properties/16/16.jpeg', 'image/jpeg', '95181', '16.jpeg'),
@@ -224,22 +226,16 @@ CREATE TABLE `requests` (
   `avatar_type` varchar(255) DEFAULT NULL,
   `avatar_size` varchar(255) DEFAULT NULL,
   `avatar_name` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `requests`
 --
 
 INSERT INTO `requests` (`id`, `title`, `description`, `created`, `modified`, `person_id`, `category`, `property_address`, `status`, `entry_time`, `avatar`, `avatar_directory`, `avatar_url`, `avatar_type`, `avatar_size`, `avatar_name`) VALUES
-(66, 'Broken TV', 'Please fix it!', '2015-10-26 02:26:48', '2015-10-26 02:26:48', 24, 'General', '24 Grant Street', 'Unread', 'Anytime', NULL, NULL, NULL, NULL, NULL, NULL),
-(67, 'Broken Sink', 'I cannot use it!', '2015-10-26 02:27:07', '2015-10-26 02:27:07', 24, 'Maintenance', '24 Grant Street', 'Unread', 'N/A', NULL, NULL, NULL, NULL, NULL, NULL),
-(68, 'Broken Door', 'My lock doesn''t work', '2015-10-26 02:28:03', '2015-10-26 02:28:03', 24, 'Maintenance', '24 Grant Street', 'Unread', 'Anytime', NULL, NULL, NULL, NULL, NULL, NULL),
-(69, 'Noise Levels', 'Other rooms are too noisy!', '2015-10-26 02:29:24', '2015-10-26 02:29:24', 22, 'Noisy Tenant', '24 Grant Street', 'Unread', 'Anytime', NULL, NULL, NULL, NULL, NULL, NULL),
-(70, 'Light is broken', 'I cannot see anything', '2015-10-26 02:29:45', '2015-10-26 02:37:14', 22, 'Bathroom Light Broken', '24 Grant Street', 'Unread', 'Anytime', 'img/requests/70/70.jpg', 'img/requests/70/', '/img/requests/70/70.jpg', 'image/jpeg', '129902', '70.jpg'),
-(71, 'AC broken down ', 'Its broken since last night ', '2015-10-26 02:38:19', '2015-10-26 02:38:19', 22, 'Maintenance', '78 Pine Road', 'Unread', 'Arrange a time', 'img/requests/71/71.jpg', 'img/requests/71/', '/img/requests/71/71.jpg', 'image/jpeg', '51612', '71.jpg'),
-(72, 'Chair Replacement ', 'I need to stand up :( ', '2015-10-26 02:39:41', '2015-10-26 02:39:41', 22, 'General', '24 Grant Street', 'Unread', 'Anytime', 'img/requests/72/72.jpg', 'img/requests/72/', '/img/requests/72/72.jpg', 'image/jpeg', '44527', '72.jpg'),
-(73, 'Bed Broken ', 'I cant sleep at all. ', '2015-10-26 03:07:29', '2015-10-26 03:07:29', 23, 'Others(Please specify below)', 'Caufield Drive', 'Unread', 'Arrange a time', 'img/requests/73/73.jpg', 'img/requests/73/', '/img/requests/73/73.jpg', 'image/jpeg', '105928', '73.jpg'),
-(74, 'I lost my key! ', 'I need a replacement please. ', '2015-10-26 03:07:49', '2015-10-26 03:07:49', 23, 'Lost Keys ($55 replacement cost)', '20 Alfred Place', 'Unread', 'Anytime', NULL, NULL, NULL, NULL, NULL, NULL);
+(68, 'Broken Door', 'My lock doesn''t work', '2015-10-26 02:28:03', '2015-10-26 04:31:55', 24, 'Maintenance', '24 Grant Street', 'Viewed', 'Anytime', NULL, NULL, NULL, NULL, NULL, NULL),
+(73, 'Bed Broken ', 'I cant sleep at all. ', '2015-10-26 03:07:29', '2015-10-26 15:30:02', 23, 'Others(Please specify below)', 'Caufield Drive', 'Viewed', 'Arrange a time', 'img/requests/73/73.jpg', 'img/requests/73/', '/img/requests/73/73.jpg', 'image/jpeg', '105928', '73.jpg'),
+(74, 'I lost my key! ', 'I need a replacement please. ', '2015-10-26 03:07:49', '2015-10-26 14:53:03', 23, 'Lost Keys ($55 replacement cost)', '20 Alfred Place', 'Viewed', 'Anytime', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -290,13 +286,13 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `person_id`, `emergency_id`, `internet_plan`, `archived`) VALUES
-(22, 22, NULL, 'Free', 'NO'),
+(22, 22, NULL, 'Free', 'YES'),
 (23, 23, NULL, 'Standard', 'NO'),
-(24, 24, NULL, 'Premium', 'NO'),
+(24, 24, NULL, 'Basic', 'NO'),
 (25, 25, NULL, 'Basic', 'NO'),
 (26, 26, NULL, 'Basic', 'NO'),
 (27, 27, NULL, 'Premium', 'NO'),
-(28, 28, NULL, 'Basic', 'NO'),
+(28, 28, NULL, 'Basic', 'YES'),
 (29, 29, NULL, 'Standard', 'NO');
 
 -- --------------------------------------------------------
@@ -321,10 +317,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `person_id`, `username`, `password`, `role`, `created`, `modified`, `tokenhash`) VALUES
-(35, 1, 'admin', '$2y$10$W4EJplARM6UTAznYCvS50O37iSU.eyc1IUDFPuyxu0kju27md8G6e', 'admin', '2015-05-16 08:08:00', '2015-05-16 08:08:00', ''),
+(35, 1, 'admin', '$2y$10$VS3q5Xll2alPJ/MhVAcRJu0MV.kkooWXIL7EY5WT5vhKloXgHA/uK', 'admin', '2015-05-16 08:08:00', '2015-10-26 06:59:30', ''),
 (53, 22, 'ben@ben.com', '$2y$10$6f0RzIJuBtgjLPAWio8u1up5g0Q5.uEeXqEaGkAvdlW/554.NwE6O', 'tenant', '2015-10-26 02:20:17', '2015-10-26 02:20:17', ''),
 (54, 23, 'yeeboon23@hotmail.com', '$2y$10$IAgRBSKwFu9QKfOpJOjVzegyWPd8RvXWeNSPS71VZi4io4QHLqRMa', 'tenant', '2015-10-26 02:21:00', '2015-10-26 02:49:07', ''),
-(55, 24, 'tmar41@student.monash.edu', '$2y$10$KBrKg3vsxqOGkgLaGURFneFyuKlk6ejd3svsVgrURawvPsZnwn8We', 'tenant', '2015-10-26 02:22:01', '2015-10-26 02:22:01', ''),
+(55, 24, 'tmar41@student.monash.edu', '$2y$10$PiqYSa4AQz8slkldPCsw8utUDnC08UhOhEjDhKJOPkayRSnI7ff3u', 'tenant', '2015-10-26 02:22:01', '2015-10-26 06:57:56', ''),
 (56, 25, 'echen@echen.com', '$2y$10$AikUHRPXkWE3TxxHOeXLTuHW/WpaHQ1s89nm1nMlgr8iPZDTd3lCy', 'tenant', '2015-10-26 02:23:16', '2015-10-26 02:23:16', ''),
 (57, 26, 'mlai@hotmail.com', '$2y$10$3Ywat3.6OHsKcH5D3QKYLu9J1NkfprXLYejlJb1gyieAIGC49VXjm', 'tenant', '2015-10-26 02:25:40', '2015-10-26 02:25:40', ''),
 (58, 27, 'jordan.smith@hotmail.com', '$2y$10$V4cL0txMtJrc4cthrvAVp.0fQ98exXFM52g7CIrkVOLW2Wj3mRFFu', 'tenant', '2015-10-26 02:48:44', '2015-10-26 02:49:18', ''),
@@ -424,7 +420,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `emergencies`
 --
 ALTER TABLE `emergencies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `lastroomupdate`
 --
@@ -434,7 +430,7 @@ ALTER TABLE `lastroomupdate`
 -- AUTO_INCREMENT for table `leases`
 --
 ALTER TABLE `leases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `macaddresses`
 --
@@ -454,7 +450,7 @@ ALTER TABLE `properties`
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=75;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=97;
 --
 -- AUTO_INCREMENT for table `rooms`
 --

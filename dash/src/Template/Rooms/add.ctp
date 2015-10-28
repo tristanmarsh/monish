@@ -8,33 +8,21 @@
 
 <h1>Rooms</h1>
 
-<div class="panel panel-default clearfix">
+<div class="panel panel-default panel-actionbar clearfix">
+  
+  <div class="panel-body">
 
-<!--     <div class="panel-heading">
-        <h1 class="panel-title">Example</h1>
-      </div> -->
+    <div class="button-group">
+    <?= $this->Html->link(
+      '<i class="fa fa-plus"></i> New Room',
+      ['action' => 'add'],
+      ['class' => 'button button-pill-override button-pill-override button-action active', 'escape' => false]
+    ); ?>
+    </div>                
 
-      <div class="panel-body">
+  </div>
 
-        <ul class="nav nav-pills">
-         <!--  <li role="presentation"><?= $this->Html->link('All', ['action' => 'index']) ?></li> -->
-          <li role="presentation" class="active"><?= $this->Html->link('New Room', ['action' => 'add']) ?></li>
-        </ul>
-
-
-      </div>
-
-<!--       <div class="panel-footer">
-
-        <ul class="nav nav-pills">
-          <li role="presentation" class="active"><a href="#">Imagine</a></li>
-          <li role="presentation"><a href="#">Alternative</a></li>
-          <li role="presentation"><a href="#">Secondary</a></li>
-          <li role="presentation"><a href="#">Buttons</a></li>
-        </ul>
-
-      </div> -->
-    </div>
+</div>
 
 
     <div class="panel panel-primary">
@@ -56,6 +44,7 @@
 
             <div class="dropdown">
               <?=  $this->Form->input('property_id', ['options' => $properties, 'empty' => true, 'required' => true, 'class' => 'combobox form-control']); ?>
+
           </div>
 
 
@@ -67,7 +56,8 @@
         ?>
         <br>
     </fieldset>
-    <?= $this->Form->button(__('Create Room'), ['class' => 'form-control btn btn-primary']) ?>
+    <?= $this->Form->button('<i class="fa fa-plus"></i> Create Room', ['class' => 'form-control button button-action button-3d']) ?>
+
     <?= $this->Form->end() ?>
     <?= $this->Form->create(null, [
         'url' => ['controller' => 'Rooms', 'action' => 'index']

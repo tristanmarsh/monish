@@ -57,7 +57,7 @@ $this->Html->addCrumb('Add Property', array('controller' => 'properties', 'actio
       
       <br>
 
-      <?= $this->Form->button(__('Create Property'), ['class' => 'form-control button button-action button-3d']) ?>
+      <?= $this->Form->button('<i class="fa fa-plus"></i> Create Property', ['class' => 'form-control button button-action button-3d']) ?>
 
       <?= $this->Form->end() ?>
       <?= $this->Form->create(null, [

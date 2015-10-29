@@ -9,18 +9,15 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
 
-      <div class="navbar-image navbar-brand">
-        
-        <h2>Dash</h2>
-
-      </div>
-
       <?= $this->Html->link(
       '<span class="icon-monish" id="icon-monish-home">',
       array('controller' => 'Users', 'action' => 'login'),
       array('class' => 'button button-inverse button-medium', 'id' => 'home-logo', 'escape' => false)
       ); ?>
 
+      <div class="navbar-image navbar-brand">
+        <h2>Dash</h2>
+      </div>
 
       <button class="button button-inverse button-medium" id="navigation-toggle"><i class="fa fa-bars"></i></button>
 

@@ -778,9 +778,9 @@ a { color: #485461; }
 
 /* #### NAVBAR #### */
 .navbar { background: #bbcfe5; border-bottom: 0; margin-bottom: 0; }
-.navbar .navbar-header { display: block; width: 100%; }
+.navbar .navbar-header { display: block; width: 100%; margin: 0 -15px; }
 .navbar .navbar-brand { display: block; width: 100%; padding: 0; }
-.navbar .navbar-brand h2 { display: block; color: #5284bd; margin: 0; padding: 15px; text-align: center; font-family: "Raleway", serif; font-family: "Open Sans", sans-serif; margin-left: 60px; }
+.navbar .navbar-brand h2 { display: block; color: #5284bd; margin: 0; padding: 15px 0; text-align: center; font-family: "Raleway", serif; font-family: "Open Sans", sans-serif; }
 .navbar .nav > li > a { position: relative; display: block; padding: 5px; }
 
 header { height: 79px; padding: 0; overflow: hidden; }

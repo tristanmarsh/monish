@@ -7,7 +7,6 @@ Since:    31/7/15
 */
 
 
-
 body {
   font-family:$open-sans-font-stack;
   -webkit-font-smoothing: antialiased;
@@ -45,6 +44,7 @@ a {
   .navbar-header {
     display: block;
     width: 100%;
+    margin: 0 -15px;
   }
 
   .navbar-brand {
@@ -56,11 +56,10 @@ a {
       display:block;
       color:$darkprimarycolour;
       margin:0;
-      padding:15px;
+      padding:15px 0 ;
       text-align: center;
       font-family:$roboto-slab-font-stack;
       font-family:$open-sans-font-stack;
-      margin-left:60px;
     }
 
   }

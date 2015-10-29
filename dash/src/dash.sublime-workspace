@@ -260,6 +260,16 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/index.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sm.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sidebar.scss",
+		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/actionbar.scss",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/add.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/add.ctp",
+		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/archived.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/recovery.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Controller/UsersController.php",
@@ -269,14 +279,10 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/changepassword.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/tables.scss",
 		"/Applications/MAMP/htdocs/monish/dash/logs/error.log",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sidebar.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/actionbar.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Requests/add.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/global.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/view.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Macaddresses/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/view.ctp",
@@ -288,12 +294,9 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Leases/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/datatables.scss",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/navbar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/js/custom.js",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/login.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenantsdashboards/index.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/sm.scss",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/sidebar.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tenants/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/forms.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/bootstrap/css/bootstrap.css",
@@ -307,9 +310,7 @@
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Emergencies/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Controller/StudentsController.php",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/view.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/archived.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Properties/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/People/edit.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/editpassword.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/editusername.ctp",
@@ -329,7 +330,6 @@
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/custom.scss",
 		"/Applications/MAMP/htdocs/monish/dash/webroot/css/scss/footer.scss",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Element/panel.ctp",
-		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/add.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Rooms/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Tests/index.ctp",
 		"/Applications/MAMP/htdocs/monish/dash/src/Template/Users/login (Backup, with the 3 cool search bars at the top).ctp",
@@ -395,7 +395,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"",
@@ -424,6 +424,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"vw",
+			"font",
+			"right",
+			"create",
 			"<? echo",
 			"account",
 			"hello",
@@ -547,11 +551,7 @@
 			"blue",
 			"the emergency has been saved",
 			"emergenc",
-			"related",
-			"contact",
-			"cont",
-			"cnotact",
-			"emergenc"
+			"related"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -676,6 +676,30 @@
 		"selected_items":
 		[
 			[
+				"sidebar.ctp",
+				"dash/src/Template/Element/sidebar.ctp"
+			],
+			[
+				"sidebar",
+				"scss/sidebar.scss"
+			],
+			[
+				"peopleindex",
+				"dash/src/Template/People/index.ctp"
+			],
+			[
+				"propertiesadd",
+				"dash/src/Template/Properties/add.ctp"
+			],
+			[
+				"roomsedit",
+				"dash/src/Template/Rooms/edit.ctp"
+			],
+			[
+				"roomsadd",
+				"dash/src/Template/Rooms/add.ctp"
+			],
+			[
 				"userscontroller",
 				"dash/src/Controller/UsersController.php"
 			],
@@ -712,10 +736,6 @@
 				"dash/src/Template/Properties/index.ctp"
 			],
 			[
-				"sidebar",
-				"scss/sidebar.scss"
-			],
-			[
 				"tables",
 				"scss/tables.scss"
 			],
@@ -738,10 +758,6 @@
 			[
 				"requestsindexc",
 				"dash/src/Template/Requests/index.ctp"
-			],
-			[
-				"peopleindex",
-				"dash/src/Template/People/index.ctp"
 			],
 			[
 				"global",
@@ -870,14 +886,6 @@
 			[
 				"roomsview",
 				"dash/src/Template/Rooms/view.ctp"
-			],
-			[
-				"roomsedit",
-				"dash/src/Template/Rooms/edit.ctp"
-			],
-			[
-				"propertiesadd",
-				"dash/src/Template/Properties/add.ctp"
 			],
 			[
 				"peroptiesarchve",
@@ -1178,14 +1186,6 @@
 			[
 				"leases/index",
 				"dash/src/Template/Leases/index.ctp"
-			],
-			[
-				"tenants/index",
-				"dash/src/Template/Tenants/index.ctp"
-			],
-			[
-				"leases/add",
-				"dash/src/Template/Leases/add.ctp"
 			]
 		],
 		"width": 0.0

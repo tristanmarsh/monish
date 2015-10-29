@@ -785,9 +785,12 @@ a { color: #485461; }
 
 header { height: 79px; padding: 0; overflow: hidden; }
 header .page-header { margin-top: 0; }
+header #home-logo { display: none; }
+@media (max-width: 480px) { header #home-logo { display: block; position: absolute; left: 0; color: #779ecb !important; transition: color 200ms ease-out, background 200ms ease-out; background: rgba(219, 229, 241, 0.5); background: #bbcfe5; font-size: 3rem; line-height: 3rem; padding: 10px; height: 59px; width: 59px; border-right: 1px solid #adc5e0; }
+  header #home-logo span.icon-monish { font-size: 4rem; height: 100%; } }
 header #navigation-toggle { background: rgba(219, 229, 241, 0.5); background: #bbcfe5; position: absolute; left: 0; font-size: 3rem; line-height: 3rem; padding: 5px 10px; height: 59px; width: 59px; border-right: 1px solid #adc5e0; }
 header #navigation-toggle:hover { background: #c9d8ea; color: #779ecb; }
-@media (max-width: 480px) { header #navigation-toggle { right: 0; left: auto; border-left: 1px solid #adc5e0; border-right: 0; } }
+@media (max-width: 480px) { header #navigation-toggle { left: auto; right: 0; border-left: 1px solid #adc5e0; border-right: 0; } }
 header .breadcrumb { position: absolute; top: 59px; left: 0; width: 100%; padding: 0; margin-left: 0; margin-bottom: 0; padding: 0px 30px; list-style: none; background: none; border-radius: 0; background: #5284bd; color: #fff; }
 header .breadcrumb a { display: inline-block; font-size: 1.4rem; font-weight: lighter; color: #fff; transition: all 400ms ease; background: none; }
 header .breadcrumb a.active:hover, header .breadcrumb a:hover { text-decoration: none; background: #8badd3; color: #5284bd; }

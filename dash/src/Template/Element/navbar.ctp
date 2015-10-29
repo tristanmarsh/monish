@@ -11,16 +11,16 @@
 
       <div class="navbar-image navbar-brand">
         
-<!--         <?= $this->Html->image('logo-monish.png', [
-          'alt' => 'Monash International Student House',
-          'url' => ['controller' => 'Users', 'action' => 'login']
-          ],
-          ['class' => 'navbar-logo']
-        ); ?> -->
-
         <h2>Dash</h2>
 
       </div>
+
+      <?= $this->Html->link(
+      '<span class="icon-monish" id="icon-monish-home">',
+      array('controller' => 'Users', 'action' => 'login'),
+      array('class' => 'button button-inverse button-medium', 'id' => 'home-logo', 'escape' => false)
+      ); ?>
+
 
       <button class="button button-inverse button-medium" id="navigation-toggle"><i class="fa fa-bars"></i></button>
 
